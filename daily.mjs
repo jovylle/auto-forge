@@ -76,7 +76,9 @@ async function buildProject(idea, isContinue=false) {
 
   updateProject(idea.slug, { status: "building" });
 
-  if (DRY) { log(`  [dry-run] would spawn worker for ${idea.slug}`); return { code: 0, out: "[dry]", err: "" }; }
+  if (DRY) { log(`  [dry-run] would spawn worker for ${idea.slug} — not building`); // revert status
+    updateProject(idea.slug, { status: "queued" });
+    return { code: 0, out: "[dry-run]", err: "" }; }
 
   const model = pickModel(config.models.build, config.models.buildFallback);
   const res = await spawnWorker(dir, prompt, model);
@@ -121,6 +123,12 @@ async function main() {
       idea = await generateIdea();
       log(`  new idea: ${idea.title} [${idea.stack}/${idea.category}] dedup=${idea.dedupScore?.toFixed(2)} aesthetic=${idea.aesthetic}`);
       if (idea.dedupScore > 0.75 && !DRY) log(`  ⚠ high dedup score — still proceeding (tweak seeds if repeats)`);
+      if (DRY) {
+        log(`  [dry-run] would add project ${idea.slug} — skipping write`);
+        // don't write queue in dry-run; just return idea for preview
+        log(`  dry-run preview: ${JSON.stringify(idea, null, 2)}`);
+        return;
+      }
       const entry = {
         slug: idea.slug, title: idea.title, category: idea.category, stack: idea.stack,
         aesthetic: idea.aesthetic, description: idea.description,
@@ -135,6 +143,8 @@ async function main() {
   if (!idea) { log("nothing to do"); return; }
 
   const result = await buildProject(idea, isContinue);
+
+  if (DRY) { log(`  [dry-run] — stopping before verify/deploy/commit`); return; }
 
   // verify
   const dir = path.join(PROJECTS_DIR, idea.slug);
