@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.factory/
+logs/*.log
+.hermes/
+.DS_Store
+site/
+.opencode/

@@ -1,0 +1,10 @@
+{
+  "seeds": [
+    { "title": "Neon Tide — audio-reactive particle shore", "category": "generative", "stack": "html", "tags": ["canvas","audio","particles"] },
+    { "title": "Pocket Inventory — drag-drop RPG backpack", "category": "game", "stack": "vite", "tags": ["game","inventory","drag-drop"] },
+    { "title": "Receipt Oracle — expense fortune teller", "category": "tool", "stack": "vite", "tags": ["finance","fun","tool"] },
+    { "title": "Chromatic Calendar — mood as color", "category": "tool", "stack": "vite", "tags": ["calendar","mood","color"] },
+    { "title": "Ghost Grid — collaborative pixel haunt", "category": "social", "stack": "html", "tags": ["pixel","multiplayer-ish","localStorage"] },
+    { "title": "Folded City — origami map explorer", "category": "viz", "stack": "html", "tags": ["map","origami","canvas"] }
+  ]
+}

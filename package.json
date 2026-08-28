@@ -1,0 +1,16 @@
+{
+  "name": "auto-forge",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "daily": "node daily.mjs",
+    "daily:dry": "node daily.mjs --dry-run",
+    "status": "node daily.mjs --status",
+    "deploy": "node deploy/cloudflare.mjs",
+    "deploy:gh": "node deploy/ghpages.mjs",
+    "build:gallery": "node scripts/build-gallery.mjs",
+    "idea": "node lib/ideas.mjs --once"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
