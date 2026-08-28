@@ -2,6 +2,6 @@
   "enabled": true,
   "schedule": "0 9 * * *",
   "timezone": "Asia/Manila",
-  "lastRun": null,
-  "lastSlug": null
+  "lastRun": "2026-08-28T18:50:33.080Z",
+  "lastSlug": "receipt-oracle-expense-fortune-teller"
 }

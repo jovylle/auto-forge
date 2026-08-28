@@ -11,6 +11,8 @@
     "build:gallery": "node scripts/build-gallery.mjs",
     "idea": "node lib/ideas.mjs --once"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
 }

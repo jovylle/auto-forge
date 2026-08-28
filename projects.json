@@ -17,36 +17,11 @@
         "canvas",
         "generative"
       ],
-      "status": "queued",
+      "status": "done",
       "deployed": false,
       "createdAt": "2026-08-28T18:49:45.460Z",
-      "updatedAt": "2026-08-28T18:49:45.463Z",
-      "buildPassed": false
-    },
-    {
-      "slug": "receipt-oracle-expense-fortune-teller",
-      "title": "Receipt Oracle — expense fortune teller",
-      "category": "tool",
-      "stack": "vite",
-      "aesthetic": "swiss",
-      "description": "Receipt Oracle — expense fortune teller",
-      "features": [
-        "core interaction",
-        "polished UI",
-        "share/export"
-      ],
-      "tags": [
-        "finance",
-        "fun",
-        "tool"
-      ],
-      "status": "needs-iteration",
-      "deployed": false,
-      "createdAt": "2026-08-28T18:50:17.175Z",
-      "updatedAt": "2026-08-28T18:50:23.668Z",
-      "buildPassed": false,
-      "lastError": "t: \"default\"]\n  -f, --file         file(s) to attach to message                                            [array]\n      --title        title for the session (uses truncated prompt if no value provided)     [string]\n      --attach       attach to a running opencode server (e.g., http://localhost:4096)      [string]\n  -p, --password     basic auth password (defaults to OPENCODE_SERVER_PASSWORD)             [string]\n  -u, --username     basic auth username (defaults to OPENCODE_SERVER_USERNAME or 'opencode')\n                                                                                            [string]\n      --dir          directory to run in, path on remote server if attaching                [string]\n      --port         port for the local server (defaults to random port if no value provided)\n                                                                                            [number]\n      --variant      model variant (provider-specific reasoning effort, e.g., high, max, minimal)\n                                                                                            [string]\n      --thinking     show thinking blocks                                                  [boolean]\n  -i, --interactive  run in direct interactive split-footer mode          [boolean] [default: false]\n      --auto         auto-approve permissions that are not explicitly denied (dangerous!)\n                                                                          [boolean] [default: false]",
-      "retries": 1
+      "updatedAt": "2026-08-28T18:51:12.294Z",
+      "buildPassed": true
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

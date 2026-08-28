@@ -16,11 +16,11 @@ export const projects = [
       "canvas",
       "generative"
     ],
-    "status": "queued",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-08-28T18:49:45.460Z",
-    "updatedAt": "2026-08-28T18:49:45.463Z",
-    "buildPassed": false
+    "updatedAt": "2026-08-28T18:51:12.294Z",
+    "buildPassed": true
   }
 ];
-export const stats = { total: 1, done: 0 };
+export const stats = { total: 1, done: 1 };

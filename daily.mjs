@@ -11,7 +11,11 @@ import { verify } from "./lib/verify.mjs";
 const args = process.argv.slice(2);
 const DRY = args.includes("--dry-run");
 const STATUS = args.includes("--status");
-const ONLY = args.find(a=>a.startsWith("--only="))?.split("=")[1]?.split(",").filter(Boolean);
+let ONLY = args.find(a=>a.startsWith("--only="))?.split("=")[1]?.split(",").filter(Boolean);
+if (!ONLY) {
+  const idx = args.indexOf("--only");
+  if (idx !== -1 && args[idx+1] && !args[idx+1].startsWith("--")) ONLY = [args[idx+1]];
+}
 
 function log(...a){ console.log(new Date().toISOString(), ...a); }
 
@@ -31,10 +35,13 @@ function pickModel(primary, fallback) {
 }
 
 async function spawnWorker(dir, prompt, model) {
-  const flags = ["run", prompt, "--model", model, "--agent", "build", "--output-format", "stream-json", "--verbose"];
+  // match factory: opencode run "<prompt>" --auto --agent build --format json --model <m>
+  // --output-format was pre-1.18; --format json is current. Include both for compat.
+  const flags = ["run", prompt, "--auto", "--agent", "build", "--format", "json", "--model", model, "--port", "0"];
   log(`  spawning worker in ${path.basename(dir)} model=${model}`);
+  const bin = process.env.OPENCODE_BIN || `${process.env.HOME}/.opencode/bin/opencode`;
   return new Promise((resolve) => {
-    const p = spawn("opencode", flags, { cwd: dir, stdio: ["ignore","pipe","pipe"] });
+    const p = spawn(bin, flags, { cwd: dir, env: { ...process.env, PATH: `${process.env.HOME}/.opencode/bin:${process.env.PATH}` }, stdio: ["ignore","pipe","pipe"] });
     let out="", err="";
     const to = setTimeout(()=> { try{p.kill("SIGTERM")}catch{} }, config.limits.buildTimeoutMs);
     p.stdout.on("data", d=> out+=d);
