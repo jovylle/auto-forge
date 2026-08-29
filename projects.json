@@ -47,6 +47,31 @@
       "buildPassed": true,
       "lastError": null,
       "retries": 2
+    },
+    {
+      "slug": "shelf-shelf",
+      "title": "Shelf Shelf",
+      "category": "tool",
+      "stack": "vite",
+      "aesthetic": "japanese-cyberpunk",
+      "description": "Arrange your bookshelf, judge your taste.",
+      "features": [
+        "drag-drop shelf",
+        "taste score",
+        "share card"
+      ],
+      "tags": [
+        "books",
+        "tool",
+        "drag-drop"
+      ],
+      "status": "needs-iteration",
+      "deployed": false,
+      "createdAt": "2026-08-29T06:47:30.174Z",
+      "updatedAt": "2026-08-29T06:47:37.102Z",
+      "buildPassed": false,
+      "lastError": "build failed",
+      "retries": 1
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
