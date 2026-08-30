@@ -5,7 +5,7 @@ export default {
     const ORIGIN = "https://auto-forge-7dq.pages.dev";
 
     // today.af.uft1.com → redirect to newest done project
-    if (host === "today.af.uft1.com") {
+    if (host === "today.af.uft1.com" || host === "today-af.uft1.com") {
       try {
         const s = await fetch(ORIGIN + "/status.json");
         if (s.ok) {
@@ -34,7 +34,7 @@ export default {
     }
     if (slug !== null) {
       if (slug === "www" || slug === "" || slug === "today") {
-        if (slug === "today") return Response.redirect(`https://today.af.uft1.com/`, 302);
+        if (slug === "today") return Response.redirect(`https://today-af.uft1.com/`, 302);
         return fetch(ORIGIN + "/", request);
       }
       let targetPath = url.pathname;
@@ -46,7 +46,7 @@ export default {
       let res = await fetch(target, request);
       if (res.status === 404 && targetPath.startsWith("/p/")) {
         res = new Response(
-          `Project "${slug}" not found or still building. Check https://af.uft1.com\nTried: ${targetPath}\nToday: https://today.af.uft1.com`,
+          `Project "${slug}" not found or still building. Check https://af.uft1.com\nTried: ${targetPath}\nToday: https://today-af.uft1.com`,
           { status: 404, headers: { "content-type": "text/plain" } }
         );
       }
@@ -54,7 +54,7 @@ export default {
       if (ct.includes("text/html")) {
         let html = await res.text();
         if (!html.includes("af-toolbar")) {
-          const toolbar = `<style>#af-toolbar{position:fixed;top:0;left:0;right:0;background:#111119ee;border-bottom:1px solid #222;display:flex;gap:8px;align-items:center;padding:8px 12px;font:12px system-ui;z-index:9999;backdrop-filter:blur(8px)}#af-toolbar a{color:#8ab4ff;text-decoration:none;border:1px solid #222;border-radius:999px;padding:4px 10px;background:#1a1a2a}#af-toolbar a:hover{border-color:#8ab4ff}body{padding-top:42px!important}</style><div id="af-toolbar"><a href="https://af.uft1.com">← gallery</a><a href="https://today.af.uft1.com">today</a><span style="margin-left:auto;opacity:.6">${slug}</span><a href="https://af.uft1.com/status.json" target="_blank">status</a><a href="https://af.uft1.com/runs/latest.json" target="_blank">run</a></div>`;
+          const toolbar = `<style>#af-toolbar{position:fixed;top:0;left:0;right:0;background:#111119ee;border-bottom:1px solid #222;display:flex;gap:8px;align-items:center;padding:8px 12px;font:12px system-ui;z-index:9999;backdrop-filter:blur(8px)}#af-toolbar a{color:#8ab4ff;text-decoration:none;border:1px solid #222;border-radius:999px;padding:4px 10px;background:#1a1a2a}#af-toolbar a:hover{border-color:#8ab4ff}body{padding-top:42px!important}</style><div id="af-toolbar"><a href="https://af.uft1.com">← gallery</a><a href="https://today-af.uft1.com">today</a><span style="margin-left:auto;opacity:.6">${slug}</span><a href="https://af.uft1.com/status.json" target="_blank">status</a><a href="https://af.uft1.com/runs/latest.json" target="_blank">run</a></div>`;
           html = html.replace(/<body[^>]*>/i, (m)=> m + toolbar);
           return new Response(html, { status: res.status, headers: { ...Object.fromEntries(res.headers), "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
         }

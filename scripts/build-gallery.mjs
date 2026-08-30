@@ -75,7 +75,7 @@ h1{margin:0;font-size:22px} .pill{background:#1a1a2a;border:1px solid #333;borde
 .status.building{background:#2a1e0a;color:#fb3;border:1px solid #543}
 a{color:#8ab4ff;text-decoration:none}
 </style></head><body>
-<header><h1>auto-forge</h1><span class="pill">${q.projects.length} projects · ${done.length} done · daily bot</span><a href="https://af.uft1.com/status.json" style="margin-left:auto;font-size:12px;opacity:.6">status.json</a> <a href="https://today.af.uft1.com" style="font-size:12px">today →</a></header>
+<header><h1>auto-forge</h1><span class="pill">${q.projects.length} projects · ${done.length} done · daily bot</span><a href="https://af.uft1.com/status.json" style="margin-left:auto;font-size:12px;opacity:.6">status.json</a> <a href="https://today-af.uft1.com" style="font-size:12px">today →</a></header>
 <div class="grid">
 ${q.projects.map(p=>`
   <div class="card">
@@ -88,7 +88,7 @@ ${q.projects.map(p=>`
   </div>`).join("")}
 ${q.projects.length===0?`<div class="card"><p>No projects yet — the bot runs daily at 09:00 PHT. Trigger manually: <code>node daily.mjs</code></p></div>`:""}
 </div>
-<footer style="max-width:1000px;margin:20px auto;padding:0 20px;opacity:.5;font-size:12px">auto-forge · hermes cron 09:00 PHT · <a href="./status.json">status.json</a> · <a href="./runs/latest.json">latest run</a> · <a href="https://today.af.uft1.com">today.af.uft1.com</a></footer>
+<footer style="max-width:1000px;margin:20px auto;padding:0 20px;opacity:.5;font-size:12px">auto-forge · hermes cron 09:00 PHT · <a href="./status.json">status.json</a> · <a href="./runs/latest.json">latest run</a> · <a href="https://today-af.uft1.com">today-af.uft1.com</a></footer>
 </body></html>
 `;
 fs.writeFileSync(path.join(SITE_DIR, "index.html"), galleryHtml);
