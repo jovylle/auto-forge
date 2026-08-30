@@ -1,6 +1,0 @@
-STDOUT:
-{"type":"error","timestamp":1788051632518,"sessionID":"ses_fafd14fc1ffeLKJ8RA32waQoNA","error":{"name":"UnknownError","data":{"message":"Unexpected server error. Check server logs for details.","ref":"err_964239f1"}}}
-
-
-STDERR:
-
