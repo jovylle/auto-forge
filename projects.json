@@ -68,10 +68,10 @@
       "status": "needs-iteration",
       "deployed": false,
       "createdAt": "2026-08-29T06:47:30.174Z",
-      "updatedAt": "2026-08-29T06:47:37.102Z",
+      "updatedAt": "2026-08-30T01:00:32.762Z",
       "buildPassed": false,
       "lastError": "build failed",
-      "retries": 1
+      "retries": 2
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
