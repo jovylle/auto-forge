@@ -307,6 +307,8 @@ async function main() {
   if (!DRY) {
     try { await import("./scripts/build-gallery.mjs");
     try { await import("./scripts/build-status.mjs"); } catch {} } catch(e){ log("gallery build failed", e.message); }
+      // ensure per-project -af DNS
+  try { const { ensureAfDns } = await import("./scripts/ensure-af-dns.mjs"); await ensureAfDns(idea.slug); } catch(e){ log("af-dns failed", e.message); }
     for (const tgt of config.deploy.targets) {
       try {
         if (tgt === "cloudflare") { const m = await import("./deploy/cloudflare.mjs"); await m.deploy(); }
