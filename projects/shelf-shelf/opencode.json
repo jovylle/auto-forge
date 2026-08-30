@@ -4,51 +4,12 @@
     "build": {
       "mode": "primary",
       "model": "opencode/deepseek-v4-flash-free",
-      "permission": {
-        "skill": {
-          "*": "allow"
-        }
-      }
+      "permission": { "skill": { "*": "allow" } }
     },
-    "designer": {
-      "mode": "subagent",
-      "model": "opencode-go/glm-5.2",
-      "permission": {
-        "edit": "deny",
-        "bash": "deny"
-      }
-    },
-    "reviewer": {
-      "mode": "subagent",
-      "model": "opencode-go/glm-5.2",
-      "permission": {
-        "edit": "deny",
-        "bash": "deny"
-      }
-    },
-    "layout-verifier": {
-      "mode": "subagent",
-      "model": "opencode/deepseek-v4-flash-free",
-      "permission": {
-        "edit": "deny",
-        "bash": "deny"
-      }
-    },
-    "documentation": {
-      "mode": "subagent",
-      "model": "opencode/deepseek-v4-flash-free",
-      "permission": {
-        "edit": "deny",
-        "bash": "deny"
-      }
-    },
-    "test-writer": {
-      "mode": "subagent",
-      "model": "opencode/deepseek-v4-flash-free",
-      "permission": {
-        "edit": "deny",
-        "bash": "deny"
-      }
-    }
+    "designer": { "mode": "subagent", "model": "opencode-go/glm-5.2", "permission": { "edit": "deny", "bash": "deny" } },
+    "reviewer": { "mode": "subagent", "model": "opencode-go/glm-5.2", "permission": { "edit": "deny", "bash": "deny" } },
+    "layout-verifier": { "mode": "subagent", "model": "opencode/deepseek-v4-flash-free", "permission": { "edit": "deny", "bash": "deny" } },
+    "documentation": { "mode": "subagent", "model": "opencode/deepseek-v4-flash-free", "permission": { "edit": "deny", "bash": "deny" } },
+    "test-writer": { "mode": "subagent", "model": "opencode/deepseek-v4-flash-free", "permission": { "edit": "deny", "bash": "deny" } }
   }
 }

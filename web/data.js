@@ -46,6 +46,31 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "retries": 2
+  },
+  {
+    "slug": "shelf-shelf",
+    "title": "Shelf Shelf",
+    "category": "tool",
+    "stack": "vite",
+    "aesthetic": "japanese-cyberpunk",
+    "description": "Arrange your bookshelf, judge your taste.",
+    "features": [
+      "drag-drop shelf",
+      "taste score",
+      "share card"
+    ],
+    "tags": [
+      "books",
+      "tool",
+      "drag-drop"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-08-29T06:47:30.174Z",
+    "updatedAt": "2026-08-30T01:02:00Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 2
   }
 ];
-export const stats = { total: 2, done: 2 };
+export const stats = { total: 3, done: 3 };
