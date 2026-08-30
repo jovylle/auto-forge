@@ -6,3 +6,6 @@ logs/*.log
 .DS_Store
 site/
 .opencode/
+Volumes/
+package-lock.json
+model-health.json
