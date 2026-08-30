@@ -12,6 +12,9 @@ Category: {{CATEGORY}} | Stack: HTML/CSS/JS (no build) | Aesthetic: {{AESTHETIC}
 ## Features (all required)
 {{FEATURES}}
 
+## Constraints (must obey)
+{{CONSTRAINTS}}
+
 {{RETRY_CONTEXT}}
 
 ## Stack
@@ -27,11 +30,12 @@ Category: {{CATEGORY}} | Stack: HTML/CSS/JS (no build) | Aesthetic: {{AESTHETIC}
 
 ## Build steps
 1. Design in your head: palette, type, layout, interactions.
-2. Implement index.html + style.css + app.js to fulfill all SPEC features.
+2. Implement index.html + style.css + app.js to fulfill all SPEC features + constraints.
 3. Smoke-check: open index.html in mind — no broken refs, no console errors, works at 375px width.
 4. Write README.md (how to open, what it does).
 
-## Final step
+## Final step (MANDATORY — machine-verifiable)
 Write .factory/result.json: {"status":"pass"|"fail","summary":"...","buildPassed":true,"featuresImplemented":[...]}
+Then as the VERY LAST line of your final response, emit exactly: VERIFY: {"build":"pass"|"fail","features":[...], "constraints":[...]}
 
 Keep it tight. Ship one beautiful thing.

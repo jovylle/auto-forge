@@ -12,6 +12,9 @@ Category: {{CATEGORY}} | Stack: Vite + React + TypeScript + Tailwind | Aesthetic
 ## Features (all required)
 {{FEATURES}}
 
+## Constraints (must obey)
+{{CONSTRAINTS}}
+
 {{RETRY_CONTEXT}}
 
 ## Stack
@@ -24,11 +27,12 @@ Category: {{CATEGORY}} | Stack: Vite + React + TypeScript + Tailwind | Aesthetic
 - Aesthetic: {{AESTHETIC}} — interpret it boldly (palette, typography via Google Fonts @import, layout, animations).
 - Custom CSS in src/index.css beyond @import "tailwindcss".
 - Asymmetric / distinctive layout, micro-interactions required.
+- Constraints above are HARD requirements — reviewer will check them.
 
 ## Delegation
 Use `task` tool at most once per type:
 - designer (first, before code): visual system spec from SPEC.md
-- reviewer (after code): bug/security/perf review — fix issues
+- reviewer (after code): bug/security/perf + constraint check — fix issues
 - layout-verifier (after reviewer): responsive + Tailwind v4 + a11y
 - documentation: README.md
 - test-writer: light vitest coverage if time
@@ -36,10 +40,11 @@ Use `task` tool at most once per type:
 ## Quality gates
 1. npm run build exits 0 (run ONCE at end)
 2. npm run preview serves real content
-3. All SPEC features work
+3. All SPEC features + constraints work
 4. README.md exists
 
-## Final step
+## Final step (MANDATORY — machine-verifiable)
 Write .factory/result.json: {"status":"pass"|"fail","summary":"...","buildPassed":bool,"featuresImplemented":[...]}
+Then as the VERY LAST line of your final response, emit exactly: VERIFY: {"build":"pass"|"fail","features":[...], "constraints":[...]} 
 
 Token rules: don't re-read files you already loaded, don't npm install, build once, max 1 call per subagent.
