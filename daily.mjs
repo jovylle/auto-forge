@@ -174,7 +174,8 @@ async function main() {
 
   // deploy + gallery + commit (even on failure we rebuild gallery so status is visible)
   if (!DRY) {
-    try { await import("./scripts/build-gallery.mjs"); } catch(e){ log("gallery build failed", e.message); }
+    try { await import("./scripts/build-gallery.mjs");
+    try { await import("./scripts/build-status.mjs"); } catch {} } catch(e){ log("gallery build failed", e.message); }
     for (const tgt of config.deploy.targets) {
       try {
         if (tgt === "cloudflare") { const m = await import("./deploy/cloudflare.mjs"); await m.deploy(); }
