@@ -1,0 +1,22 @@
+{
+  "slug": "chromatic-calendar-mood-as-color",
+  "title": "Chromatic Calendar — mood as color",
+  "stack": "vite",
+  "aesthetic": "glassmorphism",
+  "model": "placeholder-manual",
+  "modelVia": "manual",
+  "verifyLine": {
+    "build": "pass",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 0,
+  "at": "2026-08-31T01:09:21.958Z"
+}
