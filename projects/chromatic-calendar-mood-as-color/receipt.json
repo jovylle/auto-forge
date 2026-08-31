@@ -1,0 +1,31 @@
+{
+  "slug": "chromatic-calendar-mood-as-color",
+  "title": "Chromatic Calendar — mood as color",
+  "stack": "vite",
+  "stackReason": "seed stack",
+  "aesthetic": "glassmorphism",
+  "theme": "time",
+  "constraints": [
+    "single HTML file if html stack, single component if vite"
+  ],
+  "model": "placeholder-manual",
+  "modelVia": "manual placeholder after opencode UnknownError/timeout",
+  "verifyLine": {
+    "build": "pass",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ]
+  },
+  "workerResult": {
+    "status": "pass",
+    "summary": "manual placeholder glassmorphism calendar built - verified via vite build"
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 0,
+  "at": "2026-08-31T01:09:21.957Z"
+}

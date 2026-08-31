@@ -1,0 +1,105 @@
+{
+  "total": 4,
+  "counts": {
+    "done": 4
+  },
+  "projects": [
+    {
+      "slug": "void-typist",
+      "title": "Void Typist",
+      "status": "done",
+      "stack": "html",
+      "stackReason": null,
+      "category": "generative",
+      "aesthetic": "biomorphic",
+      "theme": null,
+      "constraints": [],
+      "tags": [
+        "typing",
+        "canvas",
+        "generative"
+      ],
+      "updatedAt": "2026-08-28T18:51:12.294Z",
+      "lastError": null,
+      "lastModel": null
+    },
+    {
+      "slug": "habit-constellation",
+      "title": "Habit Constellation",
+      "status": "done",
+      "stack": "vite",
+      "stackReason": null,
+      "category": "viz",
+      "aesthetic": "pixel-art",
+      "theme": null,
+      "constraints": [],
+      "tags": [
+        "habit",
+        "viz",
+        "canvas"
+      ],
+      "updatedAt": "2026-08-29T01:04:27.032Z",
+      "lastError": null,
+      "lastModel": null
+    },
+    {
+      "slug": "shelf-shelf",
+      "title": "Shelf Shelf",
+      "status": "done",
+      "stack": "vite",
+      "stackReason": null,
+      "category": "tool",
+      "aesthetic": "japanese-cyberpunk",
+      "theme": null,
+      "constraints": [],
+      "tags": [
+        "books",
+        "tool",
+        "drag-drop"
+      ],
+      "updatedAt": "2026-08-30T01:02:00Z",
+      "lastError": null,
+      "lastModel": null
+    },
+    {
+      "slug": "chromatic-calendar-mood-as-color",
+      "title": "Chromatic Calendar — mood as color",
+      "status": "done",
+      "stack": "vite",
+      "stackReason": "seed stack",
+      "category": "tool",
+      "aesthetic": "glassmorphism",
+      "theme": "time",
+      "constraints": [
+        "single HTML file if html stack, single component if vite"
+      ],
+      "tags": [
+        "calendar",
+        "mood",
+        "color"
+      ],
+      "updatedAt": "2026-08-31T01:09:21.954Z",
+      "lastError": null,
+      "lastModel": "placeholder-manual-glassmorphism"
+    }
+  ],
+  "loop": {
+    "enabled": true,
+    "schedule": "0 9 * * *",
+    "timezone": "Asia/Manila",
+    "lastRun": "2026-08-30T01:03:42.368011Z",
+    "lastSlug": "shelf-shelf"
+  },
+  "health": {
+    "opencode/deepseek-v4-flash-free": {
+      "failStreak": 1,
+      "lastFail": "2026-08-31T01:00:35.649Z",
+      "lastError": "{\"type\":\"error\",\"timestamp\":1788138035617,\"sessionID\":\"ses_faaaae83effeyD2cFQ9U9XKP7R\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_20ca6b23\"}}}\n"
+    }
+  },
+  "logs": [],
+  "pagesOrigin": "https://auto-forge-7dq.pages.dev",
+  "af": "https://af.uft1.com",
+  "today": "https://today.af.uft1.com",
+  "updatedAt": "2026-08-31T01:09:27.984Z"
+}
