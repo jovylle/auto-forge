@@ -102,6 +102,37 @@ export const projects = [
     "lastError": null,
     "lastModel": "placeholder-manual-glassmorphism",
     "retries": 0
+  },
+  {
+    "slug": "chromatic-calendar-mood-as-color-nk6c",
+    "title": "Chromatic Calendar — mood as color",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "seed stack",
+    "aesthetic": "neo-brutalism",
+    "theme": "time",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Chromatic Calendar — mood as color",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "calendar",
+      "mood",
+      "color"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-01T01:00:30.707Z",
+    "updatedAt": "2026-09-01T01:20:00.000Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "manual-neo-brutalism",
+    "retries": 0
   }
 ];
-export const stats = { total: 4, done: 4 };
+export const stats = { total: 5, done: 5 };

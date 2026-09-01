@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-01",
+  "runs": [
+    {
+      "slug": "chromatic-calendar-mood-as-color-nk6c",
+      "title": "Chromatic Calendar \u2014 mood as color",
+      "stack": "vite",
+      "aesthetic": "neo-brutalism",
+      "model": "manual-neo-brutalism",
+      "modelVia": "manual-fix after opencode UnknownError",
+      "verifyLine": {
+        "build": "pass"
+      },
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 146,
+      "at": "2026-09-01T01:08:54.115443Z"
+    }
+  ],
+  "updatedAt": "2026-09-01T01:08:54.116570Z"
+}

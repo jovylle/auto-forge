@@ -2,11 +2,19 @@
   "slug": "chromatic-calendar-mood-as-color-nk6c",
   "title": "Chromatic Calendar \u2014 mood as color",
   "stack": "vite",
+  "stackReason": "seed stack",
   "aesthetic": "neo-brutalism",
+  "theme": "time",
+  "constraints": [
+    "sound on interaction (WebAudio, no assets)"
+  ],
   "model": "manual-neo-brutalism",
   "modelVia": "manual-fix after opencode UnknownError",
   "verifyLine": {
     "build": "pass"
+  },
+  "workerResult": {
+    "status": "pass"
   },
   "buildPassed": true,
   "verify": {
