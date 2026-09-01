@@ -1,22 +1,17 @@
 {
-  "slug": "chromatic-calendar-mood-as-color",
-  "title": "Chromatic Calendar — mood as color",
+  "slug": "chromatic-calendar-mood-as-color-nk6c",
+  "title": "Chromatic Calendar \u2014 mood as color",
   "stack": "vite",
-  "aesthetic": "glassmorphism",
-  "model": "placeholder-manual",
-  "modelVia": "manual",
+  "aesthetic": "neo-brutalism",
+  "model": "manual-neo-brutalism",
+  "modelVia": "manual-fix after opencode UnknownError",
   "verifyLine": {
-    "build": "pass",
-    "features": [
-      "core interaction",
-      "polished UI",
-      "share/export"
-    ]
+    "build": "pass"
   },
   "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 0,
-  "at": "2026-08-31T01:09:21.958Z"
+  "elapsedMs": 146,
+  "at": "2026-09-01T01:08:54.115443Z"
 }
