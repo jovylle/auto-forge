@@ -133,6 +133,37 @@ export const projects = [
     "lastError": null,
     "lastModel": "manual-neo-brutalism",
     "retries": 0
+  },
+  {
+    "slug": "habit-constellation-3233",
+    "title": "Habit Constellation",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "vaporwave",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "must work with keyboard only"
+    ],
+    "description": "Your habits as a star map.",
+    "features": [
+      "habit input",
+      "constellation viz",
+      "streak glow"
+    ],
+    "tags": [
+      "habit",
+      "viz",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-02T01:00:13.515Z",
+    "updatedAt": "2026-09-02T01:10:58.524Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/deepseek-v4-flash-free (recovered build)"
   }
 ];
-export const stats = { total: 5, done: 5 };
+export const stats = { total: 6, done: 6 };
