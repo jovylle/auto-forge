@@ -1,0 +1,25 @@
+{
+  "slug": "habit-constellation-3233",
+  "title": "Habit Constellation",
+  "stack": "vite",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "vaporwave",
+  "theme": "time",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "must work with keyboard only"
+  ],
+  "model": "opencode/deepseek-v4-flash-free",
+  "modelVia": "recovered (verify passed after scaffold)",
+  "verifyLine": {
+    "build": "pass",
+    "recovered": true
+  },
+  "workerResult": null,
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 0,
+  "at": "2026-09-02T01:10:58.527Z"
+}

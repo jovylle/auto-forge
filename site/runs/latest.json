@@ -1,10 +1,10 @@
 {
-  "slug": "chromatic-calendar-mood-as-color-nk6c",
-  "title": "Chromatic Calendar \u2014 mood as color",
+  "slug": "habit-constellation-3233",
+  "title": "Habit Constellation",
   "stack": "vite",
-  "aesthetic": "neo-brutalism",
-  "model": "manual-neo-brutalism",
-  "modelVia": "manual-fix after opencode UnknownError",
+  "aesthetic": "vaporwave",
+  "model": "opencode/deepseek-v4-flash-free",
+  "modelVia": "recovered",
   "verifyLine": {
     "build": "pass"
   },
@@ -12,6 +12,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 146,
-  "at": "2026-09-01T01:08:54.115443Z"
+  "elapsedMs": 0,
+  "at": "2026-09-02T01:10:58.528Z"
 }

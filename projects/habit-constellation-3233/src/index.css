@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-void: #07000f;
+  --color-neon-pink: #ff2e97;
+  --color-neon-cyan: #00e5ff;
+  --color-neon-purple: #8a2be2;
+  --font-display: "Orbitron", "Arial Black", sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-void);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  body {
+    overflow: auto;
+  }
+}
+
+/* ---- Chrome wordmark (single instance) ---- */
+.chrome-text {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #00e5ff 45%,
+    #ffffff 55%,
+    #8a2be2 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: italic;
+  transform: skewX(-8deg);
+}
+
+/* ---- Scanline CRT overlay ---- */
+.scanlines {
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.22) 0 1px,
+    transparent 1px 3px
+  );
+  opacity: 0.45;
+}
+
+/* ---- Rail chamfer (notched corner) ---- */
+.rail-chamfer {
+  clip-path: polygon(24px 0, 100% 0, 100% 100%, 0 100%, 0 24px);
+}
+
+@media (max-width: 767px) {
+  .rail-chamfer {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
+  }
+}
+
+/* ---- Focus visible: neon pink ring ---- */
+:focus-visible {
+  outline: 2px solid var(--color-neon-pink);
+  outline-offset: 2px;
+  box-shadow: 0 0 14px rgba(255, 46, 151, 0.55);
+}
+
+/* ---- Neon glow helpers (interactive only) ---- */
+.glow-hover:hover,
+.glow-hover:focus-visible {
+  border-color: var(--color-neon-cyan);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.55);
+  transition: all 0.08s ease-out;
+}
+
+.glow-pink {
+  box-shadow: 0 0 14px rgba(255, 46, 151, 0.55);
+}
+
+/* ---- Streak pulse (completed today) ---- */
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.pulse-breathe {
+  animation: breathe 3.2s ease-in-out infinite;
+}
+
+/* ---- Expanding spawn ring ---- */
+@keyframes ringExpand {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.ring-expand {
+  animation: ringExpand 0.6s ease-out forwards;
+}
+
+/* ---- Constellation dash march on active star ---- */
+@keyframes dashMarch {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+.dash-march {
+  stroke-dasharray: 6 10;
+  animation: dashMarch 2s linear infinite;
+}
+
+/* ---- Sun rise ---- */
+@keyframes sunRise {
+  from {
+    transform: translateY(6vmin);
+    opacity: 0.35;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.sun-rise {
+  animation: sunRise 0.8s ease-out forwards;
+}
+
+/* ---- Twinkle for ambient stars ---- */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-breathe,
+  .ring-expand,
+  .dash-march,
+  .sun-rise,
+  .twinkle {
+    animation: none !important;
+  }
+  .chrome-text {
+    transform: none;
+  }
+}
