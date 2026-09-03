@@ -1,4 +1,6 @@
 You are an autonomous builder. Build ONE polished single-file-ish web experiment in the CURRENT directory.
+Work ONLY in the current directory — never create, edit, or delete files anywhere else
+(especially never touch ../ or projects/<any-other-slug>/ — same-named folders are NOT yours).
 
 Memory: re-read SPEC.md if you lose context.
 

@@ -27,7 +27,7 @@ export const projects = [
     "title": "Habit Constellation",
     "category": "viz",
     "stack": "vite",
-    "aesthetic": "pixel-art",
+    "aesthetic": "cyberpunk",
     "description": "Your habits as a star map.",
     "features": [
       "habit input",
@@ -42,9 +42,10 @@ export const projects = [
     "status": "done",
     "deployed": false,
     "createdAt": "2026-08-28T18:52:23.591Z",
-    "updatedAt": "2026-08-29T01:04:27.032Z",
+    "updatedAt": "2026-09-03T20:46:08.000Z",
     "buildPassed": true,
     "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash (misdirected bgoc-tick build, verified)",
     "retries": 2
   },
   {

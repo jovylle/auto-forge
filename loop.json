@@ -1,7 +1,1 @@
-{
-  "enabled": true,
-  "schedule": "0 9 * * *",
-  "timezone": "Asia/Manila",
-  "lastRun": "2026-09-02T01:11:24.706Z",
-  "lastSlug": "habit-constellation-3233"
-}
+{"enabled":true,"schedule":"0 9 * * *","timezone":"Asia/Manila","lastRun":"2026-09-03T20:43:57.931Z","lastSlug":"habit-constellation"}

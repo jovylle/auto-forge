@@ -1,8 +1,7 @@
 {
-  "total": 7,
+  "total": 6,
   "counts": {
-    "done": 6,
-    "needs-human": 1
+    "done": 6
   },
   "projects": [
     {
@@ -31,7 +30,7 @@
       "stack": "vite",
       "stackReason": null,
       "category": "viz",
-      "aesthetic": "pixel-art",
+      "aesthetic": "cyberpunk",
       "theme": null,
       "constraints": [],
       "tags": [
@@ -39,9 +38,9 @@
         "viz",
         "canvas"
       ],
-      "updatedAt": "2026-08-29T01:04:27.032Z",
+      "updatedAt": "2026-09-03T20:46:08.000Z",
       "lastError": null,
-      "lastModel": null
+      "lastModel": "opencode-go/deepseek-v4-flash (misdirected bgoc-tick build, verified)"
     },
     {
       "slug": "shelf-shelf",
@@ -125,36 +124,14 @@
       "updatedAt": "2026-09-02T01:10:58.524Z",
       "lastError": null,
       "lastModel": "opencode/deepseek-v4-flash-free (recovered build)"
-    },
-    {
-      "slug": "habit-constellation-bgoc",
-      "title": "Habit Constellation",
-      "status": "needs-human",
-      "stack": "vite",
-      "stackReason": "no strong keyword — random",
-      "category": "viz",
-      "aesthetic": "cyberpunk",
-      "theme": "color",
-      "constraints": [
-        "single HTML file if html stack, single component if vite",
-        "must work with keyboard only"
-      ],
-      "tags": [
-        "habit",
-        "viz",
-        "canvas"
-      ],
-      "updatedAt": "2026-09-03T20:43:49.255Z",
-      "lastError": "build failed",
-      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-02T01:11:24.706Z",
-    "lastSlug": "habit-constellation-3233"
+    "lastRun": "2026-09-03T20:43:57.931Z",
+    "lastSlug": "habit-constellation"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -177,5 +154,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-03T20:43:49.291Z"
+  "updatedAt": "2026-09-03T20:46:25.458Z"
 }
