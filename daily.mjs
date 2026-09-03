@@ -335,6 +335,12 @@ async function main() {
     loop2.lastRun = new Date().toISOString();
     loop2.lastSlug = idea.slug;
     fs.writeFileSync(LOOP_FILE, JSON.stringify(loop2, null, 2));
+    // ——— notify bot (best-effort, never fails the tick) ———
+    try {
+      const { spawnSync } = await import("node:child_process");
+      spawnSync("bash", [`${process.env.HOME}/.hermes/scripts/auto-forge-notify.sh`], { timeout: 30000, stdio: "ignore" });
+      log("  notify: pinged hermes_minipc_notif_bot");
+    } catch(e){ log("notify skipped", e.message); }
   }
 
   log("tick complete.");
