@@ -166,4 +166,4 @@ export const projects = [
     "lastModel": "opencode/deepseek-v4-flash-free (recovered build)"
   }
 ];
-export const stats = { total: 6, done: 6 };
+export const stats = { total: 6, done: 6, counts: {"done":6} };

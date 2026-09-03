@@ -5,26 +5,47 @@
 <style>
 *{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,sans-serif;background:#0a0a0f;color:#e8e8ef}
 header{max-width:1000px;margin:32px auto 16px;padding:0 20px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+h2.section{max-width:1000px;margin:24px auto 0;padding:0 20px;font-size:14px;font-weight:600;opacity:.8}
 .grid{max-width:1000px;margin:0 auto;padding:20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
 .card{border:1px solid #222;border-radius:14px;padding:14px;background:#111119}
 .card h3{margin:0 0 6px}.tag{font-size:11px;border:1px solid #333;border-radius:999px;padding:2px 7px;margin:2px}
-.status{font-size:11px;border-radius:999px;padding:2px 7px}.done{background:#0a2a12;color:#6f6}
+.status{font-size:11px;border-radius:999px;padding:2px 7px}
+.status.done{background:#0a2a12;color:#6f6;border:1px solid #1a4}
+.status.needs-iteration{background:#2a1e0a;color:#fb3;border:1px solid #543}
+.status.building{background:#1a2340;color:#8ab4ff;border:1px solid #345}
+.status.queued{background:#1a1a2a;color:#aab;border:1px solid #445}
+.status.needs-human{background:#2a0a0a;color:#f88;border:1px solid #533}
 a{color:#8ab4ff}
 </style></head><body>
 <header><h1>auto-forge</h1><span id="stats"></span></header>
-<div id="grid" class="grid"></div>
+<div id="sections"></div>
 <script type="module">
 import {projects, stats} from "./data.js";
-document.getElementById("stats").textContent = `${stats.total} projects · ${stats.done} done · daily bot`;
-const g=document.getElementById("grid");
-for(const p of projects){
-  const el=document.createElement("div"); el.className="card";
-  el.innerHTML=`<div><span class="status ${p.status}">${p.status}</span> <span style="opacity:.6;font-size:11px">${p.stack||""} ${p.category||""}</span></div>
-  <h3>${p.title}</h3><p style="opacity:.7">${p.description||""}</p>
+const counts = stats.counts || {};
+const bits = [`${stats.total} projects`, `${stats.done} done`];
+for (const s of ["building","queued","needs-iteration","needs-human"]) if (counts[s]) bits.push(`${counts[s]} ${s}`);
+document.getElementById("stats").textContent = bits.join(" · ") + " · daily bot";
+const card = (p) => {
+  const el = document.createElement("div"); el.className = "card";
+  el.innerHTML = `<div><span class="status ${p.status}">${p.status}</span> <span style="opacity:.6;font-size:11px">${p.stack||""} ${p.category||""}</span></div>
+  <h3>${p.title||p.slug}</h3><p style="opacity:.7">${p.description||""}</p>
   <div>${(p.tags||[]).map(t=>`<span class=tag>${t}</span>`).join("")}</div>
-  ${p.status==="done"?`<div style="margin-top:8px"><a href="./p/${p.slug}/">open →</a></div>`:""}`;
-  g.appendChild(el);
+  ${p.status==="done"||p.status==="needs-iteration"?`<div style="margin-top:8px"><a href="./p/${p.slug}/">open →</a></div>`:`<div style="margin-top:8px;opacity:.5;font-size:11px">updated ${(p.updatedAt||"").slice(0,10)||"—"}</div>`}`;
+  return el;
+};
+const wrap = document.getElementById("sections");
+const shipped = projects.filter(p=>p.status==="done"||p.status==="needs-iteration");
+const pending = projects.filter(p=>p.status!=="done"&&p.status!=="needs-iteration");
+const mkgrid = (list) => { const g=document.createElement("div"); g.className="grid"; list.forEach(p=>g.appendChild(card(p))); return g; };
+const mkhead = (t) => { const h=document.createElement("h2"); h.className="section"; h.textContent=t; return h; };
+if (pending.length) {
+  wrap.appendChild(mkhead(`⏳ pending / in progress (${pending.length})`));
+  wrap.appendChild(mkgrid(pending));
+  wrap.appendChild(mkhead(`✓ shipped (${shipped.length})`));
+  wrap.appendChild(mkgrid(shipped));
+} else {
+  wrap.appendChild(mkgrid(projects));
 }
-if(!projects.length) g.innerHTML='<div class=card>No projects yet — bot runs daily at 09:00 PHT. Run <code>node daily.mjs --dry-run</code> to preview.</div>';
+if(!projects.length) wrap.innerHTML='<div class=grid><div class=card>No projects yet — bot runs daily at 09:00 PHT. Run <code>node daily.mjs --dry-run</code> to preview.</div></div>';
 </script>
 </body></html>

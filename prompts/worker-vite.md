@@ -39,7 +39,8 @@ Use `task` tool at most once per type:
 
 ## Quality gates
 1. npm run build exits 0 (run ONCE at end)
-2. npm run preview serves real content
+2. dist/index.html uses RELATIVE asset paths (keep `base: './'` in vite.config.ts — required for /p/<slug>/ subpath hosting; never use absolute /assets/... paths)
+3. npm run preview serves real content
 3. All SPEC features + constraints work
 4. README.md exists
 
