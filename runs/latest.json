@@ -1,17 +1,17 @@
 {
-  "slug": "habit-constellation-3233",
+  "slug": "habit-constellation-bgoc",
   "title": "Habit Constellation",
   "stack": "vite",
-  "aesthetic": "vaporwave",
-  "model": "opencode/deepseek-v4-flash-free",
-  "modelVia": "recovered",
-  "verifyLine": {
-    "build": "pass"
-  },
-  "buildPassed": true,
+  "aesthetic": "cyberpunk",
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "buildPassed": false,
   "verify": {
-    "ok": true
+    "ok": false,
+    "reason": "build failed",
+    "log": "npm error Missing script: \"build\"\nnpm error\nnpm error To see a list of scripts, run:\nnpm error   npm run\nnpm error A complete log of this run can be found in: /Users/jovyllebermudez/.npm/_logs/2026-09-03T20_43_49_199Z-debug-0.log\n"
   },
-  "elapsedMs": 0,
-  "at": "2026-09-02T01:10:58.528Z"
+  "elapsedMs": 801478,
+  "at": "2026-09-03T20:43:49.257Z"
 }
