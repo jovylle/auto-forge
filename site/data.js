@@ -164,6 +164,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/deepseek-v4-flash-free (recovered build)"
+  },
+  {
+    "slug": "habit-constellation-bgoc",
+    "title": "Habit Constellation",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "cyberpunk",
+    "theme": "color",
+    "constraints": [
+      "single HTML file if html stack, single component if vite",
+      "must work with keyboard only"
+    ],
+    "description": "Your habits as a star map.",
+    "features": [
+      "habit input",
+      "constellation viz",
+      "streak glow"
+    ],
+    "tags": [
+      "habit",
+      "viz",
+      "canvas"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-03T20:30:09.919Z",
+    "updatedAt": "2026-09-03T20:43:49.255Z",
+    "buildPassed": false,
+    "lastError": "build failed",
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 6, done: 6, counts: {"done":6} };
+export const stats = { total: 7, done: 6, counts: {"done":6,"needs-human":1} };

@@ -2,10 +2,17 @@
   "slug": "habit-constellation-bgoc",
   "title": "Habit Constellation",
   "stack": "vite",
+  "stackReason": "no strong keyword — random",
   "aesthetic": "cyberpunk",
+  "theme": "color",
+  "constraints": [
+    "single HTML file if html stack, single component if vite",
+    "must work with keyboard only"
+  ],
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": false,
   "verify": {
     "ok": false,

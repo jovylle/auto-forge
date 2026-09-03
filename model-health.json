@@ -3,5 +3,10 @@
     "failStreak": 2,
     "lastFail": "2026-09-01T01:00:42.021Z",
     "lastError": "{\"type\":\"error\",\"timestamp\":1788224442005,\"sessionID\":\"ses_fa584729afferq1vQTMufudb1P\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_8aadc20f\"}}}\n"
+  },
+  "opencode-go/deepseek-v4-flash": {
+    "failStreak": 0,
+    "lastFail": null,
+    "lastError": ""
   }
 }

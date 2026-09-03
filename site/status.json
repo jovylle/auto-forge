@@ -1,7 +1,8 @@
 {
-  "total": 6,
+  "total": 7,
   "counts": {
-    "done": 6
+    "done": 6,
+    "needs-human": 1
   },
   "projects": [
     {
@@ -124,6 +125,28 @@
       "updatedAt": "2026-09-02T01:10:58.524Z",
       "lastError": null,
       "lastModel": "opencode/deepseek-v4-flash-free (recovered build)"
+    },
+    {
+      "slug": "habit-constellation-bgoc",
+      "title": "Habit Constellation",
+      "status": "needs-human",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "category": "viz",
+      "aesthetic": "cyberpunk",
+      "theme": "color",
+      "constraints": [
+        "single HTML file if html stack, single component if vite",
+        "must work with keyboard only"
+      ],
+      "tags": [
+        "habit",
+        "viz",
+        "canvas"
+      ],
+      "updatedAt": "2026-09-03T20:43:49.255Z",
+      "lastError": "build failed",
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
@@ -138,14 +161,21 @@
       "failStreak": 2,
       "lastFail": "2026-09-01T01:00:42.021Z",
       "lastError": "{\"type\":\"error\",\"timestamp\":1788224442005,\"sessionID\":\"ses_fa584729afferq1vQTMufudb1P\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_8aadc20f\"}}}\n"
+    },
+    "opencode-go/deepseek-v4-flash": {
+      "failStreak": 0,
+      "lastFail": null,
+      "lastError": ""
     }
   },
   "logs": [
     "chromatic-calendar-mood-as-color-nk6c.log",
-    "habit-constellation-3233.log"
+    "cron-2026-09-04.log",
+    "habit-constellation-3233.log",
+    "habit-constellation-bgoc.log"
   ],
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-03T15:22:07.967Z"
+  "updatedAt": "2026-09-03T20:43:49.291Z"
 }
