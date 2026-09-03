@@ -81,7 +81,7 @@ const card = (p)=>`
     <div style="opacity:.6;font-size:11px;margin-bottom:6px">${p.stackReason||""} ${p.theme?`· theme ${p.theme}`:""} ${p.constraints?`· ${p.constraints.join(" · ")}`:""}</div>
     <div>${(p.tags||[]).map(t=>`<span class="tag">${t}</span>`).join("")}</div>
     ${p.status==="needs-human"&&p.lastError?`<div style="margin-top:8px;font-size:11px;color:#f88;opacity:.8">${String(p.lastError).slice(0,140)}…</div>`:""}
-    ${p.status==="done"||p.status==="needs-iteration"?`<div style="margin-top:10px"><a href="./p/${p.slug}/">open →</a> <a href="https://${p.slug}.af.uft1.com/" style="margin-left:8px;opacity:.6">${p.slug}.af.uft1.com</a></div>`:`<div style="margin-top:10px;opacity:.5;font-size:11px">updated ${(p.updatedAt||"").slice(0,10)||"—"}</div>`}
+    ${p.status==="done"||p.status==="needs-iteration"?`<div style="margin-top:10px"><a href="./p/${p.slug}/">open →</a> <a href="https://${p.slug}-af.uft1.com/" style="margin-left:8px;opacity:.6">${p.slug}-af.uft1.com</a></div>`:`<div style="margin-top:10px;opacity:.5;font-size:11px">updated ${(p.updatedAt||"").slice(0,10)||"—"}</div>`}
   </div>`;
 
 const galleryHtml = `<!doctype html><html lang="en"><head>

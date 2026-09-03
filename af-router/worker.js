@@ -4,8 +4,12 @@ export default {
     const host = url.hostname;
     const ORIGIN = "https://auto-forge-7dq.pages.dev";
 
-    // today.af.uft1.com → redirect to newest done project
-    if (host === "today.af.uft1.com" || host === "today-af.uft1.com") {
+    // URL RULE: only single-level *-af.uft1.com (e.g. void-typist-af.uft1.com).
+    // NEVER use nested *.af.uft1.com (<slug>.af.uft1.com) — Universal SSL only
+    // covers *.uft1.com (one level), so deeper subdomains fail TLS.
+
+    // today-af.uft1.com → redirect to newest done project
+    if (host === "today-af.uft1.com") {
       try {
         const s = await fetch(ORIGIN + "/status.json");
         if (s.ok) {
@@ -23,13 +27,9 @@ export default {
       return fetch(ORIGIN + url.pathname + url.search, request);
     }
 
-    // *.af.uft1.com (e.g. void-typist.af.uft1.com) OR *-af.uft1.com (void-typist-af.uft1.com)
-    // Both should resolve to /p/<slug>/
+    // *-af.uft1.com (e.g. void-typist-af.uft1.com) → /p/<slug>/
     let slug = null;
-    if (host.endsWith(".af.uft1.com")) {
-      slug = host.slice(0, -".af.uft1.com".length);
-      if (slug.endsWith("-af")) slug = slug.slice(0, -3);
-    } else if (host.endsWith("-af.uft1.com")) {
+    if (host.endsWith("-af.uft1.com")) {
       slug = host.slice(0, -"-af.uft1.com".length);
     }
     if (slug !== null) {
@@ -54,7 +54,7 @@ export default {
       if (ct.includes("text/html")) {
         let html = await res.text();
         if (!html.includes("af-toolbar")) {
-          const toolbar = `<style>#af-toolbar{position:fixed;top:0;left:0;right:0;background:#111119ee;border-bottom:1px solid #222;display:flex;gap:8px;align-items:center;padding:8px 12px;font:12px system-ui;z-index:9999;backdrop-filter:blur(8px)}#af-toolbar a{color:#8ab4ff;text-decoration:none;border:1px solid #222;border-radius:999px;padding:4px 10px;background:#1a1a2a}#af-toolbar a:hover{border-color:#8ab4ff}body{padding-top:42px!important}</style><div id="af-toolbar"><a href="https://af.uft1.com">← gallery</a><a href="https://today-af.uft1.com">today</a><span style="margin-left:auto;opacity:.6">${slug}</span><a href="https://af.uft1.com/status.json" target="_blank">status</a><a href="https://af.uft1.com/runs/latest.json" target="_blank">run</a></div>`;
+          const toolbar = `<style>#af-toolbar{position:fixed;top:0;left:0;right:0;background:#111119ee;border-bottom:1px solid #222;display:flex;gap:8px;align-items:center;padding:8px 12px;font:12px system-ui;z-index:9999;backdrop-filter:blur(8px)}#af-toolbar a{color:#8ab4ff;text-decoration:none;border:1px solid #222;border-radius:999px;padding:4px 10px;background:#1a1a2a}#af-toolbar a:hover{border-color:#8ab4ff}body{padding-top:42px!important}</style><div id=\"af-toolbar\"><a href=\"https://af.uft1.com\">← gallery</a><a href=\"https://today-af.uft1.com\">today</a><span style=\"margin-left:auto;opacity:.6\">${slug}</span><a href=\"https://af.uft1.com/status.json\" target=\"_blank\">status</a><a href=\"https://af.uft1.com/runs/latest.json\" target=\"_blank\">run</a></div>`;
           html = html.replace(/<body[^>]*>/i, (m)=> m + toolbar);
           return new Response(html, { status: res.status, headers: { ...Object.fromEntries(res.headers), "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
         }
