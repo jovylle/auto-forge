@@ -62,6 +62,6 @@ export const config = {
   },
   limits: {
     maxFeatures: 6,
-    buildTimeoutMs: 18 * 60 * 1000,
+    buildTimeoutMs: 25 * 60 * 1000, // raised after back-to-back 18m timeout kills (bgoc-era + puddle-atlas: worker was one fix from done at 18m)
   }
 };

@@ -165,6 +165,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/deepseek-v4-flash-free (recovered build)"
+  },
+  {
+    "slug": "puddle-atlas",
+    "title": "Puddle Atlas",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "extreme-minimal",
+    "theme": "color",
+    "constraints": [
+      "must be playable in 30 seconds",
+      "must work with keyboard only"
+    ],
+    "description": "Map every puddle on your street.",
+    "features": [
+      "puddle log",
+      "rain viz",
+      "evaporation timer"
+    ],
+    "tags": [
+      "maps",
+      "weather",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-04T02:48:07.360Z",
+    "updatedAt": "2026-09-04T03:07:19Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash (worker timeout-killed at 18m, human ran final build — exit 0)"
   }
 ];
-export const stats = { total: 6, done: 6, counts: {"done":6} };
+export const stats = { total: 7, done: 7, counts: {"done":7} };
