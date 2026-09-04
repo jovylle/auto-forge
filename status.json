@@ -1,7 +1,9 @@
 {
-  "total": 7,
+  "total": 9,
   "counts": {
-    "done": 7
+    "done": 7,
+    "queued": 1,
+    "needs-iteration": 1
   },
   "projects": [
     {
@@ -146,6 +148,49 @@
       "updatedAt": "2026-09-04T03:07:19Z",
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash (worker timeout-killed at 18m, human ran final build — exit 0)"
+    },
+    {
+      "slug": "ghost-antenna",
+      "title": "Ghost Antenna",
+      "status": "queued",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "category": "social",
+      "aesthetic": "grunge",
+      "theme": "color",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "must be playable in 30 seconds"
+      ],
+      "tags": [
+        "radio",
+        "social",
+        "audio"
+      ],
+      "updatedAt": "2026-09-04T09:08:07.875Z",
+      "lastError": null,
+      "lastModel": null
+    },
+    {
+      "slug": "moss-clock",
+      "title": "Moss Clock",
+      "status": "needs-iteration",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "category": "art",
+      "aesthetic": "organic-brutalist",
+      "theme": "color",
+      "constraints": [
+        "must work with keyboard only"
+      ],
+      "tags": [
+        "time",
+        "art",
+        "canvas"
+      ],
+      "updatedAt": "2026-09-04T09:49:15.973Z",
+      "lastError": "build failed",
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
@@ -162,8 +207,8 @@
       "lastError": "{\"type\":\"error\",\"timestamp\":1788490100897,\"sessionID\":\"ses_f95aed0a9ffecUCWnl1maMh64y\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_f4e18ca9\"}}}\n"
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 1,
-      "lastFail": "2026-09-04T03:06:29.499Z",
+      "failStreak": 2,
+      "lastFail": "2026-09-04T09:49:14.026Z",
       "lastError": ""
     }
   },
@@ -172,11 +217,13 @@
     "cron-2026-09-04.log",
     "habit-constellation-3233.log",
     "habit-constellation-bgoc.log",
+    "moss-clock.log",
     "puddle-atlas.log",
+    "triage-2026-09-04-puddle.log",
     "triage-2026-09-04.log"
   ],
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-04T03:07:34.979Z"
+  "updatedAt": "2026-09-04T09:49:16.126Z"
 }
