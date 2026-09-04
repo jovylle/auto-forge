@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-04",
+  "runs": [
+    {
+      "slug": "puddle-atlas",
+      "title": "Puddle Atlas",
+      "stack": "vite",
+      "aesthetic": "extreme-minimal",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback after preflight fail",
+      "verifyLine": null,
+      "buildPassed": false,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 1079955,
+      "at": "2026-09-04T03:06:30.283Z"
+    }
+  ],
+  "updatedAt": "2026-09-04T03:06:30.283Z"
+}

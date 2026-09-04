@@ -1,7 +1,8 @@
 {
-  "total": 6,
+  "total": 7,
   "counts": {
-    "done": 6
+    "done": 6,
+    "needs-human": 1
   },
   "projects": [
     {
@@ -124,6 +125,28 @@
       "updatedAt": "2026-09-02T01:10:58.524Z",
       "lastError": null,
       "lastModel": "opencode/deepseek-v4-flash-free (recovered build)"
+    },
+    {
+      "slug": "puddle-atlas",
+      "title": "Puddle Atlas",
+      "status": "needs-human",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "category": "viz",
+      "aesthetic": "extreme-minimal",
+      "theme": "color",
+      "constraints": [
+        "must be playable in 30 seconds",
+        "must work with keyboard only"
+      ],
+      "tags": [
+        "maps",
+        "weather",
+        "canvas"
+      ],
+      "updatedAt": "2026-09-04T03:06:30.280Z",
+      "lastError": "s/src/rain.ts\",\"time\":{\"start\":1788491186232,\"end\":1788491186237}},\"id\":\"prt_06a61bcfb0011x7p2eB6y3Q932\",\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"messageID\":\"msg_06a618ebe0013mhdoNFR7eTzW6\"}}\n{\"type\":\"text\",\"timestamp\":1788491186451,\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"part\":{\"id\":\"prt_06a61bbd7001LLDjtn9NXeqeUU\",\"messageID\":\"msg_06a618ebe0013mhdoNFR7eTzW6\",\"sessionID\":\"ses_f95aeaaa0",
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
@@ -135,13 +158,13 @@
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
-      "failStreak": 2,
-      "lastFail": "2026-09-01T01:00:42.021Z",
-      "lastError": "{\"type\":\"error\",\"timestamp\":1788224442005,\"sessionID\":\"ses_fa584729afferq1vQTMufudb1P\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_8aadc20f\"}}}\n"
+      "failStreak": 3,
+      "lastFail": "2026-09-04T02:48:20.912Z",
+      "lastError": "{\"type\":\"error\",\"timestamp\":1788490100897,\"sessionID\":\"ses_f95aed0a9ffecUCWnl1maMh64y\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_f4e18ca9\"}}}\n"
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 0,
-      "lastFail": null,
+      "failStreak": 1,
+      "lastFail": "2026-09-04T03:06:29.499Z",
       "lastError": ""
     }
   },
@@ -149,10 +172,12 @@
     "chromatic-calendar-mood-as-color-nk6c.log",
     "cron-2026-09-04.log",
     "habit-constellation-3233.log",
-    "habit-constellation-bgoc.log"
+    "habit-constellation-bgoc.log",
+    "puddle-atlas.log",
+    "triage-2026-09-04.log"
   ],
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-03T20:46:25.458Z"
+  "updatedAt": "2026-09-04T03:06:30.316Z"
 }

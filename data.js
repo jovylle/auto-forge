@@ -165,6 +165,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/deepseek-v4-flash-free (recovered build)"
+  },
+  {
+    "slug": "puddle-atlas",
+    "title": "Puddle Atlas",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "extreme-minimal",
+    "theme": "color",
+    "constraints": [
+      "must be playable in 30 seconds",
+      "must work with keyboard only"
+    ],
+    "description": "Map every puddle on your street.",
+    "features": [
+      "puddle log",
+      "rain viz",
+      "evaporation timer"
+    ],
+    "tags": [
+      "maps",
+      "weather",
+      "canvas"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-04T02:48:07.360Z",
+    "updatedAt": "2026-09-04T03:06:30.280Z",
+    "buildPassed": false,
+    "lastError": "s/src/rain.ts\",\"time\":{\"start\":1788491186232,\"end\":1788491186237}},\"id\":\"prt_06a61bcfb0011x7p2eB6y3Q932\",\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"messageID\":\"msg_06a618ebe0013mhdoNFR7eTzW6\"}}\n{\"type\":\"text\",\"timestamp\":1788491186451,\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"part\":{\"id\":\"prt_06a61bbd7001LLDjtn9NXeqeUU\",\"messageID\":\"msg_06a618ebe0013mhdoNFR7eTzW6\",\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"type\":\"text\",\"text\":\"Found it: this browser has `prefers-reduced-motion: reduce`, so the rain uses the stipple path — and my stipple code clears the canvas every frame but only draws once per second, so dots are wiped almost immediately. Fixing the reduced-motion rendering:\",\"time\":{\"start\":1788491185111,\"end\":1788491186443}}}\n{\"type\":\"step_finish\",\"timestamp\":1788491186590,\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"part\":{\"id\":\"prt_06a61c182001PFDIhqqcdL0iKO\",\"reason\":\"tool-calls\",\"snapshot\":\"9f25a36cb1f4c506fcb7f5dd42f40ad50e0b3496\",\"messageID\":\"msg_06a618ebe0013mhdoNFR7eTzW6\",\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"type\":\"step-finish\",\"tokens\":{\"total\":136564,\"input\":282,\"output\":2138,\"reasoning\":0,\"cache\":{\"write\":0,\"read\":134144}},\"cost\":0.002412128}}\n{\"type\":\"step_start\",\"timestamp\":1788491188222,\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"part\":{\"id\":\"prt_06a61c7fa001IQXfzk6wmZbVEv\",\"messageID\":\"msg_06a61c1d50015c40DiC5sDXqRj\",\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"snapshot\":\"9f25a36cb1f4c506fcb7f5dd42f40ad50e0b3496\",\"type\":\"step-start\"}}\n",
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 6, done: 6, counts: {"done":6} };
+export const stats = { total: 7, done: 6, counts: {"done":6,"needs-human":1} };
