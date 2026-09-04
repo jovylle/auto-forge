@@ -2,14 +2,21 @@
   "slug": "ghost-antenna",
   "title": "Ghost Antenna",
   "stack": "vite",
+  "stackReason": "no strong keyword — random",
   "aesthetic": "grunge",
+  "theme": "color",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "must be playable in 30 seconds"
+  ],
   "model": "opencode/deepseek-v4-flash-free",
   "modelVia": "fallback retry",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": false,
   "verify": {
     "ok": true
   },
   "elapsedMs": 1455,
-  "at": "2026-09-04T22:32:00.262Z"
+  "at": "2026-09-04T22:32:00.261Z"
 }
