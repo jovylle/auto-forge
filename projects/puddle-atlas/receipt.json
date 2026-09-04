@@ -2,14 +2,21 @@
   "slug": "puddle-atlas",
   "title": "Puddle Atlas",
   "stack": "vite",
+  "stackReason": "no strong keyword — random",
   "aesthetic": "extreme-minimal",
+  "theme": "color",
+  "constraints": [
+    "must be playable in 30 seconds",
+    "must work with keyboard only"
+  ],
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback after preflight fail",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": false,
   "verify": {
     "ok": true
   },
   "elapsedMs": 1079955,
-  "at": "2026-09-04T03:06:30.283Z"
+  "at": "2026-09-04T03:06:30.282Z"
 }
