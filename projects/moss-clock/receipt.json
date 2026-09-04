@@ -9,15 +9,22 @@
     "must work with keyboard only"
   ],
   "model": "opencode-go/deepseek-v4-flash",
-  "modelVia": "fallback (primary demoted)",
+  "modelVia": "fallback after preflight fail",
   "verifyLine": null,
-  "workerResult": null,
-  "buildPassed": false,
-  "verify": {
-    "ok": false,
-    "reason": "build failed",
-    "log": "\n> moss-clock@0.0.0 build\n> tsc -b && vite build\n\nsrc/draw.ts(144,16): error TS18048: 's' is possibly 'undefined'.\nsrc/draw.ts(145,16): error TS18048: 's' is possibly 'undefined'.\nsrc/draw.ts(146,23): error TS18048: 's' is possibly 'undefined'.\nsrc/draw.ts(149,29): error TS18048: 's' is possibly 'undefined'.\nsrc/draw.ts(150,19): error TS2345: Argument of type 'HTMLCanvasElement | undefined' is not assignable to parameter of type 'CanvasImageSource'.\n  Type 'undefined' is not assignable to type 'CanvasImageSource'.\nsrc/draw.ts(150,27): error TS18048: 's' is possibly 'undefined'.\nsrc/sim.ts(14,10): error TS6133: 'phaseDef' is declared but its value is never read.\nsrc/sim.ts(146,18): error TS18048: 'anchor' is possibly 'undefined'.\nsrc/sim.ts(148,16): error TS18048: 'anchor' is possibly 'undefined'.\nsrc/sim.ts(149,16): error TS18048: 'anchor' is possibly 'undefined'.\nsrc/sim.ts(175,20): error TS2532: Object is possibly 'undefined'.\nsrc/sim.ts(226,71): error TS2532: Object is possibly 'undefined'.\nsrc/sim.ts(243,39): error TS2532: Object is possibly 'undefined'.\nsrc/sim.ts(244,29): error TS2532: Object is possibly 'undefined'.\nsrc/sim.ts(307,32): error TS18048: 'def' is possibly 'undefined'.\nsrc/sim.ts(307,51): error TS18048: 'def' is possibly 'undefined'.\nsrc/sim.ts(307,75): error TS18048: 'def' is possibly 'undefined'.\nsrc/sim.ts(310,42): error TS18048: 'def' is possibly 'undefined'.\nsrc/sim.ts(311,16): error TS18048: 'def' is possibly 'undefined'.\nsrc/sim.ts(311,45): error TS18048: 'def' is possibly 'undefined'.\n"
+  "workerResult": {
+    "status": "pass",
+    "summary": "Fixed prior build failure (18 strict-mode noUncheckedIndexedAccess errors in draw.ts/sim.ts) and hardened two reviewer findings: bounded breath stall catch-up so moss never grows while away, and added role=timer to the clock for screen readers. All three features verified live in-browser: breath timer (4/4/6), canvas moss growth with coverage/lushness, stillness score with alarm state. Keyboard-only confirmed (Space/Esc/arrows/?/R + Tab focus trap). Build exits 0, lint clean, dist uses relative paths, preview serves real content.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "breath timer",
+      "moss growth",
+      "stillness score"
+    ]
   },
-  "elapsedMs": 1500045,
-  "at": "2026-09-04T09:49:15.997Z"
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 874241,
+  "at": "2026-09-04T16:04:46.421Z"
 }

@@ -141,13 +141,14 @@ export function drawMoss(ctx: CanvasRenderingContext2D, frame: MossFrame, sim: S
   const seeds = moss.seeds
   for (let i = 0; i < seeds.length; i++) {
     const s = seeds[i]
+    if (!s) continue
     const cx = s.x * W
     const cy = s.y * H
     const age = now - s.born
     let gs = 1
     if (age < 2400) gs = easeOutBack(Math.min(1, age / 2400))
     const R = Math.max(1.5, s.r * minDim * gs)
-    ctx.drawImage(sprites[s.t] ?? sprites[0], cx - R, cy - R, R * 2, R * 2)
+    ctx.drawImage(sprites[s.t] ?? sprites[0]!, cx - R, cy - R, R * 2, R * 2)
 
     if (lush > 0.2 && hs(i, 24) < 0.3 + lush * 0.5) {
       const a = hs(i + 100, 17) * TAU

@@ -5,7 +5,7 @@ export function ClockBlock({ view }: { view: View }) {
     <section className="panel clock-block" aria-label="Live clock">
       <div className="stamp stamp-vert">CHRONO/01</div>
       <div className="ruler-y" aria-hidden="true" />
-      <div className="clock-face" aria-label={`${view.hh}:${view.mm}:${view.ss}`}>
+      <div className="clock-face" role="timer" aria-label={`${view.hh}:${view.mm}:${view.ss}`}>
         <span className="clock-digits" aria-hidden="true">
           <span className="digit">{view.hh}</span>
           <span className="colon">:</span>

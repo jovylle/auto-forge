@@ -11,10 +11,6 @@ export const PHASES: [PhaseDef, PhaseDef, PhaseDef] = [
   { id: 'exhale', duration: 6 },
 ]
 
-function phaseDef(idx: number): PhaseDef {
-  return PHASES[idx] ?? PHASES[0]
-}
-
 export interface Seed {
   x: number
   y: number
@@ -142,6 +138,7 @@ function spawnSeeds(moss: MossData, now: number): void {
     moss.seedRng = (moss.seedRng + 0x9e3779b9) >>> 0
     const rng = mulberry32(moss.seedRng)
     const anchor = moss.seeds[Math.floor(rng() * moss.seeds.length)]
+    if (!anchor) continue
     const a = rng() * Math.PI * 2
     const dist = anchor.r * (0.6 + rng() * 1.1)
     moss.seeds.push({
@@ -159,6 +156,7 @@ export function tickSim(sim: SimState, dt: number, now: number): void {
 
   if (breath.running) {
     let remaining = breath.phaseEndAt - now
+    if (remaining < -MAX_DT * 1000) remaining = -MAX_DT * 1000
     let transitions = 0
     while (remaining <= 0 && transitions < 60) {
       transitions += 1
@@ -172,7 +170,7 @@ export function tickSim(sim: SimState, dt: number, now: number): void {
         moss.lushness = clamp(moss.lushness + 1.3, 0, 100)
         spawnSeeds(moss, now)
       }
-      remaining += PHASES[breath.phaseIdx].duration * 1000
+      remaining += PHASES[breath.phaseIdx]!.duration * 1000
     }
     if (remaining <= 0) remaining = 0
     breath.phaseEndAt = now + remaining
@@ -223,7 +221,7 @@ export function resumeBreath(sim: SimState, now: number): void {
   const b = sim.breath
   if (b.running || !b.started) return
   b.running = true
-  b.phaseEndAt = now + (b.remainingAtPause > 0 ? b.remainingAtPause : PHASES[b.phaseIdx].duration * 1000)
+  b.phaseEndAt = now + (b.remainingAtPause > 0 ? b.remainingAtPause : PHASES[b.phaseIdx]!.duration * 1000)
 }
 
 export function toggleBreath(sim: SimState, now: number): void {
@@ -240,8 +238,8 @@ export function shiftPhase(sim: SimState, dir: 1 | -1, now: number): void {
     return
   }
   b.phaseIdx = (b.phaseIdx + dir + PHASES.length) % PHASES.length
-  if (b.running) b.phaseEndAt = now + PHASES[b.phaseIdx].duration * 1000
-  else b.remainingAtPause = PHASES[b.phaseIdx].duration * 1000
+  if (b.running) b.phaseEndAt = now + PHASES[b.phaseIdx]!.duration * 1000
+  else b.remainingAtPause = PHASES[b.phaseIdx]!.duration * 1000
 }
 
 export function noteKey(sim: SimState, now: number): void {
@@ -303,7 +301,7 @@ export interface PhaseView {
 
 export function phaseOf(sim: SimState, now: number): PhaseView {
   const b = sim.breath
-  const def = PHASES[b.phaseIdx]
+  const def = PHASES[b.phaseIdx]!
   if (!b.started) return { id: def.id, remaining: def.duration, duration: def.duration, progress: 0 }
   const remainingMs = b.running ? Math.max(0, b.phaseEndAt - now) : b.remainingAtPause
   const remaining = remainingMs / 1000
