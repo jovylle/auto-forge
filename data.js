@@ -248,14 +248,14 @@ export const projects = [
       "art",
       "canvas"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-04T09:15:13.964Z",
-    "updatedAt": "2026-09-04T09:49:15.973Z",
-    "buildPassed": false,
-    "lastError": "build failed",
+    "updatedAt": "2026-09-04T16:04:46.418Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 9, done: 7, counts: {"done":7,"queued":1,"needs-iteration":1} };
+export const stats = { total: 9, done: 8, counts: {"done":8,"queued":1} };

@@ -32,7 +32,22 @@
       },
       "elapsedMs": 1500045,
       "at": "2026-09-04T09:49:16.007Z"
+    },
+    {
+      "slug": "moss-clock",
+      "title": "Moss Clock",
+      "stack": "vite",
+      "aesthetic": "organic-brutalist",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback after preflight fail",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 874241,
+      "at": "2026-09-04T16:04:46.423Z"
     }
   ],
-  "updatedAt": "2026-09-04T09:49:16.007Z"
+  "updatedAt": "2026-09-04T16:04:46.423Z"
 }
