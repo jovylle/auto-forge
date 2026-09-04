@@ -198,6 +198,65 @@
       "lastError": null,
       "retries": 1,
       "lastModel": "opencode-go/deepseek-v4-flash (worker timeout-killed at 18m, human ran final build — exit 0)"
+    },
+    {
+      "slug": "ghost-antenna",
+      "title": "Ghost Antenna",
+      "category": "social",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "aesthetic": "grunge",
+      "theme": "color",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "must be playable in 30 seconds"
+      ],
+      "description": "Leave messages for strangers' radios.",
+      "features": [
+        "message tuner",
+        "static viz",
+        "signal board"
+      ],
+      "tags": [
+        "radio",
+        "social",
+        "audio"
+      ],
+      "status": "queued",
+      "deployed": false,
+      "createdAt": "2026-09-04T09:08:07.875Z",
+      "updatedAt": "2026-09-04T09:08:07.875Z"
+    },
+    {
+      "slug": "moss-clock",
+      "title": "Moss Clock",
+      "category": "art",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "aesthetic": "organic-brutalist",
+      "theme": "color",
+      "constraints": [
+        "must work with keyboard only"
+      ],
+      "description": "A clock that grows moss when you're calm.",
+      "features": [
+        "breath timer",
+        "moss growth",
+        "stillness score"
+      ],
+      "tags": [
+        "time",
+        "art",
+        "canvas"
+      ],
+      "status": "needs-iteration",
+      "deployed": false,
+      "createdAt": "2026-09-04T09:15:13.964Z",
+      "updatedAt": "2026-09-04T09:49:15.973Z",
+      "buildPassed": false,
+      "lastError": "build failed",
+      "retries": 1,
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

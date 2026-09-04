@@ -189,14 +189,73 @@ export const projects = [
       "weather",
       "canvas"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-04T02:48:07.360Z",
-    "updatedAt": "2026-09-04T03:06:30.280Z",
+    "updatedAt": "2026-09-04T03:07:19Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash (worker timeout-killed at 18m, human ran final build — exit 0)"
+  },
+  {
+    "slug": "ghost-antenna",
+    "title": "Ghost Antenna",
+    "category": "social",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "grunge",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "must be playable in 30 seconds"
+    ],
+    "description": "Leave messages for strangers' radios.",
+    "features": [
+      "message tuner",
+      "static viz",
+      "signal board"
+    ],
+    "tags": [
+      "radio",
+      "social",
+      "audio"
+    ],
+    "status": "queued",
+    "deployed": false,
+    "createdAt": "2026-09-04T09:08:07.875Z",
+    "updatedAt": "2026-09-04T09:08:07.875Z"
+  },
+  {
+    "slug": "moss-clock",
+    "title": "Moss Clock",
+    "category": "art",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "organic-brutalist",
+    "theme": "color",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "A clock that grows moss when you're calm.",
+    "features": [
+      "breath timer",
+      "moss growth",
+      "stillness score"
+    ],
+    "tags": [
+      "time",
+      "art",
+      "canvas"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-09-04T09:15:13.964Z",
+    "updatedAt": "2026-09-04T09:49:15.973Z",
     "buildPassed": false,
-    "lastError": "s/src/rain.ts\",\"time\":{\"start\":1788491186232,\"end\":1788491186237}},\"id\":\"prt_06a61bcfb0011x7p2eB6y3Q932\",\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"messageID\":\"msg_06a618ebe0013mhdoNFR7eTzW6\"}}\n{\"type\":\"text\",\"timestamp\":1788491186451,\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"part\":{\"id\":\"prt_06a61bbd7001LLDjtn9NXeqeUU\",\"messageID\":\"msg_06a618ebe0013mhdoNFR7eTzW6\",\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"type\":\"text\",\"text\":\"Found it: this browser has `prefers-reduced-motion: reduce`, so the rain uses the stipple path — and my stipple code clears the canvas every frame but only draws once per second, so dots are wiped almost immediately. Fixing the reduced-motion rendering:\",\"time\":{\"start\":1788491185111,\"end\":1788491186443}}}\n{\"type\":\"step_finish\",\"timestamp\":1788491186590,\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"part\":{\"id\":\"prt_06a61c182001PFDIhqqcdL0iKO\",\"reason\":\"tool-calls\",\"snapshot\":\"9f25a36cb1f4c506fcb7f5dd42f40ad50e0b3496\",\"messageID\":\"msg_06a618ebe0013mhdoNFR7eTzW6\",\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"type\":\"step-finish\",\"tokens\":{\"total\":136564,\"input\":282,\"output\":2138,\"reasoning\":0,\"cache\":{\"write\":0,\"read\":134144}},\"cost\":0.002412128}}\n{\"type\":\"step_start\",\"timestamp\":1788491188222,\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"part\":{\"id\":\"prt_06a61c7fa001IQXfzk6wmZbVEv\",\"messageID\":\"msg_06a61c1d50015c40DiC5sDXqRj\",\"sessionID\":\"ses_f95aeaaa0ffe83powppCQqLh5p\",\"snapshot\":\"9f25a36cb1f4c506fcb7f5dd42f40ad50e0b3496\",\"type\":\"step-start\"}}\n",
+    "lastError": "build failed",
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 7, done: 6, counts: {"done":6,"needs-human":1} };
+export const stats = { total: 9, done: 7, counts: {"done":7,"queued":1,"needs-iteration":1} };

@@ -5,8 +5,8 @@
     "lastError": "{\"type\":\"error\",\"timestamp\":1788490100897,\"sessionID\":\"ses_f95aed0a9ffecUCWnl1maMh64y\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_f4e18ca9\"}}}\n"
   },
   "opencode-go/deepseek-v4-flash": {
-    "failStreak": 1,
-    "lastFail": "2026-09-04T03:06:29.499Z",
+    "failStreak": 2,
+    "lastFail": "2026-09-04T09:49:14.026Z",
     "lastError": ""
   }
 }

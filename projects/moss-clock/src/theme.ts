@@ -1,0 +1,16 @@
+export const C = {
+  creteBase: '#1A1E16',
+  creteSlab: '#252A20',
+  creteWell: '#0E110B',
+  bone: '#E6E1CE',
+  boneDim: '#8B8A75',
+  moss900: '#0B1F0D',
+  moss700: '#1E4A1F',
+  moss500: '#3E7B33',
+  moss300: '#7FA84B',
+  moss200: '#A9C56B',
+  moss100: '#D6E596',
+  rust: '#C4502B',
+  ochre: '#D9A441',
+  alarm: '#E8401C',
+} as const
