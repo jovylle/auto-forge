@@ -47,7 +47,22 @@
       },
       "elapsedMs": 874241,
       "at": "2026-09-04T16:04:46.423Z"
+    },
+    {
+      "slug": "ghost-antenna",
+      "title": "Ghost Antenna",
+      "stack": "vite",
+      "aesthetic": "grunge",
+      "model": "opencode/deepseek-v4-flash-free",
+      "modelVia": "fallback retry",
+      "verifyLine": null,
+      "buildPassed": false,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 1455,
+      "at": "2026-09-04T22:32:00.262Z"
     }
   ],
-  "updatedAt": "2026-09-04T16:04:46.423Z"
+  "updatedAt": "2026-09-04T22:32:00.262Z"
 }

@@ -221,10 +221,14 @@ export const projects = [
       "social",
       "audio"
     ],
-    "status": "queued",
+    "status": "needs-iteration",
     "deployed": false,
     "createdAt": "2026-09-04T09:08:07.875Z",
-    "updatedAt": "2026-09-04T09:08:07.875Z"
+    "updatedAt": "2026-09-04T22:32:00.259Z",
+    "buildPassed": false,
+    "lastError": "{\"type\":\"error\",\"timestamp\":1788561118957,\"sessionID\":\"ses_f91732a6affeTJNs3EtDOCZI3f\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_db7f6cc0\"}}}\n",
+    "retries": 1,
+    "lastModel": "opencode/deepseek-v4-flash-free"
   },
   {
     "slug": "moss-clock",
@@ -258,4 +262,4 @@ export const projects = [
     "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 9, done: 8, counts: {"done":8,"queued":1} };
+export const stats = { total: 9, done: 8, counts: {"done":8,"needs-iteration":1} };
