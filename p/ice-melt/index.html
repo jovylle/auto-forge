@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ICE_MELT // CRYO-MONITOR</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="hud top">
+    <div class="title">ICE_MELT<span class="cursor">█</span><span class="divider">::</span>CRYO-MONITOR v2.9</div>
+    <div class="clock" id="clock">--:--:-- UTC</div>
+  </header>
+
+  <aside class="hud gauge" aria-label="Sea level rise meter">
+    <div class="gauge-label">SEA&nbsp;LEVEL</div>
+    <div class="gauge-body">
+      <div class="gauge-fill" id="gaugeFill"></div>
+      <div class="gauge-ticks" id="gaugeTicks"></div>
+    </div>
+    <div class="gauge-read"><span id="gaugeVal">+0.00m</span></div>
+  </aside>
+
+  <aside class="hud telemetry">
+    <div class="row"><span class="k">ΔT</span><span class="v" id="anomaly">0.0°C</span></div>
+    <div class="row"><span class="k">ICE</span><span class="v" id="ice">100%</span></div>
+    <div class="row"><span class="k">STATUS</span><span class="v" id="status">STABLE</span></div>
+    <div class="row"><span class="k">MODE</span><span class="v">SCROLL</span></div>
+  </aside>
+
+  <div class="hud timeline" id="timeline" aria-hidden="true"></div>
+
+  <div class="hud hint" id="hint">▼ SCROLL TO ADVANCE TIME ▼</div>
+
+  <footer class="hud console">
+    <div class="year-big" aria-hidden="true"><span id="yearBig">1900</span></div>
+    <div class="scrub">
+      <input type="range" id="scrub" min="1900" max="2100" step="1" value="1900"
+             aria-label="Year" aria-valuetext="1900" />
+      <div class="scrub-scale"><span>1900</span><span>2000</span><span>2100</span></div>
+    </div>
+    <div class="boot-line" aria-hidden="true"><span class="prompt">&gt;</span> <span id="bootLine">scroll to travel</span><span class="cursor">█</span></div>
+  </footer>
+
+  <div class="boot" id="boot" role="dialog" aria-label="System boot">
+    <div class="boot-text" id="bootText"></div>
+    <div class="boot-skip">[ click / press any key to skip ]</div>
+  </div>
+
+  <div class="scroll-space" aria-hidden="true"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
