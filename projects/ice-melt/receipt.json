@@ -1,0 +1,30 @@
+{
+  "slug": "ice-melt",
+  "title": "Ice Melt",
+  "stack": "html",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "sci-fi-terminal",
+  "theme": "color",
+  "constraints": [
+    "must react to scroll"
+  ],
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Ice Melt: sci-fi-terminal glacier melt visualizer. Scroll = time travel 1900→2100. Canvas melt sim (calving, drips, ripples, snow, embers) driven by temp-anomaly anchor model; year scrubber fully synced to scroll both ways; sea-level meter (0→1.0m) on left. Boot sequence, scanlines, telemetry panel, timeline rail. Works at 375px.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "melt sim",
+      "year scrubber",
+      "sea-level meter"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 873222,
+  "at": "2026-09-05T10:41:35.351Z"
+}

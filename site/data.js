@@ -260,6 +260,36 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "ice-melt",
+    "title": "Ice Melt",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "color",
+    "constraints": [
+      "must react to scroll"
+    ],
+    "description": "Watch a glacier melt in real time.",
+    "features": [
+      "melt sim",
+      "year scrubber",
+      "sea-level meter"
+    ],
+    "tags": [
+      "climate",
+      "viz",
+      "physics"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-05T10:26:53.923Z",
+    "updatedAt": "2026-09-05T10:41:35.348Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 9, done: 9, counts: {"done":9} };
+export const stats = { total: 10, done: 10, counts: {"done":10} };

@@ -1,8 +1,8 @@
 {
-  "slug": "ghost-antenna",
-  "title": "Ghost Antenna",
-  "stack": "vite",
-  "aesthetic": "grunge",
+  "slug": "ice-melt",
+  "title": "Ice Melt",
+  "stack": "html",
+  "aesthetic": "sci-fi-terminal",
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 830474,
-  "at": "2026-09-05T04:25:01.206Z"
+  "elapsedMs": 873222,
+  "at": "2026-09-05T10:41:35.353Z"
 }
