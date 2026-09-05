@@ -321,6 +321,36 @@ export const projects = [
     "retries": 0,
     "buildPassed": true,
     "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "foghorn-funeral",
+    "title": "Foghorn Funeral",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "cyberpunk",
+    "theme": "color",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Mourn ships with layered foghorn drones.",
+    "features": [
+      "drone mixer",
+      "fog canvas",
+      "eulogy typer"
+    ],
+    "tags": [
+      "audio",
+      "canvas",
+      "webaudio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-05T23:14:54.422Z",
+    "updatedAt": "2026-09-05T23:26:53.717Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 11, done: 11, counts: {"done":11} };
+export const stats = { total: 12, done: 12, counts: {"done":12} };

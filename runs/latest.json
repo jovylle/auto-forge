@@ -1,8 +1,8 @@
 {
-  "slug": "staircase-ballads",
-  "title": "Staircase Ballads",
+  "slug": "foghorn-funeral",
+  "title": "Foghorn Funeral",
   "stack": "html",
-  "aesthetic": "japanese-minimal",
+  "aesthetic": "cyberpunk",
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 421093,
-  "at": "2026-09-05T17:08:05.917Z"
+  "elapsedMs": 709138,
+  "at": "2026-09-05T23:26:53.756Z"
 }
