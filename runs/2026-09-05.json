@@ -30,7 +30,22 @@
       },
       "elapsedMs": 873222,
       "at": "2026-09-05T10:41:35.353Z"
+    },
+    {
+      "slug": "staircase-ballads",
+      "title": "Staircase Ballads",
+      "stack": "html",
+      "aesthetic": "japanese-minimal",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 421093,
+      "at": "2026-09-05T17:08:05.917Z"
     }
   ],
-  "updatedAt": "2026-09-05T10:41:35.353Z"
+  "updatedAt": "2026-09-05T17:08:05.917Z"
 }

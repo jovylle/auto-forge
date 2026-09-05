@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Each step you climb writes a lyric." />
+  <title>Staircase Ballads</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="grain" aria-hidden="true"></div>
+
+  <header class="mast">
+    <div class="brand">
+      <span class="seal-mark" aria-hidden="true">階</span>
+      <div class="titles">
+        <h1>Staircase Ballads</h1>
+        <p class="tag">each step you climb writes a lyric</p>
+      </div>
+    </div>
+    <div class="mast-actions">
+      <button id="soundBtn" class="icon-btn" aria-label="Toggle sound" title="Sound">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/>
+          <path id="soundWaves" d="M16 8a5 5 0 0 1 0 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button id="archiveBtn" class="icon-btn" aria-label="Open ballad archive" title="Ballad archive">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M8 6l2-3h4l2 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M8 12h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="scene">
+      <div class="counter">
+        <span id="stepNum" class="step-num">0</span>
+        <span class="count-cap">steps</span>
+        <span id="floorTag" class="floor-tag">floor 0 of 4</span>
+      </div>
+      <div class="stair-wrap">
+        <svg id="stairSvg" viewBox="0 0 420 340" role="img" aria-label="A staircase of stepping stones">
+        </svg>
+      </div>
+      <div class="theme-seal">
+        <span id="themeKanji" class="theme-kanji" aria-hidden="true">雨</span>
+        <span id="themeName" class="theme-name">Rain</span>
+      </div>
+    </section>
+
+    <section class="sheet">
+      <div id="thread" class="thread" aria-hidden="true"><span>一首</span></div>
+      <div id="lyrics" class="lyrics" aria-live="polite" aria-label="Lyric in progress"></div>
+      <div id="stamp" class="stamp" aria-hidden="true"><span>一首</span></div>
+      <div class="sheet-caption">
+        <span id="balladTitle" class="ballad-title">a blank stair</span>
+        <span id="sheetMeta" class="sheet-meta"></span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="dock">
+    <button id="stepBtn" class="step-btn" aria-label="Take a step">
+      <span class="step-btn-txt">Step</span>
+      <kbd>space</kbd>
+    </button>
+    <button id="newBtn" class="ghost-btn">New Ballad</button>
+    <div id="status" class="status">press space to take the first step</div>
+  </footer>
+
+  <div id="veil" class="veil" hidden></div>
+
+  <aside id="drawer" class="drawer" aria-hidden="true" aria-label="Ballad archive">
+    <div class="drawer-head">
+      <h2>Ballad Archive</h2>
+      <button id="drawerClose" class="icon-btn" aria-label="Close archive">×</button>
+    </div>
+    <ul id="archiveList" class="archive-list"></ul>
+  </aside>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Saved ballad">
+    <button id="modalClose" class="icon-btn modal-x" aria-label="Close ballad">×</button>
+    <div class="modal-sheet">
+      <div id="modalSeal" class="modal-seal" aria-hidden="true"></div>
+      <div id="modalLyrics" class="modal-lyrics" aria-label="Ballad text"></div>
+    </div>
+    <div class="modal-meta">
+      <span id="modalTitle" class="modal-title"></span>
+      <span id="modalDate" class="modal-date"></span>
+      <button id="modalDelete" class="link-btn">discard</button>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

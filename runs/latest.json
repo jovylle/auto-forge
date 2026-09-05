@@ -1,8 +1,8 @@
 {
-  "slug": "ice-melt",
-  "title": "Ice Melt",
+  "slug": "staircase-ballads",
+  "title": "Staircase Ballads",
   "stack": "html",
-  "aesthetic": "sci-fi-terminal",
+  "aesthetic": "japanese-minimal",
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 873222,
-  "at": "2026-09-05T10:41:35.353Z"
+  "elapsedMs": 421093,
+  "at": "2026-09-05T17:08:05.917Z"
 }
