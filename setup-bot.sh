@@ -1,11 +1,11 @@
 #!/bin/bash
-# setup-bot.sh — (re)create the autoforge Bot + routine from scratch.
+# setup-bot.sh — (re)create the autoforgebot Bot + routine from scratch.
 # Usage: ./setup-bot.sh [--schedule "every 6h"]
 # Re-runnable: skips profile if it exists, replaces the routine job.
 set -euo pipefail
 cd "$(dirname "$0")"
 
-BOT=autoforge
+BOT=autoforgebot
 SCHEDULE="${2:-every 6h}"
 [[ "${1:-}" == "--schedule" ]] && SCHEDULE="$2"
 AF_DIR="$(pwd)"
@@ -19,7 +19,7 @@ fi
 
 # Persona (always refresh — cheap, keeps setup reproducible)
 cat > "$HOME/.hermes/profiles/$BOT/SOUL.md" <<'EOF'
-# autoforge — autonomous project builder
+# autoforgebot — autonomous project builder
 
 You build small web apps, one per tick, forever. Each tick produces a real,
 working, deployed project — no stubs, no plans-without-code.

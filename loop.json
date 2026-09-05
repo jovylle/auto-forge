@@ -1,1 +1,7 @@
-{"enabled":true,"schedule":"0 9 * * *","timezone":"Asia/Manila","lastRun":"2026-09-03T20:43:57.931Z","lastSlug":"habit-constellation"}
+{
+  "enabled": true,
+  "schedule": "0 9 * * *",
+  "timezone": "Asia/Manila",
+  "lastRun": "2026-09-05T04:25:09.614Z",
+  "lastSlug": "ghost-antenna"
+}
