@@ -36,15 +36,13 @@ export default function StaticViz({ target }: Props) {
     resize()
     window.addEventListener('resize', resize)
 
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
     let alpha = 0.4
     let last = 0
     let raf = 0
 
-    const tick = (t: number) => {
-      raf = requestAnimationFrame(tick)
-      if (t - last < FRAME) return
-      last = t
-
+    const fillFrame = () => {
       const data = img.data
       for (let i = 0; i < data.length; i += 4) {
         const v = (Math.random() * 255) | 0
@@ -54,12 +52,30 @@ export default function StaticViz({ target }: Props) {
         data[i + 3] = 255
       }
       bctx.putImageData(img, 0, 0)
-
-      alpha += (targetRef.current - alpha) * 0.12
+    }
+    const blit = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.globalAlpha = Math.max(0.02, Math.min(1, alpha))
       ctx.imageSmoothingEnabled = false
       ctx.drawImage(buf, 0, 0, BUFF_W, BUFF_H, 0, 0, canvas.width, canvas.height)
+      ctx.globalAlpha = 1
+    }
+
+    if (reduceMotion) {
+      alpha = targetRef.current
+      fillFrame()
+      blit()
+      return () => window.removeEventListener('resize', resize)
+    }
+
+    const tick = (t: number) => {
+      raf = requestAnimationFrame(tick)
+      if (t - last < FRAME) return
+      last = t
+
+      alpha += (targetRef.current - alpha) * 0.12
+      fillFrame()
+      blit()
 
       if (targetRef.current > 0.6 && Math.random() < 0.07) {
         const y = Math.random() * canvas.height

@@ -9,14 +9,23 @@
     "3 colors max (plus black/white)",
     "must be playable in 30 seconds"
   ],
-  "model": "opencode/deepseek-v4-flash-free",
-  "modelVia": "fallback retry",
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
-  "workerResult": null,
-  "buildPassed": false,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Ghost Antenna: leave messages for strangers' radios. Grunge FM-band tuner with a draggable dial + ruler, CRT static-viz that thins out on lock, character-by-character message decode, torn-paper signal board, and a broadcast composer (localStorage only). Daily-seeded ether stations, arrow-key tuning, haptics, film grain, reduced-motion support. Fixed a Composer send-button brick, added localStorage shape validation, mobile ruler-label collisions, marquee aria-hidden, and reduced-motion coverage for canvas/cursor/pulse animations.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "message tuner",
+      "static viz",
+      "signal board"
+    ]
+  },
+  "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 1455,
-  "at": "2026-09-04T22:32:00.261Z"
+  "elapsedMs": 830474,
+  "at": "2026-09-05T04:25:01.205Z"
 }

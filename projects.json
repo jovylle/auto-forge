@@ -222,14 +222,14 @@
         "social",
         "audio"
       ],
-      "status": "needs-iteration",
+      "status": "done",
       "deployed": false,
       "createdAt": "2026-09-04T09:08:07.875Z",
-      "updatedAt": "2026-09-04T22:32:00.259Z",
-      "buildPassed": false,
-      "lastError": "{\"type\":\"error\",\"timestamp\":1788561118957,\"sessionID\":\"ses_f91732a6affeTJNs3EtDOCZI3f\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_db7f6cc0\"}}}\n",
+      "updatedAt": "2026-09-05T04:25:01.203Z",
+      "buildPassed": true,
+      "lastError": null,
       "retries": 1,
-      "lastModel": "opencode/deepseek-v4-flash-free"
+      "lastModel": "opencode-go/deepseek-v4-flash"
     },
     {
       "slug": "moss-clock",

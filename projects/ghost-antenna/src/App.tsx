@@ -129,7 +129,7 @@ export default function App() {
       <div className="grain" aria-hidden="true" />
 
       <header className="header-jitter relative z-10 border-b-2 border-bone/70 bg-soot py-2">
-        <div className="marquee font-crt text-xs tracking-[0.28em] text-bone/60 uppercase">
+        <div className="marquee font-crt text-xs tracking-[0.28em] text-bone/60 uppercase" aria-hidden="true">
           <span className="marquee-inner">
             {[0, 1].map((i) => (
               <span key={i} className="inline-block">

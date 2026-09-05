@@ -609,7 +609,15 @@ button {
   .header-jitter,
   .crt-roll::before,
   .dial-hint,
-  .crt-idle {
+  .crt-idle,
+  .cursor,
+  .knob-lamp.locked,
+  .rec-dot,
+  .slip,
+  .board-enter,
+  .stamp,
+  .carrier-sweep i,
+  .readout .roll {
     animation: none;
   }
   .marquee-inner { animation-duration: 60s; }

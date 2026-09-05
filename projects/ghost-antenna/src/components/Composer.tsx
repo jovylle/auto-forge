@@ -25,7 +25,11 @@ export default function Composer({ hasBroadcast, onBroadcast }: Props) {
     if (timerRef.current) window.clearTimeout(timerRef.current)
     setOpen((o) => {
       const next = !o
-      if (next) timerRef.current = window.setTimeout(() => textareaRef.current?.focus(), 260)
+      if (next) {
+        timerRef.current = window.setTimeout(() => textareaRef.current?.focus(), 260)
+      } else {
+        setSent(false)
+      }
       return next
     })
   }

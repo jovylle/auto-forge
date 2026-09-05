@@ -143,8 +143,8 @@ export default function Tuner({ freq, locked, lockLabel, onChange }: Props) {
         }
       }}
     >
-      <div className="flex items-end gap-4 sm:gap-6">
-        <div className="relative shrink-0">
+      <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-end sm:gap-6">
+        <div className="relative shrink-0 self-center sm:self-auto">
           <div
             ref={knobRef}
             className="knob"
@@ -175,7 +175,7 @@ export default function Tuner({ freq, locked, lockLabel, onChange }: Props) {
             <div className={`knob-lamp ${locked ? 'locked' : ''}`} aria-hidden="true" />
           </div>
           {hint && (
-            <div className="dial-hint absolute -right-2 top-0 translate-x-full sm:right-[-6px] sm:top-1/2 sm:-translate-y-1/2 sm:translate-x-full">
+            <div className="dial-hint absolute left-1/2 top-full mt-2 -translate-x-1/2 sm:left-auto sm:right-[-6px] sm:top-1/2 sm:mt-0 sm:-translate-y-1/2 sm:translate-x-full">
               drag the dial
             </div>
           )}
@@ -190,7 +190,7 @@ export default function Tuner({ freq, locked, lockLabel, onChange }: Props) {
               <span className="ml-1 text-[0.45em] tracking-[0.2em] opacity-70">MHz</span>
             </div>
             <div
-              className={`font-crt text-sm tracking-[0.18em] uppercase ${
+              className={`min-w-0 truncate font-crt text-sm tracking-[0.18em] uppercase ${
                 locked ? 'text-phosphor' : 'text-bone/50'
               }`}
             >
@@ -226,7 +226,7 @@ export default function Tuner({ freq, locked, lockLabel, onChange }: Props) {
             ))}
             {ticks.majors.map((f) => (
               <div key={`t${f}`} className="ruler-tick" style={{ left: `${((f - MIN_FREQ) / BAND) * 100}%` }}>
-                <span className="ruler-label">{f}</span>
+                <span className={`ruler-label ${f % 2 === 0 ? '' : 'hidden sm:block'}`}>{f}</span>
               </div>
             ))}
             <div className="ruler-needle" style={{ left: `${needleLeft}%` }} />
