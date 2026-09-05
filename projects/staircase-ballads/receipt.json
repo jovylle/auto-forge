@@ -1,0 +1,30 @@
+{
+  "slug": "staircase-ballads",
+  "title": "Staircase Ballads",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "japanese-minimal",
+  "theme": "color",
+  "constraints": [
+    "sound on interaction (WebAudio, no assets)"
+  ],
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Staircase Ballads: a japanese-minimal generative poem machine. Each spacebar step writes a lyric line from a weather theme (Rain/Wind/Snow/Moon/Dusk) into a vertical-rl handscroll, climbs an SVG stair with a stone figure, and counts steps/floors. Twelve steps complete a ballad, sealed with a shu-red 一首 stamp and saved to the localStorage archive (browse, read, discard). All interactions emit pure WebAudio (climbing pentatonic scale + completion arpeggio), no assets. Verified in-browser: step counter, lyric engine, archive persistence, modal, sound toggle, keyboard (space/n/Esc), and 375px mobile layout with no overflow or console errors.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "step counter",
+      "lyric engine",
+      "ballad archive"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 421093,
+  "at": "2026-09-05T17:08:05.911Z"
+}

@@ -290,6 +290,37 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "staircase-ballads",
+    "title": "Staircase Ballads",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-minimal",
+    "theme": "color",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Each step you climb writes a lyric.",
+    "features": [
+      "step counter",
+      "lyric engine",
+      "ballad archive"
+    ],
+    "tags": [
+      "music",
+      "pedometer",
+      "generator"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-05T16:43:51.657Z",
+    "updatedAt": "2026-09-05T17:08:05.882Z",
+    "lastError": null,
+    "retries": 0,
+    "buildPassed": true,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 10, done: 10, counts: {"done":10} };
+export const stats = { total: 11, done: 11, counts: {"done":11} };
