@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-05",
+  "runs": [
+    {
+      "slug": "ghost-antenna",
+      "title": "Ghost Antenna",
+      "stack": "vite",
+      "aesthetic": "grunge",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 830474,
+      "at": "2026-09-05T04:25:01.206Z"
+    }
+  ],
+  "updatedAt": "2026-09-05T04:25:01.206Z"
+}

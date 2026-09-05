@@ -3,13 +3,13 @@
   "title": "Ghost Antenna",
   "stack": "vite",
   "aesthetic": "grunge",
-  "model": "opencode/deepseek-v4-flash-free",
-  "modelVia": "fallback retry",
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
-  "buildPassed": false,
+  "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 1455,
-  "at": "2026-09-04T22:32:00.262Z"
+  "elapsedMs": 830474,
+  "at": "2026-09-05T04:25:01.206Z"
 }

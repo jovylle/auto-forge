@@ -1,8 +1,7 @@
 {
   "total": 9,
   "counts": {
-    "done": 8,
-    "needs-iteration": 1
+    "done": 9
   },
   "projects": [
     {
@@ -151,7 +150,7 @@
     {
       "slug": "ghost-antenna",
       "title": "Ghost Antenna",
-      "status": "needs-iteration",
+      "status": "done",
       "stack": "vite",
       "stackReason": "no strong keyword — random",
       "category": "social",
@@ -166,9 +165,9 @@
         "social",
         "audio"
       ],
-      "updatedAt": "2026-09-04T22:32:00.259Z",
-      "lastError": "{\"type\":\"error\",\"timestamp\":1788561118957,\"sessionID\":\"ses_f91732a6affeTJNs3EtDOCZI3f\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_db7f6cc0\"}}}\n",
-      "lastModel": "opencode/deepseek-v4-flash-free"
+      "updatedAt": "2026-09-05T04:25:01.203Z",
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash"
     },
     {
       "slug": "moss-clock",
@@ -196,8 +195,8 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-04T16:04:55.027Z",
-    "lastSlug": "moss-clock"
+    "lastRun": "2026-09-04T22:32:08.842Z",
+    "lastSlug": "ghost-antenna"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -206,9 +205,9 @@
       "lastError": ""
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 1,
+      "failStreak": 0,
       "lastFail": "2026-09-04T22:31:55.486Z",
-      "lastError": "UnknownError"
+      "lastError": ""
     }
   },
   "logs": [
@@ -226,5 +225,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-04T22:32:00.313Z"
+  "updatedAt": "2026-09-05T04:25:01.246Z"
 }
