@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Foghorn Funeral — a ceremony for ships that never came home</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="fog" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div id="dim" aria-hidden="true"></div>
+
+  <!-- curtain: the ceremony cannot begin without a sound -->
+  <div id="curtain">
+    <div class="curtain-inner">
+      <p class="kicker">THE PORT OF LAST DEPARTURES</p>
+      <h1 class="curtain-title">FOGHORN<span>FUNERAL</span></h1>
+      <p class="curtain-sub">Mourn the ships the mist never gave back.<br />Raise the drones. Say the words. Sound the horn.</p>
+      <button id="begin" class="begin-btn" type="button">ENTER THE MIST&nbsp;&nbsp;—&nbsp;&nbsp;<kbd>SPACE</kbd></button>
+      <p class="hint">keyboard only&nbsp;·&nbsp;mix&nbsp;<kbd>1</kbd><kbd>2</kbd><kbd>3</kbd>&nbsp;·&nbsp;mute&nbsp;<kbd>M</kbd>&nbsp;·&nbsp;horn&nbsp;<kbd>H</kbd>/<kbd>SPACE</kbd>&nbsp;·&nbsp;eulogy&nbsp;<kbd>T</kbd>&nbsp;·&nbsp;commit&nbsp;<kbd>E</kbd></p>
+    </div>
+  </div>
+
+  <header class="mast">
+    <div class="reg"><span class="dot"></span> REGISTRY 1938 &nbsp;/&nbsp; LAST RITES</div>
+    <h1 class="title">FOGHORN<span class="accent">FUNERAL</span></h1>
+    <div class="subtitle">A CEREMONY FOR SHIPS THAT NEVER CAME HOME</div>
+  </header>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>SOUND THE HORN&nbsp;·&nbsp;LEST WE FORGET&nbsp;·&nbsp;VESSEL 1938 · THE MERIDIAN&nbsp;·&nbsp;THE MIST TAKES ALL&nbsp;·&nbsp;LIGHT A BEACON&nbsp;·&nbsp;KEYBOARD ONLY&nbsp;·&nbsp;REST IN THE DEEP&nbsp;·&nbsp;&nbsp;</span>
+      <span>SOUND THE HORN&nbsp;·&nbsp;LEST WE FORGET&nbsp;·&nbsp;VESSEL 1938 · THE MERIDIAN&nbsp;·&nbsp;THE MIST TAKES ALL&nbsp;·&nbsp;LIGHT A BEACON&nbsp;·&nbsp;KEYBOARD ONLY&nbsp;·&nbsp;REST IN THE DEEP&nbsp;·&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <main class="deck">
+    <section class="panel mixer" aria-label="drone mixer">
+      <h2 class="panel-title"><span class="no">01</span> DRONE MIXER</h2>
+      <div id="channels" class="channels"></div>
+      <button id="horn" class="horn-btn" type="button">SOUND THE HORN</button>
+      <div class="hint-row">hold on your keys&nbsp;—&nbsp;<kbd>SPACE</kbd>/<kbd>H</kbd>&nbsp;sound&nbsp;·&nbsp;<kbd>M</kbd>&nbsp;mute last</div>
+    </section>
+
+    <section class="panel eulogy" aria-label="eulogy typer">
+      <h2 class="panel-title"><span class="no">02</span> EULOGY TYPER</h2>
+      <div class="eulogy-frame">
+        <label class="sr-only" for="eulogyInput">Write the eulogy</label>
+        <textarea id="eulogyInput" spellcheck="false" rows="6" placeholder="Speak for the dead…"></textarea>
+        <div class="eulogy-meta">
+          <span id="eCount">0 words</span>
+          <span class="dim">commit&nbsp;<kbd>E</kbd>&nbsp;/&nbsp;<kbd>CTRL</kbd>+<kbd>⏎</kbd></span>
+        </div>
+      </div>
+      <button id="commit" class="commit-btn" type="button">COMMIT TO THE DEEP</button>
+    </section>
+  </main>
+
+  <footer class="helm">
+    <div id="log" class="log" aria-label="registry log"></div>
+    <div class="keys">mix <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> · mute <kbd>M</kbd> · horn <kbd>SPACE</kbd>/<kbd>H</kbd> · eulogy <kbd>T</kbd> · commit <kbd>E</kbd> · release <kbd>ESC</kbd></div>
+  </footer>
+
+  <!-- veil: the submersion -->
+  <div id="veil" aria-hidden="true">
+    <p id="veilEulogy"></p>
+    <div id="rest" class="rest">
+      <p class="rest-kicker">— THE HORN SOUNDS THREE TIMES —</p>
+      <p class="rest-title">REST IN THE DEEP</p>
+      <button id="revive" class="revive-btn" type="button">LIGHT A NEW BEACON&nbsp;&nbsp;<kbd>R</kbd></button>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

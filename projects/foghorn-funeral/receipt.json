@@ -1,0 +1,30 @@
+{
+  "slug": "foghorn-funeral",
+  "title": "Foghorn Funeral",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "cyberpunk",
+  "theme": "color",
+  "constraints": [
+    "must work with keyboard only"
+  ],
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Foghorn Funeral — a cyberpunk mourning ritual for lost ships. Three-drone Web Audio mixer (HULL/SWELL/THRENODY) whose levels drive a layered fog canvas with a bobbing, sinking ship; a serif eulogy typer with word counter and a full 'submersion' sequence (auto-type, horn, sink, REST IN THE DEEP). Fully keyboard-operable (SPACE/H horn, 1-3 faders, M mute, T eulogy, E commit, R revive, ESC release) plus native tab/arrow support. localStorage persists mix and eulogy. Verified at 375px with no console errors or horizontal overflow.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drone mixer",
+      "fog canvas",
+      "eulogy typer"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 709138,
+  "at": "2026-09-05T23:26:53.719Z"
+}
