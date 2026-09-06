@@ -51,3 +51,4 @@ Write .factory/result.json: {"status":"pass"|"fail","summary":"...","buildPassed
 Then as the VERY LAST line of your final response, emit exactly: VERIFY: {"build":"pass"|"fail","features":[...], "constraints":[...]} 
 
 Token rules: don't re-read files you already loaded, don't npm install, build once, max 1 call per subagent.
+Verify with `npm run build` + `npm run preview` and curl — NOT browser-automation loops (they burn the tick timeout; two straight ticks died mid browser-verify one fix from done).
