@@ -1,17 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Excuse Roulette</title>
-  <link rel="stylesheet" href="./style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXCUSE ROULETTE — 言い訳ルーレット</title>
+<meta name="description" content="Spin for a plausibly deniable excuse. Deniability protocol v2.4">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎰</text></svg>">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main id="app">
-    <h1>Excuse Roulette</h1>
-    <p class="sub">Spin for a plausibly deniable excuse.</p>
-    <div id="stage"></div>
-  </main>
-  <script type="module" src="./app.js"></script>
+
+<div class="bg" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="bg-floor"></div>
+  <div class="bg-sun"></div>
+  <div class="bg-kanji">言い訳</div>
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+</div>
+
+<div class="signal" aria-hidden="true">
+  <span class="signal-label">SIG</span>
+  <span class="signal-fill"></span>
+</div>
+
+<div class="glitch-overlay" aria-hidden="true"></div>
+
+<header class="hero">
+  <p class="hero-overline mono">// DENIABILITY PROTOCOL v2.4 // TOKYO NODE</p>
+  <h1 class="title">EXCUSE<span class="title-rot">ROULETTE</span></h1>
+  <p class="hero-sub">Spin for a plausibly deniable excuse.<br>Own your chaos. Deny with style.</p>
+  <p class="hero-hint mono">[ SCROLL ] to calibrate <span class="cursor">▮</span></p>
+</header>
+
+<main>
+
+  <section class="stage">
+    <div class="arena">
+      <div class="wheel-shell">
+        <div class="pointer" aria-hidden="true"><span class="pointer-gem"></span></div>
+        <canvas id="wheel" width="520" height="520" aria-label="Excuse wheel"></canvas>
+        <button id="hub" class="hub" type="button" aria-label="Spin the wheel">
+          <span class="hub-kanji">回</span>
+          <span class="hub-label mono">SPIN</span>
+        </button>
+        <div class="wheel-ring" aria-hidden="true"></div>
+      </div>
+      <p class="spin-state mono" id="spinState">IDLE · READY</p>
+    </div>
+  </section>
+
+  <section class="panel" id="result">
+    <div class="panel-head">
+      <span class="mono panel-tag">ALIBI #<span id="alibiNo">000</span></span>
+      <span class="mono panel-clock" id="clock">--:--:--</span>
+    </div>
+
+    <div class="terminal">
+      <div class="terminal-bar mono"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span> deniability.log</div>
+      <div class="terminal-body mono">
+        <p class="line line-dim">&gt; handshake <span class="ok">OK</span></p>
+        <p class="line" id="excuseName">— awaiting spin —</p>
+        <p class="line line-quote" id="excuseText">&nbsp;</p>
+      </div>
+    </div>
+
+    <div class="meter-wrap">
+      <div class="meter-head mono">
+        <span>BELIEVABILITY</span>
+        <span id="meterPct">0%</span>
+      </div>
+      <div class="meter" id="meter" aria-hidden="true">
+        <span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span>
+        <span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span><span class="led"></span>
+      </div>
+      <p class="meter-note mono" id="meterNote">deniability: untested</p>
+    </div>
+
+    <div class="actions">
+      <button id="copyBtn" class="btn btn-copy mono" type="button">
+        <span class="btn-icon">⧉</span><span id="copyLabel">COPY EXCUSE</span>
+      </button>
+      <button id="spinBtn" class="btn btn-spin mono" type="button">
+        <span class="btn-icon">⟳</span>SPIN AGAIN
+      </button>
+    </div>
+  </section>
+
+  <section class="log-section">
+    <h2 class="log-title mono">// DENIAL ARCHIVE</h2>
+    <ul class="log mono" id="log"></ul>
+    <p class="log-empty mono" id="logEmpty">no alibis filed yet. spin the wheel.</p>
+    <button id="clearLog" class="btn btn-ghost mono" type="button">PURGE ARCHIVE</button>
+  </section>
+
+</main>
+
+<footer class="foot mono">
+  EXCUSE ROULETTE · 言い訳ルーレット · runs on pure denial &amp; neon · <span id="yr"></span>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>

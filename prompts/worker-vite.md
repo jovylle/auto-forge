@@ -44,7 +44,7 @@ Use `task` tool at most once per type:
 2. dist/index.html uses RELATIVE asset paths (keep `base: './'` in vite.config.ts — required for /p/<slug>/ subpath hosting; never use absolute /assets/... paths)
 3. npm run preview serves real content
 3. All SPEC features + constraints work
-4. README.md exists
+4. README.md exists in THIS directory (never repo root)
 
 ## Final step (MANDATORY — machine-verifiable)
 Write .factory/result.json: {"status":"pass"|"fail","summary":"...","buildPassed":bool,"featuresImplemented":[...]}
