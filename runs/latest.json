@@ -1,8 +1,8 @@
 {
-  "slug": "foghorn-funeral",
-  "title": "Foghorn Funeral",
+  "slug": "excuse-roulette",
+  "title": "Excuse Roulette",
   "stack": "html",
-  "aesthetic": "cyberpunk",
+  "aesthetic": "japanese-cyberpunk",
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 709138,
-  "at": "2026-09-05T23:26:53.756Z"
+  "elapsedMs": 585752,
+  "at": "2026-09-06T05:37:50.068Z"
 }

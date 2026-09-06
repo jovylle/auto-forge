@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-06",
+  "runs": [
+    {
+      "slug": "excuse-roulette",
+      "title": "Excuse Roulette",
+      "stack": "html",
+      "aesthetic": "japanese-cyberpunk",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 585752,
+      "at": "2026-09-06T05:37:50.068Z"
+    }
+  ],
+  "updatedAt": "2026-09-06T05:37:50.068Z"
+}
