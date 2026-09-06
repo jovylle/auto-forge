@@ -1,7 +1,8 @@
 {
-  "total": 13,
+  "total": 14,
   "counts": {
-    "done": 13
+    "done": 13,
+    "needs-human": 1
   },
   "projects": [
     {
@@ -271,8 +272,29 @@
         "fun",
         "generator"
       ],
-      "updatedAt": "2026-09-06T05:37:50.025Z",
+      "updatedAt": "2026-09-06T05:39:58Z",
       "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash (built at repo root, human relocated into project + verified)"
+    },
+    {
+      "slug": "drawer-oracle",
+      "title": "Drawer Oracle",
+      "status": "needs-human",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "category": "tool",
+      "aesthetic": "cottagecore",
+      "theme": "color",
+      "constraints": [
+        "3 colors max (plus black/white)"
+      ],
+      "tags": [
+        "inventory",
+        "tool",
+        "localStorage"
+      ],
+      "updatedAt": "2026-09-06T12:07:15.197Z",
+      "lastError": "cmpl-tool-a2f143a9d4b5497d\",\"state\":{\"status\":\"completed\",\"input\":{\"function\":\"() => {\\n  const row = document.querySelector('.ledger-row');\\n  return {\\n    matched: row.classList.contains('is-matched'),\\n    found: !!row.querySelector('.found-stamp'),\\n    foundText: row.querySelector('.found-stamp')?.textContent,\\n    dimmed: row.classList.contains('is-dimmed'),\\n  };\\n}\",\"pageId\":3},\"output\":\"",
       "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
@@ -280,8 +302,8 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-05T23:27:01.908Z",
-    "lastSlug": "foghorn-funeral"
+    "lastRun": "2026-09-06T05:37:58.148Z",
+    "lastSlug": "excuse-roulette"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -290,13 +312,12 @@
       "lastError": ""
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 0,
-      "lastFail": "2026-09-04T22:31:55.486Z",
+      "failStreak": 1,
+      "lastFail": "2026-09-06T12:07:11.904Z",
       "lastError": ""
     }
   },
   "logs": [
-    "excuse-roulette.log",
     "foghorn-funeral.log",
     "ghost-antenna.log",
     "habit-constellation-3233.log",
@@ -307,10 +328,11 @@
     "staircase-ballads.log",
     "tick-2026-09-04-2350.log",
     "triage-2026-09-04-puddle.log",
-    "triage-2026-09-04.log"
+    "triage-2026-09-04.log",
+    "triage-2026-09-06-excuse.log"
   ],
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-06T05:37:50.199Z"
+  "updatedAt": "2026-09-06T12:07:15.259Z"
 }
