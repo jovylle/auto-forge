@@ -378,10 +378,10 @@ export const projects = [
     "status": "done",
     "deployed": false,
     "createdAt": "2026-09-06T05:27:50.848Z",
-    "updatedAt": "2026-09-06T05:37:50.025Z",
+    "updatedAt": "2026-09-06T05:39:58Z",
     "buildPassed": true,
     "lastError": null,
-    "lastModel": "opencode-go/deepseek-v4-flash"
+    "lastModel": "opencode-go/deepseek-v4-flash (built at repo root, human relocated into project + verified)"
   }
 ];
 export const stats = { total: 13, done: 13, counts: {"done":13} };
