@@ -351,6 +351,37 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "excuse-roulette",
+    "title": "Excuse Roulette",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "color",
+    "constraints": [
+      "no external fonts — system fonts only",
+      "must react to scroll"
+    ],
+    "description": "Spin for a plausibly deniable excuse.",
+    "features": [
+      "spin wheel",
+      "believability meter",
+      "copy excuse"
+    ],
+    "tags": [
+      "game",
+      "fun",
+      "generator"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-06T05:27:50.848Z",
+    "updatedAt": "2026-09-06T05:37:50.025Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 12, done: 12, counts: {"done":12} };
+export const stats = { total: 13, done: 13, counts: {"done":13} };

@@ -2,14 +2,21 @@
   "slug": "excuse-roulette",
   "title": "Excuse Roulette",
   "stack": "html",
+  "stackReason": "keyword html (game)",
   "aesthetic": "japanese-cyberpunk",
+  "theme": "color",
+  "constraints": [
+    "no external fonts — system fonts only",
+    "must react to scroll"
+  ],
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": true,
   "verify": {
     "ok": true
   },
   "elapsedMs": 585752,
-  "at": "2026-09-06T05:37:50.068Z"
+  "at": "2026-09-06T05:37:50.045Z"
 }
