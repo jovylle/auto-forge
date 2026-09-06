@@ -106,6 +106,36 @@ async function spawnWorker(dir, prompt, model) {
   });
 }
 
+const ROOT_STRAY_FILES = ["index.html", "app.js", "style.css"];
+function snapshotRoot() {
+  const snap = { readme: null, strays: [] };
+  try { snap.readme = fs.readFileSync(path.join(ROOT, "README.md"), "utf8"); } catch {}
+  for (const f of ROOT_STRAY_FILES) if (fs.existsSync(path.join(ROOT, f))) snap.strays.push(f);
+  return snap;
+}
+function reclaimRootFiles(dir, snap, slug) {
+  // Workers keep building in the repo root instead of their project dir.
+  // Pull misplaced work back into the project and restore the root.
+  try {
+    const cur = fs.readFileSync(path.join(ROOT, "README.md"), "utf8");
+    if (snap.readme !== null && cur !== snap.readme) {
+      const dest = path.join(dir, "README.md");
+      if (!fs.existsSync(dest)) { fs.writeFileSync(dest, cur); log(`  root-guard: worker overwrote root README.md — copy saved to ${slug}/README.md`); }
+      else log(`  root-guard: worker overwrote root README.md (project copy exists — restoring root)`);
+      fs.writeFileSync(path.join(ROOT, "README.md"), snap.readme);
+    }
+  } catch(e) { log("  root-guard README failed", e.message); }
+  for (const f of ROOT_STRAY_FILES) {
+    const rp = path.join(ROOT, f);
+    if (!fs.existsSync(rp) || snap.strays.includes(f)) continue;
+    try {
+      const dest = path.join(dir, f);
+      if (!fs.existsSync(dest)) { fs.renameSync(rp, dest); log(`  root-guard: worker stray root ${f} → ${slug}/${f}`); }
+      else { fs.rmSync(rp); log(`  root-guard: removed duplicate root stray ${f}`); }
+    } catch(e) { log(`  root-guard ${f} failed`, e.message); }
+  }
+}
+
 function parseVerify(out) {
   // find last VERIFY: {...} line
   const m = out.match(/VERIFY:\s*(\{[\s\S]*?\})\s*$/m) || out.match(/VERIFY:\s*(\{[\s\S]*?\})/);
@@ -156,7 +186,9 @@ async function buildProject(idea, isContinue=false) {
     else { log(`  both models preflight fail — proceeding with ${pick.model} anyway (will record fail)`); }
   }
 
+  const rootSnap = snapshotRoot();
   const res = await spawnWorker(dir, prompt, pick.model);
+  reclaimRootFiles(dir, rootSnap, idea.slug);
   const verifyLine = parseVerify(res.out);
 
   // persist log
@@ -238,6 +270,7 @@ async function main() {
     const retryPromptTpl = fs.readFileSync(path.join(ROOT, idea.stack==="html" ? "prompts/worker-html.md" : "prompts/worker-vite.md"),"utf8");
     const retryPrompt = renderPrompt(retryPromptTpl, idea, `\n## RETRY (fallback model) — previous worker hit UnknownError, retry with clean run. Keep any good work, ensure VERIFY line.\n`);
     const retryRes = await spawnWorker(dir, retryPrompt, altModel);
+    reclaimRootFiles(dir, rootSnap, idea.slug);
     fs.appendFileSync(path.join(LOGS_DIR, `${idea.slug}.log`), `\n\n=== FALLBACK RETRY ${altModel} ===\nSTDOUT:\n${retryRes.out}\nSTDERR:\n${retryRes.err}\n`);
     try { result.workerResult = JSON.parse(fs.readFileSync(path.join(dir, ".factory/result.json"),"utf8")); } catch {}
     result = { ...retryRes, workerResult: result.workerResult, verifyLine: parseVerify(retryRes.out), model: altModel, modelVia: "fallback retry" };

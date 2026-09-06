@@ -260,6 +260,220 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "ice-melt",
+    "title": "Ice Melt",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "color",
+    "constraints": [
+      "must react to scroll"
+    ],
+    "description": "Watch a glacier melt in real time.",
+    "features": [
+      "melt sim",
+      "year scrubber",
+      "sea-level meter"
+    ],
+    "tags": [
+      "climate",
+      "viz",
+      "physics"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-05T10:26:53.923Z",
+    "updatedAt": "2026-09-05T10:41:35.348Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "staircase-ballads",
+    "title": "Staircase Ballads",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-minimal",
+    "theme": "color",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Each step you climb writes a lyric.",
+    "features": [
+      "step counter",
+      "lyric engine",
+      "ballad archive"
+    ],
+    "tags": [
+      "music",
+      "pedometer",
+      "generator"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-05T16:43:51.657Z",
+    "updatedAt": "2026-09-05T17:08:05.882Z",
+    "lastError": null,
+    "retries": 0,
+    "buildPassed": true,
+    "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "foghorn-funeral",
+    "title": "Foghorn Funeral",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "cyberpunk",
+    "theme": "color",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Mourn ships with layered foghorn drones.",
+    "features": [
+      "drone mixer",
+      "fog canvas",
+      "eulogy typer"
+    ],
+    "tags": [
+      "audio",
+      "canvas",
+      "webaudio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-05T23:14:54.422Z",
+    "updatedAt": "2026-09-05T23:26:53.717Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "excuse-roulette",
+    "title": "Excuse Roulette",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "color",
+    "constraints": [
+      "no external fonts — system fonts only",
+      "must react to scroll"
+    ],
+    "description": "Spin for a plausibly deniable excuse.",
+    "features": [
+      "spin wheel",
+      "believability meter",
+      "copy excuse"
+    ],
+    "tags": [
+      "game",
+      "fun",
+      "generator"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-06T05:27:50.848Z",
+    "updatedAt": "2026-09-06T05:39:58Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash (built at repo root, human relocated into project + verified)"
+  },
+  {
+    "slug": "drawer-oracle",
+    "title": "Drawer Oracle",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "cottagecore",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Photograph-free junk-drawer inventory.",
+    "features": [
+      "drawer log",
+      "find my thing",
+      "declutter score"
+    ],
+    "tags": [
+      "inventory",
+      "tool",
+      "localStorage"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-06T11:41:53.625Z",
+    "updatedAt": "2026-09-06T12:20:00Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash (timeout-killed mid-verify, human ran final build — exit 0)"
+  },
+  {
+    "slug": "crumb-budget",
+    "title": "Crumb Budget",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "glassmorphism",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Track spending in snack units.",
+    "features": [
+      "expense log",
+      "snack converter",
+      "weekly chart"
+    ],
+    "tags": [
+      "finance",
+      "fun",
+      "tool"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-06T18:11:05.800Z",
+    "updatedAt": "2026-09-07T03:00:00Z",
+    "buildPassed": false,
+    "lastError": "worker hung on dead models; scaffold/design only, no app code",
+    "retries": 0
+  },
+  {
+    "slug": "neon-tide-audio-reactive-particle-shore",
+    "title": "Neon Tide — audio-reactive particle shore",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "pop-art",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Neon Tide — audio-reactive particle shore",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "canvas",
+      "audio",
+      "particles"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-06T18:18:18.059Z",
+    "updatedAt": "2026-09-07T03:00:00Z",
+    "buildPassed": false,
+    "lastError": "worker hung on dead models; scaffold/design only, no app code",
+    "retries": 0
   }
 ];
-export const stats = { total: 9, done: 9, counts: {"done":9} };
+export const stats = { total: 16, done: 14, counts: {"done":14,"needs-human":2} };

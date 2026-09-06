@@ -405,14 +405,75 @@ export const projects = [
       "tool",
       "localStorage"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-06T11:41:53.625Z",
-    "updatedAt": "2026-09-06T12:07:15.197Z",
-    "buildPassed": false,
-    "lastError": "cmpl-tool-a2f143a9d4b5497d\",\"state\":{\"status\":\"completed\",\"input\":{\"function\":\"() => {\\n  const row = document.querySelector('.ledger-row');\\n  return {\\n    matched: row.classList.contains('is-matched'),\\n    found: !!row.querySelector('.found-stamp'),\\n    foundText: row.querySelector('.found-stamp')?.textContent,\\n    dimmed: row.classList.contains('is-dimmed'),\\n  };\\n}\",\"pageId\":3},\"output\":\"Script ran on page and returned:\\n```json\\n{\\\"matched\\\":true,\\\"found\\\":true,\\\"foundText\\\":\\\"FOUND IT\\\",\\\"dimmed\\\":false}\\n```\",\"metadata\":{\"truncated\":false},\"title\":\"\",\"time\":{\"start\":1788696421373,\"end\":1788696421656}},\"id\":\"prt_0769d5eda001ZswmV5vVMMGRIA\",\"sessionID\":\"ses_f8979513bffeBHa1aNnvmscV7d\",\"messageID\":\"msg_0769d4d8d001Q77W9QQIwclPsa\"}}\n{\"type\":\"step_finish\",\"timestamp\":1788696421963,\"sessionID\":\"ses_f8979513bffeBHa1aNnvmscV7d\",\"part\":{\"id\":\"prt_0769d659e0010VxkdjTjnYj7sx\",\"reason\":\"tool-calls\",\"snapshot\":\"4c3411fec12040bfc3e64a5af67db538ab66c0a5\",\"messageID\":\"msg_0769d4d8d001Q77W9QQIwclPsa\",\"sessionID\":\"ses_f8979513bffeBHa1aNnvmscV7d\",\"type\":\"step-finish\",\"tokens\":{\"total\":98303,\"input\":1210,\"output\":325,\"reasoning\":0,\"cache\":{\"write\":0,\"read\":96768}},\"cost\":0.001158076}}\n{\"type\":\"step_start\",\"timestamp\":1788696428842,\"sessionID\":\"ses_f8979513bffeBHa1aNnvmscV7d\",\"part\":{\"id\":\"prt_0769d8127001WmlbhNm3kgFtB0\",\"messageID\":\"msg_0769d66a5001YnG1Jdi2Bbg2y7\",\"sessionID\":\"ses_f8979513bffeBHa1aNnvmscV7d\",\"snapshot\":\"4c3411fec12040bfc3e64a5af67db538ab66c0a5\",\"type\":\"step-start\"}}\n",
+    "updatedAt": "2026-09-06T12:20:00Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode-go/deepseek-v4-flash"
+    "lastModel": "opencode-go/deepseek-v4-flash (timeout-killed mid-verify, human ran final build — exit 0)"
+  },
+  {
+    "slug": "crumb-budget",
+    "title": "Crumb Budget",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "glassmorphism",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Track spending in snack units.",
+    "features": [
+      "expense log",
+      "snack converter",
+      "weekly chart"
+    ],
+    "tags": [
+      "finance",
+      "fun",
+      "tool"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-06T18:11:05.800Z",
+    "updatedAt": "2026-09-07T03:00:00Z",
+    "buildPassed": false,
+    "lastError": "worker hung on dead models; scaffold/design only, no app code",
+    "retries": 0
+  },
+  {
+    "slug": "neon-tide-audio-reactive-particle-shore",
+    "title": "Neon Tide — audio-reactive particle shore",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "pop-art",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Neon Tide — audio-reactive particle shore",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "canvas",
+      "audio",
+      "particles"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-06T18:18:18.059Z",
+    "updatedAt": "2026-09-07T03:00:00Z",
+    "buildPassed": false,
+    "lastError": "worker hung on dead models; scaffold/design only, no app code",
+    "retries": 0
   }
 ];
-export const stats = { total: 14, done: 13, counts: {"done":13,"needs-human":1} };
+export const stats = { total: 16, done: 14, counts: {"done":14,"needs-human":2} };
