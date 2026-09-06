@@ -5,8 +5,8 @@
     "lastError": ""
   },
   "opencode-go/deepseek-v4-flash": {
-    "failStreak": 0,
-    "lastFail": "2026-09-04T22:31:55.486Z",
+    "failStreak": 1,
+    "lastFail": "2026-09-06T12:07:11.904Z",
     "lastError": ""
   }
 }

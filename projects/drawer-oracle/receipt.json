@@ -2,14 +2,20 @@
   "slug": "drawer-oracle",
   "title": "Drawer Oracle",
   "stack": "vite",
+  "stackReason": "keyword vite (tool)",
   "aesthetic": "cottagecore",
+  "theme": "color",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": false,
   "verify": {
     "ok": true
   },
   "elapsedMs": 1500082,
-  "at": "2026-09-06T12:07:15.200Z"
+  "at": "2026-09-06T12:07:15.199Z"
 }
