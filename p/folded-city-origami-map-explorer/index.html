@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#171310" />
+<meta name="description" content="Folded City — a keyboard-driven origami map explorer. Pan a hand-folded paper city, unfold its districts, and share the exact sheet you're looking at." />
+<title>FOLDED CITY — an origami map field-guide</title>
+<link rel="icon" href="data:," />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Oswald:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body class="boot">
+
+  <!-- grunge atmosphere layers -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scuffs" aria-hidden="true"></div>
+  <div class="vig" aria-hidden="true"></div>
+
+  <div class="mapwrap">
+    <svg id="map" xmlns="http://www.w3.org/2000/svg"
+         role="application" aria-label="Folded City map. Arrow keys or W A S D pan, plus and minus zoom, tab to a district and press Enter to unfold it."></svg>
+  </div>
+
+  <header class="mast">
+    <div class="mast-ink">
+      <h1 class="word">FOLDED&nbsp;CITY</h1>
+      <p class="tagline">an origami field-map &middot; sheet nº <span id="sheetno">—</span> &middot; est. 1849</p>
+    </div>
+    <div class="tools" id="tools" role="toolbar" aria-label="Map tools">
+      <button type="button" data-act="new" title="Crumple a fresh city (N)"><span aria-hidden="true">⟳</span><b>new sheet</b></button>
+      <button type="button" data-act="fit" title="Frame the whole sheet (R)"><span aria-hidden="true">⌖</span><b>fit</b></button>
+      <button type="button" data-act="fold" title="Fold every district flat except the one you chose (F)"><span aria-hidden="true">▤</span><b>focus</b></button>
+      <button type="button" data-act="pins" title="Show / hide your pin flags (P)" class="on"><span aria-hidden="true">⚑</span><b>pins</b></button>
+      <button type="button" data-act="labels" title="Show / hide street &amp; district print (L)"><span aria-hidden="true">A</span><b>print</b></button>
+      <details class="exp" id="exportMenu">
+        <summary title="Share or export the sheet"><span aria-hidden="true">✂</span><b>export</b></summary>
+        <div class="exp-body">
+          <button type="button" data-exp="png">snapshot &middot; .png</button>
+          <button type="button" data-exp="svg">full poster &middot; .svg</button>
+          <button type="button" data-exp="link">copy share-link</button>
+          <button type="button" data-exp="print">print this sheet</button>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <aside class="panel" id="panel" hidden>
+    <div class="panel-card">
+      <i class="tape tt"></i><i class="tape tb"></i>
+      <div class="p-stamp"><span>unfolded</span></div>
+      <h2 id="pname">—</h2>
+      <p class="p-ep" id="pep">—</p>
+      <p class="p-note" id="pnote">—</p>
+      <dl class="p-facts">
+        <div><dt>founded</dt><dd id="pfounded">—</dd></div>
+        <div><dt>creases</dt><dd id="pcreases">—</dd></div>
+        <div><dt>density</dt><dd id="pdensity">—</dd></div>
+        <div><dt>tone</dt><dd id="ptone">—</dd></div>
+        <div><dt>folio</dt><dd id="pfolio">—</dd></div>
+      </dl>
+      <div class="p-mark">
+        <svg id="pglyph" viewBox="-56 -56 112 112" role="img" aria-hidden="true"></svg>
+        <p class="p-markname" id="plm">—</p>
+      </div>
+      <div class="p-actions">
+        <button type="button" data-act="locate" title="Fly to this district">locate</button>
+        <button type="button" data-act="pin" title="Drop a numbered pin flag">pin flag</button>
+        <button type="button" data-act="close" title="Close the fold (Esc)">close</button>
+      </div>
+    </div>
+  </aside>
+
+  <section class="legend" id="legend" aria-label="Legend">
+    <h3>key</h3>
+    <ul>
+      <li><i class="sw sw-road"></i>crease-avenue</li>
+      <li><i class="sw sw-bnd"></i>district seam</li>
+      <li><i class="sw sw-fold"></i>valley fold</li>
+      <li><i class="sw sw-tree"></i>paperwood</li>
+      <li><i class="sw sw-pin"></i>your pin</li>
+    </ul>
+  </section>
+
+  <div class="pintray" id="pintray" aria-live="polite"></div>
+
+  <aside class="hint" id="hint" aria-label="Keyboard guide">
+    <div class="hint-inner">
+      <b>field notes</b>
+      <div class="keys">
+        <span><kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd><em>pan</em></span>
+        <span><kbd>+</kbd><kbd>−</kbd><em>zoom</em></span>
+        <span><kbd>tab</kbd><kbd>↵</kbd><em>unfold district</em></span>
+        <span><kbd>esc</kbd><em>fold shut</em></span>
+        <span><kbd>1</kbd>–<kbd>6</kbd><em>jump pin</em></span>
+        <span><kbd>F</kbd><em>focus fold</em></span>
+        <span><kbd>N</kbd><em>new sheet</em></span>
+        <span><kbd>H</kbd><em>hide this</em></span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="coord" id="coord" aria-live="off">grid — — &nbsp;·&nbsp; zoom —%</div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="./app.js"></script>
+</body>
+</html>

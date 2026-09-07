@@ -30,7 +30,22 @@
       },
       "elapsedMs": 596305,
       "at": "2026-09-07T07:46:58.011Z"
+    },
+    {
+      "slug": "folded-city-origami-map-explorer",
+      "title": "Folded City — origami map explorer",
+      "stack": "html",
+      "aesthetic": "grunge",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 1392771,
+      "at": "2026-09-07T14:15:36.145Z"
     }
   ],
-  "updatedAt": "2026-09-07T07:46:58.011Z"
+  "updatedAt": "2026-09-07T14:15:36.145Z"
 }

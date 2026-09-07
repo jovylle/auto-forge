@@ -1,8 +1,7 @@
 {
-  "total": 17,
+  "total": 18,
   "counts": {
-    "done": 16,
-    "building": 1
+    "done": 18
   },
   "projects": [
     {
@@ -321,7 +320,7 @@
     {
       "slug": "neon-tide-audio-reactive-particle-shore",
       "title": "Neon Tide — audio-reactive particle shore",
-      "status": "building",
+      "status": "done",
       "stack": "html",
       "stackReason": "seed stack (dedup guard)",
       "category": "generative",
@@ -336,9 +335,9 @@
         "audio",
         "particles"
       ],
-      "updatedAt": "2026-09-07T07:19:26.405Z",
-      "lastError": "worker hung on dead models; scaffold/design only, no app code",
-      "lastModel": null
+      "updatedAt": "2026-09-07T08:00:00Z",
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash (result.json pass; tick died before status update; human verified)"
     },
     {
       "slug": "ghost-grid-collaborative-pixel-haunt",
@@ -361,14 +360,35 @@
       "updatedAt": "2026-09-07T07:46:57.974Z",
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "folded-city-origami-map-explorer",
+      "title": "Folded City — origami map explorer",
+      "status": "done",
+      "stack": "html",
+      "stackReason": "seed stack (dedup guard)",
+      "category": "viz",
+      "aesthetic": "grunge",
+      "theme": "color",
+      "constraints": [
+        "must work with keyboard only"
+      ],
+      "tags": [
+        "map",
+        "origami",
+        "canvas"
+      ],
+      "updatedAt": "2026-09-07T14:15:36.142Z",
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-07T01:15:35.897Z",
-    "lastSlug": "crumb-budget"
+    "lastRun": "2026-09-07T07:47:07.912Z",
+    "lastSlug": "ghost-grid-collaborative-pixel-haunt"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -383,21 +403,21 @@
     }
   },
   "logs": [
-    "ice-melt.log",
-    "moss-clock.log",
     "neon-tide-audio-reactive-particle-shore.log",
     "puddle-atlas.log",
     "staircase-ballads.log",
     "tick-2026-09-04-2350.log",
+    "tick-2026-09-07-2152.log",
     "triage-2026-09-04-puddle.log",
     "triage-2026-09-04.log",
     "triage-2026-09-06-drawer.log",
     "triage-2026-09-06-excuse.log",
     "triage-2026-09-07-crumb.log",
-    "triage-2026-09-07-models.log"
+    "triage-2026-09-07-models.log",
+    "triage-2026-09-07-neon.log"
   ],
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-07T07:46:58.210Z"
+  "updatedAt": "2026-09-07T14:15:36.227Z"
 }

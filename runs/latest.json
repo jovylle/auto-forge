@@ -1,15 +1,15 @@
 {
-  "slug": "ghost-grid-collaborative-pixel-haunt",
-  "title": "Ghost Grid — collaborative pixel haunt",
+  "slug": "folded-city-origami-map-explorer",
+  "title": "Folded City — origami map explorer",
   "stack": "html",
-  "aesthetic": "swiss",
+  "aesthetic": "grunge",
   "model": "opencode-go/deepseek-v4-flash",
-  "modelVia": "fallback (both demoted, older)",
+  "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
   "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 596305,
-  "at": "2026-09-07T07:46:58.011Z"
+  "elapsedMs": 1392771,
+  "at": "2026-09-07T14:15:36.145Z"
 }
