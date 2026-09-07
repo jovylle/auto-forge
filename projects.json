@@ -437,14 +437,14 @@
         "fun",
         "tool"
       ],
-      "status": "needs-human",
+      "status": "done",
       "deployed": false,
       "createdAt": "2026-09-06T18:11:05.800Z",
-      "updatedAt": "2026-09-07T01:15:26.195Z",
-      "buildPassed": false,
-      "lastError": "hJj\",\"snapshot\":\"12d6c90adc40d9d0208b911ef36b640964a3b4e9\",\"type\":\"step-start\"}}\n{\"type\":\"text\",\"timestamp\":1788743692823,\"sessionID\":\"ses_f86a7f698ffeGFIUyQMtpmAhJj\",\"part\":{\"id\":\"prt_0796ea74e001IadgmdDATFE4Jq\",\"messageID\":\"msg_0796ea085001dXYCca6hFxBEvu\",\"sessionID\":\"ses_f86a7f698ffeGFIUyQMtpmAhJj\",\"type\":\"text\",\"text\":\"Done. Crumb Budget is built in `projects/crumb-budget/`, all 3 features implemented, build passes, preview serves content with relative paths.\\n\\n- **Expense log** — add (emoji/name/amount/date), delete, clear shelf; persists to localStorage; each row shows money + snack equivalence.\\n- **Snack converter** — dollars → snack count with whole+change breakdown; selecting a snack re-frames the hero + ghost emoji.\\n- **Weekly chart** — 7-day bars, daily-budget dashed line, over-budget days flagged, keyboard-accessible tooltips.\\n- Constraints: exactly 3 chromatic colors (candy/toffee/pistachio) + near-black/warm-white; asymmetric candy-counter layout; Google Fonts via preconnect; glassmorphism with tilt/cursor-specular/count-up/crunch/blob micro-interactions; reduced-motion respected.\\n- Reviewer (no P0s) → fixed P1s (weekly/all-time scope split, no clobbering corrupt localStorage, count-up snap-back). Layout-verifier model was dead — self-verified instead.\\n\\nVERIFY: {\\\"build\\\":\\\"pass\\\",\\\"features\\\":[\\\"expense log\\\",\\\"snack converter\\\",\\\"weekly chart\\\"],\\\"constraints\\\":[\\\"3 colors max (plus black/white)\\\"]}\",\"time\":{\"start\":1788743690062,\"end\":1788743692817}}}\n",
+      "updatedAt": "2026-09-07T03:20:00Z",
+      "buildPassed": true,
+      "lastError": null,
       "retries": 1,
-      "lastModel": "opencode-go/deepseek-v4-flash"
+      "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, timeout before VERIFY; human ran final build — exit 0)"
     },
     {
       "slug": "neon-tide-audio-reactive-particle-shore",
