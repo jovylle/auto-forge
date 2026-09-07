@@ -1,15 +1,15 @@
 {
-  "slug": "drawer-oracle",
-  "title": "Drawer Oracle",
+  "slug": "crumb-budget",
+  "title": "Crumb Budget",
   "stack": "vite",
-  "aesthetic": "cottagecore",
+  "aesthetic": "glassmorphism",
   "model": "opencode-go/deepseek-v4-flash",
-  "modelVia": "fallback (primary demoted)",
+  "modelVia": "fallback (both demoted, older)",
   "verifyLine": null,
   "buildPassed": false,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 1500082,
-  "at": "2026-09-06T12:07:15.200Z"
+  "elapsedMs": 1500006,
+  "at": "2026-09-07T01:15:26.203Z"
 }

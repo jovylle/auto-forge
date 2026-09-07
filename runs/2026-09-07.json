@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-07",
+  "runs": [
+    {
+      "slug": "crumb-budget",
+      "title": "Crumb Budget",
+      "stack": "vite",
+      "aesthetic": "glassmorphism",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback (both demoted, older)",
+      "verifyLine": null,
+      "buildPassed": false,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 1500006,
+      "at": "2026-09-07T01:15:26.203Z"
+    }
+  ],
+  "updatedAt": "2026-09-07T01:15:26.203Z"
+}
