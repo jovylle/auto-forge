@@ -1,8 +1,8 @@
 {
-  "total": 14,
+  "total": 16,
   "counts": {
-    "done": 13,
-    "needs-human": 1
+    "done": 14,
+    "needs-human": 2
   },
   "projects": [
     {
@@ -279,7 +279,7 @@
     {
       "slug": "drawer-oracle",
       "title": "Drawer Oracle",
-      "status": "needs-human",
+      "status": "done",
       "stack": "vite",
       "stackReason": "keyword vite (tool)",
       "category": "tool",
@@ -293,46 +293,89 @@
         "tool",
         "localStorage"
       ],
-      "updatedAt": "2026-09-06T12:07:15.197Z",
-      "lastError": "cmpl-tool-a2f143a9d4b5497d\",\"state\":{\"status\":\"completed\",\"input\":{\"function\":\"() => {\\n  const row = document.querySelector('.ledger-row');\\n  return {\\n    matched: row.classList.contains('is-matched'),\\n    found: !!row.querySelector('.found-stamp'),\\n    foundText: row.querySelector('.found-stamp')?.textContent,\\n    dimmed: row.classList.contains('is-dimmed'),\\n  };\\n}\",\"pageId\":3},\"output\":\"",
+      "updatedAt": "2026-09-06T12:20:00Z",
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash (timeout-killed mid-verify, human ran final build — exit 0)"
+    },
+    {
+      "slug": "crumb-budget",
+      "title": "Crumb Budget",
+      "status": "needs-human",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "category": "tool",
+      "aesthetic": "glassmorphism",
+      "theme": "color",
+      "constraints": [
+        "3 colors max (plus black/white)"
+      ],
+      "tags": [
+        "finance",
+        "fun",
+        "tool"
+      ],
+      "updatedAt": "2026-09-07T01:15:26.195Z",
+      "lastError": "hJj\",\"snapshot\":\"12d6c90adc40d9d0208b911ef36b640964a3b4e9\",\"type\":\"step-start\"}}\n{\"type\":\"text\",\"timestamp\":1788743692823,\"sessionID\":\"ses_f86a7f698ffeGFIUyQMtpmAhJj\",\"part\":{\"id\":\"prt_0796ea74e001IadgmdDATFE4Jq\",\"messageID\":\"msg_0796ea085001dXYCca6hFxBEvu\",\"sessionID\":\"ses_f86a7f698ffeGFIUyQMtpmAhJj\",\"type\":\"text\",\"text\":\"Done. Crumb Budget is built in `projects/crumb-budget/`, all 3 features imp",
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "neon-tide-audio-reactive-particle-shore",
+      "title": "Neon Tide — audio-reactive particle shore",
+      "status": "needs-human",
+      "stack": "html",
+      "stackReason": "seed stack (dedup guard)",
+      "category": "generative",
+      "aesthetic": "pop-art",
+      "theme": "color",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "no external fonts — system fonts only"
+      ],
+      "tags": [
+        "canvas",
+        "audio",
+        "particles"
+      ],
+      "updatedAt": "2026-09-07T03:00:00Z",
+      "lastError": "worker hung on dead models; scaffold/design only, no app code",
+      "lastModel": null
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-06T05:37:58.148Z",
-    "lastSlug": "excuse-roulette"
+    "lastRun": "2026-09-06T12:07:23.320Z",
+    "lastSlug": "drawer-oracle"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
-      "failStreak": 5,
-      "lastFail": "2026-09-04T22:32:00.259Z",
-      "lastError": ""
+      "failStreak": 7,
+      "lastFail": "2026-09-06T18:19:09.639Z",
+      "lastError": "UnknownError"
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 1,
-      "lastFail": "2026-09-06T12:07:11.904Z",
+      "failStreak": 4,
+      "lastFail": "2026-09-07T01:14:52.981Z",
       "lastError": ""
     }
   },
   "logs": [
-    "foghorn-funeral.log",
-    "ghost-antenna.log",
-    "habit-constellation-3233.log",
     "habit-constellation-bgoc.log",
     "ice-melt.log",
     "moss-clock.log",
+    "neon-tide-audio-reactive-particle-shore.log",
     "puddle-atlas.log",
     "staircase-ballads.log",
     "tick-2026-09-04-2350.log",
     "triage-2026-09-04-puddle.log",
     "triage-2026-09-04.log",
-    "triage-2026-09-06-excuse.log"
+    "triage-2026-09-06-drawer.log",
+    "triage-2026-09-06-excuse.log",
+    "triage-2026-09-07-models.log"
   ],
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-06T12:07:15.259Z"
+  "updatedAt": "2026-09-07T01:15:26.352Z"
 }

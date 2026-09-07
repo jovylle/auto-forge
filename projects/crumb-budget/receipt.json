@@ -1,0 +1,30 @@
+{
+  "slug": "crumb-budget",
+  "title": "Crumb Budget",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "glassmorphism",
+  "theme": "color",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (both demoted, older)",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Crumb Budget — snack-unit spending tracker. Expense log (add/delete/persist in localStorage), snack converter (dollars to snacks with whole+change breakdown, snack picker re-frames the page), and a 7-day weekly bar chart with budget line and tooltips. Glassmorphism design on exactly 3 chromatic colors (candy/toffee/pistachio) + near-black/warm-white, Google Fonts (Fraunces/Outfit/DM Mono), asymmetric candy-counter layout, count-up hero, crunch/chew/blob micro-interactions, reduced-motion support. Build passes; preview serves content with relative asset paths.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "expense log",
+      "snack converter",
+      "weekly chart"
+    ]
+  },
+  "buildPassed": false,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 1500006,
+  "at": "2026-09-07T01:15:26.198Z"
+}
