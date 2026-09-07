@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#06070b" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%2306070b'/%3E%3Cpath d='M0 12 L16 8' stroke='%23ff2a85' stroke-width='3'/%3E%3Ccircle cx='8' cy='6' r='3' fill='%2300e5ff'/%3E%3C/svg%3E" />
+<title>NEON TIDE — audio-reactive particle shore</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body data-theme="0">
+
+<canvas id="sea" aria-hidden="true"></canvas>
+
+<div class="scene">
+
+  <header class="mast">
+    <p class="kicker">AUDIO-REACTIVE GENERATIVE &middot; N&deg;014</p>
+    <h1 class="title" aria-label="Neon Tide">
+      <span class="dupe dupe-a" aria-hidden="true">NEON&nbsp;TIDE</span>
+      <span class="dupe dupe-b" aria-hidden="true">NEON&nbsp;TIDE</span>
+      <span class="solid">NEON&nbsp;TIDE</span>
+    </h1>
+    <p class="sub">the <em>particle&nbsp;shore</em> breaks to your sound</p>
+    <span class="spark" id="mastSpark" aria-hidden="true">&#10022;</span>
+  </header>
+
+  <aside class="meter" id="meter" aria-label="bass level">
+    <span class="meter-label">BASS</span>
+    <div class="meter-track"><i class="meter-fill" id="meterFill"></i></div>
+    <b class="meter-read" id="meterRead">000</b>
+    <span class="chip" id="stateChip">AUTO</span>
+  </aside>
+
+  <p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+  <section class="dock" aria-label="controls">
+
+    <div class="btnrow">
+      <button id="micBtn" class="btn btn-primary" type="button">
+        <span class="bico">&#9835;</span><span class="btxt">TUNE&nbsp;IN</span>
+      </button>
+      <button id="surgeBtn" class="btn btn-accent" type="button">
+        <span class="bico">&#9650;</span><span class="btxt">SURGE</span>
+      </button>
+      <button id="pngBtn" class="btn" type="button">
+        <span class="bico">&#8681;</span><span class="btxt">PNG</span>
+      </button>
+      <button id="shareBtn" class="btn" type="button">
+        <span class="bico">&#128279;</span><span class="btxt">SHARE</span>
+      </button>
+    </div>
+
+    <div class="sliders">
+      <label class="slider">
+        <span class="slabel">STORM</span>
+        <input id="storm" type="range" min="0" max="100" value="55" />
+        <output id="stormOut">55</output>
+      </label>
+      <label class="slider">
+        <span class="slabel">GLOW</span>
+        <input id="glow" type="range" min="0" max="100" value="70" />
+        <output id="glowOut">70</output>
+      </label>
+      <label class="slider">
+        <span class="slabel">CREST</span>
+        <input id="crest" type="range" min="10" max="200" value="90" />
+        <output id="crestOut">90</output>
+      </label>
+    </div>
+
+    <div class="swatchrow">
+      <span class="swlabel">COLORWAY</span>
+      <div class="swatches" role="group" aria-label="color theme">
+        <button class="sw sw-0 on" data-theme="0" type="button" aria-label="pink tide">
+          <i class="sw-dot"></i><span class="sw-name">PINK</span>
+        </button>
+        <button class="sw sw-1" data-theme="1" type="button" aria-label="cyan tide">
+          <i class="sw-dot"></i><span class="sw-name">CYAN</span>
+        </button>
+        <button class="sw sw-2" data-theme="2" type="button" aria-label="volt tide">
+          <i class="sw-dot"></i><span class="sw-name">VOLT</span>
+        </button>
+      </div>
+    </div>
+
+    <p class="hint"><span class="htip">tap the sea</span> to splash &middot; <span class="htip">TUNE&nbsp;IN</span> or&nbsp;<span class="htip">SURGE</span> to wake the tide &middot; works offline</p>
+
+  </section>
+
+</div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
