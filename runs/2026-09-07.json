@@ -15,7 +15,22 @@
       },
       "elapsedMs": 1500006,
       "at": "2026-09-07T01:15:26.203Z"
+    },
+    {
+      "slug": "ghost-grid-collaborative-pixel-haunt",
+      "title": "Ghost Grid — collaborative pixel haunt",
+      "stack": "html",
+      "aesthetic": "swiss",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback (both demoted, older)",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 596305,
+      "at": "2026-09-07T07:46:58.011Z"
     }
   ],
-  "updatedAt": "2026-09-07T01:15:26.203Z"
+  "updatedAt": "2026-09-07T07:46:58.011Z"
 }

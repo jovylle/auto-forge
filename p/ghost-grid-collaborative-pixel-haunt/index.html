@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0b0b0d" />
+<title>GHOST GRID — collaborative pixel haunt</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <header id="mast">
+    <div class="mast-left">
+      <h1 class="wordmark">GHOST&nbsp;GRID</h1>
+      <p class="sub">collaborative&nbsp;pixel&nbsp;haunt</p>
+    </div>
+    <div class="mast-right" id="stats">
+      <span class="stat"><b id="statPx">0</b> px</span>
+      <span class="stat"><b id="statId">0000</b> room</span>
+    </div>
+  </header>
+
+  <div class="scrollbar" aria-hidden="true">
+    <div class="scrollbar-thumb" id="scrollThumb"></div>
+  </div>
+
+  <main id="wrap">
+    <section id="stage" aria-label="pixel canvas">
+      <canvas id="grid"></canvas>
+      <div id="ghost" class="ghost" aria-hidden="true"></div>
+    </section>
+
+    <aside id="panel">
+      <div class="panel-block">
+        <p class="block-label">INK</p>
+        <div class="swatches" id="swatches" role="group" aria-label="ink palette">
+          <button class="sw sw-red  on"  data-ink="#e6392e" aria-label="red"  style="--c:#e6392e"></button>
+          <button class="sw sw-black"     data-ink="#0b0b0d" aria-label="black" style="--c:#0b0b0d"></button>
+          <button class="sw sw-white"     data-ink="#f4f1ea" aria-label="white" style="--c:#f4f1ea"></button>
+          <button class="sw sw-blue"      data-ink="#1d4ed8" aria-label="blue"  style="--c:#1d4ed8"></button>
+        </div>
+        <p class="inkread" id="inkRead">INK · RED</p>
+      </div>
+
+      <div class="panel-block">
+        <p class="block-label">TOOL</p>
+        <div class="toolrow">
+          <button id="toolPaint" class="tool on" data-tool="paint">PAINT</button>
+          <button id="toolErase" class="tool" data-tool="erase">ERASE</button>
+        </div>
+        <div class="toolrow">
+          <button id="undoBtn" class="act">UNDO</button>
+          <button id="clearBtn" class="act danger">CLEAR</button>
+        </div>
+      </div>
+
+      <div class="panel-block">
+        <p class="block-label">EXPORT</p>
+        <div class="toolrow">
+          <button id="pngBtn" class="act">PNG</button>
+          <button id="copyBtn" class="act">COPY LINK</button>
+        </div>
+      </div>
+
+      <p class="status" id="status">READY · drag on grid to haunt</p>
+    </aside>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

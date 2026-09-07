@@ -468,13 +468,44 @@ export const projects = [
       "audio",
       "particles"
     ],
-    "status": "needs-human",
+    "status": "building",
     "deployed": false,
     "createdAt": "2026-09-06T18:18:18.059Z",
-    "updatedAt": "2026-09-07T03:00:00Z",
+    "updatedAt": "2026-09-07T07:19:26.405Z",
     "buildPassed": false,
     "lastError": "worker hung on dead models; scaffold/design only, no app code",
     "retries": 0
+  },
+  {
+    "slug": "ghost-grid-collaborative-pixel-haunt",
+    "title": "Ghost Grid — collaborative pixel haunt",
+    "category": "social",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "swiss",
+    "theme": "color",
+    "constraints": [
+      "must have an easter egg",
+      "must react to scroll"
+    ],
+    "description": "Ghost Grid — collaborative pixel haunt",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "pixel",
+      "multiplayer-ish",
+      "localStorage"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-07T07:36:31.398Z",
+    "updatedAt": "2026-09-07T07:46:57.974Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 16, done: 15, counts: {"done":15,"needs-human":1} };
+export const stats = { total: 17, done: 16, counts: {"done":16,"building":1} };
