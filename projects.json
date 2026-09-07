@@ -561,14 +561,14 @@
         "inventory",
         "drag-drop"
       ],
-      "status": "needs-human",
+      "status": "done",
       "deployed": false,
       "createdAt": "2026-09-07T20:18:09.437Z",
-      "updatedAt": "2026-09-07T20:43:33.470Z",
-      "buildPassed": false,
-      "lastError": "\":\"completed\",\"priority\":\"high\"},{\"content\":\"Build Pocket Inventory app (drag-drop backpack, sound, share/export)\",\"status\":\"completed\",\"priority\":\"high\"},{\"content\":\"npm run build (exit 0) + preview + curl verify\",\"status\":\"completed\",\"priority\":\"high\"},{\"content\":\"Dispatch reviewer, fix issues\",\"status\":\"in_progress\",\"priority\":\"medium\"},{\"content\":\"Dispatch layout-verifier, fix issues\",\"status\":\"pending\",\"priority\":\"medium\"},{\"content\":\"README.md + .factory/result.json + VERIFY line\",\"status\":\"pending\",\"priority\":\"high\"}],\"truncated\":false},\"title\":\"3 todos\",\"time\":{\"start\":1788813633928,\"end\":1788813633934}},\"id\":\"prt_07d99de7a001Bf773Rn2lYKUt2\",\"sessionID\":\"ses_f827a3faeffeEUzJBN8qx4IIvK\",\"messageID\":\"msg_07d99d7950010ohih36AWN8yxu\"}}\n{\"type\":\"step_finish\",\"timestamp\":1788813634084,\"sessionID\":\"ses_f827a3faeffeEUzJBN8qx4IIvK\",\"part\":{\"id\":\"prt_07d99ea17001MgN2inTLaBP60R\",\"reason\":\"tool-calls\",\"snapshot\":\"fe1b790ae7979363bbaad1090d5b557b7086beab\",\"messageID\":\"msg_07d99d7950010ohih36AWN8yxu\",\"sessionID\":\"ses_f827a3faeffeEUzJBN8qx4IIvK\",\"type\":\"step-finish\",\"tokens\":{\"total\":112010,\"input\":142,\"output\":252,\"reasoning\":0,\"cache\":{\"write\":0,\"read\":111616}},\"cost\":0.000978872}}\n{\"type\":\"step_start\",\"timestamp\":1788813635981,\"sessionID\":\"ses_f827a3faeffeEUzJBN8qx4IIvK\",\"part\":{\"id\":\"prt_07d99f188001ooGPBocH0tr5sT\",\"messageID\":\"msg_07d99ea42001ubPC61rRB6S5TX\",\"sessionID\":\"ses_f827a3faeffeEUzJBN8qx4IIvK\",\"snapshot\":\"fe1b790ae7979363bbaad1090d5b557b7086beab\",\"type\":\"step-start\"}}\n",
+      "updatedAt": "2026-09-08T05:00:00Z",
+      "buildPassed": true,
+      "lastError": null,
       "retries": 1,
-      "lastModel": "opencode-go/deepseek-v4-flash"
+      "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
