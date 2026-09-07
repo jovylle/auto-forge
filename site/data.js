@@ -468,13 +468,14 @@ export const projects = [
       "audio",
       "particles"
     ],
-    "status": "building",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-06T18:18:18.059Z",
-    "updatedAt": "2026-09-07T07:19:26.405Z",
-    "buildPassed": false,
-    "lastError": "worker hung on dead models; scaffold/design only, no app code",
-    "retries": 0
+    "updatedAt": "2026-09-07T08:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 0,
+    "lastModel": "opencode-go/deepseek-v4-flash (result.json pass; tick died before status update; human verified)"
   },
   {
     "slug": "ghost-grid-collaborative-pixel-haunt",
@@ -506,6 +507,36 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "folded-city-origami-map-explorer",
+    "title": "Folded City — origami map explorer",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "grunge",
+    "theme": "color",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Folded City — origami map explorer",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "map",
+      "origami",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-07T13:52:15.771Z",
+    "updatedAt": "2026-09-07T14:15:36.142Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 17, done: 16, counts: {"done":16,"building":1} };
+export const stats = { total: 18, done: 18, counts: {"done":18} };

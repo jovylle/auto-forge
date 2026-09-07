@@ -508,6 +508,36 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "folded-city-origami-map-explorer",
+      "title": "Folded City — origami map explorer",
+      "category": "viz",
+      "stack": "html",
+      "stackReason": "seed stack (dedup guard)",
+      "aesthetic": "grunge",
+      "theme": "color",
+      "constraints": [
+        "must work with keyboard only"
+      ],
+      "description": "Folded City — origami map explorer",
+      "features": [
+        "core interaction",
+        "polished UI",
+        "share/export"
+      ],
+      "tags": [
+        "map",
+        "origami",
+        "canvas"
+      ],
+      "status": "done",
+      "deployed": false,
+      "createdAt": "2026-09-07T13:52:15.771Z",
+      "updatedAt": "2026-09-07T14:15:36.142Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
