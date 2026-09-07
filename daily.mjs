@@ -269,8 +269,9 @@ async function main() {
     // flip health already recorded; retry scaffold keep files, just re-run worker with fallback
     const retryPromptTpl = fs.readFileSync(path.join(ROOT, idea.stack==="html" ? "prompts/worker-html.md" : "prompts/worker-vite.md"),"utf8");
     const retryPrompt = renderPrompt(retryPromptTpl, idea, `\n## RETRY (fallback model) — previous worker hit UnknownError, retry with clean run. Keep any good work, ensure VERIFY line.\n`);
+    const retryRootSnap = snapshotRoot();
     const retryRes = await spawnWorker(dir, retryPrompt, altModel);
-    reclaimRootFiles(dir, rootSnap, idea.slug);
+    reclaimRootFiles(dir, retryRootSnap, idea.slug);
     fs.appendFileSync(path.join(LOGS_DIR, `${idea.slug}.log`), `\n\n=== FALLBACK RETRY ${altModel} ===\nSTDOUT:\n${retryRes.out}\nSTDERR:\n${retryRes.err}\n`);
     try { result.workerResult = JSON.parse(fs.readFileSync(path.join(dir, ".factory/result.json"),"utf8")); } catch {}
     result = { ...retryRes, workerResult: result.workerResult, verifyLine: parseVerify(retryRes.out), model: altModel, modelVia: "fallback retry" };

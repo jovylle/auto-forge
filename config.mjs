@@ -54,7 +54,7 @@ export const config = {
     // circuit breaker
     breakerFails: 2,           // consecutive fails to demote for 3 days
     breakerCooldownMs: 3*24*3600*1000,
-    preflightTimeoutMs: 15000,
+    preflightTimeoutMs: 30000, // raised: preflight kept timing out on slow opencode startup even when models then built fine
   },
   stackHeuristic: {
     htmlKeywords: ["canvas","particle","generative","game","arcade","visual","shader","pixel","animation","one-page","poster","physics","toy"],

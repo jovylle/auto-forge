@@ -436,13 +436,14 @@ export const projects = [
       "fun",
       "tool"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-06T18:11:05.800Z",
-    "updatedAt": "2026-09-07T03:00:00Z",
-    "buildPassed": false,
-    "lastError": "worker hung on dead models; scaffold/design only, no app code",
-    "retries": 0
+    "updatedAt": "2026-09-07T03:20:00Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, timeout before VERIFY; human ran final build — exit 0)"
   },
   {
     "slug": "neon-tide-audio-reactive-particle-shore",
@@ -467,13 +468,45 @@ export const projects = [
       "audio",
       "particles"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-06T18:18:18.059Z",
-    "updatedAt": "2026-09-07T03:00:00Z",
-    "buildPassed": false,
-    "lastError": "worker hung on dead models; scaffold/design only, no app code",
-    "retries": 0
+    "updatedAt": "2026-09-07T08:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 0,
+    "lastModel": "opencode-go/deepseek-v4-flash (result.json pass; tick died before status update; human verified)"
+  },
+  {
+    "slug": "ghost-grid-collaborative-pixel-haunt",
+    "title": "Ghost Grid — collaborative pixel haunt",
+    "category": "social",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "swiss",
+    "theme": "color",
+    "constraints": [
+      "must have an easter egg",
+      "must react to scroll"
+    ],
+    "description": "Ghost Grid — collaborative pixel haunt",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "pixel",
+      "multiplayer-ish",
+      "localStorage"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-07T07:36:31.398Z",
+    "updatedAt": "2026-09-07T07:46:57.974Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 16, done: 14, counts: {"done":14,"needs-human":2} };
+export const stats = { total: 17, done: 17, counts: {"done":17} };
