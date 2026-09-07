@@ -1,7 +1,8 @@
 {
-  "total": 18,
+  "total": 19,
   "counts": {
-    "done": 18
+    "done": 18,
+    "needs-human": 1
   },
   "projects": [
     {
@@ -381,14 +382,35 @@
       "updatedAt": "2026-09-07T14:15:36.142Z",
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "pocket-inventory-drag-drop-rpg-backpack",
+      "title": "Pocket Inventory — drag-drop RPG backpack",
+      "status": "needs-human",
+      "stack": "vite",
+      "stackReason": "seed stack (dedup guard)",
+      "category": "game",
+      "aesthetic": "biomorphic",
+      "theme": "color",
+      "constraints": [
+        "sound on interaction (WebAudio, no assets)"
+      ],
+      "tags": [
+        "game",
+        "inventory",
+        "drag-drop"
+      ],
+      "updatedAt": "2026-09-07T20:43:33.470Z",
+      "lastError": "\":\"completed\",\"priority\":\"high\"},{\"content\":\"Build Pocket Inventory app (drag-drop backpack, sound, share/export)\",\"status\":\"completed\",\"priority\":\"high\"},{\"content\":\"npm run build (exit 0) + preview + curl verify\",\"status\":\"completed\",\"priority\":\"high\"},{\"content\":\"Dispatch reviewer, fix issues\",\"status\":\"in_progress\",\"priority\":\"medium\"},{\"content\":\"Dispatch layout-verifier, fix issues\",\"status\"",
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-07T07:47:07.912Z",
-    "lastSlug": "ghost-grid-collaborative-pixel-haunt"
+    "lastRun": "2026-09-07T14:16:03.809Z",
+    "lastSlug": "folded-city-origami-map-explorer"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -397,13 +419,13 @@
       "lastError": "UnknownError"
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 0,
-      "lastFail": "2026-09-07T07:36:46.485Z",
+      "failStreak": 1,
+      "lastFail": "2026-09-07T20:43:31.899Z",
       "lastError": ""
     }
   },
   "logs": [
-    "neon-tide-audio-reactive-particle-shore.log",
+    "pocket-inventory-drag-drop-rpg-backpack.log",
     "puddle-atlas.log",
     "staircase-ballads.log",
     "tick-2026-09-04-2350.log",
@@ -419,5 +441,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-07T14:15:36.227Z"
+  "updatedAt": "2026-09-07T20:43:33.547Z"
 }

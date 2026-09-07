@@ -45,7 +45,22 @@
       },
       "elapsedMs": 1392771,
       "at": "2026-09-07T14:15:36.145Z"
+    },
+    {
+      "slug": "pocket-inventory-drag-drop-rpg-backpack",
+      "title": "Pocket Inventory — drag-drop RPG backpack",
+      "stack": "vite",
+      "aesthetic": "biomorphic",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": false,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 1499974,
+      "at": "2026-09-07T20:43:33.472Z"
     }
   ],
-  "updatedAt": "2026-09-07T14:15:36.145Z"
+  "updatedAt": "2026-09-07T20:43:33.472Z"
 }
