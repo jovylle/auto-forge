@@ -1,0 +1,31 @@
+{
+  "slug": "ghost-grid-collaborative-pixel-haunt",
+  "title": "Ghost Grid — collaborative pixel haunt",
+  "stack": "html",
+  "stackReason": "seed stack",
+  "aesthetic": "swiss",
+  "theme": "color",
+  "constraints": [
+    "must have an easter egg",
+    "must react to scroll"
+  ],
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (both demoted, older)",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "GHOST GRID: a swiss-styled collaborative pixel haunt. A 48x36 canvas where you paint/erase with a red-black-white-blue ink palette, smooth line interpolation on drag, high-DPI rendering, undo/clear, live pixel + room stats in the masthead, crisp PNG export, and a share link that run-length-encodes the entire grid into a self-contained ?g= URL fragment (round-trip verified: 5 px packed, loaded, restored). Scroll reactivity drives a red rail indicator, canvas skew, and a warming-to-red background atmosphere with a deep-scroll zoom mode; the Konami code (? up up down down left right left right B A ?) wakes a ghost that flickers phantom red pixels across the grid. Swiss identity: hard grid, system Helvetica/Arial, black-and-paper palette with a single screaming red, 2px hairlines, and a compact control rail that collapses into a scrollable stacked sheet under 760px. Verified clean at 375px and desktop with zero console errors and no horizontal overflow.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction (paint/erase, ink palette, undo/clear, live pixel counter)",
+      "polished UI (swiss masthead, control rail, toast, responsive mobile collapse)",
+      "share/export (PNG export + run-length-encoded shareable URL, round-trip verified)"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 596305,
+  "at": "2026-09-07T07:46:58.008Z"
+}

@@ -1,8 +1,8 @@
 {
-  "total": 16,
+  "total": 17,
   "counts": {
-    "done": 14,
-    "needs-human": 2
+    "done": 16,
+    "building": 1
   },
   "projects": [
     {
@@ -300,7 +300,7 @@
     {
       "slug": "crumb-budget",
       "title": "Crumb Budget",
-      "status": "needs-human",
+      "status": "done",
       "stack": "vite",
       "stackReason": "keyword vite (tool)",
       "category": "tool",
@@ -314,14 +314,14 @@
         "fun",
         "tool"
       ],
-      "updatedAt": "2026-09-07T01:15:26.195Z",
-      "lastError": "hJj\",\"snapshot\":\"12d6c90adc40d9d0208b911ef36b640964a3b4e9\",\"type\":\"step-start\"}}\n{\"type\":\"text\",\"timestamp\":1788743692823,\"sessionID\":\"ses_f86a7f698ffeGFIUyQMtpmAhJj\",\"part\":{\"id\":\"prt_0796ea74e001IadgmdDATFE4Jq\",\"messageID\":\"msg_0796ea085001dXYCca6hFxBEvu\",\"sessionID\":\"ses_f86a7f698ffeGFIUyQMtpmAhJj\",\"type\":\"text\",\"text\":\"Done. Crumb Budget is built in `projects/crumb-budget/`, all 3 features imp",
-      "lastModel": "opencode-go/deepseek-v4-flash"
+      "updatedAt": "2026-09-07T03:20:00Z",
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, timeout before VERIFY; human ran final build — exit 0)"
     },
     {
       "slug": "neon-tide-audio-reactive-particle-shore",
       "title": "Neon Tide — audio-reactive particle shore",
-      "status": "needs-human",
+      "status": "building",
       "stack": "html",
       "stackReason": "seed stack (dedup guard)",
       "category": "generative",
@@ -336,32 +336,53 @@
         "audio",
         "particles"
       ],
-      "updatedAt": "2026-09-07T03:00:00Z",
+      "updatedAt": "2026-09-07T07:19:26.405Z",
       "lastError": "worker hung on dead models; scaffold/design only, no app code",
       "lastModel": null
+    },
+    {
+      "slug": "ghost-grid-collaborative-pixel-haunt",
+      "title": "Ghost Grid — collaborative pixel haunt",
+      "status": "done",
+      "stack": "html",
+      "stackReason": "seed stack",
+      "category": "social",
+      "aesthetic": "swiss",
+      "theme": "color",
+      "constraints": [
+        "must have an easter egg",
+        "must react to scroll"
+      ],
+      "tags": [
+        "pixel",
+        "multiplayer-ish",
+        "localStorage"
+      ],
+      "updatedAt": "2026-09-07T07:46:57.974Z",
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-06T12:07:23.320Z",
-    "lastSlug": "drawer-oracle"
+    "lastRun": "2026-09-07T01:15:35.897Z",
+    "lastSlug": "crumb-budget"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
-      "failStreak": 7,
-      "lastFail": "2026-09-06T18:19:09.639Z",
+      "failStreak": 9,
+      "lastFail": "2026-09-07T07:20:21.046Z",
       "lastError": "UnknownError"
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 4,
-      "lastFail": "2026-09-07T01:14:52.981Z",
+      "failStreak": 0,
+      "lastFail": "2026-09-07T07:36:46.485Z",
       "lastError": ""
     }
   },
   "logs": [
-    "habit-constellation-bgoc.log",
     "ice-melt.log",
     "moss-clock.log",
     "neon-tide-audio-reactive-particle-shore.log",
@@ -372,10 +393,11 @@
     "triage-2026-09-04.log",
     "triage-2026-09-06-drawer.log",
     "triage-2026-09-06-excuse.log",
+    "triage-2026-09-07-crumb.log",
     "triage-2026-09-07-models.log"
   ],
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-07T01:15:26.352Z"
+  "updatedAt": "2026-09-07T07:46:58.210Z"
 }
