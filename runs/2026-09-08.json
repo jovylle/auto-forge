@@ -30,7 +30,22 @@
       },
       "elapsedMs": 1500033,
       "at": "2026-09-08T09:37:16.538Z"
+    },
+    {
+      "slug": "crumb-budget-8iqm",
+      "title": "Crumb Budget",
+      "stack": "vite",
+      "aesthetic": "vaporwave",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 1336538,
+      "at": "2026-09-08T16:04:52.105Z"
     }
   ],
-  "updatedAt": "2026-09-08T09:37:16.538Z"
+  "updatedAt": "2026-09-08T16:04:52.105Z"
 }

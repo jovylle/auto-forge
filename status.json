@@ -1,8 +1,8 @@
 {
-  "total": 22,
+  "total": 23,
   "counts": {
-    "done": 21,
-    "building": 1
+    "done": 22,
+    "needs-human": 1
   },
   "projects": [
     {
@@ -429,7 +429,7 @@
     {
       "slug": "receipt-oracle-expense-fortune-teller-1eap",
       "title": "Receipt Oracle — expense fortune teller",
-      "status": "building",
+      "status": "needs-human",
       "stack": "vite",
       "stackReason": "seed stack",
       "category": "tool",
@@ -444,8 +444,8 @@
         "fun",
         "tool"
       ],
-      "updatedAt": "2026-09-08T09:05:09.301Z",
-      "lastError": null,
+      "updatedAt": "2026-09-08T09:40:28.391Z",
+      "lastError": "superseded by -akhg (both shipped); parked, do not retry",
       "lastModel": null
     },
     {
@@ -469,13 +469,35 @@
       "updatedAt": "2026-09-08T09:39:00.958Z",
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "crumb-budget-8iqm",
+      "title": "Crumb Budget",
+      "status": "done",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "category": "tool",
+      "aesthetic": "vaporwave",
+      "theme": "color",
+      "constraints": [
+        "must have an easter egg",
+        "sound on interaction (WebAudio, no assets)"
+      ],
+      "tags": [
+        "finance",
+        "fun",
+        "tool"
+      ],
+      "updatedAt": "2026-09-08T16:04:52.103Z",
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-08T09:37:25.002Z",
+    "lastRun": "2026-09-08T09:39:47.393Z",
     "lastSlug": "receipt-oracle-expense-fortune-teller-akhg"
   },
   "health": {
@@ -485,7 +507,7 @@
       "lastError": "UnknownError"
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 1,
+      "failStreak": 0,
       "lastFail": "2026-09-08T09:37:14.840Z",
       "lastError": ""
     }
@@ -507,5 +529,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-08T09:39:05.894Z"
+  "updatedAt": "2026-09-08T16:04:52.194Z"
 }
