@@ -507,6 +507,98 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "folded-city-origami-map-explorer",
+    "title": "Folded City — origami map explorer",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "grunge",
+    "theme": "color",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Folded City — origami map explorer",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "map",
+      "origami",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-07T13:52:15.771Z",
+    "updatedAt": "2026-09-07T14:15:36.142Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "pocket-inventory-drag-drop-rpg-backpack",
+    "title": "Pocket Inventory — drag-drop RPG backpack",
+    "category": "game",
+    "stack": "vite",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "biomorphic",
+    "theme": "color",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Pocket Inventory — drag-drop RPG backpack",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "game",
+      "inventory",
+      "drag-drop"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-07T20:18:09.437Z",
+    "updatedAt": "2026-09-08T05:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
+  },
+  {
+    "slug": "receipt-oracle-expense-fortune-teller",
+    "title": "Receipt Oracle — expense fortune teller",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "steampunk",
+    "theme": "color",
+    "constraints": [
+      "must react to scroll",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Receipt Oracle — expense fortune teller",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "finance",
+      "fun",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-08T02:46:18.669Z",
+    "updatedAt": "2026-09-08T03:02:27.542Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 17, done: 17, counts: {"done":17} };
+export const stats = { total: 20, done: 20, counts: {"done":20} };
