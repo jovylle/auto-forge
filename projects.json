@@ -624,10 +624,12 @@
         "fun",
         "tool"
       ],
-      "status": "building",
+      "status": "needs-human",
       "deployed": false,
       "createdAt": "2026-09-08T09:04:51.259Z",
-      "updatedAt": "2026-09-08T09:05:09.301Z"
+      "updatedAt": "2026-09-08T09:40:28.391Z",
+      "lastError": "Orphaned: superseded by receipt-oracle-expense-fortune-teller-akhg",
+      "buildPassed": false
     },
     {
       "slug": "receipt-oracle-expense-fortune-teller-akhg",
