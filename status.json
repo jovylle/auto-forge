@@ -1,8 +1,7 @@
 {
-  "total": 19,
+  "total": 20,
   "counts": {
-    "done": 18,
-    "needs-human": 1
+    "done": 20
   },
   "projects": [
     {
@@ -386,7 +385,7 @@
     {
       "slug": "pocket-inventory-drag-drop-rpg-backpack",
       "title": "Pocket Inventory — drag-drop RPG backpack",
-      "status": "needs-human",
+      "status": "done",
       "stack": "vite",
       "stackReason": "seed stack (dedup guard)",
       "category": "game",
@@ -400,8 +399,30 @@
         "inventory",
         "drag-drop"
       ],
-      "updatedAt": "2026-09-07T20:43:33.470Z",
-      "lastError": "\":\"completed\",\"priority\":\"high\"},{\"content\":\"Build Pocket Inventory app (drag-drop backpack, sound, share/export)\",\"status\":\"completed\",\"priority\":\"high\"},{\"content\":\"npm run build (exit 0) + preview + curl verify\",\"status\":\"completed\",\"priority\":\"high\"},{\"content\":\"Dispatch reviewer, fix issues\",\"status\":\"in_progress\",\"priority\":\"medium\"},{\"content\":\"Dispatch layout-verifier, fix issues\",\"status\"",
+      "updatedAt": "2026-09-08T05:00:00Z",
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
+    },
+    {
+      "slug": "receipt-oracle-expense-fortune-teller",
+      "title": "Receipt Oracle — expense fortune teller",
+      "status": "done",
+      "stack": "vite",
+      "stackReason": "seed stack (dedup guard)",
+      "category": "tool",
+      "aesthetic": "steampunk",
+      "theme": "color",
+      "constraints": [
+        "must react to scroll",
+        "no external fonts — system fonts only"
+      ],
+      "tags": [
+        "finance",
+        "fun",
+        "tool"
+      ],
+      "updatedAt": "2026-09-08T03:02:27.542Z",
+      "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
@@ -409,8 +430,8 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-07T14:16:03.809Z",
-    "lastSlug": "folded-city-origami-map-explorer"
+    "lastRun": "2026-09-07T20:43:41.963Z",
+    "lastSlug": "pocket-inventory-drag-drop-rpg-backpack"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -419,14 +440,13 @@
       "lastError": "UnknownError"
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 1,
+      "failStreak": 0,
       "lastFail": "2026-09-07T20:43:31.899Z",
       "lastError": ""
     }
   },
   "logs": [
-    "pocket-inventory-drag-drop-rpg-backpack.log",
-    "puddle-atlas.log",
+    "receipt-oracle-expense-fortune-teller.log",
     "staircase-ballads.log",
     "tick-2026-09-04-2350.log",
     "tick-2026-09-07-2152.log",
@@ -436,10 +456,11 @@
     "triage-2026-09-06-excuse.log",
     "triage-2026-09-07-crumb.log",
     "triage-2026-09-07-models.log",
-    "triage-2026-09-07-neon.log"
+    "triage-2026-09-07-neon.log",
+    "triage-2026-09-08-pocket.log"
   ],
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-07T20:43:33.547Z"
+  "updatedAt": "2026-09-08T03:02:27.616Z"
 }

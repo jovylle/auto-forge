@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-08",
+  "runs": [
+    {
+      "slug": "receipt-oracle-expense-fortune-teller",
+      "title": "Receipt Oracle — expense fortune teller",
+      "stack": "vite",
+      "aesthetic": "steampunk",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 950444,
+      "at": "2026-09-08T03:02:27.544Z"
+    }
+  ],
+  "updatedAt": "2026-09-08T03:02:27.544Z"
+}

@@ -568,6 +568,37 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
+  },
+  {
+    "slug": "receipt-oracle-expense-fortune-teller",
+    "title": "Receipt Oracle — expense fortune teller",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "steampunk",
+    "theme": "color",
+    "constraints": [
+      "must react to scroll",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Receipt Oracle — expense fortune teller",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "finance",
+      "fun",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-08T02:46:18.669Z",
+    "updatedAt": "2026-09-08T03:02:27.542Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 19, done: 19, counts: {"done":19} };
+export const stats = { total: 20, done: 20, counts: {"done":20} };
