@@ -5,6 +5,14 @@
     { "title": "Receipt Oracle — expense fortune teller", "category": "tool", "stack": "vite", "tags": ["finance","fun","tool"] },
     { "title": "Chromatic Calendar — mood as color", "category": "tool", "stack": "vite", "tags": ["calendar","mood","color"] },
     { "title": "Ghost Grid — collaborative pixel haunt", "category": "social", "stack": "html", "tags": ["pixel","multiplayer-ish","localStorage"] },
-    { "title": "Folded City — origami map explorer", "category": "viz", "stack": "html", "tags": ["map","origami","canvas"] }
+    { "title": "Folded City — origami map explorer", "category": "viz", "stack": "html", "tags": ["map","origami","canvas"] },
+    { "title": "Lantern Ledger — night journal", "category": "tool", "stack": "html", "tags": ["journal","lantern","localStorage"] },
+    { "title": "Comet Queue — orbit your tasks", "category": "tool", "stack": "vite", "tags": ["tasks","orbits","canvas"] },
+    { "title": "Brine Clock — tide timer", "category": "art", "stack": "html", "tags": ["tide","time","canvas"] },
+    { "title": "Paper Garden — origami flora", "category": "generative", "stack": "html", "tags": ["origami","garden","generative"] },
+    { "title": "Static Picnic — radio potluck", "category": "social", "stack": "html", "tags": ["radio","social","audio"] },
+    { "title": "Ember Atlas — heat map diary", "category": "viz", "stack": "vite", "tags": ["heatmap","diary","canvas"] },
+    { "title": "Moon Pantry — lunar recipe box", "category": "tool", "stack": "vite", "tags": ["recipes","pantry","tool"] },
+    { "title": "Glass Orchard — fruit merge", "category": "game", "stack": "html", "tags": ["merge","fruit","game"] }
   ]
 }
