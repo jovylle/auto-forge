@@ -1,0 +1,31 @@
+{
+  "slug": "receipt-oracle-expense-fortune-teller",
+  "title": "Receipt Oracle — expense fortune teller",
+  "stack": "vite",
+  "stackReason": "seed stack (dedup guard)",
+  "aesthetic": "steampunk",
+  "theme": "color",
+  "constraints": [
+    "must react to scroll",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Receipt Oracle — a steampunk expense fortune teller. A brass Ledger Desk (add/edit via form, delete, burn-all, receipt stamp animation, localStorage persistence) feeds a scroll-reactive divination stage: a 400vh scroll journey pins a sticky brass viewport holding the Oracle eye (dilates with scroll), engraved opening line, category ledger bars, item-quoting omens, and Peril/Heat/Diligence needle dials — all driven by rAF-throttled window scroll progress with ink-reveal thresholds and prefers-reduced-motion fallback. Seeded deterministic reading reproduces on shared links; Copy Share-Link packs the ledger into a URL-safe token (?o=) that restores it (with replace-confirm), Export Poster downloads a self-contained HTML augury with inlined CSS, clipboard has execCommand fallback. System fonts only (no webfonts). Warm umber/brass/copper/parchment steampunk palette, engraved small-caps, rivet plates, gear emblem spin, gear-dust parallax, no indigo/gray/white defaults. base './' keeps dist assets relative. Build passes; verified via npm run build + npm run preview (all assets 200).",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 950444,
+  "at": "2026-09-08T03:02:27.544Z"
+}

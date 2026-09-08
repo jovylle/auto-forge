@@ -1,0 +1,360 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Receipt Oracle — steampunk design system (system fonts only)
+   ============================================================ */
+
+:root {
+  --umber: #241811;
+  --panel: #33241a;
+  --deep: #150e07;
+  --parch: #e4d3ac;
+  --parch-edge: #c9b183;
+  --brass-bright: #f0d27a;
+  --brass: #a97e22;
+  --brass-deep: #6b4e17;
+  --copper: #b87333;
+  --ink: #2a1b0c;
+  --ember: #d9541e;
+  --muted: #a08a6b;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--umber);
+  color: var(--parch);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* global vignette + warmth */
+.app-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(120% 90% at 50% 18%, var(--panel), var(--umber) 62%, var(--deep) 100%);
+  box-shadow: inset 0 0 160px rgba(0, 0, 0, 0.55);
+  position: relative;
+  overflow: clip;
+}
+
+/* drift of ambient gears/dust behind content (parallax targets) */
+.gear-dust {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(240, 210, 122, 0.22), transparent 60%),
+    radial-gradient(1.5px 1.5px at 70% 20%, rgba(184, 115, 51, 0.28), transparent 60%),
+    radial-gradient(2px 2px at 85% 60%, rgba(240, 210, 122, 0.16), transparent 60%),
+    radial-gradient(1.5px 1.5px at 40% 75%, rgba(217, 84, 30, 0.2), transparent 60%);
+  background-size: 260px 260px, 190px 190px, 340px 340px, 220px 220px;
+  animation: dust-drift 90s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gear-dust { animation: none; }
+}
+@keyframes dust-drift {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to { background-position: 260px 260px, -190px 190px, 340px -340px, -220px -220px; }
+}
+
+.display {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+}
+.mono {
+  font-family: "SF Mono", "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+/* brass-engraved heading */
+.brass-engrave {
+  background: linear-gradient(180deg, #f0d27a 0%, #e8c15a 45%, #8c6a1d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6), 0 -1px 0 rgba(255, 235, 180, 0.2);
+}
+
+/* parchment panel with grain + burnt edge */
+.parch {
+  background:
+    repeating-linear-gradient(0deg, rgba(90, 63, 18, 0.06) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(90, 63, 18, 0.05) 0 1px, transparent 1px 4px),
+    linear-gradient(160deg, #ecdcb6, var(--parch) 55%, var(--parch-edge));
+  color: var(--ink);
+  border-radius: 4px;
+  box-shadow:
+    inset 0 0 0 1px rgba(107, 78, 23, 0.55),
+    inset 0 0 42px rgba(90, 63, 18, 0.22),
+    0 12px 30px rgba(0, 0, 0, 0.55);
+}
+
+/* brass bevel plate (rivet frame strip) */
+.brass-plate {
+  background:
+    radial-gradient(circle at 8px 8px, #f0d27a 0 1.5px, #4a3620 2px, transparent 3px),
+    radial-gradient(circle at 8px 8px, #f0d27a 0 1.5px, #4a3620 2px, transparent 3px),
+    linear-gradient(180deg, #b98c2e, #6b4e17 60%, #4a3410);
+  background-size: 26px 26px, 26px 26px, 100% 100%;
+  background-position: 0 0, 13px 13px, 0 0;
+  border-radius: 6px;
+  box-shadow:
+    inset 0 1px 0 #f0d27a,
+    inset 0 -2px 0 #3a2608,
+    0 0 0 1px #8c6a1d,
+    0 8px 22px rgba(0, 0, 0, 0.55);
+}
+
+/* ---- buttons: brass press ---- */
+.brass-btn {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  background: linear-gradient(180deg, #f0d27a, #b98c2e 60%, #8c6a1d);
+  border: 1px solid #6b4e17;
+  border-radius: 5px;
+  padding: 0.55rem 1.1rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -2px 0 #5a3f12,
+    0 5px 12px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.2, 1.6, 0.4, 1), box-shadow 0.15s ease;
+}
+.brass-btn:hover {
+  filter: brightness(1.06);
+}
+.brass-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 1px 4px rgba(0, 0, 0, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+}
+.brass-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+.brass-btn:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 2px;
+}
+.brass-btn.ghost {
+  background: transparent;
+  color: var(--brass-bright);
+  border: 1px solid var(--brass-deep);
+  box-shadow: none;
+}
+.brass-btn.ghost:hover {
+  background: rgba(169, 126, 34, 0.18);
+}
+
+/* ---- fields: ink on umber ---- */
+.field {
+  background: rgba(21, 14, 7, 0.6);
+  border: 1px solid var(--brass-deep);
+  border-radius: 4px;
+  color: var(--parch);
+  padding: 0.5rem 0.6rem;
+  font-family: Georgia, serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field::placeholder { color: rgba(160, 138, 107, 0.7); }
+.field:focus {
+  outline: none;
+  border-color: var(--copper);
+  box-shadow: 0 0 0 2px rgba(184, 115, 51, 0.35);
+}
+select.field { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--copper) 50%), linear-gradient(135deg, var(--copper) 50%, transparent 50%); background-position: calc(100% - 14px) 50%, calc(100% - 10px) 50%; background-size: 4px 4px; background-repeat: no-repeat; }
+
+/* ---- receipt strip ---- */
+.receipt-row {
+  border-bottom: 1px dashed rgba(90, 63, 18, 0.45);
+}
+.receipt-stamp {
+  animation: stamp-in 0.28s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+}
+@keyframes stamp-in {
+  from { transform: scale(1.7) rotate(-8deg); opacity: 0; }
+  to { transform: scale(1) rotate(-3deg); opacity: 1; }
+}
+
+/* ---- gears ---- */
+.gear {
+  position: relative;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(var(--brass) 0deg 12deg, transparent 12deg 24deg);
+  -webkit-mask: radial-gradient(circle, transparent 0 58%, black 59%);
+  mask: radial-gradient(circle, transparent 0 58%, black 59%);
+}
+.gear::after {
+  content: "";
+  position: absolute;
+  inset: 20%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--deep) 0 30%, transparent 31%),
+    repeating-conic-gradient(var(--brass-deep) 0 30deg, transparent 30deg 60deg);
+}
+.gear-spin {
+  animation: gear-turn 60s linear infinite;
+}
+.gear-spin:hover { animation-duration: 6s; }
+@keyframes gear-turn { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .gear-spin { animation: none; }
+}
+
+/* ---- Oracle eye emblem ---- */
+.oracle-eye {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+.oracle-eye .ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-conic-gradient(var(--brass) 0deg 12deg, transparent 12deg 24deg);
+  -webkit-mask: radial-gradient(circle, transparent 0 62%, black 63%);
+  mask: radial-gradient(circle, transparent 0 62%, black 63%);
+  animation: gear-turn 40s linear infinite;
+}
+.oracle-eye .iris {
+  position: absolute;
+  inset: 16%;
+  border-radius: 50%;
+  background: conic-gradient(#b87333, #d9541e, #6b1f0a, #b87333);
+  box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.6), 0 0 22px rgba(217, 84, 30, 0.35);
+}
+.oracle-eye .pupil {
+  position: absolute;
+  inset: 36%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #150e07 0 60%, #2a1b0c 100%);
+  transform: scale(1);
+  transition: transform 1.2s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+.oracle-eye .lid {
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  height: 46%;
+  background: var(--umber);
+  border-radius: 50%;
+  transform: scaleY(0);
+  transform-origin: center;
+  animation: blink 7s ease-in-out infinite;
+}
+.oracle-eye .lid.top { top: -2%; }
+.oracle-eye .lid.bot { bottom: -2%; }
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(0); }
+  93%, 96% { transform: scaleY(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oracle-eye .ring, .oracle-eye .lid { animation: none; }
+}
+
+/* ---- scroll-stage reading ---- */
+.scroll-stage {
+  position: relative;
+  height: 400vh;
+}
+.scroll-pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+@media (max-width: 960px) {
+  .scroll-stage { height: 320vh; }
+}
+
+.ink-reveal {
+  opacity: 0.18;
+  filter: blur(4px);
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, filter 0.5s ease, transform 0.5s ease;
+}
+.ink-reveal.on {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* ---- dials ---- */
+.dial {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+.dial .face {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(240, 210, 122, 0.25), transparent 55%),
+    linear-gradient(180deg, #3a2a18, #150e07);
+  border: 1px solid var(--brass-deep);
+  box-shadow: inset 0 0 0 6px #241811, inset 0 0 18px rgba(0, 0, 0, 0.8), 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+.dial .needle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 44%;
+  transform-origin: 50% 100%;
+  transform: translateX(-50%) rotate(var(--rot, 0deg));
+  transition: transform 0.7s cubic-bezier(0.3, 1.5, 0.5, 1);
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.6));
+}
+.dial .needle::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  transform: translateX(-50%) translateY(50%);
+  border-radius: 50%;
+  background: var(--copper);
+}
+.dial .tick {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 10px;
+  background: rgba(240, 210, 122, 0.5);
+  transform-origin: 50% 0;
+}
+
+/* ---- export poster ---- */
+.export-poster {
+  width: 100%;
+  max-width: 560px;
+  padding: 1.4rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
+  }
+}
