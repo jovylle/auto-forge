@@ -1,15 +1,15 @@
 {
-  "slug": "receipt-oracle-expense-fortune-teller",
+  "slug": "receipt-oracle-expense-fortune-teller-akhg",
   "title": "Receipt Oracle — expense fortune teller",
   "stack": "vite",
-  "aesthetic": "steampunk",
+  "aesthetic": "dark-fantasy",
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
-  "buildPassed": true,
+  "buildPassed": false,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 950444,
-  "at": "2026-09-08T03:02:27.544Z"
+  "elapsedMs": 1500033,
+  "at": "2026-09-08T09:37:16.538Z"
 }

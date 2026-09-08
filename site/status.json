@@ -1,7 +1,9 @@
 {
-  "total": 20,
+  "total": 22,
   "counts": {
-    "done": 20
+    "done": 20,
+    "building": 1,
+    "needs-human": 1
   },
   "projects": [
     {
@@ -424,14 +426,58 @@
       "updatedAt": "2026-09-08T03:02:27.542Z",
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "receipt-oracle-expense-fortune-teller-1eap",
+      "title": "Receipt Oracle — expense fortune teller",
+      "status": "building",
+      "stack": "vite",
+      "stackReason": "seed stack",
+      "category": "tool",
+      "aesthetic": "japanese-cyberpunk",
+      "theme": "color",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "no external fonts — system fonts only"
+      ],
+      "tags": [
+        "finance",
+        "fun",
+        "tool"
+      ],
+      "updatedAt": "2026-09-08T09:05:09.301Z",
+      "lastError": null,
+      "lastModel": null
+    },
+    {
+      "slug": "receipt-oracle-expense-fortune-teller-akhg",
+      "title": "Receipt Oracle — expense fortune teller",
+      "status": "needs-human",
+      "stack": "vite",
+      "stackReason": "seed stack",
+      "category": "tool",
+      "aesthetic": "dark-fantasy",
+      "theme": "color",
+      "constraints": [
+        "must react to scroll",
+        "must have an easter egg"
+      ],
+      "tags": [
+        "finance",
+        "fun",
+        "tool"
+      ],
+      "updatedAt": "2026-09-08T09:37:16.534Z",
+      "lastError": "ritual, easter egg, share/export)\",\"status\":\"completed\",\"priority\":\"high\"},{\"content\":\"Reviewer subagent pass + fix issues\",\"status\":\"completed\",\"priority\":\"medium\"},{\"content\":\"Layout-verifier subagent pass + fix issues\",\"status\":\"completed\",\"priority\":\"medium\"},{\"content\":\"Write README.md\",\"status\":\"completed\",\"priority\":\"low\"},{\"content\":\"npm run build once + preview/curl verification\",\"status\"",
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-07T20:43:41.963Z",
-    "lastSlug": "pocket-inventory-drag-drop-rpg-backpack"
+    "lastRun": "2026-09-08T03:02:36.486Z",
+    "lastSlug": "receipt-oracle-expense-fortune-teller"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -440,8 +486,8 @@
       "lastError": "UnknownError"
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 0,
-      "lastFail": "2026-09-07T20:43:31.899Z",
+      "failStreak": 1,
+      "lastFail": "2026-09-08T09:37:14.840Z",
       "lastError": ""
     }
   },
@@ -462,5 +508,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-08T03:02:27.616Z"
+  "updatedAt": "2026-09-08T09:37:16.612Z"
 }

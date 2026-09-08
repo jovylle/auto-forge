@@ -1,0 +1,31 @@
+{
+  "slug": "receipt-oracle-expense-fortune-teller-akhg",
+  "title": "Receipt Oracle — expense fortune teller",
+  "stack": "vite",
+  "stackReason": "seed stack",
+  "aesthetic": "dark-fantasy",
+  "theme": "color",
+  "constraints": [
+    "must react to scroll",
+    "must have an easter egg"
+  ],
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Receipt Oracle — a dark-fantasy expense fortune teller. Ink receipts (merchant/amount/category) on a tilted Offering Desk; the ledger tallies totals, stamps new rows in, and burns to ash on demand. A 500vh scroll ritual pins a sticky stage where progress drives the whole divination: chapter reveals, per-expense omens (clipped unseal + per-category accent rules), category share-meters that fill with scroll, a rotating sigil, a lid that opens on the oracle eye, the verdict, and an ashes band with share/poster/consult actions — prefers-reduced-motion respected. Easter egg: touch the eye 7x to awaken the oracle (palette inverts to witchfire, eye ignites, secret 8th omen 'The Unseen Ledger' appended, persisted in localStorage). Share/export: base64url #o= share-link that round-trips ledger+seed and offers to adopt a foreign ledger; 1080x1440 canvas PNG augury poster. Custom dark-fantasy identity (ember gold + witchfire on warm-soot panels, Grenze Gotisch + Alegreya), system grain/vignette/candle-flicker, base './' keeps dist assets relative. Verified via tsc, npm run build (exit 0), and npm run preview + curl (all assets 200).",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ]
+  },
+  "buildPassed": false,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 1500033,
+  "at": "2026-09-08T09:37:16.537Z"
+}
