@@ -628,8 +628,9 @@
       "deployed": false,
       "createdAt": "2026-09-08T09:04:51.259Z",
       "updatedAt": "2026-09-08T09:40:28.391Z",
-      "lastError": "Orphaned: superseded by receipt-oracle-expense-fortune-teller-akhg",
-      "buildPassed": false
+      "lastError": "superseded by -akhg (both shipped); parked, do not retry",
+      "buildPassed": false,
+      "retries": 99
     },
     {
       "slug": "receipt-oracle-expense-fortune-teller-akhg",
