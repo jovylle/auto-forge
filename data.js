@@ -651,14 +651,14 @@ export const projects = [
       "fun",
       "tool"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-08T09:11:58.983Z",
-    "updatedAt": "2026-09-08T09:37:16.534Z",
-    "buildPassed": false,
-    "lastError": "ritual, easter egg, share/export)\",\"status\":\"completed\",\"priority\":\"high\"},{\"content\":\"Reviewer subagent pass + fix issues\",\"status\":\"completed\",\"priority\":\"medium\"},{\"content\":\"Layout-verifier subagent pass + fix issues\",\"status\":\"completed\",\"priority\":\"medium\"},{\"content\":\"Write README.md\",\"status\":\"completed\",\"priority\":\"low\"},{\"content\":\"npm run build once + preview/curl verification\",\"status\":\"completed\",\"priority\":\"high\"},{\"content\":\"Write .factory/result.json + emit VERIFY line\",\"status\":\"completed\",\"priority\":\"high\"}],\"truncated\":false},\"title\":\"0 todos\",\"time\":{\"start\":1788860227472,\"end\":1788860227477}},\"id\":\"prt_080609977001y7cIHuPRKXeEkH\",\"sessionID\":\"ses_f7fb5e40dffeIvNH5o7hee35PG\",\"messageID\":\"msg_08060945e001uxlqM99Lmb5JzT\"}}\n{\"type\":\"step_finish\",\"timestamp\":1788860227705,\"sessionID\":\"ses_f7fb5e40dffeIvNH5o7hee35PG\",\"part\":{\"id\":\"prt_08060e05d0010lyMlBnpvyvRLL\",\"reason\":\"tool-calls\",\"snapshot\":\"6444f9f7d8ae74919c67529926aab9cc7906bd94\",\"messageID\":\"msg_08060945e001uxlqM99Lmb5JzT\",\"sessionID\":\"ses_f7fb5e40dffeIvNH5o7hee35PG\",\"type\":\"step-finish\",\"tokens\":{\"total\":143744,\"input\":113,\"output\":271,\"reasoning\":0,\"cache\":{\"write\":0,\"read\":143360}},\"cost\":0.00120724}}\n{\"type\":\"step_start\",\"timestamp\":1788860229117,\"sessionID\":\"ses_f7fb5e40dffeIvNH5o7hee35PG\",\"part\":{\"id\":\"prt_08060e5ed001Ue1oJaWCz4k3xp\",\"messageID\":\"msg_08060e099001N8hjYB6uf7KM4A\",\"sessionID\":\"ses_f7fb5e40dffeIvNH5o7hee35PG\",\"snapshot\":\"6444f9f7d8ae74919c67529926aab9cc7906bd94\",\"type\":\"step-start\"}}\n",
+    "updatedAt": "2026-09-08T09:39:00.958Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 22, done: 20, counts: {"done":20,"building":1,"needs-human":1} };
+export const stats = { total: 22, done: 21, counts: {"done":21,"building":1} };

@@ -1,9 +1,8 @@
 {
   "total": 22,
   "counts": {
-    "done": 20,
-    "building": 1,
-    "needs-human": 1
+    "done": 21,
+    "building": 1
   },
   "projects": [
     {
@@ -452,7 +451,7 @@
     {
       "slug": "receipt-oracle-expense-fortune-teller-akhg",
       "title": "Receipt Oracle — expense fortune teller",
-      "status": "needs-human",
+      "status": "done",
       "stack": "vite",
       "stackReason": "seed stack",
       "category": "tool",
@@ -467,8 +466,8 @@
         "fun",
         "tool"
       ],
-      "updatedAt": "2026-09-08T09:37:16.534Z",
-      "lastError": "ritual, easter egg, share/export)\",\"status\":\"completed\",\"priority\":\"high\"},{\"content\":\"Reviewer subagent pass + fix issues\",\"status\":\"completed\",\"priority\":\"medium\"},{\"content\":\"Layout-verifier subagent pass + fix issues\",\"status\":\"completed\",\"priority\":\"medium\"},{\"content\":\"Write README.md\",\"status\":\"completed\",\"priority\":\"low\"},{\"content\":\"npm run build once + preview/curl verification\",\"status\"",
+      "updatedAt": "2026-09-08T09:39:00.958Z",
+      "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
@@ -476,8 +475,8 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-08T03:02:36.486Z",
-    "lastSlug": "receipt-oracle-expense-fortune-teller"
+    "lastRun": "2026-09-08T09:37:25.002Z",
+    "lastSlug": "receipt-oracle-expense-fortune-teller-akhg"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -508,5 +507,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-08T09:37:16.612Z"
+  "updatedAt": "2026-09-08T09:39:05.894Z"
 }
