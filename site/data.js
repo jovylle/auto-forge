@@ -623,10 +623,13 @@ export const projects = [
       "fun",
       "tool"
     ],
-    "status": "building",
+    "status": "needs-human",
     "deployed": false,
     "createdAt": "2026-09-08T09:04:51.259Z",
-    "updatedAt": "2026-09-08T09:05:09.301Z"
+    "updatedAt": "2026-09-08T09:40:28.391Z",
+    "lastError": "superseded by -akhg (both shipped); parked, do not retry",
+    "buildPassed": false,
+    "retries": 99
   },
   {
     "slug": "receipt-oracle-expense-fortune-teller-akhg",
@@ -659,6 +662,37 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "crumb-budget-8iqm",
+    "title": "Crumb Budget",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "vaporwave",
+    "theme": "color",
+    "constraints": [
+      "must have an easter egg",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Track spending in snack units.",
+    "features": [
+      "expense log",
+      "snack converter",
+      "weekly chart"
+    ],
+    "tags": [
+      "finance",
+      "fun",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-08T15:42:17.761Z",
+    "updatedAt": "2026-09-08T16:04:52.103Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 22, done: 21, counts: {"done":21,"building":1} };
+export const stats = { total: 23, done: 22, counts: {"done":22,"needs-human":1} };

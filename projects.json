@@ -663,6 +663,37 @@
       "lastError": null,
       "retries": 1,
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "crumb-budget-8iqm",
+      "title": "Crumb Budget",
+      "category": "tool",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "aesthetic": "vaporwave",
+      "theme": "color",
+      "constraints": [
+        "must have an easter egg",
+        "sound on interaction (WebAudio, no assets)"
+      ],
+      "description": "Track spending in snack units.",
+      "features": [
+        "expense log",
+        "snack converter",
+        "weekly chart"
+      ],
+      "tags": [
+        "finance",
+        "fun",
+        "tool"
+      ],
+      "status": "done",
+      "deployed": false,
+      "createdAt": "2026-09-08T15:42:17.761Z",
+      "updatedAt": "2026-09-08T16:04:52.103Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

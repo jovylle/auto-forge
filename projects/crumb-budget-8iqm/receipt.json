@@ -1,0 +1,33 @@
+{
+  "slug": "crumb-budget-8iqm",
+  "title": "Crumb Budget",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "vaporwave",
+  "theme": "color",
+  "constraints": [
+    "must have an easter egg",
+    "sound on interaction (WebAudio, no assets)"
+  ],
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Crumb Budget — track spending in snack units as a vaporwave arcade cabinet. Expense log (name/amount/category, localStorage persistence, glitch-out delete, snack-equivalent per row), snack converter (8 presets + custom snack with price, dollars → snack units with whole+fraction breakdown, emoji strip, quips, animated count-up on the clickable retro sun), weekly chart (last-7-days bars, $/snack toggle, tooltips, weekly budget bar with OVERDRIVE pulse). All sound synthesized via WebAudio (no asset files): add chord, delete zap, convert chord, error buzz, hover ticks, toggle tones, fanfare. Easter egg: click the retro sun 5x or enter the Konami code (up-up-down-down-left-right-left-right-B-A) for a fullscreen SNACK OVERDRIVE overlay (giant sun, katakana marquee, emoji rain, GALACTIC CRUMBS = lifetime total × 42). Vaporwave palette (ultraviolet night, neon magenta/cyan, laser lemon) with Monoton/Space Grotesk/VT323, CRT scanlines, animated grid floor, reduced-motion support. Build passes; preview serves real content with relative asset paths (base './').",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "expense log",
+      "snack converter",
+      "weekly chart",
+      "easter egg",
+      "WebAudio sound on interaction"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 1336538,
+  "at": "2026-09-08T16:04:52.104Z"
+}
