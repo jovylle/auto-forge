@@ -747,14 +747,14 @@ export const projects = [
       "fruit",
       "game"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-09T10:36:20.683Z",
-    "updatedAt": "2026-09-09T11:01:29.599Z",
-    "buildPassed": false,
-    "lastError": "scaffold untouched — worker wrote no app code",
+    "updatedAt": "2026-09-09T17:19:49.733Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 25, done: 23, counts: {"done":23,"needs-human":1,"needs-iteration":1} };
+export const stats = { total: 25, done: 24, counts: {"done":24,"needs-human":1} };

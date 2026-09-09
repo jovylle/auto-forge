@@ -1,11 +1,11 @@
 {
   "opencode/deepseek-v4-flash-free": {
-    "failStreak": 9,
-    "lastFail": "2026-09-07T07:20:21.046Z",
-    "lastError": "UnknownError"
+    "failStreak": 10,
+    "lastFail": "2026-09-09T17:03:18.916Z",
+    "lastError": "{\"type\":\"error\",\"timestamp\":1788973398888,\"sessionID\":\"ses_f78e04735ffe2WPVhcVc3Gp7t1\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_6c787561\"}}}\n"
   },
   "opencode-go/deepseek-v4-flash": {
-    "failStreak": 2,
+    "failStreak": 0,
     "lastFail": "2026-09-09T11:01:29.594Z",
     "lastError": ""
   }

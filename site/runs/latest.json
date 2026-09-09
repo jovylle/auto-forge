@@ -4,13 +4,12 @@
   "stack": "html",
   "aesthetic": "sci-fi-terminal",
   "model": "opencode-go/deepseek-v4-flash",
-  "modelVia": "fallback (primary demoted)",
+  "modelVia": "fallback after preflight fail",
   "verifyLine": null,
-  "buildPassed": false,
+  "buildPassed": true,
   "verify": {
-    "ok": false,
-    "reason": "scaffold untouched — worker wrote no app code"
+    "ok": true
   },
-  "elapsedMs": 1500032,
-  "at": "2026-09-09T11:01:29.603Z"
+  "elapsedMs": 980449,
+  "at": "2026-09-09T17:19:49.745Z"
 }

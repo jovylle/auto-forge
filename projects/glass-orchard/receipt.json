@@ -9,14 +9,22 @@
     "3 colors max (plus black/white)"
   ],
   "model": "opencode-go/deepseek-v4-flash",
-  "modelVia": "fallback (primary demoted)",
+  "modelVia": "fallback after preflight fail",
   "verifyLine": null,
-  "workerResult": null,
-  "buildPassed": false,
-  "verify": {
-    "ok": false,
-    "reason": "scaffold untouched — worker wrote no app code"
+  "workerResult": {
+    "status": "pass",
+    "summary": "Glass Orchard — a merge board in a glass greenhouse. Drop glowing seeds into a 5x8 chamber; equal fruits (same color + stage) merge and glow, and ripe ones pulse to be picked for harvest. Three cultivar spectra (SOL FIG amber, FROST PEAR cyan, NOVA PLUM magenta) charge the greenhouse lamps and ambient aura in a sci-fi-terminal frame (Chakra Petch + Share Tech Mono, scanlines, glass glare sweep, LED-style HUD). Yield is scored per merge (+5/+20) and pick (+40), best persists in localStorage. Click-to-drop and click-to-pick, plus keyboard (arrows/Space/R). Verified in-browser: gravity stacking, cascade merges to RIPE, pick adds +40 and updates yield/best, no horizontal overflow at 375px, zero console errors.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "merge board",
+      "greenhouse glow",
+      "harvest score"
+    ]
   },
-  "elapsedMs": 1500032,
-  "at": "2026-09-09T11:01:29.602Z"
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 980449,
+  "at": "2026-09-09T17:19:49.737Z"
 }
