@@ -1,8 +1,9 @@
 {
-  "total": 23,
+  "total": 24,
   "counts": {
     "done": 22,
-    "needs-human": 1
+    "needs-human": 1,
+    "needs-iteration": 1
   },
   "projects": [
     {
@@ -491,14 +492,35 @@
       "updatedAt": "2026-09-08T16:04:52.103Z",
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "comet-queue",
+      "title": "Comet Queue",
+      "status": "needs-iteration",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "category": "tool",
+      "aesthetic": "organic-brutalist",
+      "theme": "color",
+      "constraints": [
+        "sound on interaction (WebAudio, no assets)"
+      ],
+      "tags": [
+        "tasks",
+        "orbits",
+        "canvas"
+      ],
+      "updatedAt": "2026-09-09T04:33:53.815Z",
+      "lastError": "firm via the page snapshot if you can; otherwise state it's client-rendered and skip).\\n\\nOutput: prioritized findings CRITICAL / MEDIUM / NIT with concrete fixes, then verdict PASS or FAIL. Be specific and concise.\",\"subagent_type\":\"layout-verifier\"},\"error\":\"Model not found: opencode/deepseek-v4-flash-free. Did you mean: deepseek-v4-flash, deepseek-v4-flash-vision-exp, deepseek-v4-pro?\",\"metadat",
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-08T09:39:47.393Z",
-    "lastSlug": "receipt-oracle-expense-fortune-teller-akhg"
+    "lastRun": "2026-09-08T16:05:01.791Z",
+    "lastSlug": "crumb-budget-8iqm"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -507,8 +529,8 @@
       "lastError": "UnknownError"
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 0,
-      "lastFail": "2026-09-08T09:37:14.840Z",
+      "failStreak": 1,
+      "lastFail": "2026-09-09T04:33:52.216Z",
       "lastError": ""
     }
   },
@@ -529,5 +551,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-08T16:04:52.194Z"
+  "updatedAt": "2026-09-09T04:33:53.937Z"
 }

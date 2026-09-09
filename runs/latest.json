@@ -1,15 +1,15 @@
 {
-  "slug": "crumb-budget-8iqm",
-  "title": "Crumb Budget",
+  "slug": "comet-queue",
+  "title": "Comet Queue",
   "stack": "vite",
-  "aesthetic": "vaporwave",
+  "aesthetic": "organic-brutalist",
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
-  "buildPassed": true,
+  "buildPassed": false,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 1336538,
-  "at": "2026-09-08T16:04:52.105Z"
+  "elapsedMs": 1499828,
+  "at": "2026-09-09T04:33:53.816Z"
 }
