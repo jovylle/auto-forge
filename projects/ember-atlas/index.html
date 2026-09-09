@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EMBER ATLAS — weekly cooling heat map</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%2305060a'/%3E%3Ccircle cx='8' cy='8' r='4' fill='%23ff9f1c'/%3E%3Ccircle cx='8' cy='8' r='2' fill='%23ffffff'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <h1 class="glitch" data-text="EMBER ATLAS">EMBER<span class="accent">ATLAS</span></h1>
+      <div class="sub">WEEKLY HEAT DIARY · COOLING MAP</div>
+    </div>
+    <div class="clock">
+      <div id="clock" class="mono">--:--:--</div>
+      <div id="weekLabel" class="mono dim">—</div>
+    </div>
+    <button id="btnMute" class="mute" aria-label="toggle sound" title="sound">ON</button>
+  </header>
+
+  <main class="layout">
+    <aside class="rail">
+      <section class="panel brushes">
+        <div class="paneltitle mono">BRUSH</div>
+        <button id="btnIgnite" class="brush active" data-brush="ignite">
+          <b>IGNITE</b><span class="mono hint">drag to paint heat</span>
+        </button>
+        <button id="btnDouse" class="brush" data-brush="douse">
+          <b>DOUSE</b><span class="mono hint">drag to cool</span>
+        </button>
+      </section>
+
+      <section class="panel legend">
+        <div class="paneltitle mono">HEAT</div>
+        <div class="lrow"><i class="sw sw3"></i><span>MOLTEN</span><span class="mono dim" id="lvl3">FRESH &lt;3H</span></div>
+        <div class="lrow"><i class="sw sw2"></i><span>FIRE</span><span class="mono dim" id="lvl2">3–9H</span></div>
+        <div class="lrow"><i class="sw sw1"></i><span>EMBER</span><span class="mono dim" id="lvl1">9–26H</span></div>
+        <div class="lrow"><i class="sw sw0"></i><span>ASH</span><span class="mono dim">cold</span></div>
+      </section>
+
+      <section class="panel stats">
+        <div class="paneltitle mono">ATLAS READ</div>
+        <div class="srow"><span>EMBERS</span><b id="statEmbers" class="mono">0</b></div>
+        <div class="srow"><span>BURNING</span><b id="statBurn" class="mono">0%</b></div>
+        <div class="srow"><span>PEAK</span><b id="statPeak" class="mono dim">—</b></div>
+        <div class="srow"><span>COOLING</span><b id="statCool" class="mono dim">—</b></div>
+      </section>
+
+      <button id="btnExport" class="action">⟐ EMBER EXPORT</button>
+      <button id="btnClear" class="ghost mono">DOUSE ALL</button>
+    </aside>
+
+    <section class="panel stage-wrap">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <div class="stage-head mono">
+        <span>GRID 7D × 24H</span>
+        <span id="cellRead">_ _ _</span>
+      </div>
+      <div id="stage" aria-label="weekly heat diary grid"></div>
+      <canvas id="fx" class="fx"></canvas>
+    </section>
+  </main>
+
+  <div id="tooltip" class="tooltip" hidden>
+    <div class="tt-head mono" id="ttHead"></div>
+    <div class="tt-row"><span class="mono dim">LEVEL</span><b id="ttLevel">—</b></div>
+    <div class="tt-row"><span class="mono dim">COOLS</span><b id="ttCool" class="mono">—</b></div>
+    <canvas id="ttTrail" width="108" height="30"></canvas>
+  </div>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-box panel">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <div class="paneltitle mono">EMBER EXPORT</div>
+      <div class="modal-body">
+        <div id="preview"><canvas id="prevCanvas" width="760" height="420"></canvas></div>
+        <pre id="emberCode" class="mono"></pre>
+      </div>
+      <div class="modal-actions">
+        <button id="dlPng" class="action">⬇ SNAPSHOT PNG</button>
+        <button id="copyCode" class="action alt">⧉ COPY SHARD</button>
+        <button id="closeModal" class="ghost mono">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

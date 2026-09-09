@@ -1,15 +1,15 @@
 {
-  "slug": "glass-orchard",
-  "title": "Glass Orchard",
+  "slug": "ember-atlas",
+  "title": "Ember Atlas",
   "stack": "html",
-  "aesthetic": "sci-fi-terminal",
-  "model": "opencode-go/deepseek-v4-flash",
-  "modelVia": "fallback after preflight fail",
+  "aesthetic": "cyberpunk",
+  "model": "opencode/deepseek-v4-flash-free",
+  "modelVia": "fallback retry",
   "verifyLine": null,
-  "buildPassed": true,
+  "buildPassed": false,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 980449,
-  "at": "2026-09-09T17:19:49.745Z"
+  "elapsedMs": 2455,
+  "at": "2026-09-09T23:32:40.113Z"
 }
