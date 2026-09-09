@@ -2,14 +2,20 @@
   "slug": "comet-queue",
   "title": "Comet Queue",
   "stack": "vite",
+  "stackReason": "keyword vite (tool)",
   "aesthetic": "organic-brutalist",
+  "theme": "color",
+  "constraints": [
+    "sound on interaction (WebAudio, no assets)"
+  ],
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": false,
   "verify": {
     "ok": true
   },
   "elapsedMs": 1499828,
-  "at": "2026-09-09T04:33:53.816Z"
+  "at": "2026-09-09T04:33:53.815Z"
 }
