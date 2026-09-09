@@ -724,6 +724,37 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
+  },
+  {
+    "slug": "glass-orchard",
+    "title": "Glass Orchard",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Merge glowing fruit in a glass greenhouse.",
+    "features": [
+      "merge board",
+      "greenhouse glow",
+      "harvest score"
+    ],
+    "tags": [
+      "merge",
+      "fruit",
+      "game"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-09-09T10:36:20.683Z",
+    "updatedAt": "2026-09-09T11:01:29.599Z",
+    "buildPassed": false,
+    "lastError": "scaffold untouched — worker wrote no app code",
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 24, done: 23, counts: {"done":23,"needs-human":1} };
+export const stats = { total: 25, done: 23, counts: {"done":23,"needs-human":1,"needs-iteration":1} };
