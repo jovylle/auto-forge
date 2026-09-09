@@ -1,9 +1,8 @@
 {
   "total": 25,
   "counts": {
-    "done": 23,
-    "needs-human": 1,
-    "needs-iteration": 1
+    "done": 24,
+    "needs-human": 1
   },
   "projects": [
     {
@@ -517,7 +516,7 @@
     {
       "slug": "glass-orchard",
       "title": "Glass Orchard",
-      "status": "needs-iteration",
+      "status": "done",
       "stack": "html",
       "stackReason": "keyword html (game)",
       "category": "game",
@@ -531,8 +530,8 @@
         "fruit",
         "game"
       ],
-      "updatedAt": "2026-09-09T11:01:29.599Z",
-      "lastError": "scaffold untouched — worker wrote no app code",
+      "updatedAt": "2026-09-09T17:19:49.733Z",
+      "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
@@ -540,23 +539,22 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-09T04:34:03.086Z",
-    "lastSlug": "comet-queue"
+    "lastRun": "2026-09-09T11:01:37.956Z",
+    "lastSlug": "glass-orchard"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
-      "failStreak": 9,
-      "lastFail": "2026-09-07T07:20:21.046Z",
-      "lastError": "UnknownError"
+      "failStreak": 10,
+      "lastFail": "2026-09-09T17:03:18.916Z",
+      "lastError": "{\"type\":\"error\",\"timestamp\":1788973398888,\"sessionID\":\"ses_f78e04735ffe2WPVhcVc3Gp7t1\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_6c787561\"}}}\n"
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 2,
+      "failStreak": 0,
       "lastFail": "2026-09-09T11:01:29.594Z",
       "lastError": ""
     }
   },
   "logs": [
-    "tick-2026-09-04-2350.log",
     "tick-2026-09-07-2152.log",
     "tick-2026-09-09_1836.log",
     "triage-2026-09-04-puddle.log",
@@ -567,10 +565,11 @@
     "triage-2026-09-07-models.log",
     "triage-2026-09-07-neon.log",
     "triage-2026-09-08-pocket.log",
-    "triage-2026-09-09-comet.log"
+    "triage-2026-09-09-comet.log",
+    "triage-2026-09-09-glass.log"
   ],
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-09T11:01:29.712Z"
+  "updatedAt": "2026-09-09T17:19:49.912Z"
 }

@@ -31,7 +31,22 @@
       },
       "elapsedMs": 1500032,
       "at": "2026-09-09T11:01:29.603Z"
+    },
+    {
+      "slug": "glass-orchard",
+      "title": "Glass Orchard",
+      "stack": "html",
+      "aesthetic": "sci-fi-terminal",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback after preflight fail",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 980449,
+      "at": "2026-09-09T17:19:49.745Z"
     }
   ],
-  "updatedAt": "2026-09-09T11:01:29.603Z"
+  "updatedAt": "2026-09-09T17:19:49.745Z"
 }

@@ -1,17 +1,86 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Glass Orchard</title>
-  <link rel="stylesheet" href="./style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#05080b" />
+<link rel="icon" href="data:," />
+<title>GLASS ORCHARD // grow-light merge chamber</title>
+<link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main id="app">
-    <h1>Glass Orchard</h1>
-    <p class="sub">Merge glowing fruit in a glass greenhouse.</p>
-    <div id="stage"></div>
-  </main>
-  <script type="module" src="./app.js"></script>
+<div id="aura" aria-hidden="true">
+  <i class="aura-spot sp-0"></i>
+  <i class="aura-spot sp-1"></i>
+  <i class="aura-spot sp-2"></i>
+</div>
+
+<main id="app">
+
+  <header class="topbar">
+    <p class="overline"><span class="blink">&#9608;</span> SYS.GROWTH v2.4 &nbsp;//&nbsp; CHAMBER 07 &nbsp;<span class="okdot"></span>ONLINE</p>
+    <h1>GLASS&nbsp;ORCHARD</h1>
+    <p class="sub">merge glowing fruit &middot; harvest the ripe &middot; feed the light</p>
+  </header>
+
+  <section class="stats" aria-label="scoreboard">
+    <div class="stat">
+      <span class="stat-label">YIELD</span>
+      <span class="stat-value" id="yieldVal">0</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">PICKS</span>
+      <span class="stat-value" id="picksVal">0</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">BEST</span>
+      <span class="stat-value" id="bestVal">0</span>
+    </div>
+    <button id="reseed" class="btn" type="button" title="reset the chamber (R)">RESEED</button>
+  </section>
+
+  <section class="greenhouse" aria-label="greenhouse">
+    <div class="glare" aria-hidden="true"></div>
+    <div class="lampbar" aria-hidden="true">
+      <i class="lamp sp-0"></i><i class="lamp sp-1"></i><i class="lamp sp-2"></i>
+    </div>
+    <div class="readout">
+      <span class="ro-label">CROP YIELD</span>
+      <span class="ro-big" id="yieldBig">0</span>
+      <span class="ro-side"><b id="roPicks">0</b> PICK<br /><b id="roBest">0</b> BEST</span>
+    </div>
+
+    <div id="boardwrap">
+      <div id="board" role="grid" aria-label="merge board">
+        <div id="guides" aria-hidden="true">
+          <i data-col="0"></i><i data-col="1"></i><i data-col="2"></i><i data-col="3"></i><i data-col="4"></i>
+        </div>
+        <div id="fruits"></div>
+      </div>
+      <div id="soilbar" aria-hidden="true"></div>
+    </div>
+
+    <div id="statusline"><span id="statustext">drop a seed into a column &mdash; equal fruits merge</span></div>
+    <div id="burst" aria-hidden="true"></div>
+    <div id="surge" aria-hidden="true"></div>
+  </section>
+
+  <section class="dock">
+    <div class="queue" aria-label="incoming fruit">
+      <span class="q-label">CULTIVAR IN</span>
+      <div id="queueSlots"></div>
+    </div>
+    <p class="hint">CLICK a column to drop &middot; CLICK a pulsing ripe fruit to pick it<br />or use &larr; &rarr; + <kbd>SPACE</kbd></p>
+  </section>
+
+  <section class="console" aria-label="event log">
+    <p class="c-head">&#9654; HARVEST LOG <span class="blink">_</span></p>
+    <div id="logbox"></div>
+  </section>
+
+  <p class="footer">GLASS ORCHARD &mdash; a grow-light merge experiment &middot; 3 spectra + void</p>
+</main>
+
+<script type="module" src="./app.js"></script>
 </body>
 </html>
