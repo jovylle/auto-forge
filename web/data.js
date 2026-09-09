@@ -599,6 +599,131 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "receipt-oracle-expense-fortune-teller-1eap",
+    "title": "Receipt Oracle — expense fortune teller",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "seed stack",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Receipt Oracle — expense fortune teller",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "finance",
+      "fun",
+      "tool"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-08T09:04:51.259Z",
+    "updatedAt": "2026-09-08T09:40:28.391Z",
+    "lastError": "superseded by -akhg (both shipped); parked, do not retry",
+    "buildPassed": false,
+    "retries": 99
+  },
+  {
+    "slug": "receipt-oracle-expense-fortune-teller-akhg",
+    "title": "Receipt Oracle — expense fortune teller",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "seed stack",
+    "aesthetic": "dark-fantasy",
+    "theme": "color",
+    "constraints": [
+      "must react to scroll",
+      "must have an easter egg"
+    ],
+    "description": "Receipt Oracle — expense fortune teller",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "finance",
+      "fun",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-08T09:11:58.983Z",
+    "updatedAt": "2026-09-08T09:39:00.958Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "crumb-budget-8iqm",
+    "title": "Crumb Budget",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "vaporwave",
+    "theme": "color",
+    "constraints": [
+      "must have an easter egg",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Track spending in snack units.",
+    "features": [
+      "expense log",
+      "snack converter",
+      "weekly chart"
+    ],
+    "tags": [
+      "finance",
+      "fun",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-08T15:42:17.761Z",
+    "updatedAt": "2026-09-08T16:04:52.103Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "comet-queue",
+    "title": "Comet Queue",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "organic-brutalist",
+    "theme": "color",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Your tasks as comets orbiting the urgent.",
+    "features": [
+      "task orbits",
+      "gravity sort",
+      "impact alerts"
+    ],
+    "tags": [
+      "tasks",
+      "orbits",
+      "canvas"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-09-09T04:08:13.570Z",
+    "updatedAt": "2026-09-09T04:33:53.815Z",
+    "buildPassed": false,
+    "lastError": "firm via the page snapshot if you can; otherwise state it's client-rendered and skip).\\n\\nOutput: prioritized findings CRITICAL / MEDIUM / NIT with concrete fixes, then verdict PASS or FAIL. Be specific and concise.\",\"subagent_type\":\"layout-verifier\"},\"error\":\"Model not found: opencode/deepseek-v4-flash-free. Did you mean: deepseek-v4-flash, deepseek-v4-flash-vision-exp, deepseek-v4-pro?\",\"metadata\":{\"parentSessionId\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"sessionId\":\"ses_f7b8e8277ffexxrVv4uBhajjRC\",\"model\":{\"providerID\":\"opencode\",\"modelID\":\"deepseek-v4-flash-free\"}},\"time\":{\"start\":1788928425362,\"end\":1788928425447}},\"id\":\"prt_084714950001YUz59JvE2I8Ekj\",\"sessionID\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"messageID\":\"msg_084714231001TuO59o13wzQ2Fw\"}}\n{\"type\":\"step_finish\",\"timestamp\":1788928425603,\"sessionID\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"part\":{\"id\":\"prt_084717e55001timF8epLwbmmEr\",\"reason\":\"tool-calls\",\"snapshot\":\"cbcdf9d91d3bb69ca033dcb155ce9c3a60182fe2\",\"messageID\":\"msg_084714231001TuO59o13wzQ2Fw\",\"sessionID\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"type\":\"step-finish\",\"tokens\":{\"total\":116409,\"input\":401,\"output\":808,\"reasoning\":0,\"cache\":{\"write\":0,\"read\":115200}},\"cost\":0.0014279}}\n{\"type\":\"step_start\",\"timestamp\":1788928427243,\"sessionID\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"part\":{\"id\":\"prt_0847184e6001i4YOisaYb2Ujr6\",\"messageID\":\"msg_084717ea6001yObTZdPaHtF32M\",\"sessionID\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"snapshot\":\"cbcdf9d91d3bb69ca033dcb155ce9c3a60182fe2\",\"type\":\"step-start\"}}\n",
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 20, done: 20, counts: {"done":20} };
+export const stats = { total: 24, done: 22, counts: {"done":22,"needs-human":1,"needs-iteration":1} };
