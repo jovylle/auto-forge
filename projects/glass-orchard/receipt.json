@@ -2,15 +2,21 @@
   "slug": "glass-orchard",
   "title": "Glass Orchard",
   "stack": "html",
+  "stackReason": "keyword html (game)",
   "aesthetic": "sci-fi-terminal",
+  "theme": "color",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": false,
   "verify": {
     "ok": false,
     "reason": "scaffold untouched — worker wrote no app code"
   },
   "elapsedMs": 1500032,
-  "at": "2026-09-09T11:01:29.603Z"
+  "at": "2026-09-09T11:01:29.602Z"
 }
