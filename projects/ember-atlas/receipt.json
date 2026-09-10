@@ -9,12 +9,12 @@
     "sound on interaction (WebAudio, no assets)",
     "3 colors max (plus black/white)"
   ],
-  "model": "opencode/deepseek-v4-flash-free",
-  "modelVia": "fallback retry",
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
   "workerResult": {
     "status": "pass",
-    "summary": "Ember Atlas — a cyberpunk cooling heat map for charting a week on a 7x24 grid. Paint heat with IGNITE/DOUSE drag brushes; every ignition cools on a real clock (MOLTEN<3h > FIRE 3-9h > EMBER 9-26h > ASH), emitting ember particles and cooling pulses as levels drop. Each cell shows its projected cool-down trail on hover, plus day/hour readout and ignition count. Atlas Read stats (embers, burning %, peak day, cells cooling soon) update live. Persists per-week in localStorage. Ember Export renders a pixel-precise PNG snapshot plus a copyable ASCII ember shard of the whole grid. All sounds synthesized live via WebAudio (ignite plucks pitch with hour, douse/cool whooshes, export chord) with a mute toggle. Palette is exactly 3 colors (cyan, magenta, ember) + black/white. Verified in-browser at 1440px and 375px with zero console errors and no horizontal overflow.",
+    "summary": "Ember Atlas — a cyberpunk cooling heat map for charting a week on a 7x24 grid. Paint heat with IGNITE/DOUSE drag brushes; every ignition cools on a real clock (MOLTEN<3h > FIRE 3-9h > EMBER 9-26h > ASH), emitting ember particles and cooling pulses as levels drop. Each cell shows its projected cool-down trail on hover, plus day/hour readout and ignition count. Atlas Read stats (embers, burning %, peak day, cells cooling soon) update live. Persists per-week in localStorage. Ember Export renders a pixel-precise PNG snapshot plus a copyable ASCII ember shard of the whole grid. All sounds synthesized live via WebAudio (ignite plucks pitch with hour, douse/cool whooshes, export chord) with a mute toggle. Palette is exactly 3 colors (cyan, magenta, ember) + black/white. Iteration fixes: corrected particle coordinate system (viewport vs canvas-local offset), added findCellAt fallback for off-screen cell ignition during drag. Verified in-browser at 1440px and 375px with zero console errors and no horizontal overflow.",
     "buildPassed": true,
     "featuresImplemented": [
       "heat diary",
@@ -22,10 +22,10 @@
       "ember export"
     ]
   },
-  "buildPassed": false,
+  "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 2455,
-  "at": "2026-09-09T23:32:40.112Z"
+  "elapsedMs": 1451210,
+  "at": "2026-09-10T05:58:36.340Z"
 }
