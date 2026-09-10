@@ -15,7 +15,22 @@
       },
       "elapsedMs": 1451210,
       "at": "2026-09-10T05:58:36.345Z"
+    },
+    {
+      "slug": "paper-garden",
+      "title": "Paper Garden",
+      "stack": "html",
+      "aesthetic": "japanese-minimal",
+      "model": "opencode/deepseek-v4-flash-free",
+      "modelVia": "fallback retry",
+      "verifyLine": null,
+      "buildPassed": false,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 1402,
+      "at": "2026-09-10T12:07:31.392Z"
     }
   ],
-  "updatedAt": "2026-09-10T05:58:36.345Z"
+  "updatedAt": "2026-09-10T12:07:31.392Z"
 }

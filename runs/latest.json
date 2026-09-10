@@ -1,15 +1,15 @@
 {
-  "slug": "ember-atlas",
-  "title": "Ember Atlas",
+  "slug": "paper-garden",
+  "title": "Paper Garden",
   "stack": "html",
-  "aesthetic": "cyberpunk",
-  "model": "opencode-go/deepseek-v4-flash",
-  "modelVia": "fallback (primary demoted)",
+  "aesthetic": "japanese-minimal",
+  "model": "opencode/deepseek-v4-flash-free",
+  "modelVia": "fallback retry",
   "verifyLine": null,
-  "buildPassed": true,
+  "buildPassed": false,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 1451210,
-  "at": "2026-09-10T05:58:36.345Z"
+  "elapsedMs": 1402,
+  "at": "2026-09-10T12:07:31.392Z"
 }
