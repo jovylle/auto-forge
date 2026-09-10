@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-10",
+  "runs": [
+    {
+      "slug": "ember-atlas",
+      "title": "Ember Atlas",
+      "stack": "html",
+      "aesthetic": "cyberpunk",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 1451210,
+      "at": "2026-09-10T05:58:36.345Z"
+    }
+  ],
+  "updatedAt": "2026-09-10T05:58:36.345Z"
+}

@@ -779,14 +779,14 @@ export const projects = [
       "diary",
       "canvas"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-09T23:21:15.148Z",
-    "updatedAt": "2026-09-09T23:32:40.112Z",
-    "buildPassed": false,
-    "lastError": "{\"type\":\"error\",\"timestamp\":1788996760080,\"sessionID\":\"ses_f777bd015ffeRUjEF1OiIsAhbW\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_9b0481e9\"}}}\n",
+    "updatedAt": "2026-09-10T05:58:36.338Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/deepseek-v4-flash-free"
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 26, done: 24, counts: {"done":24,"needs-human":1,"needs-iteration":1} };
+export const stats = { total: 26, done: 25, counts: {"done":25,"needs-human":1} };

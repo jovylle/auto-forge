@@ -115,9 +115,18 @@ stage.addEventListener("pointermove", (e) => {
 stage.addEventListener("pointerup", () => { painting = false; lastPaintKey = null; });
 stage.addEventListener("pointercancel", () => { painting = false; lastPaintKey = null; });
 
-function paintAt(x, y) {
+function findCellAt(x, y) {
   const t = document.elementFromPoint(x, y);
-  if (!t || !t.classList || !t.classList.contains("cell")) return;
+  if (t && t.classList && t.classList.contains("cell")) return t;
+  for (const c of cellEls) {
+    const r = c.getBoundingClientRect();
+    if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return c;
+  }
+  return null;
+}
+function paintAt(x, y) {
+  const t = findCellAt(x, y);
+  if (!t) return;
   const key = t.dataset.key;
   if (key === lastPaintKey) return;
   lastPaintKey = key;
@@ -148,7 +157,8 @@ function paintAt(x, y) {
 function cellCenter(key) {
   const c = cellsByKey[key];
   const r = c.getBoundingClientRect();
-  return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+  const fr = fx.getBoundingClientRect();
+  return { x: r.left + r.width / 2 - fr.left, y: r.top + r.height / 2 - fr.top };
 }
 
 stage.addEventListener("pointermove", (e) => {
