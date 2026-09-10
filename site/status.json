@@ -1,8 +1,9 @@
 {
-  "total": 26,
+  "total": 27,
   "counts": {
     "done": 25,
-    "needs-human": 1
+    "needs-human": 1,
+    "needs-iteration": 1
   },
   "projects": [
     {
@@ -555,25 +556,46 @@
       "updatedAt": "2026-09-10T05:58:36.338Z",
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "paper-garden",
+      "title": "Paper Garden",
+      "status": "needs-iteration",
+      "stack": "html",
+      "stackReason": "keyword html (generative)",
+      "category": "generative",
+      "aesthetic": "japanese-minimal",
+      "theme": "typography",
+      "constraints": [
+        "single HTML file if html stack, single component if vite"
+      ],
+      "tags": [
+        "origami",
+        "garden",
+        "generative"
+      ],
+      "updatedAt": "2026-09-10T12:07:31.358Z",
+      "lastError": "{\"type\":\"error\",\"timestamp\":1789042051307,\"sessionID\":\"ses_f74c8b84effe1sFJaf0GXkwBor\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_5ef3f3f2\"}}}\n",
+      "lastModel": "opencode/deepseek-v4-flash-free"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-09T23:32:48.396Z",
+    "lastRun": "2026-09-10T05:58:44.743Z",
     "lastSlug": "ember-atlas"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
-      "failStreak": 11,
-      "lastFail": "2026-09-09T23:32:40.110Z",
+      "failStreak": 12,
+      "lastFail": "2026-09-10T12:07:31.331Z",
       "lastError": ""
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 0,
-      "lastFail": "2026-09-09T23:32:37.648Z",
-      "lastError": ""
+      "failStreak": 1,
+      "lastFail": "2026-09-10T12:07:29.918Z",
+      "lastError": "UnknownError"
     }
   },
   "logs": [
@@ -593,5 +615,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-10T05:58:36.500Z"
+  "updatedAt": "2026-09-10T12:07:31.513Z"
 }

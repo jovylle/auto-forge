@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f2ede2" />
+  <title>Paper Garden — 折り紙の庭</title>
+  <meta name="description" content="Fold origami flora that blooms on click. A quiet generative paper garden." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23b8442f'/%3E%3Cpath d='M32 12 L46 33 L32 52 L18 33 Z' fill='%23f2ede2'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="day">
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="enso" aria-hidden="true">
+    <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
+      <circle class="enso-ring" cx="300" cy="300" r="248" />
+    </svg>
+  </div>
+
+  <canvas id="garden" role="img"
+    aria-label="Paper garden. Tap the paper to plant an origami flower, tap a bloom to unfold it."></canvas>
+
+  <div class="ui">
+    <header class="masthead">
+      <a class="brand" href="#" aria-label="Paper Garden">
+        <span class="seal" aria-hidden="true">紙</span>
+        <span class="brand-text">
+          <span class="brand-en">Paper Garden</span>
+          <span class="brand-jp">折り紙の庭</span>
+        </span>
+      </a>
+      <div class="meta">
+        <span class="meta-item"><b id="count">0</b> blooms</span>
+        <span class="meta-sep" aria-hidden="true">·</span>
+        <span class="meta-item" id="season">spring</span>
+        <span class="meta-sep" aria-hidden="true">·</span>
+        <button class="linklike" id="modeBtn" type="button">day</button>
+      </div>
+    </header>
+
+    <aside class="rail" aria-hidden="true">
+      <span class="rail-text">一枚の紙に、花を折る。</span>
+      <span class="rail-line"></span>
+    </aside>
+
+    <p class="hint" id="hint">tap the paper to plant &nbsp;·&nbsp; tap a bloom to unfold</p>
+
+    <footer class="toolbar" role="toolbar" aria-label="Garden controls">
+      <button class="btn" data-act="new" type="button"><span class="k" aria-hidden="true">新</span>New</button>
+      <button class="btn" data-act="share" type="button"><span class="k" aria-hidden="true">共</span>Share</button>
+      <button class="btn" data-act="plant" type="button"><span class="k" aria-hidden="true">植</span>Plant</button>
+      <button class="btn" data-act="clear" type="button"><span class="k" aria-hidden="true">消</span>Clear</button>
+      <button class="btn" data-act="sound" type="button" aria-pressed="true"><span class="k" aria-hidden="true">音</span>Sound</button>
+    </footer>
+  </div>
+
+  <div class="seedpanel" id="seedpanel" hidden>
+    <div class="panel-card" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+      <div class="panel-head">
+        <h2 id="panelTitle">Plant a seed</h2>
+        <button class="panel-close" id="panelClose" type="button" aria-label="Close">&times;</button>
+      </div>
+      <p class="panel-note">Paste a seed code or a shared Paper Garden link to grow someone else's bloom.</p>
+      <input id="seedInput" class="seed-input" type="text" placeholder="e.g. 7KQ2M4  ·  or a #g= link" autocomplete="off" spellcheck="false" />
+      <div class="panel-actions">
+        <button class="btn primary" id="seedGo" type="button">Plant</button>
+        <button class="btn" id="seedRandom" type="button">Random seed</button>
+      </div>
+      <div class="panel-share">
+        <label for="shareOut">Your garden link</label>
+        <div class="share-row">
+          <input id="shareOut" class="seed-input" type="text" readonly />
+          <button class="btn" id="shareCopy" type="button">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <div class="noscript">Paper Garden needs JavaScript to fold its flowers.</div>
+  </noscript>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

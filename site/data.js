@@ -787,6 +787,37 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "paper-garden",
+    "title": "Paper Garden",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-minimal",
+    "theme": "typography",
+    "constraints": [
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Fold origami flora that blooms on click.",
+    "features": [
+      "fold engine",
+      "bloom garden",
+      "seed sharing"
+    ],
+    "tags": [
+      "origami",
+      "garden",
+      "generative"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-09-10T11:59:44.954Z",
+    "updatedAt": "2026-09-10T12:07:31.358Z",
+    "buildPassed": false,
+    "lastError": "{\"type\":\"error\",\"timestamp\":1789042051307,\"sessionID\":\"ses_f74c8b84effe1sFJaf0GXkwBor\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_5ef3f3f2\"}}}\n",
+    "retries": 1,
+    "lastModel": "opencode/deepseek-v4-flash-free"
   }
 ];
-export const stats = { total: 26, done: 25, counts: {"done":25,"needs-human":1} };
+export const stats = { total: 27, done: 25, counts: {"done":25,"needs-human":1,"needs-iteration":1} };

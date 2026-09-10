@@ -1,0 +1,30 @@
+{
+  "slug": "paper-garden",
+  "title": "Paper Garden",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "japanese-minimal",
+  "theme": "typography",
+  "constraints": [
+    "single HTML file if html stack, single component if vite"
+  ],
+  "model": "opencode/deepseek-v4-flash-free",
+  "modelVia": "fallback retry",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Paper Garden — fold origami flora that blooms on click. Fold engine folds each bloom live on canvas (petals open from crease lines on tap, ease-out-back bloom, paper-rustle + plucked koto via WebAudio); bloom garden plants seeded flowers on the paper with stems, leaves, washi palette, fold shading, sway, and soft cast shadow under a hand-drawn ensō. Seed sharing: whole garden encodes to a #g= share link, single seeds paste or load via #s=, all deterministic and persisted in localStorage. Day/night mode brings fireflies out at night; sakura petal-storm easter egg; keyboard shortcuts throughout. Verified at 1440px and 375px with zero console errors and no horizontal overflow; share-link round-trip restores exact blooms.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "fold engine",
+      "bloom garden",
+      "seed sharing"
+    ]
+  },
+  "buildPassed": false,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 1402,
+  "at": "2026-09-10T12:07:31.365Z"
+}
