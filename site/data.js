@@ -810,14 +810,46 @@ export const projects = [
       "garden",
       "generative"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-10T11:59:44.954Z",
-    "updatedAt": "2026-09-10T12:07:31.358Z",
-    "buildPassed": false,
-    "lastError": "{\"type\":\"error\",\"timestamp\":1789042051307,\"sessionID\":\"ses_f74c8b84effe1sFJaf0GXkwBor\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_5ef3f3f2\"}}}\n",
+    "updatedAt": "2026-09-10T12:20:00Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/deepseek-v4-flash-free"
+    "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, exit 1 before VERIFY; human verified)"
+  },
+  {
+    "slug": "lantern-ledger",
+    "title": "Lantern Ledger",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "bauhaus",
+    "theme": "typography",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "A night journal lit one lantern at a time.",
+    "features": [
+      "night entries",
+      "lantern glow",
+      "streak flame"
+    ],
+    "tags": [
+      "journal",
+      "lantern",
+      "localStorage"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-10T18:09:58.112Z",
+    "updatedAt": "2026-09-10T18:35:22.979Z",
+    "buildPassed": false,
+    "lastError": "\"parentSessionId\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"sessionId\":\"ses_f7369b0daffe75Li2fQFdLzgky\",\"model\":{\"providerID\":\"opencode\",\"modelID\":\"deepseek-v4-flash-free\"}},\"time\":{\"start\":1789065056047,\"end\":1789065056118}},\"id\":\"prt_08c962710001xaHfnGpOOyqoEY\",\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"messageID\":\"msg_08c9620d5001b2htzqT0RX5Thf\"}}\n{\"type\":\"step_finish\",\"timestamp\":1789065056236,\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"part\":{\"id\":\"prt_08c964fde001nuznzWja70vkFN\",\"reason\":\"tool-calls\",\"snapshot\":\"c34315c579ff06daf2f51a9e9467993a63c34338\",\"messageID\":\"msg_08c9620d5001b2htzqT0RX5Thf\",\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"type\":\"step-finish\",\"tokens\":{\"total\":100072,\"input\":524,\"output\":732,\"reasoning\":0,\"cache\":{\"write\":0,\"read\":98816}},\"cost\":0.000814248}}\n{\"type\":\"step_start\",\"timestamp\":1789065058438,\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"part\":{\"id\":\"prt_08c96587e001GLjzaGSp6s1WS9\",\"messageID\":\"msg_08c965009001xXPlhKOuAelq7g\",\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"snapshot\":\"c34315c579ff06daf2f51a9e9467993a63c34338\",\"type\":\"step-start\"}}\n{\"type\":\"text\",\"timestamp\":1789065065280,\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"part\":{\"id\":\"prt_08c9663ad0016D9I1sIKPPi9WI\",\"messageID\":\"msg_08c965009001xXPlhKOuAelq7g\",\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"type\":\"text\",\"text\":\"The configured layout-verifier model isn't available; falling back to a general agent for the same task.\",\"time\":{\"start\":1789065061293,\"end\":1789065065278}}}\n",
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 27, done: 25, counts: {"done":25,"needs-human":1,"needs-iteration":1} };
+export const stats = { total: 28, done: 26, counts: {"done":26,"needs-human":2} };

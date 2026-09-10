@@ -2,14 +2,21 @@
   "slug": "lantern-ledger",
   "title": "Lantern Ledger",
   "stack": "vite",
+  "stackReason": "keyword vite (tool)",
   "aesthetic": "bauhaus",
+  "theme": "typography",
+  "constraints": [
+    "uses only one interaction type (click OR drag OR type)",
+    "3 colors max (plus black/white)"
+  ],
   "model": "opencode-go/deepseek-v4-flash",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": false,
   "verify": {
     "ok": true
   },
   "elapsedMs": 1499973,
-  "at": "2026-09-10T18:35:22.982Z"
+  "at": "2026-09-10T18:35:22.981Z"
 }
