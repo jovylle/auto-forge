@@ -965,14 +965,14 @@ export const projects = [
       "time",
       "canvas"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-11T13:23:14.492Z",
-    "updatedAt": "2026-09-11T13:34:25.504Z",
-    "buildPassed": false,
-    "lastError": "{\"type\":\"error\",\"timestamp\":1789133665154,\"sessionID\":\"ses_f6f52cda7ffe9H5pMNa27nh2k5\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_fb5a2b86\"}}}\n",
+    "updatedAt": "2026-09-11T14:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/deepseek-v4-flash-free"
+    "lastModel": "opencode-go/deepseek-v4-flash (result.json pass; human fixed missing CSS import + built — exit 0)"
   }
 ];
-export const stats = { total: 32, done: 30, counts: {"done":30,"needs-human":1,"needs-iteration":1} };
+export const stats = { total: 32, done: 31, counts: {"done":31,"needs-human":1} };
