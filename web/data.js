@@ -716,14 +716,232 @@ export const projects = [
       "orbits",
       "canvas"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-09T04:08:13.570Z",
-    "updatedAt": "2026-09-09T04:33:53.815Z",
-    "buildPassed": false,
-    "lastError": "firm via the page snapshot if you can; otherwise state it's client-rendered and skip).\\n\\nOutput: prioritized findings CRITICAL / MEDIUM / NIT with concrete fixes, then verdict PASS or FAIL. Be specific and concise.\",\"subagent_type\":\"layout-verifier\"},\"error\":\"Model not found: opencode/deepseek-v4-flash-free. Did you mean: deepseek-v4-flash, deepseek-v4-flash-vision-exp, deepseek-v4-pro?\",\"metadata\":{\"parentSessionId\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"sessionId\":\"ses_f7b8e8277ffexxrVv4uBhajjRC\",\"model\":{\"providerID\":\"opencode\",\"modelID\":\"deepseek-v4-flash-free\"}},\"time\":{\"start\":1788928425362,\"end\":1788928425447}},\"id\":\"prt_084714950001YUz59JvE2I8Ekj\",\"sessionID\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"messageID\":\"msg_084714231001TuO59o13wzQ2Fw\"}}\n{\"type\":\"step_finish\",\"timestamp\":1788928425603,\"sessionID\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"part\":{\"id\":\"prt_084717e55001timF8epLwbmmEr\",\"reason\":\"tool-calls\",\"snapshot\":\"cbcdf9d91d3bb69ca033dcb155ce9c3a60182fe2\",\"messageID\":\"msg_084714231001TuO59o13wzQ2Fw\",\"sessionID\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"type\":\"step-finish\",\"tokens\":{\"total\":116409,\"input\":401,\"output\":808,\"reasoning\":0,\"cache\":{\"write\":0,\"read\":115200}},\"cost\":0.0014279}}\n{\"type\":\"step_start\",\"timestamp\":1788928427243,\"sessionID\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"part\":{\"id\":\"prt_0847184e6001i4YOisaYb2Ujr6\",\"messageID\":\"msg_084717ea6001yObTZdPaHtF32M\",\"sessionID\":\"ses_f7ba54758ffeWB2oSTTfgY3Cs1\",\"snapshot\":\"cbcdf9d91d3bb69ca033dcb155ce9c3a60182fe2\",\"type\":\"step-start\"}}\n",
+    "updatedAt": "2026-09-09T05:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
+  },
+  {
+    "slug": "glass-orchard",
+    "title": "Glass Orchard",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Merge glowing fruit in a glass greenhouse.",
+    "features": [
+      "merge board",
+      "greenhouse glow",
+      "harvest score"
+    ],
+    "tags": [
+      "merge",
+      "fruit",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-09T10:36:20.683Z",
+    "updatedAt": "2026-09-09T17:19:49.733Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "ember-atlas",
+    "title": "Ember Atlas",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "cyberpunk",
+    "theme": "color",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Chart your week as a cooling heat map.",
+    "features": [
+      "heat diary",
+      "cool-down trails",
+      "ember export"
+    ],
+    "tags": [
+      "heatmap",
+      "diary",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-09T23:21:15.148Z",
+    "updatedAt": "2026-09-10T05:58:36.338Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "paper-garden",
+    "title": "Paper Garden",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-minimal",
+    "theme": "typography",
+    "constraints": [
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Fold origami flora that blooms on click.",
+    "features": [
+      "fold engine",
+      "bloom garden",
+      "seed sharing"
+    ],
+    "tags": [
+      "origami",
+      "garden",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-10T11:59:44.954Z",
+    "updatedAt": "2026-09-10T12:20:00Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, exit 1 before VERIFY; human verified)"
+  },
+  {
+    "slug": "lantern-ledger",
+    "title": "Lantern Ledger",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "bauhaus",
+    "theme": "typography",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "A night journal lit one lantern at a time.",
+    "features": [
+      "night entries",
+      "lantern glow",
+      "streak flame"
+    ],
+    "tags": [
+      "journal",
+      "lantern",
+      "localStorage"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-10T18:09:58.112Z",
+    "updatedAt": "2026-09-11T03:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
+  },
+  {
+    "slug": "static-picnic",
+    "title": "Static Picnic",
+    "category": "social",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "pop-art",
+    "theme": "typography",
+    "constraints": [
+      "must have an easter egg",
+      "must work with keyboard only"
+    ],
+    "description": "Host a radio potluck for passing strangers.",
+    "features": [
+      "dish tuner",
+      "picnic board",
+      "signal seats"
+    ],
+    "tags": [
+      "radio",
+      "social",
+      "audio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-11T00:37:02.117Z",
+    "updatedAt": "2026-09-11T05:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, died before VERIFY; human ran final build — exit 0)"
+  },
+  {
+    "slug": "glass-orchard-fruit-merge",
+    "title": "Glass Orchard — fruit merge",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "extreme-minimal",
+    "theme": "typography",
+    "constraints": [
+      "no external fonts — system fonts only"
+    ],
+    "description": "Glass Orchard — fruit merge",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "merge",
+      "fruit",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-11T01:01:23.611Z",
+    "updatedAt": "2026-09-11T01:17:40.248Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "moon-pantry",
+    "title": "Moon Pantry",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "memphis",
+    "theme": "typography",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "A lunar recipe box for midnight cooks.",
+    "features": [
+      "recipe phases",
+      "pantry stock",
+      "midnight mode"
+    ],
+    "tags": [
+      "recipes",
+      "pantry",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-11T07:02:05.030Z",
+    "updatedAt": "2026-09-11T07:21:55.274Z",
+    "buildPassed": true,
+    "lastError": null,
     "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 24, done: 22, counts: {"done":22,"needs-human":1,"needs-iteration":1} };
+export const stats = { total: 31, done: 30, counts: {"done":30,"needs-human":1} };
