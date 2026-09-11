@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F3F0E9">
+  <title>Glass Orchard — fruit merge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="wordmark">
+        <h1>Glass Orchard</h1>
+        <p class="sub">a fruit merge</p>
+      </div>
+      <div class="actions">
+        <button id="shareBtn" type="button">Share</button>
+        <button id="saveBtn" type="button">Save</button>
+      </div>
+    </header>
+
+    <div class="scoreline">
+      <span id="score">0</span>
+      <span class="dot">·</span>
+      <span id="best" class="soft">best 0</span>
+      <span class="spacer"></span>
+      <span class="next soft">next&nbsp;<i id="nextDot"></i></span>
+    </div>
+
+    <div class="frame">
+      <canvas id="game" width="360" height="640"></canvas>
+      <p class="hint">move to aim · click to drop</p>
+    </div>
+
+    <p class="foot">two alike merge · fill the glass</p>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <div id="overlay" class="overlay" hidden>
+    <div class="card">
+      <p class="card-kicker">the glass is full</p>
+      <p class="card-score" id="finalScore">0</p>
+      <p class="card-best" id="finalBest"></p>
+      <div class="card-actions">
+        <button id="againBtn" class="primary" type="button">New glass</button>
+        <button id="shareBtn2" type="button">Share</button>
+        <button id="saveBtn2" type="button">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="app.js"></script>
+</body>
+</html>

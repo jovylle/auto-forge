@@ -1,15 +1,15 @@
 {
-  "slug": "static-picnic",
-  "title": "Static Picnic",
-  "stack": "vite",
-  "aesthetic": "pop-art",
-  "model": "opencode/deepseek-v4-flash-free",
-  "modelVia": "fallback retry",
+  "slug": "glass-orchard-fruit-merge",
+  "title": "Glass Orchard — fruit merge",
+  "stack": "html",
+  "aesthetic": "extreme-minimal",
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (both demoted, older)",
   "verifyLine": null,
-  "buildPassed": false,
+  "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 1070,
-  "at": "2026-09-11T01:00:15.829Z"
+  "elapsedMs": 969955,
+  "at": "2026-09-11T01:17:40.256Z"
 }

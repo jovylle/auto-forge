@@ -1,9 +1,8 @@
 {
-  "total": 29,
+  "total": 30,
   "counts": {
-    "done": 27,
-    "needs-human": 1,
-    "needs-iteration": 1
+    "done": 29,
+    "needs-human": 1
   },
   "projects": [
     {
@@ -603,7 +602,7 @@
     {
       "slug": "static-picnic",
       "title": "Static Picnic",
-      "status": "needs-iteration",
+      "status": "done",
       "stack": "vite",
       "stackReason": "no strong keyword — random",
       "category": "social",
@@ -618,17 +617,38 @@
         "social",
         "audio"
       ],
-      "updatedAt": "2026-09-11T01:00:15.828Z",
-      "lastError": "{\"type\":\"error\",\"timestamp\":1789088414846,\"sessionID\":\"ses_f72054498ffeOTwCgAq6PwgM7D\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_d174587c\"}}}\n",
-      "lastModel": "opencode/deepseek-v4-flash-free"
+      "updatedAt": "2026-09-11T05:00:00Z",
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, died before VERIFY; human ran final build — exit 0)"
+    },
+    {
+      "slug": "glass-orchard-fruit-merge",
+      "title": "Glass Orchard — fruit merge",
+      "status": "done",
+      "stack": "html",
+      "stackReason": "seed stack",
+      "category": "game",
+      "aesthetic": "extreme-minimal",
+      "theme": "typography",
+      "constraints": [
+        "no external fonts — system fonts only"
+      ],
+      "tags": [
+        "merge",
+        "fruit",
+        "game"
+      ],
+      "updatedAt": "2026-09-11T01:17:40.248Z",
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-10T18:35:31.540Z",
-    "lastSlug": "lantern-ledger"
+    "lastRun": "2026-09-11T01:00:24.764Z",
+    "lastSlug": "static-picnic"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -637,13 +657,12 @@
       "lastError": ""
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 3,
+      "failStreak": 0,
       "lastFail": "2026-09-11T01:00:12.818Z",
-      "lastError": "UnknownError"
+      "lastError": ""
     }
   },
   "logs": [
-    "triage-2026-09-04-puddle.log",
     "triage-2026-09-04.log",
     "triage-2026-09-06-drawer.log",
     "triage-2026-09-06-excuse.log",
@@ -654,10 +673,11 @@
     "triage-2026-09-09-comet.log",
     "triage-2026-09-09-glass.log",
     "triage-2026-09-10-paper.log",
-    "triage-2026-09-11-lantern.log"
+    "triage-2026-09-11-lantern.log",
+    "triage-2026-09-11-static.log"
   ],
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-11T01:00:15.917Z"
+  "updatedAt": "2026-09-11T01:17:40.366Z"
 }
