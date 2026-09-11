@@ -1,3 +1,5 @@
+import './index.css'
+
 const $ = <T extends HTMLElement>(sel: string) => document.querySelector(sel) as T
 
 const M2 = 12.4206012 * 3600
