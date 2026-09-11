@@ -874,14 +874,44 @@ export const projects = [
       "social",
       "audio"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-11T00:37:02.117Z",
-    "updatedAt": "2026-09-11T01:00:15.828Z",
-    "buildPassed": false,
-    "lastError": "{\"type\":\"error\",\"timestamp\":1789088414846,\"sessionID\":\"ses_f72054498ffeOTwCgAq6PwgM7D\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_d174587c\"}}}\n",
+    "updatedAt": "2026-09-11T05:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/deepseek-v4-flash-free"
+    "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, died before VERIFY; human ran final build — exit 0)"
+  },
+  {
+    "slug": "glass-orchard-fruit-merge",
+    "title": "Glass Orchard — fruit merge",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "extreme-minimal",
+    "theme": "typography",
+    "constraints": [
+      "no external fonts — system fonts only"
+    ],
+    "description": "Glass Orchard — fruit merge",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "merge",
+      "fruit",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-11T01:01:23.611Z",
+    "updatedAt": "2026-09-11T01:17:40.248Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 29, done: 27, counts: {"done":27,"needs-human":1,"needs-iteration":1} };
+export const stats = { total: 30, done: 29, counts: {"done":29,"needs-human":1} };

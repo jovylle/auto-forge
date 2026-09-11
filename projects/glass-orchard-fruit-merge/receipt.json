@@ -1,0 +1,30 @@
+{
+  "slug": "glass-orchard-fruit-merge",
+  "title": "Glass Orchard — fruit merge",
+  "stack": "html",
+  "stackReason": "seed stack",
+  "aesthetic": "extreme-minimal",
+  "theme": "typography",
+  "constraints": [
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (both demoted, older)",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Glass Orchard — a Suika-style fruit merge inside a single hairline-drawn glass, extreme-minimal: warm bone paper, ink outlines, muted glass-toned fruit orbs with specimen numbers, system fonts only. Aim-and-drop physics (gravity, pairwise circle collisions, squash on impact), chain merges with combo scoring and pop-rings, ghost aim guide + dashed drop line, soft WebAudio blips, game-over cracks when the glass overflows, and a results card. Share copies a score card (clipboard + native share sheet where available), Save exports a 2x PNG of the orchard, best score and games persist in localStorage. Verified in-browser at desktop, 375px, and 320px widths with zero console errors and no horizontal overflow.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 969955,
+  "at": "2026-09-11T01:17:40.253Z"
+}

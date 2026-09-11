@@ -883,6 +883,36 @@
       "lastError": null,
       "retries": 1,
       "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, died before VERIFY; human ran final build — exit 0)"
+    },
+    {
+      "slug": "glass-orchard-fruit-merge",
+      "title": "Glass Orchard — fruit merge",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "seed stack",
+      "aesthetic": "extreme-minimal",
+      "theme": "typography",
+      "constraints": [
+        "no external fonts — system fonts only"
+      ],
+      "description": "Glass Orchard — fruit merge",
+      "features": [
+        "core interaction",
+        "polished UI",
+        "share/export"
+      ],
+      "tags": [
+        "merge",
+        "fruit",
+        "game"
+      ],
+      "status": "done",
+      "deployed": false,
+      "createdAt": "2026-09-11T01:01:23.611Z",
+      "updatedAt": "2026-09-11T01:17:40.248Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
