@@ -1,15 +1,15 @@
 {
-  "slug": "lantern-ledger",
-  "title": "Lantern Ledger",
+  "slug": "static-picnic",
+  "title": "Static Picnic",
   "stack": "vite",
-  "aesthetic": "bauhaus",
-  "model": "opencode-go/deepseek-v4-flash",
-  "modelVia": "fallback (primary demoted)",
+  "aesthetic": "pop-art",
+  "model": "opencode/deepseek-v4-flash-free",
+  "modelVia": "fallback retry",
   "verifyLine": null,
   "buildPassed": false,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 1499973,
-  "at": "2026-09-10T18:35:22.982Z"
+  "elapsedMs": 1070,
+  "at": "2026-09-11T01:00:15.829Z"
 }

@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: #FFF4DC;
+  --ink: #16130F;
+  --pink: #FF2E88;
+  --yellow: #FFD23F;
+  --green: #9CFF2E;
+  --cobalt: #2B4CFF;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Halftone dots */
+.halftone {
+  background-image: radial-gradient(circle, var(--ink) 1.5px, transparent 1.5px);
+  background-size: 8px 8px;
+}
+
+.ben-day-pink {
+  background-image: radial-gradient(circle, var(--pink) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+.ben-day-yellow {
+  background-image: radial-gradient(circle, var(--yellow) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+
+/* Sunburst */
+.sunburst {
+  background: repeating-conic-gradient(var(--yellow) 0 12deg, transparent 12deg 24deg);
+}
+
+/* Hard comic panel */
+.panel {
+  background: var(--bg);
+  border: 3px solid var(--ink);
+  border-radius: 2px;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+/* Display font */
+.display { font-family: 'Bungee', system-ui, sans-serif; }
+.mono { font-family: 'Space Mono', monospace; }
+
+/* Hard shadow text */
+.title-shadow {
+  color: var(--ink);
+  text-shadow: 3px 3px 0 var(--pink), 6px 6px 0 var(--yellow);
+}
+
+/* Squiggle underline */
+.squiggle {
+  position: relative;
+  padding-bottom: 10px;
+}
+.squiggle::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 8px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'%3E%3Cpath d='M0 6 Q5 0 10 6 T20 6 T30 6 T40 6' fill='none' stroke='%2316130F' stroke-width='3'/%3E%3C/svg%3E") repeat-x;
+  background-size: 40px 8px;
+}
+
+/* Marquee */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 22s linear infinite;
+}
+.marquee-track:hover, .marquee-track:focus-within { animation-play-state: paused; }
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Snap / wobble easing */
+.snap { transition-timing-function: cubic-bezier(.2, 1.4, .3, 1); }
+
+/* Dish reveal */
+@keyframes dish-reveal {
+  0% { transform: scale(.8); opacity: 0; }
+  60% { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.dish-reveal { animation: dish-reveal .3s cubic-bezier(.2,1.4,.3,1) both; }
+
+/* Static flicker for between-station bars */
+.static-flicker {
+  animation: static-flicker .4s steps(2) infinite;
+}
+@keyframes static-flicker {
+  0% { opacity: .35; }
+  100% { opacity: .9; }
+}
+
+/* Signal bar pulse */
+.signal-bar { animation: signal-pulse 1.4s ease-in-out infinite; }
+@keyframes signal-pulse {
+  0%, 100% { opacity: .4; }
+  50% { opacity: 1; }
+}
+
+/* Sticker lift hover */
+.lift { transition: transform .15s ease, box-shadow .15s ease; }
+.lift:hover, .lift:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 3px solid var(--cobalt);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--bg);
+}
+
+/* Seat arc placement helper */
+.seat-dot { position: absolute; }
+
+/* Tilted decor */
+.tilt-neg { transform: rotate(-2deg); }
+.tilt-pos { transform: rotate(1deg); }
+
+/* Crackle burst */
+@keyframes crackle-pop {
+  0% { transform: rotate(-6deg) scale(0); opacity: 0; }
+  70% { transform: rotate(6deg) scale(1.1); opacity: 1; }
+  100% { transform: rotate(-6deg) scale(1); opacity: 1; }
+}
+.crackle { animation: crackle-pop .35s ease-out both; }
+
+/* Inverted void palette */
+.void-mode {
+  background: var(--ink);
+  color: var(--bg);
+}
+.void-mode .title-shadow { color: var(--bg); text-shadow: 3px 3px 0 var(--cobalt), 6px 6px 0 var(--pink); }
+.void-mode .panel { background: var(--ink); border-color: var(--bg); box-shadow: 6px 6px 0 var(--pink); color: var(--bg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .signal-bar, .static-flicker, .dish-reveal, .crackle { animation: none !important; }
+  * { transition-duration: 0s !important; }
+}

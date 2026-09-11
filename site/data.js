@@ -842,14 +842,46 @@ export const projects = [
       "lantern",
       "localStorage"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-10T18:09:58.112Z",
-    "updatedAt": "2026-09-10T18:35:22.979Z",
-    "buildPassed": false,
-    "lastError": "\"parentSessionId\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"sessionId\":\"ses_f7369b0daffe75Li2fQFdLzgky\",\"model\":{\"providerID\":\"opencode\",\"modelID\":\"deepseek-v4-flash-free\"}},\"time\":{\"start\":1789065056047,\"end\":1789065056118}},\"id\":\"prt_08c962710001xaHfnGpOOyqoEY\",\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"messageID\":\"msg_08c9620d5001b2htzqT0RX5Thf\"}}\n{\"type\":\"step_finish\",\"timestamp\":1789065056236,\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"part\":{\"id\":\"prt_08c964fde001nuznzWja70vkFN\",\"reason\":\"tool-calls\",\"snapshot\":\"c34315c579ff06daf2f51a9e9467993a63c34338\",\"messageID\":\"msg_08c9620d5001b2htzqT0RX5Thf\",\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"type\":\"step-finish\",\"tokens\":{\"total\":100072,\"input\":524,\"output\":732,\"reasoning\":0,\"cache\":{\"write\":0,\"read\":98816}},\"cost\":0.000814248}}\n{\"type\":\"step_start\",\"timestamp\":1789065058438,\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"part\":{\"id\":\"prt_08c96587e001GLjzaGSp6s1WS9\",\"messageID\":\"msg_08c965009001xXPlhKOuAelq7g\",\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"snapshot\":\"c34315c579ff06daf2f51a9e9467993a63c34338\",\"type\":\"step-start\"}}\n{\"type\":\"text\",\"timestamp\":1789065065280,\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"part\":{\"id\":\"prt_08c9663ad0016D9I1sIKPPi9WI\",\"messageID\":\"msg_08c965009001xXPlhKOuAelq7g\",\"sessionID\":\"ses_f737c837effeYH9GehY2bXfZLO\",\"type\":\"text\",\"text\":\"The configured layout-verifier model isn't available; falling back to a general agent for the same task.\",\"time\":{\"start\":1789065061293,\"end\":1789065065278}}}\n",
+    "updatedAt": "2026-09-11T03:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode-go/deepseek-v4-flash"
+    "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
+  },
+  {
+    "slug": "static-picnic",
+    "title": "Static Picnic",
+    "category": "social",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "pop-art",
+    "theme": "typography",
+    "constraints": [
+      "must have an easter egg",
+      "must work with keyboard only"
+    ],
+    "description": "Host a radio potluck for passing strangers.",
+    "features": [
+      "dish tuner",
+      "picnic board",
+      "signal seats"
+    ],
+    "tags": [
+      "radio",
+      "social",
+      "audio"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-09-11T00:37:02.117Z",
+    "updatedAt": "2026-09-11T01:00:15.828Z",
+    "buildPassed": false,
+    "lastError": "{\"type\":\"error\",\"timestamp\":1789088414846,\"sessionID\":\"ses_f72054498ffeOTwCgAq6PwgM7D\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_d174587c\"}}}\n",
+    "retries": 1,
+    "lastModel": "opencode/deepseek-v4-flash-free"
   }
 ];
-export const stats = { total: 28, done: 26, counts: {"done":26,"needs-human":2} };
+export const stats = { total: 29, done: 27, counts: {"done":27,"needs-human":1,"needs-iteration":1} };

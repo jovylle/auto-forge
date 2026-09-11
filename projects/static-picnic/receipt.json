@@ -1,0 +1,33 @@
+{
+  "slug": "static-picnic",
+  "title": "Static Picnic",
+  "stack": "vite",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "pop-art",
+  "theme": "typography",
+  "constraints": [
+    "must have an easter egg",
+    "must work with keyboard only"
+  ],
+  "model": "opencode/deepseek-v4-flash-free",
+  "modelVia": "fallback retry",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Static Picnic — a pop-art radio potluck for passing strangers. Dish Tuner: a keyboard-navigable radio dial (87.5–108 MHz, ←/→/Home/End tune, Enter locks) with a live signal meter, static flicker and crackle that reveals stranger dishes. Picnic Board: locking a dish auto-lays out a tilted plate card on a localStorage rug where you can pin a note for the host. Signal Seats: a row of claimable seats around the transmitter with per-seat connection strength, persisted in localStorage. Easter egg: tune past the band edge to 66.6 FM THE VOID — the palette inverts and a focus-trapped dialog (Esc or button dismisses) appears. Fully keyboard-only with visible focus rings and prefers-reduced-motion support. Pop-art identity: bone/pink/canary/acid-green/cobalt palette, Bungee + Space Grotesk + Space Mono, halftone dots, sunburst, hard offset shadows, tilted asymmetric layout. Build passes with relative asset paths for /p/ subpath hosting.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "dish tuner",
+      "picnic board",
+      "signal seats",
+      "easter egg (66.6 FM void)",
+      "keyboard-only"
+    ]
+  },
+  "buildPassed": false,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 1070,
+  "at": "2026-09-11T01:00:15.829Z"
+}
