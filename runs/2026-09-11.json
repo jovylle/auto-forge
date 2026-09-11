@@ -30,7 +30,22 @@
       },
       "elapsedMs": 969955,
       "at": "2026-09-11T01:17:40.256Z"
+    },
+    {
+      "slug": "moon-pantry",
+      "title": "Moon Pantry",
+      "stack": "vite",
+      "aesthetic": "memphis",
+      "model": "opencode-go/deepseek-v4-flash",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 1166171,
+      "at": "2026-09-11T07:21:55.275Z"
     }
   ],
-  "updatedAt": "2026-09-11T01:17:40.256Z"
+  "updatedAt": "2026-09-11T07:21:55.275Z"
 }
