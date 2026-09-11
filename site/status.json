@@ -1,7 +1,7 @@
 {
-  "total": 30,
+  "total": 31,
   "counts": {
-    "done": 29,
+    "done": 30,
     "needs-human": 1
   },
   "projects": [
@@ -641,14 +641,35 @@
       "updatedAt": "2026-09-11T01:17:40.248Z",
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "moon-pantry",
+      "title": "Moon Pantry",
+      "status": "done",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "category": "tool",
+      "aesthetic": "memphis",
+      "theme": "typography",
+      "constraints": [
+        "no images — CSS/canvas only"
+      ],
+      "tags": [
+        "recipes",
+        "pantry",
+        "tool"
+      ],
+      "updatedAt": "2026-09-11T07:21:55.274Z",
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-11T01:00:24.764Z",
-    "lastSlug": "static-picnic"
+    "lastRun": "2026-09-11T01:18:05.090Z",
+    "lastSlug": "glass-orchard-fruit-merge"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -679,5 +700,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-11T01:17:40.366Z"
+  "updatedAt": "2026-09-11T07:21:55.376Z"
 }

@@ -913,6 +913,36 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "moon-pantry",
+      "title": "Moon Pantry",
+      "category": "tool",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "aesthetic": "memphis",
+      "theme": "typography",
+      "constraints": [
+        "no images — CSS/canvas only"
+      ],
+      "description": "A lunar recipe box for midnight cooks.",
+      "features": [
+        "recipe phases",
+        "pantry stock",
+        "midnight mode"
+      ],
+      "tags": [
+        "recipes",
+        "pantry",
+        "tool"
+      ],
+      "status": "done",
+      "deployed": false,
+      "createdAt": "2026-09-11T07:02:05.030Z",
+      "updatedAt": "2026-09-11T07:21:55.274Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/deepseek-v4-flash"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

@@ -1,15 +1,15 @@
 {
-  "slug": "glass-orchard-fruit-merge",
-  "title": "Glass Orchard — fruit merge",
-  "stack": "html",
-  "aesthetic": "extreme-minimal",
+  "slug": "moon-pantry",
+  "title": "Moon Pantry",
+  "stack": "vite",
+  "aesthetic": "memphis",
   "model": "opencode-go/deepseek-v4-flash",
-  "modelVia": "fallback (both demoted, older)",
+  "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
   "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 969955,
-  "at": "2026-09-11T01:17:40.256Z"
+  "elapsedMs": 1166171,
+  "at": "2026-09-11T07:21:55.275Z"
 }

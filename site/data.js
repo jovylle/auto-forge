@@ -912,6 +912,36 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/deepseek-v4-flash"
+  },
+  {
+    "slug": "moon-pantry",
+    "title": "Moon Pantry",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "memphis",
+    "theme": "typography",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "A lunar recipe box for midnight cooks.",
+    "features": [
+      "recipe phases",
+      "pantry stock",
+      "midnight mode"
+    ],
+    "tags": [
+      "recipes",
+      "pantry",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-11T07:02:05.030Z",
+    "updatedAt": "2026-09-11T07:21:55.274Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/deepseek-v4-flash"
   }
 ];
-export const stats = { total: 30, done: 29, counts: {"done":29,"needs-human":1} };
+export const stats = { total: 31, done: 30, counts: {"done":30,"needs-human":1} };

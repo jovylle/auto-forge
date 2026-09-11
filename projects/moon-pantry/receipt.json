@@ -1,0 +1,30 @@
+{
+  "slug": "moon-pantry",
+  "title": "Moon Pantry",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "memphis",
+  "theme": "typography",
+  "constraints": [
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode-go/deepseek-v4-flash",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Moon Pantry — a lunar recipe box for midnight cooks, built in a bold Memphis aesthetic (cream paper, clashing neon accents, heavy black outlines, hard offset shadows, wavy underlines, marquee ticker, sticker badges, seeded confetti/starfield canvas). Recipe phases: 8 lunar phases each spotlight recipes, with an astronomically-correct waxing/waning moon. Pantry stock: tick ingredients, live cookability meter (have/missing + %), search, stock-basics, stock-all, all persisted to localStorage. Midnight mode: deep-night palette, twinkling starfield canvas, midnight-only recipes sorted first, auto-activates 11PM-5AM. No images — CSS/canvas only. Fully keyboard-accessible, prefers-reduced-motion respected, responsive down to 375px. Build passes, preview serves real content, relative ./assets paths for subpath hosting. Reviewer fixes applied: midnight theme now on <html> so canvas reads correct bg, persisted phase/pantry validated against crash-on-bad-value, and purple accent contrast improved to dark-on-purple.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "recipe phases",
+      "pantry stock",
+      "midnight mode"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 1166171,
+  "at": "2026-09-11T07:21:55.275Z"
+}
