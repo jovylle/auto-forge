@@ -850,6 +850,38 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
+  },
+  {
+    "slug": "static-picnic",
+    "title": "Static Picnic",
+    "category": "social",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "pop-art",
+    "theme": "typography",
+    "constraints": [
+      "must have an easter egg",
+      "must work with keyboard only"
+    ],
+    "description": "Host a radio potluck for passing strangers.",
+    "features": [
+      "dish tuner",
+      "picnic board",
+      "signal seats"
+    ],
+    "tags": [
+      "radio",
+      "social",
+      "audio"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-09-11T00:37:02.117Z",
+    "updatedAt": "2026-09-11T01:00:15.828Z",
+    "buildPassed": false,
+    "lastError": "{\"type\":\"error\",\"timestamp\":1789088414846,\"sessionID\":\"ses_f72054498ffeOTwCgAq6PwgM7D\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_d174587c\"}}}\n",
+    "retries": 1,
+    "lastModel": "opencode/deepseek-v4-flash-free"
   }
 ];
-export const stats = { total: 28, done: 27, counts: {"done":27,"needs-human":1} };
+export const stats = { total: 29, done: 27, counts: {"done":27,"needs-human":1,"needs-iteration":1} };
