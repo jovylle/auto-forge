@@ -1,15 +1,15 @@
 {
-  "slug": "moon-pantry",
-  "title": "Moon Pantry",
+  "slug": "brine-clock",
+  "title": "Brine Clock",
   "stack": "vite",
-  "aesthetic": "memphis",
-  "model": "opencode-go/deepseek-v4-flash",
-  "modelVia": "fallback (primary demoted)",
+  "aesthetic": "biomorphic",
+  "model": "opencode/deepseek-v4-flash-free",
+  "modelVia": "fallback retry",
   "verifyLine": null,
-  "buildPassed": true,
+  "buildPassed": false,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 1166171,
-  "at": "2026-09-11T07:21:55.275Z"
+  "elapsedMs": 1066,
+  "at": "2026-09-11T13:34:25.506Z"
 }

@@ -943,6 +943,37 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "slug": "brine-clock",
+      "title": "Brine Clock",
+      "category": "art",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "aesthetic": "biomorphic",
+      "theme": "typography",
+      "constraints": [
+        "no images — CSS/canvas only"
+      ],
+      "description": "A tide timer that breathes with the sea.",
+      "features": [
+        "tide dial",
+        "breath sync",
+        "harbor bell"
+      ],
+      "tags": [
+        "tide",
+        "time",
+        "canvas"
+      ],
+      "status": "needs-iteration",
+      "deployed": false,
+      "createdAt": "2026-09-11T13:23:14.492Z",
+      "updatedAt": "2026-09-11T13:34:25.504Z",
+      "buildPassed": false,
+      "lastError": "{\"type\":\"error\",\"timestamp\":1789133665154,\"sessionID\":\"ses_f6f52cda7ffe9H5pMNa27nh2k5\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_fb5a2b86\"}}}\n",
+      "retries": 1,
+      "lastModel": "opencode/deepseek-v4-flash-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
