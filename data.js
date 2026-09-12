@@ -997,14 +997,14 @@ export const projects = [
       "lantern",
       "localStorage"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-12T01:00:40.592Z",
-    "updatedAt": "2026-09-12T08:00:00Z",
-    "buildPassed": false,
-    "lastError": "retry worker died with zero output; scaffold untouched",
+    "updatedAt": "2026-09-12T13:55:58.286Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/deepseek-v4-flash-free"
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   },
   {
     "slug": "brine-clock-tide-timer",
@@ -1039,4 +1039,4 @@ export const projects = [
     "lastModel": "opencode-go/deepseek-v4-flash (result.json pass; human verified)"
   }
 ];
-export const stats = { total: 34, done: 32, counts: {"done":32,"needs-human":1,"needs-iteration":1} };
+export const stats = { total: 34, done: 33, counts: {"done":33,"needs-human":1} };
