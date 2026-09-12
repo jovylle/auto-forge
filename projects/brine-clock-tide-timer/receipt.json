@@ -1,0 +1,31 @@
+{
+  "slug": "brine-clock-tide-timer",
+  "title": "Brine Clock — tide timer",
+  "stack": "html",
+  "stackReason": "seed stack (dedup guard)",
+  "aesthetic": "japanese-cyberpunk",
+  "theme": "typography",
+  "constraints": [
+    "must have an easter egg",
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/deepseek-v4-flash-free",
+  "modelVia": "fallback retry",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "BRINE CLOCK 潮汐時計 — a living japanese-cyberpunk tide timer. A glowing canvas tide dial: a pink hand sweeps one rotation per M2 lunar tide cycle (~12h25m) while an animated neon water disc rises/falls with a synthetic M2+S2+K1 harmonic tide model (normalized 0-100%), and a 24h tide sparkline wraps the ring with amber/cyan markers at the next high 満潮 and low 干潮. Live readouts: level %, rising/falling trend (満ち/引き), phase, and countdowns to next high/low. TIME WARP core interaction: scrub −12h..+48h, play at 60×/3600×, or snap LIVE (speed persisted in localStorage). Share/export: copy formatted tide snapshot to clipboard (with fallback), download a neon 24h tide chart PNG (offscreen canvas, high/low + NOW markers), and download a 24h forecast JSON (30-min points + upcoming events). Easter egg: click the 潮汐 tide seal 5× (flickers at 3) or type 'kraken' to awaken 海神 KRAKEN — glowing tentacles + an eye rise in the dial, page shivers, auto-calms in 12s or dismiss with one click. Japanese-cyberpunk identity: ink/neon palette (cyan #00eaff, pink #ff2e88, wasabi #c6ff3e), Zen Tokyo Zoo + Noto Sans JP + Share Tech Mono, cut-corner clip-path panels, scanline + CRT vignette overlays, drifting aura blobs, kanji labels. Zero images — dial, water, waves, markers, and tentacles are all canvas; everything else is pure CSS. Verified in-browser at 1280px and 375px: no horizontal overflow, zero console errors, Lighthouse accessibility 100; warp, live-reset, copy/PNG/JSON export, and both easter-egg triggers all tested working.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ]
+  },
+  "buildPassed": false,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 1280,
+  "at": "2026-09-12T07:50:40.708Z"
+}

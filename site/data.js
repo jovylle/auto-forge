@@ -997,14 +997,46 @@ export const projects = [
       "lantern",
       "localStorage"
     ],
-    "status": "needs-iteration",
+    "status": "building",
     "deployed": false,
     "createdAt": "2026-09-12T01:00:40.592Z",
-    "updatedAt": "2026-09-12T01:11:37.456Z",
+    "updatedAt": "2026-09-12T01:37:24.836Z",
     "buildPassed": false,
     "lastError": "scaffold untouched — worker wrote no app code",
     "retries": 1,
     "lastModel": "opencode/deepseek-v4-flash-free"
+  },
+  {
+    "slug": "brine-clock-tide-timer",
+    "title": "Brine Clock — tide timer",
+    "category": "art",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "typography",
+    "constraints": [
+      "must have an easter egg",
+      "no images — CSS/canvas only"
+    ],
+    "description": "Brine Clock — tide timer",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "tide",
+      "time",
+      "canvas"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-09-12T07:38:16.913Z",
+    "updatedAt": "2026-09-12T07:50:40.707Z",
+    "buildPassed": false,
+    "lastError": "{\"type\":\"error\",\"timestamp\":1789199440685,\"sessionID\":\"ses_f6b6725fbffeoMJrjQLCx0Q3wW\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_6e4bd654\"}}}\n",
+    "retries": 1,
+    "lastModel": "opencode/deepseek-v4-flash-free"
   }
 ];
-export const stats = { total: 33, done: 31, counts: {"done":31,"needs-human":1,"needs-iteration":1} };
+export const stats = { total: 34, done: 31, counts: {"done":31,"needs-human":1,"building":1,"needs-iteration":1} };

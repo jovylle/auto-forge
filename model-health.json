@@ -1,12 +1,12 @@
 {
   "opencode/deepseek-v4-flash-free": {
-    "failStreak": 16,
-    "lastFail": "2026-09-12T01:11:37.453Z",
+    "failStreak": 17,
+    "lastFail": "2026-09-12T07:50:40.706Z",
     "lastError": ""
   },
   "opencode-go/deepseek-v4-flash": {
-    "failStreak": 2,
-    "lastFail": "2026-09-12T01:11:36.164Z",
+    "failStreak": 3,
+    "lastFail": "2026-09-12T07:50:39.422Z",
     "lastError": "UnknownError"
   }
 }

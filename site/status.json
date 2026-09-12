@@ -1,8 +1,9 @@
 {
-  "total": 33,
+  "total": 34,
   "counts": {
     "done": 31,
     "needs-human": 1,
+    "building": 1,
     "needs-iteration": 1
   },
   "projects": [
@@ -688,7 +689,7 @@
     {
       "slug": "lantern-ledger-night-journal",
       "title": "Lantern Ledger — night journal",
-      "status": "needs-iteration",
+      "status": "building",
       "stack": "html",
       "stackReason": "seed stack (dedup guard)",
       "category": "tool",
@@ -703,8 +704,30 @@
         "lantern",
         "localStorage"
       ],
-      "updatedAt": "2026-09-12T01:11:37.456Z",
+      "updatedAt": "2026-09-12T01:37:24.836Z",
       "lastError": "scaffold untouched — worker wrote no app code",
+      "lastModel": "opencode/deepseek-v4-flash-free"
+    },
+    {
+      "slug": "brine-clock-tide-timer",
+      "title": "Brine Clock — tide timer",
+      "status": "needs-iteration",
+      "stack": "html",
+      "stackReason": "seed stack (dedup guard)",
+      "category": "art",
+      "aesthetic": "japanese-cyberpunk",
+      "theme": "typography",
+      "constraints": [
+        "must have an easter egg",
+        "no images — CSS/canvas only"
+      ],
+      "tags": [
+        "tide",
+        "time",
+        "canvas"
+      ],
+      "updatedAt": "2026-09-12T07:50:40.707Z",
+      "lastError": "{\"type\":\"error\",\"timestamp\":1789199440685,\"sessionID\":\"ses_f6b6725fbffeoMJrjQLCx0Q3wW\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_6e4bd654\"}}}\n",
       "lastModel": "opencode/deepseek-v4-flash-free"
     }
   ],
@@ -712,18 +735,18 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-11T13:34:34.229Z",
-    "lastSlug": "brine-clock"
+    "lastRun": "2026-09-12T01:11:54.188Z",
+    "lastSlug": "lantern-ledger-night-journal"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
-      "failStreak": 16,
-      "lastFail": "2026-09-12T01:11:37.453Z",
+      "failStreak": 17,
+      "lastFail": "2026-09-12T07:50:40.706Z",
       "lastError": ""
     },
     "opencode-go/deepseek-v4-flash": {
-      "failStreak": 2,
-      "lastFail": "2026-09-12T01:11:36.164Z",
+      "failStreak": 3,
+      "lastFail": "2026-09-12T07:50:39.422Z",
       "lastError": "UnknownError"
     }
   },
@@ -744,5 +767,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-12T01:11:37.558Z"
+  "updatedAt": "2026-09-12T07:50:40.823Z"
 }
