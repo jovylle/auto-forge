@@ -965,14 +965,46 @@ export const projects = [
       "time",
       "canvas"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-11T13:23:14.492Z",
-    "updatedAt": "2026-09-11T13:34:25.504Z",
+    "updatedAt": "2026-09-11T14:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode-go/deepseek-v4-flash (result.json pass; human fixed missing CSS import + built — exit 0)"
+  },
+  {
+    "slug": "lantern-ledger-night-journal",
+    "title": "Lantern Ledger — night journal",
+    "category": "tool",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "typography",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Lantern Ledger — night journal",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "journal",
+      "lantern",
+      "localStorage"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-09-12T01:00:40.592Z",
+    "updatedAt": "2026-09-12T01:11:37.456Z",
     "buildPassed": false,
-    "lastError": "{\"type\":\"error\",\"timestamp\":1789133665154,\"sessionID\":\"ses_f6f52cda7ffe9H5pMNa27nh2k5\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_fb5a2b86\"}}}\n",
+    "lastError": "scaffold untouched — worker wrote no app code",
     "retries": 1,
     "lastModel": "opencode/deepseek-v4-flash-free"
   }
 ];
-export const stats = { total: 32, done: 30, counts: {"done":30,"needs-human":1,"needs-iteration":1} };
+export const stats = { total: 33, done: 31, counts: {"done":31,"needs-human":1,"needs-iteration":1} };

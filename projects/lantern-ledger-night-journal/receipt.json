@@ -2,10 +2,17 @@
   "slug": "lantern-ledger-night-journal",
   "title": "Lantern Ledger — night journal",
   "stack": "html",
+  "stackReason": "seed stack (dedup guard)",
   "aesthetic": "sci-fi-terminal",
+  "theme": "typography",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no external fonts — system fonts only"
+  ],
   "model": "opencode/deepseek-v4-flash-free",
   "modelVia": "fallback retry",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": false,
   "verify": {
     "ok": false,
