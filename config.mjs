@@ -46,10 +46,10 @@ export const config = {
     cloudflareProject: "auto-forge",
   },
   models: {
-    idea: process.env.OPENCODE_SMALL_MODEL || "opencode/deepseek-v4-flash-free",
-    ideaFallback: "opencode-go/deepseek-v4-flash",
-    build: "opencode/deepseek-v4-flash-free",
-    buildFallback: "opencode-go/deepseek-v4-flash",
+    idea: process.env.OPENCODE_SMALL_MODEL || "opencode/muse-spark-1.3-contributor-free",
+    ideaFallback: "opencode-go/muse-spark-1.3-contributor",
+    build: "opencode/muse-spark-1.3-contributor-free",
+    buildFallback: "opencode-go/muse-spark-1.3-contributor",
     smart: "opencode-go/glm-5.2",
     // circuit breaker
     breakerFails: 2,           // consecutive fails to demote for 3 days
