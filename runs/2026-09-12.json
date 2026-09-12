@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-12",
+  "runs": [
+    {
+      "slug": "lantern-ledger-night-journal",
+      "title": "Lantern Ledger — night journal",
+      "stack": "html",
+      "aesthetic": "sci-fi-terminal",
+      "model": "opencode/deepseek-v4-flash-free",
+      "modelVia": "fallback retry",
+      "verifyLine": null,
+      "buildPassed": false,
+      "verify": {
+        "ok": false,
+        "reason": "scaffold untouched — worker wrote no app code"
+      },
+      "elapsedMs": 1283,
+      "at": "2026-09-12T01:11:37.457Z"
+    }
+  ],
+  "updatedAt": "2026-09-12T01:11:37.457Z"
+}

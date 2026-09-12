@@ -973,6 +973,38 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash (result.json pass; human fixed missing CSS import + built — exit 0)"
+  },
+  {
+    "slug": "lantern-ledger-night-journal",
+    "title": "Lantern Ledger — night journal",
+    "category": "tool",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "typography",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Lantern Ledger — night journal",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "journal",
+      "lantern",
+      "localStorage"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-09-12T01:00:40.592Z",
+    "updatedAt": "2026-09-12T01:11:37.456Z",
+    "buildPassed": false,
+    "lastError": "scaffold untouched — worker wrote no app code",
+    "retries": 1,
+    "lastModel": "opencode/deepseek-v4-flash-free"
   }
 ];
-export const stats = { total: 32, done: 31, counts: {"done":31,"needs-human":1} };
+export const stats = { total: 33, done: 31, counts: {"done":31,"needs-human":1,"needs-iteration":1} };
