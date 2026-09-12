@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>BRINE CLOCK — 潮汐時計 | tide timer</title>
+<meta name="description" content="A living tide timer. Neon tidal dial, spring-neap rhythm, time warp, and export." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&family=Noto+Sans+JP:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+<div class="bg-aura" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header class="mast">
+  <div class="mast-left">
+    <button id="kanjiEgg" class="logo-kanji" title="click the tide seal" aria-label="潮汐 Tide seal">潮汐</button>
+    <div class="logo-block">
+      <h1 class="logo">BRINE&nbsp;CLOCK</h1>
+      <p class="logo-sub">潮汐時計 — a living tide timer</p>
+    </div>
+  </div>
+  <div class="mast-right">
+    <span id="modeBadge" class="badge badge-live">LIVE</span>
+    <span class="clock-read" id="simClock">--:--:--</span>
+  </div>
+</header>
+
+<main class="stage">
+
+  <section class="dial-wrap">
+    <div class="dial-frame">
+      <canvas id="dial" width="640" height="640"></canvas>
+      <div class="dial-center">
+        <span id="levelPct" class="pct">50%</span>
+        <span id="levelTrend" class="trend rising">▲ 満ち</span>
+        <span id="phaseLabel" class="phase">RISING</span>
+      </div>
+      <span class="ring-tag ring-tag-hi">満潮 HIGH</span>
+      <span class="ring-tag ring-tag-lo">干潮 LOW</span>
+    </div>
+  </section>
+
+  <section class="panel">
+
+    <div class="card">
+      <h2 class="card-title"><span class="jp">現在</span> TIDE LEVEL</h2>
+      <div class="level-bar"><i id="levelBar"></i></div>
+      <div class="chiprow">
+        <div class="chip">
+          <span class="chip-label jp">次の満潮</span>
+          <span class="chip-time" id="nextHighTime">--:--</span>
+          <span class="chip-in" id="nextHighIn">in --h --m</span>
+        </div>
+        <div class="chip">
+          <span class="chip-label jp">次の干潮</span>
+          <span class="chip-time" id="nextLowTime">--:--</span>
+          <span class="chip-in" id="nextLowIn">in --h --m</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title"><span class="jp">時空</span> TIME WARP</h2>
+      <div class="warp-row">
+        <label for="warpSlider" class="sr-only">Warp tide time</label>
+        <input type="range" id="warpSlider" min="-12" max="48" step="0.1" value="0" aria-label="Warp tide time" />
+      </div>
+      <div class="warp-meta">
+        <span id="warpValue" class="warp-value">NOW</span>
+        <div class="warp-btns">
+          <button id="btnWarp" class="btn btn-ghost" title="Play time">▶ WARP</button>
+          <button id="btnLive" class="btn btn-solid" title="Snap back to real time">◉ LIVE</button>
+        </div>
+      </div>
+      <div class="speedrow">
+        <label class="speedlab" for="speedSelect">SPEED</label>
+        <select id="speedSelect" class="speed" aria-label="Warp speed">
+          <option value="1">1× real</option>
+          <option value="60" selected>60×</option>
+          <option value="3600">3600×</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title"><span class="jp">輸出</span> SHARE / EXPORT</h2>
+      <div class="actionrow">
+        <button id="btnCopy" class="btn btn-ghost">⧉ COPY SNAPSHOT</button>
+        <button id="btnPng" class="btn btn-ghost">▤ CHART PNG</button>
+        <button id="btnJson" class="btn btn-ghost">⬇ FORECAST JSON</button>
+      </div>
+    </div>
+
+    <p class="panel-note">synthetic tide · M2 + S2 + K1 harmonics · spring-neap cycle 14.77d</p>
+
+  </section>
+</main>
+
+<footer class="foot">
+  <span class="foot-kanji">海</span>
+  <span class="foot-text">潮汐時計 — the ocean keeps time in its own language. <span class="hint">(psst: say “kraken” to the tide seal)</span></span>
+  <span class="foot-kanji">波</span>
+</footer>
+
+<div id="toast" class="toast" role="status"></div>
+
+<script src="./app.js"></script>
+</body>
+</html>
