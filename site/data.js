@@ -997,14 +997,14 @@ export const projects = [
       "lantern",
       "localStorage"
     ],
-    "status": "building",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-12T01:00:40.592Z",
-    "updatedAt": "2026-09-12T01:37:24.836Z",
-    "buildPassed": false,
-    "lastError": "scaffold untouched — worker wrote no app code",
+    "updatedAt": "2026-09-12T13:55:58.286Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/deepseek-v4-flash-free"
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   },
   {
     "slug": "brine-clock-tide-timer",
@@ -1029,14 +1029,14 @@ export const projects = [
       "time",
       "canvas"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-12T07:38:16.913Z",
-    "updatedAt": "2026-09-12T07:50:40.707Z",
-    "buildPassed": false,
-    "lastError": "{\"type\":\"error\",\"timestamp\":1789199440685,\"sessionID\":\"ses_f6b6725fbffeoMJrjQLCx0Q3wW\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_6e4bd654\"}}}\n",
+    "updatedAt": "2026-09-12T08:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/deepseek-v4-flash-free"
+    "lastModel": "opencode-go/deepseek-v4-flash (result.json pass; human verified)"
   }
 ];
-export const stats = { total: 34, done: 31, counts: {"done":31,"needs-human":1,"building":1,"needs-iteration":1} };
+export const stats = { total: 34, done: 33, counts: {"done":33,"needs-human":1} };

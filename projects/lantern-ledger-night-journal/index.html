@@ -3,15 +3,136 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lantern Ledger — night journal</title>
+  <meta name="description" content="Lantern Ledger — a sci-fi-terminal night journal. Private, offline, in your browser." />
+  <title>LANTERN//LEDGER — night journal</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main id="app">
-    <h1>Lantern Ledger — night journal</h1>
-    <p class="sub">Lantern Ledger — night journal</p>
-    <div id="stage"></div>
+  <div class="crt" aria-hidden="true"></div>
+
+  <!-- Shared-entry read-only view (shown when URL has #ll=...) -->
+  <section id="shared" class="panel shared" hidden>
+    <p class="kicker">◈ incoming transmission ◈</p>
+    <h1 class="brand">LANTERN<span>//</span>LEDGER</h1>
+    <article class="card">
+      <header class="card-head">
+        <span id="sharedFlame" class="flame"></span>
+        <span id="sharedDate" class="date"></span>
+      </header>
+      <h2 id="sharedTitle"></h2>
+      <p id="sharedBody"></p>
+    </article>
+    <div class="row">
+      <a id="sharedBack" class="btn ghost" href="./index.html">open your own ledger →</a>
+    </div>
+  </section>
+
+  <main id="app" class="wrap">
+    <div id="boot" class="boot" role="status" aria-label="Terminal boot sequence">
+      <pre id="bootLines"></pre><span class="cursor" aria-hidden="true">▊</span>
+    </div>
+
+    <header class="topbar panel">
+      <div>
+        <p class="kicker">◈ night-link established ◈</p>
+        <h1 class="brand">LANTERN<span>//</span>LEDGER</h1>
+        <p class="sub">a night journal · lit one lantern at a time · private to this machine</p>
+      </div>
+      <div class="lantern" aria-hidden="true">
+        <div id="glow" class="glow f3"></div>
+        <div class="lamp">🏮</div>
+        <div id="streak" class="streak">0-night streak</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Editor -->
+      <section class="panel editor" aria-label="Write tonight's entry">
+        <div class="panel-title">
+          <span class="dot"></span>
+          <h2>tonight's entry <span class="cursor sm" aria-hidden="true">▊</span></h2>
+          <span id="saveState" class="chip ok">idle</span>
+        </div>
+        <label class="fld">
+          <span class="lbl">&gt; title_</span>
+          <input id="title" maxlength="80" placeholder="what kept you awake?" autocomplete="off" />
+        </label>
+        <label class="fld">
+          <span class="lbl">&gt; flame intensity_ <span id="flameName" class="chip">steady · 3</span></span>
+          <div id="flame" class="flamepick" role="radiogroup" aria-label="Flame intensity 1 to 5">
+            <button data-f="1" role="radio" aria-label="1 dim">▲<small>1</small></button>
+            <button data-f="2" role="radio" aria-label="2 low">▲<small>2</small></button>
+            <button data-f="3" role="radio" aria-label="3 steady" class="on">▲<small>3</small></button>
+            <button data-f="4" role="radio" aria-label="4 bright">▲<small>4</small></button>
+            <button data-f="5" role="radio" aria-label="5 blaze">▲<small>5</small></button>
+          </div>
+        </label>
+        <label class="fld grow">
+          <span class="lbl">&gt; log_ <span id="words" class="chip">0 words</span></span>
+          <textarea id="body" rows="9" placeholder="type the night into the ledger…"></textarea>
+        </label>
+        <div class="row btns">
+          <button id="save" class="btn primary">◈ seal entry <kbd>⌃↵</kbd></button>
+          <button id="new" class="btn ghost">+ new <kbd>n</kbd></button>
+          <button id="dlDraft" class="btn ghost">export .txt</button>
+          <button id="copyDraft" class="btn ghost">copy</button>
+        </div>
+        <p class="hint">draft autosaves locally · <kbd>Ctrl/⌘+Enter</kbd> seals · <kbd>Esc</kbd> closes dialogs</p>
+      </section>
+
+      <!-- Ledger list -->
+      <section class="panel ledger" aria-label="Past entries">
+        <div class="panel-title">
+          <span class="dot g"></span>
+          <h2>ledger</h2>
+          <span id="count" class="chip">0 entries</span>
+        </div>
+        <div class="row btns slim">
+          <input id="q" placeholder="filter… (?/word)" aria-label="Filter entries" />
+          <button id="dlJson" class="btn ghost">⇩ json</button>
+        </div>
+        <ul id="list" class="list"></ul>
+        <p id="empty" class="empty">no entries yet — the dark is waiting.<br />seal your first entry and it will burn here.</p>
+      </section>
+    </div>
+
+    <footer class="foot">
+      <span>sys: offline · localStorage only · no beacons</span>
+      <span>palette: amber/green/ember · type: system mono</span>
+    </footer>
   </main>
-  <script type="module" src="./app.js"></script>
+
+  <!-- Read / delete modal -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card panel" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <header class="card-head">
+        <span id="mFlame"></span>
+        <span id="mDate" class="date"></span>
+        <button id="mClose" class="btn ghost x" aria-label="Close">✕ esc</button>
+      </header>
+      <h2 id="mTitle"></h2>
+      <p id="mBody"></p>
+      <div class="row btns">
+        <button id="mCopy" class="btn ghost">copy</button>
+        <button id="mDl" class="btn ghost">export .txt</button>
+        <button id="mShare" class="btn primary">share link</button>
+        <button id="mBurn" class="btn danger">burn entry</button>
+      </div>
+      <p id="burnWarn" class="burnwarn" hidden>really burn this entry? this cannot be undone. <button id="mBurnYes" class="btn danger">yes, burn it</button> <button id="mBurnNo" class="btn ghost">keep it</button></p>
+    </div>
+  </div>
+
+  <!-- Copy fallback modal -->
+  <div id="copyModal" class="modal" hidden>
+    <div class="modal-card panel" role="dialog" aria-modal="true">
+      <h2>copy manually</h2>
+      <p class="hint">clipboard blocked — select + copy below:</p>
+      <textarea id="copyText" rows="8" readonly></textarea>
+      <div class="row btns"><button id="copyClose" class="btn primary">done</button></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js"></script>
 </body>
 </html>
