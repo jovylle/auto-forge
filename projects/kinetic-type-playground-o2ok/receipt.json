@@ -1,0 +1,31 @@
+{
+  "slug": "kinetic-type-playground-o2ok",
+  "title": "Kinetic Type Playground",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "cyberpunk",
+  "theme": "typography",
+  "constraints": [
+    "must be playable in 30 seconds"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback after preflight fail",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Live kinetic text animation",
+      "Adjustable font weight and spacing",
+      "Gravity and bounce physics",
+      "Export as GIF or PNG"
+    ],
+    "status": "pass",
+    "summary": "Kinetic Type Playground: cyberpunk canvas lab with 5 motion modes (bounce/wave/orbit/glitch/rain), weight/size/spacing + gravity/bounce/chaos sliders, drag-to-fling letters, 4 neon palettes, PNG export and self-contained LZW GIF encoder (pixel-verified vs PIL, infinite loop). Boots mid-animation; verified rendering at 1440px and 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 636390,
+  "at": "2026-09-13T14:36:00.305Z"
+}

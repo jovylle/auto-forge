@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KINETIC TYPE PLAYGROUND — neon physics lab</title>
+  <meta name="description" content="Type words, watch letters dance, bounce and morph into animated typographic art. Cyberpunk kinetic type lab with gravity physics and GIF/PNG export." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <div>
+        <h1>KINETIC TYPE <span class="neon-pink">PLAYGROUND</span></h1>
+        <p class="tagline">// neon physics lab v1.0 — type it. drop it. bounce it.</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="btnPlay" class="btn ghost" aria-label="Pause animation">⏸ PAUSE</button>
+      <button id="btnPng" class="btn">⬇ PNG</button>
+      <button id="btnGif" class="btn primary">⬇ GIF</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="stage-wrap">
+      <div class="stage-head">
+        <span class="live"><span class="blink"></span>LIVE RENDER</span>
+        <span id="fps" class="fps">60 fps</span>
+      </div>
+      <canvas id="stage" width="960" height="540" aria-label="Kinetic typography canvas"></canvas>
+      <div class="stage-foot">
+        <input id="text" type="text" maxlength="42" value="NEON//TOKYO" spellcheck="false"
+               autocomplete="off" aria-label="Text to animate" placeholder="type something…" />
+        <button id="btnShuffle" class="btn ghost" title="Random preset">🎲</button>
+        <button id="btnDrop" class="btn ghost" title="Drop letters from sky">☄ DROP</button>
+      </div>
+      <div id="presets" class="presets" aria-label="Preset phrases"></div>
+      <p id="gifStatus" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <aside class="panel" aria-label="Controls">
+      <div class="panel-title">◢ CONTROL DECK</div>
+
+      <div class="group">
+        <div class="group-label">MOTION MODE</div>
+        <div id="modes" class="modes" role="radiogroup" aria-label="Animation mode">
+          <button data-mode="bounce" class="chip on" role="radio" aria-checked="true">bounce</button>
+          <button data-mode="wave" class="chip" role="radio" aria-checked="false">wave</button>
+          <button data-mode="orbit" class="chip" role="radio" aria-checked="false">orbit</button>
+          <button data-mode="glitch" class="chip" role="radio" aria-checked="false">glitch</button>
+          <button data-mode="rain" class="chip" role="radio" aria-checked="false">rain</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-label">PALETTE</div>
+        <div id="palettes" class="modes" aria-label="Color palette">
+          <button data-pal="neon" class="chip on">neon</button>
+          <button data-pal="ghost" class="chip">ghost</button>
+          <button data-pal="sunset" class="chip">sunset</button>
+          <button data-pal="matrix" class="chip">matrix</button>
+        </div>
+      </div>
+
+      <label class="ctl">FONT WEIGHT <b id="vWeight">800</b>
+        <input id="weight" type="range" min="100" max="900" step="50" value="800" />
+      </label>
+      <label class="ctl">SIZE <b id="vSize">120</b>
+        <input id="size" type="range" min="40" max="200" step="2" value="120" />
+      </label>
+      <label class="ctl">SPACING <b id="vSpace">8</b>
+        <input id="spacing" type="range" min="-10" max="60" step="1" value="8" />
+      </label>
+      <label class="ctl">GRAVITY <b id="vGrav">0.55</b>
+        <input id="gravity" type="range" min="0" max="1.5" step="0.01" value="0.55" />
+      </label>
+      <label class="ctl">BOUNCE <b id="vBounce">0.82</b>
+        <input id="bounce" type="range" min="0.1" max="0.98" step="0.01" value="0.82" />
+      </label>
+      <label class="ctl">CHAOS <b id="vChaos">0.5</b>
+        <input id="chaos" type="range" min="0" max="1" step="0.01" value="0.5" />
+      </label>
+
+      <div class="toggles">
+        <label class="toggle"><input id="glow" type="checkbox" checked /><span></span>GLOW</label>
+        <label class="toggle"><input id="trails" type="checkbox" checked /><span></span>TRAILS</label>
+        <label class="toggle"><input id="spin" type="checkbox" checked /><span></span>SPIN</label>
+      </div>
+
+      <div class="hint">◥ tip: type + hit <kbd>⏎</kbd> to slam words down.<br/>drag letters to fling them.</div>
+    </aside>
+  </main>
+
+  <footer class="foot">made of light &amp; gravity — exports stay on your machine, nothing uploads.</footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
