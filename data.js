@@ -1069,6 +1069,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "kinetic-type-playground-o2ok",
+    "title": "Kinetic Type Playground",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "cyberpunk",
+    "theme": "typography",
+    "constraints": [
+      "must be playable in 30 seconds"
+    ],
+    "description": "Type words, watch letters dance, bounce and morph into animated typographic art.",
+    "features": [
+      "Live kinetic text animation",
+      "Adjustable font weight and spacing",
+      "Gravity and bounce physics",
+      "Export as GIF or PNG"
+    ],
+    "tags": [
+      "typography",
+      "kinetic-type",
+      "fonts",
+      "animation"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-13T14:24:44.952Z",
+    "updatedAt": "2026-09-13T14:36:00.295Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 35, done: 34, counts: {"done":34,"needs-human":1} };
+export const stats = { total: 36, done: 35, counts: {"done":35,"needs-human":1} };
