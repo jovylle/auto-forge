@@ -1037,6 +1037,38 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/deepseek-v4-flash (result.json pass; human verified)"
+  },
+  {
+    "slug": "kinetic-type-playground",
+    "title": "Kinetic Type Playground",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "vaporwave",
+    "theme": "typography",
+    "constraints": [
+      "must have an easter egg"
+    ],
+    "description": "Type words that explode into animated kinetic typography art you can remix.",
+    "features": [
+      "live kinetic text animator",
+      "font, weight, motion presets",
+      "randomize style button",
+      "export as gif"
+    ],
+    "tags": [
+      "typography",
+      "kinetic-type",
+      "fonts",
+      "generative-art"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-13T08:17:39.186Z",
+    "updatedAt": "2026-09-13T08:23:12.464Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 34, done: 33, counts: {"done":33,"needs-human":1} };
+export const stats = { total: 35, done: 34, counts: {"done":34,"needs-human":1} };
