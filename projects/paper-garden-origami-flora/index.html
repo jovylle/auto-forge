@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Paper Garden — origami flora</title>
+<meta name="description" content="A grunge generative garden: fold paper flowers, scroll to make them bloom, export your plot." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314110d'/%3E%3Ctext x='16' y='24' font-size='20' text-anchor='middle'%3E%E2%9D%80%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="hero">
+  <p class="kicker">FIELD ZINE Nº 07 — FOLDED &amp; FOUND</p>
+  <h1 class="title"><span>PAPER</span><span class="stamp">GARDEN</span></h1>
+  <p class="sub">origami flora for ruined soil — plant folds, <em>scroll</em> to raise the sun &amp; bloom them.</p>
+  <div class="hero-row">
+    <button id="btnSow" class="btn chunky">✂ Sow a row</button>
+    <a href="#garden" class="btn ghost">↓ scroll to grow</a>
+  </div>
+  <p class="hint">click the dirt to plant · scroll = sunshine · works offline, saves itself</p>
+</header>
+
+<div id="garden" class="gardenbar">
+  <div class="garden-frame tape">
+    <div class="hud">
+      <span id="hudSun">☀ dawn</span>
+      <span id="hudCount">0 blooms</span>
+      <span id="hudScroll">scroll 0%</span>
+    </div>
+    <canvas id="bed" aria-label="Origami garden bed. Click to plant a flower."></canvas>
+    <p class="plant-tip">☞ click the dirt to plant the selected seed</p>
+  </div>
+
+  <div class="panel" role="toolbar" aria-label="Seed packet controls">
+    <div class="seeds" role="group" aria-label="Species">
+      <button class="seed sel" data-sp="0" title="Crane Lily">❀<small>crane lily</small></button>
+      <button class="seed" data-sp="1" title="Shuriken Bloom">✸<small>shuriken</small></button>
+      <button class="seed" data-sp="2" title="Lotus Bomb">✿<small>lotus bomb</small></button>
+      <button class="seed" data-sp="3" title="Weed Star">✦<small>weed star</small></button>
+    </div>
+    <div class="papers" role="group" aria-label="Paper stock">
+      <button class="paper sel" data-paper="kraft" style="--sw:#c9a86a" title="Kraft stock">K</button>
+      <button class="paper" data-paper="news" style="--sw:#d8d3c3" title="Newsprint">N</button>
+      <button class="paper" data-paper="rust" style="--sw:#a33b1f" title="Rust flyer">R</button>
+      <button class="paper" data-paper="moss" style="--sw:#7a8450" title="Moss page">M</button>
+      <button class="paper" data-paper="ink" style="--sw:#2b2b31" title="Xerox black">X</button>
+    </div>
+    <div class="sliders">
+      <label>folds <input id="folds" type="range" min="5" max="12" value="8" /></label>
+      <label>wind <input id="wind" type="range" min="0" max="100" value="28" /></label>
+      <label>size <input id="size" type="range" min="14" max="44" value="26" /></label>
+    </div>
+    <div class="actions">
+      <button id="btnGust" class="btn sm" title="Kick up a dust storm">gust ≋</button>
+      <button id="btnNight" class="btn sm" title="Toggle night">night ◐</button>
+      <button id="btnPng" class="btn sm" title="Download garden as PNG">save PNG ⇩</button>
+      <button id="btnShare" class="btn sm" title="Copy shareable link">share ⧉</button>
+      <button id="btnRaze" class="btn sm danger" title="Clear the bed">raze ✕</button>
+    </div>
+    <p id="toast" class="toast" role="status" aria-live="polite"></p>
+  </div>
+</div>
+
+<main class="chapters">
+  <section class="chapter" data-wave="dawn">
+    <span class="chnum">01</span>
+    <h2>Dawn / first crease</h2>
+    <p>Every garden starts as a flat sheet. Scroll — the sun drags itself up and your folds begin to open. The first wave sows itself.</p>
+  </section>
+  <section class="chapter" data-wave="noon">
+    <span class="chnum">02</span>
+    <h2>Noon / hard light</h2>
+    <p>Photocopy sun. Petals flatten, shadows go sharp, dust hangs in the air. Wind picks up scraps of yesterday's drafts.</p>
+  </section>
+  <section class="chapter" data-wave="storm">
+    <span class="chnum">03</span>
+    <h2>Storm / the gust</h2>
+    <p>A ripped-page storm tears through. Stems bend, petals shiver. Origami holds — that's the whole point of a crease.</p>
+  </section>
+  <section class="chapter" data-wave="dusk">
+    <span class="chnum">04</span>
+    <h2>Dusk / rust hour</h2>
+    <p>Everything goes flyer-red and kraft-gold. Blooms are fully open now. Click the dirt to fill any bald patch.</p>
+  </section>
+  <section class="chapter" data-wave="night">
+    <span class="chnum">05</span>
+    <h2>Night / xerox dark</h2>
+    <p>Lights out. Fireflies (burnt toner dots) come up. Your garden is saved — export the PNG or copy a share link below.</p>
+    <div class="end-actions">
+      <button id="btnPng2" class="btn chunky">save PNG ⇩</button>
+      <button id="btnShare2" class="btn chunky alt">copy share link ⧉</button>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <p>PAPER GARDEN — folded in plain HTML/CSS/JS · seeds live in the URL + localStorage · no servers, no masters.</p>
+  <p><button id="btnRaze2" class="linklike">raze the bed</button> · <span id="footCount"></span></p>
+</footer>
+
+<script src="./app.js"></script>
+</body>
+</html>

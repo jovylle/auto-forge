@@ -1101,6 +1101,36 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "paper-garden-origami-flora",
+    "title": "Paper Garden — origami flora",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "grunge",
+    "theme": "typography",
+    "constraints": [
+      "must react to scroll"
+    ],
+    "description": "Paper Garden — origami flora",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "origami",
+      "garden",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-13T20:42:33.018Z",
+    "updatedAt": "2026-09-13T20:45:58.032Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 36, done: 35, counts: {"done":35,"needs-human":1} };
+export const stats = { total: 37, done: 36, counts: {"done":36,"needs-human":1} };

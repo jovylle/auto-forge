@@ -1,7 +1,7 @@
 {
-  "total": 36,
+  "total": 37,
   "counts": {
-    "done": 35,
+    "done": 36,
     "needs-human": 1
   },
   "projects": [
@@ -771,14 +771,35 @@
       "updatedAt": "2026-09-13T14:36:00.295Z",
       "lastError": null,
       "lastModel": "opencode-go/muse-spark-1.3-contributor"
+    },
+    {
+      "slug": "paper-garden-origami-flora",
+      "title": "Paper Garden — origami flora",
+      "status": "done",
+      "stack": "html",
+      "stackReason": "seed stack",
+      "category": "generative",
+      "aesthetic": "grunge",
+      "theme": "typography",
+      "constraints": [
+        "must react to scroll"
+      ],
+      "tags": [
+        "origami",
+        "garden",
+        "generative"
+      ],
+      "updatedAt": "2026-09-13T20:45:58.032Z",
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-13T08:23:21.135Z",
-    "lastSlug": "kinetic-type-playground"
+    "lastRun": "2026-09-13T14:36:08.897Z",
+    "lastSlug": "kinetic-type-playground-o2ok"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -792,9 +813,9 @@
       "lastError": "UnknownError"
     },
     "opencode/muse-spark-1.3-contributor-free": {
-      "failStreak": 1,
+      "failStreak": 0,
       "lastFail": "2026-09-13T14:25:14.983Z",
-      "lastError": "preflight timeout"
+      "lastError": ""
     },
     "opencode-go/muse-spark-1.3-contributor": {
       "failStreak": 0,
@@ -819,5 +840,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-13T14:36:00.547Z"
+  "updatedAt": "2026-09-13T20:45:58.222Z"
 }

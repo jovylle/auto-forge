@@ -1,0 +1,30 @@
+{
+  "slug": "paper-garden-origami-flora",
+  "title": "Paper Garden — origami flora",
+  "stack": "html",
+  "stackReason": "seed stack",
+  "aesthetic": "grunge",
+  "theme": "typography",
+  "constraints": [
+    "must react to scroll"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Paper Garden: grunge scroll-driven origami garden. Sticky canvas bed with 4 species x 5 paper stocks, click-to-plant, folds/wind/size sliders, gust + night controls; 5 chapters drive sun arc, palette, bloom speed and sow themed waves; PNG export, #g= share links, localStorage persistence. Verified in-browser: scroll 0->100% blooms/sows, click plants, 375px no overflow, zero console errors.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 196372,
+  "at": "2026-09-13T20:45:58.034Z"
+}
