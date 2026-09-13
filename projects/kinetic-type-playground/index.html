@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kinetic Type Playground — vaporwave text animator</title>
+  <meta name="description" content="Type words that explode into animated kinetic typography art you can remix. Vaporwave edition." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B4%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Monoton&family=Pacifico&family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Unbounded:wght@400;700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="brand">
+    <div class="brand-top">
+      <span class="badge">▓▒░ generative ░▒▓</span>
+      <span class="badge dim">est. 1986 // LAN-party forever</span>
+    </div>
+    <h1 class="chrome">KINETIC TYPE</h1>
+    <p class="tagline"><span class="neon-pink">PLAYGROUND</span> <span class="sep">✦</span> type words that explode into animated kinetic typography art you can remix <span class="sep">✦</span></p>
+  </header>
+
+  <main class="layout">
+    <section class="stage-card" aria-label="Animation stage">
+      <div class="stage-head">
+        <span class="led" aria-hidden="true"></span>
+        <span id="hudMotion" class="hud">WAVE // 12fpm</span>
+        <span id="hudSize" class="hud dim">960×540</span>
+      </div>
+      <div class="stage-wrap">
+        <canvas id="stage" width="960" height="540"></canvas>
+        <div id="aestheticBanner" class="aesthetic-banner hidden" aria-hidden="true">🌴 ａｅｓｔｈｅｔｉｃ ｍｏｄｅ 🌴</div>
+      </div>
+      <div class="stage-foot">
+        <span class="ticker" id="ticker">▲ now playing: your words, but chrome ▲&nbsp;</span>
+      </div>
+    </section>
+
+    <aside class="deck" aria-label="Control deck">
+      <section class="group">
+        <h2><span class="num">01</span> words</h2>
+        <textarea id="textInput" rows="2" maxlength="120" spellcheck="false">NEON DREAMS</textarea>
+        <div class="row between">
+          <small id="charCount" class="dim">11 / 120</small>
+          <small class="dim">letters explode individually</small>
+        </div>
+      </section>
+
+      <section class="group">
+        <h2><span class="num">02</span> typeface</h2>
+        <div class="chips" id="fontChips" role="group" aria-label="Font presets"></div>
+        <label class="slider">weight <output id="weightVal">900</output>
+          <input id="weight" type="range" min="300" max="900" step="100" value="900" />
+        </label>
+        <label class="slider">size <output id="sizeVal">84</output>
+          <input id="size" type="range" min="36" max="150" step="2" value="84" />
+        </label>
+      </section>
+
+      <section class="group">
+        <h2><span class="num">03</span> motion</h2>
+        <div class="chips" id="motionChips" role="group" aria-label="Motion presets"></div>
+        <label class="slider">speed <output id="speedVal">1.0×</output>
+          <input id="speed" type="range" min="0.2" max="2.5" step="0.1" value="1" />
+        </label>
+      </section>
+
+      <section class="group">
+        <h2><span class="num">04</span> palette &amp; fx</h2>
+        <div class="chips" id="paletteChips" role="group" aria-label="Palette presets"></div>
+        <div class="toggles">
+          <label class="toggle"><input id="tglGlow" type="checkbox" checked /> <span>glow</span></label>
+          <label class="toggle"><input id="tglOutline" type="checkbox" checked /> <span>outline</span></label>
+          <label class="toggle"><input id="tglGrid" type="checkbox" checked /> <span>grid</span></label>
+          <label class="toggle"><input id="tglTrail" type="checkbox" /> <span>trail</span></label>
+        </div>
+      </section>
+
+      <section class="group actions">
+        <button id="btnRandom" class="btn dice" type="button">🎲 randomize style</button>
+        <button id="btnExport" class="btn primary" type="button">⬇ export as gif</button>
+        <button id="btnReset" class="btn ghost" type="button">reset</button>
+        <div id="exportBar" class="export-bar hidden" aria-live="polite"><div class="fill"></div><span>rendering…</span></div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <p>psst… try typing <kbd>vaporwave</kbd> · autosaves locally · runs from <kbd>file://</kbd> · no sign-up, no cloud, just chrome</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
