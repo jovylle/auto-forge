@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>KERN PANIC — Kinetic Type Playground</title>
+<meta name="description" content="Kinetic letterforms erupt, collide and settle into playable typographic posters." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="rule-top" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="brand">
+    <span class="red-square" aria-hidden="true"></span>
+    <h1>KERN&nbsp;PANIC</h1>
+  </div>
+  <p class="tagline">Kinetic letterforms erupt, collide &amp; settle into playable typographic posters.</p>
+  <nav class="meta" aria-label="Poster meta">
+    <span>N° 001</span><span>ZÜRICH — 60 FPS</span><span id="clock">00:00:00</span>
+  </nav>
+</header>
+
+<main class="grid">
+  <!-- 01 STAGE -->
+  <section class="panel stage-panel" aria-label="Stage">
+    <div class="panel-head"><span>01 / BÜHNE — STAGE</span><span id="count">0 GLYPHS</span></div>
+    <div class="stage-wrap">
+      <canvas id="stage" width="900" height="560" aria-label="Physics letter playground. Type words to spawn letters."></canvas>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      <div class="caption-bar">
+        <span id="caption">SET IN SYSTEM GROTESK — HELVETICA / ARIAL</span>
+        <span class="live-dot" id="soundDot" title="sound level"></span>
+      </div>
+    </div>
+    <div class="spawn-row">
+      <label class="visually-hidden" for="word">Type a word</label>
+      <input id="word" type="text" maxlength="24" placeholder="TYPE A WORD — HIT ENTER" autocomplete="off" spellcheck="false" />
+      <button id="erupt" class="btn btn-red" type="button">ERUPT ⏎</button>
+      <button id="freeze" class="btn" type="button" aria-pressed="false">FREEZE ❚❚</button>
+      <button id="export" class="btn" type="button">EXPORT PNG ↓</button>
+    </div>
+    <p class="hint">TIP — CLICK STAGE TO POKE · TYPE <kbd>panik</kbd> FOR SOMETHING UNSWISS.</p>
+  </section>
+
+  <!-- 02 PHYSICS -->
+  <section class="panel" aria-label="Physics controls">
+    <div class="panel-head"><span>02 / PHYSIK — FORCES</span><span>●</span></div>
+    <div class="ctl">
+      <div class="ctl-row"><label for="gravity">GRAVITY <b id="gravityVal">0.55</b></label>
+        <input id="gravity" type="range" min="0" max="2" step="0.01" value="0.55" /></div>
+      <div class="ctl-row"><label for="wind">WIND <b id="windVal">0.00</b></label>
+        <input id="wind" type="range" min="-1" max="1" step="0.01" value="0" /></div>
+      <div class="ctl-row"><label for="bounce">BOUNCE <b id="bounceVal">0.72</b></label>
+        <input id="bounce" type="range" min="0" max="0.95" step="0.01" value="0.72" /></div>
+      <div class="ctl-row"><label for="size">SIZE <b id="sizeVal">64</b></label>
+        <input id="size" type="range" min="28" max="140" step="1" value="64" /></div>
+    </div>
+    <div class="btn-row">
+      <button id="shake" class="btn small" type="button">SHAKE</button>
+      <button id="settle" class="btn small" type="button">SETTLE ↓</button>
+      <button id="clear" class="btn small" type="button">CLEAR ✕</button>
+    </div>
+  </section>
+
+  <!-- 03 SOUND -->
+  <section class="panel" aria-label="Sound controls">
+    <div class="panel-head"><span>03 / TON — SOUND → TYPE</span><span id="levelPct">0%</span></div>
+    <div class="meter" aria-hidden="true"><div id="meterFill"></div><div class="meter-ticks"></div></div>
+    <p class="micro">MIC LEVEL DRIVES <b>WEIGHT 100→900</b>, STRETCH &amp; JITTER. GRANT MIC OR USE TEST TONE.</p>
+    <div class="btn-row">
+      <button id="mic" class="btn small btn-red" type="button">⊙ MIC ON</button>
+      <button id="tone" class="btn small" type="button" aria-pressed="false">♪ TEST TONE</button>
+    </div>
+    <div class="ctl-row"><label for="react">REACTIVITY <b id="reactVal">1.00</b></label>
+      <input id="react" type="range" min="0" max="2" step="0.01" value="1" /></div>
+  </section>
+
+  <!-- 04 POSTER -->
+  <section class="panel" aria-label="Poster controls">
+    <div class="panel-head"><span>04 / PLAKAT — POSTER</span><span>A2 ↓</span></div>
+    <div class="ctl-row"><label for="ink">INK</label>
+      <select id="ink">
+        <option value="#111111" selected>SCHWARZ #111</option>
+        <option value="#E30613">ROT #E30613</option>
+        <option value="#0B3D91">BLAU #0B3D91</option>
+        <option value="#111111|mix">MIX SWISS</option>
+      </select></div>
+    <div class="ctl-row"><label for="paper">PAPER</label>
+      <select id="paper">
+        <option value="#F4F1EA" selected>PAPER #F4F1EA</option>
+        <option value="#FFFFFF">WEISS #FFF</option>
+        <option value="#111111">NEGATIV #111</option>
+        <option value="#E30613">ROT #E30613</option>
+      </select></div>
+    <div class="ctl-row"><label for="title">TITLE</label>
+      <input id="title" type="text" maxlength="40" value="KERN PANIC N°001" /></div>
+    <p class="micro">EXPORT FREEZES THE FRAME + DRAWS SWISS GRID, TITLE &amp; TIMESTAMP → 1200×1500 PNG.</p>
+  </section>
+</main>
+
+<footer class="colophon">
+  <span>SET IN SYSTEM GROTESK — NO EXTERNAL FONTS.</span>
+  <span>KERN PANIC © MMXXVI — GRID IS LAW.</span>
+</footer>
+
+<script src="./app.js"></script>
+</body>
+</html>

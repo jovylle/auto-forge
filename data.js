@@ -1226,6 +1226,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "kern-panic",
+    "title": "Kern Panic",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "swiss",
+    "theme": "typography",
+    "constraints": [
+      "no external fonts — system fonts only",
+      "must have an easter egg"
+    ],
+    "description": "Kinetic letterforms erupt, collide and settle into playable typographic posters.",
+    "features": [
+      "type words to spawn physics letters",
+      "gravity, wind and bounce controls",
+      "variable fonts that react to sound",
+      "export frozen frames as poster PNGs"
+    ],
+    "tags": [
+      "typography",
+      "kinetic",
+      "physics",
+      "posters"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-14T15:02:05.860Z",
+    "updatedAt": "2026-09-14T15:04:56.470Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 40, done: 39, counts: {"done":39,"needs-human":1} };
+export const stats = { total: 41, done: 40, counts: {"done":40,"needs-human":1} };
