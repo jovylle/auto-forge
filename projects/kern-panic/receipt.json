@@ -1,0 +1,32 @@
+{
+  "slug": "kern-panic",
+  "title": "Kern Panic",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "swiss",
+  "theme": "typography",
+  "constraints": [
+    "no external fonts — system fonts only",
+    "must have an easter egg"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Swiss kinetic-type poster lab: canvas letter physics with gravity/wind/bounce/size, mic+test-tone reactive weight/stretch, freeze + 1200x1500 PNG poster export, panik easter egg, system fonts only.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "type words to spawn physics letters",
+      "gravity, wind and bounce controls",
+      "variable fonts that react to sound",
+      "export frozen frames as poster PNGs"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 162826,
+  "at": "2026-09-14T15:04:56.473Z"
+}
