@@ -1259,6 +1259,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "tide-choir",
+    "title": "Tide Choir",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "dark-fantasy",
+    "theme": "typography",
+    "constraints": [
+      "must work with keyboard only",
+      "uses only one interaction type (click OR drag OR type)"
+    ],
+    "description": "A harbor that sings the tide in voices.",
+    "features": [
+      "voice waves",
+      "tide choir",
+      "harbor mix"
+    ],
+    "tags": [
+      "choir",
+      "harbor",
+      "audio"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-14T22:02:40.514Z",
+    "updatedAt": "2026-09-14T22:02:49.020Z",
+    "buildPassed": false,
+    "lastError": "scaffold untouched — worker wrote no app code",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 41, done: 40, counts: {"done":40,"needs-human":1} };
+export const stats = { total: 42, done: 40, counts: {"done":40,"needs-human":2} };
