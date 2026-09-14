@@ -354,7 +354,7 @@ async function main() {
       const hasGit = fs.existsSync(path.join(ROOT, ".git"));
       if (hasGit) {
         // commit gallery + receipt + logs (logs for observability)
-        await run("git", ["add", "projects.json", `projects/${idea.slug}`, "site", "logs", "model-health.json"], { cwd: ROOT });
+        await run("git", ["add", "projects.json", `projects/${idea.slug}`, "site", "logs", "model-health.json", "loop.json", "web/data.js"], { cwd: ROOT });
         const msg = buildPassed ? `feat(auto): ${idea.slug} — ${idea.title}` : `chore(auto): ${idea.slug} attempt — needs fix`;
         const st = await run("git", ["diff","--cached","--quiet"], { cwd: ROOT });
         if (st.code !== 0) {
