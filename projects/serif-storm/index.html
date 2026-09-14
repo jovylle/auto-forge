@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Serif Storm — steer falling poems</title>
+  <meta name="description" content="Gravity-driven letter rain you steer with your cursor. Type words to spawn glyphs, blow them with cursor wind, export a poster PNG." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-badge">SS</span>
+      <div>
+        <h1>Serif Storm</h1>
+        <p class="tagline">Falling letters form poems you steer with your cursor.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><span id="stat-glyphs">0</span><label>glyphs</label></div>
+      <div class="stat"><span id="stat-words">0</span><label>words</label></div>
+      <div class="stat"><span id="stat-wind">0</span><label>wind</label></div>
+    </div>
+  </header>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-inner" id="ticker">
+      <span>GRAVITY RAIN ★ TYPE TO SPAWN ★ CURSOR WIND ★ EXPORT POSTER ★ GRAVITY RAIN ★ TYPE TO SPAWN ★ CURSOR WIND ★ EXPORT POSTER ★&nbsp;</span><span>GRAVITY RAIN ★ TYPE TO SPAWN ★ CURSOR WIND ★ EXPORT POSTER ★ GRAVITY RAIN ★ TYPE TO SPAWN ★ CURSOR WIND ★ EXPORT POSTER ★&nbsp;</span>
+    </div>
+  </div>
+
+  <main id="app">
+    <section class="stage-wrap">
+      <canvas id="stage" aria-label="Letter storm canvas. Move your cursor to blow letters."></canvas>
+      <div class="stage-hint" id="stage-hint">move cursor = wind &nbsp;·&nbsp; type = spawn &nbsp;·&nbsp; drag = gale</div>
+    </section>
+
+    <section class="deck">
+      <div class="card spawn-card">
+        <h2><span class="nugget n-red">1</span> Type to spawn</h2>
+        <div class="row">
+          <input id="word-input" type="text" placeholder="type a word + Enter" maxlength="24" autocomplete="off" autocapitalize="off" spellcheck="false" />
+          <button id="btn-spawn" class="btn btn-red" type="button">Rain it</button>
+        </div>
+        <p class="microcopy">Tip: just type anywhere — no need to click the box. <kbd>Enter</kbd> drops the whole word, <kbd>Space</kbd> gusts.</p>
+        <div class="poem-card">
+          <div class="poem-head"><span>⛈ current poem</span><button id="btn-copy-poem" class="mini-btn" type="button">copy</button></div>
+          <p id="poem-line">— the storm is gathering —</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2><span class="nugget n-blue">2</span> Weather controls</h2>
+        <label class="slider">gravity <b id="v-gravity">1.0</b>
+          <input id="ctl-gravity" type="range" min="0.1" max="3" step="0.1" value="1" />
+        </label>
+        <label class="slider">wind <b id="v-wind">1.0</b>
+          <input id="ctl-wind" type="range" min="0" max="3" step="0.1" value="1" />
+        </label>
+        <label class="slider">rain rate <b id="v-rain">1.0</b>
+          <input id="ctl-rain" type="range" min="0" max="3" step="0.1" value="1" />
+        </label>
+        <div class="btn-grid">
+          <button id="btn-gust" class="btn btn-yellow" type="button">💨 Gust!</button>
+          <button id="btn-pause" class="btn btn-paper" type="button">Pause</button>
+          <button id="btn-clear" class="btn btn-paper" type="button">Clear</button>
+          <button id="btn-poster" class="btn btn-blue" type="button">⬇ Export poster PNG</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>Serif Storm · neo-brutalist kinetic type toy · 3 colors + black/white · no build, no backend</span>
+      <span id="toast" role="status" aria-live="polite"></span>
+    </footer>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

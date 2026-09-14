@@ -1,0 +1,31 @@
+{
+  "slug": "serif-storm",
+  "title": "Serif Storm",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "neo-brutalism",
+  "theme": "typography",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Serif Storm — neo-brutalist kinetic-type storm. Gravity rains serif glyphs from a poetry corpus onto a poem bed with per-column landing stacks; typing anywhere bursts glyphs mid-air and Enter rains the buffered word; cursor movement/drag blows letters via a falloff wind field with live wind meter, plus a Gust shockwave button; Export renders a 1080x1350 framed poster PNG (masthead, canvas snapshot, poem, counts, date). Palette strictly 3 colors (red #FF3D00, blue #2545FF, yellow #FFC900) + ink/paper black/white. Verified: node syntax clean, headless Chromium zero page JS errors, layout fits at true 375px width (no overflow, single-column deck), full physics/input/export flow exercised in a Node DOM-stub harness with all assertions passing.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "gravity-driven letter rain",
+      "type words to spawn glyphs",
+      "cursor wind blows letters",
+      "export poster PNG"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 379632,
+  "at": "2026-09-14T02:56:12.402Z"
+}
