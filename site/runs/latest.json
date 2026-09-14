@@ -1,8 +1,8 @@
 {
-  "slug": "serif-storm",
-  "title": "Serif Storm",
+  "slug": "moth-radio-night-signals",
+  "title": "Moth Radio — night signals",
   "stack": "html",
-  "aesthetic": "neo-brutalism",
+  "aesthetic": "organic-brutalist",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 379632,
-  "at": "2026-09-14T02:56:12.403Z"
+  "elapsedMs": 148144,
+  "at": "2026-09-14T09:00:12.080Z"
 }

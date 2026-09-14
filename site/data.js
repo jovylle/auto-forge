@@ -1195,6 +1195,37 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "moth-radio-night-signals",
+    "title": "Moth Radio — night signals",
+    "category": "social",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "organic-brutalist",
+    "theme": "typography",
+    "constraints": [
+      "must react to scroll",
+      "must have an easter egg"
+    ],
+    "description": "Moth Radio — night signals",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "moth",
+      "radio",
+      "night"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-14T08:57:34.650Z",
+    "updatedAt": "2026-09-14T09:00:12.078Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 39, done: 38, counts: {"done":38,"needs-human":1} };
+export const stats = { total: 40, done: 39, counts: {"done":39,"needs-human":1} };
