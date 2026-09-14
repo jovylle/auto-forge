@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Moth Radio — night signals</title>
+<meta name="description" content="A nocturnal social radio. Tune through the static, catch drifting night signals, pin them in your specimen jar, and broadcast your own." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div id="scrollbar" aria-hidden="true"><span></span></div>
+
+<header class="topbar">
+  <a class="brand" href="#top">◉ MOTH&nbsp;RADIO</a>
+  <nav>
+    <a href="#tuner">tuner</a>
+    <a href="#field">field&nbsp;guide</a>
+    <a href="#jar">jar&nbsp;<b id="navCount">0</b></a>
+    <a href="#broadcast">broadcast</a>
+  </nav>
+  <button id="soundToggle" class="chip" aria-pressed="false" title="toggle static audio">🔇 static off</button>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero reveal">
+    <p class="kicker">❦ night signals ❦ est. 3:33 AM</p>
+    <h1>MOTH<br />RADIO</h1>
+    <p class="lede">Every night, strangers leave <em>signals</em> fluttering on the air — confessions, coordinates, lullabies. Tune the dial. Catch one. Keep it in your jar.</p>
+    <div class="hero-row">
+      <a class="btn big" href="#tuner">↯ start tuning</a>
+      <button class="btn ghost" id="howBtn">how it works?</button>
+    </div>
+    <p id="howText" hidden>Drag the <b>brass needle</b> (or use ←/→, or scroll while the tuner is pinned) until the static thins and a signal locks. <b>Pin</b> it to your jar. <b>Relay</b> it to a friend. Then <b>broadcast</b> one of your own into the night. Psst — the moon is listening…</p>
+    <button id="moon" title="the moon" aria-label="the moon — tap it">🌕</button>
+  </section>
+
+  <!-- TUNER -->
+  <section id="tuner" class="panel reveal">
+    <div class="panel-head">
+      <h2><span class="num">01</span> the tuner</h2>
+      <p class="freqline">▚ <span id="freq">88.0</span> MHz &nbsp;·&nbsp; <span id="lockLabel">— static —</span></p>
+    </div>
+
+    <div class="dialwrap">
+      <div class="dialscale" id="dialScale" aria-hidden="true"></div>
+      <input id="needle" type="range" min="87" max="109" step="0.1" value="88" aria-label="tuning needle, 87 to 109 megahertz" />
+      <div class="needle-ghost" aria-hidden="true"><span id="needleMoth">🦋</span></div>
+    </div>
+    <div class="meter" aria-hidden="true">
+      <div class="meter-fill" id="meterFill"></div>
+      <div class="meter-ticks"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <p class="hint">◀ drag the needle · arrow keys nudge · <kbd>scroll</kbd> over the tuner detunes the night ▶</p>
+
+    <!-- live signal card -->
+    <article id="liveCard" class="signal-card locked-off" aria-live="polite">
+      <div class="sig-top">
+        <span class="sig-moth" id="liveMoth">🦟</span>
+        <div>
+          <h3 id="liveTitle">—— static ——</h3>
+          <p class="sig-meta"><span id="liveFreq">--.-</span> MHz · <span id="liveFrom">nowhere</span> · <span id="liveTime">--:--</span></p>
+        </div>
+        <span class="lockpill" id="lockPill">NO LOCK</span>
+      </div>
+      <p class="sig-body" id="liveBody">Hiss. Wingbeats. Somewhere out there a signal is fluttering — keep tuning until the meter burns amber.</p>
+      <div class="sig-actions">
+        <button class="btn small" id="pinBtn" disabled>📌 pin to jar</button>
+        <button class="btn small ghost" id="relayBtn" disabled>⤴ relay</button>
+        <button class="btn small ghost" id="amplifyBtn" disabled>✦ amplify (<span id="ampCount">0</span>)</button>
+      </div>
+    </article>
+  </section>
+
+  <!-- SCROLL DRIFT interlude -->
+  <section class="drift reveal" aria-hidden="true">
+    <p class="drift-text" id="driftText">scroll deeper · the night gets thicker · signals drift…</p>
+  </section>
+
+  <!-- FIELD GUIDE -->
+  <section id="field" class="panel reveal">
+    <div class="panel-head">
+      <h2><span class="num">02</span> field guide</h2>
+      <p>eight known species of night signal. frequencies are… approximate. moths lie.</p>
+    </div>
+    <div id="guideGrid" class="guide-grid"></div>
+  </section>
+
+  <!-- JAR -->
+  <section id="jar" class="panel reveal">
+    <div class="panel-head">
+      <h2><span class="num">03</span> specimen jar <sup id="jarCount">0</sup></h2>
+      <div class="jar-tools">
+        <button class="btn small ghost" id="copyJar">⧉ copy jar</button>
+        <button class="btn small ghost" id="dlJar">⬇ export .txt</button>
+        <button class="btn small ghost" id="dlJson">⬇ export .json</button>
+        <button class="btn small danger" id="emptyJar">✕ release all</button>
+      </div>
+    </div>
+    <p class="hint" id="jarEmpty">Your jar is empty. Tune above and pin a signal — it will survive reloads (localStorage).</p>
+    <div id="jarGrid" class="jar-grid"></div>
+  </section>
+
+  <!-- BROADCAST -->
+  <section id="broadcast" class="panel reveal">
+    <div class="panel-head">
+      <h2><span class="num">04</span> broadcast</h2>
+      <p>Leave a signal fluttering for whoever tunes in next (saved on this device).</p>
+    </div>
+    <form id="castForm">
+      <label>callsign <input id="castName" maxlength="24" placeholder="e.g. porchlight_kid" autocomplete="off" /></label>
+      <label>your signal <span id="charCt">0/140</span>
+        <textarea id="castBody" rows="3" maxlength="140" placeholder="a confession, a coordinate, a lullaby… (140 chars, then it flies away)"></textarea>
+      </label>
+      <label>moth <select id="castMoth">
+        <option>🦋</option><option>🦟</option><option>🌙</option><option>🪲</option><option>✨</option><option>🕯️</option>
+      </select></label>
+      <div class="form-row">
+        <button class="btn big" type="submit">➶ release into the night</button>
+        <button class="btn ghost" type="button" id="randomBtn">🎲 channel a stranger</button>
+      </div>
+    </form>
+    <div id="castOk" class="toast" hidden>✓ your signal is airborne — tune to <b id="castFreq"></b> MHz to hear it back</div>
+  </section>
+
+  <!-- LEDGER / SHARE -->
+  <section id="ledger" class="panel reveal">
+    <div class="panel-head">
+      <h2><span class="num">05</span> relay station</h2>
+      <p>Share the whole night, or smuggle a single signal inside a link.</p>
+    </div>
+    <div class="form-row">
+      <button class="btn small" id="shareNight">⤴ share the night (link)</button>
+      <button class="btn small ghost" id="copyLink">⧉ copy link</button>
+    </div>
+    <p class="hint">A relay link carries your jar + broadcasts inside the URL hash — no server, just moths.</p>
+    <p id="inbound" class="inbound" hidden></p>
+  </section>
+
+  <footer class="foot">
+    <p>MOTH RADIO · a single-file-ish night experiment · static synthesized live via WebAudio · <button id="eggHint" class="linklike">there are no secrets here</button></p>
+    <p class="tiny">tip: tap the moon 5 times. or type <kbd>luna</kbd>. moths remember.</p>
+  </footer>
+</main>
+
+<div id="toast" class="toast float" hidden></div>
+<div id="erupt" aria-hidden="true"></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
