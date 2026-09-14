@@ -1131,6 +1131,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "glyph-drift",
+    "title": "Glyph Drift",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "bauhaus",
+    "theme": "typography",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Kinetic letterforms swirl into poems you steer with your cursor.",
+    "features": [
+      "cursor-reactive kinetic letters",
+      "type-to-spawn word particles",
+      "font-morph art exporter",
+      "ambient poetry presets"
+    ],
+    "tags": [
+      "typography",
+      "kinetic",
+      "generative",
+      "fonts"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-14T01:00:51.105Z",
+    "updatedAt": "2026-09-14T01:03:09.381Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 37, done: 36, counts: {"done":36,"needs-human":1} };
+export const stats = { total: 38, done: 37, counts: {"done":37,"needs-human":1} };

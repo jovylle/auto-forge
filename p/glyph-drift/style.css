@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+/* BAUHAUS — 3 colours + black/white only */
+:root{
+  --paper:#F4F1EA; --ink:#111111;
+  --red:#E30613; --blue:#1A56CC; --yellow:#F2B705;
+  --line:#111111;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  overflow-x:hidden;
+  background-image:
+    linear-gradient(var(--paper) 0 0),
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(17,17,17,.06) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(17,17,17,.06) 39px 40px);
+}
+::selection{background:var(--yellow);color:var(--ink)}
+
+/* floating bauhaus ghosts */
+.frame{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.frame span{position:absolute;opacity:.10}
+.frame-circle{width:44vmax;height:44vmax;border-radius:50%;background:var(--red);left:-12vmax;top:-14vmax}
+.frame-square{width:26vmax;height:26vmax;background:var(--blue);right:-8vmax;top:22vh;transform:rotate(12deg)}
+.frame-tri{left:8vw;bottom:-16vmax;width:0;height:0;opacity:.12 !important;
+  border-left:16vmax solid transparent;border-right:16vmax solid transparent;border-bottom:26vmax solid var(--yellow)}
+
+/* top bar */
+.topbar{
+  position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:14px 20px;border-bottom:3px solid var(--line);background:var(--paper);
+  flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:14px}
+.mark{display:flex;align-items:flex-end;gap:5px}
+.mark i{display:block}
+.m-c{width:34px;height:34px;border-radius:50%;background:var(--red)}
+.m-s{width:30px;height:30px;background:var(--blue)}
+.m-t{width:0;height:0;border-left:17px solid transparent;border-right:17px solid transparent;border-bottom:30px solid var(--yellow)}
+h1{font-family:'Archivo Black',sans-serif;font-size:clamp(22px,4vw,34px);margin:0;letter-spacing:.02em;line-height:1}
+.tag{margin:2px 0 0;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.edition{font-size:11px;letter-spacing:.18em;border:2px solid var(--line);padding:6px 10px;background:#fff;font-weight:700}
+
+/* buttons */
+.btn{
+  font:700 12px/1 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;
+  border:2px solid var(--line);background:#fff;color:var(--ink);
+  padding:10px 14px;cursor:pointer;box-shadow:3px 3px 0 var(--ink);
+  transition:transform .08s ease, box-shadow .08s ease, background .15s;
+}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+.btn.primary{background:var(--red);color:#fff}
+.btn.toggle.is-on{background:var(--ink);color:var(--paper)}
+
+/* layout */
+.layout{
+  position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px;
+  padding:16px 20px 8px;max-width:1280px;margin:0 auto;align-items:start;
+}
+.stage-head{
+  display:flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);
+  padding:10px 14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+}
+.dot{width:12px;height:12px;border-radius:50%;flex:none}
+.dot.r{background:var(--red)}.dot.b{background:var(--blue)}.dot.y{background:var(--yellow)}
+.wordline{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--yellow);font-weight:700}
+.count{opacity:.75}
+.stage-box{
+  position:relative;border:3px solid var(--line);background:#FBFAF6;
+  height:min(62vh,560px);min-height:340px;overflow:hidden;cursor:crosshair;touch-action:none;
+}
+#stage{position:absolute;inset:0;width:100%;height:100%;display:block}
+.vortex{
+  position:absolute;width:54px;height:54px;margin:-27px 0 0 -27px;border:3px solid var(--red);
+  border-radius:50%;pointer-events:none;left:50%;top:50%;
+  transition:opacity .3s;
+}
+.vortex::before,.vortex::after{content:"";position:absolute;background:var(--red)}
+.vortex::before{left:50%;top:-9px;bottom:-9px;width:2px;margin-left:-1px}
+.vortex::after{top:50%;left:-9px;right:-9px;height:2px;margin-top:-1px}
+.burst{
+  position:absolute;right:12px;bottom:12px;width:52px;height:52px;border-radius:50%;
+  border:3px solid var(--line);background:var(--yellow);font-size:24px;cursor:pointer;
+  box-shadow:3px 3px 0 var(--ink);
+}
+.burst:hover{transform:rotate(30deg)}
+.hint{
+  position:absolute;left:12px;bottom:12px;background:var(--blue);color:#fff;
+  font-size:11px;letter-spacing:.2em;padding:8px 12px;border:2px solid var(--line);
+}
+.marquee{border:3px solid var(--line);border-top:0;background:var(--yellow);overflow:hidden;white-space:nowrap}
+.marquee-inner{display:inline-block;padding:8px 0;font-weight:700;font-size:13px;letter-spacing:.22em;animation:mq 22s linear infinite}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* control deck */
+.deck{display:flex;flex-direction:column;gap:16px}
+.card{border:3px solid var(--line);background:#fff;padding:14px;box-shadow:6px 6px 0 var(--ink)}
+.card.presets{border-top:10px solid var(--red)}
+.card.morph{border-top:10px solid var(--blue)}
+.card.type{border-top:10px solid var(--yellow)}
+.card h2{font-family:'Archivo Black',sans-serif;font-size:14px;margin:0 0 12px;letter-spacing:.06em}
+.card h2 .n{display:inline-grid;place-items:center;width:26px;height:26px;background:var(--ink);color:#fff;font-size:12px;margin-right:8px;font-family:'Space Grotesk'}
+.preset-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.preset{
+  border:2px solid var(--line);background:var(--paper);padding:10px;cursor:pointer;text-align:left;
+  font-family:'Space Grotesk';transition:transform .08s;
+}
+.preset b{display:block;font-family:'Archivo Black';font-size:13px}
+.preset small{font-size:11px;opacity:.7}
+.preset:hover{transform:translateY(-2px)}
+.preset.is-active{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--red)}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row .btn{flex:1;min-width:90px}
+.slider-label{display:flex;justify-content:space-between;font-size:12px;font-weight:700;letter-spacing:.14em;margin:12px 0 4px}
+.slider-label span{background:var(--ink);color:#fff;padding:1px 8px}
+input[type=range]{width:100%;accent-color:var(--red);height:28px;cursor:pointer}
+.morph-faces{display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-bottom:8px}
+#faceA{font-family:'Space Grotesk' initial;font-weight:400}
+#faceB{font-family:'Archivo Black'}
+#typer{
+  width:100%;border:2px solid var(--line);background:var(--paper);padding:12px;
+  font:700 15px 'Space Grotesk';color:var(--ink);outline:none;
+}
+#typer:focus{background:#fff;box-shadow:3px 3px 0 var(--blue)}
+.micro{font-size:12px;line-height:1.5}
+.poem{
+  min-height:64px;max-height:150px;overflow:auto;background:var(--ink);color:var(--paper);
+  padding:10px 12px;font-size:13px;line-height:1.6;margin-top:8px;
+}
+.poem:empty::after{content:"your poem gathers here…";opacity:.5}
+.poem b{color:var(--yellow)}
+
+/* footer */
+.foot{
+  position:relative;z-index:1;display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+  max-width:1280px;margin:8px auto 24px;padding:10px 20px;font-size:12px;font-weight:700;letter-spacing:.14em;
+}
+.sw{display:inline-block;width:12px;height:12px;margin-right:6px;vertical-align:-1px;border:1px solid var(--ink)}
+.sw.r{background:var(--red)}.sw.b{background:var(--blue)}.sw.y{background:var(--yellow)}
+.rule{opacity:.6}
+
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .deck{display:grid;grid-template-columns:1fr;gap:12px}
+}
+@media (max-width:480px){
+  .topbar,.layout{padding-left:12px;padding-right:12px}
+  .stage-box{min-height:300px;height:52vh}
+  .edition{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .marquee-inner{animation:none}
+}
