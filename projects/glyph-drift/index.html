@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Glyph Drift — Bauhaus Kinetic Poetry</title>
+  <meta name="description" content="Kinetic letterforms swirl into poems you steer with your cursor. Type to spawn words, morph fonts, export art." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="frame" aria-hidden="true">
+    <span class="frame-circle"></span>
+    <span class="frame-square"></span>
+    <span class="frame-tri"></span>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><i class="m-c"></i><i class="m-s"></i><i class="m-t"></i></span>
+      <div>
+        <h1>GLYPH DRIFT</h1>
+        <p class="tag">kinetic letterforms · steer the poem with your cursor</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <span class="edition">Nº 19 / BAUHAUS EDITION</span>
+      <button id="btnPng" class="btn primary" type="button">↓ PNG</button>
+      <button id="btnSvg" class="btn" type="button">↓ SVG</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="stage-wrap">
+      <div class="stage-head">
+        <span class="dot r"></span><span class="dot b"></span><span class="dot y"></span>
+        <span id="wordline" class="wordline" aria-live="polite">move to stir — type to spawn</span>
+        <span id="count" class="count">0 glyphs</span>
+      </div>
+      <div id="stageBox" class="stage-box">
+        <canvas id="stage"></canvas>
+        <div id="vortex" class="vortex" aria-hidden="true"></div>
+        <button id="burstBtn" class="burst" type="button" title="burst">✳</button>
+        <div class="hint">TYPE&nbsp;·&nbsp;DRAG&nbsp;·&nbsp;STIR</div>
+      </div>
+      <div class="marquee" aria-hidden="true"><div id="marqueeInner" class="marquee-inner"></div></div>
+    </section>
+
+    <aside class="deck">
+      <section class="card presets">
+        <h2><span class="n">01</span> POETRY PRESET</h2>
+        <div class="preset-grid" role="group" aria-label="poetry presets">
+          <button class="preset is-active" data-preset="manifest" type="button"><b>MANI&shy;FESTO</b><small>form · light · dance</small></button>
+          <button class="preset" data-preset="night" type="button"><b>NIGHT DRIFT</b><small>moon · static · hollow</small></button>
+          <button class="preset" data-preset="concrete" type="button"><b>CONCRETE</b><small>steel · grid · rhythm</small></button>
+          <button class="preset" data-preset="dada" type="button"><b>DADA</b><small>noise · chance · play</small></button>
+        </div>
+        <div class="row">
+          <button id="btnFlow" class="btn toggle is-on" type="button" aria-pressed="true">FLOW ● ON</button>
+          <button id="btnClear" class="btn" type="button">CLEAR</button>
+          <button id="btnCopy" class="btn" type="button">COPY POEM</button>
+        </div>
+      </section>
+
+      <section class="card morph">
+        <h2><span class="n">02</span> FONT MORPH</h2>
+        <label class="slider-label">MORPH <span id="morphVal">50</span></label>
+        <input id="morph" type="range" min="0" max="100" value="50" aria-label="font morph amount" />
+        <div class="morph-faces"><span id="faceA">Aa GROTESK</span><span id="faceB">AA BLACK ⟷</span></div>
+        <div class="row">
+          <button id="btnAuto" class="btn toggle" type="button" aria-pressed="false">AUTO-MORPH ○</button>
+          <button id="btnSwirl" class="btn toggle is-on" type="button" aria-pressed="true">SWIRL ● ON</button>
+        </div>
+        <label class="slider-label">TRAIL <span id="trailVal">18</span></label>
+        <input id="trail" type="range" min="2" max="60" value="18" aria-label="trail length" />
+      </section>
+
+      <section class="card type">
+        <h2><span class="n">03</span> TYPE TO SPAWN</h2>
+        <input id="typer" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"
+               placeholder="type words here, hit space…" aria-label="type words to spawn" />
+        <p class="micro">Letters burst from your cursor. <b>Space</b> commits a word · <b>✳</b> shuffles the field · everything stays on this page (localStorage remembers your preset).</p>
+        <div id="poem" class="poem" aria-live="polite"></div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <span><i class="sw r"></i> RED</span><span><i class="sw b"></i> BLUE</span><span><i class="sw y"></i> YELLOW</span>
+    <span class="rule">+ black / paper only — 3-colour bauhaus rule</span>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

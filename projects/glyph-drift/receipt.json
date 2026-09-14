@@ -1,0 +1,31 @@
+{
+  "slug": "glyph-drift",
+  "title": "Glyph Drift",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "bauhaus",
+  "theme": "typography",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Bauhaus kinetic poetry field: cursor vortex letterforms, type-to-spawn words, morph slider with PNG/SVG export, 4 ambient presets. 3 colours + black/white only.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "cursor-reactive kinetic letters",
+      "type-to-spawn word particles",
+      "font-morph art exporter",
+      "ambient poetry presets"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 127187,
+  "at": "2026-09-14T01:03:09.384Z"
+}
