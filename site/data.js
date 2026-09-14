@@ -1283,14 +1283,14 @@ export const projects = [
       "harbor",
       "audio"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-14T22:02:40.514Z",
-    "updatedAt": "2026-09-14T22:02:49.020Z",
-    "buildPassed": false,
-    "lastError": "scaffold untouched — worker wrote no app code",
+    "updatedAt": "2026-09-14T22:05:47.872Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 42, done: 40, counts: {"done":40,"needs-human":2} };
+export const stats = { total: 42, done: 41, counts: {"done":41,"needs-human":1} };

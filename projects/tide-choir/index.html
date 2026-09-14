@@ -1,17 +1,92 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tide Choir</title>
-  <link rel="stylesheet" href="./style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tide Choir — A Harbor That Sings</title>
+<meta name="description" content="Tide Choir: a dark-fantasy harbor that sings the tide in voices. Keyboard-only generative choir. Type to sing." />
+<link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main id="app">
-    <h1>Tide Choir</h1>
-    <p class="sub">A harbor that sings the tide in voices.</p>
-    <div id="stage"></div>
-  </main>
-  <script type="module" src="./app.js"></script>
+<a class="skip" href="#choir-stalls">Skip to choir stalls</a>
+
+<div class="moon" aria-hidden="true"></div>
+<div class="stars" aria-hidden="true"></div>
+<div class="mist mist-a" aria-hidden="true"></div>
+<div class="mist mist-b" aria-hidden="true"></div>
+
+<header class="masthead">
+  <p class="kicker">❖ &nbsp;harbor hymn nº 7 — dark-fantasy generative rite&nbsp; ❖</p>
+  <h1>Tide <span class="amp">Choir</span></h1>
+  <p class="sub">A harbor that sings the tide in voices. <strong>No mouse.</strong> Only keys — hold letters to let the drowned sing.</p>
+  <p class="wake" id="wake" role="status" aria-live="polite">Press any singing key to wake the water…</p>
+</header>
+
+<main id="app">
+  <section class="stage-wrap" aria-label="Voice waves">
+    <div class="stage-head">
+      <span class="stage-title">◈ voice waves</span>
+      <span class="stage-read" id="tide-read">tide 50 · fog 45 · harbor 40</span>
+    </div>
+    <canvas id="waves" width="960" height="340" aria-label="Animated voice waves canvas. Each singing voice draws a glowing wave." role="img"></canvas>
+    <div class="tide-gauge" aria-hidden="true">
+      <div class="tide-fill" id="tide-fill"></div>
+      <span class="tide-moon">☾</span>
+    </div>
+  </section>
+
+  <section class="choir" id="choir-stalls" aria-label="Tide choir stalls" tabindex="-1">
+    <!-- stalls rendered by JS -->
+    <ol class="stalls" id="stalls"></ol>
+  </section>
+
+  <section class="mix" aria-label="Harbor mix">
+    <h2><span class="rule">—</span> harbor mix <span class="rule">—</span></h2>
+    <div class="meters">
+      <div class="meter">
+        <div class="meter-top"><span>TIDE</span><span id="v-tide">50</span></div>
+        <div class="bar"><i id="b-tide"></i></div>
+        <p class="hint"><kbd>Q</kbd> ebb · <kbd>W</kbd> flood</p>
+      </div>
+      <div class="meter">
+        <div class="meter-top"><span>FOG</span><span id="v-fog">45</span></div>
+        <div class="bar"><i id="b-fog"></i></div>
+        <p class="hint"><kbd>Z</kbd> thin · <kbd>X</kbd> thicken</p>
+      </div>
+      <div class="meter">
+        <div class="meter-top"><span>HARBOR</span><span id="v-harbor">40</span></div>
+        <div class="bar"><i id="b-harbor"></i></div>
+        <p class="hint"><kbd>V</kbd> quiet · <kbd>B</kbd> wake</p>
+      </div>
+    </div>
+    <div class="presets" aria-label="Mix presets, keys 1 2 3">
+      <p class="preset-line"><kbd>1</kbd> low-tide vigil &nbsp;·&nbsp; <kbd>2</kbd> storm vigil &nbsp;·&nbsp; <kbd>3</kbd> moon crossing</p>
+    </div>
+  </section>
+
+  <section class="grimoire" aria-label="Keyboard grimoire">
+    <h2><span class="rule">—</span> grimoire of keys <span class="rule">—</span></h2>
+    <p class="type-note">Interaction: <strong>type only</strong> — every rite is a keystroke. No clicking, no dragging. Tab reaches this text; everything else is played.</p>
+    <dl class="keys">
+      <div><dt><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd>F</kbd><kbd>G</kbd><kbd>H</kbd></dt><dd>hold to sing the six voices — release to let them drown</dd></div>
+      <div><dt><kbd>Q</kbd> / <kbd>W</kbd></dt><dd>ebb / flood the tide (deep drone + wave height)</dd></div>
+      <div><dt><kbd>Z</kbd> / <kbd>X</kbd></dt><dd>thin / thicken the fog (echo of the harbor)</dd></div>
+      <div><dt><kbd>V</kbd> / <kbd>B</kbd></dt><dd>quiet / wake the harbor bed (water + fog-bell)</dd></div>
+      <div><dt><kbd>space</kbd></dt><dd>hold for storm surge — all voices swell</dd></div>
+      <div><dt><kbd>R</kbd></dt><dd>begin / end the autonomous ritual (generative choir)</dd></div>
+      <div><dt><kbd>C</kbd></dt><dd>cast a hymn — a short generative phrase</dd></div>
+      <div><dt><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd></dt><dd>harbor-mix presets</dd></div>
+      <div><dt><kbd>M</kbd></dt><dd>mute / unmute the sea</dd></div>
+      <div><dt><kbd>?</kbd></dt><dd>whisper this grimoire aloud (screen-reader recap)</dd></div>
+    </dl>
+    <p class="persist">Your tide, fog &amp; harbor levels persist in <code>localStorage</code>. The sea remembers.</p>
+  </section>
+</main>
+
+<footer class="colophon">
+  <p>Tide Choir · single-file-ish rite · WebAudio + Canvas · works from <code>file://</code> · <span id="hymn-count">0 hymns cast</span></p>
+</footer>
+
+<script src="./app.js" defer></script>
 </body>
 </html>

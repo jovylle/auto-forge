@@ -9,15 +9,23 @@
     "must work with keyboard only",
     "uses only one interaction type (click OR drag OR type)"
   ],
-  "model": "opencode/muse-spark-1.3-contributor-free",
-  "modelVia": "primary",
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
-  "workerResult": null,
-  "buildPassed": false,
-  "verify": {
-    "ok": false,
-    "reason": "scaffold untouched — worker wrote no app code"
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "voice waves",
+      "tide choir",
+      "harbor mix"
+    ],
+    "status": "pass",
+    "summary": "Tide Choir: keyboard-only (type-only, zero pointer listeners) dark-fantasy harbor. Six hold-to-sing WebAudio voices with canvas voice-waves + rune crests, tide/fog/harbor mix with 3 presets, storm surge, generative ritual, hymn casting, fog-bells, localStorage persistence. Responsive to 375px, works from file://."
   },
-  "elapsedMs": 4279,
-  "at": "2026-09-14T22:02:49.021Z"
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 95068,
+  "at": "2026-09-14T22:05:47.873Z"
 }
