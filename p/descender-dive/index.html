@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Descender Dive — 潜水降下</title>
+  <meta name="description" content="Dive letters underwater; depth bends weight, width, and wobble in real time." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-kanji" aria-hidden="true">潜水</span>
+      <div>
+        <h1 class="logo">DESCENDER <span>DIVE</span></h1>
+        <p class="tagline">降下 — dive letters underwater · depth bends type in real time</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="soundBtn" class="chip" aria-pressed="true" title="Toggle sound">🔊 SOUND ON</button>
+      <button id="tideBtn" class="chip tide" aria-pressed="false" title="Toggle tide mode">🌊 TIDE: OFF</button>
+    </div>
+  </header>
+
+  <main id="app">
+    <section class="console">
+      <div class="readout">
+        <div class="depth-num"><span id="depthVal">0</span><small>m</small></div>
+        <div class="zone-wrap">
+          <div id="zoneName" class="zone">表層 · SUNLIT SURFACE</div>
+          <div class="var-read"><code id="varRead">wght 200 · wdth 130</code></div>
+        </div>
+        <div class="stamp" aria-hidden="true">潜<br />降</div>
+      </div>
+
+      <label class="field">
+        <span class="label">HEADLINE 入力 <em>— type, then press Enter</em></span>
+        <input id="textInput" type="text" maxlength="60" value="沈め、文字を。" placeholder="Type your headline…" autocomplete="off" spellcheck="false" />
+      </label>
+
+      <label class="field">
+        <span class="label">DEPTH 深度 <em id="depthHint">— surface</em></span>
+        <input id="depth" type="range" min="0" max="100" value="18" step="1" />
+        <div class="ticks" aria-hidden="true"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+      </label>
+
+      <div class="btnrow">
+        <button id="burstBtn" class="btn">🫧 BUBBLE BURST 泡</button>
+        <button id="exportBtn" class="btn primary">⤓ EXPORT POSTER PNG</button>
+      </div>
+      <p class="hint">CLICK / TAP the ocean to release bubble letters · drag the depth slider to crush the type · TIDE mode animates everything.</p>
+    </section>
+
+    <section id="ocean" class="ocean" aria-label="Dive viewport. Click to release bubble letters.">
+      <div class="vertical-jp left" aria-hidden="true">ディセンダー・ダイブ</div>
+      <div class="vertical-jp right" aria-hidden="true">海溝一一〇〇〇米</div>
+      <div class="sun" aria-hidden="true"></div>
+      <div class="torii" aria-hidden="true">⛩</div>
+      <div class="godrays" aria-hidden="true"></div>
+      <div id="headline" class="headline" contenteditable="true" spellcheck="false" aria-label="Editable headline. Type directly."></div>
+      <div class="subline"><span id="sublineText">variable font · wght + wdth + wobble — 生きている文字</span></div>
+      <canvas id="bubbles"></canvas>
+      <div class="click-tip" aria-hidden="true">— click to blow bubbles 泡 —</div>
+      <div class="caution" aria-hidden="true">⚠ 深海注意 · DEEP TYPE ZONE ⚠</div>
+    </section>
+
+    <section class="cards">
+      <div class="card"><h2>01 · DEPTH 深度</h2><p>Slider morphs <b>Roboto Flex</b> live: weight crushes heavier, width squeezes tighter, wobble grows — like pressure on a hull.</p></div>
+      <div class="card"><h2>02 · BUBBLES 泡</h2><p>Click the water. Kana + headline glyphs rise as bubbles. Each one exhales a WebAudio <i>blip</i> — zero audio files.</p></div>
+      <div class="card"><h2>03 · TIDE 潮汐</h2><p>Tide mode breathes the depth 0→100 on its own and sets every letter swimming in a kinetic sine wave.</p></div>
+      <div class="card"><h2>04 · POSTER ポスター</h2><p>Export freezes the current depth, headline &amp; bubbles into a <b>1080×1350 PNG</b> — neon dive poster, stamped 潜降.</p></div>
+    </section>
+
+    <footer class="foot">
+      <span>DESCENDER DIVE — japanese-cyberpunk generative type · single file-ish · no build</span>
+      <span class="foot-jp">深海で、文字は重くなる。</span>
+    </footer>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
