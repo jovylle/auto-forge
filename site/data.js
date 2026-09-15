@@ -1355,6 +1355,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "type-tumble",
+    "title": "Type Tumble",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "cyberpunk",
+    "theme": "typography",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Drop words into gravity wells that stretch and stack them into kinetic posters.",
+    "features": [
+      "gravity word sandbox",
+      "variable font stretching",
+      "collision-based layouts",
+      "one-click poster export"
+    ],
+    "tags": [
+      "typography",
+      "kinetic",
+      "generative",
+      "fonts"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-15T10:12:23.810Z",
+    "updatedAt": "2026-09-15T10:14:44.483Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 44, done: 43, counts: {"done":43,"needs-human":1} };
+export const stats = { total: 45, done: 44, counts: {"done":44,"needs-human":1} };

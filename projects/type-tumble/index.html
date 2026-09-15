@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TYPE TUMBLE — kinetic poster gravity sandbox</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;600;700&display=swap');
+:root{
+  --bg:#08060f; --ink:#f4f2ff; --cyan:#00f0ff; --mag:#ff2a6d; --yel:#f9f002;
+  --panel:#100c1e; --line:#2a2140;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;min-height:100vh;
+  background-image:linear-gradient(rgba(0,240,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,.05) 1px,transparent 1px);
+  background-size:32px 32px;}
+#app{max-width:1060px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:14px}
+h1{font-family:'Anton',Impact,sans-serif;font-size:clamp(38px,7vw,72px);margin:0;letter-spacing:.02em;line-height:.95;
+  color:var(--ink);text-shadow:3px 3px 0 var(--mag),-3px -2px 0 var(--cyan);animation:flicker 4s infinite}
+h1 span{color:var(--yel);text-shadow:3px 3px 0 var(--cyan),-2px -2px 0 var(--mag)}
+@keyframes flicker{0%,100%{opacity:1}92%{opacity:1}93%{opacity:.6}94%{opacity:1}96%{opacity:.75}97%{opacity:1}}
+.tag{margin:2px 0 0;color:var(--cyan);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+.panel{background:rgba(16,12,30,.92);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 0 24px rgba(255,42,109,.12),0 0 24px rgba(0,240,255,.08)}
+#toolbar{display:grid;gap:10px;margin-bottom:12px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type=text]{flex:1;min-width:140px;background:#0a0716;border:1px solid var(--cyan);color:var(--ink);
+  border-radius:10px;padding:10px 12px;font:inherit;outline:none}
+input[type=text]:focus{box-shadow:0 0 0 2px rgba(0,240,255,.4)}
+button{font:inherit;font-weight:700;cursor:pointer;border-radius:10px;padding:10px 14px;border:1px solid transparent;color:#060510}
+.btn-drop{background:var(--yel);box-shadow:0 0 14px rgba(249,240,2,.45)}
+.btn-export{background:var(--cyan);box-shadow:0 0 14px rgba(0,240,255,.45)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--mag);color:var(--mag)}
+.btn-mag{background:var(--mag);color:#fff;box-shadow:0 0 14px rgba(255,42,109,.45)}
+.btn-warn{background:transparent;color:var(--mag);border-color:var(--mag)}
+button:active{transform:translateY(1px)}
+button[aria-pressed=true]{outline:2px solid var(--yel);outline-offset:2px}
+.chip{border:1px dashed var(--line);background:transparent;color:var(--cyan);font-weight:600;padding:6px 10px;border-radius:999px;font-size:13px}
+.chip:hover{border-color:var(--cyan)}
+label.ctl{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink);opacity:.9}
+label.ctl output{color:var(--yel);font-weight:700;min-width:3ch;text-align:right}
+input[type=range]{accent-color:var(--mag)}
+#wrap{position:relative}
+canvas#stage{width:100%;height:520px;display:block;border-radius:14px;border:1px solid var(--cyan);
+  background:#05030c radial-gradient(circle at 50% 120%,rgba(255,42,109,.14),transparent 60%);touch-action:none;cursor:crosshair}
+#wrap::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:14px;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 4px);mix-blend-mode:overlay}
+#hint{font-size:12px;color:var(--cyan);opacity:.8;margin-top:6px}
+#sel{display:none;margin-top:12px;border-color:var(--mag)}
+#sel.on{display:block}
+#sel h2{margin:0 0 8px;font-size:14px;letter-spacing:.12em;color:var(--mag)}
+#sel .row{margin-bottom:8px}
+#sel select{background:#0a0716;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px;font:inherit}
+footer{margin-top:16px;font-size:12px;opacity:.6}
+@media(max-width:560px){canvas#stage{height:420px} #app{padding:14px 10px 40px}}
+</style>
+</head>
+<body>
+<main id="app">
+  <header>
+    <div>
+      <h1>TYPE <span>TUMBLE</span></h1>
+      <p class="tag">drop words into gravity wells — stretch &amp; stack kinetic posters</p>
+    </div>
+    <button id="export" class="btn-export" title="Download poster as PNG">⤓ EXPORT POSTER</button>
+  </header>
+
+  <section id="toolbar" class="panel" aria-label="controls">
+    <div class="row">
+      <input id="word" type="text" maxlength="24" placeholder="type a word… (Enter = drop)" autocomplete="off" />
+      <button id="drop" class="btn-drop">DROP WORD ▼</button>
+    </div>
+    <div class="row" id="presets" aria-label="preset packs"></div>
+    <div class="row">
+      <label class="ctl">gravity <input id="grav" type="range" min="0" max="2" step="0.05" value="0.55" /><output id="gravV">0.55</output></label>
+      <label class="ctl">well pull <input id="pull" type="range" min="0" max="6" step="0.1" value="2.4" /><output id="pullV">2.4</output></label>
+      <label class="ctl">bounce <input id="bounc" type="range" min="0" max="0.9" step="0.05" value="0.35" /><output id="bouncV">0.35</output></label>
+    </div>
+    <div class="row">
+      <button id="well" class="btn-ghost" aria-pressed="false" title="Click canvas to place a gravity well">◉ PLACE WELL</button>
+      <button id="pause" class="btn-ghost" aria-pressed="false">❚❚ PAUSE</button>
+      <button id="pile" class="btn-ghost" title="Freeze physics into a stacked poster layout">▤ STACK LAYOUT</button>
+      <button id="orbit" class="btn-ghost" title="Fling words into orbit around wells">⟳ ORBIT</button>
+      <button id="clear" class="btn-warn">✕ CLEAR</button>
+    </div>
+  </section>
+
+  <div id="wrap"><canvas id="stage"></canvas></div>
+  <p id="hint">drag words to throw · drag wells (◉) to move · double-click a well to delete · click a word to style it · double-click empty space to burst-drop</p>
+
+  <section id="sel" class="panel" aria-label="selected word styler">
+    <h2>◤ SELECTED: <span id="selName">—</span></h2>
+    <div class="row">
+      <label class="ctl">stretch <input id="sStretch" type="range" min="0.4" max="2.6" step="0.05" value="1" /><output id="sStretchV">1.0</output></label>
+      <label class="ctl">weight <input id="sWeight" type="range" min="300" max="900" step="50" value="700" /><output id="sWeightV">700</output></label>
+      <label class="ctl">size <input id="sSize" type="range" min="18" max="120" step="2" value="54" /><output id="sSizeV">54</output></label>
+    </div>
+    <div class="row">
+      <label class="ctl">color
+        <select id="sColor">
+          <option value="#00f0ff">cyan</option>
+          <option value="#ff2a6d">magenta</option>
+          <option value="#f9f002">acid</option>
+          <option value="#f4f2ff">white</option>
+        </select>
+      </label>
+      <button id="sPin" class="btn-ghost" aria-pressed="false">📌 PIN</button>
+      <button id="sDup" class="btn-ghost">⧉ DUPLICATE</button>
+      <button id="sDel" class="btn-warn">DELETE</button>
+      <button id="sClose" class="btn-ghost">DONE ✓</button>
+    </div>
+  </section>
+
+  <footer>TYPE TUMBLE · cyberpunk kinetic poster lab · physics run locally · posters save as PNG · state persists in localStorage</footer>
+</main>
+
+<script>
+"use strict";
+/* TYPE TUMBLE — gravity word sandbox, variable stretch, collisions, poster export */
+const CYAN="#00f0ff", MAG="#ff2a6d", ACID="#f9f002", INK="#f4f2ff";
+const PALETTE=[CYAN,MAG,ACID,INK];
+const cvs=document.getElementById("stage"), ctx=cvs.getContext("2d");
+const $=id=>document.getElementById(id);
+const store={load(){try{return JSON.parse(localStorage.getItem("typetumble")||"null")}catch{return null}},save(s){try{localStorage.setItem("typetumble",JSON.stringify(s))}catch{}}};
+
+let W=0,H=0,DPR=1;
+function fit(){DPR=Math.min(2,window.devicePixelRatio||1);const r=cvs.getBoundingClientRect();W=Math.max(300,r.width);H=cvs.clientHeight||520;cvs.width=W*DPR;cvs.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
+window.addEventListener("resize",fit);
+
+const P={grav:.55,pull:2.4,bounce:.35,paused:false,placeWell:false};
+let words=[],wells=[],sel=null,ci=0,drag=null,hoverWell=null;
+let mid=null; // pointer middle state
+
+function measure(t,size,weight){ctx.font=weight+" "+size+"px Anton, Impact, sans-serif";return ctx.measureText(t).width;}
+function mkWord(text,x,y,o={}){
+  const size=o.size||(34+Math.random()*44);
+  const w={id:Date.now()+Math.random(),text,x:x??(60+Math.random()*(W-120)),y:y??-40,
+    vx:(Math.random()-.5)*3,vy:Math.random()*2,size,weight:o.weight||700,
+    color:o.color||PALETTE[(ci++)%PALETTE.length],stretch:o.stretch||1,
+    pinned:false,rot:0,w:10,h:10,squashX:1,squashY:1};
+  sizeWord(w);words.push(w);return w;
+}
+function sizeWord(w){w.w=measure(w.text,w.size,w.weight)*w.stretch+18;w.h=w.size*1.24;}
+function mkWell(x,y){if(wells.length>=4)return;wells.push({id:Date.now()+Math.random(),x,y,r:90+Math.random()*40});}
+
+/* presets */
+const PACKS={NEON:["NEON","GRID","CHROME","VOLT","PIXEL"],STREET:["RIOT","STATIC","VENOM","ASPHALT","MIDNIGHT"],VOID:["NULL","GHOST","SECTOR","DRIFT","HOLLOW"]};
+const presetBar=$("presets");
+Object.entries(PACKS).forEach(([k,arr])=>{const b=document.createElement("button");b.className="chip";b.textContent="+"+k;b.title=arr.join(" · ");
+  b.onclick=()=>{arr.forEach((t,i)=>setTimeout(()=>mkWord(t,60+Math.random()*(W-120),-40-i*70),i*120));};presetBar.appendChild(b);});
+
+/* physics */
+function step(){
+  if(P.paused)return;
+  for(const w of words){
+    if(w.pinned){w.vx=w.vy=0;continue;}
+    w.vy+=P.grav;
+    for(const wl of wells){
+      const dx=wl.x-w.x,dy=wl.y-w.y,d2=dx*dx+dy*dy+400,d=Math.sqrt(d2);
+      const f=Math.min(6,P.pull*9000/d2);
+      w.vx+=dx/d*f*.12;w.vy+=dy/d*f*.12;
+    }
+    w.vx*=.995;w.vy*=.999;
+    const sp=Math.hypot(w.vx,w.vy);
+    // variable stretch: fast fall = tall/thin, fast lateral = wide/flat
+    const tX=1+Math.min(.9,Math.abs(w.vx)*.09)-Math.min(.45,Math.abs(w.vy)*.05);
+    const tY=1+Math.min(1.1,Math.abs(w.vy)*.075)-Math.min(.4,Math.abs(w.vx)*.06);
+    w.squashX+=(tX-w.squashX)*.2;w.squashY+=(tY-w.squashY)*.2;
+    w.x+=w.vx;w.y+=w.vy;
+    // walls
+    if(w.x<w.w/2){w.x=w.w/2;w.vx=Math.abs(w.vx)*P.bounce;}
+    if(w.x>W-w.w/2){w.x=W-w.w/2;w.vx=-Math.abs(w.vx)*P.bounce;}
+    if(w.y>H-w.h/2){w.y=H-w.h/2;w.vy=-Math.abs(w.vy)*P.bounce;w.vx*=.96;
+      if(Math.abs(w.vy)<.6)w.vy=0;}
+    if(w.y<-400){w.y=-400;w.vy=Math.abs(w.vy)*.5;}
+  }
+  // word–word collisions (AABB, positional + impulse) → stacking layouts
+  for(let i=0;i<words.length;i++)for(let j=i+1;j<words.length;j++){
+    const a=words[i],b=words[j];
+    const ox=(a.w+b.w)/2-Math.abs(a.x-b.x),oy=(a.h+b.h)/2-Math.abs(a.y-b.y);
+    if(ox>0&&oy>0){
+      if(ox<oy){const s=Math.sign(a.x-b.x)||1,push=ox/2;
+        if(!a.pinned)a.x+=s*push;if(!b.pinned)b.x-=s*push;
+        const rel=a.vx-b.vx;if(Math.abs(rel)>.2){const imp=rel*P.bounce/2;
+          if(!a.pinned)a.vx-=imp;if(!b.pinned)b.vx+=imp;}}
+      else{const s=Math.sign(a.y-b.y)||-1,push=oy/2;
+        if(!a.pinned)a.y+=s*push;if(!b.pinned)b.y-=s*push;
+        const rel=a.vy-b.vy;if(Math.abs(rel)>.4){const imp=rel*(0.4+P.bounce)/2;
+          if(!a.pinned)a.vy-=imp;if(!b.pinned)b.vy+=imp;}
+        else{if(!a.pinned&&s<0)a.vy*=.9;if(!b.pinned&&s>0)b.vy*=.9;}
+      }
+    }
+  }
+}
+
+/* render */
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  // wells
+  for(const wl of wells){
+    const g=ctx.createRadialGradient(wl.x,wl.y,4,wl.x,wl.y,wl.r*1.6);
+    g.addColorStop(0,"rgba(255,42,109,.5)");g.addColorStop(.5,"rgba(255,42,109,.12)");g.addColorStop(1,"rgba(255,42,109,0)");
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(wl.x,wl.y,wl.r*1.6,0,7);ctx.fill();
+    ctx.strokeStyle=MAG;ctx.lineWidth=2;ctx.setLineDash([8,6]);
+    ctx.beginPath();ctx.arc(wl.x,wl.y,wl.r,0,7);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle=MAG;ctx.shadowColor=MAG;ctx.shadowBlur=16;
+    ctx.beginPath();ctx.arc(wl.x,wl.y,7,0,7);ctx.fill();ctx.shadowBlur=0;
+    ctx.fillStyle=INK;ctx.font="700 11px 'Space Grotesk',sans-serif";ctx.textAlign="center";
+    ctx.fillText("GRAVITY WELL",wl.x,wl.y-wl.r-8);
+  }
+  // words
+  ctx.textAlign="center";ctx.textBaseline="middle";
+  for(const w of words){
+    ctx.save();ctx.translate(w.x,w.y);
+    const shear=Math.max(-.5,Math.min(.5,w.vx*.05));
+    ctx.transform(1,0,shear,1,0,0);
+    ctx.scale(w.squashX*w.stretch,w.squashY);
+    const fs=w.size+"px";
+    ctx.font=w.weight+" "+fs+" Anton, Impact, sans-serif";
+    ctx.lineWidth=Math.max(2,w.size/14);ctx.strokeStyle="#060510";
+    ctx.shadowColor=w.color;ctx.shadowBlur=w===sel?26:14;
+    ctx.strokeText(w.text,0,2);ctx.fillStyle=w.color;ctx.fillText(w.text,0,2);
+    ctx.shadowBlur=0;ctx.restore();
+    if(w===sel){ctx.strokeStyle=ACID;ctx.lineWidth=2;ctx.setLineDash([6,4]);
+      ctx.strokeRect(w.x-w.w/2-4,w.y-w.h/2-4,w.w+8,w.h+8);ctx.setLineDash([]);}
+    if(w.pinned){ctx.fillStyle=ACID;ctx.font="700 12px 'Space Grotesk',sans-serif";ctx.fillText("📌",w.x+w.w/2-4,w.y-w.h/2-8);}
+  }
+  // scanline sweep
+  const t=(Date.now()/14)%(H+120)-60;
+  const lg=ctx.createLinearGradient(0,t-40,0,t+40);
+  lg.addColorStop(0,"rgba(0,240,255,0)");lg.addColorStop(.5,"rgba(0,240,255,.06)");lg.addColorStop(1,"rgba(0,240,255,0)");
+  ctx.fillStyle=lg;ctx.fillRect(0,t-40,W,80);
+}
+function loop(){step();draw();requestAnimationFrame(loop);}
+
+/* pointer */
+function pos(e){const r=cvs.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};}
+function hitWord(p){for(let i=words.length-1;i>=0;i--){const w=words[i];
+  if(Math.abs(p.x-w.x)<w.w/2+6&&Math.abs(p.y-w.y)<w.h/2+6)return w;}return null;}
+function hitWell(p){return wells.find(wl=>Math.hypot(p.x-wl.x,p.y-wl.y)<26)||null;}
+cvs.addEventListener("pointerdown",e=>{
+  cvs.setPointerCapture(e.pointerId);const p=pos(e);
+  const wl=hitWell(p);
+  if(P.placeWell){mkWell(p.x,p.y);P.placeWell=false;$("well").setAttribute("aria-pressed","false");return;}
+  if(wl){drag={k:"well",o:wl,dx:wl.x-p.x,dy:wl.y-p.y};return;}
+  const w=hitWord(p);
+  if(w){select(w);drag={k:"word",o:w,dx:w.x-p.x,dy:w.y-p.y,px:p.x,py:p.y,t:Date.now(),moved:false};w.vx=w.vy=0;}
+  else{select(null);mid={x:p.x,y:p.y};}
+});
+cvs.addEventListener("pointermove",e=>{
+  if(!drag&&!mid)return;const p=pos(e);
+  if(drag?.k==="well"){drag.o.x=p.x+drag.dx;drag.o.y=p.y+drag.dy;}
+  if(drag?.k==="word"){const o=drag.o;
+    if(Math.hypot(p.x-drag.px,p.y-drag.py)>4)drag.moved=true;
+    o.vx=(p.x+drag.dx-o.x)*.6;o.vy=(p.y+drag.dy-o.y)*.6;
+    o.x=p.x+drag.dx;o.y=p.y+drag.dy;}
+});
+cvs.addEventListener("pointerup",e=>{
+  if(drag?.k==="word"&&!drag.moved&&Date.now()-drag.t<400){/* tap = keep selected */}
+  drag=null;mid=null;persist();
+});
+cvs.addEventListener("dblclick",e=>{
+  const p=pos(e);const wl=hitWell(p);
+  if(wl){wells=wells.filter(w=>w!==wl);persist();return;}
+  if(!hitWord(p)){for(let i=0;i<3;i++)mkWord(randomWord(),p.x+(Math.random()-.5)*80,p.y-i*60);}
+});
+function randomWord(){const bank=[...PACKS.NEON,...PACKS.STREET,...PACKS.VOID];return bank[Math.floor(Math.random()*bank.length)];}
+
+/* selection panel */
+function select(w){sel=w;
+  $("sel").classList.toggle("on",!!w);
+  if(!w)return;
+  $("selName").textContent=w.text;
+  $("sStretch").value=w.stretch;$("sStretchV").textContent=(+w.stretch).toFixed(2).replace(/0$/,"");
+  $("sWeight").value=w.weight;$("sWeightV").textContent=w.weight;
+  $("sSize").value=w.size;$("sSizeV").textContent=w.size;
+  $("sColor").value=PALETTE.includes(w.color)?w.color:"#f4f2ff";
+  $("sPin").setAttribute("aria-pressed",String(w.pinned));
+}
+$("sStretch").oninput=e=>{if(!sel)return;sel.stretch=+e.target.value;$("sStretchV").textContent=sel.stretch.toFixed(2);sizeWord(sel);persist();};
+$("sWeight").oninput=e=>{if(!sel)return;sel.weight=+e.target.value;$("sWeightV").textContent=sel.weight;sizeWord(sel);persist();};
+$("sSize").oninput=e=>{if(!sel)return;sel.size=+e.target.value;$("sSizeV").textContent=sel.size;sizeWord(sel);persist();};
+$("sColor").onchange=e=>{if(!sel)return;sel.color=e.target.value;persist();};
+$("sPin").onclick=e=>{if(!sel)return;sel.pinned=!sel.pinned;e.target.setAttribute("aria-pressed",String(sel.pinned));persist();};
+$("sDup").onclick=()=>{if(!sel)return;const c=mkWord(sel.text,sel.x+24,sel.y-40,{size:sel.size,weight:sel.weight,color:sel.color,stretch:sel.stretch});select(c);persist();};
+$("sDel").onclick=()=>{if(!sel)return;words=words.filter(w=>w!==sel);select(null);persist();};
+$("sClose").onclick=()=>select(null);
+
+/* toolbar */
+function dropWord(){const inp=$("word");const t=(inp.value||"").trim()||randomWord();
+  t.split(/\s+/).slice(0,3).forEach((w,i)=>setTimeout(()=>mkWord(w.toUpperCase().slice(0,24),60+Math.random()*(W-120),-40-i*60),i*90));
+  inp.value="";inp.focus();persist();}
+$("drop").onclick=dropWord;
+$("word").addEventListener("keydown",e=>{if(e.key==="Enter")dropWord();});
+[["grav","gravV",v=>P.grav=v],["pull","pullV",v=>P.pull=v],["bounc","bouncV",v=>P.bounce=v]].forEach(([id,out,fn])=>{
+  $(id).addEventListener("input",e=>{fn(+e.target.value);$(out).textContent=(+e.target.value).toFixed(2).replace(/0$/,"");persist();});});
+$("well").onclick=e=>{P.placeWell=!P.placeWell;e.target.setAttribute("aria-pressed",String(P.placeWell));
+  e.target.textContent=P.placeWell?"◉ CLICK CANVAS…":"◉ PLACE WELL";};
+$("pause").onclick=e=>{P.paused=!P.paused;e.target.setAttribute("aria-pressed",String(P.paused));e.target.textContent=P.paused?"▶ RESUME":"❚❚ PAUSE";};
+$("clear").onclick=()=>{words=[];wells=[];select(null);persist();};
+$("pile").onclick=()=>{ // collision-based stacked poster: sort by size, layer bottom-up, pin
+  const s=[...words].sort((a,b)=>b.size-a.size);
+  let y=H-30;s.forEach(w=>{w.pinned=false;w.vx=0;w.vy=2;});
+  // let physics settle then pin: pin after 1.6s
+  setTimeout(()=>{s.forEach(w=>{w.pinned=true;w.vx=w.vy=0;w.squashX=w.squashY=1;});persist();},1600);};
+$("orbit").onclick=()=>{for(const w of words){if(w.pinned)continue;
+  const wl=wells[0]||{x:W/2,y:H/2};const dx=w.x-wl.x,dy=w.y-wl.y,d=Math.hypot(dx,dy)||1;
+  w.vx+=-dy/d*7;w.vy+=dx/d*7;}persist();};
+
+/* poster export */
+$("export").onclick=()=>{
+  const s=2,off=document.createElement("canvas");off.width=W*s;off.height=H*s;
+  const o=off.getContext("2d");o.scale(s,s);
+  o.fillStyle="#05030c";o.fillRect(0,0,W,H);
+  o.drawImage(cvs,0,0,W,H);
+  // chrome: border + tag
+  o.strokeStyle=CYAN;o.lineWidth=3;o.strokeRect(8,8,W-16,H-16);
+  o.fillStyle=CYAN;o.font="700 20px 'Space Grotesk',sans-serif";o.textAlign="left";
+  o.fillText("TYPE▼TUMBLE",22,H-24);o.textAlign="right";o.fillStyle=MAG;
+  o.fillText(new Date().toISOString().slice(0,10),W-22,H-24);
+  const a=document.createElement("a");
+  a.download="type-tumble-poster.png";a.href=off.toDataURL("image/png");a.click();
+};
+
+/* persistence */
+function persist(){store.save({words:words.map(w=>({text:w.text,x:Math.round(w.x),y:Math.round(w.y),size:w.size,weight:w.weight,color:w.color,stretch:w.stretch,pinned:w.pinned})),
+  wells:wells.map(w=>({x:Math.round(w.x),y:Math.round(w.y),r:w.r})),P:{grav:P.grav,pull:P.pull,bounce:P.bounce}});}
+function restore(){const s=store.load();if(!s)return false;
+  try{$("grav").value=s.P.grav;$("pull").value=s.P.pull;$("bounc").value=s.P.bounce;
+    P.grav=s.P.grav;P.pull=s.P.pull;P.bounce=s.P.bounce;
+    ["grav","pull","bounc"].forEach(k=>$(k+"V").textContent=(+s.P[k==="bounc"?"bounce":k]).toFixed(2));
+    (s.wells||[]).forEach(w=>wells.push({id:Math.random(),...w}));
+    (s.words||[]).forEach(w=>{const o=mkWord(w.text,w.x,Math.min(w.y,H-60),w);o.pinned=!!w.pinned;});
+    return words.length>0;}catch{return false;}}
+setInterval(persist,5000);
+
+/* boot */
+fit();
+if(!restore()){
+  ["NEON","TUMBLE","VOID","RIOT"].forEach((t,i)=>mkWord(t,80+i*((W-160)/3),-60-i*80));
+  mkWell(W*0.3,H*0.35);mkWell(W*0.72,H*0.6);
+}
+requestAnimationFrame(()=>{fit();loop();});
+document.fonts?.ready.then(()=>words.forEach(sizeWord));
+</script>
+</body>
+</html>
