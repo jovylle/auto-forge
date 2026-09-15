@@ -1,0 +1,31 @@
+{
+  "slug": "ligature-lagoon",
+  "title": "Ligature Lagoon",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "steampunk",
+  "theme": "typography",
+  "constraints": [
+    "must have an easter egg"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag letters to stir currents",
+      "kinetic collisions form ligatures",
+      "variable font tide controls",
+      "export poster as PNG"
+    ],
+    "status": "pass",
+    "summary": "Steampunk kinetic-type lagoon: canvas tide physics with stir vortices + grabbable/flingable brass letter plaques, 14 collision-fused ligature blooms with cabinet + log, Fraunces variable-font tide controls (tide/current/weight/opsz/slant + auto moon tide), 1600x2240 PNG poster export, Kraken easter egg (type kraken or triple-click gauge), localStorage persistence, responsive to 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 139652,
+  "at": "2026-09-15T04:10:31.141Z"
+}

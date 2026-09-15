@@ -1323,6 +1323,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "ligature-lagoon",
+    "title": "Ligature Lagoon",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "steampunk",
+    "theme": "typography",
+    "constraints": [
+      "must have an easter egg"
+    ],
+    "description": "Toss letters into a lagoon where currents kern, collide and bloom.",
+    "features": [
+      "drag letters to stir currents",
+      "kinetic collisions form ligatures",
+      "variable font tide controls",
+      "export poster as PNG"
+    ],
+    "tags": [
+      "typography",
+      "kinetic",
+      "generative",
+      "fonts"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-15T04:08:01.556Z",
+    "updatedAt": "2026-09-15T04:10:31.138Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 43, done: 42, counts: {"done":42,"needs-human":1} };
+export const stats = { total: 44, done: 43, counts: {"done":43,"needs-human":1} };

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ligature Lagoon — A Steampunk Type-Tide Engine</title>
+<meta name="description" content="Toss letters into a brass-bound lagoon where currents kern, collide and bloom into ligatures." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="rivets" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<header class="masthead">
+  <div class="mast-plate">
+    <p class="kicker">⚙ · Patent No. 1889 · The Typographic Tidal Works · ⚙</p>
+    <h1>Ligature Lagoon</h1>
+    <p class="sub">Toss letters into the lagoon where currents kern, collide &amp; bloom.</p>
+    <div class="mast-meta">
+      <span class="gauge" id="gauge" title="Boiler pressure — click thrice, if you dare" role="button" tabindex="0" aria-label="Boiler pressure gauge, easter egg trigger">
+        <span class="gauge-face">
+          <span class="needle" id="needle"></span>
+          <span class="gauge-hub"></span>
+        </span>
+        <span class="gauge-label">PRESSURE <b id="psi">82</b> PSI</span>
+      </span>
+      <span class="stat"><b id="statLetters">0</b><em>letters afloat</em></span>
+      <span class="stat"><b id="statLig">0</b><em>ligatures bloomed</em></span>
+      <span class="stat"><b id="statStirs">0</b><em>currents stirred</em></span>
+    </div>
+  </div>
+</header>
+
+<main id="app">
+  <section class="lagoon-frame">
+    <div class="frame-top">
+      <span class="porthole"></span>
+      <span class="frame-title">— THE LAGOON — drag to stir · grab letters to fling ·</span>
+      <span class="porthole"></span>
+    </div>
+    <canvas id="lagoon" width="960" height="560" aria-label="Letter lagoon. Drag to stir currents."></canvas>
+    <div class="frame-bottom">
+      <div class="tide-readout"><span id="tideWord">NEAP TIDE</span><div class="tide-bar"><i id="tideFill"></i></div></div>
+      <p class="hint">Type anywhere to toss letters · <kbd>space</kbd> = splash word · triple-click the gauge for… something</p>
+    </div>
+  </section>
+
+  <section class="console">
+    <div class="panel toss-panel">
+      <h2>✦ Letter Hopper</h2>
+      <div class="row">
+        <input id="tossInput" maxlength="24" value="steampunk" aria-label="Letters to toss" spellcheck="false" />
+        <button id="tossBtn" class="btn brass">Toss in!</button>
+        <button id="wordBtn" class="btn ghost" title="Toss a random brass word">🎲 word</button>
+      </div>
+      <div class="row">
+        <button id="drainBtn" class="btn ghost">Drain lagoon</button>
+        <button id="exportBtn" class="btn copper">⬇ Export poster PNG</button>
+      </div>
+      <p class="micro">Tip: drag <em>fast</em> across water to whip up a vortex. Grab a single letter to fling it at another — collisions bloom ligatures.</p>
+    </div>
+
+    <div class="panel tide-panel">
+      <h2>✦ Variable-Font Tide Controls</h2>
+      <label class="ctl">Tide level <output id="oTide">50</output>
+        <input type="range" id="cTide" min="0" max="100" value="50" />
+      </label>
+      <label class="ctl">Current strength <output id="oCurrent">60</output>
+        <input type="range" id="cCurrent" min="0" max="100" value="60" />
+      </label>
+      <label class="ctl">Weight <output id="oWeight">560</output>
+        <input type="range" id="cWeight" min="100" max="900" value="560" step="5" />
+      </label>
+      <label class="ctl">Bloat (optical size) <output id="oOpsz">48</output>
+        <input type="range" id="cOpsz" min="8" max="144" value="48" />
+      </label>
+      <label class="ctl">Slant <output id="oSlant">0°</output>
+        <input type="range" id="cSlant" min="-12" max="12" value="0" />
+      </label>
+      <label class="ctl check"><input type="checkbox" id="cAuto" checked /> <span>auto tide (moon pulls the sliders)</span></label>
+    </div>
+
+    <div class="panel bloom-panel">
+      <h2>✦ Bloom Cabinet <span class="count" id="bloomCount">0 / 14</span></h2>
+      <div id="blooms" class="blooms"><span class="empty">No ligatures yet — crash an <b>f</b> into an <b>i</b>…</span></div>
+      <h2 class="soon">✦ Captain's Log</h2>
+      <ol id="log" class="log"></ol>
+    </div>
+  </section>
+
+  <div class="kraken" id="kraken" hidden>
+    <div class="kraken-card">
+      <p class="kicker">🦑 EASTER EGG — THE KRAKEN WAKES 🦑</p>
+      <h3>“Full steam! The beast kerns below!”</h3>
+      <p>Type <kbd>kraken</kbd> anywhere, or triple-click the pressure gauge, to summon / banish Captain Nemo's beast. It drags every letter into a maelstrom and forges the forbidden <b>ß-&amp;</b> alloy.</p>
+      <button id="krakenBtn" class="btn brass">Release / banish the Kraken</button>
+      <button id="krakenClose" class="btn ghost">Back to the lagoon</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</main>
+
+<footer class="foot">
+  <p>Built with brass, steam &amp; variable fonts · Fraunces + IM Fell English + Rye · poster exports at 1600×2240 · progress kept in localStorage</p>
+</footer>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
