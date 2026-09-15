@@ -1388,6 +1388,67 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "counterform-carnival",
+    "title": "Counterform Carnival",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "biomorphic",
+    "theme": "typography",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Grow letters into living posters where negative space blooms with motion.",
+    "features": [
+      "Type a word, sprout animated letterforms",
+      "Slide variable weight and width live",
+      "One-click chaos remix button",
+      "Export poster as PNG"
+    ],
+    "tags": [
+      "typography",
+      "kinetic-type",
+      "generative",
+      "posters"
+    ],
+    "status": "building",
+    "deployed": false,
+    "createdAt": "2026-09-15T16:16:13.508Z",
+    "updatedAt": "2026-09-15T16:16:13.578Z"
+  },
+  {
+    "slug": "descender-dive",
+    "title": "Descender Dive",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "typography",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Dive letters underwater; depth bends weight, width, and wobble in real time.",
+    "features": [
+      "depth slider morphs variable font",
+      "click to release bubble letters",
+      "tide mode animates kinetic headlines",
+      "export poster as PNG"
+    ],
+    "tags": [
+      "typography",
+      "variable-fonts",
+      "kinetic",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-15T22:19:59.758Z",
+    "updatedAt": "2026-09-15T22:22:33.941Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 45, done: 44, counts: {"done":44,"needs-human":1} };
+export const stats = { total: 47, done: 45, counts: {"done":45,"needs-human":1,"building":1} };
