@@ -1,8 +1,8 @@
 {
-  "slug": "tide-choir",
-  "title": "Tide Choir",
+  "slug": "weight-parade",
+  "title": "Weight Parade",
   "stack": "html",
-  "aesthetic": "dark-fantasy",
+  "aesthetic": "japanese-minimal",
   "model": "opencode-go/muse-spark-1.3-contributor",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 95068,
-  "at": "2026-09-14T22:05:47.875Z"
+  "elapsedMs": 247368,
+  "at": "2026-09-15T01:04:44.065Z"
 }

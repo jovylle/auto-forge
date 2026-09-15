@@ -1291,6 +1291,38 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "weight-parade",
+    "title": "Weight Parade",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-minimal",
+    "theme": "typography",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Letters march, swell and shrink to your typing rhythm live.",
+    "features": [
+      "live variable-font playground",
+      "type-along rhythm mode",
+      "export animated GIF",
+      "curated font pairings"
+    ],
+    "tags": [
+      "typography",
+      "kinetic",
+      "fonts",
+      "playground"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-15T01:00:29.232Z",
+    "updatedAt": "2026-09-15T01:04:44.052Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 42, done: 41, counts: {"done":41,"needs-human":1} };
+export const stats = { total: 43, done: 42, counts: {"done":42,"needs-human":1} };

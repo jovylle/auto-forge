@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Weight Parade — 行列 · a typing-rhythm variable-font matsuri</title>
+<meta name="description" content="Letters march, swell and shrink to your typing rhythm. A japanese-minimal variable-font playground with rhythm mode and GIF export." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23C8402A'/%3E%3Ctext x='32' y='42' font-size='28' text-anchor='middle' fill='%23FBF7EC' font-family='serif' font-weight='900'%3E%E9%87%8D%E5%88%97%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<a class="skip" href="#typebox">Skip to typing area — press Enter to start the parade</a>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="mast-left">
+    <div class="vertical" lang="ja" aria-hidden="true">たいぷの行列</div>
+    <div class="mast-titles">
+      <p class="kicker"><span class="dot" aria-hidden="true"></span> variable-font matsuri · その一</p>
+      <h1>Weight <em>Parade</em> <span class="kanji" lang="ja">行列</span></h1>
+      <p class="sub">Letters march, swell and shrink to your typing rhythm — live. Type fast for <strong>heavy</strong> marchers, slow for <strong>hairlines</strong>.</p>
+    </div>
+  </div>
+  <div class="hanko" aria-label="Weight Parade seal">重<br />列</div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Modes">
+  <button role="tab" aria-selected="true" id="tab-play" class="tab is-on" data-mode="playground">壱 · Playground</button>
+  <button role="tab" aria-selected="false" id="tab-rhythm" class="tab" data-mode="rhythm">弐 · Rhythm</button>
+  <button role="tab" aria-selected="false" id="tab-export" class="tab" data-mode="export">参 · Export</button>
+</nav>
+
+<main id="app">
+  <!-- PARADE ROUTE / STAGE -->
+  <section class="stage-wrap" aria-label="Parade route">
+    <div class="stage-meta">
+      <p class="route-label"><span lang="ja">練り歩き</span> — parade route</p>
+      <p class="readout" aria-live="polite"><span id="wpm">0 wpm</span><span class="sep">·</span><span id="nel">last gap — ms</span><span class="sep">·</span><span id="clock">weight 400</span></p>
+    </div>
+    <div id="route" class="route" role="img" aria-label="Your typed letters marching as a parade">
+      <div class="route-line" aria-hidden="true"></div>
+      <div id="parade" class="parade" aria-hidden="true"></div>
+      <p id="empty" class="empty">Type below — your marchers gather here.<br /><span lang="ja">したの升で打ってください。</span></p>
+    </div>
+    <div class="beatbar" aria-hidden="true"><div id="beatfill" class="beatfill"></div><div id="beatticks" class="beatticks"></div></div>
+    <p id="promptline" class="promptline" hidden>prompt: <span id="prompttext"></span> <span id="promptscore" class="score"></span></p>
+  </section>
+
+  <!-- TYPING -->
+  <section class="typecard" aria-label="Typing area">
+    <label class="tlabel" for="typebox">打ち込み <span>— type here. Everything is keyboard.</span></label>
+    <textarea id="typebox" rows="3" maxlength="280" placeholder="type anything — speed becomes weight… ( ? for shortcuts )" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+    <div class="typerow">
+      <button id="clearBtn" class="btn ghost" type="button">Clear <kbd>⌃K</kbd></button>
+      <button id="beatBtn" class="btn ghost" type="button" aria-pressed="false">Metronome <kbd>B</kbd> · <span id="bpmEcho">90</span> bpm</button>
+      <button id="rhythmBtn" class="btn solid" type="button">Start rhythm walk <kbd>R</kbd></button>
+    </div>
+  </section>
+
+  <!-- CONTROLS -->
+  <div class="panels">
+    <section class="panel" aria-labelledby="h-play">
+      <h2 id="h-play"><span class="num">壱</span> Live playground</h2>
+      <div class="ctl">
+        <label for="wght">Weight <output id="o-wght" for="wght">400</output></label>
+        <input id="wght" type="range" min="100" max="900" step="1" value="400" />
+      </div>
+      <div class="ctl">
+        <label for="wdth">Width <output id="o-wdth" for="wdth">100</output></label>
+        <input id="wdth" type="range" min="62" max="125" step="1" value="100" />
+      </div>
+      <div class="ctl">
+        <label for="opsz">Optical size <output id="o-opsz" for="opsz">40</output></label>
+        <input id="opsz" type="range" min="9" max="144" step="1" value="40" />
+      </div>
+      <div class="ctl">
+        <label for="slant">Slant <output id="o-slant" for="slant">0</output></label>
+        <input id="slant" type="range" min="-12" max="12" step="1" value="0" />
+      </div>
+      <div class="ctl row2">
+        <label for="velo">Rhythm → weight <output id="o-velo" for="velo">on</output></label>
+        <input id="velo" type="checkbox" checked />
+        <label for="decay">Trail decay <output id="o-decay" for="decay">2.4s</output></label>
+        <input id="decay" type="range" min="0" max="6" step="0.1" value="2.4" />
+      </div>
+      <p class="hint">Tip: hold a key rhythm — <kbd>[</kbd>/<kbd>]</kbd> nudge base weight, <kbd>↑</kbd><kbd>↓</kbd> work on any focused slider.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="h-rhy">
+      <h2 id="h-rhy"><span class="num">弐</span> Type-along rhythm</h2>
+      <div class="ctl">
+        <label for="bpm">Tempo <output id="o-bpm" for="bpm">90 bpm</output></label>
+        <input id="bpm" type="range" min="50" max="160" step="1" value="90" />
+      </div>
+      <div class="ctl">
+        <label for="phrase">Prompt <span class="mini">— 1–4 to swap</span></label>
+        <select id="phrase">
+          <option value="0">old pond — frog jumps in… (bashō)</option>
+          <option value="1">snow moon flowers — setsubun drums</option>
+          <option value="2">ink stone paper brush — breathe</option>
+          <option value="3">matsuri lanterns sway in june rain</option>
+        </select>
+      </div>
+      <ol class="stats" aria-label="Rhythm stats">
+        <li><b id="st-hit">0</b><span>on-beat 的</span></li>
+        <li><b id="st-early">0</b><span>early 早</span></li>
+        <li><b id="st-late">0</b><span>late 遅</span></li>
+        <li><b id="st-best">—</b><span>best streak</span></li>
+      </ol>
+      <p class="hint">How it scores: each keystroke is timed against the beat grid. Land within ±90&nbsp;ms for <b>的 on-beat</b> — marchers turn vermillion and go full-black.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="h-exp">
+      <h2 id="h-exp"><span class="num">参</span> Pairings &amp; GIF</h2>
+      <fieldset class="pairs" id="pairs" aria-label="Curated font pairings">
+        <legend>Curated pairings <span class="mini">— keys 1–4</span></legend>
+      </fieldset>
+      <div class="gifrow">
+        <button id="gifBtn" class="btn solid verm" type="button">Export parade GIF <kbd>⌃↵</kbd></button>
+        <a id="gifLink" class="btn ghost" hidden download="weight-parade.gif" href="#">Download</a>
+      </div>
+      <p class="hint" id="gifStatus" role="status">Renders 24 frames offscreen, encodes locally — no upload, works from <code>file://</code>.</p>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <details id="keys">
+      <summary>Keyboard map <kbd>?</kbd> — this whole piece works keyboard-only</summary>
+      <ul class="keygrid">
+        <li><kbd>Tab</kbd> move through everything</li>
+        <li><kbd>B</kbd> metronome on/off</li>
+        <li><kbd>R</kbd> start / stop rhythm walk</li>
+        <li><kbd>1–4</kbd> font pairings</li>
+        <li><kbd>[</kbd> / <kbd>]</kbd> base weight ∓/±</li>
+        <li><kbd>⌃K</kbd> clear parade</li>
+        <li><kbd>⌃↵</kbd> export GIF</li>
+        <li><kbd>?</kbd> this panel</li>
+      </ul>
+    </details>
+    <p class="colophon">set in <span id="coloPair">Fraunces × Zen Kaku</span> · washi, sumi &amp; shu-iro · saved locally, nothing leaves your machine</p>
+  </footer>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
