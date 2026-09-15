@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Counterform Carnival — grow living letters</title>
+  <meta name="description" content="Type a word, sprout animated variable letterforms. A biomorphic kinetic-type poster toy." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="spore-field" aria-hidden="true">
+    <span class="mote m1"></span><span class="mote m2"></span><span class="mote m3"></span>
+    <span class="mote m4"></span><span class="mote m5"></span><span class="mote m6"></span>
+  </div>
+
+  <header class="masthead">
+    <div class="brand-blob" aria-hidden="true">
+      <svg viewBox="0 0 120 120" width="52" height="52"><path id="brandPath" d="M60 6C82 6 114 28 114 62C114 96 84 114 60 114C36 114 6 96 6 62C6 28 38 6 60 6Z" fill="#2E7D5B"/><circle cx="46" cy="58" r="10" fill="#FFF9EF"/><circle cx="72" cy="70" r="6" fill="#EFA00B"/><circle cx="66" cy="44" r="4" fill="#E4572E"/></svg>
+    </div>
+    <div class="masthead-text">
+      <p class="kicker">a biomorphic kinetic-type toy</p>
+      <h1>Counterform <em>Carnival</em></h1>
+      <p class="sub">Grow letters into living posters — where negative space blooms with motion.</p>
+    </div>
+    <button id="motionBtn" class="pill ghost" aria-pressed="true" title="Pause / play motion">❚❚ motion on</button>
+  </header>
+
+  <main id="app">
+    <section class="pod controls" aria-label="Poster controls">
+      <label class="field word-field">
+        <span class="label">Your word <small id="charCount">5 / 12</small></span>
+        <input id="wordInput" type="text" value="bloom" maxlength="12" autocomplete="off" spellcheck="false" placeholder="type &amp; sprout…" />
+      </label>
+
+      <div class="field">
+        <span class="label">Weight <output id="wghtVal" for="wght">640</output></span>
+        <input id="wght" type="range" min="100" max="1000" step="1" value="640" />
+      </div>
+      <div class="field">
+        <span class="label">Width <output id="wdthVal" for="wdth">110</output></span>
+        <input id="wdth" type="range" min="25" max="151" step="1" value="110" />
+      </div>
+      <div class="field">
+        <span class="label">Bloom <output id="bloomVal" for="bloom">60</output></span>
+        <input id="bloom" type="range" min="0" max="100" step="1" value="60" />
+      </div>
+
+      <fieldset class="field layouts">
+        <legend class="label">Growth pattern</legend>
+        <div class="seg" role="group" aria-label="Growth pattern">
+          <button data-layout="0" class="on" title="Cascade vine">ascade~</button>
+          <button data-layout="1" title="Spore arch">arch ⌒</button>
+          <button data-layout="2" title="Stem stack">stack ≣</button>
+          <button data-layout="3" title="Wild scatter">wild ✳</button>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button id="diceBtn" class="pill ghost" title="Random word">⚄ word</button>
+        <button id="remixBtn" class="pill chaos" title="One-click chaos remix">✳ chaos remix</button>
+        <button id="exportBtn" class="pill solid" title="Export poster as PNG">↓ export PNG</button>
+      </div>
+      <p class="hint">Tip: click the poster for a spore-burst. Everything autosaves.</p>
+    </section>
+
+    <section class="pod stage-pod" aria-label="Living poster">
+      <div class="poster-frame">
+        <canvas id="poster" width="1200" height="1600" role="img" aria-label="Living letterform poster"></canvas>
+      </div>
+      <div class="caption">
+        <span id="captionWord">“bloom”</span>
+        <span id="captionMeta">wght 640 · wdth 110 · seed 7</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <p>3 inks + black &amp; white · set in Roboto Flex &amp; Fraunces · click poster = spores · <span id="seedLabel">seed 7</span></p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

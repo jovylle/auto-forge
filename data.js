@@ -1413,10 +1413,13 @@ export const projects = [
       "generative",
       "posters"
     ],
-    "status": "building",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-15T16:16:13.508Z",
-    "updatedAt": "2026-09-15T16:16:13.578Z"
+    "updatedAt": "2026-09-15T17:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor (worker vanished pre-paperwork; human verified + shipped)"
   },
   {
     "slug": "descender-dive",
@@ -1451,4 +1454,4 @@ export const projects = [
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 47, done: 45, counts: {"done":45,"needs-human":1,"building":1} };
+export const stats = { total: 47, done: 46, counts: {"done":46,"needs-human":1} };
