@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="description" content="Ascender Arcade — catch rising letters, build words in 60 seconds. Daily kinetic seed." />
+  <title>Ascender Arcade — catch rising letters</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230B0B10'/%3E%3Ctext x='3' y='12' font-size='10' fill='%23FFD22E' font-family='monospace' font-weight='bold'%3EA%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <main id="app">
+    <header class="cabinet-top">
+      <p class="insert-coin"><span class="blink">▶ INSERT COIN ◀</span></p>
+      <h1 class="logo"><span class="logo-a">ASCENDER</span> <span class="logo-b">ARCADE</span></h1>
+      <p class="tagline">CATCH RISING LETTERS · BUILD WORDS · 60 SEC</p>
+      <div class="hud" role="status" aria-live="polite">
+        <div class="hud-box"><span class="hud-label">TIME</span><span id="hud-time" class="hud-val">60</span></div>
+        <div class="hud-box"><span class="hud-label">SCORE</span><span id="hud-score" class="hud-val">0</span></div>
+        <div class="hud-box"><span class="hud-label">BEST</span><span id="hud-best" class="hud-val">0</span></div>
+        <div class="hud-box seed"><span class="hud-label">SEED</span><span id="hud-seed" class="hud-val small">----</span></div>
+      </div>
+    </header>
+
+    <section class="controls-row">
+      <div class="mode-btns" role="group" aria-label="Run mode">
+        <button id="btn-daily" class="px-btn active" type="button">★ DAILY RUN</button>
+        <button id="btn-practice" class="px-btn ghost" type="button">PRACTICE</button>
+      </div>
+      <button id="btn-start" class="px-btn start" type="button">START ▸</button>
+    </section>
+
+    <section class="target-bar">
+      <span class="target-label">TARGET</span>
+      <span id="target-word" class="target-word" aria-label="daily target word">?????</span>
+      <span id="target-progress" class="target-progress">0/0</span>
+      <span id="power-banner" class="power-banner" hidden></span>
+    </section>
+
+    <section id="stage-wrap">
+      <div id="stage" aria-label="letter field">
+        <div id="catch-line" aria-hidden="true"><span>CATCH ZONE</span></div>
+        <div id="paddle" aria-hidden="true"><div class="paddle-net"></div></div>
+        <div id="float-layer"></div>
+        <div id="overlay" class="overlay">
+          <div class="overlay-card">
+            <p id="overlay-title" class="overlay-title">READY?</p>
+            <p id="overlay-sub" class="overlay-sub">Move the NET along the top.<br />Catch rising letters before they escape.</p>
+            <p class="overlay-keys">◀ ▶ / A D · MOUSE · TOUCH</p>
+            <button id="btn-go" class="px-btn start big" type="button">START ▸</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tray-zone">
+      <div class="tray-head">
+        <span>TRAY <span id="tray-count">(0/8)</span></span>
+        <span class="tray-hint">tap letters to drop · type A–Z works too</span>
+      </div>
+      <div id="tray" class="tray" aria-label="caught letters"></div>
+      <div class="word-row">
+        <div id="word" class="word" aria-label="current word"></div>
+        <div class="word-btns">
+          <button id="btn-submit" class="px-btn" type="button">WORD ▸</button>
+          <button id="btn-clear" class="px-btn ghost" type="button">CLR</button>
+        </div>
+      </div>
+      <p id="msg" class="msg" aria-live="polite">Catch letters, spell a 3+ letter word.</p>
+      <div id="scored-list" class="scored-list" aria-label="scored words"></div>
+    </section>
+
+    <footer class="foot">
+      <p>DAILY SEED <span id="seed-code">—</span> · <span id="daily-best">daily best 0</span></p>
+      <p class="foot-dim">psst… try the konami code ↑↑↓↓←→←→BA · pixel-art · 3 colors + b/w</p>
+    </footer>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
