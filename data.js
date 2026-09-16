@@ -1483,6 +1483,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "baseline-bazaar",
+    "title": "Baseline Bazaar",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "typography",
+    "constraints": [
+      "must be playable in 30 seconds",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Type morphs, bounces and rearranges as you type phrases",
+    "features": [
+      "live kinetic type canvas",
+      "variable font weight sliders",
+      "word physics collisions",
+      "export as GIF loop"
+    ],
+    "tags": [
+      "typography",
+      "kinetic",
+      "fonts",
+      "playful"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-16T04:24:50.929Z",
+    "updatedAt": "2026-09-16T04:28:57.650Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 48, done: 47, counts: {"done":47,"needs-human":1} };
+export const stats = { total: 49, done: 48, counts: {"done":48,"needs-human":1} };
