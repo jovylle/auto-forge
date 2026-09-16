@@ -1,0 +1,31 @@
+{
+  "slug": "slab-serif-speedway",
+  "title": "Slab Serif Speedway",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "vaporwave",
+  "theme": "typography",
+  "constraints": [
+    "must react to scroll"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "font-fueled racing controls",
+      "live variable weight morphing",
+      "photo-finish type posters",
+      "shareable race replays"
+    ],
+    "status": "pass",
+    "summary": "Slab Serif Speedway: vaporwave variable-font drag strip. Throttle/boost/type-to-fuel controls, speed-driven wght/wdth morphing with live readout, canvas photo-finish posters (PNG/copy), seed-encoded shareable ghost replays + localStorage archive. Scroll velocity drives slipstream/parallax/scroll-throttle."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 151886,
+  "at": "2026-09-16T10:33:24.547Z"
+}

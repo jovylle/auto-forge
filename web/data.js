@@ -1516,6 +1516,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "slab-serif-speedway",
+    "title": "Slab Serif Speedway",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "vaporwave",
+    "theme": "typography",
+    "constraints": [
+      "must react to scroll"
+    ],
+    "description": "Race variable fonts around a track, speed warps weight and width live.",
+    "features": [
+      "font-fueled racing controls",
+      "live variable weight morphing",
+      "photo-finish type posters",
+      "shareable race replays"
+    ],
+    "tags": [
+      "typography",
+      "variable-fonts",
+      "kinetic",
+      "playful"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-16T10:30:43.688Z",
+    "updatedAt": "2026-09-16T10:33:24.546Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 49, done: 48, counts: {"done":48,"needs-human":1} };
+export const stats = { total: 50, done: 49, counts: {"done":49,"needs-human":1} };

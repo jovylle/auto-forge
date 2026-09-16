@@ -1,8 +1,8 @@
 {
-  "slug": "baseline-bazaar",
-  "title": "Baseline Bazaar",
+  "slug": "slab-serif-speedway",
+  "title": "Slab Serif Speedway",
   "stack": "html",
-  "aesthetic": "sci-fi-terminal",
+  "aesthetic": "vaporwave",
   "model": "opencode-go/muse-spark-1.3-contributor",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 233866,
-  "at": "2026-09-16T04:28:57.654Z"
+  "elapsedMs": 151886,
+  "at": "2026-09-16T10:33:24.548Z"
 }
