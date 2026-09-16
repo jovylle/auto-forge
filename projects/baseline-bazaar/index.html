@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BASELINE BAZAAR — kinetic type terminal</title>
+  <meta name="description" content="Type phrases, watch words bounce, collide and rearrange. Export a seamless GIF loop." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="crt" aria-hidden="true"></div>
+
+  <header class="termbar">
+    <span class="dots"><i></i><i></i><i></i></span>
+    <span class="termbar-title">guest@bazaar:~/kinetic — tty0</span>
+    <span class="termbar-clock" id="clock">00:00:00</span>
+  </header>
+
+  <main id="app">
+    <section class="hero">
+      <p class="kicker">// generative_04 — sci-fi-terminal</p>
+      <h1>BASELINE <span>BAZAAR</span></h1>
+      <p class="sub">Type a phrase. Words drop into the tank as live bodies — they morph, bounce, collide &amp; rearrange. Tune the variable font, then export a GIF loop. Playable in 30 seconds.</p>
+    </section>
+
+    <div class="layout">
+      <section class="stage-wrap panel">
+        <div class="stage-head">
+          <span class="led"></span>
+          <span>LIVE_CANVAS — tank_01</span>
+          <span class="hud" id="hud">0 bodies · 60fps · CHAOS</span>
+        </div>
+        <div class="canvas-box">
+          <canvas id="tank" width="880" height="520"></canvas>
+          <div class="hint" id="hint">▶ type below + hit ENTER — words fall into the tank</div>
+        </div>
+        <form class="prompt" id="promptForm" autocomplete="off">
+          <span class="ps1">&gt;</span>
+          <input id="phrase" type="text" maxlength="120" placeholder="type a phrase_  ( e.g. GRAVITY IS A FONT CHOICE )" aria-label="Type a phrase" />
+          <button type="submit" class="btn fire">DROP ▾</button>
+        </form>
+        <div class="chips" id="presets">
+          <button type="button" data-phrase="GRAVITY IS A FONT CHOICE">gravity</button>
+          <button type="button" data-phrase="NEON BAZAAR NEVER SLEEPS">neon</button>
+          <button type="button" data-phrase="TYPE LOUD ORBIT QUIET">orbit</button>
+          <button type="button" data-phrase="BOUNCE MORPH REPEAT LOOP">loop</button>
+        </div>
+      </section>
+
+      <aside class="deck panel">
+        <div class="deck-head">GLYPH_DECK — controls</div>
+
+        <label class="ctl">WEIGHT <b id="v-weight">650</b>
+          <input id="s-weight" type="range" min="100" max="900" step="1" value="650" />
+        </label>
+        <label class="ctl">WIDTH <b id="v-width">100</b>
+          <input id="s-width" type="range" min="62" max="125" step="1" value="100" />
+        </label>
+        <label class="ctl">SIZE <b id="v-size">54</b>
+          <input id="s-size" type="range" min="24" max="110" step="1" value="54" />
+        </label>
+        <label class="ctl">GRAVITY <b id="v-grav">0.45</b>
+          <input id="s-grav" type="range" min="0" max="1.5" step="0.01" value="0.45" />
+        </label>
+        <label class="ctl">BOUNCE <b id="v-bounce">0.86</b>
+          <input id="s-bounce" type="range" min="0.4" max="0.99" step="0.01" value="0.86" />
+        </label>
+
+        <div class="row-label">ARRANGE</div>
+        <div class="modes" id="modes">
+          <button type="button" data-mode="CHAOS" class="on">CHAOS</button>
+          <button type="button" data-mode="GRID">GRID</button>
+          <button type="button" data-mode="ORBIT">ORBIT</button>
+          <button type="button" data-mode="RAIN">RAIN</button>
+        </div>
+
+        <div class="btnrow">
+          <button type="button" class="btn ghost" id="btnShake">SHAKE ⚡</button>
+          <button type="button" class="btn ghost" id="btnClear">PURGE ✕</button>
+        </div>
+        <div class="btnrow">
+          <button type="button" class="btn amber" id="btnGif">◉ EXPORT GIF LOOP</button>
+          <button type="button" class="btn ghost" id="btnPng">PNG SNAP</button>
+        </div>
+        <p class="gif-status" id="gifStatus">gif: idle — 24f · 12fps · 2s seamless loop</p>
+        <p class="keys">keys — <kbd>Enter</kbd> drop · <kbd>/</kbd> focus · drag words to throw · click tank to blast</p>
+      </aside>
+    </div>
+
+    <section class="console panel" aria-label="terminal log">
+      <div class="console-head">sys.log — boot + events</div>
+      <div id="log"></div>
+    </section>
+
+    <footer class="foot">BASELINE BAZAAR · 3 inks + black/white · local only, no backend · <span id="storeNote">settings persist</span></footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
