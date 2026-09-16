@@ -1,0 +1,32 @@
+{
+  "slug": "ascender-arcade",
+  "title": "Ascender Arcade",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "pixel-art",
+  "theme": "typography",
+  "constraints": [
+    "must have an easter egg",
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Ascender Arcade: 60s rising-letter word catcher with variable-font power-ups, daily seed, target word, konami+ASCEND easter eggs; pixel-art 3-color cabinet verified in browser at 375px with zero console errors.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "gravity-flipped letter catching",
+      "variable-font power-ups",
+      "60-second word runs",
+      "daily kinetic seed"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 211307,
+  "at": "2026-09-16T16:38:23.229Z"
+}

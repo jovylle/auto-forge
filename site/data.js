@@ -1548,6 +1548,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "ascender-arcade",
+    "title": "Ascender Arcade",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "pixel-art",
+    "theme": "typography",
+    "constraints": [
+      "must have an easter egg",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Catch rising letters to build words before they escape the screen.",
+    "features": [
+      "gravity-flipped letter catching",
+      "variable-font power-ups",
+      "60-second word runs",
+      "daily kinetic seed"
+    ],
+    "tags": [
+      "typography",
+      "arcade",
+      "kinetic",
+      "fonts"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-16T16:34:42.955Z",
+    "updatedAt": "2026-09-16T16:38:23.228Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 50, done: 49, counts: {"done":49,"needs-human":1} };
+export const stats = { total: 51, done: 50, counts: {"done":50,"needs-human":1} };
