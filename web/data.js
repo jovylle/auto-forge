@@ -1581,6 +1581,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "kerning-karaoke",
+    "title": "Kerning Karaoke",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "glassmorphism",
+    "theme": "typography",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "Sing to space letters, nail the pitch to kern kinetic lyrics perfectly.",
+    "features": [
+      "Mic pitch controls letter-spacing live",
+      "Kinetic variable-font lyric display",
+      "Combo scoring for perfect kerns",
+      "Shareable encore performance cards"
+    ],
+    "tags": [
+      "typography",
+      "karaoke",
+      "webaudio",
+      "kinetic-type"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-16T22:39:51.650Z",
+    "updatedAt": "2026-09-16T22:43:36.645Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 51, done: 50, counts: {"done":50,"needs-human":1} };
+export const stats = { total: 52, done: 51, counts: {"done":51,"needs-human":1} };
