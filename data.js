@@ -1452,6 +1452,37 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "inkwell-observatory-star-notes",
+    "title": "Inkwell Observatory — star notes",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "grunge",
+    "theme": "typography",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)",
+      "must work with keyboard only"
+    ],
+    "description": "Inkwell Observatory — star notes",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "stars",
+      "notes",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-16T01:00:08.784Z",
+    "updatedAt": "2026-09-16T01:03:05.111Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 47, done: 46, counts: {"done":46,"needs-human":1} };
+export const stats = { total: 48, done: 47, counts: {"done":47,"needs-human":1} };

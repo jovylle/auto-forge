@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Inkwell Observatory — star notes</title>
+<meta name="description" content="Pin ink-dark notes as stars. A grungy field journal of the night sky. Keyboard-first, WebAudio hums, shareable constellations." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<a class="skip" href="#editor-title">Skip to note editor</a>
+<a class="skip" href="#logbook">Skip to logbook</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="tape tape-a" aria-hidden="true"></div>
+<div class="tape tape-b" aria-hidden="true"></div>
+
+<header class="masthead">
+  <p class="kicker">Field log · Vol. XIII · <span id="star-count">0</span> stars charted</p>
+  <h1><span class="ink">Inkwell</span> <span class="obs">Observatory</span></h1>
+  <p class="tagline">star notes — pin your thoughts to the dark. every note is a star. every tag, a constellation.</p>
+  <div class="controls" role="toolbar" aria-label="Observatory controls">
+    <button id="btn-new" class="btn btn-ink" type="button" title="New star note (N)">✒ New star <kbd>N</kbd></button>
+    <button id="btn-random" class="btn" type="button" title="Chart a random star (R)">⚄ Drift <kbd>R</kbd></button>
+    <button id="btn-share" class="btn" type="button" title="Copy share link (S)">⛓ Share <kbd>S</kbd></button>
+    <button id="btn-png" class="btn" type="button" title="Export sky as PNG (P)">◩ PNG <kbd>P</kbd></button>
+    <button id="btn-md" class="btn" type="button" title="Export logbook as Markdown">⬇ MD</button>
+    <button id="btn-sound" class="btn" type="button" aria-pressed="true" title="Toggle sound (M)">♪ Sound <kbd>M</kbd></button>
+    <button id="btn-help" class="btn" type="button" title="Keyboard help (?)">? Keys</button>
+    <button id="btn-wipe" class="btn btn-danger" type="button" title="Delete all stars">✕ Purge</button>
+  </div>
+  <div class="searchrow">
+    <label class="search" for="search">⌕
+      <input id="search" type="search" placeholder="search the dark…  ( / )" autocomplete="off" />
+    </label>
+    <label class="tagfilter" for="tagfilter">constellation
+      <select id="tagfilter"><option value="">all</option></select>
+    </label>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="sky-wrap" aria-label="Night sky">
+    <div class="sky-frame">
+      <canvas id="sky" tabindex="0" role="application"
+        aria-label="Star map. Use arrow keys to move between stars, Enter to read, N for new note."></canvas>
+      <p id="sky-hint" class="sky-hint">click the dark to pin a star · <b>←→↑↓</b> wander · <b>Enter</b> read · <b>N</b> new</p>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+    <p class="caption">fig. 1 — the inkwell sky, as seen through a smudged lens. lines join kin stars.</p>
+  </section>
+
+  <aside class="desk" aria-label="Observer's desk">
+    <section class="card editor" aria-labelledby="editor-heading">
+      <h2 id="editor-heading">✒ Observer's entry <span id="editor-mode" class="mode">new star</span></h2>
+      <label class="field">title
+        <input id="editor-title" type="text" maxlength="80" placeholder="e.g. The one that hums on Tuesdays" />
+      </label>
+      <label class="field">note
+        <textarea id="editor-body" rows="4" maxlength="2000" placeholder="Write it in ink. It will not wash off. (Ctrl+Enter to pin)"></textarea>
+      </label>
+      <div class="frow">
+        <label class="field tagf">constellation (tag)
+          <input id="editor-tag" type="text" maxlength="24" list="taglist" placeholder="e.g. grief, orbit, todo" />
+          <datalist id="taglist"></datalist>
+        </label>
+        <label class="field sizef">magnitude
+          <input id="editor-size" type="range" min="1" max="5" step="1" value="3" />
+        </label>
+      </div>
+      <div class="frow btns">
+        <button id="btn-pin" class="btn btn-ink" type="button">Pin to sky ⏎</button>
+        <button id="btn-cancel" class="btn" type="button">Clear (Esc)</button>
+      </div>
+      <p class="micro">tip: click anywhere on the sky to choose where the star lands — or just pin and let fate decide.</p>
+    </section>
+
+    <section class="card logbook" aria-labelledby="logbook-heading">
+      <h2 id="logbook-heading">☰ Logbook <span id="log-count" class="mode"></span></h2>
+      <ol id="logbook" class="logbook-list" aria-label="Star notes"></ol>
+    </section>
+
+    <section class="card keys" aria-labelledby="keys-heading">
+      <h2 id="keys-heading">⌨ Field keys</h2>
+      <ul>
+        <li><kbd>N</kbd> new star · focus editor</li>
+        <li><kbd>←→↑↓</kbd> / <kbd>Tab</kbd> wander stars</li>
+        <li><kbd>Enter</kbd> read / load star · <kbd>E</kbd> edit · <kbd>D</kbd>/<kbd>Del</kbd> burn it</li>
+        <li><kbd>/</kbd> search · <kbd>R</kbd> random drift · <kbd>S</kbd> share link</li>
+        <li><kbd>P</kbd> export PNG · <kbd>M</kbd> mute · <kbd>?</kbd> this card · <kbd>Esc</kbd> close</li>
+      </ul>
+    </section>
+  </aside>
+</main>
+
+<div id="reader" class="reader" hidden role="dialog" aria-modal="true" aria-labelledby="reader-title">
+  <div class="reader-paper">
+    <p class="reader-kicker" id="reader-kicker">★ recovered fragment</p>
+    <h2 id="reader-title"></h2>
+    <p id="reader-body"></p>
+    <p class="reader-meta" id="reader-meta"></p>
+    <div class="reader-btns">
+      <button id="reader-edit" class="btn btn-ink" type="button">Edit (E)</button>
+      <button id="reader-burn" class="btn btn-danger" type="button">Burn (D)</button>
+      <button id="reader-prev" class="btn" type="button">← Prev</button>
+      <button id="reader-next" class="btn" type="button">Next →</button>
+      <button id="reader-close" class="btn" type="button">Close (Esc)</button>
+    </div>
+  </div>
+</div>
+
+<div id="help" class="reader" hidden role="dialog" aria-modal="true" aria-labelledby="help-title">
+  <div class="reader-paper">
+    <h2 id="help-title">How to work the Observatory</h2>
+    <p>Everything works with <b>keyboard only</b>. The sky canvas is focusable — Tab to it, then use arrows. All buttons are real buttons. The logbook is a real list. Screen readers get an <span aria-hidden="true">aria-live</span> toast on every action.</p>
+    <ul>
+      <li><b>Pin:</b> press <kbd>N</kbd>, write, press <kbd>Ctrl+Enter</kbd>. Or click the sky.</li>
+      <li><b>Wander:</b> <kbd>←→↑↓</kbd> jumps to the nearest star in that direction.</li>
+      <li><b>Share:</b> <kbd>S</kbd> copies a link with your whole sky encoded in the URL hash. Send it; the sky rebuilds on open.</li>
+      <li><b>Sound:</b> all tones are synthesized WebAudio — no files. <kbd>M</kbd> mutes.</li>
+    </ul>
+    <div class="reader-btns"><button id="help-close" class="btn btn-ink" type="button">Back to the dark (Esc)</button></div>
+  </div>
+</div>
+
+<footer class="colophon">
+  <p>inkwell observatory · set in special elite &amp; oswald · sounds synthesized live · your sky persists in this browser only · <span id="save-state">saved ✓</span></p>
+</footer>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
