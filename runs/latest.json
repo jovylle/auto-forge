@@ -1,8 +1,8 @@
 {
-  "slug": "ascender-arcade",
-  "title": "Ascender Arcade",
+  "slug": "kerning-karaoke",
+  "title": "Kerning Karaoke",
   "stack": "html",
-  "aesthetic": "pixel-art",
+  "aesthetic": "glassmorphism",
   "model": "opencode-go/muse-spark-1.3-contributor",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 211307,
-  "at": "2026-09-16T16:38:23.230Z"
+  "elapsedMs": 217745,
+  "at": "2026-09-16T22:43:36.668Z"
 }

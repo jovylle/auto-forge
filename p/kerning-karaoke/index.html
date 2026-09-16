@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kerning Karaoke — sing to space letters</title>
+<link rel="icon" href="data:," />
+<meta name="description" content="Sing to space letters. Nail the pitch to kern kinetic lyrics perfectly." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="orb orb-a" aria-hidden="true"></div>
+<div class="orb orb-b" aria-hidden="true"></div>
+<div class="orb orb-c" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar glass">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">K<span class="kern-demo">e</span>K</span>
+    <div>
+      <h1>Kerning Karaoke</h1>
+      <p class="tagline">sing to space letters · nail the pitch · kern it perfect</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <span id="bestBadge" class="pill" title="Best score saved locally">★ best —</span>
+    <span id="micBadge" class="pill dim">○ mic off</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="setlist glass" aria-label="Setlist">
+    <span class="label">Setlist</span>
+    <div id="songChips" class="chips" role="tablist" aria-label="Songs"></div>
+  </nav>
+
+  <div class="grid">
+    <section class="stage glass" aria-label="Karaoke stage">
+      <div class="stage-head">
+        <div>
+          <p id="songKicker" class="kicker">Track 01 · Neon Leading</p>
+          <h2 id="songTitle">Neon Leading</h2>
+        </div>
+        <div class="target-note">
+          <span class="label">Target</span>
+          <strong id="targetNote">C4 · 261.6 Hz</strong>
+        </div>
+      </div>
+
+      <div id="lyricBox" class="lyric-box" aria-live="polite">
+        <p id="prevLine" class="lyric prev"></p>
+        <p id="curLine" class="lyric current" aria-label="Current lyric line"></p>
+        <p id="nextLine" class="lyric next"></p>
+      </div>
+
+      <div class="kern-row">
+        <div class="kern-readout">
+          <span class="label">Live kerning</span>
+          <strong><span id="kernVal">0.18</span>em</strong>
+        </div>
+        <div class="meter-line">
+          <div id="lineProgress" class="line-progress"></div>
+        </div>
+        <span id="gradeChip" class="grade idle">READY</span>
+      </div>
+
+      <div class="combo-strip">
+        <div class="score-block"><span class="label">Score</span><strong id="scoreVal">0</strong></div>
+        <div class="combo-block"><span class="label">Combo</span><strong id="comboVal">×0</strong><span id="comboFire" class="fire hidden">🔥</span></div>
+        <div class="score-block"><span class="label">Perfect kerns</span><strong id="perfectVal">0/0</strong></div>
+      </div>
+
+      <div class="transport">
+        <button id="micBtn" class="btn ghost">🎙 Enable mic</button>
+        <button id="startBtn" class="btn primary">▶ Start song</button>
+        <button id="demoBtn" class="btn ghost">✨ Auto-demo</button>
+      </div>
+      <p class="hint">No mic? Hum with the <b>pitch pad</b> → drag it, or move the slider. High pitch = tight kern, flat = wide drift.</p>
+    </section>
+
+    <aside class="side">
+      <section class="panel glass" aria-label="Pitch meter">
+        <div class="panel-head"><h3>Pitch → Spacing</h3><span id="pitchVal" class="mono">— Hz</span></div>
+        <div class="pitch-meter" aria-hidden="true">
+          <div class="pitch-zone perfect"></div>
+          <div id="targetTick" class="target-tick"></div>
+          <div id="pitchNeedle" class="needle"></div>
+        </div>
+        <div class="pitch-scale"><span>flat · wide</span><span>perfect kern</span><span>sharp · wide</span></div>
+        <p id="centsVal" class="cents mono">±0¢ · silent</p>
+      </section>
+
+      <section class="panel glass" aria-label="Hum pitch pad">
+        <div class="panel-head"><h3>Hum pad</h3><span class="label">mouse / touch</span></div>
+        <div id="humPad" class="hum-pad" role="slider" tabindex="0" aria-label="Hum pitch pad" aria-valuemin="80" aria-valuemax="600" aria-valuenow="220">
+          <div id="humGlow" class="hum-glow"></div>
+          <span class="hum-text">drag to hum</span>
+        </div>
+        <label class="slider-row">Hum pitch <input id="humSlider" type="range" min="80" max="600" value="220" step="1" /></label>
+        <label class="toggle-row"><input id="humMode" type="checkbox" checked /> Use hum pad instead of mic</label>
+      </section>
+
+      <section class="panel glass how" aria-label="How scoring works">
+        <h3>How kerns score</h3>
+        <ul>
+          <li><b class="good">±50¢</b> — PERFECT KERN · +300 × combo</li>
+          <li><b class="ok">±150¢</b> — tight · +100</li>
+          <li><b class="bad">wider</b> — loose drift · combo resets</li>
+        </ul>
+        <p class="tiny">4+ combo = <b>FIRE MODE</b>: double points, letters glow gold.</p>
+      </section>
+    </aside>
+  </div>
+
+  <section class="panel glass legend" aria-label="Song notes">
+    <h3>Tonight's chart</h3>
+    <ol id="chartList" class="chart"></ol>
+  </section>
+</main>
+
+<div id="encoreModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="encoreTitle">
+  <div class="modal-card glass">
+    <p class="kicker">✨ encore ✨</p>
+    <h2 id="encoreTitle">Show's over!</h2>
+    <canvas id="encoreCanvas" width="1080" height="1350" aria-label="Encore performance card"></canvas>
+    <div id="encoreStats" class="encore-stats"></div>
+    <div class="modal-actions">
+      <button id="dlBtn" class="btn primary">⬇ PNG card</button>
+      <button id="copyBtn" class="btn ghost">⧉ Copy caption</button>
+      <button id="shareBtn" class="btn ghost">↗ Share</button>
+      <button id="closeBtn" class="btn ghost">Close</button>
+    </div>
+    <p id="encoreNote" class="tiny"></p>
+  </div>
+</div>
+
+<footer class="foot"><p>Kerning Karaoke · mic pitch → letter-spacing · canvas encore cards · best scores live in localStorage</p></footer>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
