@@ -15,7 +15,22 @@
       },
       "elapsedMs": 163594,
       "at": "2026-09-17T01:04:37.546Z"
+    },
+    {
+      "slug": "echo-garden-oscillator",
+      "title": "Echo Garden Oscillator",
+      "stack": "html",
+      "aesthetic": "neo-brutalism",
+      "model": "opencode-go/muse-spark-1.3-contributor",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 167143,
+      "at": "2026-09-17T04:52:38.934Z"
     }
   ],
-  "updatedAt": "2026-09-17T01:04:37.546Z"
+  "updatedAt": "2026-09-17T04:52:38.934Z"
 }

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Echo Garden Oscillator — plant synths, strum loops</title>
+  <meta name="description" content="Plant glowing oscillator blooms in a garden grid, bend their pitch, and loop them into ambient polyrhythms. Export your mix as WAV." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="marquee" aria-hidden="true"><span>TAP TO PLANT ✿ DRAG TO BEND ✿ LOOPS ON LOOPS ✿ TAP TO PLANT ✿ DRAG TO BEND ✿ LOOPS ON LOOPS ✿&nbsp;</span><span>TAP TO PLANT ✿ DRAG TO BEND ✿ LOOPS ON LOOPS ✿ TAP TO PLANT ✿ DRAG TO BEND ✿ LOOPS ON LOOPS ✿&nbsp;</span></div>
+
+  <main id="app">
+    <header class="masthead">
+      <button id="sunBtn" class="sun" title="the sun likes attention" aria-label="garden sun — click it five times for a surprise">☀</button>
+      <div class="mast-text">
+        <h1>ECHO<br />GARDEN</h1>
+        <p class="sub">plant glowing synths · strum loops into ambient songs</p>
+      </div>
+      <div class="sticker-stack">
+        <span class="sticker s1">OSCILLATOR</span>
+        <span class="sticker s2">POLYRHYTHM</span>
+        <span class="sticker s3">100% WEBAUDIO</span>
+      </div>
+    </header>
+
+    <section class="deck" aria-label="controls">
+      <button id="playBtn" class="btn big">▶ START LOOP</button>
+      <button id="strumBtn" class="btn">STRUM ✿</button>
+      <button id="exportBtn" class="btn">⤓ EXPORT MIX</button>
+      <button id="clearBtn" class="btn ghost">CLEAR</button>
+      <label class="ctl">BPM <span id="bpmVal">96</span>
+        <input id="bpm" type="range" min="60" max="160" value="96" />
+      </label>
+      <label class="ctl">SCALE
+        <select id="scaleSel">
+          <option value="sunny">SUNNY ✿ major penta</option>
+          <option value="moody">MOODY ✿ minor penta</option>
+          <option value="strange">STRANGE ✿ whole-ish</option>
+        </select>
+      </label>
+      <label class="ctl">WAVE
+        <select id="waveSel">
+          <option value="sine">sine ○</option>
+          <option value="triangle">triangle △</option>
+          <option value="square">square □</option>
+          <option value="sawtooth">saw ⋀</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="plot-wrap">
+      <div id="rowsLabel" aria-hidden="true"></div>
+      <div id="garden" role="application" aria-label="garden plot. Tap empty soil to plant a bloom. Drag a bloom to bend pitch and panning." tabindex="0">
+        <div id="gridlines" aria-hidden="true"></div>
+        <div id="blooms" aria-hidden="false"></div>
+        <p id="hint">TAP THE SOIL TO PLANT YOUR FIRST BLOOM ✿</p>
+      </div>
+    </section>
+
+    <section id="inspector" class="inspector hidden" aria-label="selected bloom">
+      <div class="insp-title">BLOOM <span id="inspNote">C5</span></div>
+      <div class="insp-row">
+        <button id="lenDown" class="btn sm" aria-label="shorter loop">− LOOP</button>
+        <span id="inspLen" class="insp-len">4 STEPS</span>
+        <button id="lenUp" class="btn sm" aria-label="longer loop">+ LOOP</button>
+      </div>
+      <div class="insp-row">
+        <span id="inspMeta" class="insp-meta">pan C · sine</span>
+        <button id="delBtn" class="btn sm danger">DIG UP ✕</button>
+      </div>
+      <p class="insp-tip">drag bloom ↕ pitch · ↔ pan · double-tap digs up</p>
+    </section>
+
+    <footer class="foot">
+      <span id="count">0/12 planted</span>
+      <span class="sep">✿</span>
+      <span>loops auto-run once planted</span>
+      <span class="sep">✿</span>
+      <span class="psst">psst: the sun likes attention…</span>
+    </footer>
+    <div id="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
