@@ -1,0 +1,30 @@
+{
+  "slug": "dune-switch-desert-relays",
+  "title": "Dune Switch — desert relays",
+  "stack": "vite",
+  "stackReason": "seed stack",
+  "aesthetic": "retro-wave",
+  "theme": "audio",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "status": "pass",
+    "summary": "Dune Switch — desert relays: retro-wave 3-lane relay racer (Vite+React+TS+Tailwind). Steer/swipe, 3-rider baton passing with stamina, relay gates every 400m, sun-cells, heat system, WebAudio synth, seeded dunes, share card + run.json export/import + localStorage board. Build exit 0, relative asset paths, preview serves real content."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 368641,
+  "at": "2026-09-17T18:32:04.553Z"
+}

@@ -1741,6 +1741,36 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "dune-switch-desert-relays",
+    "title": "Dune Switch — desert relays",
+    "category": "game",
+    "stack": "vite",
+    "stackReason": "seed stack",
+    "aesthetic": "retro-wave",
+    "theme": "audio",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Dune Switch — desert relays",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "dune",
+      "relays",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-17T18:25:22.307Z",
+    "updatedAt": "2026-09-17T18:32:04.552Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 56, done: 55, counts: {"done":55,"needs-human":1} };
+export const stats = { total: 57, done: 56, counts: {"done":56,"needs-human":1} };
