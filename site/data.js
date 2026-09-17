@@ -1679,6 +1679,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "kick-drum-dojo",
+    "title": "Kick Drum Dojo",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "extreme-minimal",
+    "theme": "audio",
+    "constraints": [
+      "must have an easter egg"
+    ],
+    "description": "Tap, layer, and battle beats in a tiny rhythm trainer toy.",
+    "features": [
+      "16-step kick sequencer",
+      "tap timing score mode",
+      "WebAudio synthesized drums",
+      "shareable beat codes"
+    ],
+    "tags": [
+      "webaudio",
+      "rhythm",
+      "drums",
+      "sequencer"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-17T11:07:59.519Z",
+    "updatedAt": "2026-09-17T11:09:57.708Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 54, done: 53, counts: {"done":53,"needs-human":1} };
+export const stats = { total: 55, done: 54, counts: {"done":54,"needs-human":1} };

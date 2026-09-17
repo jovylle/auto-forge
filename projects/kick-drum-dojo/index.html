@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kick Drum Dojo — tap · layer · battle</title>
+  <meta name="description" content="A tiny rhythm trainer: 16-step kick sequencer, tap timing trials, synthesized drums, shareable beat codes." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <main id="app">
+    <header class="mast">
+      <div class="mast-top">
+        <span class="kicker">稽古 · rhythm trainer № 01</span>
+        <span class="belt" id="belt" title="Your rank, earned in tap trials">white belt</span>
+      </div>
+      <h1>Kick Drum<br /><em>Dojo</em><span class="dot">.</span></h1>
+      <p class="sub">Tap, layer, and battle beats. Sixteen steps. Three drums. Zero samples — pure WebAudio.</p>
+      <div class="enso" aria-hidden="true">
+        <svg viewBox="0 0 100 100" width="72" height="72"><path d="M50 8 C27 8 10 26 10 49 C10 72 28 90 52 90 C73 90 90 74 90 53 C90 34 75 19 56 17" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg>
+      </div>
+    </header>
+
+    <section class="panel" aria-label="Sequencer">
+      <div class="panel-head">
+        <h2><span class="num">01</span> Sequencer</h2>
+        <div class="transport">
+          <button id="playBtn" class="btn primary" aria-label="Play or stop">▶ play</button>
+          <label class="bpm">tempo <output id="bpmOut" for="bpm">112</output>
+            <input id="bpm" type="range" min="70" max="180" value="112" step="1" />
+          </label>
+        </div>
+      </div>
+      <div class="grid-wrap">
+        <div class="rowlabels" aria-hidden="true"><span>kick</span><span>snare</span><span>hat</span><span class="secret-label" id="secretLabel" hidden>sensei 🔔</span></div>
+        <div class="grid" id="grid" role="group" aria-label="16-step pattern"></div>
+      </div>
+      <p class="hint">click steps · <kbd>space</kbd> = play/stop · <kbd>1–4</kbd> = presets</p>
+      <div class="tools">
+        <button class="btn ghost" id="clearBtn">clear</button>
+        <button class="btn ghost" id="randBtn">shake 🎲</button>
+        <button class="btn ghost" id="presetBtn">kata →</button>
+        <button class="btn ghost" id="tapWriteBtn" title="Tap the big pad to write kicks">tap-write</button>
+      </div>
+      <div class="presets" id="presets" role="group" aria-label="Preset rhythms">
+        <button data-p="0">four floor</button>
+        <button data-p="1">boom bap</button>
+        <button data-p="2">dembow</button>
+        <button data-p="3">half-time</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="Tap trial">
+      <div class="panel-head">
+        <h2><span class="num">02</span> Tap trial</h2>
+        <span class="score" id="scoreLine">— accuracy</span>
+      </div>
+      <p class="trial-desc">Sensei plays <b>8 kicks</b> at current tempo. Strike the circle <b>exactly on each kick</b>. Rank up toward black belt.</p>
+      <div class="trial-row">
+        <button id="pad" class="pad" aria-label="Tap pad — hit on the beat"><span>strike</span></button>
+        <div class="trial-side">
+          <button id="trialBtn" class="btn primary">start trial</button>
+          <ol class="judgements" id="judgeList" aria-live="polite"></ol>
+          <div class="meter"><div id="meterFill"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="Share beat">
+      <div class="panel-head">
+        <h2><span class="num">03</span> Beat code</h2>
+        <button id="copyBtn" class="btn">copy</button>
+      </div>
+      <code class="code" id="codeOut">KDD-····</code>
+      <form id="importForm" class="import">
+        <input id="importInput" type="text" placeholder="paste a KDD code or #b= link…" autocomplete="off" spellcheck="false" />
+        <button class="btn ghost" type="submit">load</button>
+      </form>
+      <p class="hint" id="shareHint">codes + tempo live in the URL hash — send the link, keep the groove.</p>
+    </section>
+
+    <footer>
+      <p>built with sine waves &amp; discipline · <span id="eggHint">psst — old arcade codes work here</span></p>
+      <p class="sensei" id="senseiMsg" hidden>🥋 押忍 — SENSEI MODE. The hidden bell rings for you. Belt: black, forever.</p>
+    </footer>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
