@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Reverb Reef — Steampunk Tide-Pool Groove Engine</title>
+<meta name="description" content="Tap glowing reef creatures to layer loops into a tide-pool groove. A steampunk WebAudio toy with tide-cycle sequencer, reverb/delay tentacles and WAV export." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="rivets rivets-top" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+<header class="masthead">
+  <div class="plaque">
+    <p class="kicker">⚙&nbsp; N° 77 — TIDEPOOL SONIC APPARATUS &nbsp;⚙</p>
+    <h1>Reverb <em>Reef</em></h1>
+    <p class="sub">Tap glowing polyps to layer loops into a tide-pool groove.</p>
+  </div>
+  <div class="boiler-gauges" role="group" aria-label="Engine status">
+    <div class="gauge">
+      <div class="dial"><span class="needle" id="needleTide"></span><span class="pin"></span></div>
+      <p>TIDE <b id="tideLabel">EBB</b></p>
+    </div>
+    <div class="gauge">
+      <div class="dial"><span class="needle" id="needlePressure"></span><span class="pin"></span></div>
+      <p>PRESSURE <b id="loopCount">0 LOOPS</b></p>
+    </div>
+    <div class="gauge secret-gauge">
+      <button class="dial dial-btn" id="krakenRivet" aria-label="mystery rivet" title="do not press">◉</button>
+      <p>DO NOT PRESS</p>
+    </div>
+  </div>
+</header>
+
+<main id="app">
+  <section class="panel reef-panel" aria-label="Reef creatures">
+    <div class="panel-head">
+      <h2><span class="num">I.</span> The Living Reef</h2>
+      <p>Tap a creature to sound it. Flip its <b>LOOP</b> valve to join the tide-cycle.</p>
+    </div>
+    <div class="reef" id="reef"></div>
+  </section>
+
+  <section class="panel seq-panel" aria-label="Tide-cycle sequencer">
+    <div class="panel-head row">
+      <div>
+        <h2><span class="num">II.</span> Tide-Cycle Sequencer</h2>
+        <p>16 valves of the moon-dial. Lit = fires on that beat.</p>
+      </div>
+      <div class="transport">
+        <button id="btnPower" class="btn big" aria-pressed="false">▶ STOKE BOILER</button>
+        <button id="btnClear" class="btn ghost" title="clear all steps">VENT</button>
+      </div>
+    </div>
+    <div class="moonbar">
+      <div class="moon" id="moon" aria-hidden="true">☾</div>
+      <div class="moon-track"><div class="moon-fill" id="moonFill"></div></div>
+      <div class="tempo">
+        <label for="tempo">TIDE&nbsp;SPEED <b><span id="bpmVal">96</span> BPM</b></label>
+        <input id="tempo" type="range" min="70" max="140" value="96" step="1" />
+      </div>
+    </div>
+    <div class="seq" id="seq" role="grid" aria-label="16-step loop grid"></div>
+    <p class="hint">Tip: tap steps to carve patterns. Each row follows its creature's valve above.</p>
+  </section>
+
+  <section class="panel fx-panel" aria-label="Tentacle effects">
+    <div class="panel-head">
+      <h2><span class="num">III.</span> Twist the Tentacles</h2>
+      <p>Two brass tentacles throttle the engine-room echo chambers.</p>
+    </div>
+    <div class="tentacles">
+      <div class="tent">
+        <div class="tent-dial"><span class="tent-pointer" id="ptrVerb"></span></div>
+        <h3>REVERB<br/>ABYSS</h3>
+        <input id="reverb" type="range" min="0" max="100" value="38" aria-label="Reverb amount" />
+        <p class="val"><span id="verbVal">38</span>% · cavern</p>
+      </div>
+      <div class="tent-pipe" aria-hidden="true"></div>
+      <div class="tent">
+        <div class="tent-dial"><span class="tent-pointer" id="ptrDelay"></span></div>
+        <h3>DELAY<br/>KELP</h3>
+        <input id="delay" type="range" min="0" max="100" value="30" aria-label="Delay amount" />
+        <p class="val"><span id="delayVal">30</span>% · slapback</p>
+      </div>
+      <div class="tent-pipe" aria-hidden="true"></div>
+      <div class="tent">
+        <div class="tent-dial"><span class="tent-pointer" id="ptrDrive"></span></div>
+        <h3>BOILER<br/>DRIVE</h3>
+        <input id="drive" type="range" min="0" max="100" value="18" aria-label="Drive amount" />
+        <p class="val"><span id="driveVal">18</span>% · soot</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel export-panel" aria-label="Export">
+    <div class="panel-head row">
+      <div>
+        <h2><span class="num">IV.</span> Bottle the Tide</h2>
+        <p>Render <b>4 tide-cycles</b> of your reef jam to a WAV phonograph cylinder.</p>
+      </div>
+      <button id="btnWav" class="btn big">⬇ EXPORT REEF JAM (.WAV)</button>
+    </div>
+    <p class="status" id="status" role="status">Boiler cold. Press STOKE BOILER, then tap the reef.</p>
+    <div class="ticker" aria-hidden="true"><span id="tickerText">BRASS &amp; BARNACLES · MIND THE KRAKEN · OIL THE POLYPS DAILY · REVERB REEF PATENT Nº 77 ·&nbsp;</span></div>
+  </section>
+</main>
+
+<footer>
+  <p>Reverb Reef · a single-tide WebAudio engine · no samples were harmed · sounds synthesized live</p>
+  <p class="whisper">old sailors whisper: <kbd>k</kbd> <kbd>r</kbd> <kbd>a</kbd> <kbd>k</kbd> <kbd>e</kbd> <kbd>n</kbd> …or mind the third rivet…</p>
+</footer>
+
+<div class="kraken" id="kraken" aria-hidden="true">
+  <div class="kraken-card">
+    <p class="kicker">⚙ EMERGENCY APPARATUS ⚙</p>
+    <h2>THE KRAKEN AWAKENS</h2>
+    <p id="krakenMsg">It remixed your tide.</p>
+    <button class="btn big" id="krakenBtn">THANK IT &amp; RETURN</button>
+  </div>
+</div>
+
+<div class="rivets rivets-bot" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

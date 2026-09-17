@@ -1613,6 +1613,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "reverb-reef",
+    "title": "Reverb Reef",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "steampunk",
+    "theme": "audio",
+    "constraints": [
+      "must have an easter egg",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Tap glowing polyps to layer loops into a tide-pool groove.",
+    "features": [
+      "tap reef creatures to trigger samples",
+      "layer loops with tide-cycle sequencer",
+      "twist reverb and delay tentacles",
+      "export your reef jam as wav"
+    ],
+    "tags": [
+      "webaudio",
+      "loops",
+      "sampler",
+      "playful"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-17T01:01:47.544Z",
+    "updatedAt": "2026-09-17T01:04:37.543Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 52, done: 51, counts: {"done":51,"needs-human":1} };
+export const stats = { total: 53, done: 52, counts: {"done":52,"needs-human":1} };

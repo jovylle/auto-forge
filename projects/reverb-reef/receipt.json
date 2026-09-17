@@ -1,0 +1,32 @@
+{
+  "slug": "reverb-reef",
+  "title": "Reverb Reef",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "steampunk",
+  "theme": "audio",
+  "constraints": [
+    "must have an easter egg",
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "tap reef creatures to trigger samples",
+      "layer loops with tide-cycle sequencer",
+      "twist reverb and delay tentacles",
+      "export your reef jam as wav"
+    ],
+    "status": "pass",
+    "summary": "Reverb Reef: steampunk WebAudio tide-pool groove engine. 6 synthesized reef creatures with loop valves, 16-step tide-cycle sequencer with tempo, reverb/delay/drive tentacle dials, WAV export via OfflineAudioContext, kraken easter egg (forbidden rivet x5 or type kraken), 3-color palette + black/white, responsive to 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 163594,
+  "at": "2026-09-17T01:04:37.545Z"
+}
