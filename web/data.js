@@ -1711,6 +1711,36 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "cinder-ledger-ash-accounts",
+    "title": "Cinder Ledger — ash accounts",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "seed stack",
+    "aesthetic": "bauhaus",
+    "theme": "audio",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Cinder Ledger — ash accounts",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "ash",
+      "ledger",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-17T18:08:44.275Z",
+    "updatedAt": "2026-09-17T18:12:37.848Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 55, done: 54, counts: {"done":54,"needs-human":1} };
+export const stats = { total: 56, done: 55, counts: {"done":55,"needs-human":1} };
