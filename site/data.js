@@ -1646,6 +1646,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "echo-garden-oscillator",
+    "title": "Echo Garden Oscillator",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "neo-brutalism",
+    "theme": "audio",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "must have an easter egg"
+    ],
+    "description": "Plant glowing synths in a garden and strum loops into ambient songs.",
+    "features": [
+      "tap to plant oscillator blooms",
+      "drag to bend pitch and panning",
+      "auto-looping polyrhythm sequencer",
+      "one-click ambient mix export"
+    ],
+    "tags": [
+      "webaudio",
+      "ambient",
+      "sequencer",
+      "toy"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-17T04:49:43.991Z",
+    "updatedAt": "2026-09-17T04:52:38.931Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 53, done: 52, counts: {"done":52,"needs-human":1} };
+export const stats = { total: 54, done: 53, counts: {"done":53,"needs-human":1} };

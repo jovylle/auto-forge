@@ -1,0 +1,32 @@
+{
+  "slug": "echo-garden-oscillator",
+  "title": "Echo Garden Oscillator",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "neo-brutalism",
+  "theme": "audio",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "must have an easter egg"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "tap to plant oscillator blooms",
+      "drag to bend pitch and panning",
+      "auto-looping polyrhythm sequencer",
+      "one-click ambient mix export"
+    ],
+    "status": "pass",
+    "summary": "Echo Garden Oscillator — neo-brutalist WebAudio garden (sun yellow / bloom pink / leaf teal + ink/paper). Tap soil to plant up to 12 oscillator blooms quantized to scale rows; drag to bend pitch/pan with live preview; per-bloom loop lengths (2-8 steps) phase in a lookahead-scheduled polyrhythm with hit flashes; STRUM, BPM/scales/waves, localStorage persistence, OfflineAudioContext WAV export, and a Midnight Garden easter egg (click sun 5x or type 'echo'). Refs verified, JS syntax OK, 375px responsive."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 167143,
+  "at": "2026-09-17T04:52:38.933Z"
+}
