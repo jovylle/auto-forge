@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vinyl Crackle Cove — Lo-Fi Beat Digger</title>
+  <meta name="description" content="Dig crates, dust the wax with crackle & wow, chop loops with tap tempo, export your beat. Pure WebAudio pop-art toy." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="halftone-bg" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="mast-kicker">★ SUPER SOUND ★ ISSUE #45 ★ 100% WAX ★</div>
+    <h1 class="logo"><span class="logo-a">VINYL</span> <span class="logo-b">CRACKLE</span> <span class="logo-c">COVE</span></h1>
+    <p class="tagline">DUSTY LOOPS! CRUNCHY DRUMS! WOW &amp; FLUTTER! <span class="zap">POW!</span></p>
+  </header>
+
+  <main id="app">
+    <!-- TRANSPORT / HERO PANEL -->
+    <section class="panel hero" aria-label="Turntable transport">
+      <div class="turntable" aria-hidden="true">
+        <div class="vinyl" id="vinyl">
+          <div class="groove g1"></div>
+          <div class="groove g2"></div>
+          <div class="groove g3"></div>
+          <div class="groove g4"></div>
+          <div class="label" id="vinylLabel"><span id="vinylInitial">V</span></div>
+          <div class="shine"></div>
+        </div>
+        <div class="tonearm" id="tonearm"></div>
+        <div class="strobe" id="strobe" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-controls">
+        <div class="now-spinning">NOW SPINNING</div>
+        <h2 id="nowTitle" class="now-title">Pick a record, digger!</h2>
+        <p id="nowMeta" class="now-meta">— crate below —</p>
+
+        <div class="transport-row">
+          <button id="playBtn" class="btn boom" aria-label="Play or stop">▶ PLAY</button>
+          <button id="tapBtn" class="btn tap" aria-label="Tap tempo">TAP!</button>
+          <div class="bpm-box" aria-live="polite">
+            <span id="bpmVal">88</span><small>BPM</small>
+          </div>
+        </div>
+
+        <div class="slider-row">
+          <label for="tempoSlider">TEMPO <output id="tempoOut" for="tempoSlider">88</output></label>
+          <input id="tempoSlider" type="range" min="60" max="140" step="1" value="88" />
+        </div>
+
+        <canvas id="scope" width="520" height="120" aria-label="Beat waveform scope"></canvas>
+
+        <div class="steps" id="steps" aria-label="16-step loop position"></div>
+
+        <div class="meter-row">
+          <div class="vu" aria-hidden="true"><div class="vu-fill" id="vuFill"></div><span>VU</span></div>
+          <div id="toast" class="toast" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRATE DIGGING -->
+    <section class="panel crates" aria-label="Crate digging sample picker">
+      <div class="panel-head">
+        <h2>① DIG THE CRATES</h2>
+        <button id="digBtn" class="btn mini">🎲 SURPRISE ME</button>
+      </div>
+      <p class="hint">Flip through dusty wax — each record is a live-synthesized lo-fi loop. Click to drop the needle.</p>
+      <div class="crate-row" id="crateRow" role="listbox" aria-label="Sample records"></div>
+    </section>
+
+    <!-- DUST + WOBBLE -->
+    <section class="panel dust" aria-label="Vinyl dust controls">
+      <div class="panel-head"><h2>② DUST THE WAX</h2><span class="burst">CRACKLE!</span></div>
+      <div class="dust-grid">
+        <div class="knob-card">
+          <label for="crackle">CRACKLE <output id="crackleOut" for="crackle">55%</output></label>
+          <input id="crackle" type="range" min="0" max="100" step="1" value="55" />
+          <small>popcorn hiss + needle pops</small>
+        </div>
+        <div class="knob-card">
+          <label for="wow">WOW <output id="wowOut" for="wow">40%</output></label>
+          <input id="wow" type="range" min="0" max="100" step="1" value="40" />
+          <small>warped pitch wobble</small>
+        </div>
+        <div class="knob-card">
+          <label for="dustFilter">DUST FILTER <output id="dustFilterOut" for="dustFilter">62%</output></label>
+          <input id="dustFilter" type="range" min="0" max="100" step="1" value="62" />
+          <small>mellow low-pass blanket</small>
+        </div>
+        <div class="knob-card">
+          <label for="swing">SWING <output id="swingOut" for="swing">18%</output></label>
+          <input id="swing" type="range" min="0" max="60" step="1" value="18" />
+          <small>drunk-drummer shuffle</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOOP CHOPPER -->
+    <section class="panel chop" aria-label="Tap-tempo loop chopper">
+      <div class="panel-head"><h2>③ CHOP THE LOOP</h2><span class="burst alt">SLICE!</span></div>
+      <p class="hint">Smash <b>TAP!</b> in rhythm (or press <kbd>T</kbd>) to steal the tempo — then chop the loop into pieces.</p>
+      <div class="chop-grid">
+        <div class="chop-patterns" role="group" aria-label="Chop pattern">
+          <button class="chip" data-chop="smooth" aria-pressed="false">SMOOTH</button>
+          <button class="chip on" data-chop="bounce" aria-pressed="true">BOUNCE</button>
+          <button class="chip" data-chop="trap" aria-pressed="false">TRAP</button>
+          <button class="chip" data-chop="stutter" aria-pressed="false">STUTTER</button>
+        </div>
+        <div class="knob-card">
+          <label for="chopAmt">CHOP DEPTH <output id="chopAmtOut" for="chopAmt">70%</output></label>
+          <input id="chopAmt" type="range" min="0" max="100" step="1" value="70" />
+          <small>how hard the gate bites</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPORT -->
+    <section class="panel export" aria-label="Beat export">
+      <div class="panel-head"><h2>④ PRESS YOUR WAX</h2></div>
+      <p class="hint">One click bounces <b>2 bars</b> of your exact dusty mix to a <b>.wav</b> file. Name your banger:</p>
+      <div class="export-row">
+        <input id="trackName" type="text" maxlength="40" value="cove-banger-01" aria-label="Track name" spellcheck="false" />
+        <button id="exportBtn" class="btn boom big">⬇ EXPORT BEAT</button>
+      </div>
+      <p id="exportStatus" class="hint" role="status" aria-live="polite"></p>
+    </section>
+
+    <footer class="colophon">
+      <p>VINYL CRACKLE COVE ★ 100% synthesized WebAudio — no samples, no images, all wax ★ <kbd>Space</kbd> play · <kbd>T</kbd> tap · <kbd>1–6</kbd> records · <kbd>E</kbd> export</p>
+    </footer>
+  </main>
+
+  <div class="pow" id="pow" aria-hidden="true">POW!</div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
