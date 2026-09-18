@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tape Loop Lagoon — grunge tape reverie</title>
+<meta name="description" content="Tap ripples to trigger tape loops, drag to pitch-bend, layer 4 loops, export your lagoon mix as WAV. Fully keyboard playable." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<a class="skip" href="#decks">Skip to tape decks</a>
+<div class="grain" aria-hidden="true"></div>
+<div class="scan" aria-hidden="true"></div>
+
+<header class="mast">
+  <div class="tape-strip t1" aria-hidden="true">LAGOON MIX ▚ SIDE A ▚ DOLBY OFF ▚</div>
+  <div class="mast-inner">
+    <p class="kicker">✕ auto-forge presents ✕ track 04 ✕ do not adjust your set ✕</p>
+    <h1><span class="h-tape">TAPE LOOP</span> <span class="h-lagoon">LAGOON</span></h1>
+    <p class="sub">Loop tape snippets into dreamy lagoon layers — tap a ripple, bend the pitch, drown it in echo. <em>4 decks. Infinite moss.</em></p>
+    <div class="mast-row">
+      <button id="powerBtn" class="btn power" aria-pressed="false">▶ power on the lagoon</button>
+      <div class="statusline" role="status" aria-live="polite" id="statusLine">lagoon asleep — press power (or hit <kbd>P</kbd>)</div>
+    </div>
+  </div>
+  <div class="tape-strip t2" aria-hidden="true">▚ REWIND BEFORE RETURNING ▚ PROPERTY OF LAGOON LIBRARY ▚</div>
+</header>
+
+<main id="app">
+  <!-- LAGOON -->
+  <section class="lagoon-wrap" aria-label="The lagoon">
+    <div class="sec-head">
+      <h2><span class="num">01</span> the water</h2>
+      <p>Tap / <kbd>Enter</kbd> a ripple to start its tape. Drag a buoy <strong>up/down</strong> to pitch-bend. Keyboard: focus water, move cursor with arrows, <kbd>Enter</kbd> splashes.</p>
+    </div>
+    <div id="lagoonHolder">
+      <canvas id="lagoon" width="900" height="420" tabindex="0" role="application"
+        aria-label="Lagoon water. Arrow keys move the splash cursor. Enter drops a ripple and toggles the nearest tape loop. Keys 1 to 4 toggle decks directly."></canvas>
+      <div id="cursorReadout" class="cursor-readout" aria-hidden="true">◉ cursor</div>
+      <div class="lagoon-hint" aria-hidden="true"><span>▼ drag buoys ↕ to bend pitch ▼</span></div>
+    </div>
+    <div class="lagoon-bar">
+      <button id="stillBtn" class="btn small">still the water <kbd>C</kbd></button>
+      <button id="swellBtn" class="btn small">lagoon swell (all on) <kbd>0</kbd></button>
+      <button id="drainBtn" class="btn small">drain (all off) <kbd>9</kbd></button>
+      <span class="kbd-note">keys <kbd>1</kbd>–<kbd>4</kbd> toggle tapes · <kbd>[</kbd>/<kbd>]</kbd> bend selected · <kbd>←</kbd><kbd>→</kbd> select</span>
+    </div>
+  </section>
+
+  <!-- DECKS -->
+  <section aria-label="Tape decks">
+    <div class="sec-head">
+      <h2><span class="num">02</span> four tapes, four fades</h2>
+      <p>Every deck loops forever. Power fades in/out like a fader ride. Pitch is a drag — or a slider — or <kbd>[</kbd> <kbd>]</kbd>.</p>
+    </div>
+    <div id="decks" class="decks" role="list"></div>
+  </section>
+
+  <!-- MIX -->
+  <section class="mix" aria-label="Mix bus">
+    <div class="sec-head">
+      <h2><span class="num">03</span> mix bus &amp; export</h2>
+      <p>Bake the hiss in, drown it in echo, then press it to wax (well — WAV).</p>
+    </div>
+    <div class="mix-grid">
+      <label class="ctl">master
+        <input id="masterGain" type="range" min="0" max="1" step="0.01" value="0.85" />
+        <span class="val" id="masterGainVal">85%</span>
+      </label>
+      <label class="ctl">lagoon echo
+        <input id="echoAmt" type="range" min="0" max="0.9" step="0.01" value="0.35" />
+        <span class="val" id="echoAmtVal">35%</span>
+      </label>
+      <label class="ctl">tape hiss
+        <input id="hissAmt" type="range" min="0" max="0.5" step="0.01" value="0.08" />
+        <span class="val" id="hissAmtVal">8%</span>
+      </label>
+      <div class="mix-btns">
+        <button id="exportBtn" class="btn export">⬇ export lagoon mix (.wav) <kbd>E</kbd></button>
+        <button id="helpBtn" class="btn small" aria-expanded="false" aria-controls="helpCard">? keys <kbd>H</kbd></button>
+      </div>
+    </div>
+    <div id="exportStatus" class="export-status" role="status" aria-live="polite"></div>
+    <div id="helpCard" class="help-card" hidden>
+      <h3>keyboard-only field guide</h3>
+      <ul>
+        <li><kbd>Tab</kbd> — reach everything. Every knob is a real slider, every tape a real button.</li>
+        <li><kbd>P</kbd> — power the lagoon on/off &nbsp;·&nbsp; <kbd>1</kbd>–<kbd>4</kbd> — toggle tape I–IV</li>
+        <li><kbd>←</kbd> <kbd>→</kbd> — select tape &nbsp;·&nbsp; <kbd>[</kbd> / <kbd>]</kbd> (or <kbd>-</kbd>/<kbd>=</kbd>) — pitch-bend selected ∓1 semitone (<kbd>Shift</kbd> = fine)</li>
+        <li><kbd>,</kbd> / <kbd>.</kbd> — volume of selected deck &nbsp;·&nbsp; <kbd>0</kbd> all on · <kbd>9</kbd> all off · <kbd>C</kbd> still water</li>
+        <li><kbd>E</kbd> — export 8s WAV mix &nbsp;·&nbsp; <kbd>M</kbd> — mute master &nbsp;·&nbsp; <kbd>H</kbd> or <kbd>?</kbd> — this card</li>
+        <li>lagoon focused: <kbd>arrows</kbd> move splash cursor, <kbd>Enter</kbd>/<kbd>Space</kbd> splash + toggle nearest tape, drag buoys with pointer for pitch.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <p>dubbed live in your browser · no samples, no servers — 4 synthesized tape loops, rendered fresh · settings squat in <code>localStorage</code> · <span id="deckStateLine">0 / 4 tapes rolling</span></p>
+  </footer>
+</main>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
