@@ -1771,6 +1771,40 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "wobble-choir-lab",
+    "title": "Wobble Choir Lab",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-minimal",
+    "theme": "audio",
+    "constraints": [
+      "no images — CSS/canvas only",
+      "must react to scroll"
+    ],
+    "description": "Stack wobbly oscillators into a playable choir with morphing vowels.",
+    "features": [
+      "Drag blobs to pitch-shift voices",
+      "Morph vowel filter with one slider",
+      "Loop 4-bar choir jam",
+      "One-click WebAudio recording"
+    ],
+    "tags": [
+      "webaudio",
+      "choir",
+      "oscillator",
+      "toy",
+      "vowels"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-18T00:40:36.399Z",
+    "updatedAt": "2026-09-18T00:43:05.795Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 57, done: 56, counts: {"done":56,"needs-human":1} };
+export const stats = { total: 58, done: 57, counts: {"done":57,"needs-human":1} };

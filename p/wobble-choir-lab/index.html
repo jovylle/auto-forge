@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Wobble Choir Lab — drag wobbly oscillator blobs, morph vowels, loop a 4-bar choir jam, record it. Japanese-minimal generative toy." />
+  <title>Wobble Choir Lab — ゆらぎ合唱</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="progress" aria-hidden="true"></div>
+
+  <header class="hero" id="top">
+    <p class="kicker"><span class="kicker-jp">ゆらぎ合唱</span> · generative toy nº 04</p>
+    <h1>Wobble<br />Choir Lab</h1>
+    <p class="sub">Stack wobbly oscillators into a playable choir.<br />Drag the blobs · morph the vowels · loop four bars · press record.</p>
+    <div class="hero-row">
+      <button id="startBtn" class="btn primary" type="button">Begin — はじめる</button>
+      <a class="btn ghost" href="#choir-section">Skip to the choir ↓</a>
+    </div>
+    <div class="enso" aria-hidden="true"><svg viewBox="0 0 200 200"><path id="ensoPath" d="M100,18 C148,18 182,52 182,100 C182,148 148,182 100,182 C52,182 18,148 18,100 C18,56 50,24 96,20" /></svg></div>
+    <p class="scroll-hint" aria-hidden="true">scroll — the page breathes with you<br /><span>↓</span></p>
+  </header>
+
+  <main>
+    <!-- 1 · CHOIR -->
+    <section id="choir-section" class="panel reveal">
+      <div class="sec-head">
+        <p class="sec-no">壱 — one</p>
+        <h2>The choir</h2>
+        <p class="sec-sub">Drag a blob <strong>up / down</strong> to pitch-shift its voice · <strong>left / right</strong> bends its wobble. Tap a blob to hear it alone.</p>
+      </div>
+      <div id="stageWrap">
+        <canvas id="threads" aria-hidden="true"></canvas>
+        <div id="stage" role="group" aria-label="Choir voices. Drag blobs to change pitch."></div>
+        <div id="scaleRail" aria-hidden="true"><span>high<br />高</span><span>low<br />低</span></div>
+      </div>
+      <p id="nowSinging" class="now" aria-live="polite">— silent — press Begin —</p>
+    </section>
+
+    <!-- 2 · VOWEL -->
+    <section id="vowel-section" class="panel reveal">
+      <div class="sec-head">
+        <p class="sec-no">弐 — two</p>
+        <h2>One vowel to rule them</h2>
+        <p class="sec-sub">A single slider morphs the whole choir's mouth through five vowels.</p>
+      </div>
+      <div class="vowel-box">
+        <div class="vowel-kana" id="vowelKana" aria-hidden="true">ア</div>
+        <div class="vowel-ctl">
+          <input id="vowel" type="range" min="0" max="4" step="0.01" value="0" aria-label="Vowel morph: A E I O U" />
+          <div class="vowel-ticks" aria-hidden="true">
+            <span data-v="0" class="on">ア A</span><span data-v="1">エ E</span><span data-v="2">イ I</span><span data-v="3">オ O</span><span data-v="4">ウ U</span>
+          </div>
+          <p class="vowel-name" id="vowelName" aria-live="polite">A — 「ア」 open mouth</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · SEQUENCER -->
+    <section id="jam-section" class="panel reveal">
+      <div class="sec-head">
+        <p class="sec-no">参 — three</p>
+        <h2>Four-bar jam</h2>
+        <p class="sec-sub">Sixteen steps, four bars. Tap squares to score each voice. Scroll still works — the playhead keeps time.</p>
+      </div>
+      <div class="transport">
+        <button id="playBtn" class="btn primary" type="button" disabled>▶ Play jam</button>
+        <label class="tempo">tempo <input id="bpm" type="range" min="60" max="160" step="1" value="96" /> <span id="bpmVal">96</span></label>
+        <div class="preset-row" role="group" aria-label="Jam presets">
+          <button class="btn small" type="button" data-preset="still">Still Water</button>
+          <button class="btn small" type="button" data-preset="festival">Festival</button>
+          <button class="btn small" type="button" data-preset="rain">Night Rain</button>
+          <button class="btn small" type="button" data-clear="1">Clear</button>
+        </div>
+      </div>
+      <div id="grid" role="group" aria-label="16-step sequencer, five voices"></div>
+      <p class="hint">Bar lines fall every four steps · 暗い squares sing.</p>
+    </section>
+
+    <!-- 4 · RECORD -->
+    <section id="rec-section" class="panel reveal">
+      <div class="sec-head">
+        <p class="sec-no">四 — four</p>
+        <h2>One-click record</h2>
+        <p class="sec-sub">Captures everything you hear — drones, jam, vowel morphs — straight from the WebAudio graph.</p>
+      </div>
+      <div class="rec-box">
+        <button id="recBtn" class="btn rec" type="button" disabled><span class="dot" aria-hidden="true"></span><span id="recLabel">Record</span></button>
+        <p id="recStatus" class="now" aria-live="polite">recorder idle</p>
+        <a id="dl" class="btn ghost" hidden href="#">Download take ⤓</a>
+      </div>
+    </section>
+
+    <section class="panel reveal breath-panel">
+      <div class="sec-head">
+        <p class="sec-no">余白 — ma</p>
+        <h2>Scroll is breath</h2>
+        <p class="sec-sub">Scrolling this page opens the master filter — the “air”. At the top the choir hums through paper; at the bottom it sings into the sky.</p>
+      </div>
+      <div class="breath-meter"><div id="breathFill"></div></div>
+      <p class="now">air · <span id="breathVal">0%</span></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="hanko" aria-hidden="true">揺<br />合</div>
+    <p>Wobble Choir Lab · CSS + canvas only, no images · WebAudio, no build, no backend.<br />
+    Your choir auto-saves to this browser. Open <code>index.html</code> from file:// or any static host.</p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
