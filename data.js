@@ -1805,6 +1805,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "tape-loop-lagoon",
+    "title": "Tape Loop Lagoon",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "grunge",
+    "theme": "audio",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Loop tape snippets into dreamy lagoon layers with playful pitch and ripple effects",
+    "features": [
+      "Tap ripples to trigger tape loops",
+      "Drag to pitch-bend samples live",
+      "Layer 4 loops with fades",
+      "Export lagoon mix as wav"
+    ],
+    "tags": [
+      "webaudio",
+      "sampling",
+      "loops",
+      "playground"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-18T01:03:21.821Z",
+    "updatedAt": "2026-09-18T01:06:19.524Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 58, done: 57, counts: {"done":57,"needs-human":1} };
+export const stats = { total: 59, done: 58, counts: {"done":58,"needs-human":1} };
