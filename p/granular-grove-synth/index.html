@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Granular Grove Synth — conduct a forest of grains</title>
+  <meta name="description" content="Scatter field recordings into evolving granular clouds you conduct with gestures. Drag-drop sampling with auto-slice, XY-pad grain clouds, tap-tempo echo trails, one-click loop export." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><span class="orb orb-a"></span><span class="orb orb-b"></span><span class="orb orb-c"></span></div>
+
+  <header class="topbar glass">
+    <div class="brand">
+      <span class="leaf" aria-hidden="true">🌲</span>
+      <div>
+        <h1>Granular Grove Synth</h1>
+        <p class="tagline">Scatter field recordings into evolving granular clouds you conduct with gestures.</p>
+      </div>
+    </div>
+    <div class="transport">
+      <button id="btn-power" class="btn primary" aria-pressed="false" title="Start / stop the grove (Space)">
+        ▶ Start grove <kbd>Space</kbd>
+      </button>
+      <button id="btn-demo" class="btn" title="Synthesize a demo field recording (D)">🌱 Grow demo grove <kbd>D</kbd></button>
+    </div>
+  </header>
+
+  <main id="app">
+    <section class="card glass" aria-labelledby="h-source">
+      <h2 id="h-source">① Sample the forest floor</h2>
+      <div id="dropzone" class="dropzone" tabindex="0" role="button"
+           aria-label="Drop an audio file here, or press Enter to choose a file. Supports wav, mp3, ogg, m4a.">
+        <p class="dz-big">🍂 Drop a field recording here</p>
+        <p class="dz-small">or <button id="btn-file" class="linkbtn" type="button">choose a file</button> · or press <kbd>D</kbd> for a demo grove</p>
+        <input id="file-input" type="file" accept="audio/*" hidden />
+      </div>
+      <p id="sample-meta" class="meta" role="status" aria-live="polite">No sample loaded — grow the demo grove to start.</p>
+      <canvas id="wave" width="640" height="120" aria-label="Waveform of the loaded sample with auto-slice markers" role="img"></canvas>
+      <div class="slices-wrap">
+        <h3>Auto-slices <span class="hint">keys <kbd>1</kbd>–<kbd>8</kbd> trigger · <kbd>←</kbd><kbd>→</kbd> move seed</span></h3>
+        <div id="slices" class="slices" role="listbox" aria-label="Auto-sliced sample regions" tabindex="0"></div>
+      </div>
+    </section>
+
+    <section class="card glass" aria-labelledby="h-cloud">
+      <h2 id="h-cloud">② Conduct the cloud</h2>
+      <div id="xypad" class="xypad" tabindex="0" role="application"
+           aria-label="Grain cloud XY pad. Left-right arrows move position through the sample, up-down arrows change grain size. X is position, Y is grain size.">
+        <canvas id="grove" aria-hidden="true"></canvas>
+        <div id="xy-cursor" class="xy-cursor" aria-hidden="true"></div>
+        <div class="xy-axis"><span>◀ position ▶</span><span>▲ small · large ▼</span></div>
+      </div>
+      <p class="meta" id="xy-readout" role="status" aria-live="polite">position 50% · grain 120ms</p>
+      <div class="sliders">
+        <label>Density <span id="v-density">14/s</span>
+          <input id="s-density" type="range" min="2" max="60" value="14" step="1" aria-label="Grain density in grains per second" />
+        </label>
+        <label>Pitch <span id="v-pitch">0 st</span>
+          <input id="s-pitch" type="range" min="-12" max="12" value="0" step="1" aria-label="Grain pitch shift in semitones" />
+        </label>
+        <label>Spray <span id="v-spray">40ms</span>
+          <input id="s-spray" type="range" min="0" max="200" value="40" step="1" aria-label="Random spray around grain position in milliseconds" />
+        </label>
+        <label>Cloud mix <span id="v-cloud">70%</span>
+          <input id="s-cloud" type="range" min="0" max="100" value="70" step="1" aria-label="Cloud mix, dry versus granular" />
+        </label>
+      </div>
+    </section>
+
+    <section class="card glass" aria-labelledby="h-echo">
+      <h2 id="h-echo">③ Tap-tempo echo trails</h2>
+      <div class="taprow">
+        <button id="btn-tap" class="btn tap" title="Tap tempo (T)">👏 Tap <kbd>T</kbd></button>
+        <div class="bpm" role="status" aria-live="polite"><strong id="bpm-val">96</strong><span>bpm · echo <span id="echo-val">625ms</span></span></div>
+        <button id="btn-tap-reset" class="btn ghost" title="Reset tap tempo">reset</button>
+      </div>
+      <div class="sliders">
+        <label>Trail length <span id="v-fb">45%</span>
+          <input id="s-fb" type="range" min="0" max="85" value="45" step="1" aria-label="Echo feedback amount" />
+        </label>
+        <label>Echo mix <span id="v-echo">30%</span>
+          <input id="s-echo" type="range" min="0" max="80" value="30" step="1" aria-label="Echo wet mix" />
+        </label>
+        <label>Echo feel
+          <select id="sel-div" aria-label="Echo note division">
+            <option value="1">quarter</option>
+            <option value="0.75" selected>dotted 8th</option>
+            <option value="0.5">8th</option>
+            <option value="0.333">triplet</option>
+          </select>
+        </label>
+      </div>
+      <div id="trail" class="trail" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="card glass" aria-labelledby="h-export">
+      <h2 id="h-export">④ Bottle the loop</h2>
+      <p class="meta">One click records the next <strong>8 seconds</strong> of the grove and downloads it as a <code>.webm</code> loop.</p>
+      <div class="exportrow">
+        <button id="btn-export" class="btn primary" title="Export 8 second loop (E)">⬇ Export loop <kbd>E</kbd></button>
+        <span id="export-status" class="meta" role="status" aria-live="polite"></span>
+      </div>
+      <details class="keys">
+        <summary>⌨️ Keyboard map (fully playable without a mouse)</summary>
+        <ul>
+          <li><kbd>Space</kbd> start / stop grove</li>
+          <li><kbd>D</kbd> grow demo sample · <kbd>Enter</kbd> on dropzone opens file picker</li>
+          <li><kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd> move cloud on focused XY pad (Shift = big steps)</li>
+          <li><kbd>1</kbd>–<kbd>8</kbd> trigger auto-slice as seed position</li>
+          <li><kbd>T</kbd> tap tempo · <kbd>E</kbd> export 8s loop · <kbd>M</kbd> mute echo</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Grown in the open · Web Audio granular engine · your samples never leave this tab</p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
