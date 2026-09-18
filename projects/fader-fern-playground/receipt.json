@@ -1,0 +1,31 @@
+{
+  "slug": "fader-fern-playground",
+  "title": "Fader Fern Playground",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "vaporwave",
+  "theme": "audio",
+  "constraints": [
+    "sound on interaction (WebAudio, no assets)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "tap ferns to trigger samples",
+      "layer 4-bar loop recorder",
+      "dial delay and filter live",
+      "randomize groove seeds"
+    ],
+    "status": "pass",
+    "summary": "Fader Fern Playground — vaporwave generative jungle: 7 tappable glowing SVG ferns each driving a hand-synthesized WebAudio voice (kick/snare/hat/bass/pluck/pad/bell, no assets), 64-step 4-bar loop recorder with overdub, swing, click and live step grid, 6 live faders (delay time/feedback/wet, filter cutoff/resonance, volume), and seeded groove generator (pattern + pentatonic key from seed, persisted). node --check clean, all DOM refs resolve, responsive at 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 217878,
+  "at": "2026-09-18T21:03:09.417Z"
+}

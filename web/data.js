@@ -1967,6 +1967,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "fader-fern-playground",
+    "title": "Fader Fern Playground",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "vaporwave",
+    "theme": "audio",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Pluck glowing ferns to stack loops into misty jungle rhythms.",
+    "features": [
+      "tap ferns to trigger samples",
+      "layer 4-bar loop recorder",
+      "dial delay and filter live",
+      "randomize groove seeds"
+    ],
+    "tags": [
+      "webaudio",
+      "loops",
+      "sampler",
+      "playful"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-18T20:59:20.688Z",
+    "updatedAt": "2026-09-18T21:03:09.414Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 63, done: 62, counts: {"done":62,"needs-human":1} };
+export const stats = { total: 64, done: 63, counts: {"done":63,"needs-human":1} };
