@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sub Bass Sandbox — 808 toy</title>
+  <meta name="description" content="Playful 808 synth toy: 16-step bass sequencer, glide + distortion knobs, pattern randomizer, WebAudio echo room." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="shape s-tri" aria-hidden="true"></div>
+  <div class="shape s-ring" aria-hidden="true"></div>
+  <div class="shape s-bars" aria-hidden="true"></div>
+  <div class="shape s-dots" aria-hidden="true"></div>
+  <div class="shape s-zig" aria-hidden="true"></div>
+  <div class="shape s-cross" aria-hidden="true"></div>
+
+  <main id="app">
+    <header class="masthead">
+      <p class="kicker"><span class="dot"></span> memphis 808 toy · webaudio · no samples</p>
+      <h1>SUB BASS<br /><span class="outline">SANDBOX</span></h1>
+      <p class="sub">A playful 808 synth toy — punch in 16 steps, smear it with <b>glide</b>,
+        fry it with <b>drive</b>, then throw it into the echo room.</p>
+    </header>
+
+    <section class="console" aria-label="808 console">
+      <div class="tape" aria-hidden="true"></div>
+
+      <div class="transport">
+        <button id="playBtn" class="play" aria-pressed="false" aria-label="Play or stop">
+          <span class="play-icon" aria-hidden="true">▶</span><span id="playLabel">PLAY</span>
+        </button>
+        <div class="tempo-block">
+          <label for="tempo">TEMPO <output id="tempoVal" for="tempo">112</output> BPM</label>
+          <input id="tempo" type="range" min="70" max="160" step="1" value="112" />
+        </div>
+        <div class="transport-btns">
+          <button id="randomBtn" class="btn dice" title="One-tap pattern randomizer">🎲 RANDOMIZE</button>
+          <button id="clearBtn" class="btn ghost" title="Clear all steps">CLEAR</button>
+        </div>
+      </div>
+
+      <div class="presets" role="group" aria-label="Starter patterns">
+        <span class="presets-label">PRESETS</span>
+        <button class="chip" data-preset="deep">DEEP</button>
+        <button class="chip" data-preset="bounce">BOUNCE</button>
+        <button class="chip" data-preset="acid">ACID</button>
+      </div>
+
+      <canvas id="scope" width="640" height="120" aria-label="Bass visualizer" role="img"></canvas>
+
+      <h2 class="section-title"><span>01 · SEQUENCER</span><em>tap pads · pick notes below</em></h2>
+      <div id="steps" class="steps" role="group" aria-label="16-step bass sequencer"></div>
+      <p class="hint">TIP: click a pad to mute/unmute · the note menu under it sets the pitch · <kbd>Space</kbd> = play/stop · <kbd>R</kbd> = randomize</p>
+
+      <h2 class="section-title"><span>02 · SAUCE</span><em>drag knobs up/down · or scroll · double-click resets</em></h2>
+      <div class="knobs">
+        <div class="knob-wrap" data-knob="glide">
+          <div class="knob pink" id="knob-glide" role="slider" tabindex="0" aria-label="Glide" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35"><span class="pointer"></span></div>
+          <p class="knob-label">GLIDE</p><p class="knob-val" id="val-glide">35%</p>
+        </div>
+        <div class="knob-wrap" data-knob="drive">
+          <div class="knob teal" id="knob-drive" role="slider" tabindex="0" aria-label="Distortion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="30"><span class="pointer"></span></div>
+          <p class="knob-label">DRIVE</p><p class="knob-val" id="val-drive">30%</p>
+        </div>
+        <div class="knob-wrap" data-knob="room">
+          <div class="knob yellow" id="knob-room" role="slider" tabindex="0" aria-label="Echo room size" aria-valuemin="0" aria-valuemax="100" aria-valuenow="45"><span class="pointer"></span></div>
+          <p class="knob-label">ROOM</p><p class="knob-val" id="val-room">45%</p>
+        </div>
+        <div class="knob-wrap" data-knob="echo">
+          <div class="knob pink" id="knob-echo" role="slider" tabindex="0" aria-label="Echo feedback" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span class="pointer"></span></div>
+          <p class="knob-label">ECHO</p><p class="knob-val" id="val-echo">50%</p>
+        </div>
+        <div class="knob-wrap" data-knob="decay">
+          <div class="knob teal" id="knob-decay" role="slider" tabindex="0" aria-label="808 decay length" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60"><span class="pointer"></span></div>
+          <p class="knob-label">DECAY</p><p class="knob-val" id="val-decay">60%</p>
+        </div>
+      </div>
+
+      <div class="mixrow">
+        <label class="mix">ECHO MIX <input id="mix" type="range" min="0" max="100" value="35" /></label>
+        <label class="mix">PUNCH <input id="punch" type="range" min="0" max="100" value="65" /></label>
+        <label class="mix">VOLUME <input id="vol" type="range" min="0" max="100" value="80" /></label>
+      </div>
+
+      <footer class="foot">
+        <span id="status">○ stopped — hit PLAY (sound starts on tap)</span>
+        <span class="sig">808 · glide · drive · echo room</span>
+      </footer>
+    </section>
+
+    <p class="tiny">3 colors + black/cream · no images, all shapes are CSS + canvas · pattern auto-saves locally</p>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
