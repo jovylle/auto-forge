@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Fader Fern Playground — misty jungle rhythms</title>
+<meta name="description" content="Pluck glowing ferns to stack loops into misty jungle rhythms. WebAudio, no assets." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="brand">
+    <div class="sun" aria-hidden="true"><span></span></div>
+    <div>
+      <p class="kicker">ＡＥＳＴＨＥＴＩＣ // generative jungle</p>
+      <h1 class="chrome">FADER FERN</h1>
+      <p class="sub">Pluck glowing ferns to stack loops into misty jungle rhythms.</p>
+    </div>
+  </div>
+  <div class="seedcard">
+    <label class="seedlabel" for="seedInput">GROOVE SEED</label>
+    <div class="seedrow">
+      <input id="seedInput" maxlength="24" spellcheck="false" autocomplete="off" value="MIST-1984" />
+      <button id="diceBtn" class="btn dice" title="Randomize groove seed (N)">🎲 shuffle</button>
+    </div>
+    <p class="hint">seed tunes the scale, pattern &amp; weather. <kbd>N</kbd> reshuffles.</p>
+  </div>
+</header>
+
+<main id="app">
+  <section class="transport panel" aria-label="Loop transport">
+    <div class="t-buttons">
+      <button id="audioBtn" class="btn power">▶ enable sound</button>
+      <button id="playBtn" class="btn play" disabled>▶ play 4-bar loop</button>
+      <button id="recBtn" class="btn rec" disabled>● record</button>
+      <button id="clearBtn" class="btn ghost" disabled>✕ clear loop</button>
+      <button id="clickBtn" class="btn ghost on" aria-pressed="true" title="Metronome click">click</button>
+    </div>
+    <div class="t-sliders">
+      <div class="ctl">
+        <label for="bpm">Tempo <b id="bpmVal">96</b> bpm</label>
+        <input id="bpm" type="range" min="70" max="140" value="96" step="1" />
+      </div>
+      <div class="ctl">
+        <label for="swing">Swing <b id="swingVal">12%</b></label>
+        <input id="swing" type="range" min="0" max="50" value="12" step="1" />
+      </div>
+    </div>
+    <div class="loopbar" aria-label="4-bar loop progress">
+      <div class="loopmeta">
+        <span id="loopStatus">loop idle — press play, then pluck ferns</span>
+        <span id="barLabel">BAR –/4</span>
+      </div>
+      <div id="steps" class="steps" role="img" aria-label="64-step loop grid"></div>
+      <div class="loopprogress"><div id="loopProg"></div></div>
+    </div>
+  </section>
+
+  <section class="grove panel" aria-label="Fern grove">
+    <div class="grovehead">
+      <h2><span class="jp">🌿</span> the grove — tap to pluck <span class="dim">(or keys 1–7)</span></h2>
+      <p id="scaleName" class="scalename">A minor pentatonic mist</p>
+    </div>
+    <div id="ferns" class="ferns"></div>
+  </section>
+
+  <section class="mixer panel" aria-label="Live faders">
+    <h2>☾ live faders — delay &amp; filter ☾</h2>
+    <div class="faders">
+      <div class="ctl">
+        <label for="delayTime">Delay time <b id="delayTimeVal">0.32s</b></label>
+        <input id="delayTime" type="range" min="0.05" max="0.9" value="0.32" step="0.01" />
+      </div>
+      <div class="ctl">
+        <label for="feedback">Delay feedback <b id="feedbackVal">38%</b></label>
+        <input id="feedback" type="range" min="0" max="85" value="38" step="1" />
+      </div>
+      <div class="ctl">
+        <label for="wet">Mist echo <b id="wetVal">30%</b></label>
+        <input id="wet" type="range" min="0" max="80" value="30" step="1" />
+      </div>
+      <div class="ctl">
+        <label for="cutoff">Filter cutoff <b id="cutoffVal">5200Hz</b></label>
+        <input id="cutoff" type="range" min="300" max="12000" value="5200" step="50" />
+      </div>
+      <div class="ctl">
+        <label for="resonance">Filter reso <b id="resonanceVal">1.2</b></label>
+        <input id="resonance" type="range" min="0.2" max="12" value="1.2" step="0.1" />
+      </div>
+      <div class="ctl">
+        <label for="volume">Volume <b id="volumeVal">80%</b></label>
+        <input id="volume" type="range" min="0" max="100" value="80" step="1" />
+      </div>
+    </div>
+  </section>
+
+  <p id="toast" class="toast" role="status" aria-live="polite"></p>
+  <footer class="foot">
+    <span>.\FADER_FERN.EXE — 100% WebAudio, zero samples, zero assets —</span>
+    <span>space = loop · R = rec · X = clear · made for the mist</span>
+  </footer>
+</main>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
