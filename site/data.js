@@ -1903,6 +1903,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "vinyl-crackle-cove",
+    "title": "Vinyl Crackle Cove",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "pop-art",
+    "theme": "audio",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "Loop dusty vinyl textures into evolving lo-fi beats with crackle and wow.",
+    "features": [
+      "crate-digging sample picker",
+      "crackle and wow sliders",
+      "tap-tempo loop chopper",
+      "one-click beat export"
+    ],
+    "tags": [
+      "webaudio",
+      "lofi",
+      "sampler",
+      "loops"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-18T13:47:53.712Z",
+    "updatedAt": "2026-09-18T13:52:25.583Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 61, done: 60, counts: {"done":60,"needs-human":1} };
+export const stats = { total: 62, done: 61, counts: {"done":61,"needs-human":1} };
