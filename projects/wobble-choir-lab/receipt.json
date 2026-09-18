@@ -1,0 +1,32 @@
+{
+  "slug": "wobble-choir-lab",
+  "title": "Wobble Choir Lab",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "japanese-minimal",
+  "theme": "audio",
+  "constraints": [
+    "no images — CSS/canvas only",
+    "must react to scroll"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Drag blobs to pitch-shift voices",
+      "Morph vowel filter with one slider",
+      "Loop 4-bar choir jam",
+      "One-click WebAudio recording"
+    ],
+    "status": "pass",
+    "summary": "Wobble Choir Lab built: 5 draggable oscillator blobs (C-major quantized pitch + wobble), 5-vowel formant morph slider, 16-step 4-bar loop sequencer with presets/tempo, MediaRecorder one-click takes. Japanese-minimal washi/ink/vermillion design, scroll-driven air filter + reveals, localStorage persistence, responsive to 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 138694,
+  "at": "2026-09-18T00:43:05.798Z"
+}
