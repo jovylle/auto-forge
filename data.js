@@ -1935,6 +1935,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "hi-hat-habitat",
+    "title": "Hi-Hat Habitat",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "biomorphic",
+    "theme": "audio",
+    "constraints": [
+      "must be playable in 30 seconds"
+    ],
+    "description": "Breed tiny hi-hat patterns that evolve into glitchy rhythms",
+    "features": [
+      "evolving hat sequencer",
+      "tap to mutate patterns",
+      "WebAudio synthesis",
+      "shareable rhythm seeds"
+    ],
+    "tags": [
+      "webaudio",
+      "rhythm",
+      "sequencer",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-18T20:39:26.121Z",
+    "updatedAt": "2026-09-18T20:43:11.745Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 62, done: 61, counts: {"done":61,"needs-human":1} };
+export const stats = { total: 63, done: 62, counts: {"done":62,"needs-human":1} };

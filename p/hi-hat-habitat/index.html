@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hi-Hat Habitat — breed glitchy rhythms</title>
+  <meta name="description" content="Breed tiny hi-hat patterns that evolve into glitchy rhythms. Tap eggs to mutate, spawn offspring, share seeds." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="goo" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+    <span class="blob b4"></span><span class="blob b5"></span>
+  </div>
+
+  <main id="app">
+    <header class="mast">
+      <p class="eyebrow">generative · webaudio · <span id="genPill">gen 0</span></p>
+      <h1>Hi-Hat <em>Habitat</em></h1>
+      <p class="sub">Breed tiny hi-hat patterns that evolve into glitchy rhythms. Press play, tap the eggs, let them mutate.</p>
+    </header>
+
+    <section class="pond card" aria-label="Sequencer">
+      <div class="pond-head">
+        <div class="seedline">
+          <span class="seedlabel">seed</span>
+          <code id="seedView">—</code>
+        </div>
+        <div class="pond-stats">
+          <span id="barPill">bar 1</span>
+          <span id="bpmView">112 bpm</span>
+        </div>
+      </div>
+      <div id="grid" class="grid" role="group" aria-label="16 hi-hat steps. Activate to cycle sounds."></div>
+      <p class="legend">
+        <span><i class="dot d-off"></i>empty</span>
+        <span><i class="dot d-closed"></i>closed</span>
+        <span><i class="dot d-accent"></i>accent</span>
+        <span><i class="dot d-open"></i>open</span>
+      </p>
+    </section>
+
+    <section class="transport card" aria-label="Transport">
+      <button id="playBtn" class="play" aria-pressed="false">
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <span id="playLabel">play</span>
+      </button>
+      <div class="sliders">
+        <label class="ctl">tempo <b id="bpmVal">112</b>
+          <input id="bpm" type="range" min="70" max="180" value="112" step="1" />
+        </label>
+        <label class="ctl">mutation drift <b id="driftVal">35%</b>
+          <input id="drift" type="range" min="0" max="100" value="35" step="1" />
+        </label>
+        <label class="ctl row">
+          <span>auto-evolve <b id="evoVal">on</b></span>
+          <button id="evoBtn" class="toggle on" aria-pressed="true">on</button>
+        </label>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button id="mutateBtn" class="btn Goo">☄ mutate</button>
+      <button id="spawnBtn" class="btn">🥚 spawn clutch</button>
+      <button id="diceBtn" class="btn">🎲 new seed</button>
+    </section>
+
+    <section id="clutch" class="clutch" aria-label="Offspring patterns" hidden>
+      <h2>clutch <small>tap a hatchling to adopt it</small></h2>
+      <div id="kids" class="kids"></div>
+    </section>
+
+    <section class="share card" aria-label="Share">
+      <h2>shareable rhythm seed</h2>
+      <div class="share-row">
+        <input id="seedInput" type="text" spellcheck="false" autocomplete="off" aria-label="Rhythm seed" />
+        <button id="copyBtn" class="btn small">copy link</button>
+      </div>
+      <p id="copyNote" class="note" role="status"></p>
+    </section>
+
+    <footer class="foot">
+      <p>30-second start: hit <b>play</b> → tap eggs → crank <b>drift</b> → spawn a clutch. Sound is 100% synthesized WebAudio — no samples.</p>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
