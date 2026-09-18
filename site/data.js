@@ -1870,6 +1870,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "granular-grove-synth",
+    "title": "Granular Grove Synth",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "glassmorphism",
+    "theme": "audio",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Scatter field recordings into evolving granular clouds you conduct with gestures.",
+    "features": [
+      "drag-drop sampling with auto-slice",
+      "xy-pad grain cloud control",
+      "tap-tempo echo trails",
+      "one-click loop export"
+    ],
+    "tags": [
+      "webaudio",
+      "granular",
+      "sampling",
+      "toy",
+      "loops"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-18T12:58:56.046Z",
+    "updatedAt": "2026-09-18T13:01:31.447Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 60, done: 59, counts: {"done":59,"needs-human":1} };
+export const stats = { total: 61, done: 60, counts: {"done":60,"needs-human":1} };

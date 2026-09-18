@@ -1,0 +1,31 @@
+{
+  "slug": "granular-grove-synth",
+  "title": "Granular Grove Synth",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "glassmorphism",
+  "theme": "audio",
+  "constraints": [
+    "must work with keyboard only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag-drop sampling with auto-slice",
+      "xy-pad grain cloud control",
+      "tap-tempo echo trails",
+      "one-click loop export"
+    ],
+    "status": "pass",
+    "summary": "Granular Grove Synth: glassmorphism granular toy. Drop any audio (or press D for a synthesized demo grove), auto-sliced into 8 onset regions (keys 1-8 seed the cloud). XY pad conducts position/grain-size with firefly canvas, sliders for density/pitch/spray/mix. Tap-tempo (T) drives a dotted-echo trail with feedback/mix/division. E exports an 8s webm loop via MediaRecorder. Fully keyboard-operable with visible focus, localStorage persistence, responsive to 375px. node --check clean, all DOM ids resolve."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 146118,
+  "at": "2026-09-18T13:01:31.449Z"
+}
