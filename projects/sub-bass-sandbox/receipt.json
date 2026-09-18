@@ -1,0 +1,32 @@
+{
+  "slug": "sub-bass-sandbox",
+  "title": "Sub Bass Sandbox",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "memphis",
+  "theme": "audio",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "16-step bass sequencer",
+      "glide and distortion knobs",
+      "one-tap pattern randomizer",
+      "WebAudio echo room"
+    ],
+    "status": "pass",
+    "summary": "Memphis-styled 808 toy: 16-step sequencer with per-step pitch, glide/drive/room/echo/decay knobs, dice randomizer + 3 presets, filtered feedback-delay echo room, canvas visualizer, localStorage persistence. node --check passed, no images, 3 colors + black/cream, responsive at 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 115042,
+  "at": "2026-09-18T06:49:57.289Z"
+}
