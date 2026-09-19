@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pocket Polyrhythm Park — PPP/01</title>
+  <meta name="description" content="Tap layered loops to build shifting polyrhythms in a playful pocket park. Swiss grid, one interaction: click." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <span class="topbar__mark">PPP/01</span>
+    <span class="topbar__title">POCKET POLYRHYTHM PARK</span>
+    <span class="topbar__meta">CLICK ONLY · 3:4:5</span>
+  </header>
+
+  <main class="park">
+    <section class="hero">
+      <p class="kicker">A pocket park of layered loops — tap the grid, grow a groove</p>
+      <h1 class="hero__title">POLY&mdash;<br />RHYTHM<br /><span class="hero__park">PARK</span></h1>
+      <div class="transport">
+        <button id="playBtn" class="play" aria-pressed="false" aria-label="Play or stop">
+          <span class="play__icon" aria-hidden="true">&#9654;</span>
+          <span id="playLabel">PLAY</span>
+        </button>
+        <div class="tempo-readout" aria-live="polite">
+          <span id="bpmNum" class="tempo-readout__num">112</span>
+          <span class="tempo-readout__unit">BPM<br />8TH PULSE</span>
+        </div>
+        <div class="hero__rules">
+          <p>RULE 01 — EVERYTHING IS A CLICK.</p>
+          <p>RULE 02 — THREE LANES, THREE LOOPS.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-label="Sequencer grid">
+      <div class="block__head">
+        <span class="block__num">01</span>
+        <h2 class="block__title">TAP GRID</h2>
+        <span class="block__note">CLICK CELLS ON / OFF</span>
+      </div>
+      <div id="lanes" class="lanes"></div>
+      <div class="row row--tools">
+        <button id="diceBtn" class="btn">RANDOMIZE</button>
+        <button id="clearBtn" class="btn">CLEAR</button>
+        <span id="gridMsg" class="msg" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="block" aria-label="Tempo">
+      <div class="block__head">
+        <span class="block__num">02</span>
+        <h2 class="block__title">TEMPO MORPH</h2>
+        <span class="block__note">CLICK TRACK TO SET · 60–180</span>
+      </div>
+      <div id="tempoTrack" class="tempo" role="button" tabindex="0" aria-label="Tempo track. Activate to set tempo.">
+        <div id="tempoFill" class="tempo__fill"></div>
+        <div class="tempo__ticks" aria-hidden="true"></div>
+        <div id="tempoKnob" class="tempo__knob"></div>
+      </div>
+      <div class="row row--presets">
+        <button class="btn preset" data-bpm="72">72 LENTO</button>
+        <button class="btn preset" data-bpm="96">96 ANDANTE</button>
+        <button class="btn preset" data-bpm="120">120 MODERATO</button>
+        <button class="btn preset" data-bpm="150">150 PRESTO</button>
+        <button id="morphBtn" class="btn btn--red" aria-pressed="false">MORPH: OFF</button>
+      </div>
+    </section>
+
+    <section class="block" aria-label="Share groove">
+      <div class="block__head">
+        <span class="block__num">03</span>
+        <h2 class="block__title">GROOVE LINK</h2>
+        <span class="block__note">LINK ENCODES GRID + TEMPO</span>
+      </div>
+      <p id="linkBox" class="linkbox" title="Click to copy"></p>
+      <div class="row">
+        <button id="copyBtn" class="btn btn--red">COPY GROOVE LINK</button>
+        <span id="linkMsg" class="msg" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>PPP/01 · SWISS GRID EDITION</span>
+      <span>3 INKS: PAPER / BLACK / RED · 1 GESTURE: CLICK</span>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
