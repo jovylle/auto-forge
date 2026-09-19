@@ -1,0 +1,32 @@
+{
+  "slug": "pocket-polyrhythm-park",
+  "title": "Pocket Polyrhythm Park",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "swiss",
+  "theme": "audio",
+  "constraints": [
+    "uses only one interaction type (click OR drag OR type)",
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Tap-grid polyrhythm sequencer",
+      "Layerable WebAudio drum voices",
+      "Tempo morph slider",
+      "Shareable groove link"
+    ],
+    "status": "pass",
+    "summary": "Pocket Polyrhythm Park: Swiss 3-ink click-only polyrhythm toy with 4/3/5 tap grid, synth voices, click tempo track + morph, hash groove links. Smoke-checked (node --check, id refs, no inputs/drag)."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 248072,
+  "at": "2026-09-19T04:19:59.146Z"
+}

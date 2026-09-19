@@ -2031,6 +2031,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "pocket-polyrhythm-park",
+    "title": "Pocket Polyrhythm Park",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "swiss",
+    "theme": "audio",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Tap layered loops to build shifting polyrhythms in a playful pocket park.",
+    "features": [
+      "Tap-grid polyrhythm sequencer",
+      "Layerable WebAudio drum voices",
+      "Tempo morph slider",
+      "Shareable groove link"
+    ],
+    "tags": [
+      "webaudio",
+      "rhythm",
+      "sequencer",
+      "toy"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-19T04:15:35.117Z",
+    "updatedAt": "2026-09-19T04:19:59.143Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 65, done: 64, counts: {"done":64,"needs-human":1} };
+export const stats = { total: 66, done: 65, counts: {"done":65,"needs-human":1} };
