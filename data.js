@@ -2064,6 +2064,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "copper-kite",
+    "title": "Copper Kite",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "steampunk",
+    "theme": "audio",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)",
+      "must react to scroll"
+    ],
+    "description": "Fly a kite that telegraphs the wind.",
+    "features": [
+      "wind sim",
+      "kite canvas",
+      "gust code"
+    ],
+    "tags": [
+      "kite",
+      "wind",
+      "telegraph"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-19T10:26:48.516Z",
+    "updatedAt": "2026-09-19T10:26:57.791Z",
+    "buildPassed": false,
+    "lastError": "scaffold untouched — worker wrote no app code",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 66, done: 65, counts: {"done":65,"needs-human":1} };
+export const stats = { total: 67, done: 65, counts: {"done":65,"needs-human":2} };

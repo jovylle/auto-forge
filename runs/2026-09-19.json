@@ -30,7 +30,23 @@
       },
       "elapsedMs": 248072,
       "at": "2026-09-19T04:19:59.147Z"
+    },
+    {
+      "slug": "copper-kite",
+      "title": "Copper Kite",
+      "stack": "html",
+      "aesthetic": "steampunk",
+      "model": "opencode/muse-spark-1.3-contributor-free",
+      "modelVia": "primary",
+      "verifyLine": null,
+      "buildPassed": false,
+      "verify": {
+        "ok": false,
+        "reason": "scaffold untouched — worker wrote no app code"
+      },
+      "elapsedMs": 4532,
+      "at": "2026-09-19T10:26:57.793Z"
     }
   ],
-  "updatedAt": "2026-09-19T04:19:59.147Z"
+  "updatedAt": "2026-09-19T10:26:57.793Z"
 }
