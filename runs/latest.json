@@ -1,8 +1,8 @@
 {
-  "slug": "fader-fern-playground",
-  "title": "Fader Fern Playground",
+  "slug": "chorus-bloom-box",
+  "title": "Chorus Bloom Box",
   "stack": "html",
-  "aesthetic": "vaporwave",
+  "aesthetic": "bauhaus",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 217878,
-  "at": "2026-09-18T21:03:09.419Z"
+  "elapsedMs": 132175,
+  "at": "2026-09-19T01:04:18.755Z"
 }

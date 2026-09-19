@@ -1,0 +1,4 @@
+/* Chorus Bloom Box — canonical build is self-contained index.html (constraint: single HTML file).
+   This style.css mirrors the inline <style> for reference / alternate loading. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Space+Grotesk:wght@400;600;700&display=swap');
+*{box-sizing:border-box}body{margin:0;background:#F4EFE3;color:#141310;font-family:'Space Grotesk',system-ui,sans-serif}

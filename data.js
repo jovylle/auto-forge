@@ -1999,6 +1999,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "chorus-bloom-box",
+    "title": "Chorus Bloom Box",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "bauhaus",
+    "theme": "audio",
+    "constraints": [
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Paint arpeggios that ripple into glowing blooms with every chord.",
+    "features": [
+      "Click-drag petal sequencer grid",
+      "Live filter and delay blooms",
+      "Generative arpeggio mutations",
+      "One-tap loop record and share"
+    ],
+    "tags": [
+      "webaudio",
+      "arpeggio",
+      "generative",
+      "visualizer"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-19T01:01:58.987Z",
+    "updatedAt": "2026-09-19T01:04:18.752Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 64, done: 63, counts: {"done":63,"needs-human":1} };
+export const stats = { total: 65, done: 64, counts: {"done":64,"needs-human":1} };
