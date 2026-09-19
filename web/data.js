@@ -2158,6 +2158,37 @@ export const projects = [
     "lastError": "scaffold untouched — worker wrote no app code",
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "ice-melt-emkn",
+    "title": "Ice Melt",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "extreme-minimal",
+    "theme": "audio",
+    "constraints": [
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Watch a glacier melt in real time.",
+    "features": [
+      "melt sim",
+      "year scrubber",
+      "sea-level meter"
+    ],
+    "tags": [
+      "climate",
+      "viz",
+      "physics"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-19T22:51:22.915Z",
+    "updatedAt": "2026-09-19T22:51:48.253Z",
+    "buildPassed": false,
+    "lastError": "build failed",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 69, done: 65, counts: {"done":65,"needs-human":4} };
+export const stats = { total: 70, done: 65, counts: {"done":65,"needs-human":5} };
