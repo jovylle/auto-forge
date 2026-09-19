@@ -2127,6 +2127,37 @@ export const projects = [
     "lastError": "scaffold untouched — worker wrote no app code",
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "rust-atlas",
+    "title": "Rust Atlas",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "retro-wave",
+    "theme": "audio",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Log slow decay as a beautiful oxidation map.",
+    "features": [
+      "rust log",
+      "patina viz",
+      "decay export"
+    ],
+    "tags": [
+      "rust",
+      "diary",
+      "canvas"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-19T16:39:10.626Z",
+    "updatedAt": "2026-09-19T16:39:19.584Z",
+    "buildPassed": false,
+    "lastError": "scaffold untouched — worker wrote no app code",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 68, done: 65, counts: {"done":65,"needs-human":3} };
+export const stats = { total: 69, done: 65, counts: {"done":65,"needs-human":4} };

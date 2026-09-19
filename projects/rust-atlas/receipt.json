@@ -2,10 +2,16 @@
   "slug": "rust-atlas",
   "title": "Rust Atlas",
   "stack": "html",
+  "stackReason": "no strong keyword — random",
   "aesthetic": "retro-wave",
+  "theme": "audio",
+  "constraints": [
+    "must work with keyboard only"
+  ],
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": false,
   "verify": {
     "ok": false,
