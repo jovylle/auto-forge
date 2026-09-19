@@ -2,15 +2,22 @@
   "slug": "copper-kite",
   "title": "Copper Kite",
   "stack": "html",
+  "stackReason": "keyword html (generative)",
   "aesthetic": "steampunk",
+  "theme": "audio",
+  "constraints": [
+    "sound on interaction (WebAudio, no assets)",
+    "must react to scroll"
+  ],
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": false,
   "verify": {
     "ok": false,
     "reason": "scaffold untouched — worker wrote no app code"
   },
   "elapsedMs": 4532,
-  "at": "2026-09-19T10:26:57.793Z"
+  "at": "2026-09-19T10:26:57.792Z"
 }
