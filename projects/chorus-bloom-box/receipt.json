@@ -1,0 +1,31 @@
+{
+  "slug": "chorus-bloom-box",
+  "title": "Chorus Bloom Box",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "bauhaus",
+  "theme": "audio",
+  "constraints": [
+    "single HTML file if html stack, single component if vite"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Single-file Bauhaus arpeggio painter: drag-paint 8x16 grid, live filter/delay blooms on canvas, mutate/evolve/invert/retrograde generative controls, one-tap loop record (MediaRecorder) + hash share link. Works from file://.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Click-drag petal sequencer grid",
+      "Live filter and delay blooms",
+      "Generative arpeggio mutations",
+      "One-tap loop record and share"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 132175,
+  "at": "2026-09-19T01:04:18.754Z"
+}
