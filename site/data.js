@@ -2283,6 +2283,37 @@ export const projects = [
     "lastError": "build failed",
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "puddle-atlas-8sxw",
+    "title": "Puddle Atlas",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "audio",
+    "constraints": [
+      "must react to scroll"
+    ],
+    "description": "Map every puddle on your street.",
+    "features": [
+      "puddle log",
+      "rain viz",
+      "evaporation timer"
+    ],
+    "tags": [
+      "maps",
+      "weather",
+      "canvas"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-20T19:18:33.773Z",
+    "updatedAt": "2026-09-20T19:18:54.265Z",
+    "buildPassed": false,
+    "lastError": "build failed",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 73, done: 66, counts: {"done":66,"needs-human":7} };
+export const stats = { total: 74, done: 66, counts: {"done":66,"needs-human":8} };
