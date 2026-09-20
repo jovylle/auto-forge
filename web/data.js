@@ -2221,6 +2221,37 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "manual-placeholder-dark-fantasy"
+  },
+  {
+    "slug": "fog-market-q4yd",
+    "title": "Fog Market",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "pop-art",
+    "theme": "audio",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Trade goods you can barely see.",
+    "features": [
+      "mist stalls",
+      "blind trade",
+      "fog horn"
+    ],
+    "tags": [
+      "fog",
+      "market",
+      "game"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-20T05:32:15.834Z",
+    "updatedAt": "2026-09-20T05:32:26.956Z",
+    "buildPassed": false,
+    "lastError": "scaffold untouched — worker wrote no app code",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 71, done: 66, counts: {"done":66,"needs-human":5} };
+export const stats = { total: 72, done: 66, counts: {"done":66,"needs-human":6} };
