@@ -2,23 +2,25 @@
   "slug": "ghost-antenna-12o7",
   "title": "Ghost Antenna",
   "stack": "vite",
-  "stackReason": "no strong keyword — random",
+  "stackReason": "no strong keyword \u2014 random",
   "aesthetic": "dark-fantasy",
   "theme": "audio",
   "constraints": [
-    "no images — CSS/canvas only",
+    "no images \u2014 CSS/canvas only",
     "3 colors max (plus black/white)"
   ],
-  "model": "opencode/muse-spark-1.3-contributor-free",
-  "modelVia": "primary",
-  "verifyLine": null,
-  "workerResult": null,
-  "buildPassed": false,
-  "verify": {
-    "ok": false,
-    "reason": "build failed",
-    "log": "npm error Missing script: \"build\"\nnpm error\nnpm error To see a list of scripts, run:\nnpm error   npm run\nnpm error A complete log of this run can be found in: /Users/jovyllebermudez/.npm/_logs/2026-09-20T01_01_08_774Z-debug-0.log\n"
+  "model": "manual-placeholder-dark-fantasy",
+  "modelVia": "manual recovery after OpenCode exited without source",
+  "verifyLine": {
+    "build": "pass",
+    "distIndexHtml": true
   },
-  "elapsedMs": 4014,
-  "at": "2026-09-20T01:01:08.846Z"
+  "workerResult": null,
+  "buildPassed": true,
+  "verify": {
+    "ok": true,
+    "reason": "npm run build passed and dist/index.html exists"
+  },
+  "elapsedMs": null,
+  "at": "2026-09-20T01:06:05.311Z"
 }
