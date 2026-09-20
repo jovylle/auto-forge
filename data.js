@@ -2213,14 +2213,14 @@ export const projects = [
       "social",
       "audio"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-20T01:00:48.890Z",
-    "updatedAt": "2026-09-20T01:01:08.845Z",
-    "buildPassed": false,
-    "lastError": "build failed",
+    "updatedAt": "2026-09-20T01:06:05.311Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    "lastModel": "manual-placeholder-dark-fantasy"
   }
 ];
-export const stats = { total: 71, done: 65, counts: {"done":65,"needs-human":6} };
+export const stats = { total: 71, done: 66, counts: {"done":66,"needs-human":5} };
