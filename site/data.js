@@ -2189,6 +2189,38 @@ export const projects = [
     "lastError": "build failed",
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "ghost-antenna-12o7",
+    "title": "Ghost Antenna",
+    "category": "social",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "dark-fantasy",
+    "theme": "audio",
+    "constraints": [
+      "no images — CSS/canvas only",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Leave messages for strangers' radios.",
+    "features": [
+      "message tuner",
+      "static viz",
+      "signal board"
+    ],
+    "tags": [
+      "radio",
+      "social",
+      "audio"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-20T01:00:48.890Z",
+    "updatedAt": "2026-09-20T01:01:08.845Z",
+    "buildPassed": false,
+    "lastError": "build failed",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 70, done: 65, counts: {"done":65,"needs-human":5} };
+export const stats = { total: 71, done: 65, counts: {"done":65,"needs-human":6} };
