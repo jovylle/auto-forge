@@ -2252,6 +2252,37 @@ export const projects = [
     "lastError": "scaffold untouched — worker wrote no app code",
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "inkwell-observatory",
+    "title": "Inkwell Observatory",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "bauhaus",
+    "theme": "audio",
+    "constraints": [
+      "must have an easter egg"
+    ],
+    "description": "Chart star notes from an ink-dark hill.",
+    "features": [
+      "star chart",
+      "night notes",
+      "constellation link"
+    ],
+    "tags": [
+      "stars",
+      "notes",
+      "canvas"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-20T13:07:37.390Z",
+    "updatedAt": "2026-09-20T13:07:58.888Z",
+    "buildPassed": false,
+    "lastError": "build failed",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 72, done: 66, counts: {"done":66,"needs-human":6} };
+export const stats = { total: 73, done: 66, counts: {"done":66,"needs-human":7} };

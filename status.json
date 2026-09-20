@@ -1,8 +1,8 @@
 {
-  "total": 72,
+  "total": 73,
   "counts": {
     "done": 66,
-    "needs-human": 6
+    "needs-human": 7
   },
   "projects": [
     {
@@ -1567,14 +1567,35 @@
       "updatedAt": "2026-09-20T05:32:26.956Z",
       "lastError": "scaffold untouched — worker wrote no app code",
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "inkwell-observatory",
+      "title": "Inkwell Observatory",
+      "status": "needs-human",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "category": "viz",
+      "aesthetic": "bauhaus",
+      "theme": "audio",
+      "constraints": [
+        "must have an easter egg"
+      ],
+      "tags": [
+        "stars",
+        "notes",
+        "canvas"
+      ],
+      "updatedAt": "2026-09-20T13:07:58.888Z",
+      "lastError": "build failed",
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-20T02:24:12.440Z",
-    "lastSlug": "ghost-antenna-12o7"
+    "lastRun": "2026-09-20T05:32:35.523Z",
+    "lastSlug": "fog-market-q4yd"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -1615,5 +1636,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-20T05:32:27.090Z"
+  "updatedAt": "2026-09-20T13:07:59.010Z"
 }
