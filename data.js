@@ -2338,14 +2338,14 @@ export const projects = [
       "radio",
       "night"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-21T01:03:39.631Z",
-    "updatedAt": "2026-09-21T01:03:58.487Z",
-    "buildPassed": false,
-    "lastError": "scaffold untouched — worker wrote no app code",
+    "updatedAt": "2026-09-21T01:20:00.000Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 75, done: 66, counts: {"done":66,"needs-human":9} };
+export const stats = { total: 75, done: 67, counts: {"done":67,"needs-human":8} };
