@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bubble Reverb Arcade — a dark-fantasy loop grimoire</title>
+  <meta name="description" content="Poke bouncing blobs to layer loops, delays, and wobbly pitch-shifted harmonies. Export your jam as WAV." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip" href="#arena">Skip to the blob arena</a>
+  <div class="fog fog-a" aria-hidden="true"></div>
+  <div class="fog fog-b" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div id="abyss-wrap" aria-hidden="true">
+    <div id="abyss-fill"></div>
+    <span id="abyss-label">ABYSS 0%</span>
+  </div>
+
+  <header class="masthead">
+    <p class="eyebrow">✦ &nbsp;the vaulted reliquary presents&nbsp; ✦</p>
+    <h1>Bubble <span class="gold">Reverb</span> Arcade</h1>
+    <p class="sub">Poke bouncing blobs to layer loops, delays, and wobbly pitch-shifted harmonies. Drag a blob to bend its soul. Scroll to descend — the deeper you go, the wetter the reverb.</p>
+    <div class="mast-actions">
+      <button id="btn-awaken" class="btn primary">⚡ Awaken the audio</button>
+      <a class="btn ghost" href="#grimoire">Read the grimoire ↓</a>
+    </div>
+    <p id="audio-state" class="audio-state" role="status">Audio is sleeping. Press <kbd>Enter</kbd> on “Awaken” (or tap any blob).</p>
+  </header>
+
+  <main>
+    <section class="panel arena-panel" aria-labelledby="arena-h">
+      <div class="panel-head">
+        <h2 id="arena-h">The Menagerie <span class="rune">ᛒᚱᚨ</span></h2>
+        <p class="hint">Click / tap a blob to strike it · drag up–down to pitch-bend · <kbd>Tab</kbd> then <kbd>Enter</kbd> works keyboard-only · keys <kbd>1</kbd>–<kbd>6</kbd> strike · <kbd>Shift</kbd>+<kbd>1</kbd>–<kbd>6</kbd> loops</p>
+      </div>
+      <div id="arena" aria-label="Blob arena. Six bouncing blobs.">
+        <!-- blobs injected by app.js -->
+      </div>
+      <div class="arena-foot">
+        <div class="transport">
+          <button id="btn-loops" class="btn small" aria-pressed="false">▶ Start all loops</button>
+          <button id="btn-panic" class="btn small ghost">✕ Silence</button>
+        </div>
+        <p class="scroll-cue" aria-hidden="true">↓ scroll to deepen the abyss ↓</p>
+      </div>
+      <div id="live" class="sr-only" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="grimoire" class="panel" aria-labelledby="ctrl-h">
+      <div class="panel-head">
+        <h2 id="ctrl-h">Grimoire of Echoes</h2>
+        <p class="hint">Every knob is a real key on your keyboard. Nothing needs a mouse.</p>
+      </div>
+      <div class="controls">
+        <div class="ctl">
+          <label for="bpm">Tempo <span id="bpm-v">96</span> BPM <kbd>B</kbd>/<kbd>V</kbd></label>
+          <input id="bpm" type="range" min="60" max="160" value="96" step="1" />
+        </div>
+        <div class="ctl">
+          <label for="delay-time">Delay time <span id="delay-time-v">0.32</span>s <kbd>[</kbd>/<kbd>]</kbd></label>
+          <input id="delay-time" type="range" min="0.05" max="1" value="0.32" step="0.01" />
+        </div>
+        <div class="ctl">
+          <label for="delay-fb">Delay feedback <span id="delay-fb-v">0.42</span> <kbd>;</kbd>/<kbd>'</kbd></label>
+          <input id="delay-fb" type="range" min="0" max="0.85" value="0.42" step="0.01" />
+        </div>
+        <div class="ctl">
+          <label for="reverb">Reverb (scroll deepens it) <span id="reverb-v">0.45</span> <kbd>-</kbd>/<kbd>=</kbd></label>
+          <input id="reverb" type="range" min="0" max="1" value="0.45" step="0.01" />
+        </div>
+        <div class="ctl">
+          <label for="vol">Master volume <span id="vol-v">0.8</span> <kbd>,</kbd>/<kbd>.</kbd></label>
+          <input id="vol" type="range" min="0" max="1" value="0.8" step="0.01" />
+        </div>
+        <div class="ctl">
+          <label for="scale">Scale <kbd>S</kbd> to cycle</label>
+          <select id="scale">
+            <option value="minor">Dusk Minor</option>
+            <option value="dorian">Gargoyle Dorian</option>
+            <option value="phrygian">Crypt Phrygian</option>
+            <option value="major">False-Dawn Major</option>
+          </select>
+        </div>
+      </div>
+      <div class="stack-row">
+        <h3>Stacked loops</h3>
+        <ul id="loop-stack" aria-live="polite"><li class="empty">No loops bound. Focus a blob, press <kbd>L</kbd> — or <kbd>Shift</kbd>+<kbd>1</kbd>…<kbd>6</kbd>.</li></ul>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="rite-h">
+      <div class="panel-head">
+        <h2 id="rite-h">The Sealing Rite <span class="rune">ᛊᛖᚨᛚ</span></h2>
+        <p class="hint">Record everything you strike, then seal it into a <strong>.wav</strong> reliquary. <kbd>C</kbd> records · <kbd>X</kbd> exports.</p>
+      </div>
+      <div class="rite-row">
+        <button id="btn-record" class="btn primary" aria-pressed="false">● Begin rite (record)</button>
+        <button id="btn-export" class="btn gold">⬇ Seal &amp; export WAV</button>
+      </div>
+      <p id="rite-status" role="status">No rite in progress. Your strikes will be chronicled once you begin.</p>
+      <ol class="rite-steps">
+        <li>Awaken the audio.</li>
+        <li>Begin the rite, poke blobs, bind loops.</li>
+        <li>Seal &amp; export — a <code>bubble-reverb-jam.wav</code> descends.</li>
+      </ol>
+    </section>
+
+    <section class="panel lore" aria-labelledby="lore-h">
+      <div class="panel-head">
+        <h2 id="lore-h">Descent — how scroll sorcery works</h2>
+        <p class="hint">Keep scrolling. The arena listens.</p>
+      </div>
+      <div class="lore-grid">
+        <article><h3>I. The Shallows</h3><p>Near the top the air is dry — short delays, shy reverb, lazy blobs. A music-box for cautious monks.</p></article>
+        <article><h3>II. The Mist</h3><p>Halfway down, the fog thickens. Scroll position feeds the low-pass filter and the reverb wet. Blobs grow restless and bounce harder.</p></article>
+        <article><h3>III. The Abyss</h3><p>At the bottom, every note drowns beautifully. Delay tails stretch, pitch wobbles like candlelight. Export from down here for maximum doom.</p></article>
+      </div>
+      <div class="spacer" aria-hidden="true"><span>❖</span><span>❖</span><span>❖</span></div>
+      <article class="crypt-note">
+        <h3>Keyboard-only pilgrims, this is for you</h3>
+        <ul>
+          <li><kbd>Tab</kbd> moves · <kbd>Enter</kbd>/<kbd>Space</kbd> strikes the focused blob</li>
+          <li><kbd>↑</kbd><kbd>↓</kbd> (or <kbd>←</kbd><kbd>→</kbd>) bends the focused blob ±1 semitone</li>
+          <li><kbd>L</kbd> binds / releases the focused blob's loop</li>
+          <li><kbd>1</kbd>–<kbd>6</kbd> strike · <kbd>Shift</kbd>+<kbd>1</kbd>–<kbd>6</kbd> toggles loops</li>
+          <li><kbd>C</kbd> record · <kbd>X</kbd> export WAV · <kbd>P</kbd> start/stop loops · <kbd>0</kbd> silence</li>
+        </ul>
+      </article>
+      <div class="spacer" aria-hidden="true"><span>▼</span></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Bubble Reverb Arcade · a single-serving WebAudio toy · no network, no build — works from <code>file://</code> · your bindings persist in <code>localStorage</code>.</p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

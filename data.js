@@ -2442,6 +2442,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "bubble-reverb-arcade",
+    "title": "Bubble Reverb Arcade",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "dark-fantasy",
+    "theme": "audio",
+    "constraints": [
+      "must react to scroll",
+      "must work with keyboard only"
+    ],
+    "description": "Poke bouncing blobs to layer loops, delays, and wobbly pitch-shifted harmonies.",
+    "features": [
+      "tap blobs to trigger samples",
+      "stack loops with live delay",
+      "pitch-bend by dragging blobs",
+      "export your jam as wav"
+    ],
+    "tags": [
+      "webaudio",
+      "loops",
+      "samples",
+      "toy"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-21T21:06:03.695Z",
+    "updatedAt": "2026-09-21T21:14:29.692Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 78, done: 68, counts: {"done":68,"needs-human":10} };
+export const stats = { total: 79, done: 69, counts: {"done":69,"needs-human":10} };
