@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tape Loop Garden — a steampunk ambient conservatory</title>
+  <meta name="description" content="Plant draggable tape-loop seeds, bend stems for pitch and pan, summon rain to mutate rhythms, and engrave your mix to share." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="fog" id="fog" aria-hidden="true"></div>
+  <div class="rain-layer" id="rainLayer" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="gear gear-a" aria-hidden="true">⚙</div>
+    <div class="gear gear-b" aria-hidden="true">⚙</div>
+    <div class="plate">
+      <p class="kicker">The Aetheric Horticultural Society presents</p>
+      <h1>Tape Loop Garden</h1>
+      <p class="sub">Overgrown tape loops you <em>plant</em>, <em>prune</em>, and <em>crossfade</em> into ambient rhythms.</p>
+      <div class="header-row">
+        <button id="powerBtn" class="btn btn-big" aria-pressed="false">⚙ St Guthrie the Boiler</button>
+        <div class="pressure" title="Boiler pressure follows your scroll">
+          <span class="pressure-label">Boiler <span id="pressureVal">0</span>%</span>
+          <span class="pressure-tube"><span class="pressure-fill" id="pressureFill"></span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- SEED TRAY -->
+    <section class="panel tray-panel" aria-label="Seed tray">
+      <h2><span class="rivet"></span>Seed Tray — drag a seed into the bed<span class="rivet"></span></h2>
+      <div class="tray" id="seedTray">
+        <button class="seed" data-seed="bass" draggable="false">
+          <span class="seed-reel">◉</span>
+          <span class="seed-name">Bass Reel</span>
+          <span class="seed-hint">low &amp; loamy</span>
+        </button>
+        <button class="seed" data-seed="chime" draggable="false">
+          <span class="seed-reel">◎</span>
+          <span class="seed-name">Chime Spool</span>
+          <span class="seed-hint">bright brass bells</span>
+        </button>
+        <button class="seed" data-seed="hiss" draggable="false">
+          <span class="seed-reel">◍</span>
+          <span class="seed-name">Hiss Valve</span>
+          <span class="seed-hint">steam percussion</span>
+        </button>
+        <button class="seed" data-seed="thump" draggable="false">
+          <span class="seed-reel">⬢</span>
+          <span class="seed-name">Piston Drum</span>
+          <span class="seed-hint">engine heartbeat</span>
+        </button>
+      </div>
+      <p class="tip">Tap a seed to plant it · drag a planted stem <strong>up/down</strong> for pitch, <strong>left/right</strong> for pan · double-tap a plant to prune it.</p>
+    </section>
+
+    <!-- GARDEN BED -->
+    <section class="panel bed-panel" aria-label="Garden bed">
+      <h2><span class="rivet"></span>The Overgrown Bed<span class="rivet"></span></h2>
+      <div class="bed-wrap">
+        <div id="bed" class="bed" aria-label="Garden bed. Planted loops live here.">
+          <div class="bed-empty" id="bedEmpty">The soil hums, empty.<br />Plant a seed to begin the overture.</div>
+        </div>
+        <div class="bed-legend">
+          <span>◀ pan L</span><span>pan R ▶</span><span>▲ pitch +</span><span>pitch − ▼</span>
+        </div>
+      </div>
+      <div class="readout" id="readout" role="status" aria-live="polite">No plants yet. The boiler is cold.</div>
+    </section>
+
+    <!-- CONSOLE -->
+    <section class="panel console-panel" aria-label="Mixing console">
+      <h2><span class="rivet"></span>Engine Room Console<span class="rivet"></span></h2>
+      <div class="console-grid">
+        <label class="dial">
+          <span>Tempo <b id="tempoVal">96</b> BPM</span>
+          <input id="tempo" type="range" min="60" max="140" value="96" />
+        </label>
+        <label class="dial">
+          <span>Crossfade A ⇄ B <b id="xfVal">50</b></span>
+          <input id="crossfade" type="range" min="0" max="100" value="50" />
+        </label>
+        <label class="dial">
+          <span>Aether (delay) <b id="wetVal">25</b>%</span>
+          <input id="wet" type="range" min="0" max="80" value="25" />
+        </label>
+        <div class="console-btns">
+          <button id="rainBtn" class="btn" aria-pressed="false">🌧 Summon Rain</button>
+          <button id="pruneBtn" class="btn btn-danger">✂ Prune All</button>
+        </div>
+      </div>
+      <div class="record-row">
+        <button id="recBtn" class="btn btn-big btn-record" aria-pressed="false">● Engrave Mix (one tap)</button>
+        <div class="share-row">
+          <button id="dlBtn" class="btn" disabled>⬇ Download engraving</button>
+          <button id="shareBtn" class="btn" disabled>✉ Share mix</button>
+          <button id="copyBtn" class="btn">⧉ Copy garden link</button>
+        </div>
+        <audio id="playback" controls hidden></audio>
+        <p class="tip" id="recStatus">Tap “Engrave Mix” once to start the phonograph, tap again to stop — then download or share.</p>
+      </div>
+    </section>
+
+    <!-- SCROLL CHRONICLE -->
+    <section class="panel chronicle" aria-label="Gardener's chronicle">
+      <h2><span class="rivet"></span>Gardener’s Chronicle — scroll to stoke the boiler<span class="rivet"></span></h2>
+      <p class="tip">Scrolling this page raises boiler pressure: the master filter opens, the fog thins, and the gears spin faster. Scroll back down to drowse the garden into a low muffled hum.</p>
+      <div class="entries">
+        <article class="entry reveal"><h3>I. Sowing</h3><p>Every reel is wound by hand in the potting shed. Bass Reels root deepest; Chime Spools flower only when crossfaded against their neighbours.</p></article>
+        <article class="entry reveal"><h3>II. Training the stems</h3><p>A stem pulled skyward sings sharper; one trained toward the evening window drifts right of ear. Prune without mercy — the compost remembers every rhythm.</p></article>
+        <article class="entry reveal"><h3>III. On rain</h3><p>Rain is the garden’s editor. It rusts some steps shut and oils others open. Purists cover their reels; the wise leave them out and transcribe what the storm writes.</p></article>
+        <article class="entry reveal"><h3>IV. The phonograph</h3><p>One tap of the ruby stylus engraves whatever the wind is playing. Carry the wax cylinder home, or post the garden’s coordinates to a friend — their bed will bloom exactly as yours stood.</p></article>
+      </div>
+      <div class="step-grid" id="stepGrid" aria-label="Live rhythm notation"></div>
+    </section>
+
+    <footer class="foot">
+      <p>Tape Loop Garden · wound with WebAudio, no samples · your garden persists in this browser · <span id="plantCount">0</span> reels planted</p>
+    </footer>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

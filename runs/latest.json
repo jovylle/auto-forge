@@ -1,16 +1,15 @@
 {
-  "slug": "fog-market-mist-trading",
-  "title": "Fog Market — mist trading",
+  "slug": "tape-loop-garden",
+  "title": "Tape Loop Garden",
   "stack": "html",
-  "aesthetic": "organic-brutalist",
+  "aesthetic": "steampunk",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
-  "buildPassed": false,
+  "buildPassed": true,
   "verify": {
-    "ok": false,
-    "reason": "scaffold untouched — worker wrote no app code"
+    "ok": true
   },
-  "elapsedMs": 9671,
-  "at": "2026-09-21T08:31:47.574Z"
+  "elapsedMs": 342823,
+  "at": "2026-09-21T14:48:00.863Z"
 }
