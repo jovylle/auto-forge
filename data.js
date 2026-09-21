@@ -2339,9 +2339,9 @@ export const projects = [
       "night"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-21T01:03:39.631Z",
-    "updatedAt": "2026-09-21T01:20:00.000Z",
+    "updatedAt": "2026-09-21T01:40:04.000Z",
     "buildPassed": true,
     "lastError": null,
     "retries": 1,
