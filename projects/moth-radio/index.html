@@ -2,16 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Moth Radio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090909" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23090909'/%3E%3Cpath d='M16 8l3 7 7 1-7 1-3 7-3-7-7-1 7-1z' fill='%23e4a83e'/%3E%3C/svg%3E" />
+  <title>Moth Radio — night signals</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main id="app">
-    <h1>Moth Radio</h1>
-    <p class="sub">Trade night signals with fellow moths.</p>
-    <div id="stage"></div>
+  <button id="moon" class="moon" type="button" aria-label="Watch the lunar relay">○</button>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <p class="eyebrow">MOTH / RADIO / 夜</p>
+    <p class="issue">NIGHT RELAY · ISSUE <span id="issueNo">01</span></p>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="title">
+      <div>
+        <p class="kicker">A quiet social instrument</p>
+        <h1 id="title">Moth<br /><em>Radio</em></h1>
+      </div>
+      <p class="lede">Tune the night. Leave a signal for strangers. Watch the swarm answer in light.</p>
+    </section>
+
+    <section class="dial-panel" aria-labelledby="dial-title">
+      <div class="section-label">
+        <p id="dial-title">01 — Night dial</p>
+        <output id="hourReadout" for="dial">21:00</output>
+      </div>
+      <div id="dial" class="dial" role="radiogroup" aria-label="Choose a night hour"></div>
+      <p class="hint">The swarm changes with every hour. Select a time before sending.</p>
+    </section>
+
+    <section class="trade-panel" aria-labelledby="trade-title">
+      <div class="section-label">
+        <p id="trade-title">02 — Signal trade</p>
+        <span class="count"><strong id="signalCount">00</strong> stored</span>
+      </div>
+      <div class="composer">
+        <label for="signal">Leave one short transmission</label>
+        <textarea id="signal" maxlength="90" rows="3" placeholder="e.g. The fog tastes like lanterns tonight."></textarea>
+        <button id="send" type="button">Send signal <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="trade-columns">
+        <div class="log" aria-live="polite">
+          <p class="panel-title">Your transmissions</p>
+          <ol id="sentSignals"></ol>
+        </div>
+        <div class="log incoming">
+          <p class="panel-title">Swarm echoes</p>
+          <ol id="echoes"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="swarm-panel" aria-labelledby="swarm-title">
+      <div class="section-label">
+        <p id="swarm-title">03 — Swarm board</p>
+        <span id="activeCount">00 moths awake</span>
+      </div>
+      <p class="hint">Choose a moth to trade a signal. Lit cells are tuned to this hour.</p>
+      <div id="swarm" class="swarm" role="list" aria-label="Moth swarm"></div>
+    </section>
   </main>
+
+  <footer>
+    <p>Signals stay in this browser. No network, no accounts, no noise.</p>
+    <p>Press <kbd>L</kbd> for the lunar relay.</p>
+  </footer>
+
+  <div id="lunar" class="lunar" role="status" aria-live="polite" aria-hidden="true">
+    <div class="moon-cluster" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <p>LUNAR RELAY OPEN</p>
+    <span>The moths are carrying your light.</span>
+  </div>
+
   <script type="module" src="./app.js"></script>
 </body>
 </html>

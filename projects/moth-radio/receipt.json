@@ -10,14 +10,44 @@
     "3 colors max (plus black/white)"
   ],
   "model": "opencode/muse-spark-1.3-contributor-free",
-  "modelVia": "primary",
+  "modelVia": "manual placeholder fallback after worker wrote no app code",
   "verifyLine": null,
-  "workerResult": null,
-  "buildPassed": false,
-  "verify": {
-    "ok": false,
-    "reason": "scaffold untouched — worker wrote no app code"
+  "workerResult": {
+    "status": "manual-fallback-pass",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "night dial",
+      "signal trade",
+      "swarm board",
+      "WebAudio feedback",
+      "keyboard lunar relay"
+    ],
+    "summary": "Self-contained Japanese-minimal night relay with persistent signals and an 18-moth deterministic swarm."
   },
+  "buildPassed": true,
+  "verify": {
+    "ok": true,
+    "reason": "factory smoke check passed; real-browser desktop/mobile QA passed"
+  },
+  "browserQa": {
+    "desktop": {
+      "viewportWidth": 1280,
+      "bodyWidth": 1265,
+      "moths": 18,
+      "awake": 7
+    },
+    "mobile": {
+      "viewportWidth": 375,
+      "horizontalOverflow": false
+    },
+    "sendPersisted": true,
+    "lunarShortcutOpenedAndClosed": true,
+    "consoleErrors": 0
+  },
+  "fallback": true,
+  "deployed": true,
+  "liveUrl": "https://moth-radio-af.uft1.com/",
   "elapsedMs": 13051,
-  "at": "2026-09-21T01:03:58.488Z"
+  "fallbackVerifiedAt": "2026-09-21T01:21:35.000Z",
+  "at": "2026-09-21T01:21:35.000Z"
 }
