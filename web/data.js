@@ -2409,6 +2409,39 @@ export const projects = [
     "lastError": "scaffold untouched — worker wrote no app code",
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "tape-loop-garden",
+    "title": "Tape Loop Garden",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "steampunk",
+    "theme": "audio",
+    "constraints": [
+      "single HTML file if html stack, single component if vite",
+      "must react to scroll"
+    ],
+    "description": "Overgrown tape loops you plant, prune, and crossfade into ambient rhythms.",
+    "features": [
+      "plant draggable loop seeds",
+      "drag stems to pitch and pan",
+      "rain mode mutates rhythms",
+      "one-tap mix record and share"
+    ],
+    "tags": [
+      "webaudio",
+      "loops",
+      "ambient",
+      "toy"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-21T14:42:04.751Z",
+    "updatedAt": "2026-09-21T14:48:00.858Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 77, done: 67, counts: {"done":67,"needs-human":10} };
+export const stats = { total: 78, done: 68, counts: {"done":68,"needs-human":10} };
