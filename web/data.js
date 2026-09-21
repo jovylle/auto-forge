@@ -2377,6 +2377,38 @@ export const projects = [
     "lastError": "scaffold untouched — worker wrote no app code",
     "retries": 2,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "fog-market-mist-trading",
+    "title": "Fog Market — mist trading",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "organic-brutalist",
+    "theme": "audio",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)",
+      "must react to scroll"
+    ],
+    "description": "Fog Market — mist trading",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "fog",
+      "market",
+      "game"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-21T08:31:21.582Z",
+    "updatedAt": "2026-09-21T08:31:47.572Z",
+    "buildPassed": false,
+    "lastError": "scaffold untouched — worker wrote no app code",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 76, done: 67, counts: {"done":67,"needs-human":9} };
+export const stats = { total: 77, done: 67, counts: {"done":67,"needs-human":10} };
