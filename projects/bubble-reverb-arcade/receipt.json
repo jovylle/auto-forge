@@ -1,0 +1,32 @@
+{
+  "slug": "bubble-reverb-arcade",
+  "title": "Bubble Reverb Arcade",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "dark-fantasy",
+  "theme": "audio",
+  "constraints": [
+    "must react to scroll",
+    "must work with keyboard only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Dark-fantasy blob loop toy: 6 synth voices, drag pitch-bend, loop stacker with live delay/reverb, scroll-driven abyss, full keyboard map, offline WAV export.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "tap blobs to trigger samples",
+      "stack loops with live delay",
+      "pitch-bend by dragging blobs",
+      "export your jam as wav"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 477426,
+  "at": "2026-09-21T21:14:29.696Z"
+}
