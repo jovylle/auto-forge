@@ -1658,8 +1658,8 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-21T01:04:31.150Z",
-    "lastSlug": "moth-radio"
+    "lastRun": "2026-09-21T01:29:36.709Z",
+    "lastSlug": "dune-switch"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -1700,5 +1700,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-21T01:29:28.300Z"
+  "updatedAt": "2026-09-21T01:34:40.145Z"
 }
