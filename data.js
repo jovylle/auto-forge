@@ -2372,10 +2372,10 @@ export const projects = [
     "status": "needs-human",
     "deployed": false,
     "createdAt": "2026-09-21T01:29:09.643Z",
-    "updatedAt": "2026-09-21T01:29:28.147Z",
+    "updatedAt": "2026-09-21T02:22:58.257Z",
     "buildPassed": false,
     "lastError": "scaffold untouched — worker wrote no app code",
-    "retries": 1,
+    "retries": 2,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
