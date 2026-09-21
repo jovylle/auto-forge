@@ -2314,6 +2314,38 @@ export const projects = [
     "lastError": "build failed",
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "moth-radio",
+    "title": "Moth Radio",
+    "category": "social",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "japanese-minimal",
+    "theme": "audio",
+    "constraints": [
+      "must have an easter egg",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Trade night signals with fellow moths.",
+    "features": [
+      "night dial",
+      "signal trade",
+      "swarm board"
+    ],
+    "tags": [
+      "moth",
+      "radio",
+      "night"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-21T01:03:39.631Z",
+    "updatedAt": "2026-09-21T01:03:58.487Z",
+    "buildPassed": false,
+    "lastError": "scaffold untouched — worker wrote no app code",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 74, done: 66, counts: {"done":66,"needs-human":8} };
+export const stats = { total: 75, done: 66, counts: {"done":66,"needs-human":9} };

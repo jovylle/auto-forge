@@ -2,10 +2,17 @@
   "slug": "moth-radio",
   "title": "Moth Radio",
   "stack": "html",
+  "stackReason": "no strong keyword — random",
   "aesthetic": "japanese-minimal",
+  "theme": "audio",
+  "constraints": [
+    "must have an easter egg",
+    "3 colors max (plus black/white)"
+  ],
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
+  "workerResult": null,
   "buildPassed": false,
   "verify": {
     "ok": false,
