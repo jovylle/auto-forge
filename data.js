@@ -2475,6 +2475,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "velvet-metronome-club",
+    "title": "Velvet Metronome Club",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "pop-art",
+    "theme": "audio",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "Layer humming loops into evolving choir chords with tap tempo.",
+    "features": [
+      "4-track hum looper with WebAudio filters",
+      "Tap tempo and swing slider",
+      "One-click choir chord presets",
+      "Export loop as WAV"
+    ],
+    "tags": [
+      "webaudio",
+      "looper",
+      "voice",
+      "rhythm"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-21T21:32:33.635Z",
+    "updatedAt": "2026-09-21T21:42:28.640Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 79, done: 69, counts: {"done":69,"needs-human":10} };
+export const stats = { total: 80, done: 70, counts: {"done":70,"needs-human":10} };

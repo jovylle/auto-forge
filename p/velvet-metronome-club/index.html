@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Velvet Metronome Club — Hum Looper Choir</title>
+  <meta name="description" content="Layer humming loops into evolving choir chords with tap tempo. A pop-art WebAudio toy." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="halftone-bg" aria-hidden="true"></div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-inner">
+      <span>HUM! ★ LOOP! ★ SWING! ★ SING! ★ HUM! ★ LOOP! ★ SWING! ★ SING! ★&nbsp;</span>
+      <span>HUM! ★ LOOP! ★ SWING! ★ SING! ★ HUM! ★ LOOP! ★ SWING! ★ SING! ★&nbsp;</span>
+    </div>
+  </div>
+
+  <main id="app">
+    <header class="hero">
+      <div class="burst" aria-hidden="true"><span>WOW!</span></div>
+      <p class="kicker">The Velvet Metronome Club presents</p>
+      <h1>VELVET<br /><span class="outline">METRONOME</span> CLUB</h1>
+      <p class="sub">Layer humming loops into an evolving choir. Tap the tempo, swing it, preset the chord — then export your loop as WAV.</p>
+      <div class="hero-actions">
+        <button id="btnPower" class="btn btn-big">🔊 START THE CLUB</button>
+        <button id="btnPlay" class="btn btn-big btn-y" disabled>▶ PLAY LOOP</button>
+      </div>
+      <p id="audioHint" class="hint">Audio starts on click (browsers demand it). Works best with headphones + a mic — but the built-in hum synth sings even with no mic.</p>
+    </header>
+
+    <section class="panel tempo-panel" aria-label="Tempo and groove">
+      <h2><span class="tag">01</span> TEMPO &amp; GROOVE</h2>
+      <div class="tempo-grid">
+        <div class="bpm-box">
+          <div id="bpmReadout" class="bpm-num">96</div>
+          <div class="bpm-lbl">BPM</div>
+          <div id="beatDots" class="beat-dots" aria-hidden="true">
+            <i class="on"></i><i></i><i></i><i></i>
+          </div>
+        </div>
+        <div class="tempo-controls">
+          <button id="btnTap" class="btn btn-tap" disabled>TAP<br />TEMPO</button>
+          <div class="sliders">
+            <label class="slider-row">Swing <b id="swingVal">12%</b>
+              <input id="swing" type="range" min="0" max="60" value="12" />
+            </label>
+            <label class="slider-row">Loop <b id="barsVal">2 bars</b>
+              <input id="bars" type="range" min="1" max="4" step="1" value="2" />
+            </label>
+            <label class="check-row"><input id="clickOn" type="checkbox" checked /> <span>Metronome click</span></label>
+          </div>
+        </div>
+      </div>
+      <canvas id="scope" width="640" height="140" aria-label="Loop visualizer"></canvas>
+    </section>
+
+    <section class="panel" aria-label="Choir chord presets">
+      <h2><span class="tag">02</span> ONE-CLICK CHOIR CHORDS</h2>
+      <div id="presets" class="preset-row" role="group" aria-label="Chord presets"></div>
+      <p class="hint">A preset tunes all four hum synths to a chord. Then press PLAY and layer your own voice on top.</p>
+    </section>
+
+    <section class="panel" aria-label=" Hum tracks">
+      <h2><span class="tag">03</span> FOUR HUM TRACKS</h2>
+      <div id="tracks" class="tracks"></div>
+    </section>
+
+    <section class="panel" aria-label="Export">
+      <h2><span class="tag">04</span> TAKE IT HOME</h2>
+      <div class="export-row">
+        <button id="btnWav" class="btn btn-big btn-y" disabled>⬇ EXPORT LOOP AS WAV</button>
+        <p class="hint">Renders one full loop (synths + your mic layers, no click) to a 16-bit WAV download.</p>
+      </div>
+      <p id="status" class="status" role="status">Idle. Hit START THE CLUB.</p>
+    </section>
+
+    <footer class="foot">
+      <p>★ Velvet Metronome Club ★ no images were harmed — CSS + canvas only ★</p>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
