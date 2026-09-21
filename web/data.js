@@ -2338,14 +2338,45 @@ export const projects = [
       "radio",
       "night"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-21T01:03:39.631Z",
-    "updatedAt": "2026-09-21T01:03:58.487Z",
+    "updatedAt": "2026-09-21T01:20:00.000Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "dune-switch",
+    "title": "Dune Switch",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "audio",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Flip desert relays before the storm hits.",
+    "features": [
+      "relay grid",
+      "storm timer",
+      "caravan score"
+    ],
+    "tags": [
+      "dune",
+      "relays",
+      "game"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-21T01:29:09.643Z",
+    "updatedAt": "2026-09-21T01:29:28.147Z",
     "buildPassed": false,
     "lastError": "scaffold untouched — worker wrote no app code",
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 75, done: 66, counts: {"done":66,"needs-human":9} };
+export const stats = { total: 76, done: 67, counts: {"done":67,"needs-human":9} };
