@@ -2339,9 +2339,9 @@ export const projects = [
       "night"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-21T01:03:39.631Z",
-    "updatedAt": "2026-09-21T01:20:00.000Z",
+    "updatedAt": "2026-09-21T01:40:04.000Z",
     "buildPassed": true,
     "lastError": null,
     "retries": 1,
@@ -2372,10 +2372,10 @@ export const projects = [
     "status": "needs-human",
     "deployed": false,
     "createdAt": "2026-09-21T01:29:09.643Z",
-    "updatedAt": "2026-09-21T01:29:28.147Z",
+    "updatedAt": "2026-09-21T02:22:58.257Z",
     "buildPassed": false,
     "lastError": "scaffold untouched — worker wrote no app code",
-    "retries": 1,
+    "retries": 2,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
