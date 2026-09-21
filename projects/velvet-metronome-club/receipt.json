@@ -1,0 +1,31 @@
+{
+  "slug": "velvet-metronome-club",
+  "title": "Velvet Metronome Club",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "pop-art",
+  "theme": "audio",
+  "constraints": [
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "4-track hum looper with WebAudio filters",
+      "tap tempo and swing slider",
+      "one-click choir chord presets",
+      "export loop as WAV"
+    ],
+    "status": "pass",
+    "summary": "Velvet Metronome Club: pop-art 4-track hum looper (synth + quantized mic layers, per-track vowel/formant filters, drop-in beats, mute/solo), tap tempo with swung click and beat visualizer, 5 one-click choir chord presets, offline-rendered WAV export. No images, works from file://."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 534947,
+  "at": "2026-09-21T21:42:28.646Z"
+}
