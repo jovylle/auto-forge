@@ -1,8 +1,8 @@
 {
-  "slug": "glass-arp-playground",
-  "title": "Glass Arp Playground",
+  "slug": "copper-kite-v2g4",
+  "title": "Copper Kite",
   "stack": "html",
-  "aesthetic": "japanese-minimal",
+  "aesthetic": "japanese-cyberpunk",
   "model": "opencode-go/muse-spark-1.3-contributor",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 144635,
-  "at": "2026-09-22T10:16:57.644Z"
+  "elapsedMs": 146597,
+  "at": "2026-09-22T16:25:44.530Z"
 }

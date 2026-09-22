@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Copper Kite — 銅凧 | wind telegraph</title>
+<meta name="description" content="Fly a kite that telegraphs the wind. A japanese-cyberpunk wind sim + kite canvas + gust-code ticker." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="brand">
+    <span class="kanji" aria-hidden="true">銅凧</span>
+    <span class="brand-text">
+      <strong>COPPER KITE</strong>
+      <em>wind → wire → kana</em>
+    </span>
+  </div>
+  <div class="hud" role="status" aria-live="polite">
+    <div class="hud-item"><label>風 WIND</label><b id="windSpeed">4.2 m/s</b></div>
+    <div class="hud-item"><label>向 DIR</label><b id="windDir">東 E</b></div>
+    <div class="hud-item"><label>突風 GUSTS</label><b id="gustCount">0</b></div>
+    <div class="hud-item"><label>受信 RX</label><b id="lastKana">—</b></div>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="stage-wrap">
+    <div class="stage-head">
+      <span class="pill">電信凧 LIVE SKY</span>
+      <span class="hint">drag sky = steer gust · <kbd>G</kbd> = pump · <kbd>←→</kbd> = trim</span>
+    </div>
+    <canvas id="sky" width="960" height="600" aria-label="Kite canvas. Drag to steer the kite through the wind."></canvas>
+    <div class="ticker" aria-label="Telegraph ticker">
+      <span class="ticker-label">電文</span>
+      <div class="ticker-view"><span id="tickerText">… listening to the wind …</span></div>
+      <button id="copyBtn" class="mini-btn" type="button">COPY</button>
+    </div>
+  </section>
+
+  <aside class="panel">
+    <h1>Fly a kite that <span>telegraphs</span> the wind.</h1>
+    <p class="lede">Every gust runs down the copper string as dots <b>・</b> and dashes <b>ー</b>, decoded into katakana on the wire. Hold a gust to write a word.</p>
+
+    <div class="controls">
+      <div class="ctl">
+        <label for="baseWind">Base wind <output id="baseWindOut">12</output></label>
+        <input id="baseWind" type="range" min="0" max="30" value="12" />
+      </div>
+      <div class="ctl">
+        <label for="turb">Turbulence 乱 <output id="turbOut">55</output></label>
+        <input id="turb" type="range" min="0" max="100" value="55" />
+      </div>
+      <div class="ctl">
+        <label for="dir">Direction 向き <output id="dirOut">90°</output></label>
+        <input id="dir" type="range" min="0" max="360" value="90" />
+      </div>
+      <div class="btnrow">
+        <button id="gustBtn" type="button" class="gust">⚡ GUST 突風</button>
+        <button id="autoBtn" type="button" class="ghost" aria-pressed="true">AUTO: ON</button>
+        <button id="clearBtn" type="button" class="ghost">CLEAR</button>
+      </div>
+    </div>
+
+    <h2>受信ログ <span>transmissions</span></h2>
+    <ol id="log" class="log" aria-live="polite"></ol>
+    <p class="foot">銅 wire · canvas only · saved locally · <span id="saveState">saved ✓</span></p>
+  </aside>
+</main>
+
+<footer class="vert" aria-hidden="true">カッパー・カイト — デンシン・スカイ — COPPER WIRE SKY — 2026</footer>
+
+<script src="./app.js" defer></script>
+</body>
+</html>
