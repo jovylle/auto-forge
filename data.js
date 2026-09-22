@@ -2507,6 +2507,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "static-bloom-choir",
+    "title": "Static Bloom Choir",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "cyberpunk",
+    "theme": "audio",
+    "constraints": [
+      "no external fonts — system fonts only",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Loopable petal synths bloom into ambient choirs you conduct by dragging.",
+    "features": [
+      "drag petals to pitch-shift voices",
+      "tap rhythm to seed bloom patterns",
+      "layer WebAudio choir pads",
+      "export 8-second lullaby loops"
+    ],
+    "tags": [
+      "webaudio",
+      "ambient",
+      "toy",
+      "loops"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-22T01:04:27.144Z",
+    "updatedAt": "2026-09-22T01:11:44.730Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 80, done: 70, counts: {"done":70,"needs-human":10} };
+export const stats = { total: 81, done: 71, counts: {"done":71,"needs-human":10} };
