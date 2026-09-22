@@ -2540,6 +2540,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "wobble-drum-picnic",
+    "title": "Wobble Drum Picnic",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "biomorphic",
+    "theme": "audio",
+    "constraints": [
+      "must have an easter egg"
+    ],
+    "description": "Tap tiles to layer wobbly drum loops into goofy polyrhythms.",
+    "features": [
+      "tap pad to trigger drums",
+      "stack loops into polyrhythms",
+      "wobble pitch-bend slider",
+      "shareable beat link"
+    ],
+    "tags": [
+      "webaudio",
+      "rhythm",
+      "drums",
+      "playful"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-22T03:55:18.892Z",
+    "updatedAt": "2026-09-22T03:57:48.545Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 81, done: 71, counts: {"done":71,"needs-human":10} };
+export const stats = { total: 82, done: 72, counts: {"done":72,"needs-human":10} };
