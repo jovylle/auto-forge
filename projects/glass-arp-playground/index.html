@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Glass Arp Playground — 硝子アルペジオ</title>
+  <meta name="description" content="Tap glass tiles to weave pentatonic arps with shimmering delay trails." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="wash" aria-hidden="true"></canvas>
+
+  <div class="page">
+    <header class="masthead">
+      <div class="v-text" aria-hidden="true">硝子アルペジオ</div>
+      <div class="mast-main">
+        <p class="kicker"><span class="seal"> glass </span> generative toy · webaudio · no assets</p>
+        <h1>Glass Arp <em>Playground</em></h1>
+        <p class="sub">Tap glass tiles to weave pentatonic arps with shimmering delay trails. Sixteen steps, one brush of echo.</p>
+        <div class="scale-line">
+          <div class="scale-now">
+            <span class="scale-kanji" id="scaleKanji">陽</span>
+            <span class="scale-meta"><strong id="scaleName">Yo Pentatonic</strong><small id="scaleNotes">C · D · E · G · A</small></span>
+          </div>
+          <button id="btnScale" class="btn btn-vermilion" type="button" title="Pick a new root + scale">🎲 new scale <small>一期一会</small></button>
+        </div>
+      </div>
+      <div class="v-text v-right" aria-hidden="true">一期一会</div>
+    </header>
+
+    <main id="app">
+      <section class="panel transport" aria-label="Transport">
+        <button id="btnPlay" class="btn btn-ink btn-play" type="button" aria-pressed="false">
+          <span class="glyph" id="playGlyph">▶</span><span id="playLabel">play 演奏</span>
+        </button>
+        <button id="btnClear" class="btn btn-ghost" type="button">clear</button>
+        <button id="btnDemo" class="btn btn-ghost" type="button">demo pattern</button>
+        <div class="steps-readout" aria-live="polite"><span id="activeCount">4</span> tiles lit · <span id="stepReadout">step –</span></div>
+      </section>
+
+      <section class="panel board-wrap" aria-label="Arpeggiator tiles">
+        <div class="enso" aria-hidden="true">
+          <svg viewBox="0 0 120 120"><path d="M60 10 a50 50 0 1 1 -14 3 M52 8 a52 52 0 0 1 30 8" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+        </div>
+        <div id="board" role="group" aria-label="16 tap tiles"></div>
+        <p class="hint">tap a tile to light it + hear it · lit tiles sound when the playhead passes · keys <kbd>1–8</kbd> <kbd>Q–I</kbd> also play</p>
+      </section>
+
+      <section class="panel sliders" aria-label="Tempo and echo">
+        <div class="slider-block">
+          <div class="slider-head"><label for="tempo">tempo <span class="jp">速さ</span></label><output id="tempoVal">112 bpm</output></div>
+          <input id="tempo" type="range" min="60" max="180" step="1" value="112" />
+          <div class="ticks"><span>60 · adagio</span><span>180 · presto</span></div>
+        </div>
+        <div class="slider-block">
+          <div class="slider-head"><label for="feedback">echo feedback <span class="jp">残響</span></label><output id="fbVal">38%</output></div>
+          <input id="feedback" type="range" min="0" max="85" step="1" value="38" />
+          <div class="ticks"><span>dry</span><span>endless shimmer</span></div>
+        </div>
+      </section>
+
+      <section class="panel record" aria-label="Record loop">
+        <div class="rec-head">
+          <h2>record an 8-second loop <span class="jp">録音</span></h2>
+          <p>Captures the master bus — tiles + echo — then hands you a playable, downloadable loop.</p>
+        </div>
+        <div class="rec-row">
+          <button id="btnRec" class="btn btn-ink" type="button">● record 8s</button>
+          <div class="rec-progress" aria-hidden="true"><div id="recBar"></div></div>
+          <span id="recStatus" class="rec-status" aria-live="polite">ready</span>
+        </div>
+        <div id="takeWrap" class="take" hidden>
+          <audio id="take" controls></audio>
+          <a id="takeDl" class="btn btn-ghost" download="glass-arp-loop.webm">↓ download loop</a>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>made of glass + math · webaudio only · pattern autosaves locally</span>
+        <span class="foot-jp">静けさの中の音 — sound inside stillness</span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

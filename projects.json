@@ -2607,6 +2607,39 @@
       "lastError": null,
       "retries": 1,
       "lastModel": "opencode-go/muse-spark-1.3-contributor"
+    },
+    {
+      "slug": "glass-arp-playground",
+      "title": "Glass Arp Playground",
+      "category": "generative",
+      "stack": "html",
+      "stackReason": "keyword html (generative)",
+      "aesthetic": "japanese-minimal",
+      "theme": "audio",
+      "constraints": [
+        "sound on interaction (WebAudio, no assets)",
+        "single HTML file if html stack, single component if vite"
+      ],
+      "description": "Tap glass tiles to weave pentatonic arps with shimmering delay trails.",
+      "features": [
+        "16-tile tap arpeggiator",
+        "drag tempo and feedback sliders",
+        "one-tap scale randomizer",
+        "record 8s loop export"
+      ],
+      "tags": [
+        "webaudio",
+        "arpeggio",
+        "toy",
+        "delay"
+      ],
+      "status": "done",
+      "deployed": false,
+      "createdAt": "2026-09-22T10:14:29.495Z",
+      "updatedAt": "2026-09-22T10:16:57.641Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/muse-spark-1.3-contributor"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

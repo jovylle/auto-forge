@@ -2606,6 +2606,39 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "glass-arp-playground",
+    "title": "Glass Arp Playground",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-minimal",
+    "theme": "audio",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)",
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Tap glass tiles to weave pentatonic arps with shimmering delay trails.",
+    "features": [
+      "16-tile tap arpeggiator",
+      "drag tempo and feedback sliders",
+      "one-tap scale randomizer",
+      "record 8s loop export"
+    ],
+    "tags": [
+      "webaudio",
+      "arpeggio",
+      "toy",
+      "delay"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-22T10:14:29.495Z",
+    "updatedAt": "2026-09-22T10:16:57.641Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 83, done: 74, counts: {"done":74,"needs-human":9} };
+export const stats = { total: 84, done: 75, counts: {"done":75,"needs-human":9} };
