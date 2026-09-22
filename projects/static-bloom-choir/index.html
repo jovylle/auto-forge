@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="description" content="Static Bloom Choir — drag petals to pitch-shift neon choir voices, tap rhythm to seed blooms, layer pads, export 8s lullaby loops." />
+<title>STATIC BLOOM CHOIR ▚ neon lullaby console</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">✿</span>
+    <div>
+      <h1>STATIC BLOOM <em>CHOIR</em></h1>
+      <p class="tagline">petal synths → ambient choir // conduct by dragging</p>
+    </div>
+  </div>
+  <div class="hud" role="status" aria-live="polite">
+    <div class="hud-item"><label>LOOP</label><strong id="hudLoop">8.0s</strong></div>
+    <div class="hud-item"><label>VOICES</label><strong id="hudVoices">7</strong></div>
+    <div class="hud-item"><label>SEED</label><strong id="hudSeed">—</strong></div>
+    <div class="hud-item"><label>STATE</label><strong id="hudState" class="state-idle">IDLE</strong></div>
+  </div>
+</header>
+
+<main id="app">
+  <section class="stage-wrap">
+    <div class="stage-head">
+      <span class="sys-label">◈ BLOOM FIELD // drag petals ↕ to pitch-shift</span>
+      <span class="sys-label dim" id="pitchReadout">A3 · C-pentatonic</span>
+    </div>
+    <div id="stage" aria-label="Bloom field. Drag petals to pitch-shift voices.">
+      <div id="core" aria-hidden="true"><span id="corePulse"></span><span class="core-label">CHOIR<br/>CORE</span></div>
+      <!-- petals injected by JS -->
+      <div id="bloomFx" aria-hidden="true"></div>
+      <button id="tapZone" aria-label="Tap rhythm here to seed bloom patterns">TAP<br/><small>◉ seed rhythm</small></button>
+    </div>
+    <div class="transport">
+      <button id="btnPower" class="btn primary" aria-pressed="false">▶ IGNITE CHOIR</button>
+      <button id="btnTap" class="btn ghost">✦ TAP <span id="tapCount">0</span></button>
+      <button id="btnScatter" class="btn ghost" title="Randomize bloom pattern">⟡ SCATTER</button>
+      <button id="btnClear" class="btn ghost" title="Clear pattern">✕ CLEAR</button>
+    </div>
+    <div class="pattern-strip" aria-label="Bloom pattern steps">
+      <span class="sys-label">BLOOM SEQUENCE · 16 STEPS / 8s</span>
+      <div id="steps"></div>
+    </div>
+  </section>
+
+  <aside class="console">
+    <section class="panel">
+      <h2><span class="n">01</span> CHOIR PADS</h2>
+      <p class="hint">Layer WebAudio pads. Each is a detuned voice stack.</p>
+      <div class="pads" role="group" aria-label="Choir pad layers">
+        <button class="pad on" data-pad="root" aria-pressed="true"><b>ROOT</b><i>C2·C3 drone</i><span class="led"></span></button>
+        <button class="pad on" data-pad="third" aria-pressed="true"><b>THIRD</b><i>Eb · Ab warmth</i><span class="led"></span></button>
+        <button class="pad on" data-pad="fifth" aria-pressed="true"><b>FIFTH</b><i>G · glass air</i><span class="led"></span></button>
+        <button class="pad" data-pad="shimmer" aria-pressed="false"><b>SHIMMER</b><i>octave sparkle</i><span class="led"></span></button>
+      </div>
+      <div class="sliders">
+        <label>VOLUME <input id="vol" type="range" min="0" max="100" value="78" /></label>
+        <label>BLOOM <input id="bloomAmt" type="range" min="0" max="100" value="62" /></label>
+        <label>DRIFT <input id="drift" type="range" min="0" max="100" value="35" /></label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2><span class="n">02</span> LULLABY LOOP</h2>
+      <p class="hint">8-second seamless loop. Tap rhythm → petals bloom on steps.</p>
+      <div class="loop-row">
+        <button id="btnLoop" class="btn small" aria-pressed="true">∞ LOOP: ON</button>
+        <button id="btnExport" class="btn neon">⬇ EXPORT 8s .WAV</button>
+      </div>
+      <p id="exportStatus" class="hint" role="status">Render offline → 44.1kHz WAV.</p>
+      <div class="keys">
+        <span class="sys-label">SCALE</span>
+        <div class="seg" role="group" aria-label="Scale">
+          <button class="seg-btn on" data-scale="pent">PENTA</button>
+          <button class="seg-btn" data-scale="dorian">DORIAN</button>
+          <button class="seg-btn" data-scale="hira">HIRA</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel how">
+      <h2><span class="n">03</span> HOW TO CONDUCT</h2>
+      <ol>
+        <li><b>IGNITE</b> — audio starts on click (browser-safe).</li>
+        <li><b>DRAG petals ↕</b> — pitch-shift that voice ±7 semitones.</li>
+        <li><b>TAP</b> — tap 3+ times, rhythm seeds the 16-step bloom.</li>
+        <li><b>LAYER</b> — toggle pads, ride VOLUME / BLOOM / DRIFT.</li>
+        <li><b>EXPORT</b> — bounce exactly 8s to a lullaby WAV.</li>
+      </ol>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span>STATIC BLOOM CHOIR v1.0 · WebAudio only · no assets · system fonts</span>
+  <button id="btnReset" class="linklike">reset memory</button>
+</footer>
+
+<script defer src="./app.js"></script>
+</body>
+</html>
