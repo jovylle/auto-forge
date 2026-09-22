@@ -2669,6 +2669,37 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "juniper-signal-garden",
+    "title": "Juniper Signal Garden",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "glassmorphism",
+    "theme": "audio",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)",
+      "must be playable in 30 seconds"
+    ],
+    "description": "Grow shrubs that flash signals.",
+    "features": [
+      "signal seeds",
+      "garden grid",
+      "harvest code"
+    ],
+    "tags": [
+      "garden",
+      "signals",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-22T22:42:09.478Z",
+    "updatedAt": "2026-09-22T22:43:57.667Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 85, done: 76, counts: {"done":76,"needs-human":9} };
+export const stats = { total: 86, done: 77, counts: {"done":77,"needs-human":9} };

@@ -1,0 +1,31 @@
+{
+  "slug": "juniper-signal-garden",
+  "title": "Juniper Signal Garden",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "glassmorphism",
+  "theme": "audio",
+  "constraints": [
+    "sound on interaction (WebAudio, no assets)",
+    "must be playable in 30 seconds"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "signal seeds",
+      "garden grid",
+      "harvest code"
+    ],
+    "status": "pass",
+    "summary": "Juniper Signal Garden — glassmorphism signal-farming game: 3 seed types (Ember/Frost/Verdant) with distinct tones and grow times, 4x4 garden grid with seed→sprout→flashing-mature stages plus tap-to-boost, 6-rune harvest code with copy, win banner, score/time/best (localStorage). WebAudio bleeps on every interaction, first harvest in ~5s, full round in ~30s. Responsive at 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 102915,
+  "at": "2026-09-22T22:43:57.670Z"
+}
