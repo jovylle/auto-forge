@@ -1,18 +1,18 @@
 {
   "seeds": [
-    { "title": "Neon Tide — audio-reactive particle shore", "category": "generative", "stack": "html", "tags": ["canvas","audio","particles"] },
-    { "title": "Pocket Inventory — drag-drop RPG backpack", "category": "game", "stack": "vite", "tags": ["game","inventory","drag-drop"] },
-    { "title": "Receipt Oracle — expense fortune teller", "category": "tool", "stack": "vite", "tags": ["finance","fun","tool"] },
-    { "title": "Chromatic Calendar — mood as color", "category": "tool", "stack": "vite", "tags": ["calendar","mood","color"] },
-    { "title": "Ghost Grid — collaborative pixel haunt", "category": "social", "stack": "html", "tags": ["pixel","multiplayer-ish","localStorage"] },
-    { "title": "Folded City — origami map explorer", "category": "viz", "stack": "html", "tags": ["map","origami","canvas"] },
-    { "title": "Tide Choir — harbor voices", "category": "generative", "stack": "html", "tags": ["choir","harbor","audio"] },
-    { "title": "Rust Atlas — oxidation diary", "category": "viz", "stack": "vite", "tags": ["rust","diary","canvas"] },
-    { "title": "Moth Radio — night signals", "category": "social", "stack": "html", "tags": ["moth","radio","night"] },
-    { "title": "Cinder Ledger — ash accounts", "category": "tool", "stack": "vite", "tags": ["ash","ledger","tool"] },
-    { "title": "Fog Market — mist trading", "category": "game", "stack": "html", "tags": ["fog","market","game"] },
-    { "title": "Dune Switch — desert relays", "category": "game", "stack": "vite", "tags": ["dune","relays","game"] },
-    { "title": "Inkwell Observatory — star notes", "category": "viz", "stack": "html", "tags": ["stars","notes","canvas"] },
-    { "title": "Copper Kite — wind telegraph", "category": "generative", "stack": "html", "tags": ["kite","wind","telegraph"] }
+    { "title": "Brass Lantern Relay", "category": "game", "stack": "html", "tags": ["lantern","relay","game"] },
+    { "title": "Velvet Avalanche", "category": "generative", "stack": "html", "tags": ["avalanche","canvas","generative"] },
+    { "title": "Pebble Semaphore", "category": "tool", "stack": "html", "tags": ["semaphore","signals","tool"] },
+    { "title": "Honeycomb Switchboard", "category": "game", "stack": "html", "tags": ["honeycomb","switchboard","game"] },
+    { "title": "Marble Murmuration", "category": "generative", "stack": "html", "tags": ["murmuration","canvas","generative"] },
+    { "title": "Paper Crane Exchange", "category": "social", "stack": "html", "tags": ["crane","trade","social"] },
+    { "title": "Saffron Circuit", "category": "viz", "stack": "vite", "tags": ["circuit","saffron","canvas"] },
+    { "title": "Driftwood Dial", "category": "tool", "stack": "html", "tags": ["driftwood","dial","tool"] },
+    { "title": "Neon Apiary", "category": "game", "stack": "html", "tags": ["bees","neon","game"] },
+    { "title": "Quartz Cantina", "category": "social", "stack": "html", "tags": ["cantina","social","audio"] },
+    { "title": "Ember Post Office", "category": "game", "stack": "vite", "tags": ["post","ember","game"] },
+    { "title": "Foghorn Library", "category": "tool", "stack": "html", "tags": ["library","foghorn","audio"] },
+    { "title": "Moss Telegraph", "category": "social", "stack": "html", "tags": ["moss","telegraph","social"] },
+    { "title": "Salt Meridian", "category": "viz", "stack": "html", "tags": ["salt","meridian","canvas"] }
   ]
 }
