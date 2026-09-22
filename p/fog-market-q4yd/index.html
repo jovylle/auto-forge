@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fog Market</title>
+  <meta name="description" content="Fog Market — Trade goods you can barely see. A keyboard-only pop-art trading game." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip" href="#stalls">Skip to stalls</a>
+  <div class="halftone" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="burst" aria-hidden="true">100%<br />FOG!</div>
+    <div class="titles">
+      <h1>Fog Market</h1>
+      <p class="sub">Trade goods you can barely see.</p>
+    </div>
+    <div class="hud" role="status" aria-label="Market status">
+      <div class="hud-card"><span class="hud-label">Coins</span><strong id="coins">60</strong></div>
+      <div class="hud-card"><span class="hud-label">Day</span><strong id="day">1 / 8</strong></div>
+      <div class="hud-card"><span class="hud-label">Goal</span><strong id="goal">150</strong></div>
+      <div class="hud-card"><span class="hud-label">Worth</span><strong id="worth">60</strong></div>
+      <div class="hud-card horns"><span class="hud-label">Horns</span><strong id="horns">3</strong></div>
+    </div>
+  </header>
+
+  <main id="app">
+    <p id="announcer" class="sr-only" role="status" aria-live="polite"></p>
+
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-inner">★ BLIND TRADE ★ MIST STALLS ★ SOUND THE FOG HORN ★ NO PEEKING ★ BLIND TRADE ★ MIST STALLS ★ SOUND THE FOG HORN ★&nbsp;</div>
+    </section>
+
+    <section aria-labelledby="stalls-h">
+      <div class="row-head">
+        <h2 id="stalls-h">Mist stalls</h2>
+        <p class="hint">Fog hides true value. Sound the horn to peek.</p>
+      </div>
+      <div id="stalls" role="listbox" aria-label="Mist stalls. Use left and right arrows, then Enter to buy." tabindex="0"></div>
+    </section>
+
+    <section class="actions" aria-label="Market actions">
+      <button id="btn-buy" type="button">Buy lot <kbd>Enter</kbd></button>
+      <button id="btn-horn" type="button" class="horn">Sound fog horn <kbd>H</kbd></button>
+      <button id="btn-day" type="button">Next day <kbd>N</kbd></button>
+      <button id="btn-mute" type="button" aria-pressed="false">Sound: on <kbd>M</kbd></button>
+      <button id="btn-restart" type="button">New market <kbd>R</kbd></button>
+    </section>
+
+    <div id="reveal-bar" class="reveal-bar" hidden>🔊 FOG HORN — mist lifts! True values exposed for <strong id="reveal-t">6</strong>s</div>
+
+    <section aria-labelledby="satchel-h">
+      <div class="row-head">
+        <h2 id="satchel-h">Your satchel</h2>
+        <p class="hint">Up / Down switches rows. Enter sells.</p>
+      </div>
+      <div id="satchel" role="listbox" aria-label="Your satchel. Press Enter on an item to sell it." tabindex="0"></div>
+    </section>
+
+    <section aria-labelledby="log-h" class="log-wrap">
+      <h2 id="log-h">Town crier</h2>
+      <ol id="log" aria-live="polite" aria-label="Trade log"></ol>
+    </section>
+
+    <section class="help" aria-labelledby="keys-h">
+      <h2 id="keys-h">Keyboard only</h2>
+      <ul class="keys">
+        <li><kbd>←</kbd><kbd>→</kbd> / <kbd>A</kbd><kbd>D</kbd> move along stalls &amp; satchel</li>
+        <li><kbd>↑</kbd><kbd>↓</kbd> / <kbd>Tab</kbd> hop between stalls &amp; satchel</li>
+        <li><kbd>Enter</kbd> / <kbd>Space</kbd> blind-buy or sell focused lot</li>
+        <li><kbd>H</kbd> fog horn (lifts mist, 6s)</li>
+        <li><kbd>N</kbd> next day &nbsp; <kbd>R</kbd> restart &nbsp; <kbd>M</kbd> mute</li>
+      </ul>
+    </section>
+
+    <div id="stage" class="sr-only" aria-hidden="true"></div>
+
+    <section id="finale" class="finale" hidden aria-labelledby="finale-h">
+      <div class="finale-card" role="dialog" aria-modal="false" aria-labelledby="finale-h">
+        <p class="pow" aria-hidden="true">POW!</p>
+        <h2 id="finale-h">Market closed</h2>
+        <p id="finale-text"></p>
+        <button id="btn-again" type="button">Trade again <kbd>R</kbd></button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Fog Market · pop-art blind-trading · keyboard only · Day-goal: reach <strong>150</strong> in 8 days.</p>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

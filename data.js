@@ -2244,14 +2244,14 @@ export const projects = [
       "market",
       "game"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-20T05:32:15.834Z",
-    "updatedAt": "2026-09-20T05:32:26.956Z",
-    "buildPassed": false,
-    "lastError": "scaffold untouched — worker wrote no app code",
+    "updatedAt": "2026-09-22T05:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    "lastModel": "unknown repair pass in worktree (Sep 20); human verified + shipped"
   },
   {
     "slug": "inkwell-observatory",
@@ -2574,4 +2574,4 @@ export const projects = [
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 82, done: 72, counts: {"done":72,"needs-human":10} };
+export const stats = { total: 82, done: 73, counts: {"done":73,"needs-human":9} };
