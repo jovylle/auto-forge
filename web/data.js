@@ -2598,14 +2598,14 @@ export const projects = [
       "sampler",
       "lofi"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-22T10:02:48.706Z",
-    "updatedAt": "2026-09-22T10:02:49.044Z",
-    "buildPassed": false,
-    "lastError": "\nERROR\n  Unrecognized flag: --port in command opencode run\n\n  Did you mean this?\n    --fork\n",
+    "updatedAt": "2026-09-22T10:08:09.898Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 83, done: 73, counts: {"done":73,"needs-human":9,"needs-iteration":1} };
+export const stats = { total: 83, done: 74, counts: {"done":74,"needs-human":9} };
