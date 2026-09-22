@@ -1,0 +1,31 @@
+{
+  "slug": "wobble-drum-picnic",
+  "title": "Wobble Drum Picnic",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "biomorphic",
+  "theme": "audio",
+  "constraints": [
+    "must have an easter egg"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "tap pad to trigger drums",
+      "stack loops into polyrhythms",
+      "wobble pitch-bend slider",
+      "shareable beat link"
+    ],
+    "status": "pass",
+    "summary": "Wobble Drum Picnic — biomorphic Web Audio beat blanket. 6 synthesized blob drums (tap/keys 1-6), per-voice loop lengths (8/6/12/5/7/9) with editable step dots + scramble for goofy polyrhythms, global wobble LFO slider bending pitch + visuals, shareable #b= beat links with localStorage persistence. Easter egg: boop the wandering ant 3x for PICKLE RAVE mode. node --check clean, no broken refs, responsive to 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 140583,
+  "at": "2026-09-22T03:57:48.548Z"
+}

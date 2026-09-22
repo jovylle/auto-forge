@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wobble Drum Picnic — goofy polyrhythm blanket</title>
+  <meta name="description" content="Tap blobby drums, stack wobbly loops into goofy polyrhythms, bend the pitch, share your beat." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <div class="sun" id="sun" title="a warm synth sun"></div>
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+  </div>
+
+  <main id="app">
+    <header class="masthead">
+      <p class="kicker">a biomorphic beat blanket · web audio · no samples</p>
+      <h1 class="title"><span>Wobble</span> <span class="tilt">Drum</span> <span>Picnic</span></h1>
+      <p class="sub">Tap the blobs to bonk them. Flip on <strong>loops</strong> to stack goofy
+        polyrhythms. Crank the <strong>wobble</strong>, then send your beat to a friend.</p>
+    </header>
+
+    <section class="transport card" aria-label="transport controls">
+      <button id="playBtn" class="btn big" aria-pressed="false">▶ start the picnic</button>
+      <div class="sliders">
+        <label class="slider">tempo <b id="bpmVal">112</b> bpm
+          <input id="bpm" type="range" min="70" max="180" value="112" />
+        </label>
+        <label class="slider">wobble <b id="wobVal">35%</b>
+          <input id="wobble" type="range" min="0" max="100" value="35" />
+        </label>
+        <label class="slider">volume <b id="volVal">80%</b>
+          <input id="vol" type="range" min="0" max="100" value="80" />
+        </label>
+      </div>
+      <div class="row">
+        <button id="scrambleBtn" class="btn">🎲 scramble</button>
+        <button id="clearBtn" class="btn ghost">clear loops</button>
+        <button id="shareBtn" class="btn jam">🔗 copy beat link</button>
+      </div>
+      <p id="toast" class="toast" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="blanket" class="blanket" aria-label="drum blanket"></section>
+
+    <footer class="foot">
+      <p>step dots = the loop pattern · <em>len</em> = loop length in 16ths (that's where the polyrhythm lives).
+        loops auto-save. <span class="hint">psst… the ants are restless. 🐜</span></p>
+      <p class="tiny">works from file:// · sound starts on first tap (browsers demand a gesture) · built with plain html/css/js</p>
+    </footer>
+  </main>
+
+  <div id="ant" title="a picnic ant">🐜</div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
