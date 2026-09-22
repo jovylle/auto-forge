@@ -10,9 +10,9 @@
     "lastError": "UnknownError"
   },
   "opencode/muse-spark-1.3-contributor-free": {
-    "failStreak": 0,
-    "lastFail": "2026-09-21T21:33:03.663Z",
-    "lastError": ""
+    "failStreak": 2,
+    "lastFail": "2026-09-22T10:02:49.043Z",
+    "lastError": "\nERROR\n  Unrecognized flag: --port in command opencode run\n\n  Did you mean this?\n    --fork\n"
   },
   "opencode-go/muse-spark-1.3-contributor": {
     "failStreak": 0,
