@@ -2639,6 +2639,36 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "copper-kite-v2g4",
+    "title": "Copper Kite",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "audio",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Fly a kite that telegraphs the wind.",
+    "features": [
+      "wind sim",
+      "kite canvas",
+      "gust code"
+    ],
+    "tags": [
+      "kite",
+      "wind",
+      "telegraph"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-22T16:23:12.457Z",
+    "updatedAt": "2026-09-22T16:25:44.525Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 84, done: 75, counts: {"done":75,"needs-human":9} };
+export const stats = { total: 85, done: 76, counts: {"done":76,"needs-human":9} };
