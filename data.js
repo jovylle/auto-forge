@@ -2572,6 +2572,40 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "hiss-harbor-choir",
+    "title": "Hiss Harbor Choir",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "extreme-minimal",
+    "theme": "audio",
+    "constraints": [
+      "must work with keyboard only",
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Tap tide pools to layer hisses, kicks and chimes into lo-fi loops.",
+    "features": [
+      "tap grid to trigger samples",
+      "stack loops with live fx",
+      "random tide remix button",
+      "one-tap record and share"
+    ],
+    "tags": [
+      "webaudio",
+      "loops",
+      "sampler",
+      "lofi"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-09-22T10:02:48.706Z",
+    "updatedAt": "2026-09-22T10:02:49.044Z",
+    "buildPassed": false,
+    "lastError": "\nERROR\n  Unrecognized flag: --port in command opencode run\n\n  Did you mean this?\n    --fork\n",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 82, done: 73, counts: {"done":73,"needs-human":9} };
+export const stats = { total: 83, done: 73, counts: {"done":73,"needs-human":9,"needs-iteration":1} };
