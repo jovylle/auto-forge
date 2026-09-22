@@ -61,7 +61,22 @@
       },
       "elapsedMs": 163108,
       "at": "2026-09-22T10:08:09.912Z"
+    },
+    {
+      "slug": "glass-arp-playground",
+      "title": "Glass Arp Playground",
+      "stack": "html",
+      "aesthetic": "japanese-minimal",
+      "model": "opencode-go/muse-spark-1.3-contributor",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 144635,
+      "at": "2026-09-22T10:16:57.644Z"
     }
   ],
-  "updatedAt": "2026-09-22T10:08:09.912Z"
+  "updatedAt": "2026-09-22T10:16:57.644Z"
 }
