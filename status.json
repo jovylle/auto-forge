@@ -1,9 +1,8 @@
 {
   "total": 83,
   "counts": {
-    "done": 73,
-    "needs-human": 9,
-    "needs-iteration": 1
+    "done": 74,
+    "needs-human": 9
   },
   "projects": [
     {
@@ -1792,7 +1791,7 @@
     {
       "slug": "hiss-harbor-choir",
       "title": "Hiss Harbor Choir",
-      "status": "needs-iteration",
+      "status": "done",
       "stack": "html",
       "stackReason": "keyword html (generative)",
       "category": "generative",
@@ -1808,17 +1807,17 @@
         "sampler",
         "lofi"
       ],
-      "updatedAt": "2026-09-22T10:02:49.044Z",
-      "lastError": "\nERROR\n  Unrecognized flag: --port in command opencode run\n\n  Did you mean this?\n    --fork\n",
-      "lastModel": "opencode/muse-spark-1.3-contributor-free"
+      "updatedAt": "2026-09-22T10:08:09.898Z",
+      "lastError": null,
+      "lastModel": "opencode-go/muse-spark-1.3-contributor"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-22T03:57:57.353Z",
-    "lastSlug": "wobble-drum-picnic"
+    "lastRun": "2026-09-22T10:02:58.067Z",
+    "lastSlug": "hiss-harbor-choir"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -1859,5 +1858,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-22T10:02:49.275Z"
+  "updatedAt": "2026-09-22T10:08:10.476Z"
 }
