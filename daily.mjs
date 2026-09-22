@@ -57,7 +57,7 @@ function pickModelWithBreaker() {
 async function preflightPing(model) {
   // 1-token ping to check liveness, timeout fast
   const bin = process.env.OPENCODE_BIN || `${process.env.HOME}/.opencode/bin/opencode`;
-  const flags = ["run", "ping", "--auto", "--agent", "build", "--format", "json", "--model", model, "--port", "0"];
+  const flags = ["run", "ping", "--auto", "--agent", "build", "--format", "json", "--model", model];
   return new Promise((resolve)=>{
     const p = spawn(bin, flags, { cwd: ROOT, env: { ...process.env, PATH: `${process.env.HOME}/.opencode/bin:${process.env.PATH}` }, stdio: ["ignore","pipe","pipe"] });
     let out="", err="";
@@ -87,7 +87,7 @@ function renderPrompt(tpl, idea, retryCtx="") {
 }
 
 async function spawnWorker(dir, prompt, model) {
-  const flags = ["run", prompt, "--auto", "--agent", "build", "--format", "json", "--model", model, "--port", "0"];
+  const flags = ["run", prompt, "--auto", "--agent", "build", "--format", "json", "--model", model];
   log(`  spawning worker in ${path.basename(dir)} model=${model}`);
   const bin = process.env.OPENCODE_BIN || `${process.env.HOME}/.opencode/bin/opencode`;
   const start = Date.now();
