@@ -2733,6 +2733,36 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "neon-apiary",
+    "title": "Neon Apiary",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "neo-brutalism",
+    "theme": "audio",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Neon Apiary",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "bees",
+      "neon",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-23T04:55:05.035Z",
+    "updatedAt": "2026-09-23T04:58:21.491Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 87, done: 78, counts: {"done":78,"needs-human":9} };
+export const stats = { total: 88, done: 79, counts: {"done":79,"needs-human":9} };

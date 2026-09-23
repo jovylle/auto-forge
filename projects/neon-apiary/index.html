@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neon Apiary — Hive Rush</title>
+  <meta name="description" content="Neon Apiary: a 60-second neo-brutalist bee arcade game. Grab pollen, dodge wasps, bank honey." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="ticker" aria-hidden="true"><div class="ticker-inner" id="ticker"></div></div>
+
+  <main id="app">
+    <header class="hero">
+      <div class="hero-left">
+        <p class="kicker">GAME / 002 — 60-SECOND HIVE RUSH</p>
+        <h1>NEON<br />APIARY<span class="buz">🐝</span></h1>
+        <p class="tagline">Grab pollen. Dodge wasps. Bank it at the <strong>HIVE</strong> before the clock stings you.</p>
+        <div class="btnrow">
+          <button id="btnStart" class="btn btn-honey">▶ START RUN</button>
+          <button id="btnHow" class="btn btn-ghost">HOW TO PLAY</button>
+          <button id="btnSound" class="btn btn-ghost" aria-pressed="true">🔊 SOUND: ON</button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="card hud">
+          <div class="hud-top"><span>HIVE&nbsp;STATUS</span><span id="clockBadge" class="badge">60s</span></div>
+          <div class="hud-grid">
+            <div class="stat"><label>🍯 HONEY</label><b id="statHoney">0</b></div>
+            <div class="stat"><label>🌸 POLLEN</label><b id="statPollen">0/5</b></div>
+            <div class="stat"><label>❤ LIVES</label><b id="statLives">●●●</b></div>
+            <div class="stat"><label>★ BEST</label><b id="statBest">0</b></div>
+          </div>
+          <div class="combo" id="comboBar">COMBO ×1</div>
+          <div class="hud-btns">
+            <button id="btnPause" class="mini">⏸ PAUSE</button>
+            <button id="btnRestart" class="mini">↻ RESET</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="board-wrap">
+      <div class="board-frame">
+        <div class="board-head">
+          <span id="statusLine">PRESS START — MOVE WITH MOUSE / TOUCH / WASD</span>
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <canvas id="game" width="520" height="620" aria-label="Neon Apiary game canvas"></canvas>
+        <div id="overlay" class="overlay">
+          <div class="overlay-card" id="overlayCard">
+            <p class="ov-kicker" id="ovKicker">READY?</p>
+            <h2 id="ovTitle">HIVE RUSH</h2>
+            <p id="ovBody">Collect glowing pollen, ferry it to the hive hex at the top. Wasps hurt. 3 lives, 60 seconds.</p>
+            <button id="ovBtn" class="btn btn-honey">▶ START</button>
+          </div>
+        </div>
+        <div class="touchpad-hint">👆 drag on the hive to fly · WASD / arrows work too</div>
+      </div>
+
+      <aside class="side">
+        <div class="card">
+          <h3>RUN LOG</h3>
+          <ol id="log" class="log"></ol>
+        </div>
+        <div class="card share-card">
+          <h3>SHARE / EXPORT</h3>
+          <p class="muted">Brag about your haul. Everything runs locally — no account.</p>
+          <div class="share-grid">
+            <button id="btnCopy" class="btn btn-pink">⧉ COPY RUN CARD</button>
+            <button id="btnPNG" class="btn btn-cyan">⬇ PNG SNAPSHOT</button>
+            <button id="btnJSON" class="btn btn-ghost">⬇ JSON LOG</button>
+            <button id="btnLink" class="btn btn-ghost">🔗 SHARE LINK</button>
+          </div>
+          <p id="shareMsg" class="share-msg" role="status"></p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="howto" class="card howto" hidden>
+      <h3>HOW TO PLAY</h3>
+      <ul>
+        <li>🐝 <b>You are the neon bee.</b> Move with mouse, touch-drag, or <kbd>WASD</kbd> / arrows.</li>
+        <li>🌸 Touch <b class="c-pink">pink pollen</b> to grab it (carry max 5). Fly into the <b class="c-honey">hive hex</b> to bank honey.</li>
+        <li>🐝‍⬛ <b class="c-cyan">Wasps</b> chase you. A sting costs 1 life, drops your pollen, and resets combo.</li>
+        <li>🔥 Chain quick pickups to raise <b>COMBO ×2…×5</b> for bonus honey.</li>
+        <li>⏱ 60 seconds, 3 lives. Game ends on timeout or 0 lives.</li>
+      </ul>
+    </section>
+
+    <footer class="foot">
+      <span>NEON APIARY — built with HTML/CSS/JS · best score saved in your browser</span>
+      <button id="btnWipe" class="linklike">reset best</button>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

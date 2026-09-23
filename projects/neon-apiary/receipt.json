@@ -1,0 +1,30 @@
+{
+  "slug": "neon-apiary",
+  "title": "Neon Apiary",
+  "stack": "html",
+  "stackReason": "seed stack",
+  "aesthetic": "neo-brutalism",
+  "theme": "audio",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "status": "pass",
+    "summary": "Neon Apiary Hive Rush: 60s canvas arcade game (steer neon bee via mouse/touch/WASD, grab pink pollen, bank at hive hex, dodge chasing wasps, combo x2-x5, 3 lives, synthesized Web Audio buzz/blips). Neo-brutalist UI (Archivo Black + Space Grotesk, chunky borders, hard shadows, ticker, HUD, run log, how-to). Share/export: copy run card, PNG snapshot, JSON log, ?honey= share-link challenge. Best in localStorage. 3 colors + black/white honored. IDs verified, node --check clean."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 189417,
+  "at": "2026-09-23T04:58:21.493Z"
+}
