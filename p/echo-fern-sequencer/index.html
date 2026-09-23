@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Echo Fern Sequencer — Brass &amp; Moss Beat Engine</title>
+<meta name="description" content="Paint looped beats on a mossy step grid with dripping reverb blooms. Steampunk WebAudio sequencer." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="mast-plate">
+    <div class="rivet r-tl"></div><div class="rivet r-tr"></div>
+    <div class="rivet r-bl"></div><div class="rivet r-br"></div>
+    <p class="kicker">❦ The Conservatory of Clockwork Botany ❦</p>
+    <h1><span class="h-echo">ECHO</span> <span class="h-fern">FERN</span> <span class="h-seq">SEQUENCER</span></h1>
+    <p class="sub">Paint looped beats on a mossy step grid with dripping reverb blooms.</p>
+    <div class="mast-controls">
+      <button id="btnPower" class="brass-btn big" aria-pressed="false">▶&nbsp; Wind it up</button>
+      <div class="bpm-block">
+        <label for="bpm">Tempo <b id="bpmVal">112</b> BPM</label>
+        <input id="bpm" type="range" min="70" max="170" value="112" step="1" />
+      </div>
+      <div class="swing-block">
+        <label for="swing">Swing <b id="swingVal">12%</b></label>
+        <input id="swing" type="range" min="0" max="60" value="12" step="1" />
+      </div>
+    </div>
+    <div class="mast-row">
+      <button id="btnSeed" class="brass-btn">⚙ Surprise me</button>
+      <button id="btnClear" class="ghost-btn">Clear bed</button>
+      <button id="btnErase" class="ghost-btn" aria-pressed="false">🧽 Eraser: off</button>
+      <button id="btnMute" class="ghost-btn">🔔 Mute: off</button>
+    </div>
+  </div>
+</header>
+
+<main id="app">
+  <section class="machine" id="machine">
+    <div class="pipe pipe-l" aria-hidden="true"></div>
+    <div class="pipe pipe-r" aria-hidden="true"></div>
+
+    <div class="grid-shell">
+      <div class="grid-head">
+        <span class="lamp" id="lamp"></span>
+        <div>
+          <h2>Moss Bed · 16 Steps</h2>
+          <p>Drag across cells to paint. Tap again (or eraser) to weed. Beats loop forever.</p>
+        </div>
+        <div class="step-read" id="stepRead">STEP — / 16</div>
+      </div>
+      <div class="grid" id="grid" role="grid" aria-label="16 step beat grid"></div>
+      <div class="track-legend">
+        <span><i class="dot kick"></i>Kick · boiler drum</span>
+        <span><i class="dot snare"></i>Snare · gear snap</span>
+        <span><i class="dot hat"></i>Hat · steam hiss</span>
+        <span><i class="dot clank"></i>Clank · pipe strike</span>
+        <span><i class="dot spore"></i>Spore · glass bloom</span>
+      </div>
+    </div>
+
+    <div class="fx-deck">
+      <div class="fx-card" id="padDelay">
+        <div class="fx-title"><h3>Delay Condenser</h3><span class="gauge" id="delayRead">¼ · 38%</span></div>
+        <div class="pad" id="delayPad" tabindex="0" role="slider" aria-label="Delay: drag to bend time and feedback" aria-valuetext="delay">
+          <div class="pad-coil"></div>
+          <div class="pad-knob" id="delayKnob"></div>
+          <span class="pad-hint">◀ drag to bend ▶<br/>x = time · y = feedback</span>
+        </div>
+        <div class="fx-row">
+          <label>Time <input id="delayTime" type="range" min="0" max="100" value="45"></label>
+          <label>Feedback <input id="delayFb" type="range" min="0" max="100" value="38"></label>
+        </div>
+      </div>
+
+      <div class="fx-card" id="padVerb">
+        <div class="fx-title"><h3>Reverb Greenhouse</h3><span class="gauge" id="verbRead">2.1s · 42%</span></div>
+        <div class="pad" id="verbPad" tabindex="0" role="slider" aria-label="Reverb: drag to bend decay and mix" aria-valuetext="reverb">
+          <canvas id="bloomCanvas" aria-hidden="true"></canvas>
+          <div class="pad-knob" id="verbKnob"></div>
+          <span class="pad-hint">◀ drag to bend ▶<br/>x = decay · y = bloom</span>
+        </div>
+        <div class="fx-row">
+          <label>Decay <input id="verbDecay" type="range" min="0" max="100" value="52"></label>
+          <label>Bloom <input id="verbMix" type="range" min="0" max="100" value="42"></label>
+        </div>
+      </div>
+
+      <div class="fx-card seed-card">
+        <div class="fx-title"><h3>Rhythm Seed Telegraph</h3><span class="gauge">✦ instant share</span></div>
+        <p class="seed-desc">Every pattern compresses into a tiny seed. Send it; the fern regrows note-for-note.</p>
+        <div class="seed-box"><code id="seedCode">—</code></div>
+        <div class="seed-row">
+          <button id="btnCopy" class="brass-btn small">⧉ Copy seed link</button>
+          <button id="btnLoad" class="ghost-btn small">Plant pasted seed</button>
+        </div>
+        <input id="seedInput" class="seed-input" spellcheck="false" placeholder="paste a seed like EF-3KQ9-MOSS…" aria-label="Paste a rhythm seed" />
+        <p class="seed-note" id="seedNote">Tip: the URL updates live — just copy the address bar.</p>
+      </div>
+    </div>
+
+    <div class="boiler-strip">
+      <div class="boiler"><span>Pressure</span><div class="meter"><i id="meterLevel"></i></div></div>
+      <div class="scroll-coupling"><span>Scroll coupling</span><div class="meter scroll"><i id="meterScroll"></i></div></div>
+      <div class="boiler-note" id="boilerNote">Scroll the page — the greenhouse filter opens &amp; blooms drip harder.</div>
+    </div>
+  </section>
+
+  <section class="scroll-garden" id="garden">
+    <h2>↓ Stroll through the greenhouse ↓</h2>
+    <p>Scrolling bends the machine: the master low-pass opens, reverb blooms swell, and ferns sway. The sequencer keeps ticking while you wander.</p>
+    <div class="fronds" aria-hidden="true">
+      <div class="frond f1">🌿</div><div class="frond f2">🌱</div><div class="frond f3">🍃</div>
+      <div class="frond f4">🌿</div><div class="frond f5">🪴</div><div class="frond f6">🌾</div>
+    </div>
+    <div class="plaques">
+      <article class="plaque"><h3>I · The Boiler</h3><p>Kick drums are forged here: a sine ingot dropped from 160&nbsp;Hz to 42&nbsp;Hz, hammered with a click transient. Scroll slowly to feel the pressure gauge breathe.</p></article>
+      <article class="plaque"><h3>II · The Condenser</h3><p>Drag the delay pad sideways to stretch echo time from slapback to dotted-quarter drift. Drag down to feed the machine its own tail until it howls (politely).</p></article>
+      <article class="plaque"><h3>III · The Greenhouse</h3><p>Reverb is grown, not computed: a fresh impulse of mossy noise is brewed for every decay setting. Blooms drip on the canvas with each spore hit.</p></article>
+      <article class="plaque"><h3>IV · The Telegraph</h3><p>Seeds encode all 80 cells + tempo + FX in a few characters. No server, no account — botany by correspondence.</p></article>
+    </div>
+    <button id="btnTop" class="ghost-btn">↑ Back to the machine</button>
+  </section>
+
+  <footer class="foot">
+    <p>Echo Fern Sequencer · clockwork botany · all drums synthesized live in WebAudio · no samples, no servers</p>
+  </footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

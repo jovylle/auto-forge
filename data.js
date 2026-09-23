@@ -2700,6 +2700,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "echo-fern-sequencer",
+    "title": "Echo Fern Sequencer",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "steampunk",
+    "theme": "audio",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)",
+      "must react to scroll"
+    ],
+    "description": "Paint looped beats on a mossy step grid with dripping reverb blooms.",
+    "features": [
+      "16-step paintable beat grid",
+      "built-in WebAudio drum samples",
+      "drag-to-bend delay and reverb",
+      "instant rhythm seed sharing"
+    ],
+    "tags": [
+      "webaudio",
+      "sequencer",
+      "loops",
+      "reverb"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-23T01:02:28.297Z",
+    "updatedAt": "2026-09-23T01:04:47.866Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 86, done: 77, counts: {"done":77,"needs-human":9} };
+export const stats = { total: 87, done: 78, counts: {"done":78,"needs-human":9} };
