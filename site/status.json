@@ -1,7 +1,7 @@
 {
-  "total": 86,
+  "total": 87,
   "counts": {
-    "done": 77,
+    "done": 78,
     "needs-human": 9
   },
   "projects": [
@@ -1458,8 +1458,8 @@
         "wind",
         "telegraph"
       ],
-      "updatedAt": "2026-09-19T10:26:57.791Z",
-      "lastError": "scaffold untouched — worker wrote no app code",
+      "updatedAt": "2026-09-23T00:00:00Z",
+      "lastError": "superseded — shipped under a suffixed variant; parked, do not retry (scaffold untouched — worker wrote no app code)",
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
     },
     {
@@ -1479,8 +1479,8 @@
         "market",
         "game"
       ],
-      "updatedAt": "2026-09-19T10:32:12.328Z",
-      "lastError": "scaffold untouched — worker wrote no app code",
+      "updatedAt": "2026-09-23T00:00:00Z",
+      "lastError": "superseded — shipped under a suffixed variant; parked, do not retry (scaffold untouched — worker wrote no app code)",
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
     },
     {
@@ -1649,8 +1649,8 @@
         "relays",
         "game"
       ],
-      "updatedAt": "2026-09-21T02:22:58.257Z",
-      "lastError": "scaffold untouched — worker wrote no app code",
+      "updatedAt": "2026-09-23T00:00:00Z",
+      "lastError": "superseded — shipped under a suffixed variant; parked, do not retry (scaffold untouched — worker wrote no app code)",
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
     },
     {
@@ -1876,14 +1876,37 @@
       "updatedAt": "2026-09-22T22:43:57.667Z",
       "lastError": null,
       "lastModel": "opencode-go/muse-spark-1.3-contributor"
+    },
+    {
+      "slug": "echo-fern-sequencer",
+      "title": "Echo Fern Sequencer",
+      "status": "done",
+      "stack": "html",
+      "stackReason": "keyword html (generative)",
+      "category": "generative",
+      "aesthetic": "steampunk",
+      "theme": "audio",
+      "constraints": [
+        "sound on interaction (WebAudio, no assets)",
+        "must react to scroll"
+      ],
+      "tags": [
+        "webaudio",
+        "sequencer",
+        "loops",
+        "reverb"
+      ],
+      "updatedAt": "2026-09-23T01:04:47.866Z",
+      "lastError": null,
+      "lastModel": "opencode-go/muse-spark-1.3-contributor"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-22T16:25:54.239Z",
-    "lastSlug": "copper-kite-v2g4"
+    "lastRun": "2026-09-22T22:44:06.833Z",
+    "lastSlug": "juniper-signal-garden"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -1908,12 +1931,12 @@
     }
   },
   "logs": [
-    "triage-2026-09-11-brine.log",
     "triage-2026-09-11-lantern.log",
     "triage-2026-09-11-static.log",
     "triage-2026-09-12-brine2.log",
     "triage-2026-09-15-counter.log",
     "triage-2026-09-22-backlog.log",
+    "triage-2026-09-23-dedup.log",
     "type-tumble.log",
     "velvet-metronome-club.log",
     "vinyl-crackle-cove.log",
@@ -1924,5 +1947,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-22T22:43:58.350Z"
+  "updatedAt": "2026-09-23T01:04:48.477Z"
 }
