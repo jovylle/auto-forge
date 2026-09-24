@@ -2763,6 +2763,36 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "pebble-semaphore",
+    "title": "Pebble Semaphore",
+    "category": "tool",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "vaporwave",
+    "theme": "physics",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Pebble Semaphore",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "semaphore",
+      "signals",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-24T17:08:24.862Z",
+    "updatedAt": "2026-09-24T17:10:55.627Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 88, done: 79, counts: {"done":79,"needs-human":9} };
+export const stats = { total: 89, done: 80, counts: {"done":80,"needs-human":9} };
