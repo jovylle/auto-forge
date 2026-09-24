@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Pebble Semaphore — a vaporwave flag-signal transmitter. Type with your keyboard, watch pebble arms spell it out, share the signal." />
+  <title>Pebble Semaphore ｡･:*:･ﾟ★</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip" href="#msg">Skip to transmitter</a>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="top">
+    <p class="eyebrow">ＰＥＢＢＬＥ ＳＥＭＡＰＨＯＲＥ · physics of flags · est. 1986</p>
+    <h1 class="chrome" aria-label="Pebble Semaphore">PEBBLE<br />SEMAPHORE</h1>
+    <p class="tagline">Type a message. Two pebble arms flag it across the lagoon. <span class="kbd-hint">Keyboard only — never touch the mouse.</span></p>
+  </header>
+
+  <main id="app">
+    <section class="stage-card" aria-label="Signal stage">
+      <div class="sun" aria-hidden="true"></div>
+      <div class="stage-grid" aria-hidden="true"></div>
+
+      <div class="figure-wrap">
+        <svg id="figure" viewBox="0 0 300 300" role="img" aria-label="Semaphore figure showing current signal">
+          <defs>
+            <linearGradient id="armGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#01cdfe" />
+              <stop offset="1" stop-color="#ff71ce" />
+            </linearGradient>
+            <linearGradient id="flagL" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff71ce" />
+              <stop offset="0.5" stop-color="#ff71ce" />
+              <stop offset="0.5" stop-color="#fffb96" />
+              <stop offset="1" stop-color="#fffb96" />
+            </linearGradient>
+            <linearGradient id="flagR" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#01cdfe" />
+              <stop offset="0.5" stop-color="#01cdfe" />
+              <stop offset="0.5" stop-color="#fffb96" />
+              <stop offset="1" stop-color="#fffb96" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="150" cy="272" rx="70" ry="10" fill="#0d0221" opacity=".55" />
+          <!-- body: stacked pebbles -->
+          <ellipse cx="150" cy="240" rx="44" ry="26" fill="#2d1b4e" stroke="#b967ff" stroke-width="2" />
+          <ellipse cx="150" cy="212" rx="34" ry="22" fill="#3d2b63" stroke="#b967ff" stroke-width="2" />
+          <circle cx="150" cy="172" r="24" fill="#4a3670" stroke="#01cdfe" stroke-width="2" />
+          <circle cx="142" cy="168" r="4" fill="#fffb96" />
+          <circle cx="158" cy="168" r="4" fill="#fffb96" />
+          <!-- arms: groups rotate around shoulder pivots -->
+          <g id="armL" transform="rotate(180 118 210)">
+            <line x1="118" y1="210" x2="58" y2="210" stroke="url(#armGrad)" stroke-width="10" stroke-linecap="round" />
+            <circle cx="52" cy="210" r="11" fill="#8f8fa8" stroke="#fffb96" stroke-width="2" />
+            <polygon id="flagLPoly" points="46,196 46,224 10,210" fill="url(#flagL)" stroke="#0d0221" stroke-width="2" />
+          </g>
+          <g id="armR" transform="rotate(180 182 210)">
+            <line x1="182" y1="210" x2="242" y2="210" stroke="url(#armGrad)" stroke-width="10" stroke-linecap="round" />
+            <circle cx="248" cy="210" r="11" fill="#8f8fa8" stroke="#fffb96" stroke-width="2" />
+            <polygon points="254,196 254,224 290,210" fill="url(#flagR)" stroke="#0d0221" stroke-width="2" />
+          </g>
+          <circle cx="118" cy="210" r="7" fill="#ff71ce" />
+          <circle cx="182" cy="210" r="7" fill="#01cdfe" />
+        </svg>
+        <div class="readout" aria-live="polite">
+          <div id="bigLetter" aria-hidden="true">～</div>
+          <div class="readout-sub"><span id="codeLabel">REST · L↓ R↓</span></div>
+        </div>
+      </div>
+
+      <div id="lagoon" aria-label="Pebbles transmitted so far"></div>
+
+      <div class="transport" role="group" aria-label="Transmission controls">
+        <button id="btnPlay" class="btn primary" type="button">▶ Transmit <span class="key">⌃↵</span></button>
+        <button id="btnStep" class="btn" type="button">Step <span class="key">→</span></button>
+        <button id="btnPause" class="btn" type="button">Hold <span class="key">␣</span></button>
+        <button id="btnReset" class="btn ghost" type="button">Reset <span class="key">⌫</span></button>
+        <label class="speed">Tempo
+          <input id="speed" type="range" min="1" max="10" step="1" value="4" aria-label="Transmission tempo" />
+        </label>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite">Ready. Focus the lagoon scribe below and type.</p>
+    </section>
+
+    <section class="panels">
+      <div class="panel scribe">
+        <h2>01 · Lagoon scribe</h2>
+        <label for="msg">Message (A–Z 0–9, space = rest)</label>
+        <textarea id="msg" rows="3" maxlength="140" placeholder="TYPE SOMETHING RADICAL…" autocomplete="off" spellcheck="false">SYNTH WAVES FOREVER</textarea>
+        <div class="row">
+          <span id="count" class="count">19 / 140</span>
+          <span class="mini-keys"><kbd>Tab</kbd> moves · <kbd>Ctrl</kbd>+<kbd>↵</kbd> transmits</span>
+        </div>
+      </div>
+
+      <div class="panel pose">
+        <h2>02 · Hand pose <span class="alt">manual signal deck</span></h2>
+        <p class="help">No mouse needed. <kbd>Z</kbd>/<kbd>X</kbd> rotate left arm · <kbd>N</kbd>/<kbd>M</kbd> rotate right arm · <kbd>Enter</kbd> drops the pebble.</p>
+        <div class="dials">
+          <div class="dial"><span>LEFT <b id="posL">D</b></span>
+            <div class="dial-btns" role="group" aria-label="Left arm position">
+              <button type="button" data-arm="L" data-dir="-1" aria-label="Rotate left arm counter-clockwise">−</button>
+              <button type="button" data-arm="L" data-dir="1" aria-label="Rotate left arm clockwise">+</button>
+            </div>
+          </div>
+          <div class="dial"><span>RIGHT <b id="posR">D</b></span>
+            <div class="dial-btns" role="group" aria-label="Right arm position">
+              <button type="button" data-arm="R" data-dir="-1" aria-label="Rotate right arm counter-clockwise">−</button>
+              <button type="button" data-arm="R" data-dir="1" aria-label="Rotate right arm clockwise">+</button>
+            </div>
+          </div>
+          <button id="btnDrop" class="btn primary" type="button">◉ Drop pebble <span class="key">↵</span></button>
+        </div>
+        <p class="decode">Pose decodes to: <b id="decode">—</b></p>
+      </div>
+
+      <div class="panel share">
+        <h2>03 · Share / export</h2>
+        <div class="share-grid">
+          <button id="btnLink" class="btn" type="button">⛓ Copy link <span class="key">1</span></button>
+          <button id="btnCodes" class="btn" type="button">📋 Copy codes <span class="key">2</span></button>
+          <button id="btnPng" class="btn" type="button">🖼 Export PNG <span class="key">3</span></button>
+          <button id="btnTxt" class="btn" type="button">📄 Export .txt <span class="key">4</span></button>
+        </div>
+        <label for="transcript">Signal transcript</label>
+        <textarea id="transcript" rows="3" readonly placeholder="— press Transmit —"></textarea>
+        <p class="help">Links embed the message in <code>#msg=…</code> so anyone opening it sees your signal. PNG snapshots the figure.</p>
+      </div>
+    </section>
+
+    <section class="panels">
+      <div class="panel alphabet">
+        <h2>Signal chart <span class="alt">press a letter key anywhere to preview</span></h2>
+        <div id="chart" role="list"></div>
+      </div>
+      <div class="panel keys">
+        <h2>Keyboard map</h2>
+        <ul>
+          <li><kbd>A</kbd>–<kbd>Z</kbd> <kbd>0</kbd>–<kbd>9</kbd> preview signal anywhere</li>
+          <li><kbd>Ctrl</kbd>+<kbd>Enter</kbd> transmit · <kbd>→</kbd> step · <kbd>Space</kbd> hold/resume</li>
+          <li><kbd>Z</kbd>/<kbd>X</kbd> left arm · <kbd>N</kbd>/<kbd>M</kbd> right arm · <kbd>Enter</kbd> drop pebble</li>
+          <li><kbd>1</kbd>–<kbd>4</kbd> share/export · <kbd>?</kbd> this map · <kbd>Esc</kbd> stop</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>ＰＥＢＢＬＥ ＳＥＭＡＰＨＯＲＥ · splash in the lagoon · persists to localStorage · <span id="footCount">0 pebbles dropped</span></p>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

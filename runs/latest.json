@@ -1,8 +1,8 @@
 {
-  "slug": "neon-apiary",
-  "title": "Neon Apiary",
+  "slug": "pebble-semaphore",
+  "title": "Pebble Semaphore",
   "stack": "html",
-  "aesthetic": "neo-brutalism",
+  "aesthetic": "vaporwave",
   "model": "opencode-go/muse-spark-1.3-contributor",
   "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 189417,
-  "at": "2026-09-23T04:58:21.495Z"
+  "elapsedMs": 144316,
+  "at": "2026-09-24T17:10:55.633Z"
 }
