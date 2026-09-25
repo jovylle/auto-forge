@@ -2793,6 +2793,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "orbit-spring-atelier",
+    "title": "Orbit Spring Atelier",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "dark-fantasy",
+    "theme": "physics",
+    "constraints": [
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Pluck springs to spawn orbiting particles that sing as gravity bends them.",
+    "features": [
+      "drag-and-fling particle slingshot",
+      "tunable gravity wells",
+      "spring-mesh collisions",
+      "one-click loop export"
+    ],
+    "tags": [
+      "gravity",
+      "springs",
+      "particles",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-25T17:15:50.301Z",
+    "updatedAt": "2026-09-25T17:18:36.143Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 89, done: 80, counts: {"done":80,"needs-human":9} };
+export const stats = { total: 90, done: 81, counts: {"done":81,"needs-human":9} };
