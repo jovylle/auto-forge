@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Orbit Spring Atelier — a dark-fantasy gravity loom</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IM+Fell+English:ital@0;1&display=swap');
+:root{
+  --abyss:#0a0714; --abyss2:#120c22; --panel:#161027ee;
+  --gold:#e8b34b; --gold-dim:#9a7a35; --violet:#a78bfa; --arcane:#7c5cff;
+  --blood:#c73e5a; --bone:#e9dec6; --bone-dim:#a89c83;
+  --line:#3a2c5e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  background:radial-gradient(1200px 800px at 70% -10%, #1c1240 0%, var(--abyss) 55%) fixed, var(--abyss);
+  color:var(--bone); font-family:'IM Fell English', Georgia, serif; overflow-x:hidden;
+}
+body::before{ /* starfield grain */
+  content:""; position:fixed; inset:0; pointer-events:none; opacity:.5;
+  background-image:radial-gradient(1px 1px at 12% 30%, #ffffff88, transparent),
+    radial-gradient(1px 1px at 68% 12%, #ffffff66, transparent),
+    radial-gradient(1.5px 1.5px at 84% 64%, #cbb6ff77, transparent),
+    radial-gradient(1px 1px at 32% 78%, #ffffff55, transparent),
+    radial-gradient(1px 1px at 48% 8%, #ffe9b088, transparent);
+}
+h1,h2,.btn,.well-name{font-family:'Cinzel',serif}
+#wrap{max-width:1180px;margin:0 auto;padding:18px 16px 40px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;justify-content:space-between}
+.eyebrow{color:var(--gold);letter-spacing:.35em;font-size:11px;font-family:'Cinzel',serif}
+h1{margin:2px 0 0;font-size:clamp(28px,5vw,52px);font-weight:900;line-height:1;
+  background:linear-gradient(180deg,#fff3d6 10%, var(--gold) 55%, #7a5a22 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 0 34px #e8b34b22;}
+.sub{margin:6px 0 0;color:var(--bone-dim);font-style:italic;font-size:clamp(14px,2.4vw,18px)}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  cursor:pointer;border:1px solid var(--gold-dim);color:#ffe9b0;background:linear-gradient(180deg,#2b1d4e,#171029);
+  padding:10px 16px;border-radius:10px;font-size:13px;letter-spacing:.12em;font-weight:700;
+  box-shadow:0 0 0 1px #000, 0 4px 18px #7c5cff33, inset 0 1px 0 #ffffff22;
+  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.15);box-shadow:0 0 0 1px #000,0 6px 24px #e8b34b44}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:linear-gradient(180deg,#6b4d16,#2b1d08);border-color:var(--gold)}
+.btn.rec{background:linear-gradient(180deg,#6e1626,#2b080e);border-color:var(--blood);color:#ffd9de}
+.btn:disabled{opacity:.55;cursor:wait;transform:none}
+main{display:grid;grid-template-columns:1fr 300px;gap:14px;margin-top:16px}
+@media (max-width:860px){ main{grid-template-columns:1fr} }
+#stageBox{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  background:radial-gradient(900px 500px at 50% 120%, #241545 0%, #0d0918 60%);
+  box-shadow:0 20px 60px #000000aa, inset 0 0 80px #00000088;}
+canvas{display:block;width:100%;height:min(66vh,620px);touch-action:none;cursor:crosshair}
+#hint{
+  position:absolute;left:12px;bottom:10px;right:12px;pointer-events:none;
+  color:#d9cba6cc;font-style:italic;font-size:13px;text-shadow:0 2px 6px #000;
+  display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+#recBadge{position:absolute;top:12px;right:12px;display:none;align-items:center;gap:8px;
+  font-family:'Cinzel',serif;font-size:12px;letter-spacing:.2em;color:#ffb3bc;
+  background:#2b080ecc;border:1px solid var(--blood);padding:6px 12px;border-radius:999px}
+#recBadge.on{display:flex}
+#recBadge i{width:9px;height:9px;border-radius:50%;background:#ff3b57;box-shadow:0 0 10px #ff3b57;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.25}}
+aside{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;
+  box-shadow:0 20px 60px #00000088;align-self:start}
+aside h2{font-size:13px;letter-spacing:.25em;color:var(--gold);margin:0 0 4px}
+aside .rule{height:1px;background:linear-gradient(90deg,var(--gold-dim),transparent);margin:8px 0 12px}
+.ctl{margin:12px 0}
+.ctl label{display:flex;justify-content:space-between;font-size:14px;color:var(--bone);margin-bottom:4px}
+.ctl label output{color:var(--gold);font-family:'Cinzel',serif;font-size:12px}
+input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer}
+.well{border:1px solid var(--line);border-radius:10px;padding:10px;margin:10px 0;background:#0e0a1c}
+.well-head{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.well-name{font-size:13px;letter-spacing:.15em;color:var(--violet)}
+.dot{width:12px;height:12px;border-radius:50%;box-shadow:0 0 10px currentColor;background:currentColor;display:inline-block}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.mini{flex:1;cursor:pointer;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.1em;
+  background:#0e0a1c;color:var(--bone-dim);border:1px solid var(--line);border-radius:8px;padding:8px}
+.mini:hover{color:var(--gold);border-color:var(--gold-dim)}
+.toggle{display:flex;align-items:center;justify-content:space-between;font-size:14px;margin:10px 0;cursor:pointer}
+.toggle input{accent-color:var(--gold);width:18px;height:18px;cursor:pointer}
+#spellLog{list-style:none;margin:10px 0 0;padding:0;font-size:13px;color:var(--bone-dim);max-height:120px;overflow:auto}
+#spellLog li{padding:2px 0;border-bottom:1px dotted #3a2c5e55}
+footer{margin-top:14px;color:var(--bone-dim);font-size:13px;font-style:italic;text-align:center}
+kbd{font-family:'Cinzel',serif;font-size:11px;border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--gold)}
+@media (max-width:480px){
+  canvas{height:62vh}
+  #hint{font-size:11px}
+  .actions .btn{flex:1;text-align:center}
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">✦ &nbsp;THE GRAVITY LOOM&nbsp; ✦</div>
+      <h1>Orbit Spring Atelier</h1>
+      <p class="sub">Pluck the veil's springs to loose singing motes — then bend their hymns with living gravity.</p>
+    </div>
+    <div class="actions">
+      <button class="btn" id="soundBtn" title="toggle sound">🔔 SOUND: ON</button>
+      <button class="btn" id="clearBtn" title="banish all motes">✦ BANISH</button>
+      <button class="btn primary" id="exportBtn" title="record an 8 second loop">❖ EXPORT LOOP</button>
+    </div>
+  </header>
+  <main>
+    <div id="stageBox">
+      <canvas id="stage" width="900" height="600" aria-label="gravity loom canvas"></canvas>
+      <div id="recBadge"><i></i><span id="recText">WEAVING LOOP…</span></div>
+      <div id="hint"><span>drag empty dark → slingshot &nbsp;•&nbsp; drag a ◎ well → move it &nbsp;•&nbsp; drag the veil → pluck it</span><span id="moteCount">0 motes</span></div>
+    </div>
+    <aside>
+      <h2>GRAVITY WELLS</h2><div class="rule"></div>
+      <div id="wells"></div>
+      <div class="row">
+        <button class="mini" id="addWell">＋ conjure well</button>
+        <button class="mini" id="delWell">− dismiss last</button>
+      </div>
+      <h2 style="margin-top:18px">THE WEAVE</h2><div class="rule"></div>
+      <div class="ctl"><label>Star-pull (G) <output id="oG"></output></label>
+        <input type="range" id="rG" min="20" max="400" value="150"></div>
+      <div class="ctl"><label>Veil tension <output id="oT"></output></label>
+        <input type="range" id="rT" min="1" max="10" value="4"></div>
+      <div class="ctl"><label>Mote trails <output id="oTr"></output></label>
+        <input type="range" id="rTr" min="4" max="40" value="22"></div>
+      <label class="toggle">Choir (motes sing)<input type="checkbox" id="cChoir" checked></label>
+      <label class="toggle">Veil glow<input type="checkbox" id="cGlow" checked></label>
+      <h2 style="margin-top:14px">GRIMOIRE</h2><div class="rule"></div>
+      <ul id="spellLog"><li>The loom awaits its first pluck…</li></ul>
+    </aside>
+  </main>
+  <footer>Every mote is a voice — swift motes sing high, the deep-bound sing low. <kbd>space</kbd> pauses the stars · Export weaves an 8s webm cantrip of sight &amp; sound.</footer>
+</div>
+<script type="module">
+// ═══ Orbit Spring Atelier — single-file gravity loom ═══
+const canvas = document.getElementById('stage');
+const ctx = canvas.getContext('2d');
+const $ = id => document.getElementById(id);
+const wellsEl=$('wells'), logEl=$('spellLog'), moteCountEl=$('moteCount');
+
+const store = (()=>{ try{ return JSON.parse(localStorage.getItem('osa-v1')||'{}'); }catch{ return {}; }})();
+const save = ()=>{ try{ localStorage.setItem('osa-v1', JSON.stringify({wells, G, tension, trail, choir})); }catch{} };
+
+// ── state ──
+let W=900, H=600, DPR=1, paused=false;
+let G = store.G ?? 150;
+let tension = store.tension ?? 4;
+let trail = store.trail ?? 22;
+let choir = store.choir ?? true;
+let soundOn = true, glow = true;
+
+const SCALE = ['C','D','E','G','A'];           // pentatonic, always consonant
+const BASE = 220;                               // A3
+let wells = store.wells ?? [
+  {x:.32, y:.42, mass:1.2, hue:265},
+  {x:.70, y:.60, mass:0.9, hue:38},
+];
+wells = wells.map(w=>({...w}));
+let motes = [];   // {x,y,vx,vy,hue,note,osc,gain,path:[],age}
+let mesh = null;  // verlet veil
+
+// ── audio ──
+let AC=null, master=null, mediaDest=null, delaySend=null;
+function audio(){
+  if(AC) { if(AC.state==='suspended') AC.resume(); return AC; }
+  AC = new (window.AudioContext||window.webkitAudioContext)();
+  master = AC.createGain(); master.gain.value = .8; master.connect(AC.destination);
+  mediaDest = AC.createMediaStreamDestination();
+  // dreamy feedback-delay chapel
+  const dly = AC.createDelay(1); dly.delayTime.value = .34;
+  const fb = AC.createGain(); fb.gain.value = .38;
+  const wet = AC.createGain(); wet.gain.value = .35;
+  delaySend = AC.createGain(); delaySend.gain.value = 1;
+  delaySend.connect(dly); dly.connect(fb); fb.connect(dly); dly.connect(wet);
+  wet.connect(master); wet.connect(mediaDest);
+  master.connect(mediaDest);
+  return AC;
+}
+const penta = i => BASE * Math.pow(2, ([0,2,4,7,9][((i%5)+5)%5] + 12*Math.floor(i/5))/12);
+function pluckTone(freq, dur=.9, vol=.25, type='triangle'){
+  if(!soundOn) return; audio();
+  const o=AC.createOscillator(), g=AC.createGain();
+  o.type=type; o.frequency.value=freq;
+  g.gain.setValueAtTime(0, AC.currentTime);
+  g.gain.linearRampToValueAtTime(vol, AC.currentTime+.012);
+  g.gain.exponentialRampToValueAtTime(.0001, AC.currentTime+dur);
+  o.connect(g); g.connect(master); g.connect(delaySend);
+  o.start(); o.stop(AC.currentTime+dur+.05);
+}
+function bindMoteVoice(m){
+  if(!soundOn || !choir) return;
+  audio();
+  // steal oldest voice past 10
+  const voiced = motes.filter(k=>k.osc);
+  if(voiced.length>=10){ const v=voiced[0]; try{v.osc.stop();}catch{} v.osc=null; }
+  const o=AC.createOscillator(), g=AC.createGain();
+  o.type='sine'; o.frequency.value=penta(m.note); g.gain.value=0;
+  g.gain.setTargetAtTime(.05, AC.currentTime, .4);
+  o.connect(g); g.connect(master); g.connect(delaySend);
+  o.start(); m.osc=o; m.voiceGain=g;
+}
+function killVoice(m){ if(m.osc){ try{ m.voiceGain.gain.setTargetAtTime(0, AC.currentTime, .1); m.osc.stop(AC.currentTime+.4);}catch{} m.osc=null; } }
+
+// ── sizing / mesh ──
+function fit(){
+  const r = canvas.getBoundingClientRect();
+  DPR = Math.min(2, window.devicePixelRatio||1);
+  W = Math.max(320, Math.round(r.width)); H = Math.round(r.height)||520;
+  canvas.width = W*DPR; canvas.height = H*DPR;
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  buildMesh();
+}
+function buildMesh(){
+  const cols = W<500?12:18, rows = W<500?5:7;
+  const x0=W*.06, x1=W*.94, y0=H*.78, sag=H*.10;
+  const nodes=[];
+  for(let r=0;r<rows;r++) for(let c=0;c<cols;c++){
+    const t=c/(cols-1), s=r/(rows-1);
+    nodes.push({x:x0+(x1-x0)*t, y:y0+sag*Math.sin(t*Math.PI)+s*H*.075,
+      px:0, py:0, pin:(r===0&&(c===0||c===cols-1)), flash:0});
+  }
+  nodes.forEach(n=>{n.px=n.x;n.py=n.y;});
+  const springs=[];
+  const id=(r,c)=>r*cols+c;
+  for(let r=0;r<rows;r++) for(let c=0;c<cols;c++){
+    if(c<cols-1) springs.push([id(r,c),id(r,c+1)]);
+    if(r<rows-1) springs.push([id(r,c),id(r+1,c)]);
+  }
+  mesh={nodes,springs,cols,rows};
+  // rest lengths from layout
+  mesh.springs = springs.map(([a,b])=>{
+    const A=nodes[a],B=nodes[b];
+    return {a,b,rest:Math.hypot(A.x-B.x,A.y-B.y)};
+  });
+}
+
+// ── wells UI ──
+const WELL_COLORS=[265,38,340,160,200];
+function renderWells(){
+  wellsEl.innerHTML='';
+  wells.forEach((w,i)=>{
+    const d=document.createElement('div'); d.className='well';
+    d.innerHTML=`<div class="well-head"><span class="well-name"><span class="dot" style="color:hsl(${w.hue} 90% 68%)"></span> WELL ${['I','II','III','IV','V'][i]||i+1}</span><span style="font-size:12px;color:var(--bone-dim)">drag ◎ on canvas</span></div>
+    <div class="ctl"><label>Mass <output>${w.mass.toFixed(2)} ✦</output></label>
+    <input type="range" min="0.2" max="3" step="0.05" value="${w.mass}"></div>`;
+    d.querySelector('input').addEventListener('input',e=>{ w.mass=+e.target.value; d.querySelector('output').textContent=w.mass.toFixed(2)+' ✦'; save(); });
+    wellsEl.appendChild(d);
+  });
+}
+$('addWell').onclick=()=>{ if(wells.length>=5) return chant('The loom holds at most five stars.'); wells.push({x:.3+Math.random()*.4,y:.3+Math.random()*.3,mass:1,hue:WELL_COLORS[wells.length%5]}); renderWells(); save(); chant('A new star is conjured.'); };
+$('delWell').onclick=()=>{ if(!wells.length) return; wells.pop(); renderWells(); save(); chant('A star is dismissed.'); };
+function chant(t){ const li=document.createElement('li'); li.textContent='✦ '+t; logEl.prepend(li); while(logEl.children.length>24) logEl.lastChild.remove(); }
+
+// sliders
+function bindRange(id,out,fn,init,fmt){ const r=$(id),o=$(out); const up=()=>{o.textContent=fmt(r.value);fn(+r.value);}; r.addEventListener('input',up); r.value=init; up(); }
+bindRange('rG','oG',v=>{G=v;save();},G,v=>(+v).toFixed(0)+' ✦');
+bindRange('rT','oT',v=>{tension=v;},tension,v=>(+v).toFixed(0));
+bindRange('rTr','oTr',v=>{trail=v;},trail,v=>v+' echoes');
+$('cChoir').checked=choir; $('cChoir').onchange=e=>{choir=e.target.checked;save();};
+$('cGlow').checked=glow; $('cGlow').onchange=e=>{glow=e.target.checked;};
+
+// ── pointer: slingshot / well-drag / veil-pluck ──
+let drag=null; // {mode:'fling'|'well'|'pluck', ...}
+function pos(e){ const r=canvas.getBoundingClientRect(); return {x:e.clientX-r.left, y:e.clientY-r.top}; }
+function wellAt(p){ return wells.findIndex(w=>Math.hypot(w.x*W-p.x,w.y*H-p.y)<30); }
+function nodeAt(p){ let bi=-1,bd=26; mesh.nodes.forEach((n,i)=>{const d=Math.hypot(n.x-p.x,n.y-p.y); if(d<bd){bd=d;bi=i;}}); return bi; }
+canvas.addEventListener('pointerdown',e=>{
+  audio(); canvas.setPointerCapture(e.pointerId);
+  const p=pos(e);
+  const wi=wellAt(p);
+  if(wi>=0){ drag={mode:'well',i:wi}; return; }
+  const ni=nodeAt(p);
+  if(ni>=0){ drag={mode:'pluck',i:ni,px:p.x,py:p.y,vx:0,vy:0}; return; }
+  drag={mode:'fling',x0:p.x,y0:p.y,x:p.x,y:p.y};
+});
+canvas.addEventListener('pointermove',e=>{
+  if(!drag) return; const p=pos(e);
+  if(drag.mode==='well'){ wells[drag.i].x=Math.min(1,Math.max(0,p.x/W)); wells[drag.i].y=Math.min(1,Math.max(0,p.y/H)); save(); }
+  else if(drag.mode==='pluck'){ const n=mesh.nodes[drag.i]; n.x=p.x; n.y=p.y; n.flash=1;
+    drag.vx=drag.vx*.7+(p.x-drag.px)*.3; drag.vy=drag.vy*.7+(p.y-drag.py)*.3; drag.px=p.x; drag.py=p.y; }
+  else { drag.x=p.x; drag.y=p.y; }
+});
+canvas.addEventListener('pointerup',e=>{
+  if(!drag) return; const p=pos(e);
+  if(drag.mode==='fling'){
+    const dx=drag.x0-p.x, dy=drag.y0-p.y;
+    if(Math.hypot(dx,dy)>12) spawnMote(drag.x0,drag.y0,dx*3.2,dy*3.2,'sling');
+  } else if(drag.mode==='pluck'){
+    const sp=Math.hypot(drag.vx,drag.vy);
+    const n=mesh.nodes[drag.i];
+    if(sp>4){ spawnMote(n.x,n.y,drag.vx*22,drag.vy*22-60,'pluck'); pluckTone(penta(motes.length%10),1.1,.3); chant('The veil is plucked — a mote takes flight.'); }
+    else { pluckTone(penta((Math.random()*10)|0),.7,.18); chant('The veil hums softly.'); }
+  }
+  drag=null;
+});
+canvas.addEventListener('pointercancel',()=>drag=null);
+
+let noteSeq=0;
+function spawnMote(x,y,vx,vy,how){
+  if(motes.length>=26){ const old=motes.shift(); killVoice(old); }
+  const m={x,y,vx,vy,hue:[265,45,320,180,25][noteSeq%5],note:noteSeq++,path:[],age:0,osc:null,bend:0};
+  motes.push(m); bindMoteVoice(m);
+  pluckTone(penta(m.note),.5,.2,'sine');
+  chant(how==='pluck'?'A plucked spring births a singing mote.':'A mote is flung into the dark.');
+  moteCountEl.textContent = motes.length+' motes';
+}
+$('clearBtn').onclick=()=>{ motes.forEach(killVoice); motes=[]; moteCountEl.textContent='0 motes'; chant('The sky is swept clean.'); };
+$('soundBtn').onclick=e=>{ soundOn=!soundOn; if(soundOn) audio(); e.target.textContent=soundOn?'🔔 SOUND: ON':'🔕 SOUND: OFF'; if(!soundOn) motes.forEach(killVoice); };
+window.addEventListener('keydown',e=>{ if(e.code==='Space'&&e.target===document.body){e.preventDefault();paused=!paused;chant(paused?'The stars hold their breath.':'The stars wheel on.');} });
+
+// ── physics ──
+function step(dt){
+  // mesh verlet
+  const ns=mesh.nodes;
+  for(const n of ns){ if(n.pin) continue;
+    const vx=(n.x-n.px)*.985, vy=(n.y-n.py)*.985;
+    n.px=n.x; n.py=n.y; n.x+=vx; n.y+=vy+26*dt*dt; n.flash*=.94;
+  }
+  for(let k=0;k<tension;k++) for(const s of mesh.springs){
+    const A=ns[s.a],B=ns[s.b];
+    let dx=B.x-A.x, dy=B.y-A.y; const d=Math.hypot(dx,dy)||.001, diff=(d-s.rest)/d*.5;
+    if(!A.pin){A.x+=dx*diff;A.y+=dy*diff;} if(!B.pin){B.x-=dx*diff;B.y-=dy*diff;}
+  }
+  // motes
+  for(const m of motes){
+    m.age+=dt;
+    let ax=0,ay=0,curve=0;
+    for(const w of wells){
+      const dx=w.x*W-m.x, dy=w.y*H-m.y;
+      const d2=dx*dx+dy*dy+1600, d=Math.sqrt(d2);
+      const f=G*w.mass*900/d2;
+      ax+=dx/d*f; ay+=dy/d*f; curve+=f/d;
+    }
+    m.vx+=ax*dt; m.vy+=ay*dt; m.vx*=.9995; m.vy*=.9995;
+    m.x+=m.vx*dt; m.y+=m.vy*dt;
+    m.bend=m.bend*.9+Math.min(4,curve*.02)*.1;
+    // spring-mesh collisions (node spheres)
+    for(let i=0;i<ns.length;i++){
+      const n=ns[i], dx=m.x-n.x, dy=m.y-n.y, d=Math.hypot(dx,dy);
+      if(d<13&&d>0.01){
+        const nx=dx/d, ny=dy/d;
+        m.x=n.x+nx*13; m.y=n.y+ny*13;
+        const vn=m.vx*nx+m.vy*ny;
+        if(vn<0){ m.vx-=1.85*vn*nx; m.vy-=1.85*vn*ny;
+          n.px-=m.vx*.02; n.py-=m.vy*.02; n.flash=1;
+          if(Math.abs(vn)>60){ pluckTone(penta(m.note+2),.5,.16); n.flash=1; }
+        }
+      }
+    }
+    // edges: soft banish
+    if(m.x<-40||m.x>W+40||m.y<-40||m.y>H+40){ killVoice(m); m.dead=true; }
+    m.path.push({x:m.x,y:m.y}); if(m.path.length>trail) m.path.shift();
+    // voice bends with gravity
+    if(m.osc&&soundOn){ const sp=Math.hypot(m.vx,m.vy);
+      const f=penta(m.note)*(1+Math.min(.5,m.bend*.4))*(1+Math.min(.3,sp/2400));
+      m.osc.frequency.setTargetAtTime(f, AC.currentTime, .05);
+    }
+  }
+  const before=motes.length;
+  motes=motes.filter(m=>!m.dead);
+  if(motes.length!==before) moteCountEl.textContent=motes.length+' motes';
+}
+
+// ── render ──
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  // wells
+  for(const w of wells){
+    const x=w.x*W,y=w.y*H,R=26+Math.sqrt(w.mass)*14;
+    const g=ctx.createRadialGradient(x,y,2,x,y,R*3);
+    g.addColorStop(0,`hsl(${w.hue} 90% 70% / .8)`); g.addColorStop(.25,`hsl(${w.hue} 90% 55% / .25)`); g.addColorStop(1,'transparent');
+    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,R*3,0,7); ctx.fill();
+    ctx.strokeStyle=`hsl(${w.hue} 80% 60% / .5)`; ctx.lineWidth=1;
+    for(let k=1;k<=3;k++){ ctx.beginPath(); ctx.arc(x,y,R*k*.7+((performance.now()/28)%(R*.7)),0,7); ctx.globalAlpha=.35/k; ctx.stroke(); }
+    ctx.globalAlpha=1;
+    ctx.fillStyle=`hsl(${w.hue} 95% 72%)`; ctx.beginPath(); ctx.arc(x,y,7,0,7); ctx.fill();
+    ctx.strokeStyle='#0a0714'; ctx.lineWidth=2; ctx.stroke();
+    ctx.fillStyle='#0a0714'; ctx.font='700 9px Cinzel,serif'; ctx.textAlign='center'; ctx.fillText('◎',x,y+3.5);
+  }
+  // veil springs
+  const ns=mesh.nodes;
+  ctx.lineWidth=1.2;
+  for(const s of mesh.springs){
+    const A=ns[s.a],B=ns[s.b];
+    const fl=Math.max(A.flash,B.flash);
+    ctx.strokeStyle= fl>.05 ? `rgba(255,220,150,${.25+fl*.65})` : 'rgba(150,130,220,.34)';
+    if(glow&&fl>.05){ ctx.shadowColor='#e8b34b'; ctx.shadowBlur=12*fl; }
+    else ctx.shadowBlur=0;
+    ctx.beginPath(); ctx.moveTo(A.x,A.y); ctx.lineTo(B.x,B.y); ctx.stroke();
+  }
+  ctx.shadowBlur=0;
+  // motes + trails
+  for(const m of motes){
+    if(m.path.length>1){
+      for(let i=1;i<m.path.length;i++){
+        const t=i/m.path.length;
+        ctx.strokeStyle=`hsl(${m.hue} 90% ${45+t*25}% / ${t*.7})`;
+        ctx.lineWidth=1+t*2.4; ctx.beginPath();
+        ctx.moveTo(m.path[i-1].x,m.path[i-1].y); ctx.lineTo(m.path[i].x,m.path[i].y); ctx.stroke();
+      }
+    }
+    if(glow){ ctx.shadowColor=`hsl(${m.hue} 95% 65%)`; ctx.shadowBlur=16; }
+    ctx.fillStyle=`hsl(${m.hue} 95% 75%)`;
+    ctx.beginPath(); ctx.arc(m.x,m.y,4.5,0,7); ctx.fill();
+    ctx.shadowBlur=0;
+    ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(m.x-1,m.y-1,1.4,0,7); ctx.fill();
+  }
+  // slingshot band
+  if(drag&&drag.mode==='fling'){
+    const dx=drag.x-drag.x0, dy=drag.y-drag.y0;
+    ctx.strokeStyle='#e8b34baa'; ctx.lineWidth=2; ctx.setLineDash([6,5]);
+    ctx.beginPath(); ctx.moveTo(drag.x0,drag.y0); ctx.lineTo(drag.x,drag.y); ctx.stroke();
+    ctx.setLineDash([]);
+    // predicted dots
+    let px=drag.x0,py=drag.y0,pvx=-dx*3.2,pvy=-dy*3.2;
+    ctx.fillStyle='#e8b34b88';
+    for(let i=0;i<14;i++){ pvx*=.999; pvy*=.999; px+=pvx*.03; py+=pvy*.03; pvy+=60*.03;
+      ctx.beginPath(); ctx.arc(px,py,2,0,7); ctx.fill(); }
+    ctx.strokeStyle='#e8b34b'; ctx.beginPath(); ctx.arc(drag.x0,drag.y0,8,0,7); ctx.stroke();
+  }
+}
+
+let last=performance.now();
+function frame(now){
+  const dt=Math.min(.033,(now-last)/1000); last=now;
+  if(!paused&&!recording) { step(dt); step(dt); }
+  else if(!paused&&recording){ step(dt); step(dt); }
+  draw();
+  requestAnimationFrame(frame);
+}
+
+// ── one-click loop export (8s webm, video+audio) ──
+let recording=false;
+$('exportBtn').onclick=async()=>{
+  if(recording) return;
+  audio();
+  const btn=$('exportBtn'), badge=$('recBadge'), rt=$('recText');
+  try{
+    const vs=canvas.captureStream(60);
+    const tracks=[...vs.getVideoTracks()];
+    try{ mediaDest.stream.getAudioTracks().forEach(t=>tracks.push(t)); }catch{}
+    const mime=['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'].find(m=>window.MediaRecorder&&MediaRecorder.isTypeSupported(m))||'';
+    const rec=new MediaRecorder(new MediaStream(tracks), mime?{mimeType:mime,videoBitsPerSecond:6e6}:undefined);
+    const chunks=[]; rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data);};
+    const done=new Promise(r=>rec.onstop=r);
+    recording=true; btn.disabled=true; btn.textContent='❖ WEAVING…'; badge.classList.add('on');
+    if(paused){paused=false;}
+    rec.start(250);
+    const t0=performance.now();
+    await new Promise(res=>{ const tick=()=>{ const left=8-(performance.now()-t0)/1000;
+      rt.textContent=`WEAVING LOOP… ${Math.max(0,left).toFixed(1)}s`;
+      left>0?requestAnimationFrame(tick):res(); }; tick(); });
+    rec.stop(); await done;
+    const blob=new Blob(chunks,{type:'video/webm'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='orbit-spring-loop.webm'; a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),8000);
+    chant(`Loop woven — ${(blob.size/1024).toFixed(0)} KB cantrip downloaded.`);
+  }catch(err){ chant('The weaving faltered: '+err.message); }
+  recording=false; btn.disabled=false; btn.textContent='❖ EXPORT LOOP'; badge.classList.remove('on');
+};
+
+// ── boot ──
+renderWells();
+$('rG').value=G; $('rT').value=tension; $('rTr').value=trail;
+$('oG').textContent=G+' ✦'; $('oT').textContent=tension; $('oTr').textContent=trail+' echoes';
+new ResizeObserver(fit).observe(canvas);
+window.addEventListener('resize',fit);
+fit();
+chant('Two stars kindled. Fling a mote — hear it sing.');
+requestAnimationFrame(t=>{last=t;requestAnimationFrame(frame);});
+</script>
+</body>
+</html>
