@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Glasswing Market — a cottagecore trading tale</title>
+  <meta name="description" content="Trade transparent butterfly goods across glass stalls. Haggle, fill orders, and grow your market renown over 7 market days." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <span class="mote m1"></span><span class="mote m2"></span><span class="mote m3"></span>
+    <span class="mote m4"></span><span class="mote m5"></span><span class="mote m6"></span>
+    <span class="flutter f1">🦋</span><span class="flutter f2">🦋</span>
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="kicker">a cottagecore trading tale · 7 market days</p>
+      <h1>Glasswing Market</h1>
+      <p class="sub">Trade transparent butterfly goods beneath the glass awnings. Buy low, sell kindly, fill the villagers&rsquo; orders — and grow your <strong>Market Renown</strong>.</p>
+    </div>
+  </header>
+
+  <section class="hud" aria-label="Market score">
+    <div class="hud-card day"><span class="hud-label">Day</span><span class="hud-value"><span id="hud-day">1</span><span class="hud-dim">/ 7</span></span></div>
+    <div class="hud-card coins"><span class="hud-label">Dew coins</span><span class="hud-value" id="hud-coins">0</span></div>
+    <div class="hud-card renown"><span class="hud-label">Renown</span><span class="hud-value" id="hud-renown">0</span></div>
+    <div class="hud-card collection"><span class="hud-label">Collection</span><span class="hud-value"><span id="hud-coll">0</span><span class="hud-dim">/ 8</span></span></div>
+    <div class="hud-actions">
+      <button id="btn-bell" class="btn bell" type="button">🔔 Ring the bell <small>next day</small></button>
+      <button id="btn-new" class="btn ghost" type="button">New game</button>
+    </div>
+  </section>
+
+  <main id="app">
+    <section class="panel" aria-label="How to play">
+      <details class="howto">
+        <summary>How does the market work?</summary>
+        <ol>
+          <li><strong>Buy</strong> wing-goods from the glass stalls. Prices drift every day — the arrow shows today&rsquo;s trend.</li>
+          <li><strong>Haggle</strong> once per stall per day: charm the keeper for lower prices, or risk annoying them.</li>
+          <li><strong>Sell</strong> from your satchel when a stall pays well, or <strong>fill villager orders</strong> for coins + renown.</li>
+          <li>Ring the bell to open the next market day. After day 7, your final <strong>market score</strong> is tallied.</li>
+        </ol>
+      </details>
+    </section>
+
+    <h2 class="section-title"><span>Glass stalls</span></h2>
+    <section id="stalls" class="stalls" aria-live="polite"></section>
+
+    <div class="two-col">
+      <section aria-label="Villager orders">
+        <h2 class="section-title"><span>Order board</span></h2>
+        <div id="orders" class="orders"></div>
+      </section>
+      <section aria-label="Your satchel">
+        <h2 class="section-title"><span>Your satchel</span></h2>
+        <div id="satchel" class="satchel"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <p>Glasswing Market · pressed petals, glass wings &amp; honest trade · best score kept in this browser</p>
+    <p class="best">Best market score: <strong id="best">—</strong></p>
+  </footer>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <div id="finale" class="finale hidden" role="dialog" aria-modal="true" aria-labelledby="finale-title">
+    <div class="finale-card">
+      <p class="kicker">the market closes</p>
+      <h2 id="finale-title">Season&rsquo;s tally</h2>
+      <div class="butterfly-seal" aria-hidden="true">
+        <svg viewBox="0 0 100 70" width="120" height="84"><g fill="rgba(255,255,255,.55)" stroke="#7a6a53" stroke-width="2"><ellipse cx="30" cy="28" rx="24" ry="18" transform="rotate(-24 30 28)"/><ellipse cx="70" cy="28" rx="24" ry="18" transform="rotate(24 70 28)"/><ellipse cx="36" cy="54" rx="15" ry="10" transform="rotate(-14 36 54)"/><ellipse cx="64" cy="54" rx="15" ry="10" transform="rotate(14 64 54)"/></g><rect x="48" y="12" width="4" height="48" rx="2" fill="#5c4a33"/><circle cx="50" cy="10" r="4" fill="#5c4a33"/></svg>
+      </div>
+      <p id="finale-title-rank" class="rank">Peddler of Petals</p>
+      <dl class="tally">
+        <div><dt>Dew coins</dt><dd id="t-coins">0</dd></div>
+        <div><dt>Renown × 10</dt><dd id="t-renown">0</dd></div>
+        <div><dt>Collection bonus</dt><dd id="t-coll">0</dd></div>
+        <div class="total"><dt>Market score</dt><dd id="t-score">0</dd></div>
+      </dl>
+      <p id="finale-note" class="finale-note"></p>
+      <div class="finale-actions">
+        <button id="btn-again" class="btn bell" type="button">Open a new season</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
