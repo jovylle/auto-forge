@@ -2856,6 +2856,37 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "umber-lighthouse-choir",
+    "title": "Umber Lighthouse Choir",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "organic-brutalist",
+    "theme": "physics",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)",
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "A lighthouse that sings ships home.",
+    "features": [
+      "beam choir",
+      "fog voices",
+      "harbor log"
+    ],
+    "tags": [
+      "choir",
+      "lighthouse",
+      "audio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-26T17:39:22.507Z",
+    "updatedAt": "2026-09-26T17:41:16.275Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 91, done: 82, counts: {"done":82,"needs-human":9} };
+export const stats = { total: 92, done: 83, counts: {"done":83,"needs-human":9} };
