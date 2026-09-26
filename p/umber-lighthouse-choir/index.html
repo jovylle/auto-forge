@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Umber Lighthouse Choir — a lighthouse that sings ships home</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,700;9..144,900&family=Space+Mono:wght@400;700&display=swap');
+:root{
+  --umber:#2b1d12; --umber2:#3d2a18; --rust:#c96a2b; --amber:#f0a832;
+  --kelp:#5d6b3c; --bone:#efe3cc; --ink:#140d07; --fog:#b9a98f;
+  --sea:#1c2b2a; --sea2:#12201f;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--ink); color:var(--bone);
+  font-family:'Space Mono',ui-monospace,monospace; font-size:15px; line-height:1.5;
+  background-image:
+    radial-gradient(1200px 500px at 80% -10%, #4a2c1433, transparent),
+    repeating-linear-gradient(0deg, transparent 0 34px, #ffffff06 34px 35px);
+  min-height:100vh;
+}
+header.top{
+  border-bottom:4px solid var(--bone);
+  padding:18px 20px 14px; display:flex; flex-wrap:wrap; gap:12px 22px;
+  align-items:end; justify-content:space-between;
+  background:linear-gradient(180deg,#241609,#140d07);
+}
+.brand h1{
+  font-family:'Fraunces',serif; font-weight:900; letter-spacing:-.02em;
+  font-size:clamp(30px,6vw,58px); line-height:.95; margin:0; text-transform:uppercase;
+}
+.brand h1 .choir{color:var(--amber); -webkit-text-stroke:2px var(--ink); text-shadow:3px 3px 0 var(--rust)}
+.tag{margin:6px 0 0; color:var(--fog); font-size:13px; max-width:52ch}
+.tag b{color:var(--bone)}
+.controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+button,.pill{
+  font:inherit; font-weight:700; color:var(--ink); background:var(--amber);
+  border:3px solid var(--bone); border-radius:999px; padding:9px 16px; cursor:pointer;
+  box-shadow:4px 4px 0 var(--rust); transition:transform .12s, box-shadow .12s;
+}
+button:hover{transform:translate(-1px,-1px); box-shadow:5px 5px 0 var(--rust)}
+button:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--rust)}
+button.ghost{background:var(--bone)}
+button.on{background:var(--kelp); color:#f2f5e4}
+.wrap{max-width:1080px; margin:0 auto; padding:18px 16px 60px; display:grid; gap:16px}
+@media(min-width:920px){.wrap{grid-template-columns:1.6fr 1fr}}
+.stage-block{
+  border:4px solid var(--bone); border-radius:18px; overflow:hidden;
+  background:linear-gradient(180deg,#0f1f22 0%, var(--sea2) 55%, #0a1414 100%);
+  box-shadow:8px 8px 0 #000;
+}
+.stage-head{
+  display:flex; justify-content:space-between; align-items:center; gap:10px;
+  padding:10px 14px; background:var(--umber2); border-bottom:4px solid var(--bone);
+  font-size:12px; text-transform:uppercase; letter-spacing:.12em;
+}
+.stage-head .dot{display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--rust); margin-right:8px; box-shadow:0 0 10px var(--rust)}
+#scene{display:block; width:100%; height:auto; cursor:crosshair; touch-action:none}
+.hintbar{
+  display:flex; gap:8px; flex-wrap:wrap; padding:10px 14px; background:#1a120a;
+  border-top:4px solid var(--bone); font-size:12px; color:var(--fog);
+}
+.hintbar kbd{border:2px solid var(--bone); border-radius:6px; padding:0 7px; color:var(--bone); background:#000}
+.panel{
+  border:4px solid var(--bone); border-radius:18px; background:var(--umber);
+  box-shadow:8px 8px 0 #000; overflow:hidden;
+}
+.panel section{padding:14px 16px; border-top:3px dashed #6b543a}
+.panel section:first-child{border-top:0}
+.panel h2{
+  font-family:'Fraunces',serif; font-size:22px; margin:0 0 4px; text-transform:uppercase; letter-spacing:.02em;
+}
+.panel h2 .n{display:inline-grid; place-items:center; width:30px; height:30px; border:3px solid var(--bone);
+  border-radius:50%; background:var(--rust); font-family:'Space Mono'; font-size:14px; margin-right:8px; vertical-align:2px}
+.panel p{margin:4px 0 10px; color:var(--fog); font-size:13px}
+.row{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+.chord{display:flex; gap:6px; margin:8px 0}
+.chord span{
+  flex:1; text-align:center; border:3px solid var(--bone); border-radius:10px; padding:6px 2px;
+  font-weight:700; background:#160e06; color:var(--fog); transition:all .15s;
+}
+.chord span.lit{background:var(--amber); color:var(--ink); box-shadow:0 0 14px var(--amber)}
+input[type=range]{width:100%; accent-color:var(--amber); height:32px}
+.meter{height:14px; border:3px solid var(--bone); border-radius:99px; overflow:hidden; background:#160e06}
+.meter i{display:block; height:100%; width:30%; background:repeating-linear-gradient(90deg,var(--amber) 0 8px,var(--rust) 8px 16px); transition:width .2s}
+#log{list-style:none; margin:10px 0 0; padding:0; max-height:230px; overflow:auto; display:grid; gap:8px}
+#log li{
+  border:3px solid var(--bone); border-radius:12px; padding:8px 10px; background:#160e06; font-size:12.5px;
+  display:flex; justify-content:space-between; gap:10px;
+}
+#log li b{color:var(--amber)}
+#log li time{color:var(--fog); white-space:nowrap}
+.stats{display:flex; gap:10px; margin-top:10px}
+.stat{flex:1; border:3px solid var(--bone); border-radius:12px; padding:8px; text-align:center; background:#160e06}
+.stat b{display:block; font-size:22px; font-family:'Fraunces',serif}
+.stat small{color:var(--fog); text-transform:uppercase; letter-spacing:.1em; font-size:10px}
+footer{max-width:1080px; margin:0 auto; padding:0 16px 40px; color:var(--fog); font-size:12px}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <h1>Umber <span class="choir">Lighthouse</span> Choir</h1>
+    <p class="tag">A lighthouse that <b>sings ships home</b>. Drag the beam — each heading sings a chord. Ships caught in the light are guided; fog answers in low voices. All sound is synthesized live with WebAudio. No files, no servers.</p>
+  </div>
+  <div class="controls">
+    <button id="soundBtn" aria-pressed="false">🔇 enable sound</button>
+    <button id="sweepBtn" class="on" aria-pressed="true">sweep: on</button>
+    <button id="shipBtn" class="ghost" title="launch a ship">+ ship</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stage-block">
+    <div class="stage-head"><span><span class="dot"></span><span id="status">click “enable sound”, then drag the beam</span></span><span id="chordName">Cm9</span></div>
+    <canvas id="scene" width="900" height="620" aria-label="Lighthouse scene. Drag to aim the beam."></canvas>
+    <div class="hintbar"><span><kbd>drag</kbd> aim beam</span><span><kbd>click ship</kbd> sing it home</span><span><kbd>F</kbd> fog swell</span><span><kbd>S</kbd> sweep on/off</span></div>
+  </div>
+
+  <div class="panel">
+    <section aria-label="beam choir">
+      <h2><span class="n">1</span>Beam choir</h2>
+      <p>Beam heading → chord. Eight headings around the rock, one chord each. Hold the beam on a ship to charge its homecoming.</p>
+      <div class="chord" id="chordStrip" aria-hidden="true"></div>
+      <div class="row">
+        <button id="hornBtn">🔔 sound horn</button>
+        <button id="hushBtn" class="ghost">hush</button>
+      </div>
+    </section>
+    <section aria-label="fog voices">
+      <h2><span class="n">2</span>Fog voices</h2>
+      <p>Thicken the fog and the low voices wake — detuned oscillators drifting under the choir. Thin fog = clear bright beam.</p>
+      <label class="sr" for="fog">fog density</label>
+      <input id="fog" type="range" min="0" max="100" value="34" />
+      <div class="meter" aria-hidden="true"><i id="fogMeter"></i></div>
+      <div class="row" style="margin-top:10px">
+        <button id="swellBtn" class="ghost">fog swell</button>
+      </div>
+    </section>
+    <section aria-label="harbor log">
+      <h2><span class="n">3</span>Harbor log</h2>
+      <p>Every guided ship is entered. Kept in <b>localStorage</b> — survives reload.</p>
+      <div class="stats">
+        <div class="stat"><b id="guidedCount">0</b><small>guided</small></div>
+        <div class="stat"><b id="lostCount">0</b><small>lost to fog</small></div>
+        <div class="stat"><b id="bestChord">—</b><small>luckiest chord</small></div>
+      </div>
+      <ul id="log"></ul>
+      <div class="row" style="margin-top:10px">
+        <button id="clearLog" class="ghost">clear log</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<footer>organic-brutalist · single file · WebAudio only · ships: <span id="shipCount"></span> · tip: beam + fog at 70% sings the lowest harmony.</footer>
+
+<script type="module">
+// ============ Umber Lighthouse Choir (single file, no assets) ============
+const canvas = document.getElementById('scene');
+const ctx = canvas.getContext('2d');
+const statusEl = document.getElementById('status');
+const chordNameEl = document.getElementById('chordName');
+const chordStrip = document.getElementById('chordStrip');
+const fogSlider = document.getElementById('fog');
+const fogMeter = document.getElementById('fogMeter');
+const logEl = document.getElementById('log');
+const guidedEl = document.getElementById('guidedCount');
+const lostEl = document.getElementById('lostCount');
+const bestEl = document.getElementById('bestChord');
+const shipCountEl = document.getElementById('shipCount');
+
+// responsive canvas backing store
+function fit(){ const w = canvas.clientWidth || 800; const h = Math.round(w*0.62);
+  canvas.style.height = h+'px'; }
+addEventListener('resize', fit); fit();
+
+// ---------- state ----------
+const CHORDS = [
+  {n:'Cm9',  iv:[0,3,7,10,14]},
+  {n:'AbΔ',  iv:[-4,0,3,7]},
+  {n:'Fm7',  iv:[-7,-4,0,3]},
+  {n:'Bb9',  iv:[-2,2,5,9,12]},
+  {n:'EbΔ',  iv:[-9,-5,-2,0]},
+  {n:'Gm7',  iv:[-5,-2,2,5]},
+  {n:'C sus',iv:[-12,-5,0,2]},
+  {n:'Dm11', iv:[-10,-7,-3,0,5]},
+];
+const BASE = 130.81; // C3
+const state = {
+  beam: -0.6, sweep: true, sweepSpeed: 0.28, dragging:false,
+  fog: +fogSlider.value / 100, audio:false, ships:[], parts:[],
+  guided:0, lost:0, byChord:{}, hornAt:0,
+};
+const LIGHT = {x:0.5, y:0.72}; // fractions of canvas
+const NAMES = ['Vesper','Moth','Tallow','Brine','Cinder','Wren','Ochre','Marrow','Silt','Husk','Fen','Lumen'];
+const pick = a => a[(Math.random()*a.length)|0];
+
+// ---------- persistence ----------
+let store = {entries:[],guided:0,lost:0,byChord:{}};
+try{ store = Object.assign(store, JSON.parse(localStorage.getItem('umber-choir')||'{}')); }catch{}
+state.guided = store.guided||0; state.lost = store.lost||0; state.byChord = store.byChord||{};
+function save(){ try{ localStorage.setItem('umber-choir', JSON.stringify({...store, guided:state.guided, lost:state.lost, byChord:state.byChord})); }catch{} }
+function renderLog(){
+  guidedEl.textContent = state.guided; lostEl.textContent = state.lost;
+  const keys = Object.keys(state.byChord);
+  bestEl.textContent = keys.length ? keys.sort((a,b)=>state.byChord[b]-state.byChord[a])[0] : '—';
+  logEl.innerHTML = '';
+  for(const e of (store.entries||[]).slice(-8).reverse()){
+    const li = document.createElement('li');
+    li.innerHTML = `<span><b>${e.lost?'✕ lost':'◆ guided'}</b> ${e.name} · ${e.chord}</span><time>${e.time}</time>`;
+    logEl.appendChild(li);
+  }
+}
+function logShip(name, chord, lost){
+  const time = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  store.entries = [...(store.entries||[]), {name, chord, lost:!!lost, time}].slice(-40);
+  save(); renderLog();
+}
+renderLog();
+
+// chord strip
+CHORDS.forEach((c,i)=>{ const s=document.createElement('span'); s.textContent=c.n; s.id='ch'+i; chordStrip.appendChild(s); });
+
+// ---------- audio (WebAudio, lazy) ----------
+let AC=null, master, delaySend, choirGain, fogGain, fogOsc=[];
+function ensureAudio(){
+  if(AC) { if(AC.state==='suspended') AC.resume(); return; }
+  AC = new (window.AudioContext||window.webkitAudioContext)();
+  master = AC.createGain(); master.gain.value = 0.8; master.connect(AC.destination);
+  // foggy echo
+  const d = AC.createDelay(1); d.delayTime.value = 0.42;
+  const fb = AC.createGain(); fb.gain.value = 0.45;
+  const damp = AC.createBiquadFilter(); damp.type='lowpass'; damp.frequency.value=900;
+  d.connect(damp); damp.connect(fb); fb.connect(d); d.connect(master);
+  delaySend = AC.createGain(); delaySend.gain.value = 0.35; delaySend.connect(d);
+  choirGain = AC.createGain(); choirGain.gain.value = 0.0; choirGain.connect(master); choirGain.connect(delaySend);
+  fogGain = AC.createGain(); fogGain.gain.value = 0.0; fogGain.connect(master); fogGain.connect(delaySend);
+  // fog voices: 4 detuned triangles with slow LFOs
+  const fogFreqs=[55,58.27,65.41,49];
+  fogOsc = fogFreqs.map((f,i)=>{
+    const o=AC.createOscillator(); o.type = i<2?'sine':'triangle'; o.frequency.value=f;
+    const g=AC.createGain(); g.gain.value=0.05;
+    const l=AC.createOscillator(); l.frequency.value=0.05+i*0.03;
+    const lg=AC.createGain(); lg.gain.value=18; l.connect(lg); lg.connect(o.frequency);
+    const lp=AC.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=320;
+    o.connect(g); g.connect(lp); lp.connect(fogGain); o.start(); l.start();
+    return {o,g};
+  });
+}
+function midi(base, semi){ return base * Math.pow(2, semi/12); }
+let choirNodes=[];
+function singChord(idx, intensity=1){
+  if(!AC || !state.audio) return;
+  const now = AC.currentTime;
+  choirNodes.forEach(n=>{ try{ n.g.gain.cancelScheduledValues(now); n.g.gain.setTargetAtTime(0.0001, now, 0.25); n.o.stop(now+1.2);}catch{} });
+  choirNodes=[];
+  const chord = CHORDS[idx];
+  chord.iv.forEach((iv,k)=>{
+    const o=AC.createOscillator(); o.type='sawtooth'; o.frequency.value = midi(BASE, iv)*(1+(Math.random()-.5)*0.002);
+    const f=AC.createBiquadFilter(); f.type='lowpass'; f.frequency.value=700+state.fog*-300+intensity*500; f.Q.value=2;
+    const g=AC.createGain(); g.gain.setValueAtTime(0.0001,now);
+    g.gain.exponentialRampToValueAtTime(0.06+k*0.012, now+0.25);
+    g.gain.setTargetAtTime(0.0001, now+1.4, 0.5);
+    o.connect(f); f.connect(g); g.connect(choirGain);
+    o.start(now); o.stop(now+3); choirNodes.push({o,g});
+  });
+  // lamp shimmer
+  const o=AC.createOscillator(); o.type='sine'; o.frequency.value=midi(BASE,24+chord.iv[0]);
+  const g=AC.createGain(); g.gain.setValueAtTime(0.05,now); g.gain.setTargetAtTime(0.0001,now+0.4,0.3);
+  o.connect(g); g.connect(master); o.start(now); o.stop(now+2);
+}
+function horn(){
+  if(!AC || !state.audio) return;
+  const now=AC.currentTime;
+  [98,147,196].forEach(f=>{
+    const o=AC.createOscillator(); o.type='square'; o.frequency.value=f;
+    const lp=AC.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=600;
+    const g=AC.createGain(); g.gain.setValueAtTime(0.09,now);
+    g.gain.setValueAtTime(0.09,now+0.7); g.gain.setTargetAtTime(0.0001,now+0.75,0.25);
+    o.connect(lp); lp.connect(g); g.connect(master); g.connect(delaySend);
+    o.start(now); o.stop(now+2);
+  });
+}
+function guideArp(idx){
+  if(!AC||!state.audio) return;
+  const now=AC.currentTime; const chord=CHORDS[idx];
+  [...chord.iv, chord.iv[0]+12].forEach((iv,k)=>{
+    const o=AC.createOscillator(); o.type='triangle'; o.frequency.value=midi(BASE*2,iv);
+    const g=AC.createGain(); const t=now+k*0.13;
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.12,t+0.05);
+    g.gain.setTargetAtTime(0.0001,t+0.15,0.25);
+    o.connect(g); g.connect(master); g.connect(delaySend); o.start(t); o.stop(t+1.5);
+  });
+}
+setInterval(()=>{ // ambient: re-sing current chord softly while sound on
+  if(!state.audio||!AC) return;
+  const t=AC.currentTime;
+  choirGain.gain.setTargetAtTime(0.5, t, 0.5);
+  fogGain.gain.setTargetAtTime(0.25 + state.fog*1.4, t, 0.8);
+  master.gain.setTargetAtTime(state.fog>0.85?0.55:0.8, t, 0.5);
+},400);
+
+// ---------- ships ----------
+function spawnShip(){
+  const side = Math.random()<0.5?-1:1;
+  state.ships.push({
+    name: pick(NAMES)+' '+((Math.random()*90+10)|0),
+    x: side<0?-0.08:1.08, y: 0.2+Math.random()*0.3,
+    vx: side<0? (0.02+Math.random()*0.03) : -(0.02+Math.random()*0.03),
+    charge:0, lit:0, bob:Math.random()*9, guided:false,
+  });
+}
+for(let i=0;i<4;i++){ spawnShip(); state.ships[i].x=Math.random(); }
+shipCountEl.textContent = state.ships.length;
+
+function headingIndex(){
+  const a = ((state.beam % (Math.PI*2)) + Math.PI*2) % (Math.PI*2);
+  return Math.floor(a/(Math.PI*2)*8)%8;
+}
+function beamHits(ship, W, H){
+  const lx=LIGHT.x*W, ly=LIGHT.y*H;
+  const sx=ship.x*W, sy=ship.y*H;
+  const dx=sx-lx, dy=sy-ly; const dist=Math.hypot(dx,dy);
+  let ang=Math.atan2(dy,dx);
+  let d=((ang-state.beam+Math.PI*3)%(Math.PI*2))-Math.PI;
+  const width = 0.16 - state.fog*0.07;
+  return {hit: Math.abs(d)<width && dist>40, dist, off:Math.abs(d)/width};
+}
+
+// ---------- input ----------
+function evtAngle(e){
+  const r=canvas.getBoundingClientRect();
+  const p=(e.touches&&e.touches[0])||e;
+  const W=canvas.width,H=canvas.height;
+  const x=(p.clientX-r.left)/r.width*W, y=(p.clientY-r.top)/r.height*H;
+  return {a:Math.atan2(y-LIGHT.y*H, x-LIGHT.x*W), x:x/W, y:y/H};
+}
+let downPos=null, moved=false;
+canvas.addEventListener('pointerdown', e=>{ state.dragging=true; moved=false; downPos=[e.clientX,e.clientY];
+  canvas.setPointerCapture(e.pointerId); state.beam=evtAngle(e).a; state.sweep=false; sweepBtn.classList.remove('on'); sweepBtn.textContent='sweep: off'; sweepBtn.setAttribute('aria-pressed','false');
+  userGesture(); });
+canvas.addEventListener('pointermove', e=>{ if(!downPos) return;
+  if(Math.hypot(e.clientX-downPos[0],e.clientY-downPos[1])>6) moved=true;
+  if(state.dragging) state.beam=evtAngle(e).a; });
+canvas.addEventListener('pointerup', e=>{
+  state.dragging=false;
+  if(!moved){ // tap: try to single out a ship
+    const p=evtAngle(e); let best=null,bd=1e9;
+    for(const s of state.ships){ const d=Math.hypot(s.x-p.x,(s.y-p.y)*1.4); if(d<bd){bd=d;best=s;} }
+    if(best&&bd<0.12) guideShip(best, true);
+  }
+  downPos=null; });
+function userGesture(){ ensureAudio(); if(!state.audio){ setSound(true);} }
+const soundBtn=document.getElementById('soundBtn');
+const sweepBtn=document.getElementById('sweepBtn');
+function setSound(on){
+  ensureAudio(); state.audio=on;
+  soundBtn.textContent = on?'🔊 sound on':'🔇 enable sound';
+  soundBtn.classList.toggle('on',on); soundBtn.setAttribute('aria-pressed',on);
+  statusEl.textContent = on?'the choir is listening — drag the beam':'click “enable sound”, then drag the beam';
+  if(on) singChord(headingIndex(),1);
+}
+soundBtn.onclick=()=>{ ensureAudio(); setSound(!state.audio); };
+sweepBtn.onclick=()=>{ state.sweep=!state.sweep;
+  sweepBtn.classList.toggle('on',state.sweep); sweepBtn.textContent='sweep: '+(state.sweep?'on':'off'); };
+document.getElementById('shipBtn').onclick=()=>{ userGesture(); spawnShip(); };
+document.getElementById('hornBtn').onclick=()=>{ userGesture(); horn(); state.hornAt=performance.now();
+  state.ships.forEach(s=>{ if(!s.guided) s.charge=Math.min(1,s.charge+0.25); }); };
+document.getElementById('hushBtn').onclick=()=>{ state.ships.forEach(s=>s.charge=0); };
+fogSlider.oninput=()=>{ state.fog=+fogSlider.value/100; fogMeter.style.width=fogSlider.value+'%'; };
+fogMeter.style.width=fogSlider.value+'%';
+document.getElementById('swellBtn').onclick=()=>{ userGesture();
+  const t0=performance.now();
+  const swell=setInterval(()=>{ const k=(performance.now()-t0)/2500;
+    if(k>=1){clearInterval(swell);return;}
+    const v=Math.round((34+50*Math.sin(k*Math.PI)) ); fogSlider.value=v; fogSlider.oninput(); },50); };
+document.getElementById('clearLog').onclick=()=>{ store.entries=[]; state.guided=0; state.lost=0; state.byChord={}; save(); renderLog(); };
+addEventListener('keydown',e=>{
+  if(e.key==='f'||e.key==='F') document.getElementById('swellBtn').click();
+  if(e.key==='s'||e.key==='S') sweepBtn.click();
+});
+
+function guideShip(s, tapped){
+  if(s.guided) return; s.guided=true;
+  const idx=headingIndex(); const chord=CHORDS[idx].n;
+  state.guided++; state.byChord[chord]=(state.byChord[chord]||0)+1;
+  guideArp(idx); logShip(s.name, chord, false);
+  statusEl.textContent = `◆ ${s.name} guided home on ${chord}${tapped?' — well tapped':''}`;
+  for(let i=0;i<26;i++) state.parts.push({x:s.x,y:s.y,vx:(Math.random()-.5)*.06,vy:-Math.random()*.09-0.02,life:1,c:pick(['#f0a832','#c96a2b','#efe3cc'])});
+  setTimeout(()=>{ state.ships=state.ships.filter(q=>q!==s); spawnShip(); },1600);
+}
+
+// ---------- render ----------
+let last=performance.now(), chordTimer=0, lastChord=-1;
+function frame(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  const W=canvas.width,H=canvas.height;
+  if(state.sweep&&!state.dragging) state.beam+=dt*state.sweepSpeed;
+  const idx=headingIndex();
+  chordNameEl.textContent=CHORDS[idx].n;
+  CHORDS.forEach((_,i)=>document.getElementById('ch'+i).classList.toggle('lit',i===idx));
+  if(idx!==lastChord){ lastChord=idx; chordTimer=0; if(state.audio) singChord(idx,0.7); }
+  chordTimer+=dt; if(chordTimer>3.2&&state.audio){ chordTimer=0; singChord(idx,0.5); }
+
+  // sea + sky
+  const g=ctx.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,'#0e1a1c'); g.addColorStop(0.55,'#16292a'); g.addColorStop(0.56,'#101f20'); g.addColorStop(1,'#0a1414');
+  ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+  // stars
+  ctx.fillStyle='#efe3cc';
+  for(let i=0;i<60;i++){ const sx=(i*167.3)%W, sy=(i*89.7)%(H*0.45);
+    ctx.globalAlpha=0.25+0.35*Math.abs(Math.sin(now/900+i)); ctx.fillRect(sx,sy,2,2); }
+  ctx.globalAlpha=1;
+  // moon
+  ctx.fillStyle='#efe3cc'; ctx.beginPath(); ctx.arc(W*0.84,H*0.12,26,0,7); ctx.fill();
+  ctx.fillStyle='#0e1a1c'; ctx.beginPath(); ctx.arc(W*0.84-9,H*0.12-5,22,0,7); ctx.fill();
+  const lx=LIGHT.x*W, ly=LIGHT.y*H;
+
+  // ships (behind beam so light washes over)
+  for(const s of state.ships){
+    s.bob+=dt*2; s.x+=s.vx*dt*(s.guided?0.2:1);
+    if(s.x<-0.15||s.x>1.15){ // lost to fog
+      if(!s.guided){ state.lost++; logShip(s.name, CHORDS[headingIndex()].n, true);
+        statusEl.textContent=`✕ ${s.name} lost beyond the fog`; }
+      Object.assign(s,{x:s.vx>0?-0.1:1.1,y:0.2+Math.random()*0.3,charge:0,guided:false,name:pick(NAMES)+' '+((Math.random()*90+10)|0)});
+    }
+    const r=beamHits(s,W,H);
+    s.lit += ((r.hit?1:0)-s.lit)*Math.min(1,dt*4);
+    if(r.hit&&!s.guided){ s.charge+=dt*(0.5-state.fog*0.25); if(state.audio&&Math.random()<dt*2) singChord(idx,0.3); }
+    else s.charge=Math.max(0,s.charge-dt*0.15);
+    if(s.charge>=1) guideShip(s,false);
+    const sx=s.x*W, sy=s.y*H+Math.sin(s.bob)*3;
+    // hull
+    ctx.save(); ctx.translate(sx,sy); if(s.vx<0) ctx.scale(-1,1);
+    const glow=s.lit;
+    ctx.shadowColor='#f0a832'; ctx.shadowBlur=18*glow;
+    ctx.fillStyle=s.guided?'#f0a832':'#3d2a18';
+    ctx.strokeStyle='#efe3cc'; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.moveTo(-22,0); ctx.lineTo(22,0); ctx.lineTo(14,12); ctx.lineTo(-14,12); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(0,-20); ctx.stroke();
+    ctx.fillStyle=glow>0.4?'#f0a832':'#efe3cc'; ctx.fillRect(-8,-16,16,8);
+    if(s.charge>0.02){ // charge ring
+      ctx.strokeStyle='#f0a832'; ctx.lineWidth=3;
+      ctx.beginPath(); ctx.arc(0,-6,20,-Math.PI/2,-Math.PI/2+s.charge*Math.PI*2); ctx.stroke();
+    }
+    ctx.restore();
+    // wake
+    ctx.strokeStyle='#b9a98f55'; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.moveTo(sx-(s.vx>0?26:-26),sy+10); ctx.lineTo(sx-(s.vx>0?44:-44),sy+12); ctx.stroke();
+  }
+
+  // rocks + lighthouse
+  ctx.fillStyle='#241a10';
+  ctx.beginPath(); ctx.moveTo(lx-150,H); ctx.lineTo(lx-110,ly+40); ctx.lineTo(lx+110,ly+40); ctx.lineTo(lx+150,H); ctx.closePath(); ctx.fill();
+  ctx.strokeStyle='#efe3cc'; ctx.lineWidth=3; ctx.stroke();
+  // tower (brutalist slab + organic stripes)
+  const tw=54, th=150;
+  ctx.fillStyle='#efe3cc'; ctx.fillRect(lx-tw/2,ly-th,tw,th);
+  ctx.fillStyle='#2b1d12';
+  for(let i=0;i<4;i++) ctx.fillRect(lx-tw/2,ly-th+i*38+14,tw,16);
+  ctx.fillStyle='#c96a2b'; ctx.fillRect(lx-tw/2-6,ly-th-34,tw+12,34);
+  ctx.fillStyle='#f0a832'; ctx.beginPath(); ctx.arc(lx,ly-th-17,11,0,7); ctx.fill();
+  ctx.fillStyle='#140d07'; ctx.fillRect(lx-30,ly-6,60,8);
+
+  // beam (two directions)
+  const beamLen=Math.hypot(W,H);
+  const bw=(0.10-state.fog*0.03);
+  for(const dir of [state.beam, state.beam+Math.PI]){
+    const grd=ctx.createLinearGradient(lx,ly,lx+Math.cos(dir)*beamLen,ly+Math.sin(dir)*beamLen);
+    const aVis = state.audio?0.5:0.34;
+    grd.addColorStop(0,`rgba(240,168,50,${aVis})`); grd.addColorStop(1,'rgba(240,168,50,0)');
+    ctx.fillStyle=grd;
+    ctx.beginPath(); ctx.moveTo(lx,ly);
+    ctx.lineTo(lx+Math.cos(dir-bw)*beamLen, ly+Math.sin(dir-bw)*beamLen);
+    ctx.lineTo(lx+Math.cos(dir+bw)*beamLen, ly+Math.sin(dir+bw)*beamLen);
+    ctx.closePath(); ctx.fill();
+  }
+  ctx.fillStyle='#fff3d6'; ctx.beginPath(); ctx.arc(lx,ly-th-17,5+2*Math.sin(now/200),0,7); ctx.fill();
+
+  // fog banks
+  for(let i=0;i<7;i++){
+    const fy=H*(0.3+i*0.09), fx=((now*0.008*(1+i*0.2)+i*300)%(W+400))-200;
+    ctx.fillStyle=`rgba(185,169,143,${0.04+state.fog*0.16})`;
+    ctx.beginPath(); ctx.ellipse(fx,fy,180+state.fog*160,22+state.fog*22,0,0,7); ctx.fill();
+  }
+  // vignette of fog over everything
+  if(state.fog>0.02){ ctx.fillStyle=`rgba(185,169,143,${state.fog*0.14})`; ctx.fillRect(0,0,W,H); }
+
+  // particles
+  state.parts=state.parts.filter(p=>p.life>0);
+  for(const p of state.parts){ p.x+=p.vx*dt*10; p.y+=p.vy*dt*10; p.life-=dt*0.7;
+    ctx.globalAlpha=Math.max(0,p.life); ctx.fillStyle=p.c; ctx.fillRect(p.x*W,p.y*H,4,4); }
+  ctx.globalAlpha=1;
+
+  // horn ripple
+  const ht=(now-state.hornAt)/1200;
+  if(ht<1){ ctx.strokeStyle=`rgba(240,168,50,${1-ht})`; ctx.lineWidth=3;
+    ctx.beginPath(); ctx.arc(lx,ly-th-17,20+ht*220,0,7); ctx.stroke(); }
+
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+shipCountEl.textContent='at sea';
+</script>
+</body>
+</html>
