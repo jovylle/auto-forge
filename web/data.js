@@ -2825,6 +2825,37 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "ivory-lowtide",
+    "title": "Ivory Lowtide",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "bauhaus",
+    "theme": "physics",
+    "constraints": [
+      "must react to scroll",
+      "uses only one interaction type (click OR drag OR type)"
+    ],
+    "description": "Read the tide in shades of ivory.",
+    "features": [
+      "tide reader",
+      "ivory chart",
+      "lowtide alarm"
+    ],
+    "tags": [
+      "tide",
+      "ivory",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-26T05:21:36.504Z",
+    "updatedAt": "2026-09-26T05:32:26.597Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 90, done: 81, counts: {"done":81,"needs-human":9} };
+export const stats = { total: 91, done: 82, counts: {"done":82,"needs-human":9} };
