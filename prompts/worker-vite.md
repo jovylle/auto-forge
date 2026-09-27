@@ -45,6 +45,7 @@ Use `task` tool at most once per type:
 3. npm run preview serves real content
 3. All SPEC features + constraints work
 4. README.md exists in THIS directory (never repo root)
+5. Never delete node_modules (no `rm -rf node_modules` cleanup step) — the tick verifier rebuilds after you finish and needs it in place; leave the directory as-is
 
 ## Final step (MANDATORY — machine-verifiable)
 Write .factory/result.json: {"status":"pass"|"fail","summary":"...","buildPassed":bool,"featuresImplemented":[...]}
