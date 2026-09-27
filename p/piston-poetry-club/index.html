@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Piston Poetry Club — ピストン詩クラブ</title>
+  <meta name="description" content="Steam pistons hammer out verses. Pump the bellows, build pressure, forge neon-edo poetry." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="steam" aria-hidden="true"></canvas>
+
+  <header class="masthead">
+    <div class="sign">
+      <span class="kanji-vertical" aria-hidden="true">蒸気詩魂</span>
+      <div class="sign-main">
+        <p class="kicker"> generative forge · no. 07 </p>
+        <h1><span class="neon-pink">PISTON</span> <span class="neon-cyan">POETRY</span> <span class="neon-gold">CLUB</span></h1>
+        <p class="jp">ピストン詩クラブ — 蒸気で詠む、電脳俳句</p>
+      </div>
+      <span class="kanji-vertical" aria-hidden="true">電脳俳句</span>
+    </div>
+    <div class="mast-meta">
+      <span id="clock">霓 00:00</span>
+      <span class="dot"></span>
+      <span>pressure-driven verse engine</span>
+      <span class="dot"></span>
+      <span id="countLabel">0 verses forged</span>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- PISTON METER -->
+    <section class="panel pistons" aria-label="Piston meter">
+      <div class="panel-head">
+        <h2><span class="num">壱</span> Piston Meter</h2>
+        <span class="status" id="pressureState">COLD</span>
+      </div>
+
+      <div class="meter-wrap">
+        <div class="gauge">
+          <div class="gauge-track">
+            <div class="gauge-fill" id="gaugeFill"></div>
+            <div class="gauge-ticks" aria-hidden="true"></div>
+          </div>
+          <div class="gauge-read">
+            <strong id="pressureNum">0</strong><span>kPa 蒸気圧</span>
+          </div>
+        </div>
+
+        <div class="engine" id="engine" aria-hidden="true">
+          <div class="piston p1"><div class="rod"></div><div class="head">圧</div></div>
+          <div class="piston p2"><div class="rod"></div><div class="head">詩</div></div>
+          <div class="piston p3"><div class="rod"></div><div class="head">魂</div></div>
+          <div class="flywheel"><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <div class="meter-zones">
+        <span>murmur &lt;30</span><span>hammer 30–75</span><span class="hot">OVERDRIVE &gt;75</span>
+      </div>
+      <p class="hint" id="meterHint">Cold iron. Pump the bellows to wake the pistons.</p>
+    </section>
+
+    <!-- VERSE ENGINE -->
+    <section class="panel verse" aria-label="Verse engine">
+      <div class="panel-head">
+        <h2><span class="num">弐</span> Verse Engine</h2>
+        <div class="seg" role="tablist" aria-label="Form">
+          <button class="seg-btn active" data-form="haiku">俳句 HAIKU</button>
+          <button class="seg-btn" data-form="tanka">短歌 TANKA</button>
+          <button class="seg-btn" data-form="cyber">電脳 FREE</button>
+        </div>
+      </div>
+
+      <div class="paper" id="paper">
+        <div class="paper-top">蒸気検印 · <span id="verseNo">第零号</span> · <span id="verseKpa">0 kPa</span></div>
+        <div class="poem" id="poem" aria-live="polite">
+          <p class="ghost">The pistons are silent.<br />Pump the bellows —<br />a verse is waiting in the steam.</p>
+        </div>
+        <div class="paper-meta"><span id="verseMeta">— no verse yet —</span></div>
+      </div>
+
+      <div class="forge-row">
+        <button id="forgeBtn" class="forge">⚒ FORGE VERSE <small>叩く · space</small></button>
+        <button id="rerollBtn" class="ghost-btn" title="Re-roll same pressure">↻ re-roll</button>
+      </div>
+      <p class="hint">Forge cost: <b>25 kPa</b>. High pressure unlocks <b class="gold">overdrive diction</b> — chrome koi, plasma torii, ghost circuits.</p>
+
+      <div class="verse-actions">
+        <button id="keepBtn" class="chip">♥ keep to anthology</button>
+        <button id="copyBtn" class="chip">⧉ copy</button>
+        <button id="speakBtn" class="chip">♪ recite</button>
+      </div>
+    </section>
+
+    <!-- POETRY BELLOWS -->
+    <section class="panel bellows" aria-label="Poetry bellows">
+      <div class="panel-head">
+        <h2><span class="num">参</span> Poetry Bellows</h2>
+        <span class="status cyan" id="bellowsState">ふいご idle</span>
+      </div>
+
+      <div class="bellows-visual" id="bellowsVisual" aria-hidden="true">
+        <div class="bellow-ribs"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="bellow-mouth">送風</div>
+      </div>
+
+      <button id="pumpBtn" class="pump">🌬 PUMP BELLOWS <small>踏む · hold <kbd>space</kbd> or press</small></button>
+
+      <div class="controls">
+        <label class="ctl">
+          <span>Stoke coal 石炭 <b id="stokeVal">50</b></span>
+          <input type="range" id="stoke" min="0" max="100" value="50" />
+        </label>
+        <label class="ctl">
+          <span>Valve leak バルブ <b id="leakVal">15</b></span>
+          <input type="range" id="leak" min="0" max="60" value="15" />
+        </label>
+      </div>
+
+      <div class="bellows-row">
+        <button id="ventBtn" class="ghost-btn danger">⌁ vent steam</button>
+        <button id="autoBtn" class="ghost-btn" aria-pressed="false">◉ auto-stoker: off</button>
+      </div>
+      <p class="hint">Tip: drag across the bellows visual, or hold <kbd>space</kbd> to pump. Overdrive (&gt;90 kPa) auto-vents with a screen-shaking hiss.</p>
+    </section>
+
+    <!-- ANTHOLOGY -->
+    <section class="panel anthology" aria-label="Anthology">
+      <div class="panel-head">
+        <h2><span class="num">四</span> Club Anthology <span class="jp-small">句集</span></h2>
+        <div>
+          <button id="exportBtn" class="ghost-btn">↓ export .txt</button>
+          <button id="clearBtn" class="ghost-btn danger">burn all</button>
+        </div>
+      </div>
+      <ol id="shelf" class="shelf"></ol>
+      <p class="hint" id="emptyNote">Kept verses are pressed here like lantern flowers. Saved locally — no cloud, only steam.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>ピストン詩クラブ · forged in steam & neon · CSS/canvas only, zero images</span>
+    <span>hold <kbd>space</kbd> = pump · <kbd>F</kbd> = forge · <kbd>V</kbd> = vent</span>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

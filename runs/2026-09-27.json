@@ -47,7 +47,22 @@
       },
       "elapsedMs": 182977,
       "at": "2026-09-27T12:17:50.896Z"
+    },
+    {
+      "slug": "piston-poetry-club",
+      "title": "Piston Poetry Club",
+      "stack": "html",
+      "aesthetic": "japanese-cyberpunk",
+      "model": "opencode/muse-spark-1.3-contributor-free",
+      "modelVia": "primary",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 144218,
+      "at": "2026-09-27T18:23:02.415Z"
     }
   ],
-  "updatedAt": "2026-09-27T12:17:50.896Z"
+  "updatedAt": "2026-09-27T18:23:02.415Z"
 }
