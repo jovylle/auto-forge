@@ -2982,6 +2982,36 @@ export const projects = [
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free (worker pass; tick verify failed on deleted node_modules symlink, human restored symlink + rebuilt green)"
+  },
+  {
+    "slug": "eelgrass-ensemble",
+    "title": "Eelgrass Ensemble",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "glassmorphism",
+    "theme": "physics",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Conduct an underwater grass band.",
+    "features": [
+      "tide baton",
+      "grass voices",
+      "reef mix"
+    ],
+    "tags": [
+      "eelgrass",
+      "band",
+      "audio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-27T12:14:39.623Z",
+    "updatedAt": "2026-09-27T12:17:50.891Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 95, done: 86, counts: {"done":86,"needs-human":9} };
+export const stats = { total: 96, done: 87, counts: {"done":87,"needs-human":9} };

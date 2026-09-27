@@ -24,15 +24,30 @@
       "model": "opencode/muse-spark-1.3-contributor-free",
       "modelVia": "primary",
       "verifyLine": null,
-      "buildPassed": false,
+      "buildPassed": true,
       "verify": {
-        "ok": false,
-        "reason": "build failed",
-        "log": "ause no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(230,35): error TS7006: Parameter 's' implicitly has an 'any' type.\nsrc/App.tsx(230,38): error TS7006: Parameter 'i' implicitly has an 'any' type.\nsrc/App.tsx(231,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(232,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(232,48): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(233,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(233,50): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(234,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(236,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(237,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(239,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(240,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(241,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(243,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(244,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(244,40): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(245,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(245,37): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(246,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(247,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/App.tsx(248,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\nsrc/main.tsx(1,28): error TS2307: Cannot find module 'react' or its corresponding type declarations.\nsrc/main.tsx(2,28): error TS2307: Cannot find module 'react-dom/client' or its corresponding type declarations.\nsrc/main.tsx(7,3): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\n"
+        "ok": true,
+        "fixedBy": "restored node_modules symlink (repo convention), npm run build exit 0, vite preview 200"
       },
       "elapsedMs": 397773,
-      "at": "2026-09-27T06:03:21.427Z"
+      "at": "2026-09-27T06:03:21.427Z",
+      "fixedAt": "2026-09-27T06:09:27.276Z"
+    },
+    {
+      "slug": "eelgrass-ensemble",
+      "title": "Eelgrass Ensemble",
+      "stack": "html",
+      "aesthetic": "glassmorphism",
+      "model": "opencode/muse-spark-1.3-contributor-free",
+      "modelVia": "primary",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 182977,
+      "at": "2026-09-27T12:17:50.896Z"
     }
   ],
-  "updatedAt": "2026-09-27T06:03:21.427Z"
+  "updatedAt": "2026-09-27T12:17:50.896Z"
 }
