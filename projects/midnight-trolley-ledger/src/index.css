@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Spline+Sans+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --ink: #0e0e10;
+  --paper: #f5f2ea;
+  --lamp: #e8a33d;
+  --oxide: #c13b2a;
+  --moss: #7fb069;
+}
+
+html, body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Spline Sans Mono", ui-monospace, monospace;
+}
+
+.font-display {
+  font-family: "Instrument Serif", Georgia, serif;
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.65rem;
+}
+
+/* punched-ticket scalloped edge */
+.tape-row {
+  position: relative;
+  animation: stamp-in 180ms ease-out;
+}
+.tape-row::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 8px;
+  bottom: 8px;
+  width: 7px;
+  background-image: radial-gradient(circle at 100% 50%, var(--paper) 2.4px, transparent 2.6px);
+  background-size: 7px 10px;
+  background-repeat: repeat-y;
+}
+
+@keyframes stamp-in {
+  from { transform: rotate(-0.5deg) translateY(-4px); opacity: 0; }
+  to { transform: rotate(0) translateY(0); opacity: 1; }
+}
+
+@keyframes coin-press {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.94) translateY(3px); }
+  100% { transform: scale(1); }
+}
+.coin-press { animation: coin-press 120ms ease-out; }
+
+@keyframes strike-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.strike {
+  position: relative;
+}
+.strike::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 52%;
+  height: 2px;
+  background: var(--oxide);
+  transform-origin: left center;
+  animation: strike-draw 200ms ease-out;
+}
+
+@keyframes odo-flash {
+  0% { color: var(--moss); }
+  100% { color: inherit; }
+}
+.odo-flash { animation: odo-flash 900ms ease-out; }
+
+@keyframes lamp-crawl {
+  from { background-position: 0 0; }
+  to { background-position: 28px 0; }
+}
+.wire-glow {
+  background-image: repeating-linear-gradient(90deg, var(--lamp) 0 10px, transparent 10px 18px);
+  animation: lamp-crawl 1.6s linear infinite;
+}
+
+.route-dot { transition: transform 240ms ease, background-color 240ms ease, border-color 240ms ease; }
+
+button { cursor: pointer; }
+button:focus-visible {
+  outline: 2px solid var(--lamp);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

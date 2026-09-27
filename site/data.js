@@ -2950,6 +2950,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "midnight-trolley-ledger",
+    "title": "Midnight Trolley Ledger",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "extreme-minimal",
+    "theme": "physics",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "uses only one interaction type (click OR drag OR type)"
+    ],
+    "description": "Balance the books of a night trolley.",
+    "features": [
+      "fare log",
+      "night routes",
+      "ledger totals"
+    ],
+    "tags": [
+      "ledger",
+      "trolley",
+      "tool"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-09-27T05:56:21.767Z",
+    "updatedAt": "2026-09-27T06:03:21.424Z",
+    "buildPassed": false,
+    "lastError": "build failed",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 94, done: 85, counts: {"done":85,"needs-human":9} };
+export const stats = { total: 95, done: 85, counts: {"done":85,"needs-human":10} };
