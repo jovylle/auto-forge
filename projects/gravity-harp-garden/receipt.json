@@ -1,0 +1,32 @@
+{
+  "slug": "gravity-harp-garden",
+  "title": "Gravity Harp Garden",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "cyberpunk",
+  "theme": "physics",
+  "constraints": [
+    "must have an easter egg",
+    "must work with keyboard only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag to bend gravity strings",
+      "particles trigger sampled plucks (Karplus-Strong)",
+      "spring physics on release",
+      "save tiny seed loops (4 slots + shareable seed codes)"
+    ],
+    "status": "pass",
+    "summary": "Gravity Harp Garden — cyberpunk generative instrument (Orbitron/Share Tech Mono, scanlines, neon grid). 7 scale-tuned strings bend under pointer drag with velocity-tracked damped-spring physics and snap plucks; ambient + shower particles collide with string curves to trigger pre-rendered Karplus-Strong pluck samples through a dub delay; 4 localStorage seed slots with record/play/clear, base64 seed copy/plant, 3 scales; full keyboard control (1-7, arrows/AD bend, space, R/P/ZXCV/S/L/M/H) with aria-live narration; Konami-code + footer-node OVERDRIVE_2077 easter egg with ghost player. JS syntax OK, headless init smoke test clean, responsive at 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 251295,
+  "at": "2026-09-27T01:06:45.191Z"
+}
