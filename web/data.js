@@ -3012,6 +3012,36 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "piston-poetry-club",
+    "title": "Piston Poetry Club",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "physics",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "Steam pistons hammer out verses.",
+    "features": [
+      "piston meter",
+      "verse engine",
+      "poetry bellows"
+    ],
+    "tags": [
+      "poetry",
+      "steam",
+      "generator"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-27T18:20:33.366Z",
+    "updatedAt": "2026-09-27T18:23:02.409Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 96, done: 87, counts: {"done":87,"needs-human":9} };
+export const stats = { total: 97, done: 88, counts: {"done":88,"needs-human":9} };

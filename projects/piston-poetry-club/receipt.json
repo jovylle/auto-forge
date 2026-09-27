@@ -1,0 +1,30 @@
+{
+  "slug": "piston-poetry-club",
+  "title": "Piston Poetry Club",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "japanese-cyberpunk",
+  "theme": "physics",
+  "constraints": [
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "piston meter",
+      "verse engine",
+      "poetry bellows"
+    ],
+    "status": "pass",
+    "summary": "Piston Poetry Club: neon-edo steam forge with live kPa piston meter (animated CSS pistons, hammer/overdrive zones), generative haiku/tanka/cyber verse engine with overdrive diction and type-stamp forging, and pump/drag/hold-space bellows with stoke/leak physics, vent blowoff, canvas steam, synth clacks, and localStorage anthology. Verified refs, JS syntax, 375px layout, zero images."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 144218,
+  "at": "2026-09-27T18:23:02.413Z"
+}
