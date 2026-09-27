@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gravity Harp Garden — pluck the neon strings</title>
+  <meta name="description" content="A cyberpunk generative instrument. Bend gravity strings, drop particles, grow seed loops." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="hud-top">
+    <div class="title-block">
+      <p class="kicker">SECTOR 7 // GENERATIVE INSTRUMENT</p>
+      <h1 class="glitch" data-text="GRAVITY HARP GARDEN">GRAVITY HARP GARDEN</h1>
+      <p class="sub">Bend gravity strings. Drop particles. Grow melodies from seed loops.</p>
+    </div>
+    <div class="hud-readout" role="status" aria-label="Engine status">
+      <div class="readout-row"><span>AUDIO</span><strong id="audioState">OFFLINE</strong></div>
+      <div class="readout-row"><span>SCALE</span><strong id="scaleName">A-MINOR PENTA</strong></div>
+      <div class="readout-row"><span>LOOP</span><strong id="loopState">EMPTY</strong></div>
+    </div>
+  </header>
+
+  <main id="app">
+    <section class="stage-wrap">
+      <canvas id="stage" tabindex="0" role="application"
+        aria-label="Gravity harp stage. Seven vertical neon strings. Drag a string to bend it, or use keys 1 to 7 to pluck, arrow keys to bend the selected string, space for a particle shower."></canvas>
+      <div class="stage-hint" id="stageHint">DRAG strings to bend · release to PLUCK · keys <kbd>1</kbd>–<kbd>7</kbd> pluck · <kbd>space</kbd> rain</div>
+      <div class="sr-live" id="live" aria-live="polite"></div>
+    </section>
+
+    <section class="deck" aria-label="Control deck">
+      <div class="deck-row">
+        <button id="btnPower" class="btn power" type="button">⏻ POWER AUDIO</button>
+        <button id="btnRain" class="btn" type="button">∴ PARTICLE SHOWER <kbd>space</kbd></button>
+        <button id="btnMute" class="btn" type="button" aria-pressed="false">♪ SOUND ON <kbd>M</kbd></button>
+      </div>
+
+      <div class="deck-row transport" role="group" aria-label="Seed loop transport">
+        <button id="btnRec" class="btn rec" type="button" aria-pressed="false">● REC <kbd>R</kbd></button>
+        <button id="btnPlay" class="btn" type="button" aria-pressed="false">▶ LOOP <kbd>P</kbd></button>
+        <button id="btnClear" class="btn ghost" type="button">✕ CLEAR</button>
+        <label class="scale-label">SCALE
+          <select id="scaleSel">
+            <option value="penta">A-MINOR PENTA</option>
+            <option value="dorian">D-DORIAN NEON</option>
+            <option value="hira">HIRA-JOSHI GRID</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="slots" role="group" aria-label="Seed loop slots">
+        <button class="slot" data-slot="0" type="button"><span class="slot-key">Z</span><span class="slot-name">SEED·01</span><span class="slot-meta">empty</span></button>
+        <button class="slot" data-slot="1" type="button"><span class="slot-key">X</span><span class="slot-name">SEED·02</span><span class="slot-meta">empty</span></button>
+        <button class="slot" data-slot="2" type="button"><span class="slot-key">C</span><span class="slot-name">SEED·03</span><span class="slot-meta">empty</span></button>
+        <button class="slot" data-slot="3" type="button"><span class="slot-key">V</span><span class="slot-name">SEED·04</span><span class="slot-meta">empty</span></button>
+      </div>
+
+      <div class="seed-row">
+        <label class="seed-label" for="seedCode">SEED CODE
+          <span class="seed-help">copy to share · paste + PLANT to grow</span>
+        </label>
+        <div class="seed-io">
+          <input id="seedCode" type="text" spellcheck="false" autocomplete="off"
+            placeholder="record a loop, then press S to copy its seed…" aria-label="Seed code" />
+          <button id="btnSeedCopy" class="btn small" type="button">COPY <kbd>S</kbd></button>
+          <button id="btnSeedPlant" class="btn small" type="button">PLANT <kbd>L</kbd></button>
+        </div>
+      </div>
+
+      <details class="help" id="helpBox">
+        <summary>KEYBOARD MANUAL <kbd>H</kbd></summary>
+        <ul>
+          <li><kbd>1</kbd>–<kbd>7</kbd> pluck string · <kbd>←</kbd><kbd>→</kbd> select string · hold <kbd>↑</kbd>/<kbd>↓</kbd> or <kbd>A</kbd>/<kbd>D</kbd> to bend, release to snap + pluck</li>
+          <li><kbd>space</kbd> particle shower · <kbd>R</kbd> record · <kbd>P</kbd> play/stop loop · <kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd><kbd>V</kbd> pick seed slot</li>
+          <li><kbd>S</kbd> copy seed · <kbd>L</kbd> plant seed from box · <kbd>M</kbd> mute · <kbd>1</kbd>… with <kbd>shift</kbd> bends hard</li>
+          <li>Every control is a real button — <kbd>Tab</kbd> reaches everything. No mouse required.</li>
+          <li class="egg-hint">Rumor: the old netrunner code still works here… <kbd>↑↑↓↓←→←→BA</kbd></li>
+        </ul>
+      </details>
+    </section>
+  </main>
+
+  <footer class="hud-foot">
+    <span>GRAVITY-HARP v1.0 // KARPLUS-STRONG PLUCKS · SPRING-LOADED STRINGS · LOCAL SEEDS</span>
+    <button id="eggDot" class="egg-dot" type="button" title="?" aria-label="Mystery node">▚</button>
+  </footer>
+
+  <div id="overdrive" class="overdrive" hidden>
+    <p>◤ OVERDRIVE_2077 ENGAGED ◢</p>
+    <p class="od-sub">ghost player online — press the code again to jack out</p>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

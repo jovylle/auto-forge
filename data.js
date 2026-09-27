@@ -2917,6 +2917,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "gravity-harp-garden",
+    "title": "Gravity Harp Garden",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "cyberpunk",
+    "theme": "physics",
+    "constraints": [
+      "must have an easter egg",
+      "must work with keyboard only"
+    ],
+    "description": "Pluck gravity strings that drop particles into generative melodies.",
+    "features": [
+      "Drag to bend gravity strings",
+      "Particles trigger sampled plucks",
+      "Spring physics on release",
+      "Save tiny seed loops"
+    ],
+    "tags": [
+      "gravity",
+      "springs",
+      "particles",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-27T01:02:29.341Z",
+    "updatedAt": "2026-09-27T01:06:45.186Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 93, done: 84, counts: {"done":84,"needs-human":9} };
+export const stats = { total: 94, done: 85, counts: {"done":85,"needs-human":9} };
