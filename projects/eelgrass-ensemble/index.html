@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eelgrass Ensemble — conduct an underwater grass band</title>
+  <meta name="description" content="Conduct an underwater grass band: wave the tide baton, toggle grass voices, shape the reef mix." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="bubbles" aria-hidden="true" id="bubbles"></div>
+
+  <header class="glass topbar">
+    <div class="brand">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <div>
+        <h1>Eelgrass Ensemble</h1>
+        <p class="sub">Conduct an underwater grass band</p>
+      </div>
+    </div>
+    <div class="transport">
+      <button id="playBtn" class="btn primary" aria-pressed="false">▶&nbsp;Play</button>
+      <button id="calmBtn" class="btn ghost" title="Stop all sound, keep settings">Still water</button>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- LAGOON : tide baton stage -->
+    <section class="glass lagoon-card" aria-label="Tide baton stage">
+      <div class="lagoon-head">
+        <h2><span class="num">01</span> Tide baton</h2>
+        <p class="hint">Drag across the lagoon to conduct — <b>side-to-side</b> sets tempo, <b>up / down</b> sets the tide.
+          Tap a blade to mute it, double-tap to pluck it.</p>
+        <div class="meters">
+          <div class="meter"><label>Tempo <output id="tempoOut">96</output> bpm</label>
+            <div class="bar"><i id="tempoBar"></i></div></div>
+          <div class="meter"><label>Tide <output id="tideOut">50</output>%</label>
+            <div class="bar"><i id="tideBar"></i></div></div>
+        </div>
+      </div>
+      <div id="lagoon" class="lagoon" role="application" aria-label="Underwater lagoon. Drag to conduct.">
+        <canvas id="reef"></canvas>
+        <div id="baton" class="baton" aria-hidden="true"><i></i><em></em></div>
+        <div id="trail" aria-hidden="true"></div>
+        <p class="tap-hint" id="tapHint">sound starts on first tap — browsers require it 🌊</p>
+      </div>
+      <div class="baton-row">
+        <label class="slider">Tempo
+          <input id="tempo" type="range" min="60" max="160" step="1" value="96" />
+        </label>
+        <label class="slider">Tide swell
+          <input id="tide" type="range" min="0" max="100" step="1" value="50" />
+        </label>
+      </div>
+    </section>
+
+    <!-- VOICES -->
+    <section class="glass voices-card" aria-label="Grass voices">
+      <h2><span class="num">02</span> Grass voices</h2>
+      <p class="hint">Eight blades, eight notes of a C-major pentatonic reef. Toggle blades in or out of the ensemble.</p>
+      <div id="voices" class="voices"></div>
+    </section>
+
+    <!-- REEF MIX -->
+    <section class="glass mix-card" aria-label="Reef mix">
+      <h2><span class="num">03</span> Reef mix</h2>
+      <p class="hint">Shape the water itself. Mixes auto-save and return on reload.</p>
+      <div class="mix-grid">
+        <label class="slider">Depth <span class="val" id="depthOut">60%</span>
+          <input id="depth" type="range" min="0" max="100" value="60" />
+          <small>low-pass filter — murk ↔ crystal</small>
+        </label>
+        <label class="slider">Current <span class="val" id="currentOut">35%</span>
+          <input id="current" type="range" min="0" max="100" value="35" />
+          <small>echo drift across the reef</small>
+        </label>
+        <label class="slider">Glow <span class="val" id="glowOut">70%</span>
+          <input id="glow" type="range" min="0" max="100" value="70" />
+          <small>master light / volume</small>
+        </label>
+      </div>
+      <div class="presets" role="group" aria-label="Mix presets">
+        <button class="chip" data-preset="lagoon">🪸 Lagoon</button>
+        <button class="chip" data-preset="storm">🌊 Storm surge</button>
+        <button class="chip" data-preset="night">🌙 Night reef</button>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>Eelgrass Ensemble · generative WebAudio · no samples, all synthesized · settings persist locally</p>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
