@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fable Foundry — Smelt Morals into Tiny Fables</title>
+  <meta name="description" content="A steampunk fable press. Feed it a moral, pull the lever, cast story ingots." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip" href="#moral">Skip to moral intake</a>
+  <a class="skip" href="#pressBtn">Skip to fable press</a>
+  <a class="skip" href="#ingots">Skip to story ingots</a>
+
+  <div class="rivets" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="gears" aria-hidden="true">
+      <svg class="gear g1" viewBox="0 0 100 100"><path d="M50 12l4 8 8-3 1 9 9 1-3 8 8 4-5 7 6 6-8 4 1 9-9 1-3 8-8-3-4 8-4-8-8 3-1-9-9-1 3-8-8-4 5-7-6-6 8-4-1-9 9-1 3-8 8 3z" /><circle cx="50" cy="52" r="16" /></svg>
+      <svg class="gear g2" viewBox="0 0 100 100"><path d="M50 12l4 8 8-3 1 9 9 1-3 8 8 4-5 7 6 6-8 4 1 9-9 1-3 8-8-3-4 8-4-8-8 3-1-9-9-1 3-8-8-4 5-7-6-6 8-4-1-9 9-1 3-8 8 3z" /><circle cx="50" cy="52" r="16" /></svg>
+      <svg class="gear g3" viewBox="0 0 100 100"><path d="M50 12l4 8 8-3 1 9 9 1-3 8 8 4-5 7 6 6-8 4 1 9-9 1-3 8-8-3-4 8-4-8-8 3-1-9-9-1 3-8-8-4 5-7-6-6 8-4-1-9 9-1 3-8 8 3z" /><circle cx="50" cy="52" r="16" /></svg>
+    </div>
+    <p class="kicker">EST. 1887 · AETHER-WORKS No. 9</p>
+    <h1>Fable Foundry</h1>
+    <p class="sub">Smelt morals into tiny fables. Feed the boiler a moral — pull the lever — cast the story in brass.</p>
+    <p class="kbd-hint">Keyboard only? Splendid. Press <kbd>?</kbd> for the shortcut ledger · <kbd>/</kbd> to stoke the intake.</p>
+  </header>
+
+  <main id="app">
+    <section class="boiler panel" aria-labelledby="boilerH">
+      <h2 id="boilerH"><span class="plate-no">I</span> Moral Intake</h2>
+      <label class="field-label" for="moral">Moral ore <span class="dim">(what should the fable teach?)</span></label>
+      <textarea id="moral" rows="2" maxlength="220" placeholder="e.g. Patience outlasts haste…">Slow and steady outlasts haste.</textarea>
+      <div class="moral-row">
+        <button id="randomMoral" type="button" class="btn small" title="Shortcut: R">⚄ Random moral <kbd>R</kbd></button>
+        <span id="moralCount" class="count" aria-live="polite">32 / 220</span>
+      </div>
+      <div class="chips" role="group" aria-label="Preset morals">
+        <button type="button" class="chip" data-moral="Slow and steady outlasts haste.">steady tortoise</button>
+        <button type="button" class="chip" data-moral="Pride clogs the finest gears.">proud gears</button>
+        <button type="button" class="chip" data-moral="A small kindness keeps the boiler lit.">kind boiler</button>
+        <button type="button" class="chip" data-moral="Greed melts the hand that grabs.">greedy hand</button>
+        <button type="button" class="chip" data-moral="Listen before you tighten.">loose bolt</button>
+        <button type="button" class="chip" data-moral="Courage is fear, oiled and moving.">oiled fear</button>
+      </div>
+
+      <div class="valves">
+        <fieldset class="valve">
+          <legend>Alloy temper</legend>
+          <label><input type="radio" name="temper" value="brass" checked /> <b>Brass</b> <i>heroic</i></label>
+          <label><input type="radio" name="temper" value="soot" /> <b>Soot</b> <i>grim</i></label>
+          <label><input type="radio" name="temper" value="aether" /> <b>Aether</b> <i>whimsical</i></label>
+        </fieldset>
+        <fieldset class="valve">
+          <legend>Ingot size</legend>
+          <label><input type="radio" name="size" value="spark" /> <b>Spark</b> <i>~90 wds</i></label>
+          <label><input type="radio" name="size" value="ingot" checked /> <b>Ingot</b> <i>~160 wds</i></label>
+          <label><input type="radio" name="size" value="epic" /> <b>Epic</b> <i>~250 wds</i></label>
+        </fieldset>
+      </div>
+    </section>
+
+    <section class="press panel" aria-labelledby="pressH">
+      <h2 id="pressH"><span class="plate-no">II</span> The Fable Press</h2>
+      <div class="press-body">
+        <div class="gauge-wrap">
+          <svg class="gauge" viewBox="0 0 200 120" role="img" aria-label="Boiler pressure gauge">
+            <path d="M15 105 A85 85 0 0 1 185 105" fill="none" stroke="#5a3d22" stroke-width="10" stroke-linecap="round"/>
+            <path id="gaugeArc" d="M15 105 A85 85 0 0 1 185 105" fill="none" stroke="#e8a33d" stroke-width="6" stroke-linecap="round" stroke-dasharray="267" stroke-dashoffset="200"/>
+            <g id="needle" class="needle"><line x1="100" y1="105" x2="100" y2="38" stroke="#d8b25c" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="105" r="9" /></g>
+            <text x="30" y="112" class="gtick">LOW</text>
+            <text x="140" y="112" class="gtick">FULL</text>
+          </svg>
+          <p id="pressState" class="press-state" aria-live="polite">Boiler idle — awaiting moral ore.</p>
+        </div>
+        <div class="lever-box">
+          <button id="pressBtn" type="button" class="lever" aria-describedby="pressState">
+            <span class="lever-handle" aria-hidden="true"></span>
+            <span class="lever-text">SMELT THE FABLE</span>
+            <span class="lever-sub"><kbd>Ctrl</kbd>+<kbd>Enter</kbd> · pull the lever</span>
+          </button>
+          <div class="press-actions">
+            <button id="restokeBtn" type="button" class="btn small" title="Shortcut: X" disabled>↻ Restoke variant <kbd>X</kbd></button>
+            <button id="saveBtn" type="button" class="btn small brass-btn" title="Shortcut: S" disabled>▣ Cast ingot <kbd>S</kbd></button>
+          </div>
+        </div>
+      </div>
+      <div id="steam" class="steam" aria-hidden="true"></div>
+    </section>
+
+    <section class="story panel parchment-wrap" aria-labelledby="storyH" aria-live="polite">
+      <h2 id="storyH"><span class="plate-no">III</span> Fresh from the mould</h2>
+      <article id="story" class="parchment" tabindex="-1" aria-label="Latest fable">
+        <p class="story-empty">No fable yet. Stoke a moral above and pull the lever — the moulds are warm.</p>
+      </article>
+      <div class="story-meta">
+        <span id="storyMeta">—</span>
+        <span class="story-btns">
+          <button id="copyBtn" type="button" class="btn small" disabled title="Shortcut: C">⧉ Copy <kbd>C</kbd></button>
+          <button id="readBtn" type="button" class="btn small" disabled title="Read aloud">◉ Read aloud</button>
+        </span>
+      </div>
+    </section>
+
+    <section class="ingots panel" aria-labelledby="ingotsH">
+      <div class="ingots-head">
+        <h2 id="ingotsH"><span class="plate-no">IV</span> Story Ingots <span id="ingotCount" class="ingot-count">0</span></h2>
+        <div class="ingots-tools">
+          <button id="exportBtn" type="button" class="btn small" disabled>⤓ Export all (.txt)</button>
+          <button id="meltAllBtn" type="button" class="btn small danger" disabled>Melt all</button>
+        </div>
+      </div>
+      <p class="dim">Each cast fable cools here as a brass ingot. <kbd>[</kbd> / <kbd>]</kbd> walk the ingots · <kbd>Enter</kbd> re-reads · <kbd>Del</kbd> melts.</p>
+      <ol id="ingots" class="ingot-grid" aria-label="Saved story ingots"></ol>
+    </section>
+
+    <section class="ledger panel" aria-labelledby="ledgerH">
+      <h2 id="ledgerH"><button id="ledgerToggle" type="button" class="ledger-toggle" aria-expanded="false" aria-controls="ledgerBody">Shortcut ledger <kbd>?</kbd> ▾</button></h2>
+      <div id="ledgerBody" class="ledger-body" hidden>
+        <table>
+          <tbody>
+            <tr><td><kbd>/</kbd></td><td>focus moral intake</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>smelt the fable</td></tr>
+            <tr><td><kbd>R</kbd></td><td>random moral</td></tr>
+            <tr><td><kbd>T</kbd> / <kbd>L</kbd></td><td>cycle temper / size</td></tr>
+            <tr><td><kbd>X</kbd></td><td>restoke a variant</td></tr>
+            <tr><td><kbd>S</kbd></td><td>cast current fable into an ingot</td></tr>
+            <tr><td><kbd>C</kbd></td><td>copy current fable</td></tr>
+            <tr><td><kbd>[</kbd> <kbd>]</kbd></td><td>walk saved ingots</td></tr>
+            <tr><td><kbd>Del</kbd></td><td>melt focused ingot</td></tr>
+            <tr><td><kbd>?</kbd></td><td>toggle this ledger</td></tr>
+            <tr><td><kbd>Esc</kbd></td><td>close ledger / stop reading</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Fable Foundry · Aether-Works No. 9 · stories smelted locally, ingots kept in <code>localStorage</code>. No coal was wasted.</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

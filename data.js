@@ -3097,12 +3097,42 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-28T01:03:39.818Z",
-    "updatedAt": "2026-09-28T01:06:02.172Z",
+    "updatedAt": "2026-09-28T01:06:57.548Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "fable-foundry",
+    "title": "Fable Foundry",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "steampunk",
+    "theme": "physics",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Smelt morals into tiny fables.",
+    "features": [
+      "moral input",
+      "fable press",
+      "story ingots"
+    ],
+    "tags": [
+      "fables",
+      "generator",
+      "stories"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-28T06:37:59.779Z",
+    "updatedAt": "2026-09-28T06:42:32.633Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 99, done: 90, counts: {"done":90,"needs-human":9} };
+export const stats = { total: 100, done: 91, counts: {"done":91,"needs-human":9} };
