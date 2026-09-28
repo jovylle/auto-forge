@@ -3157,12 +3157,42 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-28T12:45:48.957Z",
-    "updatedAt": "2026-09-28T12:49:04.187Z",
+    "updatedAt": "2026-09-28T12:49:10.075Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "velvet-avalanche",
+    "title": "Velvet Avalanche",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "memphis",
+    "theme": "physics",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Velvet Avalanche",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "avalanche",
+      "canvas",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-28T18:51:13.356Z",
+    "updatedAt": "2026-09-28T18:53:12.714Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 101, done: 92, counts: {"done":92,"needs-human":9} };
+export const stats = { total: 102, done: 93, counts: {"done":93,"needs-human":9} };

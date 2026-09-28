@@ -1,8 +1,8 @@
 {
-  "slug": "opal-ferry-terminal",
-  "title": "Opal Ferry Terminal",
+  "slug": "velvet-avalanche",
+  "title": "Velvet Avalanche",
   "stack": "html",
-  "aesthetic": "organic-brutalist",
+  "aesthetic": "memphis",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 188715,
-  "at": "2026-09-28T12:49:04.194Z"
+  "elapsedMs": 113003,
+  "at": "2026-09-28T18:53:12.720Z"
 }
