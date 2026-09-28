@@ -45,7 +45,22 @@
       },
       "elapsedMs": 263353,
       "at": "2026-09-28T06:42:32.638Z"
+    },
+    {
+      "slug": "opal-ferry-terminal",
+      "title": "Opal Ferry Terminal",
+      "stack": "html",
+      "aesthetic": "organic-brutalist",
+      "model": "opencode/muse-spark-1.3-contributor-free",
+      "modelVia": "primary",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 188715,
+      "at": "2026-09-28T12:49:04.194Z"
     }
   ],
-  "updatedAt": "2026-09-28T06:42:32.638Z"
+  "updatedAt": "2026-09-28T12:49:04.194Z"
 }
