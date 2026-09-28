@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Waxwing Weather Station — Birds forecast in flocks</title>
+<meta name="description" content="A Japanese-minimal flock radar. Waxwing murmurations read the sky; log sightings, export the sky." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<a class="skip" href="#radar-wrap">Skip to flock radar</a>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="mast-left">
+    <p class="kicker"><span class="kicker-jp" lang="ja">レンジャク気象台</span> · No. 07 — WAXWING STATION</p>
+    <h1>Waxwing <em>Weather</em> Station</h1>
+    <p class="sub">Birds forecast the weather in flocks. Watch the murmuration — it knows rain before the clouds do.</p>
+  </div>
+  <div class="mast-right">
+    <div class="hanko" aria-hidden="true"> wax<br/>wing </div>
+    <dl class="meta">
+      <div><dt>date</dt><dd id="today">—</dd></div>
+      <div><dt>station time</dt><dd id="clock">—</dd></div>
+      <div><dt>reading</dt><dd id="meta-reading">calibrating…</dd></div>
+    </dl>
+  </div>
+</header>
+
+<nav class="shortcuts-bar" aria-label="Keyboard shortcuts">
+  <span class="sb-title" lang="ja">操作</span>
+  <span><kbd>R</kbd> gust</span>
+  <span><kbd>Space</kbd> pause</span>
+  <span><kbd>←→↑↓</kbd> wind</span>
+  <span><kbd>+</kbd><kbd>−</kbd> flock</span>
+  <span><kbd>D</kbd> hour</span>
+  <span><kbd>E</kbd> png</span>
+  <span><kbd>?</kbd> all keys</span>
+</nav>
+
+<main id="app">
+  <section class="panel radar-panel" aria-labelledby="radar-h">
+    <div class="panel-head">
+      <h2 id="radar-h"><span class="num">一</span> Flock radar</h2>
+      <p class="hint">Focus the radar, then fly it with keys alone. Every control below is a real button or slider.</p>
+    </div>
+
+    <div class="radar-grid">
+      <div id="radar-wrap" tabindex="0" role="application"
+        aria-label="Flock radar. Arrow keys steer wind. R releases a gust. Space pauses. Plus and minus change flock size. D advances the hour.">
+        <canvas id="radar" width="640" height="640"></canvas>
+        <div class="radar-frame" aria-hidden="true"></div>
+        <p class="radar-caption" aria-hidden="true">ヒレンジャク · Bohemian waxwing · <span id="bird-count-label">70</span> wings aloft</p>
+        <div id="sr-status" class="sr-only" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="readout">
+        <div class="forecast-card">
+          <p class="fc-kicker"><span lang="ja" id="fc-kanji">雨</span> · <span id="fc-code">—</span></p>
+          <h3 id="fc-title">Reading the sky…</h3>
+          <p id="fc-haiku" class="haiku">—</p>
+          <dl class="meters">
+            <div><dt>cohesion</dt><dd><span class="bar"><i id="m-coh"></i></span><b id="m-coh-v">—</b></dd></div>
+            <div><dt>altitude</dt><dd><span class="bar"><i id="m-alt"></i></span><b id="m-alt-v">—</b></dd></div>
+            <div><dt>swirl</dt><dd><span class="bar"><i id="m-swi"></i></span><b id="m-swi-v">—</b></dd></div>
+            <div><dt>pace</dt><dd><span class="bar"><i id="m-pac"></i></span><b id="m-pac-v">—</b></dd></div>
+          </dl>
+          <p class="conf">confidence <b id="fc-conf">—</b> · <span id="fc-advice">—</span></p>
+        </div>
+
+        <fieldset class="controls">
+          <legend>sky controls <span lang="ja">空</span></legend>
+          <div class="ctl-row">
+            <label for="wind-dir">wind <b id="wind-dir-v">NE · 45°</b></label>
+            <input id="wind-dir" type="range" min="0" max="360" step="5" value="45" />
+          </div>
+          <div class="ctl-row">
+            <label for="wind-spd">breeze <b id="wind-spd-v">1.2</b></label>
+            <input id="wind-spd" type="range" min="0" max="3" step="0.1" value="1.2" />
+          </div>
+          <div class="ctl-row">
+            <label for="hour">hour <b id="hour-v">10:00</b></label>
+            <input id="hour" type="range" min="5" max="19" step="1" value="10" />
+          </div>
+          <div class="ctl-row">
+            <label for="flock">waxwings <b id="flock-v">70</b></label>
+            <input id="flock" type="range" min="12" max="160" step="1" value="70" />
+          </div>
+          <div class="btn-row">
+            <button id="btn-gust" type="button">≋ Gust <kbd>R</kbd></button>
+            <button id="btn-pause" type="button" aria-pressed="false">❚❚ Pause <kbd>Space</kbd></button>
+            <button id="btn-dawn" type="button">☾ Hour <kbd>D</kbd></button>
+            <button id="btn-calm" type="button">〇 Still air</button>
+          </div>
+          <div class="wind-presets" role="group" aria-label="Wind presets">
+            <button type="button" data-wind="0">N <kbd>1</kbd></button>
+            <button type="button" data-wind="90">E <kbd>2</kbd></button>
+            <button type="button" data-wind="180">S <kbd>3</kbd></button>
+            <button type="button" data-wind="270">W <kbd>4</kbd></button>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </section>
+
+  <div class="two-col">
+    <section class="panel" aria-labelledby="log-h">
+      <div class="panel-head">
+        <h2 id="log-h"><span class="num">二</span> Waxwing log</h2>
+        <p class="hint">Kept in this browser. <kbd>Ctrl</kbd>+<kbd>↵</kbd> files an entry from anywhere in the form.</p>
+      </div>
+      <form id="log-form">
+        <div class="frow">
+          <div class="field">
+            <label for="f-count">count</label>
+            <input id="f-count" name="count" type="number" min="1" max="500" value="24" required />
+          </div>
+          <div class="field">
+            <label for="f-behavior">behaviour</label>
+            <select id="f-behavior" name="behavior">
+              <option>low swirl — tight wheel</option>
+              <option>high V — long glide</option>
+              <option>scattered — loose drift</option>
+              <option>perched silent — berry rest</option>
+              <option>burst climb — sudden lift</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-note">sky note</label>
+          <input id="f-note" name="note" type="text" maxlength="120" placeholder="e.g. pale sun, juniper berries, east breeze" />
+        </div>
+        <div class="frow frow-end">
+          <p class="auto-forecast">will file as: <b id="auto-forecast">—</b></p>
+          <button type="submit" id="btn-log">✎ File entry <kbd>↵</kbd></button>
+        </div>
+      </form>
+      <ol id="log-list" aria-label="Logged sightings"></ol>
+      <p id="log-empty">No entries yet. The first flock you file becomes the station's memory.</p>
+      <div class="btn-row">
+        <button type="button" id="btn-sample">＋ Sample entry</button>
+        <button type="button" id="btn-clear">✕ Clear log</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="exp-h">
+      <div class="panel-head">
+        <h2 id="exp-h"><span class="num">三</span> Sky export</h2>
+        <p class="hint">Take the sky with you. PNG is painted on washi with the station seal.</p>
+      </div>
+      <div class="stamp-preview" aria-hidden="true">
+        <span class="sp-jp" lang="ja">空写</span>
+        <span class="sp-en">sky copy · waxwing station</span>
+      </div>
+      <div class="btn-col">
+        <button type="button" id="btn-png">⤓ Export sky PNG <kbd>E</kbd></button>
+        <button type="button" id="btn-json">⤓ Log as JSON <kbd>J</kbd></button>
+        <button type="button" id="btn-csv">⤓ Log as CSV <kbd>C</kbd></button>
+        <button type="button" id="btn-copy">⧉ Copy forecast poem <kbd>P</kbd></button>
+      </div>
+      <p id="export-msg" role="status" aria-live="polite" class="export-msg">—</p>
+      <details id="keys">
+        <summary>all keyboard keys <kbd>?</kbd></summary>
+        <table>
+          <tbody>
+            <tr><th><kbd>Tab</kbd> / <kbd>Shift+Tab</kbd></th><td>move through every control</td></tr>
+            <tr><th><kbd>←→↑↓</kbd></th><td>steer wind (radar focused)</td></tr>
+            <tr><th><kbd>R</kbd></th><td>release a gust</td></tr>
+            <tr><th><kbd>Space</kbd></th><td>pause / resume murmuration</td></tr>
+            <tr><th><kbd>+</kbd> <kbd>−</kbd></th><td>add / release waxwings</td></tr>
+            <tr><th><kbd>D</kbd></th><td>advance the hour</td></tr>
+            <tr><th><kbd>1</kbd>–<kbd>4</kbd></th><td>wind N / E / S / W</td></tr>
+            <tr><th><kbd>E</kbd> <kbd>J</kbd> <kbd>C</kbd> <kbd>P</kbd></th><td>export PNG, JSON, CSV, copy poem</td></tr>
+            <tr><th><kbd>L</kbd></th><td>jump to log form</td></tr>
+            <tr><th><kbd>Del</kbd></th><td>delete focused log entry</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </section>
+  </div>
+
+  <footer>
+    <span lang="ja">一期一会</span> · one sky, once — painted live, no servers, no fonts fetched. Entries stay in your browser.
+  </footer>
+</main>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
