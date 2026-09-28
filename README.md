@@ -53,3 +53,4 @@ Toggle pause: edit `loop.json` → `"enabled": false`.
 - `site/` — deployed static site (generated, not committed except via gh-pages worktree)
 - `logs/<slug>.log` — per-project worker transcript
 - `loop.json` — enabled + lastRun
+ 
