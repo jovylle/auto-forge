@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Velvet Avalanche — Memphis Particle Toy</title>
+  <meta name="description" content="A velvety Memphis avalanche: fling shapes, tilt gravity, export PNG. 3 colors, infinite tumble." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="bg-dots" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="logo-squiggle" aria-hidden="true">〜〜〜</div>
+    <div>
+      <h1>VELVET <span class="hl">AVALANCHE</span></h1>
+      <p class="tagline">a memphis physics toy &bull; fling it &bull; freeze it &bull; ship it</p>
+    </div>
+    <div class="badge">GEN<br/>004</div>
+  </header>
+
+  <main id="app">
+    <section class="stage-wrap">
+      <div class="stage-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="stage-title">canvas — click / drag to avalanche</span>
+        <span class="seed-pill" id="seedPill" title="Current seed">seed #0000</span>
+      </div>
+      <canvas id="stage" width="900" height="560" aria-label="Generative avalanche canvas. Click and drag to throw shapes."></canvas>
+      <div class="stage-foot">
+        <span id="countLabel">0 shapes tumbling</span>
+        <span class="hint">tip: shake with <kbd>S</kbd> · burst with <kbd>B</kbd> · <kbd>space</kbd> pauses</span>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <div class="card tilt-a">
+        <h2>◼ Controls</h2>
+        <label>Flow <span class="val" id="flowVal">60</span>
+          <input id="flow" type="range" min="0" max="120" value="60" />
+        </label>
+        <label>Gravity <span class="val" id="gravVal">0.35</span>
+          <input id="grav" type="range" min="0" max="100" value="35" />
+        </label>
+        <label>Bounce <span class="val" id="bounceVal">0.72</span>
+          <input id="bounce" type="range" min="40" max="96" value="72" />
+        </label>
+        <label>Trail <span class="val" id="trailVal">0.18</span>
+          <input id="trail" type="range" min="0" max="90" value="18" />
+        </label>
+        <div class="row">
+          <button id="btnBurst" class="btn chunky pink">★ BURST</button>
+          <button id="btnShake" class="btn chunky teal">〜 SHAKE</button>
+        </div>
+        <div class="row">
+          <button id="btnPause" class="btn">❚❚ pause</button>
+          <button id="btnClear" class="btn">✕ clear</button>
+          <button id="btnSeed" class="btn" title="New random seed">⚄ seed</button>
+        </div>
+      </div>
+
+      <div class="card tilt-b">
+        <h2>◉ Share / Export</h2>
+        <div class="row">
+          <button id="btnPng" class="btn chunky yellow">⤓ PNG</button>
+          <button id="btnLink" class="btn chunky white">⧉ copy link</button>
+        </div>
+        <p class="mini" id="shareMsg">Link encodes seed + settings. PNG exports at 2×.</p>
+        <div class="swatches" aria-label="Palette: 3 colors plus black and white">
+          <span class="sw" style="--c:#FF2E88" title="#FF2E88"></span>
+          <span class="sw" style="--c:#00C2A8" title="#00C2A8"></span>
+          <span class="sw" style="--c:#FFC700" title="#FFC700"></span>
+          <span class="sw bw" style="--c:#111111" title="black"></span>
+          <span class="sw bw" style="--c:#ffffff" title="white"></span>
+        </div>
+        <p class="mini dim">palette: 3 colors max + black/white. shapes drawn only in these.</p>
+      </div>
+
+      <div class="card tilt-c how">
+        <h2>▲ How to play</h2>
+        <ol>
+          <li><b>Drag</b> across the canvas to fling velvet shapes.</li>
+          <li><b>Scroll</b> over canvas to tilt gravity sideways.</li>
+          <li><b>BURST</b> for a confetti avalanche. <b>PNG</b> to keep it.</li>
+        </ol>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <span class="zig" aria-hidden="true">▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼</span>
+    <span>velvet avalanche · memphis generative · works offline from file://</span>
+    <span class="zig" aria-hidden="true">●○●○●○●○●○●○●○</span>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
