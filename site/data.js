@@ -3042,6 +3042,37 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "waxwing-weather-station",
+    "title": "Waxwing Weather Station",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "japanese-minimal",
+    "theme": "physics",
+    "constraints": [
+      "no external fonts — system fonts only",
+      "must work with keyboard only"
+    ],
+    "description": "Birds forecast the weather in flocks.",
+    "features": [
+      "flock radar",
+      "waxwing log",
+      "sky export"
+    ],
+    "tags": [
+      "weather",
+      "birds",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-28T00:30:01.326Z",
+    "updatedAt": "2026-09-28T00:33:58.349Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 97, done: 88, counts: {"done":88,"needs-human":9} };
+export const stats = { total: 98, done: 89, counts: {"done":89,"needs-human":9} };
