@@ -346,7 +346,7 @@ async function main() {
     for (const tgt of config.deploy.targets) {
       try {
         if (tgt === "cloudflare") { const m = await import("./deploy/cloudflare.mjs"); await m.deploy(); }
-        if (tgt === "gh-pages")   { const m = await import("./deploy/ghpages.mjs"); await m.deploy(); }
+        if (tgt === "gh-pages")   { const m = await import("./deploy/ghpages.mjs"); const ok = await m.deploy(); if (ok && buildPassed) updateProject(idea.slug, { deployed: true }); }
       } catch(e){ log(`deploy ${tgt} failed:`, e.message); }
     }
     try {
