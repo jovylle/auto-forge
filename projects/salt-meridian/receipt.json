@@ -1,0 +1,30 @@
+{
+  "slug": "salt-meridian",
+  "title": "Salt Meridian",
+  "stack": "html",
+  "stackReason": "seed stack",
+  "aesthetic": "biomorphic",
+  "theme": "physics",
+  "constraints": [
+    "uses only one interaction type (click OR drag OR type)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "status": "pass",
+    "summary": "Salt Meridian — click-only biomorphic tide pool. Clicking the lagoon seeds brine blooms that drift toward a sweeping meridian, merge via kin bridges, and crystallize into salt shards; stats (living cells, crystallized %, tide cycle, salinity) update live. Stir/preset pills, PNG + JSON export, copyable share-link with hash hydration, localStorage persistence. Node syntax check passed, all element IDs resolve, responsive to 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 136137,
+  "at": "2026-09-28T01:06:02.177Z"
+}

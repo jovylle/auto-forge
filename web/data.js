@@ -17,7 +17,7 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-08-28T18:49:45.460Z",
     "updatedAt": "2026-08-28T18:51:12.294Z",
     "buildPassed": true
@@ -40,7 +40,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-08-28T18:52:23.591Z",
     "updatedAt": "2026-09-03T20:46:08.000Z",
     "buildPassed": true,
@@ -66,7 +66,7 @@ export const projects = [
       "drag-drop"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-08-29T06:47:30.174Z",
     "updatedAt": "2026-08-30T01:02:00Z",
     "buildPassed": true,
@@ -96,7 +96,7 @@ export const projects = [
       "color"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-08-31T01:00:15.506Z",
     "updatedAt": "2026-08-31T01:09:21.954Z",
     "buildPassed": true,
@@ -127,7 +127,7 @@ export const projects = [
       "color"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-01T01:00:30.707Z",
     "updatedAt": "2026-09-01T01:20:00.000Z",
     "buildPassed": true,
@@ -159,7 +159,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-02T01:00:13.515Z",
     "updatedAt": "2026-09-02T01:10:58.524Z",
     "buildPassed": true,
@@ -190,7 +190,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-04T02:48:07.360Z",
     "updatedAt": "2026-09-04T03:07:19Z",
     "buildPassed": true,
@@ -222,7 +222,7 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-04T09:08:07.875Z",
     "updatedAt": "2026-09-05T04:25:01.203Z",
     "buildPassed": true,
@@ -253,7 +253,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-04T09:15:13.964Z",
     "updatedAt": "2026-09-04T16:04:46.418Z",
     "buildPassed": true,
@@ -284,7 +284,7 @@ export const projects = [
       "physics"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-05T10:26:53.923Z",
     "updatedAt": "2026-09-05T10:41:35.348Z",
     "buildPassed": true,
@@ -314,7 +314,7 @@ export const projects = [
       "generator"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-05T16:43:51.657Z",
     "updatedAt": "2026-09-05T17:08:05.882Z",
     "lastError": null,
@@ -345,7 +345,7 @@ export const projects = [
       "webaudio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-05T23:14:54.422Z",
     "updatedAt": "2026-09-05T23:26:53.717Z",
     "buildPassed": true,
@@ -376,7 +376,7 @@ export const projects = [
       "generator"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-06T05:27:50.848Z",
     "updatedAt": "2026-09-06T05:39:58Z",
     "buildPassed": true,
@@ -406,7 +406,7 @@ export const projects = [
       "localStorage"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-06T11:41:53.625Z",
     "updatedAt": "2026-09-06T12:20:00Z",
     "buildPassed": true,
@@ -437,7 +437,7 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-06T18:11:05.800Z",
     "updatedAt": "2026-09-07T03:20:00Z",
     "buildPassed": true,
@@ -469,7 +469,7 @@ export const projects = [
       "particles"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-06T18:18:18.059Z",
     "updatedAt": "2026-09-07T08:00:00Z",
     "buildPassed": true,
@@ -501,7 +501,7 @@ export const projects = [
       "localStorage"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-07T07:36:31.398Z",
     "updatedAt": "2026-09-07T07:46:57.974Z",
     "buildPassed": true,
@@ -531,7 +531,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-07T13:52:15.771Z",
     "updatedAt": "2026-09-07T14:15:36.142Z",
     "buildPassed": true,
@@ -561,7 +561,7 @@ export const projects = [
       "drag-drop"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-07T20:18:09.437Z",
     "updatedAt": "2026-09-08T05:00:00Z",
     "buildPassed": true,
@@ -593,7 +593,7 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-08T02:46:18.669Z",
     "updatedAt": "2026-09-08T03:02:27.542Z",
     "buildPassed": true,
@@ -655,7 +655,7 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-08T09:11:58.983Z",
     "updatedAt": "2026-09-08T09:39:00.958Z",
     "buildPassed": true,
@@ -687,7 +687,7 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-08T15:42:17.761Z",
     "updatedAt": "2026-09-08T16:04:52.103Z",
     "buildPassed": true,
@@ -717,7 +717,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-09T04:08:13.570Z",
     "updatedAt": "2026-09-09T05:00:00Z",
     "buildPassed": true,
@@ -748,7 +748,7 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-09T10:36:20.683Z",
     "updatedAt": "2026-09-09T17:19:49.733Z",
     "buildPassed": true,
@@ -780,7 +780,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-09T23:21:15.148Z",
     "updatedAt": "2026-09-10T05:58:36.338Z",
     "buildPassed": true,
@@ -811,7 +811,7 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-10T11:59:44.954Z",
     "updatedAt": "2026-09-10T12:20:00Z",
     "buildPassed": true,
@@ -843,7 +843,7 @@ export const projects = [
       "localStorage"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-10T18:09:58.112Z",
     "updatedAt": "2026-09-11T03:00:00Z",
     "buildPassed": true,
@@ -875,7 +875,7 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-11T00:37:02.117Z",
     "updatedAt": "2026-09-11T05:00:00Z",
     "buildPassed": true,
@@ -906,7 +906,7 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-11T01:01:23.611Z",
     "updatedAt": "2026-09-11T01:17:40.248Z",
     "buildPassed": true,
@@ -936,7 +936,7 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-11T07:02:05.030Z",
     "updatedAt": "2026-09-11T07:21:55.274Z",
     "buildPassed": true,
@@ -966,7 +966,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-11T13:23:14.492Z",
     "updatedAt": "2026-09-11T14:00:00Z",
     "buildPassed": true,
@@ -998,7 +998,7 @@ export const projects = [
       "localStorage"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-12T01:00:40.592Z",
     "updatedAt": "2026-09-12T13:55:58.286Z",
     "buildPassed": true,
@@ -1030,7 +1030,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-12T07:38:16.913Z",
     "updatedAt": "2026-09-12T08:00:00Z",
     "buildPassed": true,
@@ -1063,7 +1063,7 @@ export const projects = [
       "generative-art"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-13T08:17:39.186Z",
     "updatedAt": "2026-09-13T08:23:12.464Z",
     "buildPassed": true,
@@ -1095,7 +1095,7 @@ export const projects = [
       "animation"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-13T14:24:44.952Z",
     "updatedAt": "2026-09-13T14:36:00.295Z",
     "buildPassed": true,
@@ -1125,7 +1125,7 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-13T20:42:33.018Z",
     "updatedAt": "2026-09-13T20:45:58.032Z",
     "buildPassed": true,
@@ -1157,7 +1157,7 @@ export const projects = [
       "fonts"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-14T01:00:51.105Z",
     "updatedAt": "2026-09-14T01:03:09.381Z",
     "buildPassed": true,
@@ -1189,7 +1189,7 @@ export const projects = [
       "poetry"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-14T02:49:44.751Z",
     "updatedAt": "2026-09-14T02:56:12.398Z",
     "buildPassed": true,
@@ -1220,7 +1220,7 @@ export const projects = [
       "night"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-14T08:57:34.650Z",
     "updatedAt": "2026-09-14T09:00:12.078Z",
     "buildPassed": true,
@@ -1253,7 +1253,7 @@ export const projects = [
       "posters"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-14T15:02:05.860Z",
     "updatedAt": "2026-09-14T15:04:56.470Z",
     "buildPassed": true,
@@ -1284,7 +1284,7 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-14T22:02:40.514Z",
     "updatedAt": "2026-09-14T22:05:47.872Z",
     "buildPassed": true,
@@ -1317,7 +1317,7 @@ export const projects = [
       "playground"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-15T01:00:29.232Z",
     "updatedAt": "2026-09-15T01:04:44.052Z",
     "buildPassed": true,
@@ -1349,7 +1349,7 @@ export const projects = [
       "fonts"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-15T04:08:01.556Z",
     "updatedAt": "2026-09-15T04:10:31.138Z",
     "buildPassed": true,
@@ -1382,7 +1382,7 @@ export const projects = [
       "fonts"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-15T10:12:23.810Z",
     "updatedAt": "2026-09-15T10:14:44.483Z",
     "buildPassed": true,
@@ -1414,7 +1414,7 @@ export const projects = [
       "posters"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-15T16:16:13.508Z",
     "updatedAt": "2026-09-15T17:00:00Z",
     "buildPassed": true,
@@ -1446,7 +1446,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-15T22:19:59.758Z",
     "updatedAt": "2026-09-15T22:22:33.941Z",
     "buildPassed": true,
@@ -1477,7 +1477,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-16T01:00:08.784Z",
     "updatedAt": "2026-09-16T01:03:05.111Z",
     "buildPassed": true,
@@ -1510,7 +1510,7 @@ export const projects = [
       "playful"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-16T04:24:50.929Z",
     "updatedAt": "2026-09-16T04:28:57.650Z",
     "buildPassed": true,
@@ -1542,7 +1542,7 @@ export const projects = [
       "playful"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-16T10:30:43.688Z",
     "updatedAt": "2026-09-16T10:33:24.546Z",
     "buildPassed": true,
@@ -1575,7 +1575,7 @@ export const projects = [
       "fonts"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-16T16:34:42.955Z",
     "updatedAt": "2026-09-16T16:38:23.228Z",
     "buildPassed": true,
@@ -1607,7 +1607,7 @@ export const projects = [
       "kinetic-type"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-16T22:39:51.650Z",
     "updatedAt": "2026-09-16T22:43:36.645Z",
     "buildPassed": true,
@@ -1640,7 +1640,7 @@ export const projects = [
       "playful"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-17T01:01:47.544Z",
     "updatedAt": "2026-09-17T01:04:37.543Z",
     "buildPassed": true,
@@ -1673,7 +1673,7 @@ export const projects = [
       "toy"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-17T04:49:43.991Z",
     "updatedAt": "2026-09-17T04:52:38.931Z",
     "buildPassed": true,
@@ -1705,7 +1705,7 @@ export const projects = [
       "sequencer"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-17T11:07:59.519Z",
     "updatedAt": "2026-09-17T11:09:57.708Z",
     "buildPassed": true,
@@ -1735,7 +1735,7 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-17T18:08:44.275Z",
     "updatedAt": "2026-09-17T18:12:37.848Z",
     "buildPassed": true,
@@ -1765,7 +1765,7 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-17T18:25:22.307Z",
     "updatedAt": "2026-09-17T18:32:04.552Z",
     "buildPassed": true,
@@ -1799,7 +1799,7 @@ export const projects = [
       "vowels"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-18T00:40:36.399Z",
     "updatedAt": "2026-09-18T00:43:05.795Z",
     "buildPassed": true,
@@ -1831,7 +1831,7 @@ export const projects = [
       "playground"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-18T01:03:21.821Z",
     "updatedAt": "2026-09-18T01:06:19.524Z",
     "buildPassed": true,
@@ -1864,7 +1864,7 @@ export const projects = [
       "synth"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-18T06:47:55.442Z",
     "updatedAt": "2026-09-18T06:49:57.285Z",
     "buildPassed": true,
@@ -1897,7 +1897,7 @@ export const projects = [
       "loops"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-18T12:58:56.046Z",
     "updatedAt": "2026-09-18T13:01:31.447Z",
     "buildPassed": true,
@@ -1929,7 +1929,7 @@ export const projects = [
       "loops"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-18T13:47:53.712Z",
     "updatedAt": "2026-09-18T13:52:25.583Z",
     "buildPassed": true,
@@ -1961,7 +1961,7 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-18T20:39:26.121Z",
     "updatedAt": "2026-09-18T20:43:11.745Z",
     "buildPassed": true,
@@ -1993,7 +1993,7 @@ export const projects = [
       "playful"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-18T20:59:20.688Z",
     "updatedAt": "2026-09-18T21:03:09.414Z",
     "buildPassed": true,
@@ -2025,7 +2025,7 @@ export const projects = [
       "visualizer"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-19T01:01:58.987Z",
     "updatedAt": "2026-09-19T01:04:18.752Z",
     "buildPassed": true,
@@ -2058,7 +2058,7 @@ export const projects = [
       "toy"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-19T04:15:35.117Z",
     "updatedAt": "2026-09-19T04:19:59.143Z",
     "buildPassed": true,
@@ -2214,7 +2214,7 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-20T01:00:48.890Z",
     "updatedAt": "2026-09-20T01:06:05.311Z",
     "buildPassed": true,
@@ -2245,7 +2245,7 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-20T05:32:15.834Z",
     "updatedAt": "2026-09-22T05:00:00Z",
     "buildPassed": true,
@@ -2436,7 +2436,7 @@ export const projects = [
       "toy"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-21T14:42:04.751Z",
     "updatedAt": "2026-09-21T14:48:00.858Z",
     "buildPassed": true,
@@ -2469,7 +2469,7 @@ export const projects = [
       "toy"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-21T21:06:03.695Z",
     "updatedAt": "2026-09-21T21:14:29.692Z",
     "buildPassed": true,
@@ -2501,7 +2501,7 @@ export const projects = [
       "rhythm"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-21T21:32:33.635Z",
     "updatedAt": "2026-09-21T21:42:28.640Z",
     "buildPassed": true,
@@ -2534,7 +2534,7 @@ export const projects = [
       "loops"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-22T01:04:27.144Z",
     "updatedAt": "2026-09-22T01:11:44.730Z",
     "buildPassed": true,
@@ -2566,7 +2566,7 @@ export const projects = [
       "playful"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-22T03:55:18.892Z",
     "updatedAt": "2026-09-22T03:57:48.545Z",
     "buildPassed": true,
@@ -2599,7 +2599,7 @@ export const projects = [
       "lofi"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-22T10:02:48.706Z",
     "updatedAt": "2026-09-22T10:08:09.898Z",
     "buildPassed": true,
@@ -2633,7 +2633,7 @@ export const projects = [
       "delay"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-22T10:14:29.495Z",
     "updatedAt": "2026-09-22T10:16:57.641Z",
     "buildPassed": true,
@@ -2663,7 +2663,7 @@ export const projects = [
       "telegraph"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-22T16:23:12.457Z",
     "updatedAt": "2026-09-22T16:25:44.525Z",
     "buildPassed": true,
@@ -2694,7 +2694,7 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-22T22:42:09.478Z",
     "updatedAt": "2026-09-22T22:43:57.667Z",
     "buildPassed": true,
@@ -2727,7 +2727,7 @@ export const projects = [
       "reverb"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-23T01:02:28.297Z",
     "updatedAt": "2026-09-23T01:04:47.866Z",
     "buildPassed": true,
@@ -2757,7 +2757,7 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-23T04:55:05.035Z",
     "updatedAt": "2026-09-23T04:58:21.491Z",
     "buildPassed": true,
@@ -2787,7 +2787,7 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-24T17:08:24.862Z",
     "updatedAt": "2026-09-24T17:10:55.627Z",
     "buildPassed": true,
@@ -2819,7 +2819,7 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-25T17:15:50.301Z",
     "updatedAt": "2026-09-25T17:18:36.143Z",
     "buildPassed": true,
@@ -2850,7 +2850,7 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-26T05:21:36.504Z",
     "updatedAt": "2026-09-26T05:32:26.597Z",
     "buildPassed": true,
@@ -2881,7 +2881,7 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-26T17:39:22.507Z",
     "updatedAt": "2026-09-26T17:41:16.275Z",
     "buildPassed": true,
@@ -2911,7 +2911,7 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-26T23:45:14.613Z",
     "updatedAt": "2026-09-26T23:47:42.404Z",
     "buildPassed": true,
@@ -2944,7 +2944,7 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-27T01:02:29.341Z",
     "updatedAt": "2026-09-27T01:06:45.186Z",
     "buildPassed": true,
@@ -2975,7 +2975,7 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-27T05:56:21.767Z",
     "updatedAt": "2026-09-27T06:07:59.374Z",
     "buildPassed": true,
@@ -3006,7 +3006,7 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-27T12:14:39.623Z",
     "updatedAt": "2026-09-27T12:17:50.891Z",
     "buildPassed": true,
@@ -3036,7 +3036,7 @@ export const projects = [
       "generator"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-27T18:20:33.366Z",
     "updatedAt": "2026-09-27T18:23:02.409Z",
     "buildPassed": true,
@@ -3067,12 +3067,42 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-28T00:30:01.326Z",
     "updatedAt": "2026-09-28T00:33:58.349Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "salt-meridian",
+    "title": "Salt Meridian",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "biomorphic",
+    "theme": "physics",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)"
+    ],
+    "description": "Salt Meridian",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "salt",
+      "meridian",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-28T01:03:39.818Z",
+    "updatedAt": "2026-09-28T01:06:02.172Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 98, done: 89, counts: {"done":89,"needs-human":9} };
+export const stats = { total: 99, done: 90, counts: {"done":90,"needs-human":9} };

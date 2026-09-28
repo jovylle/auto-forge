@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Salt Meridian — a biomorphic tide pool. Click to seed brine blooms; watch them drift, merge and crystallize along the meridian. Export PNG or share your lagoon with a link." />
+  <title>Salt Meridian — a biomorphic tide pool</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="ooze ooze-a" aria-hidden="true"></div>
+  <div class="ooze ooze-b" aria-hidden="true"></div>
+
+  <main id="app">
+    <header class="masthead">
+      <p class="kicker">a biomorphic tide pool · click only</p>
+      <h1>Salt <em>Meridian</em></h1>
+      <p class="lede">Click anywhere in the lagoon to seed a brine bloom. Cells drift toward the meridian, merge with kin, and crystallize into salt. Nothing to drag, nothing to type — just touch the water.</p>
+    </header>
+
+    <section class="lagoon-wrap">
+      <div class="lagoon-frame">
+        <canvas id="lagoon" aria-label="Salt Meridian lagoon. Click to seed brine blooms."></canvas>
+        <p class="hint" id="hint">click the water ✳</p>
+      </div>
+
+      <div class="stats" role="status" aria-live="polite">
+        <div class="stat"><span class="stat-num" id="stat-cells">0</span><span class="stat-label">living cells</span></div>
+        <div class="stat"><span class="stat-num" id="stat-salt">0%</span><span class="stat-label">crystallized</span></div>
+        <div class="stat"><span class="stat-num" id="stat-tide">I</span><span class="stat-label">tide cycle</span></div>
+        <div class="stat salinity"><span class="stat-num" id="stat-sal">0.0</span><span class="stat-label">salinity</span>
+          <span class="sal-bar"><span id="sal-fill"></span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="Lagoon controls">
+      <div class="row">
+        <span class="row-label">stir</span>
+        <button class="pill" id="btn-bloom" type="button">✳ seed bloom</button>
+        <button class="pill" id="btn-tide" type="button">≈ tidal pulse</button>
+        <button class="pill ghost" id="btn-clear" type="button">○ evaporate</button>
+      </div>
+      <div class="row">
+        <span class="row-label">presets</span>
+        <button class="pill soft" id="btn-atoll" type="button">atoll</button>
+        <button class="pill soft" id="btn-meridian" type="button">meridian</button>
+        <button class="pill soft" id="btn-bloompreset" type="button">superbloom</button>
+      </div>
+      <div class="row">
+        <span class="row-label">share / export</span>
+        <button class="pill" id="btn-png" type="button">↓ tide PNG</button>
+        <button class="pill" id="btn-link" type="button">⧉ copy lagoon link</button>
+        <button class="pill ghost" id="btn-json" type="button">↓ lagoon JSON</button>
+      </div>
+      <p class="toast" id="toast" aria-live="polite"></p>
+    </section>
+
+    <footer class="foot">
+      <p>persists in your browser · shared lagoons arrive frozen in time · works from <code>file://</code></p>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

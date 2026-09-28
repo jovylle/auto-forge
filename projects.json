@@ -3074,6 +3074,36 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "salt-meridian",
+      "title": "Salt Meridian",
+      "category": "viz",
+      "stack": "html",
+      "stackReason": "seed stack",
+      "aesthetic": "biomorphic",
+      "theme": "physics",
+      "constraints": [
+        "uses only one interaction type (click OR drag OR type)"
+      ],
+      "description": "Salt Meridian",
+      "features": [
+        "core interaction",
+        "polished UI",
+        "share/export"
+      ],
+      "tags": [
+        "salt",
+        "meridian",
+        "canvas"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-09-28T01:03:39.818Z",
+      "updatedAt": "2026-09-28T01:06:57.548Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
