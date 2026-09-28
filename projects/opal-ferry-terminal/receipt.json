@@ -1,0 +1,30 @@
+{
+  "slug": "opal-ferry-terminal",
+  "title": "Opal Ferry Terminal",
+  "stack": "html",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "organic-brutalist",
+  "theme": "physics",
+  "constraints": [
+    "must work with keyboard only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Opal Ferry Terminal: living 5-boat departure board with statuses/ETAs, animated canvas bay (docks, wakes, gulls, tide-hold overlay), WebAudio crossing bell with auto-ring/mute/persisted log. Fully keyboard operable (arrows/Enter/N/P/Space/B/M/1-5, roving tabindex, focusable canvas, aria-live). Organic-brutalist theme. JS syntax checked, no broken refs, 375px responsive.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "ferry board",
+      "bay viz",
+      "crossing bell"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 188715,
+  "at": "2026-09-28T12:49:04.192Z"
+}

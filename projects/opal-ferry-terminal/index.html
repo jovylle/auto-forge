@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Opal Ferry Terminal — watch opal ferries cross the bay</title>
+  <meta name="description" content="A living ferry board + bay visualization. Fully keyboard operable. Ring the crossing bell." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip" href="#board-list">Skip to ferry board</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="mast">
+    <div class="mast-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><span class="mark-boat">⛴</span></div>
+        <div>
+          <p class="kicker">HARBOR AUTHORITY · PIER 09 · OPAL BAY</p>
+          <h1>Opal Ferry<br /><span class="outline">Terminal</span></h1>
+        </div>
+      </div>
+      <div class="mast-meta">
+        <div class="clock-wrap" role="status" aria-label="Harbor time">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="clock" class="clock">00:00:00</span>
+          <span class="clock-label">HARBOR TIME</span>
+        </div>
+        <div class="tally">
+          <div class="tally-num" id="tally-crossings">0</div>
+          <div class="tally-label">CROSSINGS<br />RUNG TODAY</div>
+        </div>
+      </div>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-inner" id="ticker">
+        <span>OPAL BAY SWELL 0.4M · WIND NW 8KT · VISIBILITY CLEAR · NEXT SLACK TIDE 14:20 · ALL PIERS OPEN · MIND THE GULLS ·&nbsp;</span><span>OPAL BAY SWELL 0.4M · WIND NW 8KT · VISIBILITY CLEAR · NEXT SLACK TIDE 14:20 · ALL PIERS OPEN · MIND THE GULLS ·&nbsp;</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="deck">
+    <section class="panel board" aria-labelledby="board-h">
+      <div class="panel-head">
+        <h2 id="board-h">Ferry board</h2>
+        <p class="panel-sub">↑ ↓ to pick a boat · <kbd>Enter</kbd> hail · <kbd>N</kbd> dispatch</p>
+      </div>
+      <div id="board-list" class="board-list" role="listbox" aria-label="Ferry departures" tabindex="0"></div>
+      <div class="board-foot">
+        <button id="btn-dispatch" class="btn btn-brut">＋ Dispatch ferry <kbd>N</kbd></button>
+        <button id="btn-pause" class="btn btn-ghost" aria-pressed="false">❚❚ Hold tide <kbd>P</kbd></button>
+      </div>
+    </section>
+
+    <section class="panel viz" aria-labelledby="viz-h">
+      <div class="panel-head viz-head">
+        <div>
+          <h2 id="viz-h">Bay viz</h2>
+          <p class="panel-sub">Opal Terminal ⇆ Kelp Point · live canvas · <kbd>←</kbd><kbd>→</kbd> select boat</p>
+        </div>
+        <div class="viz-legend" aria-hidden="true">
+          <span class="leg"><i class="swatch west"></i>Opal</span>
+          <span class="leg"><i class="swatch east"></i>Kelp</span>
+          <span class="leg"><i class="swatch wake"></i>wake</span>
+        </div>
+      </div>
+      <div class="canvas-shell">
+        <canvas id="bay" width="800" height="460" tabindex="0" role="img" aria-label="Animated bay. Use left and right arrows to select a ferry; details are announced below."></canvas>
+        <div id="bell-flash" class="bell-flash" aria-hidden="true">🔔 DOCKED</div>
+        <div class="buoy buoy-a" aria-hidden="true"></div>
+        <div class="buoy buoy-b" aria-hidden="true"></div>
+      </div>
+      <p id="bay-live" class="live-line" aria-live="polite">5 ferries on the bay.</p>
+      <div class="detail" id="detail" aria-live="polite"></div>
+    </section>
+
+    <section class="panel bell" aria-labelledby="bell-h">
+      <div class="panel-head">
+        <h2 id="bell-h">Crossing bell</h2>
+        <p class="panel-sub">Rings itself on every docking · or ring it yourself</p>
+      </div>
+      <div class="bell-row">
+        <button id="bell-btn" class="bell-btn" aria-label="Ring the crossing bell (key B)">
+          <span class="bell-rope" aria-hidden="true"></span>
+          <span class="bell-body" aria-hidden="true">🔔</span>
+          <span class="bell-caption">RING <kbd>B</kbd></span>
+        </button>
+        <div class="bell-side">
+          <label class="switch">
+            <input type="checkbox" id="mute" />
+            <span class="track" aria-hidden="true"><span class="thumb" aria-hidden="true"></span></span>
+            <span class="switch-label">Mute bell <kbd>M</kbd></span>
+          </label>
+          <label class="switch">
+            <input type="checkbox" id="auto-bell" checked />
+            <span class="track" aria-hidden="true"><span class="thumb" aria-hidden="true"></span></span>
+            <span class="switch-label">Auto-ring on docking</span>
+          </label>
+          <ol id="log" class="log" aria-label="Bell log"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel keys" aria-labelledby="keys-h">
+      <h2 id="keys-h">Keyboard chart</h2>
+      <ul class="key-grid">
+        <li><kbd>Tab</kbd> move through everything</li>
+        <li><kbd>↑</kbd><kbd>↓</kbd> pick ferry on board</li>
+        <li><kbd>←</kbd><kbd>→</kbd> pick ferry on bay</li>
+        <li><kbd>Enter</kbd> hail selected ferry</li>
+        <li><kbd>N</kbd> dispatch new crossing</li>
+        <li><kbd>P</kbd> / <kbd>Space</kbd> hold / release tide</li>
+        <li><kbd>B</kbd> ring crossing bell</li>
+        <li><kbd>M</kbd> mute / unmute</li>
+        <li><kbd>1</kbd>–<kbd>5</kbd> jump to ferry</li>
+      </ul>
+      <p class="fine">No mouse required. Every control is a real button, focus is always visible, and the bay canvas itself is focusable with arrow keys. Focus returns sanely after dialogs.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>OPAL FERRY TERMINAL · poured concrete &amp; kelp · works from <code>file://</code> · your crossings persist in <code>localStorage</code></p>
+    <button id="btn-reset" class="linklike">reset terminal memory</button>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
