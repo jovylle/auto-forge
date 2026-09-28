@@ -1,0 +1,30 @@
+{
+  "slug": "fable-foundry",
+  "title": "Fable Foundry",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "steampunk",
+  "theme": "physics",
+  "constraints": [
+    "must work with keyboard only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Fable Foundry — a steampunk generative fable press. Type (or roll) a moral, pick an alloy temper (Brass/Soot/Aether) and ingot size (Spark/Ingot/Epic), then pull the lever: gauge sweeps, gears spin up, steam puffs and a WebAudio clank play while a seeded engine casts a unique illustrated-in-prose fable (hero, rival, relic, place) revealed typewriter-style on parchment with the moral stamped in brass. Cast fables into brass story ingots persisted in localStorage with re-read/copy/melt/export-all. Fully keyboard-operable (/, Ctrl+Enter, R/T/L/X/S/C, [/], Enter/Del, ?, Esc) with skip links, focus rings and aria-live states. Verified: node --check clean, every JS-referenced id exists in HTML, CSS braces balanced, single-column layout under 640px so no overflow at 375px.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "moral input",
+      "fable press",
+      "story ingots"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 263353,
+  "at": "2026-09-28T06:42:32.636Z"
+}
