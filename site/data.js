@@ -3217,10 +3217,13 @@ export const projects = [
       "archive",
       "tool"
     ],
-    "status": "building",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-29T01:00:15.814Z",
-    "updatedAt": "2026-09-29T01:00:29.247Z"
+    "updatedAt": "2026-09-29T01:17:55.524Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   },
   {
     "slug": "springtide-particle-loft",
@@ -3247,12 +3250,12 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-29T01:02:35.145Z",
-    "updatedAt": "2026-09-29T01:06:50.138Z",
+    "updatedAt": "2026-09-29T01:07:11.914Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 104, done: 94, counts: {"done":94,"needs-human":9,"building":1} };
+export const stats = { total: 104, done: 95, counts: {"done":95,"needs-human":9} };

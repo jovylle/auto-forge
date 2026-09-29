@@ -3218,10 +3218,13 @@
         "archive",
         "tool"
       ],
-      "status": "building",
-      "deployed": false,
+      "status": "done",
+      "deployed": true,
       "createdAt": "2026-09-29T01:00:15.814Z",
-      "updatedAt": "2026-09-29T01:00:29.247Z"
+      "updatedAt": "2026-09-29T01:18:01.158Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/muse-spark-1.3-contributor"
     },
     {
       "slug": "springtide-particle-loft",
