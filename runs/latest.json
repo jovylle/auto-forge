@@ -1,15 +1,15 @@
 {
-  "slug": "lichen-archive",
-  "title": "Lichen Archive",
-  "stack": "vite",
-  "aesthetic": "bauhaus",
-  "model": "opencode-go/muse-spark-1.3-contributor",
-  "modelVia": "fallback retry",
+  "slug": "brass-lantern-relay",
+  "title": "Brass Lantern Relay",
+  "stack": "html",
+  "aesthetic": "grunge",
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
   "verifyLine": null,
   "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 48022,
-  "at": "2026-09-29T01:17:55.527Z"
+  "elapsedMs": 184609,
+  "at": "2026-09-29T07:29:29.265Z"
 }

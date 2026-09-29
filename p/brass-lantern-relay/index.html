@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Brass Lantern Relay — a wind-physics relay game</title>
+  <meta name="description" content="Carry one flame across five relay posts. Lean against the wind, stoke the bellows, pass the light. Keyboard only." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip" href="#track">Skip to track</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main id="app">
+    <header class="masthead">
+      <p class="kicker">NIGHT SHIFT · RELAY No. 5 · WIND-PHYSICS GAME</p>
+      <h1><span class="stamp">BRASS</span> LANTERN <span class="stamp alt">RELAY</span></h1>
+      <p class="sub">One flame. Five posts. A guttering wind. Carry the light down the line — <strong>keyboard only</strong>.</p>
+    </header>
+
+    <section class="hud" aria-label="Lantern status">
+      <div class="meter">
+        <div class="meter-head"><span>FLAME</span><span id="flameNum">100</span></div>
+        <div class="bar"><div id="flameBar" class="fill flame"></div><div class="tickmarks" aria-hidden="true"></div></div>
+      </div>
+      <div class="meter">
+        <div class="meter-head"><span>OIL</span><span id="oilNum">100</span></div>
+        <div class="bar"><div id="oilBar" class="fill oil"></div></div>
+      </div>
+      <div class="meter windbox">
+        <div class="meter-head"><span>WIND</span><span id="windNum" aria-live="polite">→ 0</span></div>
+        <div id="windBars" class="windbars" aria-hidden="true"></div>
+      </div>
+      <div class="meter timebox">
+        <div class="meter-head"><span>TIME</span><span id="timeNum">0.0s</span></div>
+        <div class="meter-head"><span>BEST</span><span id="bestNum">—</span></div>
+      </div>
+    </section>
+
+    <section id="trackWrap">
+      <div id="track" tabindex="0" role="application"
+        aria-label="Relay track. Arrow keys to run and lean, Space to stoke, Enter to pass the flame.">
+        <div id="windArrow" aria-hidden="true">→</div>
+        <div id="posts"></div>
+        <div id="player" aria-hidden="true">
+          <div class="lantern"><div class="glow"></div><div class="cage">🏮</div></div>
+        </div>
+        <div id="passHint" hidden>PRESS <kbd>ENTER</kbd> TO PASS THE FLAME</div>
+      </div>
+      <p id="status" class="status" aria-live="polite">Press <kbd>Enter</kbd> or <kbd>Space</kbd> to light the first lantern and start the relay.</p>
+    </section>
+
+    <section class="controls" aria-label="Controls">
+      <div class="btnrow">
+        <button id="btnStart" class="btn">⚡ Start / Restart <kbd>R</kbd></button>
+        <button id="btnPause" class="btn">❚❚ Pause <kbd>P</kbd></button>
+        <button id="btnMute" class="btn" aria-pressed="false">♪ Sound <kbd>M</kbd></button>
+      </div>
+      <details class="howto">
+        <summary>HOW TO PLAY <kbd>?</kbd></summary>
+        <ul>
+          <li><kbd>←</kbd><kbd>→</kbd> — run with momentum. <em>Holding into the wind shelters the flame</em> (decay drops).</li>
+          <li><kbd>SPACE</kbd> — pump bellows: <em>+flame, −oil</em>. 1.2s cooldown. Sparks fly.</li>
+          <li><kbd>ENTER</kbd> — at a dark post with flame ≥ 25: <strong>pass the flame</strong>, +oil cache.</li>
+          <li>Wind gusts shove you and strip the flame. Lean against it. Light all <strong>5 posts</strong> before the flame dies.</li>
+          <li><kbd>P</kbd> pause · <kbd>R</kbd> restart · <kbd>M</kbd> mute · <kbd>?</kbd> this panel.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="ledger" aria-label="Relay ledger">
+      <h2>RELAY LEDGER</h2>
+      <ol id="log"></ol>
+    </section>
+
+    <section class="sharebox" aria-label="Share and export">
+      <h2>SHARE / EXPORT</h2>
+      <p class="fine">Run card is plain text — paste it anywhere. No account, no server.</p>
+      <div class="btnrow">
+        <button id="btnCopy" class="btn">⧉ Copy run card <kbd>C</kbd></button>
+        <button id="btnDl" class="btn">↓ Download .txt <kbd>D</kbd></button>
+        <button id="btnShare" class="btn">➦ Share… <kbd>S</kbd></button>
+      </div>
+      <p id="shareMsg" class="fine" aria-live="polite"></p>
+    </section>
+
+    <footer class="foot">
+      <p>BRASS LANTERN RELAY · a grunge wind-physics toy · best kept in <span id="keepWhere">localStorage</span></p>
+      <p class="fine">Palette: brass / rust / moss on black &amp; bone. Fully keyboard-operable — Tab reaches every button.</p>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

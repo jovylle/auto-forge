@@ -3218,9 +3218,9 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-29T01:00:15.814Z",
-    "updatedAt": "2026-09-29T01:17:55.524Z",
+    "updatedAt": "2026-09-29T01:18:01.158Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
@@ -3256,6 +3256,37 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "brass-lantern-relay",
+    "title": "Brass Lantern Relay",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "grunge",
+    "theme": "physics",
+    "constraints": [
+      "must work with keyboard only",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Brass Lantern Relay",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "lantern",
+      "relay",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-29T07:26:19.030Z",
+    "updatedAt": "2026-09-29T07:29:29.259Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 104, done: 95, counts: {"done":95,"needs-human":9} };
+export const stats = { total: 105, done: 96, counts: {"done":96,"needs-human":9} };
