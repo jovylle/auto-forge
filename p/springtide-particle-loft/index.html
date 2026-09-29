@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Springtide Particle Loft — Gravity Well Constellations</title>
+<meta name="description" content="Toss particles into gravity wells and freeze springy constellations as shareable poster art." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="rule-top" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+<header class="masthead">
+  <div class="mast-left">
+    <p class="kicker">Generative Plakat · N° 04 · Zürich Schule</p>
+    <h1>Springtide<br /><span class="outline">Particle Loft</span></h1>
+    <p class="dek">Toss particles into gravity wells. Freeze springy constellations as shareable art.</p>
+  </div>
+  <div class="mast-right">
+    <dl class="meta">
+      <div><dt>Seed</dt><dd id="seedReadout" title="Current seed code">TIDE-0000-00</dd></div>
+      <div><dt>Wells</dt><dd id="wellCount">0</dd></div>
+      <div><dt>Bodies</dt><dd id="bodyCount">0</dd></div>
+      <div><dt>State</dt><dd id="runState">RUNNING</dd></div>
+    </dl>
+    <div class="seed-row">
+      <input id="seedInput" spellcheck="false" autocomplete="off" maxlength="14" aria-label="Seed code" placeholder="TIDE-0000-00" />
+      <button id="applySeed" class="btn small" type="button">Load</button>
+      <button id="remixSeed" class="btn small red" type="button" title="Randomize seed (R)">Remix</button>
+      <button id="copySeed" class="btn small" type="button" title="Copy seed + link">Copy</button>
+    </div>
+    <p class="hint" id="copyHint" role="status" aria-live="polite"></p>
+  </div>
+</header>
+
+<nav class="toolbar" aria-label="Tools">
+  <div class="seg" role="tablist" aria-label="Pointer tool">
+    <button id="toolWell" class="seg-btn active" type="button" aria-pressed="true" title="Drag on canvas to spawn a gravity well (W)">01 · Well</button>
+    <button id="toolToss" class="seg-btn" type="button" aria-pressed="false" title="Drag fast to fling particles (T)">02 · Toss</button>
+  </div>
+  <div class="actions">
+    <button id="tossBurst" class="btn" type="button" title="Throw 60 particles">Toss +60</button>
+    <button id="freezeBtn" class="btn" type="button" aria-pressed="false" title="Freeze / resume (F)">Freeze</button>
+    <button id="exportBtn" class="btn red" type="button" title="Export poster PNG (E)">↓ Poster</button>
+  </div>
+</nav>
+
+<main class="grid">
+  <section class="stage-wrap" aria-label="Particle stage">
+    <div class="stage-head">
+      <span>FIG. A — GRAVITY FIELD</span>
+      <span id="fps">60 FPS</span>
+      <span class="dot" id="liveDot" aria-hidden="true"></span>
+    </div>
+    <div class="canvas-holder">
+      <canvas id="stage" width="900" height="640" aria-label="Gravity well particle canvas. Drag to add wells."></canvas>
+      <div id="dropHint" class="drop-hint">Drag to spawn a well —<br />flick to toss particles</div>
+    </div>
+    <div class="stage-foot">
+      <span id="wellList">No wells yet — drag anywhere.</span>
+      <span class="keys">W well · T toss · F freeze · R remix · E export · ⌫ delete well</span>
+    </div>
+  </section>
+
+  <aside class="panel" aria-label="Controls">
+    <section class="card">
+      <h2><span class="num">01</span>Field</h2>
+      <label class="row"><span>Gravity <b id="vGravity">1.00</b></span>
+        <input id="sGravity" type="range" min="0" max="2.5" step="0.01" value="1" /></label>
+      <label class="row"><span>Spring <b id="vSpring">0.02</b></span>
+        <input id="sSpring" type="range" min="0" max="0.12" step="0.001" value="0.02" /></label>
+      <label class="row"><span>Damping <b id="vDamp">0.985</b></span>
+        <input id="sDamp" type="range" min="0.94" max="0.999" step="0.001" value="0.985" /></label>
+      <label class="row"><span>Trail <b id="vTrail">0.22</b></span>
+        <input id="sTrail" type="range" min="0.03" max="0.9" step="0.01" value="0.22" /></label>
+      <div class="row split">
+        <label class="check"><input id="cFlow" type="checkbox" checked /> Inflow</label>
+        <label class="check"><input id="cLinks" type="checkbox" checked /> Springs</label>
+        <label class="check"><input id="cGrid" type="checkbox" checked /> Grid</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">02</span>Compose</h2>
+      <div class="btn-grid">
+        <button id="clearWells" class="btn ghost" type="button">Clear wells</button>
+        <button id="clearBodies" class="btn ghost" type="button">Clear bodies</button>
+        <button id="reseed" class="btn ghost" type="button" title="Rebuild wells from seed">Rebuild</button>
+        <button id="shuffleWells" class="btn ghost" type="button" title="Keep seed, reshuffle wells">Reshuffle</button>
+      </div>
+      <p class="micro">Drag an existing well to move it. Double-click a well to delete. Click a well to select — ⌫ removes it.</p>
+    </section>
+
+    <section class="card red-card">
+      <h2><span class="num">03</span>Poster</h2>
+      <p class="micro">One click renders a 1600×2000 Swiss plakat — field, masthead, seed and timestamp — as PNG.</p>
+      <button id="exportBtn2" class="btn red big" type="button">↓ Export poster PNG</button>
+      <p class="micro" id="exportHint" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">04</span>How to play</h2>
+      <ol class="how">
+        <li><b>Drag</b> empty canvas → new well (drag length = pull).</li>
+        <li><b>Toss</b> tool or <b>Toss +60</b> → fling bodies through the field.</li>
+        <li><b>Freeze</b> the frame you love → <b>Poster</b> to hang it.</li>
+        <li><b>Remix</b> the seed → every code re-grows the same sky. Share it.</li>
+      </ol>
+    </section>
+  </aside>
+</main>
+
+<footer class="colophon">
+  <span>SPRINGTIDE PARTICLE LOFT — SET IN HELVETICA GROTESK</span>
+  <span class="swiss-cross" aria-hidden="true"></span>
+  <span>CANVAS ONLY · NO IMAGES · <span id="year">2026</span></span>
+</footer>
+
+<script src="./app.js" defer></script>
+</body>
+</html>
