@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tin Kettle Cartography — Map Your Kitchen in Kettle Steam</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Space+Grotesk:wght@400;500;700&display=swap');
+:root{
+  --ink:#16130e; --paper:#fff8e7; --yellow:#ffd500; --red:#ff2e63;
+  --blue:#08d9d6; --deep:#252a34; --pink:#ff9ff3; --orange:#ff9f1c;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Space Grotesk',system-ui,sans-serif; color:var(--ink);
+  background:var(--yellow);
+  background-image:radial-gradient(rgba(22,19,14,.22) 1.6px, transparent 1.7px);
+  background-size:18px 18px; min-height:100vh;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 16px 60px}
+/* header */
+.masthead{
+  border:5px solid var(--ink); background:#fff; border-radius:18px;
+  box-shadow:8px 8px 0 var(--ink); padding:18px 20px 14px; position:relative; overflow:hidden;
+}
+.masthead::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.16;
+  background-image:radial-gradient(var(--ink) 1.4px, transparent 1.5px);background-size:12px 12px;
+}
+.kicker{display:inline-block;background:var(--ink);color:var(--yellow);font-weight:700;
+  font-size:12px;letter-spacing:.18em;padding:5px 12px;border-radius:999px;transform:rotate(-2deg)}
+h1{font-family:'Bangers',cursive;font-size:clamp(44px,7vw,84px);line-height:.9;margin:10px 0 2px;
+  letter-spacing:.02em;text-shadow:3px 3px 0 var(--red),6px 6px 0 var(--blue);}
+h1 .tin{background:var(--red);color:#fff;padding:0 12px;border:4px solid var(--ink);display:inline-block;transform:rotate(-2deg);text-shadow:none}
+.sub{font-weight:500;margin:6px 0 0;max-width:62ch}
+.burst{
+  position:absolute;right:14px;top:10px;width:118px;height:118px;display:grid;place-items:center;
+  background:var(--red);color:#fff;font-family:'Bangers';font-size:20px;line-height:1;text-align:center;
+  clip-path:polygon(50% 0%,61% 12%,76% 6%,79% 21%,95% 21%,90% 36%,100% 47%,89% 56%,93% 71%,78% 72%,74% 88%,60% 81%,50% 95%,40% 81%,26% 88%,22% 72%,7% 71%,11% 56%,0% 47%,10% 36%,5% 21%,21% 21%,24% 6%,39% 12%);
+  transform:rotate(10deg);border:none;padding:18px;z-index:2;
+}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.stat{background:var(--ink);color:#fff;border-radius:12px;padding:8px 14px;font-weight:700;font-size:14px;border:3px solid var(--ink)}
+.stat b{color:var(--yellow);font-size:18px;margin-right:6px}
+.stat.alt{background:var(--blue);color:var(--ink)}
+/* layout */
+.grid{display:grid;grid-template-columns:1.55fr .95fr;gap:16px;margin-top:16px}
+@media(max-width:920px){.grid{grid-template-columns:1fr}}
+.panel{background:#fff;border:5px solid var(--ink);border-radius:16px;box-shadow:7px 7px 0 var(--ink);overflow:hidden}
+.panel-h{padding:10px 16px;border-bottom:5px solid var(--ink);font-family:'Bangers';font-size:26px;letter-spacing:.03em;display:flex;align-items:center;gap:10px}
+.panel-h .dot{width:16px;height:16px;border-radius:50%;border:3px solid var(--ink);display:inline-block}
+.ph-map{background:var(--red);color:#fff}.ph-brew{background:var(--blue)}.ph-log{background:var(--ink);color:var(--yellow)}.ph-export{background:var(--orange)}
+.panel-b{padding:14px 16px 16px}
+canvas#map{width:100%;height:auto;display:block;border:4px solid var(--ink);border-radius:12px;background:#fff8e7;touch-action:none;cursor:grab}
+canvas#map:active{cursor:grabbing}
+.hint{font-size:13px;background:var(--paper);border:3px dashed var(--ink);border-radius:10px;padding:8px 10px;margin:10px 0 0}
+.hint b{background:var(--yellow);padding:0 6px;border:2px solid var(--ink);border-radius:6px}
+/* controls */
+.ctl-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+@media(max-width:480px){.ctl-row{grid-template-columns:1fr}}
+label.f{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+select,input[type=range]{width:100%;font:inherit}
+select{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:8px;font-weight:700}
+input[type=range]{accent-color:var(--red);height:32px}
+.val{font-weight:700;background:var(--ink);color:#fff;border-radius:8px;padding:1px 8px;font-size:13px;margin-left:6px}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+button{font:inherit;font-weight:700;cursor:pointer}
+.btn-boil{
+  font-family:'Bangers';font-size:30px;letter-spacing:.04em;flex:1;min-width:170px;
+  background:var(--red);color:#fff;border:4px solid var(--ink);border-radius:14px;padding:8px 18px;
+  box-shadow:5px 5px 0 var(--ink);transition:transform .08s;
+}
+.btn-boil:hover{transform:translate(-1px,-1px) rotate(-1deg)}
+.btn-boil:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn-boil:disabled{filter:grayscale(.7);opacity:.6;cursor:wait}
+.btn{
+  background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:8px 12px;box-shadow:3px 3px 0 var(--ink);
+}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.primary{background:var(--ink);color:var(--yellow)}
+.btn.blue{background:var(--blue)} .btn.pink{background:var(--pink)}
+.toolbox{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chip{border:3px solid var(--ink);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;background:#fff;box-shadow:2px 2px 0 var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--yellow)}
+.whistle{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;margin-top:10px}
+/* log */
+#logList{display:flex;flex-direction:column;gap:10px;max-height:430px;overflow:auto;padding-right:2px}
+.logcard{border:4px solid var(--ink);border-radius:12px;padding:10px 12px;background:var(--paper);position:relative;box-shadow:4px 4px 0 var(--ink)}
+.logcard:nth-child(odd){background:#fff}.logcard:nth-child(3n){background:#e8fbff}
+.logcard h3{font-family:'Bangers';margin:0;font-size:22px;letter-spacing:.02em}
+.logcard .meta{font-size:12.5px;font-weight:500;opacity:.85}
+.stars{display:inline-flex;gap:2px;margin-left:8px;vertical-align:middle}
+.stars button{border:none;background:none;font-size:17px;padding:0 1px;line-height:1}
+.del{position:absolute;top:8px;right:8px;border:3px solid var(--ink);background:var(--red);color:#fff;border-radius:8px;font-size:12px;padding:2px 8px}
+.empty{border:3px dashed var(--ink);border-radius:12px;padding:18px;text-align:center;font-weight:700;background:
+  repeating-linear-gradient(-45deg,#fff 0 12px,var(--paper) 12px 24px)}
+/* export */
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+@media(max-width:480px){.exp-grid{grid-template-columns:1fr}}
+#shareText{width:100%;min-height:86px;font:13px/1.5 'Space Grotesk';border:3px solid var(--ink);border-radius:10px;padding:8px;background:var(--paper);resize:vertical}
+footer{margin-top:16px;text-align:center;font-size:13px;font-weight:700}
+footer .tag{display:inline-block;background:var(--ink);color:#fff;border-radius:999px;padding:4px 14px;transform:rotate(-1deg)}
+.speech{position:relative;background:#fff;border:4px solid var(--ink);border-radius:12px;padding:8px 12px;font-weight:700;font-size:14px;margin-top:10px}
+.speech::before{content:"";position:absolute;top:-14px;left:30px;border:7px solid transparent;border-bottom-color:var(--ink)}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) rotate(-1deg);background:var(--ink);color:var(--yellow);
+  font-weight:700;padding:10px 18px;border-radius:12px;border:3px solid var(--yellow);opacity:0;pointer-events:none;transition:opacity .25s;z-index:50;max-width:90vw;text-align:center}
+#toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="burst">100%<br>STEAM!</div>
+    <span class="kicker">POP-ART KITCHEN LAB • No. 07</span>
+    <h1><span class="tin">TIN KETTLE</span> CARTOGRAPHY</h1>
+    <p class="sub">Map your kitchen in kettle steam! Drag the kettle around the floorplan, hit <b>BOIL!</b>, and watch steam paint the room. Every boil is logged. Export your steamy atlas.</p>
+    <div class="stats">
+      <span class="stat"><b id="sCov">0%</b> mapped</span>
+      <span class="stat alt"><b id="sBoils">0</b> boils</span>
+      <span class="stat"><b id="sPuffs">0</b> puffs</span>
+      <span class="stat alt"><b id="sTea">—</b> last tea</span>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div>
+      <section class="panel">
+        <div class="panel-h ph-map"><span class="dot" style="background:var(--yellow)"></span> 1 • STEAM MAP</div>
+        <div class="panel-b">
+          <canvas id="map" width="960" height="620"></canvas>
+          <p class="hint">🫖 <b>DRAG</b> the kettle (or stove / sink / fridge / table) anywhere. Press <b>BOIL!</b> — steam rises, drifts with wind, condenses near the fridge + window. Pale-pink wash = mapped territory!</p>
+          <div class="toolbox" id="toolbox" role="group" aria-label="Map tools">
+            <button class="chip" data-tool="move" aria-pressed="true">✋ move things</button>
+            <button class="chip" data-tool="scrub" aria-pressed="false">🧽 scrub steam (erase)</button>
+            <button class="chip" id="btnWalls" aria-pressed="true">🧱 walls: on</button>
+            <button class="chip" id="btnResetCam">✨ reset kitchen</button>
+          </div>
+          <div class="speech" id="speech">Kettle parked by the stove. Hit BOIL! to start mapping…</div>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top:16px">
+        <div class="panel-h ph-brew"><span class="dot" style="background:var(--red)"></span> 2 • BREW CONSOLE</div>
+        <div class="panel-b">
+          <div class="ctl-row">
+            <div><label class="f" for="tea">Tea leaves</label>
+              <select id="tea">
+                <option>Assam Thunder</option><option>Sencha Lightning</option>
+                <option>Oolong POW!</option><option>Peppermint ZAP!</option>
+                <option>Earl Grey BANG!</option><option>Chamomile Whisper</option>
+              </select></div>
+            <div><label class="f" for="temp">Kettle temp <span class="val" id="tempVal">100°C</span></label>
+              <input type="range" id="temp" min="70" max="100" value="100" step="1"></div>
+          </div>
+          <div class="ctl-row">
+            <div><label class="f" for="wind">Kitchen draught (wind) <span class="val" id="windVal">0.0</span></label>
+              <input type="range" id="wind" min="-5" max="5" step="0.5" value="0.8"></div>
+            <div><label class="f" for="power">Boil power <span class="val" id="powerVal">5s</span></label>
+              <input type="range" id="power" min="2" max="9" step="1" value="5"></div>
+          </div>
+          <div class="btnrow">
+            <button class="btn-boil" id="boil">BOIL! ⚡</button>
+            <button class="btn" id="clearSteam">💨 clear steam</button>
+          </div>
+          <label class="whistle"><input type="checkbox" id="sound" checked style="width:20px;height:20px;accent-color:#ff2e63"> kettle whistle sound</label>
+        </div>
+      </section>
+    </div>
+
+    <div>
+      <section class="panel">
+        <div class="panel-h ph-log"><span class="dot" style="background:var(--red)"></span> 3 • KETTLE LOG <span id="logCount" style="font-size:15px"></span></div>
+        <div class="panel-b">
+          <div id="logList"></div>
+          <div class="btnrow"><button class="btn" id="clearLog">🗑 clear log</button></div>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top:16px">
+        <div class="panel-h ph-export"><span class="dot" style="background:var(--ink)"></span> 4 • KITCHEN EXPORT</div>
+        <div class="panel-b">
+          <div class="exp-grid">
+            <button class="btn primary" id="expPng">🖼 map PNG</button>
+            <button class="btn blue" id="expJson">🧾 log JSON</button>
+            <button class="btn pink" id="expCsv">📊 log CSV</button>
+            <button class="btn" id="expCopy">📋 copy summary</button>
+          </div>
+          <p style="font-size:13px;font-weight:700;margin:12px 0 6px">SHARE-CARD TEXT (auto-written from your log):</p>
+          <textarea id="shareText" readonly></textarea>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer><span class="tag">TIN KETTLE CARTOGRAPHY • halftone kitchens forever • works offline from file://</span></footer>
+</div>
+<div id="toast" role="status"></div>
+
+<script type="module">
+const $=s=>document.querySelector(s);
+const canvas=$('#map'), ctx=canvas.getContext('2d');
+const W=canvas.width, H=canvas.height;
+const LS='tin-kettle-log-v1', LS2='tin-kettle-kitchen-v1';
+const GW=48, GH=31;
+let cover=new Float32Array(GW*GH);
+let puffs=0, boiling=false, boilT=0, boilDur=0, boilStartCover=0, curBoil=null;
+let tool='move', wallsOn=true, soundOn=true;
+let parts=[];
+let items=[
+  {id:'stove', label:'STOVE', x:.30,y:.30},{id:'sink',label:'SINK',x:.72,y:.28},
+  {id:'fridge',label:'FRIDGE',x:.82,y:.72},{id:'table',label:'TABLE',x:.30,y:.74},
+  {id:'kettle',label:'KETTLE',x:.30,y:.30}
+];
+try{const s=JSON.parse(localStorage.getItem(LS2)||'null');if(s&&Array.isArray(s.items))items=s.items;}catch(e){}
+function saveKitchen(){try{localStorage.setItem(LS2,JSON.stringify({items}));}catch(e){}}
+let log=[]; try{log=JSON.parse(localStorage.getItem(LS)||'[]');}catch(e){log=[];}
+const teaEl=$('#tea'),tempEl=$('#temp'),windEl=$('#wind'),powerEl=$('#power');
+tempEl.oninput=()=>$('#tempVal').textContent=tempEl.value+'°C';
+windEl.oninput=()=>$('#windVal').textContent=(+windEl.value).toFixed(1);
+powerEl.oninput=()=>$('#powerVal').textContent=powerEl.value+'s';
+$('#sound').onchange=e=>soundOn=e.target.checked;
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200);}
+// ---------- audio whistle ----------
+let AC=null;
+function whistle(dur=2.2){
+  if(!soundOn)return;
+  try{
+    AC=AC||new (window.AudioContext||window.webkitAudioContext)();
+    const o=AC.createOscillator(),g=AC.createGain();
+    o.type='sine';o.connect(g);g.connect(AC.destination);
+    const t=AC.currentTime;
+    o.frequency.setValueAtTime(620,t);o.frequency.linearRampToValueAtTime(1180,t+dur*.7);
+    o.frequency.linearRampToValueAtTime(880,t+dur);
+    g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(.18,t+.25);
+    g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+    o.start(t);o.stop(t+dur+.05);
+    // bubbling noise
+    const o2=AC.createOscillator(),g2=AC.createGain();
+    o2.type='triangle';o2.connect(g2);g2.connect(AC.destination);
+    o2.frequency.setValueAtTime(180,t);o2.frequency.linearRampToValueAtTime(90,t+dur);
+    g2.gain.setValueAtTime(.06,t);g2.gain.exponentialRampToValueAtTime(.0001,t+dur);
+    o2.start(t);o2.stop(t+dur);
+  }catch(e){}
+}
+// ---------- helpers ----------
+const px=x=>x*W, py=y=>y*H;
+function itemPos(it){return {x:px(it.x),y:py(it.y)};}
+function coldAt(x,y){ // fridge + window(top-right) condense steam
+  const f=items.find(i=>i.id==='fridge');const fx=px(f.x),fy=py(f.y);
+  const dF=Math.hypot(x-fx,y-fy)/220;
+  const dW=Math.hypot(x-W*.97,y-0)/260;
+  return Math.max(0,1-Math.min(dF,dW));
+}
+function coveragePct(){let n=0;for(let i=0;i<cover.length;i++)if(cover[i]>.35)n++;return n/cover.length;}
+function stamp(x,y,amt){
+  const gx=Math.floor(x/W*GW),gy=Math.floor(y/H*GH);
+  for(let j=-1;j<=1;j++)for(let i=-1;i<=1;i++){
+    const a=gx+i,b=gy+j;if(a<0||b<0||a>=GW||b>=GH)continue;
+    cover[b*GW+a]=Math.min(1.5,cover[b*GW+a]+amt*(i===0&&j===0?1:.4));
+  }
+}
+function scrubAt(x,y){
+  const gx=Math.floor(x/W*GW),gy=Math.floor(y/H*GH);
+  for(let j=-2;j<=2;j++)for(let i=-2;i<=2;i++){
+    const a=gx+i,b=gy+j;if(a<0||b<0||a>=GW||b>=GH)continue;
+    cover[b*GW+a]=Math.max(0,cover[b*GW+a]-.5);
+  }
+}
+// ---------- boil ----------
+const boilBtn=$('#boil');
+boilBtn.onclick=()=>{
+  if(boiling)return;
+  boiling=true;boilBtn.disabled=true;
+  boilDur=(+powerEl.value);boilT=0;boilStartCover=coveragePct();
+  const temp=+tempEl.value;
+  curBoil={tea:teaEl.value,temp,wind:+windEl.value,startedAt:new Date().toISOString(),stars:Math.max(1,Math.min(5,Math.round(temp/20)))};
+  whistle(Math.min(3,1+boilDur*.35));
+  const k=items.find(i=>i.id==='kettle');
+  $('#speech').textContent=`${curBoil.tea} at ${temp}°C — mapping… don't touch the kettle!`;
+};
+function finishBoil(){
+  boiling=false;boilBtn.disabled=false;
+  const end=coveragePct(), gain=Math.max(0,end-boilStartCover);
+  const entry={id:Date.now(),...curBoil,endedAt:new Date().toISOString(),
+    durS:+boilDur.toFixed(0),gainPct:+(gain*100).toFixed(1),coverPct:+(end*100).toFixed(1),puffs};
+  log.unshift(entry);persist();renderLog();updateStats();updateShare();
+  $('#speech').textContent=`BOIL complete! +${entry.gainPct}% mapped with ${entry.tea}. Logged as boil #${log.length}.`;
+  toast(`⚡ Boil logged: ${entry.tea} +${entry.gainPct}%`);
+  curBoil=null;
+}
+function persist(){try{localStorage.setItem(LS,JSON.stringify(log));}catch(e){}}
+// ---------- particles ----------
+function spawn(kx,ky,temp,wind){
+  const heat=(temp-70)/30; // 0..1
+  const n=2+Math.round(heat*4);
+  for(let i=0;i<n;i++){
+    parts.push({x:kx+(Math.random()-.5)*26,y:ky-34+(Math.random()-.5)*8,
+      vx:(Math.random()-.5)*22+wind*16,vy:-46-Math.random()*52-heat*30,
+      life:1,decay:.16+Math.random()*.22,sz:7+Math.random()*13+heat*8});
+    puffs++;
+  }
+  if(parts.length>1400)parts.splice(0,parts.length-1400);
+}
+let last=performance.now();
+function tick(now){
+  const dt=Math.min(.05,(now-last)/1000);last=now;
+  const k=items.find(i=>i.id==='kettle');const kp=itemPos(k);
+  if(boiling){
+    boilT+=dt;
+    spawn(kp.x,kp.y,+tempEl.value,+windEl.value);
+    if(boilT>=boilDur)finishBoil();
+  }
+  // ambient wisp always (tiny)
+  if(Math.random()<.06&&parts.length<900)spawn(kp.x,kp.y,78,+.3);
+  const wind=+windEl.value;
+  for(let i=parts.length-1;i>=0;i--){
+    const p=parts[i];
+    p.life-=p.decay*dt*(1+coldAt(p.x,p.y)*1.6);
+    if(p.life<=0){parts.splice(i,1);continue;}
+    p.vy-=14*dt; // buoyancy
+    p.vx+=(Math.sin((now/700)+p.y*.02)*26+wind*14)*dt;
+    p.x+=p.vx*dt;p.y+=p.vy*dt;p.sz+=9*dt;
+    if(p.y<-30||p.x<-30||p.x>W+30){parts.splice(i,1);continue;}
+    stamp(p.x,p.y,.012*dt*60*(boiling?1:.4));
+  }
+  // slow evaporation of old map
+  for(let i=0;i<cover.length;i++)cover[i]=Math.max(0,cover[i]-.004*dt);
+  draw(now/1000);
+  updateStatsLive();
+  requestAnimationFrame(tick);
+}
+// ---------- drawing ----------
+function roundRect(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+function draw(t){
+  // bg
+  ctx.fillStyle='#fff8e7';ctx.fillRect(0,0,W,H);
+  // checker floor
+  const n=12,m=8,tw=W/n,th=(H-70)/m,oy=70;
+  for(let j=0;j<m;j++)for(let i=0;i<n;i++){
+    ctx.fillStyle=(i+j)%2?'#ffe89a':'#fff8e7';ctx.fillRect(i*tw,oy+j*th,tw,th);
+  }
+  ctx.strokeStyle='rgba(22,19,14,.15)';ctx.lineWidth=2;
+  for(let i=0;i<=n;i++){ctx.beginPath();ctx.moveTo(i*tw,oy);ctx.lineTo(i*tw,H);ctx.stroke();}
+  for(let j=0;j<=m;j++){ctx.beginPath();ctx.moveTo(0,oy+j*th);ctx.lineTo(W,oy+j*th);ctx.stroke();}
+  // header strip = window wall
+  ctx.fillStyle='#08d9d6';ctx.fillRect(0,0,W,70);
+  ctx.fillStyle='rgba(255,255,255,.75)';
+  for(let i=0;i<6;i++){roundRect(24+i*155,12,120,46,8);ctx.fill();ctx.lineWidth=4;ctx.strokeStyle='#16130e';ctx.stroke();}
+  ctx.fillStyle='#16130e';ctx.font='700 20px "Space Grotesk"';ctx.fillText('❄ WINDOW WALL — steam condenses here',24,62);
+  // steam coverage wash
+  const cw=W/GW,ch=H/GH;
+  for(let gy=0;gy<GH;gy++)for(let gx=0;gx<GW;gx++){
+    const v=cover[gy*GW+gx];if(v<.06)continue;
+    const a=Math.min(.55,v*.5);
+    ctx.fillStyle=`rgba(255,46,99,${a})`;
+    ctx.beginPath();ctx.ellipse(gx*cw+cw/2,gy*ch+ch/2,cw*.95,ch*.95,0,0,7);ctx.fill();
+  }
+  // contour dots where dense
+  ctx.fillStyle='rgba(255,46,99,.5)';
+  for(let gy=0;gy<GH;gy+=2)for(let gx=0;gx<GW;gx+=2){
+    if(cover[gy*GW+gx]>.8){ctx.beginPath();ctx.arc(gx*cw+cw/2,gy*ch+ch/2,3,0,7);ctx.fill();}
+  }
+  // walls
+  if(wallsOn){ctx.lineWidth=10;ctx.strokeStyle='#16130e';ctx.strokeRect(5,5,W-10,H-10);
+    ctx.lineWidth=4;ctx.strokeStyle='#ff2e63';ctx.strokeRect(16,16,W-32,H-32);}
+  else{ctx.lineWidth=4;ctx.setLineDash([14,10]);ctx.strokeStyle='#16130e';ctx.strokeRect(8,8,W-16,H-16);ctx.setLineDash([]);}
+  // items
+  for(const it of items)drawItem(it,t);
+  // particles
+  for(const p of parts){
+    const a=Math.max(0,Math.min(.85,p.life*.8));
+    const g=ctx.createRadialGradient(p.x,p.y,1,p.x,p.y,p.sz);
+    g.addColorStop(0,`rgba(255,255,255,${a})`);g.addColorStop(.6,`rgba(255,255,255,${a*.55})`);g.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,p.sz,0,7);ctx.fill();
+    ctx.strokeStyle=`rgba(22,19,14,${a*.35})`;ctx.lineWidth=1.5;ctx.stroke();
+  }
+  // boil progress bar
+  if(boiling){
+    const k2=itemPos(items.find(i=>i.id==='kettle'));
+    const w=200,pct=Math.min(1,boilT/boilDur);
+    ctx.fillStyle='#16130e';roundRect(k2.x-w/2-4,k2.y-108,w+8,26,9);ctx.fill();
+    ctx.fillStyle='#ffd500';roundRect(k2.x-w/2,k2.y-104,w*pct,18,6);ctx.fill();
+    ctx.fillStyle='#fff';ctx.font='700 14px "Space Grotesk"';ctx.fillText('BOILING… '+(boilDur-boilT).toFixed(1)+'s',k2.x-w/2+8,k2.y-90);
+  }
+}
+const ICONS={stove:'🔥',sink:'🚰',fridge:'❄️',table:'🍽',kettle:'🫖'};
+function drawItem(it,t){
+  const {x,y}=itemPos(it);
+  const isK=it.id==='kettle';
+  const bob=isK?Math.sin(t*3)*3:0;
+  const R=isK?44:40;
+  // shadow
+  ctx.fillStyle='rgba(22,19,14,.25)';ctx.beginPath();ctx.ellipse(x,y+38,R*.95,10,0,0,7);ctx.fill();
+  // badge
+  const cols={stove:'#ff9f1c',sink:'#08d9d6',fridge:'#7bed9f',table:'#ff9ff3',kettle:'#ff2e63'};
+  ctx.fillStyle=cols[it.id]||'#fff';ctx.strokeStyle='#16130e';ctx.lineWidth=4;
+  ctx.beginPath();ctx.arc(x,y+bob,R,0,7);ctx.fill();ctx.stroke();
+  if(isK){ctx.strokeStyle='#ffd500';ctx.lineWidth=3;ctx.beginPath();ctx.arc(x,y+bob,R-8,0,7);ctx.stroke();}
+  ctx.font=(isK?34:30)+'px serif';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText(ICONS[it.id]||'•',x,y+bob);
+  // label tag
+  ctx.font='700 13px "Space Grotesk"';
+  const wL=ctx.measureText(it.label).width+16;
+  ctx.fillStyle='#16130e';roundRect(x-wL/2,y+(bob||0)+R+2,wL,22,7);ctx.fill();
+  ctx.fillStyle='#ffd500';ctx.fillText(it.label,x,y+(bob||0)+R+13);
+  if(isK&&boiling){ // glow
+    ctx.strokeStyle=`rgba(255,213,0,${.5+Math.sin(t*10)*.3})`;ctx.lineWidth=5;
+    ctx.beginPath();ctx.arc(x,y+bob,R+7,0,7);ctx.stroke();
+  }
+}
+// ---------- pointer ----------
+let drag=null;
+function evPos(e){const r=canvas.getBoundingClientRect();const p=e.touches?e.touches[0]:e;
+  return {x:(p.clientX-r.left)/r.width*W,y:(p.clientY-r.top)/r.height*H};}
+function hit(x,y){for(let i=items.length-1;i>=0;i--){const p=itemPos(items[i]);
+  if(Math.hypot(x-p.x,y-p.y)<52)return items[i];}return null;}
+canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId);
+  const {x,y}=evPos(e);
+  if(tool==='scrub'){scrubAt(x,y);drag={scrub:true};return;}
+  const h=hit(x,y);
+  if(h){drag={it:h,dx:h.x-x/W,dy:h.y-y/H};
+    if(h.id==='kettle')$('#speech').textContent='Kettle in hand — park it somewhere steamy…';}
+});
+canvas.addEventListener('pointermove',e=>{if(!drag)return;const {x,y}=evPos(e);
+  if(drag.scrub){scrubAt(x,y);return;}
+  drag.it.x=Math.min(.96,Math.max(.04,x/W+drag.dx));
+  drag.it.y=Math.min(.96,Math.max(.10,y/H+drag.dy));
+});
+addEventListener('pointerup',()=>{if(drag&&drag.it){saveKitchen();}drag=null;});
+// ---------- toolbar ----------
+document.querySelectorAll('#toolbox [data-tool]').forEach(b=>b.onclick=()=>{
+  tool=b.dataset.tool;
+  document.querySelectorAll('#toolbox [data-tool]').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+  canvas.style.cursor=tool==='scrub'?'cell':'grab';
+});
+$('#btnWalls').onclick=e=>{wallsOn=!wallsOn;e.target.textContent=wallsOn?'🧱 walls: on':'🧱 walls: off';e.target.setAttribute('aria-pressed',wallsOn);};
+$('#btnResetCam').onclick=()=>{items=[{id:'stove',label:'STOVE',x:.30,y:.30},{id:'sink',label:'SINK',x:.72,y:.28},{id:'fridge',label:'FRIDGE',x:.82,y:.72},{id:'table',label:'TABLE',x:.30,y:.74},{id:'kettle',label:'KETTLE',x:.30,y:.30}];cover.fill(0);parts=[];saveKitchen();toast('✨ Kitchen reset');};
+$('#clearSteam').onclick=()=>{cover.fill(0);parts=[];toast('💨 Steam cleared — fresh canvas');};
+$('#clearLog').onclick=()=>{if(!log.length)return toast('Log already empty');if(confirm('Clear all kettle boils?')){log=[];persist();renderLog();updateStats();updateShare();}};
+// ---------- log render ----------
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function renderLog(){
+  const el=$('#logList');$('#logCount').textContent=log.length?`(${log.length})`:'';
+  if(!log.length){el.innerHTML=`<div class="empty">No boils yet.<br>Hit <b>BOIL! ⚡</b> to log your first steam map.</div>`;return;}
+  el.innerHTML=log.map(e=>`<div class="logcard" data-id="${e.id}">
+    <button class="del" data-del="${e.id}">✕</button>
+    <h3>${esc(e.tea)} <span class="stars">${[1,2,3,4,5].map(s=>`<button data-star="${s}" data-id="${e.id}" aria-label="${s} stars">${s<=e.stars?'★':'☆'}</button>`).join('')}</span></h3>
+    <div class="meta">🌡 ${e.temp}°C • 💨 +${e.gainPct}% map • 🗺 ${e.coverPct}% total • ⏱ ${e.durS}s<br>🕰 ${new Date(e.startedAt).toLocaleString()}</div>
+  </div>`).join('');
+  el.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{log=log.filter(x=>x.id!=b.dataset.del);persist();renderLog();updateStats();updateShare();});
+  el.querySelectorAll('[data-star]').forEach(b=>b.onclick=()=>{const e=log.find(x=>x.id==b.dataset.id);if(e){e.stars=+b.dataset.star;persist();renderLog();updateShare();}});
+}
+// ---------- stats + share ----------
+function updateStats(){$('#sBoils').textContent=log.length;
+  $('#sPuffs').textContent=puffs.toLocaleString();
+  $('#sTea').textContent=log.length?log[0].tea.split(' ')[0]:'—';}
+function updateStatsLive(){$('#sCov').textContent=(coveragePct()*100).toFixed(0)+'%';
+  $('#sPuffs').textContent=puffs.toLocaleString();}
+function shareSummary(){
+  const cov=(coveragePct()*100).toFixed(1);
+  const lines=[`🫖 TIN KETTLE CARTOGRAPHY — my kitchen in steam: ${cov}% mapped, ${log.length} boils, ${puffs} puffs.`];
+  log.slice(0,5).forEach((e,i)=>lines.push(`${i+1}. ${e.tea} @${e.temp}°C +${e.gainPct}% (${'★'.repeat(e.stars)})`));
+  return lines.join('\n');
+}
+function updateShare(){$('#shareText').value=shareSummary();}
+// ---------- export ----------
+function dl(name,content,type){const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([content],{type}));a.download=name;a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);}
+$('#expPng').onclick=()=>{draw(performance.now()/1000);
+  const a=document.createElement('a');a.download='tin-kettle-map.png';a.href=canvas.toDataURL('image/png');a.click();toast('🖼 Map PNG exported');};
+$('#expJson').onclick=()=>{dl('tin-kettle-log.json',JSON.stringify({exportedAt:new Date().toISOString(),coveragePct:+(coveragePct()*100).toFixed(1),log},null,2),'application/json');toast('🧾 Log JSON exported');};
+$('#expCsv').onclick=()=>{
+  const rows=[['id','tea','tempC','wind','durS','gainPct','coverPct','stars','startedAt']];
+  log.forEach(e=>rows.push([e.id,`"${e.tea}"`,e.temp,e.wind,e.durS,e.gainPct,e.coverPct,e.stars,e.startedAt]));
+  dl('tin-kettle-log.csv',rows.map(r=>r.join(',')).join('\n'),'text/csv');toast('📊 Log CSV exported');};
+$('#expCopy').onclick=async()=>{updateShare();try{await navigator.clipboard.writeText($('#shareText').value);toast('📋 Summary copied!');}catch(e){$('#shareText').select();document.execCommand('copy');toast('📋 Summary copied!');}};
+// ---------- init ----------
+renderLog();updateStats();updateShare();
+requestAnimationFrame(n=>{last=n;requestAnimationFrame(tick);});
+setInterval(updateShare,5000);
+console.log('tin kettle ready');
+</script>
+</body>
+</html>
