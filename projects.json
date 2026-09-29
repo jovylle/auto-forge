@@ -3257,6 +3257,37 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "brass-lantern-relay",
+      "title": "Brass Lantern Relay",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "seed stack",
+      "aesthetic": "grunge",
+      "theme": "physics",
+      "constraints": [
+        "must work with keyboard only",
+        "3 colors max (plus black/white)"
+      ],
+      "description": "Brass Lantern Relay",
+      "features": [
+        "core interaction",
+        "polished UI",
+        "share/export"
+      ],
+      "tags": [
+        "lantern",
+        "relay",
+        "game"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-09-29T07:26:19.030Z",
+      "updatedAt": "2026-09-29T07:29:34.763Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
