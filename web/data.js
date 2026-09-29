@@ -3281,12 +3281,42 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-29T07:26:19.030Z",
-    "updatedAt": "2026-09-29T07:29:29.259Z",
+    "updatedAt": "2026-09-29T07:29:34.763Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "tin-kettle-cartography",
+    "title": "Tin Kettle Cartography",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "pop-art",
+    "theme": "physics",
+    "constraints": [
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Map your kitchen in kettle steam.",
+    "features": [
+      "steam map",
+      "kettle log",
+      "kitchen export"
+    ],
+    "tags": [
+      "maps",
+      "kitchen",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-29T13:35:37.987Z",
+    "updatedAt": "2026-09-29T13:38:18.491Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 105, done: 96, counts: {"done":96,"needs-human":9} };
+export const stats = { total: 106, done: 97, counts: {"done":97,"needs-human":9} };
