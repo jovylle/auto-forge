@@ -1,0 +1,31 @@
+{
+  "slug": "springtide-particle-loft",
+  "title": "Springtide Particle Loft",
+  "stack": "html",
+  "stackReason": "keyword html (particle)",
+  "aesthetic": "swiss",
+  "theme": "physics",
+  "constraints": [
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag to spawn gravity wells",
+      "spring-linked particle trails",
+      "remixable seed codes",
+      "one-click poster export"
+    ],
+    "status": "pass",
+    "summary": "Springtide Particle Loft — Swiss-plakat gravity toy (paper/ink/red, Archivo + Space Grotesk). Drag spawns/moves/deletes gravity wells (drag length = pull), Toss tool + burst flings bodies, spring-chain links + fading trails render constellations, seed codes (TIDE-XXXX-NN) regrow skies via URL hash + clipboard share + localStorage, one-click 1600x2000 poster PNG export with masthead/meta. Sliders for gravity/spring/damping/trail, freeze, keyboard shortcuts, responsive at 375px. JS syntax OK, all DOM refs resolve, zero image assets."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 250930,
+  "at": "2026-09-29T01:06:50.142Z"
+}

@@ -3187,12 +3187,72 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-28T18:51:13.356Z",
-    "updatedAt": "2026-09-28T18:53:12.714Z",
+    "updatedAt": "2026-09-28T18:53:18.164Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "lichen-archive",
+    "title": "Lichen Archive",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "bauhaus",
+    "theme": "physics",
+    "constraints": [
+      "single HTML file if html stack, single component if vite",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Catalog slow-growing lichen colonies.",
+    "features": [
+      "colony log",
+      "growth rings",
+      "archive search"
+    ],
+    "tags": [
+      "lichen",
+      "archive",
+      "tool"
+    ],
+    "status": "building",
+    "deployed": false,
+    "createdAt": "2026-09-29T01:00:15.814Z",
+    "updatedAt": "2026-09-29T01:00:29.247Z"
+  },
+  {
+    "slug": "springtide-particle-loft",
+    "title": "Springtide Particle Loft",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (particle)",
+    "aesthetic": "swiss",
+    "theme": "physics",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "Toss particles into gravity wells and freeze springy constellations as shareable art.",
+    "features": [
+      "drag to spawn gravity wells",
+      "spring-linked particle trails",
+      "remixable seed codes",
+      "one-click poster export"
+    ],
+    "tags": [
+      "gravity",
+      "particles",
+      "springs",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-29T01:02:35.145Z",
+    "updatedAt": "2026-09-29T01:06:50.138Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 102, done: 93, counts: {"done":93,"needs-human":9} };
+export const stats = { total: 104, done: 94, counts: {"done":94,"needs-human":9,"building":1} };
