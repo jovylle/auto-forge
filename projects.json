@@ -3318,6 +3318,36 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "flint-sparrow-depot",
+      "title": "Flint Sparrow Depot",
+      "category": "tool",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "aesthetic": "neo-brutalism",
+      "theme": "physics",
+      "constraints": [
+        "no images — CSS/canvas only"
+      ],
+      "description": "Dispatch sparrows with flint notes.",
+      "features": [
+        "dispatch board",
+        "sparrow log",
+        "note archive"
+      ],
+      "tags": [
+        "sparrow",
+        "dispatch",
+        "tool"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-09-29T19:44:00.123Z",
+      "updatedAt": "2026-09-29T19:55:19.398Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

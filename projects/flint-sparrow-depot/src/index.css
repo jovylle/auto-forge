@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bone: #F2E9D8;
+  --color-parchment: #E7D9BE;
+  --color-ink: #17150F;
+  --color-spark: #FF4D1C;
+  --color-ochre: #EFA92E;
+  --color-teal: #0E6F5C;
+  --color-rust: #8A2E12;
+  --shadow-hard: 8px 8px 0 #17150F;
+  --shadow-hard-sm: 4px 4px 0 #17150F;
+  --shadow-hard-lg: 12px 12px 0 #17150F;
+  --font-display: "Archivo Black", sans-serif;
+  --font-body: "Archivo", sans-serif;
+  --font-mono2: "Space Mono", monospace;
+}
+
+html {
+  background: var(--color-bone);
+}
+
+body {
+  background: var(--color-bone);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(23, 21, 15, 0.07) 31px 32px),
+    repeating-linear-gradient(90deg, transparent 0 31px, rgba(23, 21, 15, 0.07) 31px 32px);
+}
+
+::selection {
+  background: var(--color-spark);
+  color: var(--color-bone);
+}
+
+/* ---- neo-brutalist primitives ---- */
+
+.brut-card {
+  background: var(--color-bone);
+  border: 3px solid var(--color-ink);
+  box-shadow: var(--shadow-hard);
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.brut-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0 var(--color-ink);
+}
+
+.brut-btn {
+  border: 2px solid var(--color-ink);
+  box-shadow: var(--shadow-hard-sm);
+  font-family: var(--font-mono2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  transition: transform 90ms ease, box-shadow 90ms ease, background 120ms ease;
+  cursor: pointer;
+  user-select: none;
+}
+.brut-btn:hover { filter: brightness(1.05); }
+.brut-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--color-ink);
+}
+.brut-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.brut-input, .brut-select, .brut-area {
+  border: 3px solid var(--color-ink);
+  background: var(--color-bone);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  width: 100%;
+}
+.brut-input:focus, .brut-select:focus, .brut-area:focus {
+  outline: 3px dashed var(--color-spark);
+  outline-offset: 3px;
+}
+
+.chip {
+  border: 2px solid var(--color-ink);
+  font-family: var(--font-mono2);
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+.perf-rule {
+  border-top: 2px dashed var(--color-ink);
+}
+
+.vert-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-mono2);
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.7rem;
+}
+
+.masthead-word {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+}
+
+/* ticker */
+@keyframes ticker-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker-slide 28s linear infinite;
+}
+.ticker-track:hover { animation-play-state: paused; }
+
+/* dispatch flap */
+@keyframes flap {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg) translateY(-2px); }
+  60% { transform: rotate(4deg) translateY(1px); }
+}
+.flap-once { animation: flap 300ms ease 2; }
+
+/* log entry entrance */
+@keyframes login {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.log-enter { animation: login 220ms ease both; }
+
+/* pixel sparrow: 1em canvas painted with box-shadow grid */
+.pixel-sparrow {
+  width: 1em;
+  height: 1em;
+  font-size: 6px;
+  position: relative;
+}
+.pixel-sparrow::after {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 1em; height: 1em;
+  /* 16x16 sparrow: ink body, ochre wing/chest, spark tail-tip, bone belly */
+  box-shadow:
+    4em 2em 0 0 var(--color-ink), 5em 2em 0 0 var(--color-ink),
+    3em 3em 0 0 var(--color-ink), 4em 3em 0 0 var(--color-ink), 5em 3em 0 0 var(--color-ink), 6em 3em 0 0 var(--color-ink),
+    2em 4em 0 0 var(--color-spark), 3em 4em 0 0 var(--color-ink), 4em 4em 0 0 var(--color-ink), 5em 4em 0 0 var(--color-ink), 6em 4em 0 0 var(--color-ink), 7em 4em 0 0 var(--color-ink),
+    2em 5em 0 0 var(--color-spark), 3em 5em 0 0 var(--color-ochre), 4em 5em 0 0 var(--color-ochre), 5em 5em 0 0 var(--color-ink), 6em 5em 0 0 var(--color-ink), 7em 5em 0 0 var(--color-ink), 8em 5em 0 0 var(--color-ink),
+    3em 6em 0 0 var(--color-ochre), 4em 6em 0 0 var(--color-bone), 5em 6em 0 0 var(--color-bone), 6em 6em 0 0 var(--color-ink), 7em 6em 0 0 var(--color-ink),
+    4em 7em 0 0 var(--color-bone), 5em 7em 0 0 var(--color-bone), 6em 7em 0 0 var(--color-ink),
+    9em 4em 0 0 var(--color-ink), 10em 4em 0 0 var(--color-ink),
+    11em 5em 0 0 var(--color-ochre), 12em 5em 0 0 var(--color-ochre);
+}
+
+/* stamp effect for delivered */
+@keyframes stamp-in {
+  0% { opacity: 0; transform: scale(1.6) rotate(-14deg); }
+  60% { opacity: 1; transform: scale(0.95) rotate(-14deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-14deg); }
+}
+.stamp-in { animation: stamp-in 240ms ease both; }
+
+:focus-visible {
+  outline: 3px dashed var(--color-spark);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .flap-once, .log-enter, .stamp-in { animation: none; }
+  .brut-card, .brut-btn { transition: none; }
+}

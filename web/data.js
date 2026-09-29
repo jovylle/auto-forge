@@ -3311,12 +3311,42 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-29T13:35:37.987Z",
-    "updatedAt": "2026-09-29T13:38:18.491Z",
+    "updatedAt": "2026-09-29T13:38:28.742Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "flint-sparrow-depot",
+    "title": "Flint Sparrow Depot",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "neo-brutalism",
+    "theme": "physics",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "Dispatch sparrows with flint notes.",
+    "features": [
+      "dispatch board",
+      "sparrow log",
+      "note archive"
+    ],
+    "tags": [
+      "sparrow",
+      "dispatch",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-29T19:44:00.123Z",
+    "updatedAt": "2026-09-29T19:55:11.212Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 106, done: 97, counts: {"done":97,"needs-human":9} };
+export const stats = { total: 107, done: 98, counts: {"done":98,"needs-human":9} };
