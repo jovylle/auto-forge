@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Paper Crane Exchange — Neon Fold Network</title>
+<meta name="description" content="Fold digital paper cranes, launch them into the neon sky, catch strangers' cranes. Cyberpunk social exchange." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div id="scanlines" aria-hidden="true"></div>
+<div id="vignette" aria-hidden="true"></div>
+
+<header id="hud">
+  <div class="hud-left">
+    <span class="logo">◤ PAPER CRANE <em>EXCHANGE</em></span>
+    <span class="net-dot" id="netDot" title="network"></span>
+  </div>
+  <div class="hud-right">
+    <span class="hud-stat">FOLDED <b id="statFolded">0</b></span>
+    <span class="hud-stat">AIRBORNE <b id="statAir">0</b></span>
+    <span class="hud-stat">CAUGHT <b id="statCaught">0</b></span>
+    <button id="soundBtn" class="chip-btn" aria-pressed="true" title="toggle sound">♪ ON</button>
+  </div>
+</header>
+
+<div id="scrollProgress"><i></i></div>
+
+<main id="app">
+
+  <!-- HERO -->
+  <section class="panel hero" data-reveal>
+    <p class="kicker">// NEON FOLD NETWORK v2.077 — SECTOR 7 SKYSTREAM</p>
+    <h1>PAPER CRANE<br /><span class="neon-pink">EXCHANGE</span></h1>
+    <p class="lede">Fold a wish. Launch it into the static. Catch what the city sends back. Every crane is a message in a paper bottle — flying over a grid that never sleeps.</p>
+    <div class="hero-cta">
+      <a href="#fold" class="btn btn-hot">▸ FOLD A CRANE</a>
+      <a href="#stream" class="btn btn-ghost">↓ SCAN THE SKY</a>
+    </div>
+    <div class="hero-hint">⟡ scroll to ride the wind — the sky reacts to you ⟡<br /><span class="dim">scroll velocity = wind · cranes bank, dive &amp; glow</span></div>
+    <div class="ticker" aria-hidden="true"><div class="ticker-inner" id="ticker"></div></div>
+  </section>
+
+  <!-- FOLD BAY -->
+  <section class="panel" id="fold" data-reveal>
+    <p class="kicker">01 // FOLD BAY</p>
+    <h2>Fold it. Ink it. <span class="neon-cyan">Launch it.</span></h2>
+
+    <div class="fold-grid">
+      <div class="fold-left">
+        <div id="paperWrap">
+          <div id="paper" data-step="0">
+            <div class="crease h"></div><div class="crease v"></div><div class="crease d1"></div><div class="crease d2"></div>
+            <svg id="craneSvg" viewBox="0 0 120 90" aria-hidden="true">
+              <g id="craneBody" fill="none" stroke-width="2" stroke-linejoin="round">
+                <polygon id="cWingL" points="60,55 20,20 45,62" />
+                <polygon id="cWingR" points="60,55 100,20 75,62" />
+                <polygon id="cHull" points="60,55 40,70 80,70" />
+                <polyline id="cNeck" points="80,70 102,62 96,74" />
+                <polyline id="cTail" points="40,70 22,78 34,72" />
+              </g>
+            </svg>
+            <span id="paperMsg">?</span>
+          </div>
+          <div id="paperGlow"></div>
+        </div>
+        <ol id="foldSteps">
+          <li><button data-fold="1"><b>I.</b> VALLEY FOLD <span>crease the grid</span></button></li>
+          <li><button data-fold="2"><b>II.</b> KITE FOLD <span>wings take shape</span></button></li>
+          <li><button data-fold="3"><b>III.</b> NECK &amp; TAIL <span>pull the beak</span></button></li>
+          <li><button data-fold="4"><b>IV.</b> WINGSET <span>crane wakes up</span></button></li>
+        </ol>
+        <button id="unfoldBtn" class="link-btn">↺ unfold / reset</button>
+      </div>
+
+      <div class="fold-right">
+        <label class="field">
+          <span class="flabel">MESSAGE IN THE FOLD <i id="charCount">0/140</i></span>
+          <textarea id="msgInput" maxlength="140" rows="3" placeholder="e.g. meet me on rooftop K-9 when the rain turns pink…"></textarea>
+        </label>
+        <label class="field">
+          <span class="flabel">CALLSIGN</span>
+          <input id="fromInput" maxlength="18" placeholder="anonymous ghost" />
+        </label>
+        <div class="field">
+          <span class="flabel">WRAP / FREQUENCY</span>
+          <div id="swatches" role="radiogroup" aria-label="crane color">
+            <button class="sw" data-c="pink" style="--c:#ff2a6d" aria-label="neon pink"></button>
+            <button class="sw on" data-c="cyan" style="--c:#05d9e8" aria-label="cyan"></button>
+            <button class="sw" data-c="lime" style="--c:#f9f002" aria-label="acid yellow"></button>
+            <button class="sw" data-c="violet" style="--c:#b537f2" aria-label="violet"></button>
+            <button class="sw" data-c="ghost" style="--c:#e8f6ff" aria-label="ghost white"></button>
+          </div>
+        </div>
+        <button id="launchBtn" class="btn btn-hot big" disabled>◇ COMPLETE ALL 4 FOLDS TO LAUNCH</button>
+        <p class="microcopy">launch writes to local skystream + encodes a share-link. no servers. no accounts. just paper + static.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKY STREAM -->
+  <section class="panel" id="stream" data-reveal>
+    <p class="kicker">02 // SKYSTREAM — LIVE TRAFFIC</p>
+    <h2>Catch a crane, <span class="neon-pink">read a ghost.</span></h2>
+    <div class="stream-bar">
+      <div class="filters" role="tablist">
+        <button class="chip on" data-filter="all">ALL</button>
+        <button class="chip" data-filter="air">AIRBORNE</button>
+        <button class="chip" data-filter="mine">MINE</button>
+        <button class="chip" data-filter="caught">KEPT</button>
+      </div>
+      <span class="wind">WIND <b id="windVal">0</b>kt <span class="windbar"><i id="windFill"></i></span></span>
+    </div>
+    <div id="craneGrid"></div>
+  </section>
+
+  <!-- EXPORT DECK -->
+  <section class="panel" id="export" data-reveal>
+    <p class="kicker">03 // EXPORT DECK</p>
+    <h2>Share the <span class="neon-cyan">fold.</span></h2>
+    <div class="export-grid">
+      <div class="share-card" id="shareCard">
+        <p class="sc-top">◤ PAPER CRANE EXCHANGE — TRANSMISSION</p>
+        <svg viewBox="0 0 120 60" class="sc-crane" aria-hidden="true"><g fill="none" stroke-width="2" stroke-linejoin="round" stroke="currentColor"><polygon points="60,40 22,8 44,44"/><polygon points="60,40 98,8 76,44"/><polygon points="60,40 44,52 76,52"/></g></svg>
+        <p class="sc-msg" id="scMsg">fold a crane to generate a transmission card</p>
+        <p class="sc-from" id="scFrom">— no signal yet —</p>
+        <p class="sc-code" id="scCode">#0000</p>
+      </div>
+      <div class="export-btns">
+        <button id="copyLinkBtn" class="btn btn-ghost">⧉ COPY SHARE-LINK</button>
+        <button id="copyTextBtn" class="btn btn-ghost">⧉ COPY TEXT CARD</button>
+        <button id="pngBtn" class="btn btn-ghost">⬇ EXPORT PNG</button>
+        <button id="jsonBtn" class="btn btn-ghost">⬇ EXPORT FLOCK (.json)</button>
+        <p id="exportNote" class="microcopy">share-links embed the crane in the URL hash — anyone opening it catches your exact fold.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="panel foot">
+    <p>PAPER CRANE EXCHANGE · a single-file-ish social toy · cranes live in your browser (localStorage) · scroll = wind · sound = WebAudio, zero assets · <a href="#app">back to top ↑</a></p>
+  </footer>
+</main>
+
+<!-- CATCH MODAL -->
+<div id="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="caught crane">
+    <p class="kicker" id="mKicker">◈ CRANE INTERCEPTED</p>
+    <div class="m-crane" id="mCrane">⛩</div>
+    <p class="m-msg" id="mMsg"></p>
+    <p class="m-from" id="mFrom"></p>
+    <div class="m-row">
+      <button id="keepBtn" class="btn btn-hot">KEEP IT ♥</button>
+      <button id="releaseBtn" class="btn btn-ghost">RELEASE ↺</button>
+      <button id="mShareBtn" class="btn btn-ghost">⧉ SHARE</button>
+    </div>
+    <button id="mClose" class="link-btn">close [esc]</button>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
