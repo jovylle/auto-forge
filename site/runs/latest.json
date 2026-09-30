@@ -1,8 +1,8 @@
 {
-  "slug": "flint-sparrow-depot",
-  "title": "Flint Sparrow Depot",
-  "stack": "vite",
-  "aesthetic": "neo-brutalism",
+  "slug": "orbit-marble-playground",
+  "title": "Orbit Marble Playground",
+  "stack": "html",
+  "aesthetic": "dark-fantasy",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 649359,
-  "at": "2026-09-29T19:55:11.218Z"
+  "elapsedMs": 125064,
+  "at": "2026-09-30T01:04:22.318Z"
 }
