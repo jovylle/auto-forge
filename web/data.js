@@ -3374,12 +3374,43 @@ export const projects = [
       "arcade"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-30T01:02:09.193Z",
-    "updatedAt": "2026-09-30T01:04:22.313Z",
+    "updatedAt": "2026-09-30T01:04:44.544Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "paper-crane-exchange",
+    "title": "Paper Crane Exchange",
+    "category": "social",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "cyberpunk",
+    "theme": "physics",
+    "constraints": [
+      "must react to scroll",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Paper Crane Exchange",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "crane",
+      "trade",
+      "social"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-30T02:00:19.542Z",
+    "updatedAt": "2026-09-30T02:04:51.461Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 108, done: 99, counts: {"done":99,"needs-human":9} };
+export const stats = { total: 109, done: 100, counts: {"done":100,"needs-human":9} };
