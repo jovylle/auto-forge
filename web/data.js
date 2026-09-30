@@ -3405,12 +3405,42 @@ export const projects = [
       "social"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-30T02:00:19.542Z",
-    "updatedAt": "2026-09-30T02:04:51.461Z",
+    "updatedAt": "2026-09-30T02:04:57.333Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "compost-cathedral",
+    "title": "Compost Cathedral",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "vaporwave",
+    "theme": "physics",
+    "constraints": [
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Raise a cathedral from compost.",
+    "features": [
+      "rot piles",
+      "spire builder",
+      "humus choir"
+    ],
+    "tags": [
+      "compost",
+      "builder",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-30T08:08:14.326Z",
+    "updatedAt": "2026-09-30T08:10:41.367Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 109, done: 100, counts: {"done":100,"needs-human":9} };
+export const stats = { total: 110, done: 101, counts: {"done":101,"needs-human":9} };

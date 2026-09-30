@@ -1,0 +1,30 @@
+{
+  "slug": "compost-cathedral",
+  "title": "Compost Cathedral",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "vaporwave",
+  "theme": "physics",
+  "constraints": [
+    "single HTML file if html stack, single component if vite"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "rot piles",
+      "spire builder",
+      "humus choir"
+    ],
+    "status": "pass",
+    "summary": "Compost Cathedral — single-file vaporwave builder game. 3 rot piles convert scraps+heat into humus (+/s meters, feast/turn), 5-tier spire shop stacks a visual cathedral to consecration, WebAudio humus choir awakens one voice per tier with chant blessing and hymn bursts. localStorage autosave, 375px responsive, zero console errors."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 142158,
+  "at": "2026-09-30T08:10:41.372Z"
+}
