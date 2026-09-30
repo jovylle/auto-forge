@@ -3,14 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dune Switch</title>
+  <title>Dune Switch — Flip the relays before the storm</title>
+  <meta name="description" content="Flip desert relays before the storm hits. A sci-fi-terminal grid game with WebAudio bleeps." />
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main id="app">
-    <h1>Dune Switch</h1>
-    <p class="sub">Flip desert relays before the storm hits.</p>
-    <div id="stage"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <main id="app" class="terminal">
+    <header class="term-head">
+      <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p class="term-title">ARRAKIS-RELAY // dune-switch v1.0</p>
+      <button id="muteBtn" class="mini-btn" type="button" aria-pressed="false" title="Toggle sound">SND:ON</button>
+    </header>
+
+    <section class="hero">
+      <h1>DUNE<span class="accent">_</span>SWITCH</h1>
+      <p class="sub">Flip desert relays before the storm hits. Light every relay to guide the caravan through.</p>
+    </section>
+
+    <section class="hud" aria-label="Game status">
+      <div class="hud-card">
+        <span class="label">STORM IN</span>
+        <strong id="timer" role="timer" aria-live="polite">60.0s</strong>
+        <div class="stormbar"><div id="stormFill"></div><div id="stormEdge" aria-hidden="true">▲</div></div>
+      </div>
+      <div class="hud-card">
+        <span class="label">CARAVAN SCORE</span>
+        <strong id="score">0</strong>
+        <span class="dim">BEST <span id="best">0</span></span>
+      </div>
+      <div class="hud-card">
+        <span class="label">SECTOR / LEVEL</span>
+        <strong id="level">1</strong>
+        <span class="dim"><span id="litCount">0</span>/25 LIT</span>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="startBtn" type="button" class="btn primary">▶ START SHIFT</button>
+      <button id="resetBtn" type="button" class="btn">↻ RESET</button>
+      <label class="size-label">GRID
+        <select id="sizeSel" aria-label="Grid size">
+          <option value="4">4×4 EASY</option>
+          <option value="5" selected>5×5 NOMAD</option>
+          <option value="6">6×6 STORMBORN</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="board-wrap">
+      <div id="stage" role="grid" aria-label="Desert relay grid"></div>
+      <div id="banner" class="banner hidden" role="status" aria-live="assertive"></div>
+    </section>
+
+    <section class="legend">
+      <span><i class="pip on"></i> ONLINE</span>
+      <span><i class="pip off"></i> OFFLINE</span>
+      <span class="dim">click / tap / arrows+space to flip · storm surges knock relays offline</span>
+    </section>
+
+    <section class="term-log" aria-label="Relay log">
+      <div class="log-head">> uplink_log <span id="surgeWarn" class="surge hidden">⚠ SURGE IMMINENT</span></div>
+      <ol id="log" aria-live="polite"></ol>
+    </section>
+
+    <footer class="foot">
+      <span>sound: WebAudio oscillators, zero assets</span>
+      <span>keys: ←↑↓→ move · space flip · R reset</span>
+    </footer>
   </main>
   <script type="module" src="./app.js"></script>
 </body>

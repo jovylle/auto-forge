@@ -76,7 +76,7 @@
     },
     {
       "slug": "chromatic-calendar-mood-as-color",
-      "title": "Chromatic Calendar — mood as color",
+      "title": "Chromatic Calendar \u2014 mood as color",
       "category": "tool",
       "stack": "vite",
       "stackReason": "seed stack",
@@ -85,7 +85,7 @@
       "constraints": [
         "single HTML file if html stack, single component if vite"
       ],
-      "description": "Chromatic Calendar — mood as color",
+      "description": "Chromatic Calendar \u2014 mood as color",
       "features": [
         "core interaction",
         "polished UI",
@@ -107,7 +107,7 @@
     },
     {
       "slug": "chromatic-calendar-mood-as-color-nk6c",
-      "title": "Chromatic Calendar — mood as color",
+      "title": "Chromatic Calendar \u2014 mood as color",
       "category": "tool",
       "stack": "vite",
       "stackReason": "seed stack",
@@ -116,7 +116,7 @@
       "constraints": [
         "sound on interaction (WebAudio, no assets)"
       ],
-      "description": "Chromatic Calendar — mood as color",
+      "description": "Chromatic Calendar \u2014 mood as color",
       "features": [
         "core interaction",
         "polished UI",
@@ -141,7 +141,7 @@
       "title": "Habit Constellation",
       "category": "viz",
       "stack": "vite",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "vaporwave",
       "theme": "time",
       "constraints": [
@@ -172,7 +172,7 @@
       "title": "Puddle Atlas",
       "category": "viz",
       "stack": "vite",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "extreme-minimal",
       "theme": "color",
       "constraints": [
@@ -197,14 +197,14 @@
       "buildPassed": true,
       "lastError": null,
       "retries": 1,
-      "lastModel": "opencode-go/deepseek-v4-flash (worker timeout-killed at 18m, human ran final build — exit 0)"
+      "lastModel": "opencode-go/deepseek-v4-flash (worker timeout-killed at 18m, human ran final build \u2014 exit 0)"
     },
     {
       "slug": "ghost-antenna",
       "title": "Ghost Antenna",
       "category": "social",
       "stack": "vite",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "grunge",
       "theme": "color",
       "constraints": [
@@ -236,7 +236,7 @@
       "title": "Moss Clock",
       "category": "art",
       "stack": "vite",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "organic-brutalist",
       "theme": "color",
       "constraints": [
@@ -267,7 +267,7 @@
       "title": "Ice Melt",
       "category": "viz",
       "stack": "html",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "sci-fi-terminal",
       "theme": "color",
       "constraints": [
@@ -362,7 +362,7 @@
       "aesthetic": "japanese-cyberpunk",
       "theme": "color",
       "constraints": [
-        "no external fonts — system fonts only",
+        "no external fonts \u2014 system fonts only",
         "must react to scroll"
       ],
       "description": "Spin for a plausibly deniable excuse.",
@@ -413,7 +413,7 @@
       "buildPassed": true,
       "lastError": null,
       "retries": 1,
-      "lastModel": "opencode-go/deepseek-v4-flash (timeout-killed mid-verify, human ran final build — exit 0)"
+      "lastModel": "opencode-go/deepseek-v4-flash (timeout-killed mid-verify, human ran final build \u2014 exit 0)"
     },
     {
       "slug": "crumb-budget",
@@ -444,11 +444,11 @@
       "buildPassed": true,
       "lastError": null,
       "retries": 1,
-      "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, timeout before VERIFY; human ran final build — exit 0)"
+      "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, timeout before VERIFY; human ran final build \u2014 exit 0)"
     },
     {
       "slug": "neon-tide-audio-reactive-particle-shore",
-      "title": "Neon Tide — audio-reactive particle shore",
+      "title": "Neon Tide \u2014 audio-reactive particle shore",
       "category": "generative",
       "stack": "html",
       "stackReason": "seed stack (dedup guard)",
@@ -456,9 +456,9 @@
       "theme": "color",
       "constraints": [
         "3 colors max (plus black/white)",
-        "no external fonts — system fonts only"
+        "no external fonts \u2014 system fonts only"
       ],
-      "description": "Neon Tide — audio-reactive particle shore",
+      "description": "Neon Tide \u2014 audio-reactive particle shore",
       "features": [
         "core interaction",
         "polished UI",
@@ -480,7 +480,7 @@
     },
     {
       "slug": "ghost-grid-collaborative-pixel-haunt",
-      "title": "Ghost Grid — collaborative pixel haunt",
+      "title": "Ghost Grid \u2014 collaborative pixel haunt",
       "category": "social",
       "stack": "html",
       "stackReason": "seed stack",
@@ -490,7 +490,7 @@
         "must have an easter egg",
         "must react to scroll"
       ],
-      "description": "Ghost Grid — collaborative pixel haunt",
+      "description": "Ghost Grid \u2014 collaborative pixel haunt",
       "features": [
         "core interaction",
         "polished UI",
@@ -511,7 +511,7 @@
     },
     {
       "slug": "folded-city-origami-map-explorer",
-      "title": "Folded City — origami map explorer",
+      "title": "Folded City \u2014 origami map explorer",
       "category": "viz",
       "stack": "html",
       "stackReason": "seed stack (dedup guard)",
@@ -520,7 +520,7 @@
       "constraints": [
         "must work with keyboard only"
       ],
-      "description": "Folded City — origami map explorer",
+      "description": "Folded City \u2014 origami map explorer",
       "features": [
         "core interaction",
         "polished UI",
@@ -541,7 +541,7 @@
     },
     {
       "slug": "pocket-inventory-drag-drop-rpg-backpack",
-      "title": "Pocket Inventory — drag-drop RPG backpack",
+      "title": "Pocket Inventory \u2014 drag-drop RPG backpack",
       "category": "game",
       "stack": "vite",
       "stackReason": "seed stack (dedup guard)",
@@ -550,7 +550,7 @@
       "constraints": [
         "sound on interaction (WebAudio, no assets)"
       ],
-      "description": "Pocket Inventory — drag-drop RPG backpack",
+      "description": "Pocket Inventory \u2014 drag-drop RPG backpack",
       "features": [
         "core interaction",
         "polished UI",
@@ -568,11 +568,11 @@
       "buildPassed": true,
       "lastError": null,
       "retries": 1,
-      "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
+      "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build \u2014 exit 0)"
     },
     {
       "slug": "receipt-oracle-expense-fortune-teller",
-      "title": "Receipt Oracle — expense fortune teller",
+      "title": "Receipt Oracle \u2014 expense fortune teller",
       "category": "tool",
       "stack": "vite",
       "stackReason": "seed stack (dedup guard)",
@@ -580,9 +580,9 @@
       "theme": "color",
       "constraints": [
         "must react to scroll",
-        "no external fonts — system fonts only"
+        "no external fonts \u2014 system fonts only"
       ],
-      "description": "Receipt Oracle — expense fortune teller",
+      "description": "Receipt Oracle \u2014 expense fortune teller",
       "features": [
         "core interaction",
         "polished UI",
@@ -603,7 +603,7 @@
     },
     {
       "slug": "receipt-oracle-expense-fortune-teller-1eap",
-      "title": "Receipt Oracle — expense fortune teller",
+      "title": "Receipt Oracle \u2014 expense fortune teller",
       "category": "tool",
       "stack": "vite",
       "stackReason": "seed stack",
@@ -611,9 +611,9 @@
       "theme": "color",
       "constraints": [
         "3 colors max (plus black/white)",
-        "no external fonts — system fonts only"
+        "no external fonts \u2014 system fonts only"
       ],
-      "description": "Receipt Oracle — expense fortune teller",
+      "description": "Receipt Oracle \u2014 expense fortune teller",
       "features": [
         "core interaction",
         "polished UI",
@@ -634,7 +634,7 @@
     },
     {
       "slug": "receipt-oracle-expense-fortune-teller-akhg",
-      "title": "Receipt Oracle — expense fortune teller",
+      "title": "Receipt Oracle \u2014 expense fortune teller",
       "category": "tool",
       "stack": "vite",
       "stackReason": "seed stack",
@@ -644,7 +644,7 @@
         "must react to scroll",
         "must have an easter egg"
       ],
-      "description": "Receipt Oracle — expense fortune teller",
+      "description": "Receipt Oracle \u2014 expense fortune teller",
       "features": [
         "core interaction",
         "polished UI",
@@ -724,7 +724,7 @@
       "buildPassed": true,
       "lastError": null,
       "retries": 1,
-      "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
+      "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build \u2014 exit 0)"
     },
     {
       "slug": "glass-orchard",
@@ -762,7 +762,7 @@
       "title": "Ember Atlas",
       "category": "viz",
       "stack": "html",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "cyberpunk",
       "theme": "color",
       "constraints": [
@@ -850,14 +850,14 @@
       "buildPassed": true,
       "lastError": null,
       "retries": 1,
-      "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build — exit 0)"
+      "lastModel": "opencode-go/deepseek-v4-flash (timeout kill, no result.json; human ran final build \u2014 exit 0)"
     },
     {
       "slug": "static-picnic",
       "title": "Static Picnic",
       "category": "social",
       "stack": "vite",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "pop-art",
       "theme": "typography",
       "constraints": [
@@ -882,20 +882,20 @@
       "buildPassed": true,
       "lastError": null,
       "retries": 1,
-      "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, died before VERIFY; human ran final build — exit 0)"
+      "lastModel": "opencode-go/deepseek-v4-flash (result.json pass, died before VERIFY; human ran final build \u2014 exit 0)"
     },
     {
       "slug": "glass-orchard-fruit-merge",
-      "title": "Glass Orchard — fruit merge",
+      "title": "Glass Orchard \u2014 fruit merge",
       "category": "game",
       "stack": "html",
       "stackReason": "seed stack",
       "aesthetic": "extreme-minimal",
       "theme": "typography",
       "constraints": [
-        "no external fonts — system fonts only"
+        "no external fonts \u2014 system fonts only"
       ],
-      "description": "Glass Orchard — fruit merge",
+      "description": "Glass Orchard \u2014 fruit merge",
       "features": [
         "core interaction",
         "polished UI",
@@ -923,7 +923,7 @@
       "aesthetic": "memphis",
       "theme": "typography",
       "constraints": [
-        "no images — CSS/canvas only"
+        "no images \u2014 CSS/canvas only"
       ],
       "description": "A lunar recipe box for midnight cooks.",
       "features": [
@@ -949,11 +949,11 @@
       "title": "Brine Clock",
       "category": "art",
       "stack": "vite",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "biomorphic",
       "theme": "typography",
       "constraints": [
-        "no images — CSS/canvas only"
+        "no images \u2014 CSS/canvas only"
       ],
       "description": "A tide timer that breathes with the sea.",
       "features": [
@@ -973,11 +973,11 @@
       "buildPassed": true,
       "lastError": null,
       "retries": 1,
-      "lastModel": "opencode-go/deepseek-v4-flash (result.json pass; human fixed missing CSS import + built — exit 0)"
+      "lastModel": "opencode-go/deepseek-v4-flash (result.json pass; human fixed missing CSS import + built \u2014 exit 0)"
     },
     {
       "slug": "lantern-ledger-night-journal",
-      "title": "Lantern Ledger — night journal",
+      "title": "Lantern Ledger \u2014 night journal",
       "category": "tool",
       "stack": "html",
       "stackReason": "seed stack (dedup guard)",
@@ -985,9 +985,9 @@
       "theme": "typography",
       "constraints": [
         "3 colors max (plus black/white)",
-        "no external fonts — system fonts only"
+        "no external fonts \u2014 system fonts only"
       ],
-      "description": "Lantern Ledger — night journal",
+      "description": "Lantern Ledger \u2014 night journal",
       "features": [
         "core interaction",
         "polished UI",
@@ -1009,7 +1009,7 @@
     },
     {
       "slug": "brine-clock-tide-timer",
-      "title": "Brine Clock — tide timer",
+      "title": "Brine Clock \u2014 tide timer",
       "category": "art",
       "stack": "html",
       "stackReason": "seed stack (dedup guard)",
@@ -1017,9 +1017,9 @@
       "theme": "typography",
       "constraints": [
         "must have an easter egg",
-        "no images — CSS/canvas only"
+        "no images \u2014 CSS/canvas only"
       ],
-      "description": "Brine Clock — tide timer",
+      "description": "Brine Clock \u2014 tide timer",
       "features": [
         "core interaction",
         "polished UI",
@@ -1105,7 +1105,7 @@
     },
     {
       "slug": "paper-garden-origami-flora",
-      "title": "Paper Garden — origami flora",
+      "title": "Paper Garden \u2014 origami flora",
       "category": "generative",
       "stack": "html",
       "stackReason": "seed stack",
@@ -1114,7 +1114,7 @@
       "constraints": [
         "must react to scroll"
       ],
-      "description": "Paper Garden — origami flora",
+      "description": "Paper Garden \u2014 origami flora",
       "features": [
         "core interaction",
         "polished UI",
@@ -1199,7 +1199,7 @@
     },
     {
       "slug": "moth-radio-night-signals",
-      "title": "Moth Radio — night signals",
+      "title": "Moth Radio \u2014 night signals",
       "category": "social",
       "stack": "html",
       "stackReason": "seed stack",
@@ -1209,7 +1209,7 @@
         "must react to scroll",
         "must have an easter egg"
       ],
-      "description": "Moth Radio — night signals",
+      "description": "Moth Radio \u2014 night signals",
       "features": [
         "core interaction",
         "polished UI",
@@ -1237,7 +1237,7 @@
       "aesthetic": "swiss",
       "theme": "typography",
       "constraints": [
-        "no external fonts — system fonts only",
+        "no external fonts \u2014 system fonts only",
         "must have an easter egg"
       ],
       "description": "Kinetic letterforms erupt, collide and settle into playable typographic posters.",
@@ -1456,7 +1456,7 @@
     },
     {
       "slug": "inkwell-observatory-star-notes",
-      "title": "Inkwell Observatory — star notes",
+      "title": "Inkwell Observatory \u2014 star notes",
       "category": "viz",
       "stack": "html",
       "stackReason": "seed stack",
@@ -1466,7 +1466,7 @@
         "sound on interaction (WebAudio, no assets)",
         "must work with keyboard only"
       ],
-      "description": "Inkwell Observatory — star notes",
+      "description": "Inkwell Observatory \u2014 star notes",
       "features": [
         "core interaction",
         "polished UI",
@@ -1592,7 +1592,7 @@
       "aesthetic": "glassmorphism",
       "theme": "typography",
       "constraints": [
-        "no images — CSS/canvas only"
+        "no images \u2014 CSS/canvas only"
       ],
       "description": "Sing to space letters, nail the pitch to kern kinetic lyrics perfectly.",
       "features": [
@@ -1715,7 +1715,7 @@
     },
     {
       "slug": "cinder-ledger-ash-accounts",
-      "title": "Cinder Ledger — ash accounts",
+      "title": "Cinder Ledger \u2014 ash accounts",
       "category": "tool",
       "stack": "vite",
       "stackReason": "seed stack",
@@ -1724,7 +1724,7 @@
       "constraints": [
         "sound on interaction (WebAudio, no assets)"
       ],
-      "description": "Cinder Ledger — ash accounts",
+      "description": "Cinder Ledger \u2014 ash accounts",
       "features": [
         "core interaction",
         "polished UI",
@@ -1745,7 +1745,7 @@
     },
     {
       "slug": "dune-switch-desert-relays",
-      "title": "Dune Switch — desert relays",
+      "title": "Dune Switch \u2014 desert relays",
       "category": "game",
       "stack": "vite",
       "stackReason": "seed stack",
@@ -1754,7 +1754,7 @@
       "constraints": [
         "3 colors max (plus black/white)"
       ],
-      "description": "Dune Switch — desert relays",
+      "description": "Dune Switch \u2014 desert relays",
       "features": [
         "core interaction",
         "polished UI",
@@ -1782,7 +1782,7 @@
       "aesthetic": "japanese-minimal",
       "theme": "audio",
       "constraints": [
-        "no images — CSS/canvas only",
+        "no images \u2014 CSS/canvas only",
         "must react to scroll"
       ],
       "description": "Stack wobbly oscillators into a playable choir with morphing vowels.",
@@ -1849,7 +1849,7 @@
       "theme": "audio",
       "constraints": [
         "3 colors max (plus black/white)",
-        "no images — CSS/canvas only"
+        "no images \u2014 CSS/canvas only"
       ],
       "description": "Playful 808 synth toy with sequencer, glide and room echo.",
       "features": [
@@ -1914,7 +1914,7 @@
       "aesthetic": "pop-art",
       "theme": "audio",
       "constraints": [
-        "no images — CSS/canvas only"
+        "no images \u2014 CSS/canvas only"
       ],
       "description": "Loop dusty vinyl textures into evolving lo-fi beats with crackle and wow.",
       "features": [
@@ -2094,7 +2094,7 @@
       "createdAt": "2026-09-19T10:26:48.516Z",
       "updatedAt": "2026-09-23T00:00:00Z",
       "buildPassed": false,
-      "lastError": "superseded — shipped under a suffixed variant; parked, do not retry (scaffold untouched — worker wrote no app code)",
+      "lastError": "superseded \u2014 shipped under a suffixed variant; parked, do not retry (scaffold untouched \u2014 worker wrote no app code)",
       "retries": 99,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
     },
@@ -2125,7 +2125,7 @@
       "createdAt": "2026-09-19T10:32:03.742Z",
       "updatedAt": "2026-09-23T00:00:00Z",
       "buildPassed": false,
-      "lastError": "superseded — shipped under a suffixed variant; parked, do not retry (scaffold untouched — worker wrote no app code)",
+      "lastError": "superseded \u2014 shipped under a suffixed variant; parked, do not retry (scaffold untouched \u2014 worker wrote no app code)",
       "retries": 99,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
     },
@@ -2134,7 +2134,7 @@
       "title": "Rust Atlas",
       "category": "viz",
       "stack": "html",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "retro-wave",
       "theme": "audio",
       "constraints": [
@@ -2156,7 +2156,7 @@
       "createdAt": "2026-09-19T16:39:10.626Z",
       "updatedAt": "2026-09-19T16:39:19.584Z",
       "buildPassed": false,
-      "lastError": "scaffold untouched — worker wrote no app code",
+      "lastError": "scaffold untouched \u2014 worker wrote no app code",
       "retries": 1,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
     },
@@ -2165,7 +2165,7 @@
       "title": "Ice Melt",
       "category": "viz",
       "stack": "vite",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "extreme-minimal",
       "theme": "audio",
       "constraints": [
@@ -2196,11 +2196,11 @@
       "title": "Ghost Antenna",
       "category": "social",
       "stack": "vite",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "dark-fantasy",
       "theme": "audio",
       "constraints": [
-        "no images — CSS/canvas only",
+        "no images \u2014 CSS/canvas only",
         "3 colors max (plus black/white)"
       ],
       "description": "Leave messages for strangers' radios.",
@@ -2259,7 +2259,7 @@
       "title": "Inkwell Observatory",
       "category": "viz",
       "stack": "vite",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "bauhaus",
       "theme": "audio",
       "constraints": [
@@ -2290,7 +2290,7 @@
       "title": "Puddle Atlas",
       "category": "viz",
       "stack": "vite",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "japanese-cyberpunk",
       "theme": "audio",
       "constraints": [
@@ -2321,7 +2321,7 @@
       "title": "Moth Radio",
       "category": "social",
       "stack": "html",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "japanese-minimal",
       "theme": "audio",
       "constraints": [
@@ -2375,13 +2375,13 @@
       "createdAt": "2026-09-21T01:29:09.643Z",
       "updatedAt": "2026-09-23T00:00:00Z",
       "buildPassed": false,
-      "lastError": "superseded — shipped under a suffixed variant; parked, do not retry (scaffold untouched — worker wrote no app code)",
+      "lastError": "superseded \u2014 shipped under a suffixed variant; parked, do not retry (scaffold untouched \u2014 worker wrote no app code)",
       "retries": 99,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
     },
     {
       "slug": "fog-market-mist-trading",
-      "title": "Fog Market — mist trading",
+      "title": "Fog Market \u2014 mist trading",
       "category": "game",
       "stack": "html",
       "stackReason": "seed stack",
@@ -2391,7 +2391,7 @@
         "uses only one interaction type (click OR drag OR type)",
         "must react to scroll"
       ],
-      "description": "Fog Market — mist trading",
+      "description": "Fog Market \u2014 mist trading",
       "features": [
         "core interaction",
         "polished UI",
@@ -2407,7 +2407,7 @@
       "createdAt": "2026-09-21T08:31:21.582Z",
       "updatedAt": "2026-09-21T08:31:47.572Z",
       "buildPassed": false,
-      "lastError": "scaffold untouched — worker wrote no app code",
+      "lastError": "scaffold untouched \u2014 worker wrote no app code",
       "retries": 1,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
     },
@@ -2486,7 +2486,7 @@
       "aesthetic": "pop-art",
       "theme": "audio",
       "constraints": [
-        "no images — CSS/canvas only"
+        "no images \u2014 CSS/canvas only"
       ],
       "description": "Layer humming loops into evolving choir chords with tap tempo.",
       "features": [
@@ -2518,7 +2518,7 @@
       "aesthetic": "cyberpunk",
       "theme": "audio",
       "constraints": [
-        "no external fonts — system fonts only",
+        "no external fonts \u2014 system fonts only",
         "sound on interaction (WebAudio, no assets)"
       ],
       "description": "Loopable petal synths bloom into ambient choirs you conduct by dragging.",
@@ -2832,7 +2832,7 @@
       "title": "Ivory Lowtide",
       "category": "viz",
       "stack": "vite",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "bauhaus",
       "theme": "physics",
       "constraints": [
@@ -3023,7 +3023,7 @@
       "aesthetic": "japanese-cyberpunk",
       "theme": "physics",
       "constraints": [
-        "no images — CSS/canvas only"
+        "no images \u2014 CSS/canvas only"
       ],
       "description": "Steam pistons hammer out verses.",
       "features": [
@@ -3049,11 +3049,11 @@
       "title": "Waxwing Weather Station",
       "category": "viz",
       "stack": "html",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "japanese-minimal",
       "theme": "physics",
       "constraints": [
-        "no external fonts — system fonts only",
+        "no external fonts \u2014 system fonts only",
         "must work with keyboard only"
       ],
       "description": "Birds forecast the weather in flocks.",
@@ -3140,7 +3140,7 @@
       "title": "Opal Ferry Terminal",
       "category": "viz",
       "stack": "html",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "organic-brutalist",
       "theme": "physics",
       "constraints": [
@@ -3235,7 +3235,7 @@
       "aesthetic": "swiss",
       "theme": "physics",
       "constraints": [
-        "no images — CSS/canvas only"
+        "no images \u2014 CSS/canvas only"
       ],
       "description": "Toss particles into gravity wells and freeze springy constellations as shareable art.",
       "features": [
@@ -3294,7 +3294,7 @@
       "title": "Tin Kettle Cartography",
       "category": "viz",
       "stack": "html",
-      "stackReason": "no strong keyword — random",
+      "stackReason": "no strong keyword \u2014 random",
       "aesthetic": "pop-art",
       "theme": "physics",
       "constraints": [
@@ -3328,7 +3328,7 @@
       "aesthetic": "neo-brutalism",
       "theme": "physics",
       "constraints": [
-        "no images — CSS/canvas only"
+        "no images \u2014 CSS/canvas only"
       ],
       "description": "Dispatch sparrows with flint notes.",
       "features": [
@@ -3442,6 +3442,37 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "grackle-boneyard-bingo",
+      "title": "Grackle Boneyard Bingo",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "aesthetic": "biomorphic",
+      "theme": "physics",
+      "constraints": [
+        "no external fonts \u2014 system fonts only",
+        "uses only one interaction type (click OR drag OR type)"
+      ],
+      "description": "Call bingo among the grackles.",
+      "features": [
+        "bingo caller",
+        "boneyard card",
+        "grackle heckles"
+      ],
+      "tags": [
+        "bingo",
+        "grackle",
+        "game"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-09-30T14:14:03.443Z",
+      "updatedAt": "2026-09-30T14:17:24.000Z",
+      "buildPassed": true,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free",
+      "lastError": null
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

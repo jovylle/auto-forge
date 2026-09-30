@@ -1,0 +1,31 @@
+{
+  "slug": "grackle-boneyard-bingo",
+  "title": "Grackle Boneyard Bingo",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "biomorphic",
+  "theme": "physics",
+  "constraints": [
+    "no external fonts \u2014 system fonts only",
+    "uses only one interaction type (click OR drag OR type)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "bingo caller",
+      "boneyard card",
+      "grackle heckles"
+    ],
+    "status": "pass",
+    "summary": "Grackle Boneyard Bingo \u2014 click-only biomorphic bingo game with heckling grackles, system fonts only, single interaction type (click). 375px responsive."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 180555,
+  "at": "2026-09-30T14:17:07.626Z"
+}
