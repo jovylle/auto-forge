@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Compost Cathedral — raise a cathedral from compost</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Cinzel:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+:root{
+  --pink:#ff71ce; --cyan:#01cdfe; --purple:#b967ff; --deep:#0d0221;
+  --deep2:#1a0533; --gold:#fffb96; --green:#05ffa1; --brown:#8a5a3b;
+  --humus:#c98f4e;
+  --card:rgba(20,8,45,.78);
+  --line:rgba(1,205,254,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  background:var(--deep); color:#f5ecff; min-height:100vh;
+  background-image:
+    radial-gradient(ellipse 80% 45% at 50% -5%, #ff71ce55, transparent 70%),
+    radial-gradient(ellipse 60% 35% at 85% 15%, #b967ff44, transparent 70%),
+    radial-gradient(ellipse 60% 35% at 10% 20%, #01cdfe33, transparent 70%),
+    linear-gradient(#0d0221,#1a0533 60%,#2b0a4a);
+  overflow-x:hidden;
+}
+body::after{ /* scanlines */
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:60; opacity:.14;
+  background:repeating-linear-gradient(0deg, transparent 0 2px, #000 2px 3px);
+}
+/* ---- sun + grid backdrop ---- */
+.sky{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
+.sun{
+  position:absolute; left:50%; top:54px; width:min(300px,62vw); aspect-ratio:1;
+  transform:translateX(-50%); border-radius:50%;
+  background:linear-gradient(#fffb96 0%, #ff71ce 45%, #b967ff 75%, #541388 100%);
+  box-shadow:0 0 80px #ff71ce88, 0 0 160px #b967ff55;
+  -webkit-mask-image:linear-gradient(#000 62%, transparent 63%);
+  mask-image:linear-gradient(#000 62%, transparent 63%);
+  opacity:.9;
+}
+.sun::after{content:""; position:absolute; inset:0; border-radius:50%;
+  background:repeating-linear-gradient(0deg, transparent 0 14px, #0d0221 14px 18px, transparent 18px 30px);
+  background-position-y:40px; opacity:.85;}
+.gridfloor{
+  position:absolute; left:-25%; right:-25%; bottom:-4px; height:34vh;
+  background:
+    linear-gradient(transparent 95%, var(--pink) 100%),
+    linear-gradient(90deg, transparent 95%, var(--cyan) 100%);
+  background-size:44px 34px;
+  transform:perspective(320px) rotateX(62deg);
+  transform-origin:bottom;
+  opacity:.5;
+  animation:gridmove 3.2s linear infinite;
+  mask-image:linear-gradient(transparent,#000 30%);
+}
+@keyframes gridmove{to{background-position-y:34px}}
+.wrap{position:relative; z-index:1; max-width:1060px; margin:0 auto; padding:20px 16px 60px}
+/* ---- header ---- */
+header{text-align:center; padding:26px 0 6px}
+.kicker{letter-spacing:.45em; font-size:11px; color:var(--cyan); text-transform:uppercase}
+h1.title{
+  font-family:'Monoton',cursive; font-weight:400; margin:8px 0 2px;
+  font-size:clamp(38px,7vw,72px); line-height:1;
+  background:linear-gradient(180deg,#fff 10%, var(--cyan) 32%, var(--pink) 55%, var(--purple) 75%, #fff 105%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 0 18px #ff71ce88) drop-shadow(0 2px 0 #01cdfe55);
+}
+.subtitle{font-family:'Cinzel',serif; color:var(--gold); letter-spacing:.12em; font-size:clamp(12px,2.4vw,16px); margin:0}
+.subtitle em{color:var(--pink); font-style:normal}
+/* ---- stats ---- */
+.stats{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:16px 0 18px}
+.stat{
+  background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:8px 16px; min-width:130px; text-align:center; backdrop-filter:blur(6px);
+  box-shadow:0 0 0 1px #ff71ce22, 0 8px 30px #0008;
+}
+.stat b{display:block; font-size:22px; color:var(--gold); font-variant-numeric:tabular-nums}
+.stat span{font-size:11px; letter-spacing:.25em; text-transform:uppercase; color:var(--cyan)}
+.stat.humus b{color:var(--humus); text-shadow:0 0 12px #c98f4e88}
+/* ---- layout ---- */
+.grid{display:grid; grid-template-columns:1fr 1.15fr 1fr; gap:14px; align-items:start}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:18px;
+  padding:14px 14px 16px; backdrop-filter:blur(8px);
+  box-shadow:0 0 0 1px #ff71ce1e, 0 12px 40px #0009;
+}
+.card h2{font-family:'Cinzel',serif; font-size:15px; letter-spacing:.2em; text-transform:uppercase; margin:2px 0 4px; color:#fff}
+.card h2 .dot{color:var(--pink)}
+.card p.desc{font-size:12.5px; opacity:.75; margin:0 0 10px}
+/* ---- piles ---- */
+.pile{
+  border:1px solid #ffffff22; border-radius:14px; padding:10px; margin:10px 0;
+  background:linear-gradient(180deg,#ffffff0d,#0006);
+  position:relative; overflow:hidden;
+}
+.pile-top{display:flex; align-items:center; gap:10px}
+.mound{font-size:34px; line-height:1; filter:drop-shadow(0 4px 6px #000); transition:transform .25s}
+.mound.hot{animation:wobble 1.2s ease-in-out infinite}
+@keyframes wobble{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(4deg) scale(1.08)}}
+.pile-info{flex:1; min-width:0}
+.pile-info b{font-size:14px}
+.meter{height:8px; border-radius:99px; background:#0009; border:1px solid #ffffff22; overflow:hidden; margin-top:6px}
+.meter i{display:block; height:100%; border-radius:99px; background:linear-gradient(90deg,var(--green),var(--gold),var(--pink)); transition:width .4s}
+.meter.heat i{background:linear-gradient(90deg,#ff9a3d,#ff71ce,#b967ff)}
+.pile-meta{display:flex; justify-content:space-between; font-size:11px; opacity:.8; margin-top:4px; font-variant-numeric:tabular-nums}
+.pile-btns{display:flex; gap:8px; margin-top:8px}
+button{
+  font-family:inherit; cursor:pointer; border-radius:10px; border:1px solid var(--cyan);
+  background:linear-gradient(180deg,#01cdfe33,#b967ff33); color:#fff;
+  padding:8px 12px; font-size:13px; font-weight:700; letter-spacing:.03em;
+  transition:transform .12s, box-shadow .12s, filter .12s;
+}
+button:hover{transform:translateY(-1px); box-shadow:0 0 14px #01cdfe66; filter:brightness(1.15)}
+button:active{transform:translateY(1px) scale(.98)}
+button:disabled{opacity:.35; cursor:not-allowed; transform:none; box-shadow:none}
+button.pink{border-color:var(--pink); background:linear-gradient(180deg,#ff71ce44,#b967ff33)}
+button.gold{border-color:var(--gold); background:linear-gradient(180deg,#fffb9644,#ff71ce33); color:var(--gold)}
+button.ghost{background:transparent; border-color:#ffffff33}
+.steam{position:absolute; font-size:14px; opacity:0; pointer-events:none}
+.steam.go{animation:steam 1.4s ease-out forwards}
+@keyframes steam{0%{opacity:.9; transform:translateY(6px)}100%{opacity:0; transform:translateY(-34px)}}
+/* ---- cathedral ---- */
+.cathedral-stage{
+  text-align:center; padding:10px 6px 4px; border-radius:14px;
+  background:linear-gradient(180deg,#ff71ce14,#01cdfe0d 60%, transparent);
+  border:1px dashed #ffffff2a; min-height:340px; display:flex; flex-direction:column;
+  justify-content:flex-end; align-items:center; position:relative; overflow:hidden;
+}
+#cathedral{display:flex; align-items:flex-end; justify-content:center; gap:0; min-height:230px; transition:all .5s; filter:drop-shadow(0 0 22px #b967ff66)}
+.block{transition:all .5s cubic-bezier(.2,1.6,.4,1)}
+.tier{animation:rise .7s cubic-bezier(.2,1.6,.4,1)}
+@keyframes rise{from{transform:translateY(60px) scale(.6); opacity:0}to{transform:none; opacity:1}}
+.height-label{font-family:'Cinzel',serif; letter-spacing:.25em; font-size:11px; color:var(--gold); margin:8px 0 2px; text-transform:uppercase}
+.consecrated{
+  position:absolute; inset:8px; display:none; place-items:center; text-align:center;
+  background:radial-gradient(ellipse at center, #fffb96cc, #ff71ce88 60%, transparent 80%);
+  color:#2b0a4a; font-family:'Cinzel',serif; font-weight:700; border-radius:12px; z-index:5;
+}
+.consecrated.show{display:grid; animation:glow 2s ease-in-out infinite alternate}
+@keyframes glow{from{filter:brightness(1)}to{filter:brightness(1.25)}}
+/* spire shop */
+.shop-item{display:flex; align-items:center; gap:10px; border:1px solid #ffffff1e; border-radius:12px; padding:8px 10px; margin:8px 0; background:#0005}
+.shop-item .ico{font-size:26px}
+.shop-item .tx{flex:1; min-width:0}
+.shop-item .tx b{font-size:13.5px; display:block}
+.shop-item .tx small{opacity:.7; font-size:11.5px}
+.shop-item.built{border-color:var(--green); box-shadow:0 0 12px #05ffa144}
+/* choir */
+.choir-row{display:flex; gap:6px; justify-content:center; margin:10px 0; flex-wrap:wrap; min-height:64px}
+.chorister{
+  width:52px; height:64px; border-radius:14px 14px 10px 10px; display:grid; place-items:center;
+  font-size:28px; background:#0007; border:1px solid #ffffff25; position:relative; transition:all .3s;
+}
+.chorister.locked{filter:grayscale(1); opacity:.35}
+.chorister.singing{border-color:var(--pink); box-shadow:0 0 16px #ff71ce88; animation:bob .5s ease-in-out infinite alternate}
+.chorister.singing:nth-child(2n){animation-duration:.42s}
+.chorister.singing:nth-child(3n){animation-duration:.66s}
+@keyframes bob{from{transform:translateY(0) scale(1)}to{transform:translateY(-6px) scale(1.06)}}
+.choir-row .note{position:absolute; top:-6px; font-size:12px; opacity:0}
+.chorister.singing .note{animation:floatnote 1s ease-out infinite}
+@keyframes floatnote{0%{opacity:1; transform:translateY(0)}100%{opacity:0; transform:translateY(-22px)}}
+.controls-row{display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:8px}
+input[type=range]{accent-color:var(--pink); flex:1; min-width:100px}
+.verse{font-family:'Cinzel',serif; font-style:italic; font-size:12.5px; color:var(--cyan); min-height:20px; text-align:center; margin-top:8px}
+/* floaters */
+#floaters{position:fixed; inset:0; pointer-events:none; z-index:50; overflow:hidden}
+.floater{position:absolute; font-weight:700; font-size:14px; color:var(--gold); text-shadow:0 0 8px #000, 0 0 14px var(--pink); animation:floatup 1.6s ease-out forwards}
+@keyframes floatup{to{transform:translateY(-70px); opacity:0}}
+footer{text-align:center; margin-top:18px; font-size:12px; opacity:.6}
+footer button{font-size:12px; padding:6px 10px}
+.vhs{position:fixed; top:12px; right:14px; z-index:61; font-size:11px; letter-spacing:.3em; color:#fff; opacity:.7; font-variant-numeric:tabular-nums}
+.vhs::before{content:"● "; color:#ff3355; animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+@media(max-width:640px){
+  .stat{min-width:100px; padding:6px 10px}
+  .stat b{font-size:18px}
+  .wrap{padding:14px 10px 50px}
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="sun"></div><div class="gridfloor"></div></div>
+<div class="vhs">HUMUS CAM <span id="clock">00:00</span></div>
+<div id="floaters"></div>
+
+<div class="wrap">
+  <header>
+    <div class="kicker">✦ ａｅｓｔｈｅｔｉｃ ｒｏｔ ｓｙｓｔｅｍ ✦</div>
+    <h1 class="title">COMPOST CATHEDRAL</h1>
+    <p class="subtitle">Raise a <em>cathedral</em> from compost — rot, build, chant.</p>
+  </header>
+
+  <div class="stats" role="status">
+    <div class="stat humus"><b id="sHumus">0</b><span>humus ｡･ﾟ</span></div>
+    <div class="stat"><b id="sHeight">0 m</b><span>spire height</span></div>
+    <div class="stat"><b id="sRate">+0/s</b><span>rot yield</span></div>
+    <div class="stat"><b id="sVoices">0 ♪</b><span>choir voices</span></div>
+  </div>
+
+  <div class="grid">
+    <!-- ROT PILES -->
+    <section class="card" aria-label="Rot piles">
+      <h2><span class="dot">◈</span> Rot Piles</h2>
+      <p class="desc">Toss scraps, turn the heap, harvest black gold. Hotter piles rot faster.</p>
+      <div id="piles"></div>
+      <div class="controls-row">
+        <button id="btnFeast" class="pink" title="Toss scraps on every pile">🍉 FEAST ALL</button>
+        <button id="btnTurnAll" class="ghost" title="Turn every pile">🍴 Turn all</button>
+      </div>
+    </section>
+
+    <!-- CATHEDRAL -->
+    <section class="card" aria-label="Cathedral">
+      <h2><span class="dot">✧</span> The Rising Nave</h2>
+      <p class="desc">Spend humus to raise stone from soil. Complete all five tiers to consecrate.</p>
+      <div class="cathedral-stage">
+        <div class="consecrated" id="consecrated"><div>✦ CONSECRATED ✦<br><small style="font-weight:400">the humus sings back</small></div></div>
+        <div id="cathedral" aria-live="polite"></div>
+        <div class="height-label" id="heightLabel">a bare mound · 0 m</div>
+      </div>
+      <div id="shop"></div>
+    </section>
+
+    <!-- CHOIR -->
+    <section class="card" aria-label="Humus choir">
+      <h2><span class="dot">♪</span> Humus Choir</h2>
+      <p class="desc">Each spire tier awakens one voice. Chanting blesses the rot (+yield).</p>
+      <div class="choir-row" id="choir"></div>
+      <div class="controls-row">
+        <button id="btnChoir" class="gold">▶ Begin chant</button>
+        <label style="font-size:12px;opacity:.8">vol <input type="range" id="vol" min="0" max="100" value="45"></label>
+      </div>
+      <div class="verse" id="verse">…the soil is silent…</div>
+      <div class="controls-row">
+        <button id="btnHymn" class="ghost">🎵 hymn burst (+humus)</button>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    autosaves to localStorage · works offline from file:// · made of rot &amp; chrome ·
+    <button id="btnReset" class="ghost">reset cathedral</button>
+  </footer>
+</div>
+
+<script type="module">
+const $ = s => document.querySelector(s);
+const TIERS = [
+  { id:'foundation', name:'Foundation Crypt', cost:10,  h:8,  ico:'🪦', blurb:'stone roots in rot', w:150, c1:'#3b2b5a', c2:'#241640', voice:'Bass',          freq:82.4,  glyph:'🧙' },
+  { id:'nave',       name:'Nave Arch',        cost:30,  h:26, ico:'⛪', blurb:'ribs of compost-stone', w:120, c1:'#b967ff', c2:'#5b2a86', voice:'Tenor',   freq:110,   glyph:'🧝' },
+  { id:'rose',       name:'Rose Window',      cost:70,  h:20, ico:'🌸', blurb:'stained glass of beetle-wing', w:92, c1:'#ff71ce', c2:'#a4136b', voice:'Alto', freq:164.8, glyph:'🧚' },
+  { id:'spires',     name:'Twin Spires',      cost:140, h:52, ico:'🗼', blurb:'two fingers to the mall-gods', w:110, c1:'#01cdfe', c2:'#0a5a78', voice:'Soprano',freq:220, glyph:'👼' },
+  { id:'cupola',     name:'Golden Cupola',    cost:260, h:30, ico:'👑', blurb:'a sun that never sets', w:60, c1:'#fffb96', c2:'#c98f4e', voice:'Seraph', freq:329.6, glyph:'🌟' },
+];
+const VERSES = [
+  '…humus humus, dark and sweet…','…we rot, therefore we rise…',
+  '…o black gold, o neon loam…','…peels to pillars, rinds to roofs…',
+  '…the worms keep perfect time…','…ＡＥＳＴＨＥＴＩＣ ＤＥＣＡＹ…',
+  '…blessed be the banana skin…','…from slime, spires…',
+];
+const KEY='compost-cathedral-v1';
+let S = load() || fresh();
+function fresh(){ return { humus:0, totalEarned:0, piles:[mk(),mk(),mk()], built:[], choirOn:false, hymns:0, consecrated:false }; }
+function mk(){ return { mass:2, heat:0.4 }; }
+function load(){ try{ const r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch{ return null; } }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch{} }
+
+/* ---------- render: piles ---------- */
+const NAMES=['Pile αlpha','Pile βeta','Pile γamma'];
+const MOUNDS=['🟤','🪱','🍂'];
+function renderPiles(){
+  const el=$('#piles'); el.innerHTML='';
+  S.piles.forEach((p,i)=>{
+    const rot = Math.min(1, 0.25 + p.heat*0.75);
+    const rate = p.mass*rot*0.55*(S.choirOn&&S.built.length?1.5:1);
+    const d=document.createElement('div'); d.className='pile';
+    d.innerHTML=`
+      <div class="pile-top">
+        <div class="mound ${p.heat>0.6?'hot':''}" style="font-size:${30+p.mass*2.4}px">${MOUNDS[i]}</div>
+        <div class="pile-info"><b>${NAMES[i]}</b>
+          <div class="meter"><i style="width:${Math.min(100,p.mass/14*100)}%"></i></div>
+          <div class="meter heat"><i style="width:${p.heat*100}%"></i></div>
+          <div class="pile-meta"><span>${p.mass.toFixed(1)} kg · ${(rot*100)|0}% rot</span><span>+${rate.toFixed(1)}/s</span></div>
+        </div>
+      </div>
+      <div class="pile-btns">
+        <button data-a="feed" data-i="${i}">＋ scraps</button>
+        <button data-a="turn" data-i="${i}" class="ghost">🍴 turn</button>
+      </div>
+      <span class="steam">♨</span>`;
+    el.appendChild(d);
+  });
+  el.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i;
+    if(b.dataset.a==='feed'){ S.piles[i].mass=Math.min(14,S.piles[i].mass+1.2); S.piles[i].heat=Math.min(1,S.piles[i].heat+0.04); floater(b,'+scraps 🍌'); }
+    else { S.piles[i].heat=Math.min(1,S.piles[i].heat+0.25); steam(i); floater(b,'turned! ♨'); }
+    save(); sync();
+  });
+}
+function steam(i){
+  const s=document.querySelectorAll('#piles .pile')[i]?.querySelector('.steam');
+  if(!s) return; s.classList.remove('go'); void s.offsetWidth; s.style.left=(20+Math.random()*60)+'%'; s.classList.add('go');
+}
+
+/* ---------- render: cathedral + shop ---------- */
+function heightM(){ return S.built.reduce((a,id)=>a+TIERS.find(t=>t.id===id).h,0); }
+function renderCath(){
+  const c=$('#cathedral'); c.innerHTML='';
+  if(!S.built.length){
+    c.innerHTML='<div style="font-size:54px;opacity:.9">🪱<div style="font-size:11px;letter-spacing:.3em;opacity:.7">A BARE MOUND</div></div>';
+  } else {
+    S.built.forEach(id=>{
+      const t=TIERS.find(x=>x.id===id);
+      const d=document.createElement('div'); d.className='block tier';
+      if(id==='foundation') d.innerHTML=`<div style="width:${t.w}px;height:44px;background:linear-gradient(180deg,${t.c1},${t.c2});border:2px solid #00000055;border-radius:6px 6px 0 0"></div>`;
+      else if(id==='nave') d.innerHTML=`<div style="width:${t.w}px;height:86px;background:linear-gradient(180deg,${t.c1},${t.c2});border:2px solid #00000055;border-bottom:none;clip-path:polygon(0 100%,0 30%,50% 0,100% 30%,100% 100%)"></div>`;
+      else if(id==='rose') d.innerHTML=`<div style="width:${t.w}px;height:${t.w}px;border-radius:50%;background:conic-gradient(#ff71ce,#fffb96,#01cdfe,#b967ff,#ff71ce);border:3px solid #2b0a4a;display:grid;place-items:center;font-size:34px">🌸</div>`;
+      else if(id==='spires') d.innerHTML=`<div style="display:flex;gap:8px;align-items:flex-end"><div style="width:34px;height:110px;background:linear-gradient(180deg,${t.c1},${t.c2});clip-path:polygon(50% 0,100% 25%,100% 100%,0 100%,0 25%)"></div><div style="width:34px;height:140px;background:linear-gradient(180deg,${t.c1},${t.c2});clip-path:polygon(50% 0,100% 25%,100% 100%,0 100%,0 25%);filter:brightness(1.2)"></div></div>`;
+      else d.innerHTML=`<div style="width:${t.w}px;height:44px;background:linear-gradient(180deg,${t.c1},${t.c2});clip-path:polygon(50% 0,100% 100%,0 100%);filter:drop-shadow(0 0 10px #fffb96)"></div><div style="font-size:20px;margin-top:-8px">✨</div>`;
+      // stack order: prepend so cupola ends on top visually via column-reverse? use flex order
+      d.style.order = TIERS.findIndex(x=>x.id===id);
+      c.appendChild(d);
+    });
+    c.style.flexDirection='column'; c.style.alignItems='center'; c.style.gap='0';
+  }
+  const h=heightM();
+  $('#heightLabel').textContent = h===0 ? 'a bare mound · 0 m' : `${S.built.length}/5 tiers · ${h} m`;
+  $('#consecrated').classList.toggle('show', S.consecrated);
+  // shop
+  const sh=$('#shop'); sh.innerHTML='';
+  TIERS.forEach(t=>{
+    const built=S.built.includes(t.id);
+    const afford=S.humus>=t.cost;
+    const r=document.createElement('div'); r.className='shop-item'+(built?' built':'');
+    r.innerHTML=`<div class="ico">${built?'✅':t.ico}</div>
+      <div class="tx"><b>${t.name} — ${built?'RAISED':t.cost+' humus'}</b><small>${t.blurb} · +${t.h} m · awakens ${t.voice}</small></div>
+      ${built?'':`<button class="pink" ${afford?'':'disabled'}>raise</button>`}`;
+    if(!built) r.querySelector('button').onclick=()=>{
+      if(S.humus<t.cost) return;
+      S.humus-=t.cost; S.built.push(t.id);
+      floater(r, t.ico+' +'+t.h+'m');
+      if(S.built.length===TIERS.length && !S.consecrated){ S.consecrated=true; S.humus+=100; floater(r,'✦ CONSECRATED +100 ✦'); }
+      ensureAudio(); save(); sync();
+    };
+    sh.appendChild(r);
+  });
+}
+
+/* ---------- choir ---------- */
+let AC=null, voices=[], verseTimer=null;
+function ensureAudio(){
+  if(AC) { if(AC.state==='suspended') AC.resume(); return; }
+  try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch{ return; }
+  const master=AC.createGain(); master.gain.value=($('#vol').value/100)*0.5; master.id='master'; AC._master=master; master.connect(AC.destination);
+}
+function startChoir(){
+  ensureAudio(); if(!AC) return;
+  stopVoices();
+  S.built.forEach((id,k)=>{
+    const t=TIERS.find(x=>x.id===id);
+    const o=AC.createOscillator(), g=AC.createGain(), f=AC.createBiquadFilter();
+    o.type=['sine','triangle','sawtooth','square','sine'][k%5];
+    o.frequency.value=t.freq;
+    o.detune.value=(Math.random()*8-4);
+    f.type='lowpass'; f.frequency.value=900+k*250;
+    g.gain.value=0.0; g.gain.linearRampToValueAtTime(0.12, AC.currentTime+1.5);
+    // slow LFO wobble like chanting
+    const lfo=AC.createOscillator(), lg=AC.createGain();
+    lfo.frequency.value=0.4+k*0.13; lg.gain.value=0.05;
+    lfo.connect(lg); lg.connect(g.gain); lfo.start();
+    o.connect(f); f.connect(g); g.connect(AC._master); o.start();
+    voices.push({o,g,lfo});
+  });
+  cycleVerse();
+}
+function stopVoices(){
+  voices.forEach(v=>{ try{ v.g.gain.linearRampToValueAtTime(0.0001, AC.currentTime+0.4); v.o.stop(AC.currentTime+0.5); v.lfo.stop(AC.currentTime+0.5);}catch{} });
+  voices=[]; clearTimeout(verseTimer);
+}
+function cycleVerse(){
+  clearTimeout(verseTimer);
+  if(!S.choirOn) return;
+  $('#verse').textContent = '♪ ' + VERSES[(Math.random()*VERSES.length)|0] + ' ♪';
+  verseTimer=setTimeout(cycleVerse, 3800);
+}
+function renderChoir(){
+  const el=$('#choir'); el.innerHTML='';
+  TIERS.forEach(t=>{
+    const un=S.built.includes(t.id);
+    const d=document.createElement('div');
+    d.className='chorister'+(un?'':' locked')+((un&&S.choirOn)?' singing':'');
+    d.title=t.voice+(un?'':' (raise '+t.name+')');
+    d.innerHTML=`${un?t.glyph:'🔒'}<span class="note">♪</span><div style="position:absolute;bottom:0;font-size:8px;letter-spacing:.1em">${un?t.voice:'???'}</div>`;
+    el.appendChild(d);
+  });
+  $('#sVoices').textContent = S.built.length+' ♪';
+  $('#btnChoir').textContent = S.choirOn ? '■ Silence choir' : '▶ Begin chant';
+  if(!S.built.length) $('#verse').textContent='…the soil is silent…';
+  else if(!S.choirOn) $('#verse').textContent=`${S.built.length} voice${S.built.length>1?'s':''} waiting in the loam…`;
+}
+
+/* ---------- loop ---------- */
+function tick(dt){
+  let gain=0;
+  const bless=(S.choirOn&&S.built.length)?1.5:1;
+  S.piles.forEach(p=>{
+    const rot=Math.min(1,0.25+p.heat*0.75);
+    const y=p.mass*rot*0.55*bless*dt;
+    const eat=Math.min(p.mass, y*0.55);
+    p.mass-=eat; p.heat=Math.max(0.12,p.heat-0.012*dt);
+    if(p.mass<0.4 && Math.random()<0.02){ p.mass=0.6; } // worms reseed a little
+    gain+=y;
+  });
+  if(gain>0){ S.humus+=gain; S.totalEarned+=gain; }
+  return gain;
+}
+let last=performance.now(), acc=0;
+function loop(now){
+  const dt=Math.min(0.1,(now-last)/1000); last=now; acc+=dt;
+  const g=tick(dt);
+  if(acc>0.5){ acc=0; save(); sync(true); }
+  requestAnimationFrame(loop);
+}
+
+/* ---------- sync ---------- */
+function sync(light){
+  const bless=(S.choirOn&&S.built.length)?1.5:1;
+  const rate=S.piles.reduce((a,p)=>a+p.mass*Math.min(1,0.25+p.heat*0.75)*0.55*bless,0);
+  $('#sHumus').textContent=Math.floor(S.humus);
+  $('#sHeight').textContent=heightM()+' m';
+  $('#sRate').textContent='+'+rate.toFixed(1)+'/s';
+  if(!light){ renderPiles(); renderCath(); renderChoir(); }
+  else { // light refresh of numbers + shop affordability without rebuilding everything
+    renderShopAfford(); renderChoirVoicesOnly();
+  }
+}
+function renderShopAfford(){
+  document.querySelectorAll('#shop .shop-item').forEach((row,k)=>{
+    const t=TIERS[k]; if(!t||S.built.includes(t.id)) return;
+    const b=row.querySelector('button'); if(b) b.disabled = S.humus<t.cost;
+  });
+}
+function renderChoirVoicesOnly(){ $('#sVoices').textContent=S.built.length+' ♪'; }
+
+/* ---------- fx ---------- */
+function floater(fromEl, txt){
+  const r=fromEl.getBoundingClientRect();
+  const d=document.createElement('div'); d.className='floater'; d.textContent=txt;
+  d.style.left=(r.left+r.width/2-20+Math.random()*20)+'px'; d.style.top=(r.top-6)+'px';
+  $('#floaters').appendChild(d); setTimeout(()=>d.remove(),1700);
+}
+setInterval(()=>{ const t=new Date(); $('#clock').textContent=String(t.getMinutes()).padStart(2,'0')+':'+String(t.getSeconds()).padStart(2,'0'); },500);
+
+/* ---------- events ---------- */
+$('#btnFeast').onclick=e=>{ S.piles.forEach(p=>{p.mass=Math.min(14,p.mass+1.5); p.heat=Math.min(1,p.heat+0.05);}); floater(e.target,'🍉🍌🍂 FEAST!'); save(); sync(); };
+$('#btnTurnAll').onclick=e=>{ S.piles.forEach((p,i)=>{p.heat=Math.min(1,p.heat+0.2); steam(i);}); floater(e.target,'♨ turned!'); save(); sync(); };
+$('#btnChoir').onclick=()=>{
+  if(!S.built.length){ $('#verse').textContent='raise a spire first — the choir sleeps in unbuilt stone.'; return; }
+  S.choirOn=!S.choirOn; save();
+  if(S.choirOn){ startChoir(); } else { stopVoices(); $('#verse').textContent='…silence returns to the loam…'; }
+  sync();
+};
+$('#vol').oninput=e=>{ if(AC&&AC._master) AC._master.gain.value=(e.target.value/100)*0.5; };
+$('#btnHymn').onclick=e=>{
+  if(!S.built.length||!S.choirOn){ $('#verse').textContent='the hymn needs a singing choir — build & chant first.'; return; }
+  ensureAudio();
+  const bonus=5*S.built.length + S.hymns;
+  S.humus+=bonus; S.totalEarned+=bonus; S.hymns++;
+  // bright arpeggio burst
+  const t0=AC.currentTime;
+  S.built.forEach((id,k)=>{
+    const t=TIERS.find(x=>x.id===id);
+    const o=AC.createOscillator(), g=AC.createGain();
+    o.type='sine'; o.frequency.value=t.freq*2;
+    g.gain.setValueAtTime(0.0001,t0+k*0.09); g.gain.exponentialRampToValueAtTime(0.25,t0+k*0.09+0.03); g.gain.exponentialRampToValueAtTime(0.0001,t0+k*0.09+0.6);
+    o.connect(g); g.connect(AC._master); o.start(t0+k*0.09); o.stop(t0+k*0.09+0.7);
+  });
+  floater(e.target,'+'+Math.floor(bonus)+' hymn! 🎵'); save(); sync();
+};
+$('#btnReset').onclick=()=>{ if(confirm('Compost the cathedral and start over?')){ stopVoices(); S=fresh(); try{localStorage.removeItem(KEY);}catch{} save(); sync(); } };
+
+sync();
+requestAnimationFrame(loop);
+console.log('Compost Cathedral ready — rot piles | spire builder | humus choir');
+</script>
+</body>
+</html>
