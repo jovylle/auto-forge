@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Orbit Marble Playground — A Dark-Fantasy Gravity Rite</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IM+Fell+English:ital@0;1&display=swap');
+:root{
+  --void:#0a0714; --void2:#140b26; --panel:#170f2ecc; --gold:#e8b64c; --ember:#ff6b4a;
+  --violet:#8b5cf6; --bone:#efe6d5; --dim:#9a8fb5; --blood:#5b1622;
+  --attune:0; --tide:265;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 800px at 70% -10%,#241243 0%,var(--void) 55%) fixed,var(--void);
+  color:var(--bone);font-family:'IM Fell English',Georgia,serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:radial-gradient(1px 1px at 12% 22%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 68% 12%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 84% 34%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 32% 66%,#fff 50%,transparent 51%),radial-gradient(2px 2px at 48% 42%,var(--gold) 50%,transparent 51%),radial-gradient(1px 1px at 22% 82%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 90% 74%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 55% 88%,#c4b5fd 50%,transparent 51%);
+  transform:translateY(calc(var(--attune) * -60px));transition:transform .2s linear}
+.wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:20px 16px 80px}
+header{text-align:center;padding:34px 8px 10px}
+.kicker{letter-spacing:.35em;text-transform:uppercase;font-size:11px;color:var(--gold);font-family:Cinzel,serif}
+h1{font-family:Cinzel,serif;font-weight:900;font-size:clamp(30px,6vw,54px);margin:.3em 0 .1em;
+  background:linear-gradient(180deg,#fff6e0,var(--gold) 55%,#8a5a1c);-webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 0 34px #e8b64c33}
+.sub{color:var(--dim);font-style:italic;max-width:60ch;margin:0 auto}
+.rune-rule{display:flex;align-items:center;gap:12px;margin:16px auto;max-width:520px;color:var(--gold)}
+.rune-rule::before,.rune-rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+#hud{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stat{background:linear-gradient(180deg,#1d1333,#120b22);border:1px solid #e8b64c44;border-radius:12px;padding:8px 10px;text-align:center;box-shadow:0 0 0 1px #000,0 8px 24px #0008}
+.stat b{display:block;font-family:Cinzel,serif;color:var(--gold);font-size:clamp(16px,4vw,22px)}
+.stat span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);font-family:Cinzel,serif}
+#comboBarWrap{height:8px;background:#00000088;border:1px solid #e8b64c33;border-radius:99px;overflow:hidden;margin:2px 0 8px}
+#comboBar{height:100%;width:0%;background:linear-gradient(90deg,var(--violet),var(--gold),var(--ember));transition:width .1s linear}
+#dailyBanner{background:linear-gradient(180deg,#241239,#120a24);border:1px solid var(--gold);border-radius:14px;padding:12px 14px;margin:10px 0;box-shadow:0 0 24px #e8b64c22,inset 0 0 40px #8b5cf611}
+#dailyBanner h2{font-family:Cinzel,serif;font-size:15px;margin:0 0 4px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
+#dailyBanner p{margin:4px 0;font-size:15px}
+#dailyBanner .seed{font-size:12px;color:var(--dim)}
+#stageCard{background:var(--panel);border:1px solid #e8b64c55;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px #000c,0 0 60px #8b5cf622;backdrop-filter:blur(4px)}
+#cvwrap{position:relative}
+canvas{display:block;width:100%;height:min(68vh,560px);touch-action:none;cursor:crosshair;background:radial-gradient(600px 400px at 50% 40%,#1c1038 0%,#0a0714 70%)}
+#toast{position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;gap:6px;align-items:center;pointer-events:none;width:max-content;max-width:92%}
+.pop{font-family:Cinzel,serif;font-weight:700;background:#0a0714dd;border:1px solid var(--gold);color:var(--gold);padding:6px 14px;border-radius:99px;animation:rise 1.6s ease forwards;white-space:nowrap;box-shadow:0 0 18px #e8b64c66}
+.pop.big{font-size:20px;color:#fff;border-color:var(--ember);box-shadow:0 0 30px var(--ember)}
+@keyframes rise{0%{opacity:0;transform:translateY(14px) scale(.9)}15%{opacity:1;transform:none}80%{opacity:1}100%{opacity:0;transform:translateY(-26px)}}
+#controls{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border-top:1px solid #e8b64c33;background:#0d081acc}
+button{font-family:Cinzel,serif;font-weight:700;letter-spacing:.06em;background:linear-gradient(180deg,#3a2563,#221243);color:var(--bone);border:1px solid #e8b64c66;border-radius:10px;padding:10px 14px;cursor:pointer;transition:.15s}
+button:hover{transform:translateY(-1px);box-shadow:0 0 16px #e8b64c55;border-color:var(--gold)}
+button.gold{background:linear-gradient(180deg,#f3cd6e,#9a6b1e);color:#1a1005}
+button:disabled{opacity:.4;cursor:default;transform:none;box-shadow:none}
+.hint{font-size:13px;color:var(--dim);padding:0 12px 12px;font-style:italic}
+#attuneBar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;background:#0a0714ee;border-bottom:1px solid #e8b64c44;padding:8px 14px;font-family:Cinzel,serif;font-size:12px;letter-spacing:.15em;color:var(--gold)}
+#attuneFill{flex:1;height:6px;background:#222;border-radius:99px;overflow:hidden}
+#attuneFill i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--gold))}
+section.grimoire{margin:60px auto;max-width:62ch;padding:0 8px}
+section.grimoire h2{font-family:Cinzel,serif;color:var(--gold);letter-spacing:.1em;font-size:22px}
+section.grimoire p{line-height:1.75;color:#d8cdb8}
+.drop::first-letter{font-family:Cinzel,serif;font-size:2.6em;float:left;line-height:1;margin-right:8px;color:var(--ember)}
+footer{text-align:center;color:var(--dim);font-size:13px;padding:30px}
+@media(max-width:480px){#hud{grid-template-columns:repeat(2,1fr)}canvas{height:62vh}}
+</style>
+</head>
+<body>
+<div id="attuneBar">☽ ABYSSAL ATTUNEMENT <div id="attuneFill"><i></i></div><span id="attunePct">0%</span></div>
+<div class="wrap">
+<header>
+  <div class="kicker">✦ A Gravity Rite ✦</div>
+  <h1>Orbit Marble Playground</h1>
+  <p class="sub">Fling marbles through gravity wells to score orbits and chain cosmic combos. Complete one full ring around a well to bind it — chain bindings across wells before the star-candle burns out for combo multipliers.</p>
+  <div class="rune-rule">ᚱ ᛟ ᚦ</div>
+</header>
+
+<div id="hud">
+  <div class="stat"><b id="score">0</b><span>Score</span></div>
+  <div class="stat"><b id="marbles">12</b><span>Marbles</span></div>
+  <div class="stat"><b id="combo">×1</b><span>Combo</span></div>
+  <div class="stat"><b id="orbits">0</b><span>Orbits</span></div>
+</div>
+<div id="comboBarWrap"><div id="comboBar"></div></div>
+
+<div id="dailyBanner">
+  <h2 id="dailyTitle">☾ Daily Orbit Challenge</h2>
+  <p id="dailyGoal"></p>
+  <p class="seed" id="dailySeed"></p>
+</div>
+
+<div id="stageCard">
+  <div id="cvwrap">
+    <canvas id="cv"></canvas>
+    <div id="toast"></div>
+  </div>
+  <div id="controls">
+    <button id="btnDaily" class="gold">☾ Daily Ritual</button>
+    <button id="btnWild">✦ Wild Cosmos</button>
+    <button id="btnReset">↻ Reset</button>
+    <button id="btnMute">♪ Sound: on</button>
+  </div>
+  <p class="hint">Drag from the <b>bone altar</b> (bottom-left orb) to aim &amp; release to fling. Drag wells to reposition them. Full loop around a well = <b>ORBIT +100</b>. Chain orbits within 6s for ×2, ×3… combos. Scroll down to charge Abyssal Attunement — it blesses every point you earn. Grazing a well's rim also pays.</p>
+</div>
+
+<section class="grimoire">
+  <h2>I. The Binding of Orbits</h2>
+  <p class="drop">Long ago the marble-saints learned that stones, flung with true intent, may be caught by hungry stars yet never fall. Hurl your marble so it kisses the violet well and returns to its own trail — a circle closed is a spirit bound, worth one hundred sung coins, doubled and tripled if you bind a second well ere the candle gutters.</p>
+</section>
+<section class="grimoire">
+  <h2>II. The Scroll-Tide</h2>
+  <p>As you descend this grimoire, the void notices you. Your <b>Abyssal Attunement</b> rises with every span you scroll — up to +50% score blessing at full depth. The nebula itself pales and deepens with your reading. Climb back up and the tide recedes. The rite rewards the patient reader.</p>
+</section>
+<section class="grimoire">
+  <h2>III. The Daily Star</h2>
+  <p>Each midnight the heavens are re-cast: new wells, new hungers, one fixed fate per day. All pilgrims everywhere face the same sky. Meet the day's tithe of points with your twelve marbles and your name is writ in starlight (in this browser, at least). A fresh fate arrives tomorrow.</p>
+  <p id="bestLine" style="color:var(--gold)"></p>
+</section>
+<footer>Built as a single file · canvas physics · seeded daily · localStorage remembers · scroll-reactive void</footer>
+</div>
+
+<script type="module">
+// ---------- utils ----------
+const $=id=>document.getElementById(id);
+const cv=$('cv'),ctx=cv.getContext('2d');
+function hashStr(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const todayKey=()=>new Date().toISOString().slice(0,10);
+let W=0,H=0,DPR=1;
+function resize(){const r=cv.getBoundingClientRect();DPR=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);placeDefault();}
+addEventListener('resize',resize);
+
+// ---------- audio (tiny synth) ----------
+let muted=false,AC=null;
+function beep(f,d=.12,type='sine',g=.12){if(muted)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),v=AC.createGain();o.type=type;o.frequency.value=f;v.gain.setValueAtTime(g,AC.currentTime);v.gain.exponentialRampToValueAtTime(.001,AC.currentTime+d);o.connect(v).connect(AC.destination);o.start();o.stop(AC.currentTime+d);}catch(e){}}
+
+// ---------- state ----------
+const G=2600;
+let wells=[],marbles=[],parts=[],floaters=[];
+let score=0,marbleCount=12,orbitCount=0,combo=1,comboT=0;const COMBO_MAX=6;
+let mode='daily',dailyTarget=600,boundToday=false;
+let launcher={x:70,y:300,r:20};
+function placeDefault(){launcher.x=Math.max(50,W*0.1);launcher.y=H*0.78;}
+function seededWells(seed,n){
+  const rnd=mulberry32(seed);
+  const arr=[];
+  for(let i=0;i<n;i++){
+    arr.push({x:W*(0.35+rnd()*0.55),y:H*(0.18+rnd()*0.55),
+      mass:2200+rnd()*2600,r:26+rnd()*16,hue:265+rnd()*40|0,
+      spin:rnd()*Math.PI*2});
+  }
+  return arr;
+}
+function setup(modeName){
+  mode=modeName;score=0;marbleCount=12;orbitCount=0;combo=1;comboT=0;marbles=[];parts=[];boundToday=false;
+  let seed;
+  if(modeName==='daily'){seed=hashStr('orbit-'+todayKey());wells=seededWells(seed,3);dailyTarget=600;}
+  else{seed=(Math.random()*1e9)|0;wells=seededWells(seed,3);dailyTarget=Infinity;}
+  $('dailyTitle').textContent=modeName==='daily'?`☾ Daily Orbit Challenge — ${todayKey()}`:'✦ Wild Cosmos — unbound sky';
+  $('dailyGoal').textContent=modeName==='daily'
+    ?`Tithe demanded: ${dailyTarget} pts with 12 marbles. Same wells for every pilgrim today.`
+    :`Free rite. No tithe. Practice your bindings; the wells shift every visit.`;
+  $('dailySeed').textContent='sky-seed '+seed.toString(16);
+  const best=localStorage.getItem('omp-best-'+todayKey());
+  $('bestLine').textContent=best?`★ Your best tribute this day: ${best} pts.`:'No tribute yet today. The stars wait.';
+  updateHUD();
+}
+function attune(){ // 0..1 from scroll progress
+  const max=document.documentElement.scrollHeight-innerHeight;
+  return max>0?Math.min(1,scrollY/max):0;
+}
+function bonusMult(){return 1+attune()*0.5;}
+
+// ---------- input: launch drag + well drag ----------
+let drag=null; // {type:'launch'|'well',...}
+function pos(e){const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};}
+cv.addEventListener('pointerdown',e=>{
+  const p=pos(e);cv.setPointerCapture(e.pointerId);
+  const w=wells.find(w=>Math.hypot(p.x-w.x,p.y-w.y)<w.r+14);
+  if(w){drag={type:'well',w,dx:p.x-w.x,dy:p.y-w.y};return;}
+  const dL=Math.hypot(p.x-launcher.x,p.y-launcher.y);
+  if(dL<70||marbles.some(m=>!m.dead&&m.age<0.4)) {drag={type:'launch',sx:launcher.x,sy:launcher.y,cx:p.x,cy:p.y};return;}
+  drag={type:'launch',sx:launcher.x,sy:launcher.y,cx:p.x,cy:p.y};
+});
+cv.addEventListener('pointermove',e=>{if(!drag)return;const p=pos(e);if(drag.type==='well'){drag.w.x=p.x-drag.dx;drag.w.y=p.y-drag.dy;}else{drag.cx=p.x;drag.cy=p.y;}});
+cv.addEventListener('pointerup',e=>{
+  if(!drag)return;
+  if(drag.type==='launch'){
+    const vx=(drag.sx-drag.cx)*3.2,vy=(drag.sy-drag.cy)*3.2;
+    if(Math.hypot(vx,vy)>60&&marbleCount>0){fire(vx,vy);} 
+  }
+  drag=null;
+});
+function fire(vx,vy){
+  marbleCount--;
+  marbles.push({x:launcher.x,y:launcher.y,vx,vy,trail:[],age:0,dead:false,
+    acc:{},bound:{},grazed:new Set()});
+  beep(220,.15,'triangle');updateHUD();
+}
+
+// ---------- scoring ----------
+function toast(txt,big=false){const d=document.createElement('div');d.className='pop'+(big?' big':'');d.textContent=txt;$('toast').appendChild(d);setTimeout(()=>d.remove(),1650);}
+function awardOrbit(w){
+  orbitCount++;const mult=bonusMult();
+  const pts=Math.round(100*combo*mult);
+  score+=pts;
+  combo=Math.min(combo+1,9);comboT=COMBO_MAX;
+  burst(w.x,w.y,'#e8b64c',26);
+  toast(combo>2?`✦ ORBIT ×${combo-1}  +${pts}`:`ORBIT BOUND +${pts}`,combo>3);
+  beep(440+combo*90,.2,'sine');setTimeout(()=>beep(660+combo*90,.18,'sine'),90);
+  if(mode==='daily'&&!boundToday&&score>=dailyTarget){boundToday=true;
+    toast('☾ DAILY TITHE PAID — the stars bow',true);beep(523,.3,'triangle');
+    const k='omp-best-'+todayKey();localStorage.setItem(k,String(Math.max(score,+(localStorage.getItem(k)||0))));
+    $('bestLine').textContent=`★ Your best tribute this day: ${localStorage.getItem(k)} pts.`;
+  }
+  updateHUD();
+}
+function burst(x,y,c,n=14){for(let i=0;i<n;i++){const a=Math.random()*7,s=40+Math.random()*160;parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:.7+Math.random()*.5,t:0,c});}}
+function updateHUD(){$('score').textContent=score;$('marbles').textContent=marbleCount;$('combo').textContent='×'+combo;$('orbits').textContent=orbitCount;}
+
+// ---------- physics ----------
+function step(dt){
+  comboT-=dt;if(comboT<=0&&combo>1){combo=1;updateHUD();}
+  $('comboBar').style.width=(Math.max(0,comboT)/COMBO_MAX*100)+'%';
+  for(const m of marbles){
+    if(m.dead)continue;m.age+=dt;
+    let ax=0,ay=0;
+    for(const w of wells){
+      const dx=w.x-m.x,dy=w.y-m.y;let d=Math.hypot(dx,dy)||1;
+      const tide=1+attune()*0.15; // scroll gently strengthens gravity
+      const f=G*w.mass*tide/(d*d+800);
+      ax+=dx/d*f/60;ay+=dy/d*f/60;
+      // orbit tracking within band
+      if(d<w.r*5&&d>w.r*0.5){
+        const ang=Math.atan2(dy,dx);
+        const prev=m.acc[wells.indexOf(w)]??ang;
+        let dA=ang-prev;while(dA>Math.PI)dA-=2*Math.PI;while(dA<-Math.PI)dA+=2*Math.PI;
+        m.acc[wells.indexOf(w)]=ang;
+        m.swept=m.swept||{};m.swept[wells.indexOf(w)]=(m.swept[wells.indexOf(w)]||0)+dA;
+        if(Math.abs(m.swept[wells.indexOf(w)])>Math.PI*1.7&&!m.bound[wells.indexOf(w)]){
+          m.bound[wells.indexOf(w)]=true;awardOrbit(w);
+        }
+      }
+      if(d<w.r*1.1&&!m.grazed.has(w)&&m.age>0.15){m.grazed.add(w);const p=Math.round(15*bonusMult());score+=p;toast(`graze +${p}`);beep(880,.08,'sine');burst(m.x,m.y,'#8b5cf6',8);updateHUD();}
+      if(d<w.r*0.45){m.dead=true;burst(m.x,m.y,'#ff6b4a',22);toast('devoured by the well');beep(110,.3,'sawtooth',.08);combo=1;comboT=0;updateHUD();}
+    }
+    m.vx+=ax*dt*60*0.28;m.vy+=ay*dt*60*0.28;
+    m.vx*=0.9995;m.vy*=0.9995;
+    m.x+=m.vx*dt;m.y+=m.vy*dt;
+    m.trail.push({x:m.x,y:m.y});if(m.trail.length>60)m.trail.shift();
+    if(m.x<-40||m.x>W+40||m.y<-40||m.y>H+40){m.dead=true;}
+  }
+  marbles=marbles.filter(m=>!m.dead||m.trailFade);
+  for(const p of parts){p.t+=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=.98;p.vy*=.98;}
+  parts=parts.filter(p=>p.t<p.life);
+  for(const w of wells)w.spin+=dt*.6;
+}
+
+// ---------- render ----------
+function predict(x,y,vx,vy){
+  const pts=[];let px=x,py=y,pvx=vx,pvy=vy;
+  for(let i=0;i<70;i++){
+    let ax=0,ay=0;
+    for(const w of wells){const dx=w.x-px,dy=w.y-py;const d=Math.hypot(dx,dy)||1;const f=G*w.mass/(d*d+800);ax+=dx/d*f/60;ay+=dy/d*f/60;}
+    pvx+=ax*0.016*60*0.28;pvy+=ay*0.016*60*0.28;px+=pvx*0.016;py+=pvy*0.016;
+    if(i%3===0)pts.push({x:px,y:py});
+  }return pts;
+}
+function draw(){
+  const a=attune();
+  document.documentElement.style.setProperty('--attune',a);
+  $('attuneFill').firstElementChild.style.width=(a*100)+'%';
+  $('attunePct').textContent=Math.round(a*100)+'%';
+  ctx.clearRect(0,0,W,H);
+  // nebula tint shifts with scroll
+  const g=ctx.createRadialGradient(W/2,H/2,40,W/2,H/2,W*.7);
+  g.addColorStop(0,`hsla(${265+a*40},60%,${14+a*6}%,.9)`);g.addColorStop(1,'rgba(10,7,20,0)');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  // wells
+  for(const w of wells){
+    const pul=1+Math.sin(performance.now()/400+w.spin)*0.04+a*0.1;
+    for(let i=4;i>0;i--){ctx.beginPath();ctx.arc(w.x,w.y,w.r*pul*i*0.9,0,7);ctx.strokeStyle=`hsla(${w.hue},70%,60%,${0.10+i*0.03})`;ctx.lineWidth=10-i*2;ctx.stroke();}
+    const wg=ctx.createRadialGradient(w.x,w.y,2,w.x,w.y,w.r*pul);
+    wg.addColorStop(0,'#000');wg.addColorStop(.55,`hsl(${w.hue},80%,38%)`);wg.addColorStop(1,'rgba(139,92,246,0)');
+    ctx.fillStyle=wg;ctx.beginPath();ctx.arc(w.x,w.y,w.r*pul,0,7);ctx.fill();
+    // rune ring
+    ctx.save();ctx.translate(w.x,w.y);ctx.rotate(w.spin);
+    ctx.fillStyle='#e8b64c';ctx.font='11px serif';ctx.textAlign='center';
+    for(let k=0;k<8;k++){const an=k/8*Math.PI*2;ctx.fillText('ᚱᛟᚦ᛭ᛞᚨᚠᚷ'[k],Math.cos(an)*w.r*1.35,Math.sin(an)*w.r*1.35+4);}
+    ctx.restore();
+  }
+  // launcher altar
+  ctx.save();
+  ctx.shadowColor='#e8b64c';ctx.shadowBlur=24;
+  ctx.fillStyle='#efe6d5';ctx.beginPath();ctx.arc(launcher.x,launcher.y,launcher.r,0,7);ctx.fill();
+  ctx.shadowBlur=0;ctx.strokeStyle='#e8b64c';ctx.lineWidth=2;
+  ctx.beginPath();ctx.arc(launcher.x,launcher.y,launcher.r+6+Math.sin(performance.now()/300)*2,0,7);ctx.stroke();
+  ctx.fillStyle='#5b1622';ctx.font='bold 14px serif';ctx.textAlign='center';ctx.fillText('◈',launcher.x,launcher.y+5);
+  ctx.restore();
+  // aim guide
+  if(drag&&drag.type==='launch'){
+    const vx=(drag.sx-drag.cx)*3.2,vy=(drag.sy-drag.cy)*3.2;
+    ctx.strokeStyle='#ff6b4a';ctx.lineWidth=2;ctx.setLineDash([6,6]);
+    ctx.beginPath();ctx.moveTo(launcher.x,launcher.y);ctx.lineTo(drag.cx,drag.cy);ctx.stroke();ctx.setLineDash([]);
+    const power=Math.min(1,Math.hypot(vx,vy)/900);
+    ctx.fillStyle=`hsl(${40-power*30},90%,${45+power*15}%)`;ctx.font='700 13px Cinzel,serif';ctx.textAlign='left';
+    ctx.fillText(`power ${Math.round(power*100)}%`,launcher.x+28,launcher.y-24);
+    ctx.fillStyle='#e8b64c88';
+    for(const p of predict(launcher.x,launcher.y,vx,vy)){ctx.fillRect(p.x-1.5,p.y-1.5,3,3);}
+  }
+  // marbles + trails
+  for(const m of marbles){
+    if(m.trail.length>1){ctx.beginPath();ctx.moveTo(m.trail[0].x,m.trail[0].y);
+      for(const t of m.trail)ctx.lineTo(t.x,t.y);
+      ctx.strokeStyle='rgba(232,182,76,.55)';ctx.lineWidth=2;ctx.stroke();}
+    const mg=ctx.createRadialGradient(m.x-3,m.y-3,1,m.x,m.y,9);
+    mg.addColorStop(0,'#fff');mg.addColorStop(.5,'#e8b64c');mg.addColorStop(1,'#8a5a1c');
+    ctx.fillStyle=mg;ctx.beginPath();ctx.arc(m.x,m.y,8,0,7);ctx.fill();
+  }
+  for(const p of parts){ctx.globalAlpha=1-p.t/p.life;ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,3,0,7);ctx.fill();ctx.globalAlpha=1;}
+  // out of marbles?
+  if(marbleCount<=0&&!marbles.some(m=>!m.dead)){
+    ctx.fillStyle='rgba(10,7,20,.72)';ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#e8b64c';ctx.font='700 22px Cinzel,serif';ctx.textAlign='center';
+    ctx.fillText(mode==='daily'?(score>=dailyTarget?'☾ TITHE PAID':'TITHE FAILED'):('RITE COMPLETE — '+score+' pts'),W/2,H/2-8);
+    ctx.fillStyle='#9a8fb5';ctx.font='italic 15px Georgia,serif';
+    ctx.fillText('press ↻ Reset or choose another sky',W/2,H/2+20);
+  }
+}
+let last=performance.now();
+function loop(t){const dt=Math.min(.033,(t-last)/1000);last=t;step(dt);draw();requestAnimationFrame(loop);}
+
+// ---------- scroll reactivity (mandatory constraint) ----------
+addEventListener('scroll',()=>{ /* attunement read live in draw(); tide strength scales gravity */ },{passive:true});
+
+// ---------- buttons ----------
+$('btnDaily').onclick=()=>setup('daily');
+$('btnWild').onclick=()=>setup('wild');
+$('btnReset').onclick=()=>setup(mode);
+$('btnMute').onclick=e=>{muted=!muted;e.target.textContent=muted?'♪ Sound: off':'♪ Sound: on';};
+addEventListener('keydown',e=>{if(e.key==='r'||e.key==='R')setup(mode);});
+
+// ---------- boot ----------
+resize();setup('daily');requestAnimationFrame(loop);
+console.log('orbit-marble-playground ready');
+</script>
+</body>
+</html>

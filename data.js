@@ -3341,12 +3341,45 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-29T19:44:00.123Z",
-    "updatedAt": "2026-09-29T19:55:11.212Z",
+    "updatedAt": "2026-09-29T19:55:19.398Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "orbit-marble-playground",
+    "title": "Orbit Marble Playground",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "dark-fantasy",
+    "theme": "physics",
+    "constraints": [
+      "must react to scroll",
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Fling marbles through gravity wells to score orbits and chain cosmic combos.",
+    "features": [
+      "drag to launch marbles",
+      "gravity wells bend paths",
+      "combo scoring system",
+      "daily orbit challenge"
+    ],
+    "tags": [
+      "gravity",
+      "physics",
+      "orbits",
+      "arcade"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-30T01:02:09.193Z",
+    "updatedAt": "2026-09-30T01:04:22.313Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 107, done: 98, counts: {"done":98,"needs-human":9} };
+export const stats = { total: 108, done: 99, counts: {"done":99,"needs-human":9} };
