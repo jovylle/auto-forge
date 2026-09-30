@@ -3503,6 +3503,36 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "ember-post-office",
+      "title": "Ember Post Office",
+      "category": "game",
+      "stack": "vite",
+      "stackReason": "seed stack",
+      "aesthetic": "retro-wave",
+      "theme": "physics",
+      "constraints": [
+        "no images — CSS/canvas only"
+      ],
+      "description": "Ember Post Office",
+      "features": [
+        "core interaction",
+        "polished UI",
+        "share/export"
+      ],
+      "tags": [
+        "post",
+        "ember",
+        "game"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-09-30T21:12:25.189Z",
+      "updatedAt": "2026-09-30T21:16:45.077Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

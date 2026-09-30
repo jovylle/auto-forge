@@ -1,0 +1,30 @@
+{
+  "slug": "ember-post-office",
+  "title": "Ember Post Office",
+  "stack": "vite",
+  "stackReason": "seed stack",
+  "aesthetic": "retro-wave",
+  "theme": "physics",
+  "constraints": [
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Retro-wave Ember Post Office sorting game: 90s physics shift, drag/keyboard dispatch into 3 district chutes, combo/quota/fuse systems, typing ledger, share/export report (copy/download/Web Share), localStorage best+log. No images (CSS/canvas only).",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 236450,
+  "at": "2026-09-30T21:16:36.732Z"
+}

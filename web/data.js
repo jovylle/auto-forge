@@ -3496,12 +3496,42 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-30T14:59:09.757Z",
     "updatedAt": "2026-09-30T15:04:50.088Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "ember-post-office",
+    "title": "Ember Post Office",
+    "category": "game",
+    "stack": "vite",
+    "stackReason": "seed stack",
+    "aesthetic": "retro-wave",
+    "theme": "physics",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "Ember Post Office",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "post",
+      "ember",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-30T21:12:25.189Z",
+    "updatedAt": "2026-09-30T21:16:36.730Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 112, done: 103, counts: {"done":103,"needs-human":9} };
+export const stats = { total: 113, done: 104, counts: {"done":104,"needs-human":9} };
