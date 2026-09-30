@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+/* Yarrow Yodel Yard — organic-brutalist
+   Palette (3 + black/white only):
+   paper #F2EAD3 · moss #3E6B2F · clay #C2481F · ink #171410 · white #FFFDF6 */
+:root{
+  --paper:#F2EAD3;
+  --moss:#3E6B2F;
+  --clay:#C2481F;
+  --ink:#171410;
+  --white:#FFFDF6;
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-sm:3px 3px 0 var(--ink);
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Space Grotesk",system-ui,sans-serif;
+  min-height:100vh;
+  background-image:radial-gradient(var(--moss) 1px,transparent 1.4px);
+  background-size:26px 26px;
+}
+.grain{position:fixed;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:repeating-linear-gradient(0deg,transparent 0 3px,rgba(23,20,16,.03) 3px 4px);}
+
+/* ---------- header ---------- */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 18px;border-bottom:4px solid var(--ink);
+  background:var(--moss);color:var(--white);
+  position:sticky;top:0;z-index:20;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  display:grid;place-items:center;width:52px;height:52px;flex:none;
+  background:var(--paper);color:var(--moss);
+  border:3px solid var(--ink);border-radius:50% 50% 50% 6px;
+  transform:rotate(-6deg);box-shadow:3px 3px 0 var(--ink);
+}
+h1{
+  font-family:"Fraunces",Georgia,serif;font-weight:900;
+  font-size:clamp(22px,5.4vw,38px);line-height:.95;margin:0;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+.tagline{margin:2px 0 0;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--paper)}
+.best-badge{
+  border:3px solid var(--ink);border-radius:999px;background:var(--clay);color:var(--white);
+  padding:8px 14px;font-weight:700;font-size:12px;letter-spacing:1.5px;white-space:nowrap;
+  box-shadow:var(--shadow-sm);transform:rotate(2deg);
+}
+.best-badge b{font-size:15px}
+
+/* ---------- layout ---------- */
+#app{max-width:860px;margin:0 auto;padding:18px 14px 40px}
+section{margin-top:18px}
+.section-title{
+  font-family:"Fraunces",serif;font-weight:900;font-size:22px;margin:6px 2px 10px;
+  text-transform:uppercase;
+}
+.section-title span{font-family:"Space Grotesk",sans-serif;font-size:12px;font-weight:500;text-transform:none;letter-spacing:.3px}
+
+/* ---------- scoreboard ---------- */
+.board{
+  display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:10px;align-items:stretch;
+  background:var(--white);border:3px solid var(--ink);border-radius:var(--r);
+  padding:12px;box-shadow:var(--shadow);position:relative;
+}
+.stat{border:2px dashed var(--ink);border-radius:10px;padding:8px 10px;background:var(--paper)}
+.stat .label{display:block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.stat b{font-family:"Fraunces",serif;font-size:clamp(22px,6vw,34px);line-height:1}
+.score-stat{background:var(--ink);color:var(--paper);border-style:solid}
+.harmony-stat{grid-column:1/-1}
+.hbar{height:16px;border:2px solid var(--ink);border-radius:999px;background:var(--paper);overflow:hidden;margin-top:6px}
+#harmonyFill{height:100%;width:0%;background:repeating-linear-gradient(-45deg,var(--moss) 0 10px,var(--clay) 10px 20px);transition:width .35s ease}
+.harmony-stat .label{display:flex;justify-content:space-between}
+.yodel-badge{
+  position:absolute;top:-16px;right:14px;transform:rotate(3deg);
+  background:var(--clay);color:var(--white);font-weight:700;font-size:12px;letter-spacing:1px;
+  border:3px solid var(--ink);border-radius:999px;padding:4px 12px;
+  opacity:.35;transition:opacity .2s,transform .15s;
+}
+.yodel-badge.lit{opacity:1;transform:rotate(-2deg) scale(1.12);animation:pulse .3s infinite alternate}
+@keyframes pulse{to{transform:rotate(-2deg) scale(1.2)}}
+
+/* ---------- phrase ---------- */
+.phrase-panel{background:var(--moss);border:3px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;color:var(--white)}
+.phrase-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.phrase-head h2{font-family:"Fraunces",serif;margin:0;font-size:20px;text-transform:uppercase}
+.phrase-actions{display:flex;gap:8px}
+.phrase{list-style:none;display:flex;gap:8px;margin:12px 0 6px;padding:0;flex-wrap:wrap}
+.phrase li{
+  width:52px;height:52px;display:grid;place-items:center;
+  border:3px solid var(--ink);border-radius:12px 12px 12px 3px;
+  background:var(--paper);color:var(--ink);font-weight:700;font-size:17px;
+  transition:transform .15s;
+}
+.phrase li small{display:block;font-size:9px;font-weight:700;letter-spacing:1px}
+.phrase li.next{outline:4px solid var(--clay);transform:rotate(-4deg) scale(1.08)}
+.phrase li.hit{background:var(--clay);color:var(--white);transform:rotate(3deg)}
+.phrase li.missed{opacity:.45;filter:grayscale(1)}
+.phrase li.perfect{box-shadow:0 0 0 4px var(--white),0 0 18px 4px var(--clay)}
+.sing-hint{margin:4px 0 0;font-size:15px}
+.sing-hint b{font-family:"Fraunces",serif;font-size:22px;background:var(--ink);color:var(--paper);padding:0 10px;border-radius:8px}
+
+/* ---------- choir ---------- */
+.choir{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.herb{
+  background:var(--white);border:3px solid var(--ink);border-radius:var(--r);
+  box-shadow:4px 4px 0 var(--ink);padding:10px 6px 12px;text-align:center;
+  transition:transform .15s;position:relative;overflow:hidden;
+}
+.herb:nth-child(odd){transform:rotate(-1deg)}
+.herb:nth-child(even){transform:rotate(1deg)}
+.herb .stem{display:block;margin:0 auto;height:86px}
+.herb .frond{transform-origin:50% 100%;animation:sway 3.2s ease-in-out infinite alternate}
+.herb:nth-child(2n) .frond{animation-duration:2.6s}
+.herb:nth-child(3n) .frond{animation-duration:3.8s}
+@keyframes sway{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+.herb.awake{background:var(--moss);color:var(--white)}
+.herb.awake .frond{animation-duration:.7s}
+.herb.hitpop{animation:pop .45s ease}
+@keyframes pop{30%{transform:scale(1.12) rotate(-3deg)}60%{transform:scale(.96)}}
+.herb.shake{animation:shake .4s ease}
+@keyframes shake{25%{transform:translateX(-5px) rotate(-2deg)}75%{transform:translateX(5px) rotate(2deg)}}
+.herb h3{margin:6px 0 2px;font-size:13px;letter-spacing:.5px;text-transform:uppercase}
+.herb .note{display:inline-block;font-weight:700;font-size:12px;border:2px solid var(--ink);border-radius:999px;padding:1px 10px;background:var(--paper);color:var(--ink)}
+.herb .mouth{
+  width:26px;height:12px;margin:8px auto 0;border:2.5px solid var(--ink);border-radius:4px 4px 14px 14px;
+  background:var(--ink);transition:height .1s;
+}
+.herb .pot{
+  margin:8px auto 0;width:56px;height:26px;background:var(--clay);
+  border:3px solid var(--ink);border-radius:4px 4px 12px 12px;
+}
+.bloom{position:absolute;top:6px;right:6px;font-size:16px;opacity:0;transform:scale(.4);transition:all .25s}
+.herb.awake .bloom{opacity:1;transform:scale(1.2) rotate(12deg)}
+
+/* ---------- deck ---------- */
+.deck{background:var(--white);border:3px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:16px}
+.meter-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.pitch-name{font-family:"Fraunces",serif;font-size:34px;font-weight:900}
+.pitch-hz{font-size:13px;font-weight:700;letter-spacing:1px}
+.meter{position:relative;height:44px;border:3px solid var(--ink);border-radius:999px;background:var(--paper);overflow:hidden;margin-top:6px}
+.target-zone{position:absolute;top:0;bottom:0;background:var(--moss);opacity:.55;border-left:3px solid var(--ink);border-right:3px solid var(--ink)}
+.needle{
+  position:absolute;top:-2px;bottom:-2px;width:8px;background:var(--clay);
+  border:2px solid var(--ink);border-radius:4px;left:50%;
+  transition:left .06s linear;box-shadow:0 0 10px var(--clay);
+}
+.cents-row{display:flex;justify-content:space-between;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.yodel-btn{
+  display:block;width:100%;margin-top:12px;padding:20px 12px;cursor:pointer;
+  background:var(--clay);color:var(--white);
+  border:4px solid var(--ink);border-radius:20px;box-shadow:var(--shadow);
+  font-family:inherit;touch-action:none;user-select:none;-webkit-user-select:none;
+}
+.yodel-btn:active,.yodel-btn.held{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink);background:var(--moss)}
+.yodel-big{display:block;font-family:"Fraunces",serif;font-weight:900;font-size:clamp(22px,6.5vw,32px);letter-spacing:1px}
+.yodel-sub{display:block;font-size:12px;font-weight:500;margin-top:4px;letter-spacing:.4px}
+.slider-row{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+input[type=range]{flex:1;accent-color:var(--clay);height:32px}
+.keys{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+.key{
+  border:3px solid var(--ink);border-radius:12px;background:var(--paper);color:var(--ink);
+  font-family:inherit;font-weight:700;font-size:16px;padding:12px 4px;cursor:pointer;
+  box-shadow:var(--shadow-sm);
+}
+.key small{display:block;font-size:10px;opacity:.75}
+.key:active,.key.held{background:var(--moss);color:var(--white);transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.keys-hint{font-size:12px;margin:8px 0 0}
+kbd{border:2px solid var(--ink);border-radius:6px;padding:0 6px;background:var(--paper);font-family:inherit;font-size:11px}
+.deck-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{
+  font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;
+  border:3px solid var(--ink);border-radius:999px;padding:9px 16px;
+  background:var(--moss);color:var(--white);box-shadow:var(--shadow-sm);
+}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.ghost{background:var(--paper);color:var(--ink)}
+.btn.small{font-size:12px;padding:6px 12px;box-shadow:2px 2px 0 var(--ink)}
+.btn[aria-pressed="true"]{background:var(--clay);color:var(--white)}
+.mic-status{font-size:12.5px;margin:10px 0 0}
+.toast{
+  position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--paper);font-weight:700;font-size:15px;
+  padding:10px 20px;border-radius:999px;opacity:0;pointer-events:none;
+  transition:all .25s;z-index:50;max-width:92vw;text-align:center;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---------- dialog / footer ---------- */
+dialog{border:4px solid var(--ink);border-radius:16px;background:var(--paper);color:var(--ink);max-width:min(480px,92vw);box-shadow:8px 8px 0 var(--ink);font-family:inherit}
+dialog h2{font-family:"Fraunces",serif;margin:0 0 8px;text-transform:uppercase}
+dialog ol{margin:0 0 14px;padding-left:22px;font-size:14.5px;line-height:1.55}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:22px;font-size:12px;font-weight:500;flex-wrap:wrap;padding:0 4px}
+.linklike{background:none;border:none;font:inherit;text-decoration:underline;cursor:pointer;color:var(--clay);font-weight:700}
+
+.petal{position:fixed;z-index:60;pointer-events:none;font-size:20px;animation:fall 1.1s ease-in forwards}
+@keyframes fall{to{transform:translateY(46vh) rotate(220deg);opacity:0}}
+
+@media (max-width:560px){
+  .board{grid-template-columns:1fr 1fr}
+  .score-stat{grid-column:1/-1}
+  .choir{grid-template-columns:repeat(5,minmax(96px,1fr));overflow-x:auto;padding-bottom:8px}
+  .herb{min-width:96px}
+  .phrase li{width:44px;height:48px;font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
