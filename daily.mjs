@@ -358,24 +358,33 @@ async function main() {
         const msg = buildPassed ? `feat(auto): ${idea.slug} — ${idea.title}` : `chore(auto): ${idea.slug} attempt — needs fix`;
         const st = await run("git", ["diff","--cached","--quiet"], { cwd: ROOT });
         if (st.code !== 0) {
-          await run("git", ["commit","-m", msg], { cwd: ROOT });
-          const hasRemote = (await run("git",["remote"],{cwd:ROOT})).out.trim().length>0;
-          if (hasRemote) {
-            // never silently lose a ship: a concurrent tick (or human edit)
-            // can move origin/master mid-run and reject our push — rebase once
-            // and retry, and log loudly if it still fails
-            let pr = await run("git",["push"],{cwd:ROOT});
-            if (pr.code !== 0) {
-              log(`  git: push rejected (concurrent move?) — pull --rebase + retry`);
-              await run("git",["pull","--rebase"],{cwd:ROOT});
-              pr = await run("git",["push"],{cwd:ROOT});
-            }
-            log(pr.code === 0 ? `  git: committed & pushed — ${msg}` : `  git: PUSH FAILED after rebase retry — commits local only: ${pr.err.slice(-500)}`);
+          const commitRes = await run("git", ["commit","-m", msg], { cwd: ROOT });
+          if (commitRes.code !== 0) {
+            log(`  git: commit failed — ${commitRes.err.slice(-500)}`);
           } else {
-            log(`  git: committed (no remote) — ${msg}`);
-          }
+            const ourHash = (await run("git",["rev-parse","HEAD"],{cwd:ROOT})).out.trim();
+            const hasRemote = (await run("git",["remote"],{cwd:ROOT})).out.trim().length>0;
+            if (hasRemote) {
+              // never silently lose a ship: a concurrent tick (or human edit)
+              // can move origin/master mid-run and reject our push — rebase once
+              // and retry, and log loudly if it still fails
+              let pr = await run("git",["push"],{cwd:ROOT});
+              if (pr.code !== 0) {
+                log(`  git: push rejected (concurrent move?) — pull --rebase + retry`);
+                await run("git",["pull","--rebase"],{cwd:ROOT});
+                // rebase can drop our commit as empty or conflict-resolve it
+                // away — verify the commit survived before claiming success
+                const alive = (await run("git",["cat-file","-1",ourHash],{cwd:ROOT})).code === 0;
+                if (!alive) { pr = { code:1, err:`commit ${ourHash.slice(0,8)} lost during rebase` }; }
+                else { pr = await run("git",["push"],{cwd:ROOT}); }
+              }
+              log(pr.code === 0 ? `  git: committed & pushed — ${msg}` : `  git: PUSH FAILED after rebase retry — commits local only: ${pr.err.slice(-500)}`);
+            } else {
+              log(`  git: committed (no remote) — ${msg}`);
+            }
         }
       }
+    }
     } catch(e){ log("git commit failed", e.message); }
     const loop2 = JSON.parse(fs.readFileSync(LOOP_FILE,"utf8"));
     loop2.lastRun = new Date().toISOString();
