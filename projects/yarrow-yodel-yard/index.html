@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yarrow Yodel Yard — yodel herbs into harmony</title>
+  <meta name="description" content="A tiny yodeling game: sing, hum or slide your pitch to wake the herb choir and grow your yard score." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="30" height="30"><path d="M16 28V12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M16 18C10 18 7 13 7 8c6 0 9 3 9 10z" fill="currentColor"/><path d="M16 15c6 0 9-5 9-10-6 0-9 4-9 10z" fill="currentColor"/><circle cx="16" cy="8" r="3.2" fill="currentColor"/></svg>
+      </span>
+      <div>
+        <h1>Yarrow Yodel Yard</h1>
+        <p class="tagline">Yodel herbs into harmony.</p>
+      </div>
+    </div>
+    <div class="best-badge" title="Best yard score on this device">BEST <b id="best">0</b></div>
+  </header>
+
+  <main id="app">
+    <!-- SCOREBOARD -->
+    <section class="board" aria-label="Yard score">
+      <div class="stat score-stat">
+        <span class="label">Yard score</span>
+        <b id="score">0</b>
+      </div>
+      <div class="stat">
+        <span class="label">Streak</span>
+        <b id="streak">×0</b>
+      </div>
+      <div class="stat">
+        <span class="label">Round</span>
+        <b id="round">1</b>
+      </div>
+      <div class="stat harmony-stat">
+        <span class="label">Choir harmony <i id="harmonyPct">0%</i></span>
+        <div class="hbar"><div id="harmonyFill"></div></div>
+      </div>
+      <div id="yodelBadge" class="yodel-badge" title="Wide wobble = yodel bonus ×2">YODEL ×2</div>
+    </section>
+
+    <!-- TARGET PHRASE -->
+    <section class="phrase-panel">
+      <div class="phrase-head">
+        <h2 id="phraseTitle">Sing this phrase</h2>
+        <div class="phrase-actions">
+          <button id="newPhraseBtn" class="btn small" type="button">↻ new phrase</button>
+          <button id="freeBtn" class="btn small ghost" type="button" aria-pressed="false">freestyle: off</button>
+        </div>
+      </div>
+      <ol id="phrase" class="phrase" aria-label="Target phrase"></ol>
+      <p id="singHint" class="sing-hint">Now sing: <b id="targetNote">–</b> <span id="targetHerb"></span></p>
+    </section>
+
+    <!-- HERB CHOIR -->
+    <section aria-label="Herb choir">
+      <h2 class="section-title">Herb choir <span>— match a herb's note to wake it</span></h2>
+      <div id="choir" class="choir"></div>
+    </section>
+
+    <!-- YODEL DECK -->
+    <section class="deck" aria-label="Yodel mic">
+      <div class="meter-wrap">
+        <div class="meter-head">
+          <span id="pitchName" class="pitch-name">—</span>
+          <span id="pitchHz" class="pitch-hz">no pitch yet</span>
+        </div>
+        <div id="meter" class="meter" aria-hidden="true">
+          <div id="targetZone" class="target-zone"></div>
+          <div id="needle" class="needle"></div>
+        </div>
+        <div class="cents-row"><span>flat</span><span id="cents">±0¢</span><span>sharp</span></div>
+      </div>
+
+      <button id="yodelBtn" class="yodel-btn" type="button">
+        <span class="yodel-big">HOLD TO YODEL</span>
+        <span class="yodel-sub">hold + drag ↑↓ to bend · wobble for ×2</span>
+      </button>
+
+      <label class="slider-row">
+        <span>yodel pitch</span>
+        <input id="pitchSlider" type="range" min="0" max="100" value="38" />
+      </label>
+
+      <div id="keys" class="keys" role="group" aria-label="Sing with keys"></div>
+      <p class="keys-hint">keys <kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd>F</kbd><kbd>G</kbd> sing · hold <kbd>Space</kbd> = yodel break</p>
+
+      <div class="deck-actions">
+        <button id="micBtn" class="btn" type="button" aria-pressed="false">🎙 enable mic</button>
+        <button id="soundBtn" class="btn ghost" type="button" aria-pressed="true">🔊 sound on</button>
+        <button id="howBtn" class="btn ghost" type="button">? how to play</button>
+      </div>
+      <p id="micStatus" class="mic-status" role="status">Mic off — the slider, big button &amp; keys yodel with the built-in voice. Mic adds real singing.</p>
+    </section>
+
+    <dialog id="howDialog">
+      <h2>How to yodel</h2>
+      <ol>
+        <li><b>Goal:</b> sing each note of the phrase in order. Waking all 8 herbs finishes the round.</li>
+        <li><b>No mic?</b> Hold <b>HOLD TO YODEL</b> and drag up/down, move the <b>yodel pitch</b> slider, or tap the herb keys (<kbd>A</kbd>–<kbd>G</kbd>).</li>
+        <li><b>Mic?</b> Press <b>enable mic</b>, then hum or yodel. Chrome/Edge over https or localhost work best.</li>
+        <li><b>Yodel ×2:</b> wobble your pitch wide (or hold <kbd>Space</kbd>) while hitting a note for double points.</li>
+        <li>Land inside the glowing zone on the meter. Green-gold burst = perfect (±25¢).</li>
+      </ol>
+      <button id="howClose" class="btn" type="button">start yodeling</button>
+    </dialog>
+
+    <p id="toast" class="toast" role="status" aria-live="polite"></p>
+  </main>
+
+  <footer class="foot">
+    <span>Yarrow Yodel Yard · an organic-brutalist yodeling game</span>
+    <button id="resetBest" class="linklike" type="button">reset best</button>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

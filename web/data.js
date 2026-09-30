@@ -3472,6 +3472,36 @@ export const projects = [
     "buildPassed": true,
     "lastModel": "opencode/muse-spark-1.3-contributor-free",
     "lastError": null
+  },
+  {
+    "slug": "yarrow-yodel-yard",
+    "title": "Yarrow Yodel Yard",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "organic-brutalist",
+    "theme": "physics",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Yodel herbs into harmony.",
+    "features": [
+      "yodel mic",
+      "herb choir",
+      "yard score"
+    ],
+    "tags": [
+      "yodel",
+      "herbs",
+      "audio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-30T14:59:09.757Z",
+    "updatedAt": "2026-09-30T15:04:50.088Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 111, done: 102, counts: {"done":102,"needs-human":9} };
+export const stats = { total: 112, done: 103, counts: {"done":103,"needs-human":9} };

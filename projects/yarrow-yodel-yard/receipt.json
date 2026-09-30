@@ -1,0 +1,30 @@
+{
+  "slug": "yarrow-yodel-yard",
+  "title": "Yarrow Yodel Yard",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "organic-brutalist",
+  "theme": "physics",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "yodel mic",
+      "herb choir",
+      "yard score"
+    ],
+    "status": "pass",
+    "summary": "Yarrow Yodel Yard: organic-brutalist yodeling game. Mic pitch input (autocorrelation) + built-in yodel voice (hold-to-yodel bend button, pitch slider, A/S/D/F/G keys, Space yodel-break). 5-herb choir (C/D/E/G/A) with sway/bloom/mouth-dance animations and triangle+5th choir tones. Yard score with streaks, perfect bonuses, YODEL x2 wobble multiplier, round phrases, harmony meter, localStorage best. 3 colors (paper/moss/clay)+black/white, responsive to 375px, node --check + ID cross-check clean."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 336689,
+  "at": "2026-09-30T15:04:50.091Z"
+}

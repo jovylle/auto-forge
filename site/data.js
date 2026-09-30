@@ -3435,12 +3435,73 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-30T08:08:14.326Z",
-    "updatedAt": "2026-09-30T08:10:41.367Z",
+    "updatedAt": "2026-09-30T08:10:47.089Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "grackle-boneyard-bingo",
+    "title": "Grackle Boneyard Bingo",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "biomorphic",
+    "theme": "physics",
+    "constraints": [
+      "no external fonts — system fonts only",
+      "uses only one interaction type (click OR drag OR type)"
+    ],
+    "description": "Call bingo among the grackles.",
+    "features": [
+      "bingo caller",
+      "boneyard card",
+      "grackle heckles"
+    ],
+    "tags": [
+      "bingo",
+      "grackle",
+      "game"
+    ],
+    "status": "done",
+    "deployed": true,
+    "createdAt": "2026-09-30T14:14:03.443Z",
+    "updatedAt": "2026-09-30T14:17:24.000Z",
+    "buildPassed": true,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free",
+    "lastError": null
+  },
+  {
+    "slug": "yarrow-yodel-yard",
+    "title": "Yarrow Yodel Yard",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "organic-brutalist",
+    "theme": "physics",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Yodel herbs into harmony.",
+    "features": [
+      "yodel mic",
+      "herb choir",
+      "yard score"
+    ],
+    "tags": [
+      "yodel",
+      "herbs",
+      "audio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-09-30T14:59:09.757Z",
+    "updatedAt": "2026-09-30T15:04:50.088Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 110, done: 101, counts: {"done":101,"needs-human":9} };
+export const stats = { total: 112, done: 103, counts: {"done":103,"needs-human":9} };
