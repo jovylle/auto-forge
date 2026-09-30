@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Grackle Boneyard Bingo</title>
+<meta name="description" content="Call bingo among the grackles. A biomorphic boneyard bingo with heckling grackles." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="marsh" aria-hidden="true">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <span class="blob b4"></span><span class="blob b5"></span>
+</div>
+
+<header class="mast">
+  <div class="skull-badge" aria-hidden="true">
+    <svg viewBox="0 0 64 64" width="44" height="44" role="img" aria-label="grackle skull">
+      <ellipse cx="32" cy="30" rx="17" ry="15" fill="#e8ddc4"/>
+      <polygon points="32,40 22,58 32,52 42,58" fill="#e8ddc4"/>
+      <circle cx="25" cy="28" r="6.5" fill="#14100e"/>
+      <circle cx="39" cy="28" r="6.5" fill="#14100e"/>
+      <circle cx="25" cy="28" r="2.4" fill="#ffb627"/>
+      <circle cx="39" cy="28" r="2.4" fill="#ffb627"/>
+      <polygon points="30,34 34,34 32,39" fill="#14100e"/>
+    </svg>
+  </div>
+  <div class="mast-text">
+    <p class="kicker">the boneyard · est. by grackles</p>
+    <h1>Grackle Boneyard Bingo</h1>
+    <p class="sub">Call bingo among the grackles. Daub the bones. Endure the heckles.</p>
+  </div>
+  <div class="tally" aria-live="polite">
+    <div class="tally-item"><strong id="statWins">0</strong><span>bingos</span></div>
+    <div class="tally-item"><strong id="statGames">0</strong><span>rounds</span></div>
+    <div class="tally-item"><strong id="statCalls">0/75</strong><span>called</span></div>
+  </div>
+</header>
+
+<main id="app">
+  <!-- CALLER -->
+  <section class="panel caller" aria-label="Bingo caller">
+    <div class="panel-head">
+      <h2><span class="dot"></span>Bingo caller</h2>
+      <div class="head-btns">
+        <button id="btnSound" class="chipbtn" type="button" aria-pressed="true" title="Toggle caws">caw: on</button>
+        <button id="btnAuto" class="chipbtn" type="button" aria-pressed="false" title="Auto-call every 3 seconds">auto: off</button>
+      </div>
+    </div>
+    <div class="caller-body">
+      <div class="ball-wrap">
+        <button id="btnCall" class="ball" type="button" aria-label="Call the next bone ball">
+          <span class="ball-inner">
+            <span id="ballLetter" class="ball-letter">B</span>
+            <span id="ballNumber" class="ball-number">?</span>
+          </span>
+          <span class="ball-shine"></span>
+        </button>
+        <p class="call-hint">click the skull-egg to call</p>
+      </div>
+      <div class="call-meta">
+        <p id="callName" class="call-name">No bones called yet. The grackles are restless.</p>
+        <p id="callCount" class="call-count">0 of 75 bones exhumed</p>
+        <div class="caller-actions">
+          <button id="btnNewRound" class="btn ghost" type="button">new round</button>
+          <button id="btnBingo" class="btn bingo" type="button">BINGO!</button>
+        </div>
+      </div>
+    </div>
+    <div class="tray-wrap">
+      <p class="tray-label">bone tray</p>
+      <div id="tray" class="tray" aria-label="Called balls"></div>
+    </div>
+  </section>
+
+  <!-- CARD -->
+  <section class="panel card-panel" aria-label="Boneyard card">
+    <div class="panel-head">
+      <h2><span class="dot"></span>Boneyard card</h2>
+      <button id="btnNewCard" class="chipbtn" type="button">new card</button>
+    </div>
+    <div id="cardHead" class="bingo-head" aria-hidden="true">
+      <span>B</span><span>I</span><span>N</span><span>G</span><span>O</span>
+    </div>
+    <div id="card" class="card" role="grid" aria-label="Bingo card. Click a bone to daub it."></div>
+    <p class="card-hint">click a bone to daub it — only if it has been called. five in a row wins.</p>
+    <div id="winBanner" class="win-banner" hidden>
+      <p class="win-title">BINGO AMONG THE BONES!</p>
+      <p id="winLine" class="win-line"></p>
+      <button id="btnAgain" class="btn bingo" type="button">lay a new round</button>
+    </div>
+  </section>
+
+  <!-- HECKLES -->
+  <section class="panel heckles" aria-label="Grackle heckles">
+    <div class="panel-head">
+      <h2><span class="dot"></span>Grackle heckles</h2>
+      <button id="btnHeckle" class="chipbtn" type="button">heckle me</button>
+    </div>
+    <div class="perch">
+      <div class="grackle" id="g0" data-g="0">
+        <div class="bubble" id="bub0">…</div>
+        <button class="bird" type="button" data-g="0" aria-label="Marlowe the grackle, click to heckle">
+          <svg viewBox="0 0 80 90"><ellipse cx="40" cy="52" rx="22" ry="26" fill="#241a35"/><circle cx="40" cy="24" r="14" fill="#2e2145"/><polygon points="40,28 62,34 40,38" fill="#e8b64c"/><circle cx="34" cy="22" r="3" fill="#ffb627"/><circle cx="46" cy="22" r="3" fill="#ffb627"/><path d="M20 60 Q10 78 24 84 Q18 74 28 66" fill="#3d2c5c"/><path d="M60 60 Q70 78 56 84 Q62 74 52 66" fill="#3d2c5c"/></svg>
+        </button>
+        <p class="gname">Marlowe</p>
+      </div>
+      <div class="grackle" id="g1" data-g="1">
+        <div class="bubble" id="bub1">…</div>
+        <button class="bird alt" type="button" data-g="1" aria-label="Beakface the grackle, click to heckle">
+          <svg viewBox="0 0 80 90"><ellipse cx="40" cy="52" rx="22" ry="26" fill="#1c1410"/><circle cx="40" cy="24" r="14" fill="#2a1e16"/><polygon points="40,28 60,32 40,40" fill="#d98a9e"/><circle cx="34" cy="22" r="3" fill="#ffb627"/><circle cx="46" cy="22" r="3" fill="#ffb627"/><path d="M24 44 L16 30 L28 38" fill="#1c1410"/></svg>
+        </button>
+        <p class="gname">Beakface</p>
+      </div>
+      <div class="grackle" id="g2" data-g="2">
+        <div class="bubble" id="bub2">…</div>
+        <button class="bird alt2" type="button" data-g="2" aria-label="Aunt Carrion the grackle, click to heckle">
+          <svg viewBox="0 0 80 90"><ellipse cx="40" cy="52" rx="22" ry="26" fill="#33402a"/><circle cx="40" cy="24" r="14" fill="#43553a"/><polygon points="40,28 62,34 40,38" fill="#e8ddc4"/><circle cx="34" cy="22" r="3" fill="#14100e"/><circle cx="46" cy="22" r="3" fill="#14100e"/><circle cx="34" cy="22" r="1.2" fill="#ffb627"/><circle cx="46" cy="22" r="1.2" fill="#ffb627"/></svg>
+        </button>
+        <p class="gname">Aunt Carrion</p>
+      </div>
+    </div>
+    <div class="wire"></div>
+    <p class="heckle-log-label">latest squawks</p>
+    <ul id="heckleLog" class="heckle-log" aria-live="polite"></ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>click-only · system fonts · the grackles accept no appeals · progress nests in your browser</p>
+</footer>
+
+<div id="feathers" aria-hidden="true"></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

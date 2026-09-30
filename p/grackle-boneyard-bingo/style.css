@@ -1,0 +1,230 @@
+/* Grackle Boneyard Bingo — biomorphic boneyard */
+*{box-sizing:border-box}
+:root{
+  --night:#14100e;
+  --night2:#1e1512;
+  --moss:#20241a;
+  --bone:#e8ddc4;
+  --bone-dim:#c9bda1;
+  --marrow:#d98a9e;
+  --marrow-deep:#a34a63;
+  --algae:#7fb069;
+  --algae-deep:#3f6b3a;
+  --grackle:#241a35;
+  --amber:#ffb627;
+  --ink:#14100e;
+  --card:#211812;
+}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; color:var(--bone);
+  font-family:"Avenir Next","Trebuchet MS",Verdana,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(1200px 700px at 15% -5%, #2c2140 0%, transparent 55%),
+             radial-gradient(1000px 600px at 95% 10%, #2e3d2a 0%, transparent 50%),
+             radial-gradient(900px 700px at 50% 110%, #3a1f2b 0%, transparent 55%),
+             var(--night);
+  min-height:100vh; overflow-x:hidden;
+}
+/* floating marsh blobs */
+.marsh{position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0}
+.blob{position:absolute; filter:blur(2px); opacity:.5; animation:drift 14s ease-in-out infinite alternate}
+.b1{width:340px;height:300px;left:-90px;top:-70px;background:#3d2c5c;border-radius:58% 42% 55% 45%/52% 60% 40% 48%}
+.b2{width:300px;height:260px;right:-70px;top:6%;background:#33402a;border-radius:44% 56% 40% 60%/60% 42% 58% 40%;animation-delay:-4s}
+.b3{width:420px;height:300px;left:20%;bottom:-140px;background:#4a2433;border-radius:62% 38% 46% 54%/44% 56% 44% 56%;animation-delay:-8s;opacity:.4}
+.b4{width:180px;height:160px;left:44%;top:30%;background:#5c4a2a;border-radius:50% 50% 42% 58%/56% 44% 56% 44%;opacity:.25;animation-delay:-2s}
+.b5{width:220px;height:200px;right:16%;bottom:4%;background:#2c4a44;border-radius:56% 44% 60% 40%/48% 58% 42% 52%;opacity:.3;animation-delay:-6s}
+@keyframes drift{from{transform:translate(0,0) scale(1) rotate(-2deg)}to{transform:translate(24px,18px) scale(1.06) rotate(3deg)}}
+
+.mast{
+  position:relative; z-index:1; max-width:1060px; margin:0 auto; padding:28px 20px 8px;
+  display:flex; gap:16px; align-items:center; flex-wrap:wrap;
+}
+.skull-badge{
+  width:76px;height:76px;flex:0 0 76px;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 30%, #f4e9cf, var(--bone-dim));
+  border-radius:58% 42% 55% 45%/52% 46% 54% 48%;
+  box-shadow:0 6px 24px rgba(0,0,0,.5), inset 0 -6px 14px rgba(163,74,99,.35);
+  animation:wob 6s ease-in-out infinite;
+}
+@keyframes wob{0%,100%{border-radius:58% 42% 55% 45%/52% 46% 54% 48%}50%{border-radius:46% 54% 42% 58%/58% 54% 46% 42%}}
+.mast-text{flex:1 1 260px; min-width:240px}
+.kicker{margin:0; font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber)}
+h1{margin:2px 0 4px; font-size:clamp(28px,4.6vw,44px); line-height:1.02; letter-spacing:-.01em}
+.sub{margin:0; color:#d8cbae; opacity:.9}
+.tally{display:flex; gap:10px}
+.tally-item{
+  min-width:76px; text-align:center; padding:8px 12px;
+  background:rgba(232,221,196,.08); border:1px solid rgba(232,221,196,.22);
+  border-radius:46% 54% 52% 48%/58% 46% 54% 42%;
+}
+.tally-item strong{display:block; font-size:20px; color:var(--amber)}
+.tally-item span{font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.75}
+
+#app{
+  position:relative; z-index:1; max-width:1060px; margin:0 auto; padding:14px 20px 30px;
+  display:grid; gap:18px; grid-template-columns:1.05fr .95fr;
+  grid-template-areas:"caller card" "heckles card";
+}
+.panel{
+  background:linear-gradient(160deg, rgba(43,30,24,.92), rgba(28,19,16,.94));
+  border:1px solid rgba(232,221,196,.16);
+  border-radius:28px 36px 30px 40px/36px 30px 40px 28px;
+  padding:18px; box-shadow:0 14px 40px rgba(0,0,0,.45);
+  backdrop-filter:blur(3px);
+}
+.caller{grid-area:caller}
+.card-panel{grid-area:card}
+.heckles{grid-area:heckles}
+.panel-head{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px}
+.panel-head h2{margin:0; font-size:15px; letter-spacing:.18em; text-transform:uppercase; display:flex; align-items:center; gap:8px}
+.dot{width:12px;height:12px;border-radius:60% 40% 55% 45%;background:var(--algae);display:inline-block;box-shadow:0 0 12px var(--algae)}
+.card-panel .dot{background:var(--marrow); box-shadow:0 0 12px var(--marrow)}
+.heckles .dot{background:var(--amber); box-shadow:0 0 12px var(--amber)}
+.head-btns{display:flex; gap:8px}
+.chipbtn{
+  font:inherit; font-size:12px; letter-spacing:.08em; cursor:pointer; color:var(--bone);
+  background:rgba(232,221,196,.1); border:1px solid rgba(232,221,196,.3);
+  border-radius:999px; padding:7px 12px; transition:transform .15s, background .15s;
+}
+.chipbtn:hover{background:rgba(232,221,196,.2)}
+.chipbtn:active{transform:scale(.94)}
+.chipbtn[aria-pressed="true"]{background:var(--algae-deep); border-color:var(--algae); color:#fff}
+
+.caller-body{display:flex; gap:16px; align-items:center}
+.ball-wrap{text-align:center}
+.ball{
+  width:132px;height:132px; border:0; cursor:pointer; position:relative;
+  background:radial-gradient(circle at 32% 28%, #fff6dd 0%, var(--bone) 34%, var(--bone-dim) 62%, #8d7f61 100%);
+  border-radius:52% 48% 55% 45%/48% 55% 45% 52%;
+  box-shadow:0 10px 30px rgba(0,0,0,.55), inset 0 -10px 22px rgba(163,74,99,.4);
+  transition:transform .18s;
+  animation:ballbreathe 5s ease-in-out infinite;
+}
+@keyframes ballbreathe{0%,100%{border-radius:52% 48% 55% 45%/48% 55% 45% 52%}50%{border-radius:46% 54% 44% 56%/56% 44% 58% 42%}}
+.ball:hover{transform:scale(1.04) rotate(-1deg)}
+.ball:active{transform:scale(.93)}
+.ball.pop{animation:pop .45s ease}
+@keyframes pop{0%{transform:scale(.8)}40%{transform:scale(1.12) rotate(2deg)}100%{transform:scale(1)}}
+.ball-inner{display:grid; place-items:center; height:100%}
+.ball-letter{font-size:15px; font-weight:800; letter-spacing:.3em; color:var(--marrow-deep)}
+.ball-number{font-size:44px; font-weight:900; line-height:1; color:var(--ink)}
+.ball-shine{position:absolute; left:22px; top:16px; width:34px; height:22px; background:rgba(255,255,255,.65); border-radius:50%; transform:rotate(-24deg); filter:blur(1px)}
+.call-hint{font-size:12px; opacity:.7; margin:8px 0 0}
+.call-meta{flex:1; min-width:0}
+.call-name{font-size:19px; margin:0 0 6px; line-height:1.3; min-height:50px}
+.call-count{margin:0 0 12px; font-size:13px; color:var(--amber); letter-spacing:.06em}
+.caller-actions{display:flex; gap:10px; flex-wrap:wrap}
+.btn{
+  font:inherit; font-weight:800; letter-spacing:.06em; cursor:pointer; border:0;
+  padding:12px 18px; border-radius:18px 24px 18px 26px/24px 18px 26px 18px;
+  transition:transform .15s, box-shadow .15s, filter .15s;
+}
+.btn:active{transform:scale(.95)}
+.btn.ghost{background:rgba(232,221,196,.12); color:var(--bone); border:1px solid rgba(232,221,196,.3)}
+.btn.ghost:hover{background:rgba(232,221,196,.22)}
+.btn.bingo{background:linear-gradient(135deg, var(--marrow), var(--marrow-deep)); color:#fff; box-shadow:0 6px 20px rgba(163,74,99,.5)}
+.btn.bingo:hover{filter:brightness(1.1); transform:translateY(-1px)}
+
+.tray-wrap{margin-top:14px}
+.tray-label{font-size:11px; letter-spacing:.2em; text-transform:uppercase; opacity:.6; margin:0 0 8px}
+.tray{display:flex; flex-wrap:wrap; gap:7px; min-height:40px; max-height:132px; overflow:auto; padding:10px;
+  background:rgba(0,0,0,.28); border-radius:18px; border:1px inset rgba(232,221,196,.14)}
+.tray-empty{opacity:.55; font-size:13px; margin:0}
+.chip{
+  font-size:12px; font-weight:800; padding:5px 9px; color:var(--ink);
+  background:var(--bone); border-radius:52% 48% 60% 40%/48% 60% 40% 52%;
+  animation:chipin .3s ease; white-space:nowrap;
+}
+.chip.latest{background:var(--amber); box-shadow:0 0 14px rgba(255,182,39,.7)}
+@keyframes chipin{from{transform:scale(.4) rotate(-14deg); opacity:0}to{transform:scale(1); opacity:1}}
+
+/* card */
+.bingo-head{display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-bottom:8px}
+.bingo-head span{
+  text-align:center; font-weight:900; font-size:22px; color:var(--ink);
+  background:linear-gradient(180deg, var(--bone), var(--bone-dim));
+  border-radius:46% 54% 50% 50%/60% 60% 40% 40%; padding:4px 0;
+}
+.bingo-head span:nth-child(3){background:linear-gradient(180deg, var(--marrow), var(--marrow-deep)); color:#fff}
+.card{display:grid; grid-template-columns:repeat(5,1fr); gap:8px}
+.cell{
+  font:inherit; cursor:pointer; border:1px solid rgba(232,221,196,.25);
+  background:radial-gradient(circle at 35% 28%, #3a2b22, #241a15 70%);
+  color:var(--bone); min-height:76px; padding:6px 4px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;
+  border-radius:44% 56% 48% 52%/56% 44% 58% 42%;
+  transition:transform .15s, background .2s, box-shadow .2s;
+  position:relative;
+}
+.cell:nth-child(odd){border-radius:56% 44% 58% 42%/44% 58% 42% 56%}
+.cell:hover{transform:translateY(-2px); border-color:var(--amber)}
+.cell:active{transform:scale(.93)}
+.cell .num{font-weight:900; font-size:20px; line-height:1}
+.cell .epi{font-size:10px; opacity:.65; line-height:1.2; text-align:center; max-width:100%}
+.cell.called{border-color:var(--amber); box-shadow:0 0 0 1px var(--amber), 0 0 16px rgba(255,182,39,.35)}
+.cell.daubed{
+  background:radial-gradient(circle at 35% 30%, #a8d89a, var(--algae) 45%, var(--algae-deep) 100%);
+  color:#10210f; border-color:#d7efc9; box-shadow:0 4px 18px rgba(127,176,105,.5);
+}
+.cell.daubed .epi{opacity:.8}
+.cell.daubed::after{content:"●"; position:absolute; top:2px; right:8px; font-size:12px}
+.cell.free{background:radial-gradient(circle at 35% 30%, var(--marrow), var(--marrow-deep)); color:#fff; border-color:#f2b9c6}
+.cell.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px) rotate(-2deg)}50%{transform:translateX(6px)}75%{transform:translateX(-4px)}}
+.cell.winflash{animation:winflash .8s ease infinite alternate}
+@keyframes winflash{from{box-shadow:0 0 8px var(--amber)}to{box-shadow:0 0 26px var(--amber), 0 0 40px var(--marrow)}}
+.card-hint{font-size:12px; opacity:.65; margin:10px 2px 0}
+.win-banner{
+  margin-top:12px; padding:14px; text-align:center;
+  background:linear-gradient(135deg, rgba(127,176,105,.25), rgba(217,138,158,.3));
+  border:1px solid var(--algae); border-radius:22px;
+  animation:chipin .4s ease;
+}
+.win-title{margin:0; font-size:22px; font-weight:900; color:var(--amber)}
+.win-line{margin:6px 0 12px; font-size:14px}
+
+/* heckles */
+.perch{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; align-items:end}
+.grackle{display:flex; flex-direction:column; align-items:center; gap:2px}
+.bubble{
+  width:100%; min-height:64px; font-size:12.5px; line-height:1.35; padding:10px 11px; color:var(--ink);
+  background:var(--bone); border-radius:20px 22px 20px 6px; position:relative;
+  transition:transform .2s;
+}
+.bubble::after{content:""; position:absolute; bottom:-8px; left:50%; transform:translateX(-50%);
+  border:9px solid transparent; border-top-color:var(--bone); border-bottom:0}
+.bubble.fresh{animation:chipin .35s ease}
+.bird{border:0; background:none; cursor:pointer; padding:0; transition:transform .18s}
+.bird svg{width:74px; height:auto; display:block; filter:drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+.bird:hover{transform:translateY(-4px) rotate(-2deg)}
+.bird:active{transform:scale(.9)}
+.grackle.hop .bird{animation:hop .5s ease}
+@keyframes hop{0%{transform:translateY(0)}30%{transform:translateY(-14px) rotate(4deg)}60%{transform:translateY(0)}80%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+.gname{margin:2px 0 0; font-size:12px; letter-spacing:.14em; text-transform:uppercase; opacity:.75}
+.wire{height:4px; background:#0c0908; border-radius:99px; margin:2px 4px 12px; box-shadow:0 2px 0 rgba(232,221,196,.2)}
+.heckle-log-label{font-size:11px; letter-spacing:.2em; text-transform:uppercase; opacity:.6; margin:0 0 6px}
+.heckle-log{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; max-height:150px; overflow:auto}
+.heckle-log li{font-size:13px; background:rgba(0,0,0,.3); border-left:3px solid var(--marrow); padding:7px 10px; border-radius:0 12px 12px 0; animation:chipin .3s ease}
+.heckle-log li b{color:var(--amber)}
+
+.foot{position:relative; z-index:1; text-align:center; font-size:12px; opacity:.6; padding:0 20px 26px}
+#feathers{position:fixed; inset:0; pointer-events:none; z-index:5; overflow:hidden}
+.feather{position:absolute; top:-30px; font-size:22px; animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(340deg)}}
+
+@media (max-width:860px){
+  #app{grid-template-columns:1fr; grid-template-areas:"caller" "card" "heckles"}
+  .mast{padding-top:20px}
+  .caller-body{flex-direction:row}
+}
+@media (max-width:375px){
+  #app{padding:10px 12px 22px}
+  .panel{padding:14px}
+  .cell{min-height:64px}
+  .cell .num{font-size:17px}
+  .ball{width:112px; height:112px}
+  .bubble{font-size:11.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important; transition-duration:.01ms !important}
+}
