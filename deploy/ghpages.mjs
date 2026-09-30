@@ -15,6 +15,12 @@ export async function deploy() {
   if (!remote) { console.log("  gh-pages: no git remote — skip (enable after you push to GitHub)"); return false; }
 
   // use git worktree / temp branch technique (simple: gh-pages branch)
+  // fast-forward local gh-pages to origin first: a concurrent deploy (or human
+  // push) can leave the local ref stale, and pushing the worktree commit from
+  // a stale base is rejected as non-fast-forward (yarrow-yodel-yard pattern).
+  // Best-effort: if local and remote diverged, the push below fails loudly and
+  // reports deployed:false instead of silently going stale.
+  await run("git",["fetch","origin","gh-pages:gh-pages"],{cwd:ROOT}).catch(()=>{});
   const tmp = path.join(ROOT, ".gh-pages-tmp");
   if (fs.existsSync(tmp)) fs.rmSync(tmp,{recursive:true});
   fs.mkdirSync(tmp,{recursive:true});

@@ -3497,7 +3497,7 @@
         "audio"
       ],
       "status": "done",
-      "deployed": false,
+      "deployed": true,
       "createdAt": "2026-09-30T14:59:09.757Z",
       "updatedAt": "2026-09-30T15:04:50.088Z",
       "buildPassed": true,
