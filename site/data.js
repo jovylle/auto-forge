@@ -3621,12 +3621,43 @@ export const projects = [
       "dawn"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-01T09:43:09.291Z",
-    "updatedAt": "2026-10-01T09:47:17.750Z",
+    "updatedAt": "2026-10-01T09:47:26.498Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "thistle-drum-corps",
+    "title": "Thistle Drum Corps",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "pixel-art",
+    "theme": "maps",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no images — CSS/canvas only"
+    ],
+    "description": "March a thistledown drum line.",
+    "features": [
+      "drum march",
+      "parade field",
+      "corps score"
+    ],
+    "tags": [
+      "drums",
+      "parade",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-01T15:52:00.200Z",
+    "updatedAt": "2026-10-01T15:55:21.180Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 116, done: 107, counts: {"done":107,"needs-human":9} };
+export const stats = { total: 117, done: 108, counts: {"done":108,"needs-human":9} };

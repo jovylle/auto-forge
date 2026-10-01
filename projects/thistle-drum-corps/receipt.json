@@ -1,0 +1,31 @@
+{
+  "slug": "thistle-drum-corps",
+  "title": "Thistle Drum Corps",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "pixel-art",
+  "theme": "maps",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Pixel-art 4-lane rhythm march: canvas parade field with drummers/crowd/yard lines, WebAudio drum hits on D/F/J/K + tap pads, corps score with combo/ranks/grades and localStorage best. 3 hues + black/white, CSS/canvas only.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drum march",
+      "parade field",
+      "corps score"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 196830,
+  "at": "2026-10-01T15:55:21.184Z"
+}
