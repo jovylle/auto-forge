@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Copper Finch Radio — Trade Dawn Choruses</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap');
+:root{
+  --ink:#0d0a12; --ink2:#14101d; --panel:#1a1426; --panel2:#221a32;
+  --copper:#d98e4a; --copper-hi:#f5c177; --ember:#ff5d3b; --gold:#e8b64c;
+  --moss:#8fbf6b; --mist:#a79fc0; --paper:#ede0c8; --dim:#6f6486;
+  --line:#3a2d55; --glow:0 0 24px rgba(217,142,74,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--ink);color:var(--paper);font-family:'IM Fell English',Georgia,serif;min-height:100vh;
+  background-image:radial-gradient(1200px 600px at 50% -10%,#2b1f4d 0%,transparent 60%),
+  radial-gradient(800px 400px at 90% 110%,#3d1f2b 0%,transparent 60%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23ffffff' opacity='.12'/%3E%3Ccircle cx='70' cy='40' r='1.2' fill='%23ffffff' opacity='.08'/%3E%3Ccircle cx='110' cy='100' r='.8' fill='%23ffffff' opacity='.1'/%3E%3C/svg%3E");}
+.wrap{max-width:1060px;margin:0 auto;padding:20px 16px 60px}
+header.mast{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:linear-gradient(180deg,#1d1630,#120d1d);
+  box-shadow:var(--glow), inset 0 1px 0 rgba(245,193,119,.15);position:relative;overflow:hidden}
+header.mast::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(500px 120px at 20% 0%,rgba(245,193,119,.12),transparent 70%)}
+.brand h1{font-family:Cinzel,serif;font-weight:900;letter-spacing:.12em;margin:0;font-size:clamp(20px,4vw,32px);color:var(--copper-hi);text-shadow:0 2px 20px rgba(217,142,74,.4)}
+.brand h1 small{display:block;font-size:11px;letter-spacing:.42em;color:var(--mist);font-weight:500}
+.brand p{margin:6px 0 0;font-style:italic;color:var(--mist);font-size:15px}
+.live{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mist)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--ember);box-shadow:0 0 12px var(--ember);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.live button{cursor:pointer;background:#0f0b17;color:var(--copper-hi);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-family:Cinzel,serif;font-size:12px;letter-spacing:.15em}
+.live button.on{background:var(--copper);color:#1a1005;border-color:var(--copper-hi)}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;margin-top:16px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,var(--panel),#150f22);border:1px solid var(--line);border-radius:16px;padding:18px;position:relative;overflow:hidden}
+.card h2{font-family:Cinzel,serif;font-size:13px;letter-spacing:.32em;color:var(--copper-hi);margin:0 0 4px}
+.card .lore{font-style:italic;color:var(--mist);font-size:14px;margin:0 0 14px}
+.card::before{content:"❦";position:absolute;top:10px;right:14px;color:#3d3159;font-size:22px}
+/* dial */
+.dial-wrap{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.dial{width:190px;height:190px;border-radius:50%;position:relative;flex:none;cursor:grab;user-select:none;touch-action:none;
+  background:conic-gradient(from -30deg,#3a2a18,#6b4a26,#2a1e3f,#6b4a26,#3a2a18);
+  border:6px solid #0a0710;outline:2px solid var(--copper);box-shadow:var(--glow), inset 0 0 30px rgba(0,0,0,.7)}
+.dial:active{cursor:grabbing}
+.needle{position:absolute;left:50%;top:50%;width:4px;height:78px;background:linear-gradient(var(--copper-hi),var(--ember));transform-origin:50% 100%;border-radius:4px;box-shadow:0 0 10px var(--copper)}
+.hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f5c177,#8a5a22 70%);border:3px solid #0a0710;display:grid;place-items:center;font-size:22px}
+.tick{position:absolute;left:50%;top:50%;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--paper)}
+.dial-read{flex:1;min-width:200px}
+.big-time{font-family:Cinzel,serif;font-size:44px;font-weight:900;color:var(--paper);line-height:1}
+.big-time span{font-size:15px;color:var(--copper);letter-spacing:.2em}
+.halo{font-size:14px;font-style:italic;color:var(--mist);margin:6px 0 10px;min-height:40px}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{font-family:'JetBrains Mono',monospace;font-size:11px;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--mist);background:#0f0b17}
+.pill b{color:var(--copper-hi)}
+input[type=range]{width:100%;accent-color:var(--copper)}
+/* map */
+.mapbox{border:1px solid var(--line);border-radius:12px;background:#0a0714;position:relative;overflow:hidden}
+.mapbox svg{display:block;width:100%;height:auto}
+.perch{cursor:pointer;transition:transform .2s}
+.perch:hover{transform:scale(1.15)}
+.perch circle.nest{filter:drop-shadow(0 0 6px rgba(245,193,119,.8))}
+.perch text{font-family:Cinzel,serif;font-size:9px;fill:var(--paper);text-anchor:middle}
+.perch.active circle.nest{stroke:var(--ember);stroke-width:3}
+/* sequencer */
+.steps{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:12px 0}
+.step{aspect-ratio:.8;border:1px solid var(--line);border-radius:8px;background:#0e0a18;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:.15s;min-height:64px}
+.step .n{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)}
+.step .glyph{font-size:20px;line-height:1;filter:grayscale(1);opacity:.5}
+.step.on{background:linear-gradient(180deg,#3d2a14,#1d1408);border-color:var(--copper);box-shadow:0 0 12px rgba(217,142,74,.4)}
+.step.on .glyph{filter:none;opacity:1}
+.step.playing{outline:2px solid var(--ember);transform:translateY(-3px)}
+.step .pz{font-size:9px;color:var(--copper-hi);font-family:'JetBrains Mono',monospace}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button.btn{cursor:pointer;border:1px solid var(--copper);background:linear-gradient(180deg,#e8a558,#9a5c1e);color:#1c0f02;font-family:Cinzel,serif;font-weight:700;font-size:13px;letter-spacing:.08em;border-radius:10px;padding:10px 16px;transition:.15s}
+button.btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(217,142,74,.4)}
+button.btn.ghost{background:transparent;color:var(--copper-hi);border-color:var(--line)}
+button.btn.ghost:hover{border-color:var(--copper)}
+input.txt,select.txt{background:#0d0916;border:1px solid var(--line);color:var(--paper);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:15px;width:100%}
+label.flabel{font-family:Cinzel,serif;font-size:11px;letter-spacing:.2em;color:var(--mist)}
+canvas.wave{width:100%;height:64px;display:block;background:#0a0612;border:1px solid var(--line);border-radius:10px}
+/* trade + board */
+.trade-list,.board-list{display:flex;flex-direction:column;gap:10px;max-height:380px;overflow:auto;padding-right:4px}
+.trade,.post{border:1px solid var(--line);border-radius:12px;padding:12px;background:#120c1f;transition:.15s}
+.trade:hover,.post:hover{border-color:var(--copper)}
+.trade h3,.post h3{margin:0;font-family:Cinzel,serif;font-size:14px;color:var(--copper-hi);letter-spacing:.05em}
+.meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin:2px 0 6px}
+.staffline{display:flex;gap:4px;margin:8px 0}
+.staffline i{width:100%;height:8px;border-radius:4px;background:#241a38}
+.staffline i.f{background:linear-gradient(90deg,var(--copper),var(--ember))}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.actions button{cursor:pointer;font-size:12px;border-radius:8px;padding:6px 12px;border:1px solid var(--line);background:#0d0916;color:var(--paper);font-family:Cinzel,serif;letter-spacing:.06em}
+.actions button:hover{border-color:var(--copper);color:var(--copper-hi)}
+.actions button.keep{background:#1d2a14;border-color:#3c5a24}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);opacity:0;background:#1c1429;border:1px solid var(--copper);color:var(--paper);padding:10px 18px;border-radius:999px;font-style:italic;transition:.3s;z-index:50;max-width:90vw}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{margin-top:16px;text-align:center;color:var(--dim);font-size:13px;font-style:italic}
+footer code{font-family:'JetBrains Mono',monospace;color:var(--mist);font-style:normal}
+@media(max-width:375px){.wrap{padding:12px 10px 40px}.steps{grid-template-columns:repeat(4,1fr)}.big-time{font-size:34px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div class="brand">
+      <h1>🐦 COPPER FINCH RADIO<small>DAWN CHORUS EXCHANGE · EST. 3AM</small></h1>
+      <p>Trade dawn choruses with fellow finches — tune the dial, sing, barter, roost.</p>
+    </div>
+    <div class="live"><span class="dot" id="airDot" style="background:#444;box-shadow:none"></span><span id="airLabel">OFF AIR</span>
+      <button id="airBtn" aria-pressed="false">🔴 GO ON AIR</button></div>
+  </header>
+
+  <div class="grid">
+    <section class="card" aria-label="Dawn dial">
+      <h2>I · THE DAWN DIAL</h2>
+      <p class="lore" id="haloText">Turn the brass ring to choose your dawn. Each hour wakes a different thicket.</p>
+      <div class="dial-wrap">
+        <div class="dial" id="dial" role="slider" aria-label="Dawn hour" aria-valuemin="4" aria-valuemax="7" aria-valuenow="5" tabindex="0">
+          <div class="needle" id="needle"></div><div class="hub">🐤</div>
+        </div>
+        <div class="dial-read">
+          <div class="big-time"><span id="dawnClock">05:12</span><br><span id="dawnName">COPPER HOUR</span></div>
+          <p class="halo" id="dawnDesc">Thrushes first, then finches. Mist hangs low over the brambles.</p>
+          <div class="pills">
+            <span class="pill">thicket <b id="pThicket">Bramble Hollow</b></span>
+            <span class="pill">tempo <b id="pTempo">96 bpm</b></span>
+            <span class="pill">mist <b id="pMist">62%</b></span>
+          </div>
+          <div style="margin-top:10px"><label class="flabel" for="mistRange">MIST / REVERB</label>
+          <input type="range" id="mistRange" min="0" max="100" value="55"></div>
+        </div>
+      </div>
+      <div class="mapbox" style="margin-top:14px">
+        <svg viewBox="0 0 520 210" role="img" aria-label="Fantasy map of finch thickets">
+          <defs><radialGradient id="gmap" cx="50%" cy="30%"><stop offset="0%" stop-color="#2c2148"/><stop offset="100%" stop-color="#0a0714"/></radialGradient></defs>
+          <rect width="520" height="210" fill="url(#gmap)"/>
+          <path d="M0,150 Q120,120 200,140 T400,130 T520,150 L520,210 L0,210 Z" fill="#17240f" opacity=".9"/>
+          <path d="M0,165 Q150,145 300,160 T520,158 L520,210 L0,210 Z" fill="#101a0b"/>
+          <path d="M40,0 Q90,70 60,150" stroke="#3a2d55" fill="none" stroke-width="2" stroke-dasharray="5 5"/>
+          <path d="M300,0 Q280,80 340,150" stroke="#3a2d55" fill="none" stroke-width="2" stroke-dasharray="5 5"/>
+          <text x="18" y="22" fill="#6f6486" font-size="11" font-family="Cinzel,serif" letter-spacing="3">☾ THE PALE WOOD</text>
+          <text x="360" y="198" fill="#4a3f66" font-size="10" font-family="Cinzel,serif" letter-spacing="2">✦ ember marsh ✦</text>
+          <g id="perches"></g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Chorus trade">
+      <h2>II · CHORUS TRADE</h2>
+      <p class="lore">Tap steps to feather your motif. Sing it, name it, loose it to the winds.</p>
+      <div class="row">
+        <div style="flex:1;min-width:140px"><label class="flabel">FINCH NAME</label><input class="txt" id="finchName" maxlength="18" value="Rustwing"></div>
+        <div style="flex:1;min-width:140px"><label class="flabel">CHORUS TITLE</label><input class="txt" id="chorusTitle" maxlength="28" value="Ember Trill"></div>
+      </div>
+      <div class="steps" id="steps"></div>
+      <canvas class="wave" id="wave" width="600" height="64"></canvas>
+      <div class="row" style="margin-top:10px">
+        <button class="btn" id="singBtn">▶ SING CHORUS</button>
+        <button class="btn ghost" id="wildBtn">🎲 WILD MOTIF</button>
+        <button class="btn ghost" id="looseBtn">🕊 LOOSE TO WINDS</button>
+      </div>
+      <h2 style="margin-top:16px">INCOMING TRADES</h2>
+      <p class="lore">Strange songs drift in. Keep one and it joins your roost.</p>
+      <div class="trade-list" id="trades"></div>
+    </section>
+  </div>
+
+  <div class="grid" style="grid-template-columns:1fr">
+    <section class="card" aria-label="Flock board">
+      <h2>III · THE FLOCK BOARD</h2>
+      <p class="lore">Perched notes from the flock. Pin a cry, praise a song — the board remembers (localStorage).</p>
+      <div class="row">
+        <input class="txt" id="boardText" maxlength="120" placeholder="cry out at dawn… e.g. heard a triple-trill near the marsh!" style="flex:1;min-width:200px">
+        <button class="btn" id="cryBtn">PIN CRY</button>
+        <button class="btn ghost" id="wipeBtn">🧹 clear mine</button>
+      </div>
+      <div class="board-list" id="board" style="margin-top:12px"></div>
+    </section>
+  </div>
+  <footer>Copper Finch Radio · all songs synthesized live with WebAudio — no files, no servers. Your flock lives in <code>localStorage</code>.</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+// ===== Copper Finch Radio — single-file dark-fantasy social radio =====
+const $=s=>document.querySelector(s);
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)};
+const store={get(k,f){try{const v=localStorage.getItem(k);return v?JSON.parse(v):f}catch(e){return f}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+// ---- DAWN DIAL ----
+const DAWNS=[
+ {h:4,m:5,name:"OWL'S LAST HOUR",thicket:"Hollow Oaks",bpm:64,desc:"Owls clock out. One sleepy finch tests a single note against the dark."},
+ {h:4,m:48,name:"ASHEN BLUE",thicket:"Pale Wood Edge",bpm:78,desc:"Cold blue light. Wrens stitch short silver seams of sound."},
+ {h:5,m:12,name:"COPPER HOUR",thicket:"Bramble Hollow",bpm:96,desc:"Thrushes first, then finches. Mist hangs low over the brambles."},
+ {h:5,m:47,name:"GILT WAKING",thicket:"Ember Marsh",bpm:112,desc:"The marsh ignites. Reed-finches trade bright coins of trill."},
+ {h:6,m:20,name:"FULL BLAZE",thicket:"Sunspire Canopy",bpm:132,desc:"Every beak open at once — the great glorious argument of morning."},
+ {h:6,m:55,name:"LATE RISERS",thicket:"Mossbellows",bpm:84,desc:"Doves take over. Finches gossip low, feet warm on copper wire."}];
+let dawnIdx=2, mist=0.55;
+const dial=$('#dial'),needle=$('#needle');
+function renderDawn(){const d=DAWNS[dawnIdx];
+ $('#dawnClock').textContent=String(d.h).padStart(2,'0')+':'+String(d.m).padStart(2,'0');
+ $('#dawnName').textContent=d.name;$('#dawnDesc').textContent=d.desc;
+ $('#pThicket').textContent=d.thicket;$('#pTempo').textContent=d.bpm+' bpm';$('#pMist').textContent=Math.round(mist*100)+'%';
+ const ang=-120+dawnIdx*(240/(DAWNS.length-1));needle.style.transform=`translate(-50%,-100%) rotate(${ang}deg)`;
+ needle.style.left='50%';needle.style.top='calc(50% + 6px)';
+ dial.setAttribute('aria-valuenow',d.h);$('#haloText').textContent=`${d.name} — ${d.thicket}. ${d.desc}`;
+ document.querySelectorAll('.perch').forEach((p,i)=>p.classList.toggle('active',i===dawnIdx%perchData.length));
+}
+let dragging=false;
+function dialFromEvent(e){const r=dial.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+ const p=e.touches?e.touches[0]:e;let a=Math.atan2(p.clientY-cy,p.clientX-cx)*180/Math.PI+90;if(a<-120)a=-120;if(a>120)a=120;
+ const t=(a+120)/240;dawnIdx=Math.round(t*(DAWNS.length-1));renderDawn();}
+dial.addEventListener('pointerdown',e=>{dragging=true;dial.setPointerCapture(e.pointerId);dialFromEvent(e)});
+dial.addEventListener('pointermove',e=>{if(dragging)dialFromEvent(e)});
+dial.addEventListener('pointerup',()=>{dragging=false;chirpBlip();});
+dial.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){dawnIdx=Math.min(DAWNS.length-1,dawnIdx+1);renderDawn()}if(e.key==='ArrowLeft'){dawnIdx=Math.max(0,dawnIdx-1);renderDawn()}});
+$('#mistRange').addEventListener('input',e=>{mist=e.target.value/100;renderDawn()});
+
+// ---- MAP PERCHES ----
+const perchData=[{x:70,y:120,n:"Hollow Oaks",e:"🦉"},{x:170,y:80,n:"Pale Edge",e:"🪶"},{x:265,y:130,n:"Bramble Hollow",e:"🐤"},{x:360,y:85,n:"Ember Marsh",e:"🔥"},{x:455,y:125,n:"Sunspire",e:"☀️"}];
+const pg=document.getElementById('perches');
+perchData.forEach((p,i)=>{const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+ g.setAttribute('class','perch');g.setAttribute('transform',`translate(${p.x},${p.y})`);
+ g.innerHTML=`<circle class="nest" r="16" fill="#1d1429" stroke="#d98e4a" stroke-width="1.5"/><text y="6" font-size="15">${p.e}</text><text y="30">${p.n}</text>`;
+ g.addEventListener('click',()=>{dawnIdx=i<DAWNS.length?i:2;renderDawn();chirpBlip();toast(`Perched at ${p.n} ${p.e}`)});pg.appendChild(g)});
+
+// ---- WEBAUDIO FINCH SYNTH ----
+let AC=null,onAir=false;
+function ac(){if(!AC){AC=new (window.AudioContext||window.webkitAudioContext)()}if(AC.state==='suspended')AC.resume();return AC}
+function finchNote(t,f,dur=0.22,vol=0.25){const c=ac(),o=c.createOscillator(),g=c.createGain(),d=c.createDelay(0.5);
+ d.delayTime.value=0.18+mist*0.25;const fb=c.createGain();fb.gain.value=mist*0.45;
+ const fl=c.createBiquadFilter();fl.type='bandpass';fl.frequency.value=3200;fl.Q.value=2;
+ o.type='sine';o.frequency.setValueAtTime(f*0.7,t);o.frequency.exponentialRampToValueAtTime(f*1.4,t+dur*0.4);o.frequency.exponentialRampToValueAtTime(f,t+dur);
+ g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+0.02);g.gain.exponentialRampToValueAtTime(0.001,t+dur);
+ o.connect(g);g.connect(fl);fl.connect(c.destination);fl.connect(d);d.connect(fb);fb.connect(d);d.connect(c.destination);
+ o.start(t);o.stop(t+dur+0.05);drawBlip(f)}
+function chirpBlip(){try{const c=ac(),t=c.currentTime;finchNote(t,2200+Math.random()*1200,0.15,0.12)}catch(e){}}
+const SCALE=[1568,1760,1976,2093,2349,2637,2794,3136]; // G6-G7 bright finch range
+const GLYPHS=['𝅘𝅥𝅮','𝅘𝅥𝅯','𝄞','♩','♪','♫','♬','𝄢'];
+let motif=store.get('cfr-motif',[0,2,4,2,5,4,1,3]);
+function renderSteps(){const box=$('#steps');box.innerHTML='';
+ motif.forEach((v,i)=>{const s=document.createElement('div');s.className='step'+(v>=0?' on':'');
+  s.innerHTML=`<span class="n">${i+1}</span><span class="glyph">${v>=0?'🐦':'·'}</span><span class="pz">${v>=0?GLYPHS[v%8]:'rest'}</span>`;
+  s.title='tap: cycle pitch · shift-click: rest';s.tabIndex=0;
+  const cyc=ev=>{ev.preventDefault();motif[i]=ev.shiftKey?-1:((motif[i]<0?0:motif[i]+1)%8);store.set('cfr-motif',motif);renderSteps();previewStep(i)};
+  s.onclick=cyc;s.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();motif[i]=(motif[i]+1)%8;store.set('cfr-motif',motif);renderSteps()}};
+  box.appendChild(s)})}
+function previewStep(i){try{if(motif[i]>=0)finchNote(ac().currentTime,SCALE[motif[i]%8],0.2,0.15)}catch(e){}}
+let playing=false;
+function playMotif(m,when=0,bpm){const c=ac();const step=60/(bpm||DAWNS[dawnIdx].bpm)/2;let t=c.currentTime+0.05+when;
+ document.querySelectorAll('.step').forEach(s=>s.classList.remove('playing'));
+ m.forEach((v,i)=>{if(v>=0)finchNote(t,SCALE[v%8],0.24,0.22);
+  setTimeout(()=>{const el=document.querySelectorAll('.step')[i];if(el&&m===motif){el.classList.add('playing');setTimeout(()=>el.classList.remove('playing'),step*900)}},(t-c.currentTime)*1000);
+  t+=step});return t-c.currentTime}
+$('#singBtn').onclick=()=>{try{playMotif(motif);toast('🐦 singing "'+($('#chorusTitle').value||'Untitled')+'"')}catch(e){toast('Tap GO ON AIR first (audio needs a gesture)')}};
+$('#wildBtn').onclick=()=>{motif=Array.from({length:8},()=>Math.random()<0.15?-1:Math.floor(Math.random()*8));store.set('cfr-motif',motif);renderSteps();playMotif(motif)};
+// waveform
+const wc=$('#wave').getContext('2d');
+function drawBlip(f){const w=600,h=64;wc.fillStyle='rgba(10,6,18,.35)';wc.fillRect(0,0,w,h);
+ wc.strokeStyle='#d98e4a';wc.beginPath();for(let x=0;x<w;x+=4){const y=h/2+Math.sin(x*0.05+f*0.001)*Math.random()*20;wc.lineTo(x,y)}wc.stroke()}
+(function idle(){wc.fillStyle='#0a0612';wc.fillRect(0,0,600,64);wc.strokeStyle='#3a2d55';wc.beginPath();wc.moveTo(0,32);wc.lineTo(600,32);wc.stroke();requestAnimationFrame(()=>{})})();
+
+// ---- ON AIR ----
+$('#airBtn').onclick=e=>{onAir=!onAir;const b=e.target;b.classList.toggle('on',onAir);b.textContent=onAir?'🟢 ON AIR':'🔴 GO ON AIR';
+ $('#airDot').style.background=onAir?'#ff5d3b':'#444';$('#airDot').style.boxShadow=onAir?'0 0 12px #ff5d3b':'none';
+ $('#airLabel').textContent=onAir?'ON AIR · '+DAWNS[dawnIdx].name:'OFF AIR';
+ if(onAir){try{ac();playMotif(motif);toast('📻 You are on air — the thicket listens')}catch(err){toast('Audio blocked — tap again')}}};
+
+// ---- CHORUS TRADE ----
+const SEED_TRADES=[
+ {finch:"Mossbeak",title:"Thorn Lullaby",motif:[4,2,0,2,5,3,1,0],dawn:"ASHEN BLUE",likes:12},
+ {finch:"Cindertail",title:"Marsh Coins",motif:[7,5,7,4,2,4,6,-1],dawn:"GILT WAKING",likes:9},
+ {finch:"Pale Wren",title:"Wire Hymn",motif:[0,0,3,5,5,7,5,2],dawn:"COPPER HOUR",likes:21},
+ {finch:"Nightjar June",title:"Owl Rebuke",motif:[1,1,-1,4,4,2,0,1],dawn:"OWL'S LAST HOUR",likes:6}];
+let trades=store.get('cfr-trades',null);
+if(!trades){trades=SEED_TRADES;store.set('cfr-trades',trades)}
+let roost=store.get('cfr-roost',[]);
+function staff(m){return '<div class="staffline">'+m.map(v=>`<i class="${v>=0?'f':''}" style="${v>=0?`opacity:${0.35+v/12}`:''}"></i>`).join('')+'</div>'}
+function renderTrades(){const box=$('#trades');box.innerHTML='';
+ trades.forEach((t,i)=>{const d=document.createElement('div');d.className='trade';
+  d.innerHTML=`<h3>🎵 ${esc(t.title)}</h3><div class="meta">by <b>${esc(t.finch)}</b> · ${esc(t.dawn||'wild dawn')} · ♥ ${t.likes|0}</div>${staff(t.motif)}
+  <div class="actions"><button data-a="play">▶ play</button><button data-a="keep">♥ keep (${roost.includes(i+'')?'roosted':'roost'})</button><button data-a="answer">↩ answer-trade</button></div>`;
+  d.querySelector('[data-a=play]').onclick=()=>playMotif(t.motif);
+  d.querySelector('[data-a=keep]').onclick=ev=>{t.likes=(t.likes|0)+1;if(!roost.includes('t'+i)){roost.push('t'+i);store.set('cfr-roost',roost)}store.set('cfr-trades',trades);renderTrades();pinBoard(`♥ kept "${t.title}" by ${t.finch}`);toast('Kept to your roost ♥')};
+  d.querySelector('[data-a=answer]').onclick=()=>{motif=[...t.motif].reverse();store.set('cfr-motif',motif);renderSteps();$('#chorusTitle').value='Answer to '+t.title;playMotif(motif);toast('Motif reversed — sing your answer, then loose it!')};
+  box.appendChild(d)});
+ if(!trades.length)box.innerHTML='<p class="lore">No songs on the wind. Loose yours first.</p>'}
+$('#looseBtn').onclick=()=>{const finch=$('#finchName').value.trim()||'Nameless Finch';const title=$('#chorusTitle').value.trim()||'Untitled Dawn';
+ store.set('cfr-finch',finch);trades.unshift({finch,title,motif:[...motif],dawn:DAWNS[dawnIdx].name,likes:0});
+ trades=trades.slice(0,24);store.set('cfr-trades',trades);renderTrades();pinBoard(`🕊 ${finch} loosed "${title}" at ${DAWNS[dawnIdx].name}`);playMotif(motif);toast('🕊 Loosed to the winds! The flock can hear it')};
+$('#finchName').value=store.get('cfr-finch','Rustwing');
+
+// ---- FLOCK BOARD ----
+const SEED_BOARD=[{who:"Warden Bramble",text:"Triple-trill near Ember Marsh at GILT WAKING — who sang that? I'll trade my best moss-note.",ts:Date.now()-7200e3,likes:7},{who:"Mossbeak",text:"New finches: turn the dial slow. The Copper Hour hides a secret sixth note.",ts:Date.now()-3600e3,likes:4}];
+let board=store.get('cfr-board',null);if(!board){board=SEED_BOARD;store.set('cfr-board',board)}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function ago(ts){const m=Math.floor((Date.now()-ts)/60000);if(m<1)return'just now';if(m<60)return m+'m ago';return Math.floor(m/60)+'h ago'}
+function renderBoard(){const box=$('#board');box.innerHTML='';
+ [...board].reverse().forEach(p=>{const d=document.createElement('div');d.className='post';
+  d.innerHTML=`<h3>🪺 ${esc(p.who)}</h3><div class="meta">${ago(p.ts)} · ♥ ${p.likes|0}</div><div>${esc(p.text)}</div>
+  <div class="actions"><button>♥ praise</button></div>`;
+  d.querySelector('button').onclick=()=>{p.likes=(p.likes|0)+1;store.set('cfr-board',board);renderBoard()};
+  box.appendChild(d)});
+ const mine=store.get('cfr-finch','Rustwing');
+ const kept=document.createElement('div');kept.className='post';
+ kept.innerHTML=`<h3>🧺 YOUR ROOST</h3><div class="meta">${roost.length} kept songs · singing as ${esc(mine)}</div><div style="font-style:italic;color:var(--mist)">${roost.length?'Your kept choruses sleep here, warm under moss.':'Nothing roosted yet — keep a trade above.'}</div>`;
+ box.appendChild(kept)}
+function pinBoard(text){const mine=store.get('cfr-finch','Rustwing');board.push({who:mine,text,ts:Date.now(),likes:0});board=board.slice(-30);store.set('cfr-board',board);renderBoard()}
+$('#cryBtn').onclick=()=>{const v=$('#boardText').value.trim();if(!v)return toast('Write a cry first');pinBoard(v);$('#boardText').value='';toast('📌 Pinned to the flock board')};
+$('#boardText').addEventListener('keydown',e=>{if(e.key==='Enter')$('#cryBtn').click()});
+$('#wipeBtn').onclick=()=>{const mine=store.get('cfr-finch','Rustwing');board=board.filter(p=>p.who!==mine);store.set('cfr-board',board);renderBoard();toast('Board swept of your cries')};
+
+renderDawn();renderSteps();renderTrades();renderBoard();
+console.log('Copper Finch Radio ready');
+</script>
+</body>
+</html>

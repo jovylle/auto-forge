@@ -3590,13 +3590,43 @@ export const projects = [
       "social"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-01T03:20:11.448Z",
     "updatedAt": "2026-10-01T04:00:00Z",
     "buildPassed": true,
     "lastError": null,
     "retries": 1,
     "lastModel": "worker built complete dependency-free app under wrong vite label; human relabeled html + shipped"
+  },
+  {
+    "slug": "copper-finch-radio",
+    "title": "Copper Finch Radio",
+    "category": "social",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "dark-fantasy",
+    "theme": "maps",
+    "constraints": [
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Trade dawn choruses with fellow finches.",
+    "features": [
+      "dawn dial",
+      "chorus trade",
+      "flock board"
+    ],
+    "tags": [
+      "finch",
+      "radio",
+      "dawn"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-01T09:43:09.291Z",
+    "updatedAt": "2026-10-01T09:47:17.750Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 115, done: 106, counts: {"done":106,"needs-human":9} };
+export const stats = { total: 116, done: 107, counts: {"done":107,"needs-human":9} };
