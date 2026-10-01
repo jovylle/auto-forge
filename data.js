@@ -3652,12 +3652,42 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-01T15:52:00.200Z",
-    "updatedAt": "2026-10-01T15:55:21.180Z",
+    "updatedAt": "2026-10-01T15:55:30.238Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "zephyr-zine-machine",
+    "title": "Zephyr Zine Machine",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "cyberpunk",
+    "theme": "maps",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)"
+    ],
+    "description": "Print zines on the west wind.",
+    "features": [
+      "wind press",
+      "zine templates",
+      "gust print"
+    ],
+    "tags": [
+      "zine",
+      "wind",
+      "generator"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-01T22:00:36.496Z",
+    "updatedAt": "2026-10-01T22:03:57.783Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 117, done: 108, counts: {"done":108,"needs-human":9} };
+export const stats = { total: 118, done: 109, counts: {"done":109,"needs-human":9} };

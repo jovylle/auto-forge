@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZEPHYR ZINE MACHINE — print zines on the west wind</title>
+  <meta name="description" content="A cyberpunk wind-powered zine press. Catch a gust, pick a template, slam the press. Click-only." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="windfx" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="brand">
+      <div class="brand-tag">WEST WIND PRESS // SECTOR 7</div>
+      <h1 class="logo"><span class="logo-zephyr">ZEPHYR</span> <span class="logo-zine">ZINE MACHINE</span></h1>
+      <p class="tagline">Print zines on the west wind. <em>Click-only interface — no keys, no drag, just slam.</em></p>
+    </div>
+    <div class="mast-readout">
+      <div class="ro"><span class="ro-label">WIND</span><span class="ro-val" id="roWind">-- kt</span></div>
+      <div class="ro"><span class="ro-label">FROM</span><span class="ro-val" id="roDir">WSW</span></div>
+      <div class="ro"><span class="ro-label">ISSUE</span><span class="ro-val" id="roIssue">#000</span></div>
+      <div class="ro"><span class="ro-label">TIME</span><span class="ro-val" id="roTime">--:--</span></div>
+    </div>
+  </header>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-inner" id="ticker">WEST WIND RISING +++ NEON PRESSURE NOMINAL +++ INK: VIOLENT MAGENTA +++ PAPER: SALVAGED CONCRETE +++ NO TYPING REQUIRED +++ CLICK TO CATCH A GUST +++ </div></div>
+
+  <main id="app">
+    <!-- 1 · WIND PRESS -->
+    <section class="panel press" aria-label="Wind press">
+      <div class="panel-head"><span class="pnum">01</span><h2>WIND PRESS</h2><span class="blink" aria-hidden="true">● LIVE</span></div>
+      <div class="press-grid">
+        <div class="gauge-wrap">
+          <div class="gauge" id="gauge" aria-hidden="true">
+            <div class="needle" id="needle"></div>
+            <div class="hub"></div>
+            <span class="tick t0">0</span><span class="tick t1">30</span><span class="tick t2">60</span><span class="tick t3">90</span><span class="tick t4">120</span>
+          </div>
+          <div class="gust-name" id="gustName">awaiting gust…</div>
+        </div>
+        <div class="press-controls">
+          <button id="catchBtn" class="btn btn-big" type="button"><span class="btn-top">◉ CATCH GUST</span><span class="btn-sub">harvest the west wind</span></button>
+          <div class="meters">
+            <div class="meter"><div class="meter-head"><span>SPEED</span><b id="mSpeed">-- kt</b></div><div class="bar"><i id="barSpeed"></i></div></div>
+            <div class="meter"><div class="meter-head"><span>PRESSURE</span><b id="mPress">0%</b></div><div class="bar bar-press"><i id="barPress"></i></div></div>
+          </div>
+          <div class="gustlog-label">LAST GUSTS — CLICK A CHIP TO RELOAD IT</div>
+          <div class="gustlog" id="gustLog" role="group" aria-label="Recent gusts"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · TEMPLATES -->
+    <section class="panel templates" aria-label="Zine templates">
+      <div class="panel-head"><span class="pnum">02</span><h2>ZINE TEMPLATES</h2><span class="hint">click one to load it</span></div>
+      <div class="tpl-grid" id="tplGrid" role="group" aria-label="Templates">
+        <button class="tpl is-active" data-tpl="prophecy" type="button">
+          <span class="tpl-kicker">TPL-01 // MANIFESTO</span>
+          <span class="tpl-name">NEON<br/>PROPHECY</span>
+          <span class="tpl-desc">3 commandments from the static</span>
+        </button>
+        <button class="tpl" data-tpl="map" type="button">
+          <span class="tpl-kicker">TPL-02 // FIELD MAP</span>
+          <span class="tpl-name">SECTOR&#8209;7<br/>MAP</span>
+          <span class="tpl-desc">smuggler grid of the sprawl</span>
+        </button>
+        <button class="tpl" data-tpl="verse" type="button">
+          <span class="tpl-kicker">TPL-03 // CUT-UP</span>
+          <span class="tpl-name">STATIC<br/>VERSE</span>
+          <span class="tpl-desc">a poem shredded by the wind</span>
+        </button>
+        <button class="tpl" data-tpl="wanted" type="button">
+          <span class="tpl-kicker">TPL-04 // POSTER</span>
+          <span class="tpl-name">WANTED:<br/>SIGNAL</span>
+          <span class="tpl-desc">bounty poster, fresh ink</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 3 · PRESS BED / GUST PRINT -->
+    <section class="panel bed" aria-label="Press bed">
+      <div class="panel-head"><span class="pnum">03</span><h2>GUST PRINT</h2><span class="hint" id="bedHint">catch a gust, then slam it</span></div>
+      <div class="bed-grid">
+        <div class="bed-actions">
+          <button id="printBtn" class="btn btn-print" type="button" disabled><span class="btn-top">▼ SLAM THE PRESS ▼</span><span class="btn-sub" id="printSub">needs wind first</span></button>
+          <div class="bed-row">
+            <button id="remixBtn" class="btn btn-ghost" type="button">↻ re-roll ink</button>
+            <button id="paperBtn" class="btn btn-ghost" type="button">⎙ paper print</button>
+          </div>
+          <p class="bed-note">Gust strength warps the ink: soft breeze = clean copy, howling gale = beautiful static. Every slam mints a new issue number.</p>
+        </div>
+        <div class="paper-stage" id="paperStage">
+          <div class="paper" id="paper" aria-live="polite"></div>
+          <div class="paper-shadow" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · ARCHIVE -->
+    <section class="panel archive" aria-label="Print archive">
+      <div class="panel-head"><span class="pnum">04</span><h2>PRINT SHELF</h2><span class="hint">saved in this terminal · click to re-hang</span></div>
+      <div class="shelf" id="shelf"></div>
+      <button id="purgeBtn" class="btn btn-ghost btn-danger" type="button">✕ pulp the whole shelf</button>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <span>ZEPHYR ZINE MACHINE v1.0 — WEST WIND PRESS</span>
+    <span class="dot">·</span><span>CLICK-ONLY · NO KEYBOARD · NO DRAG</span>
+    <span class="dot">·</span><span id="footCount">0 issues pressed</span>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
