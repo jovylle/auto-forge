@@ -3533,6 +3533,39 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "fog-cartographer-club",
+      "title": "Fog Cartographer Club",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "aesthetic": "grunge",
+      "theme": "maps",
+      "constraints": [
+        "must react to scroll",
+        "must have an easter egg"
+      ],
+      "description": "Chart shifting fog islands, claim tiles, and trade routes with friends.",
+      "features": [
+        "procedural fog-grid islands",
+        "click-drag territory claiming",
+        "route pathfinder scoring",
+        "seeded daily map share"
+      ],
+      "tags": [
+        "maps",
+        "grids",
+        "territory",
+        "navigation"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-01T01:04:44.176Z",
+      "updatedAt": "2026-10-01T01:08:47.133Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

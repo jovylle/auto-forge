@@ -1,8 +1,8 @@
 {
-  "slug": "ember-post-office",
-  "title": "Ember Post Office",
-  "stack": "vite",
-  "aesthetic": "retro-wave",
+  "slug": "fog-cartographer-club",
+  "title": "Fog Cartographer Club",
+  "stack": "html",
+  "aesthetic": "grunge",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 236450,
-  "at": "2026-09-30T21:16:36.732Z"
+  "elapsedMs": 210088,
+  "at": "2026-10-01T01:08:18.346Z"
 }

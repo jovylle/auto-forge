@@ -1,0 +1,32 @@
+{
+  "slug": "fog-cartographer-club",
+  "title": "Fog Cartographer Club",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "grunge",
+  "theme": "maps",
+  "constraints": [
+    "must react to scroll",
+    "must have an easter egg"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "procedural fog-grid islands",
+      "click-drag territory claiming",
+      "route pathfinder scoring",
+      "seeded daily map share"
+    ],
+    "status": "pass",
+    "summary": "Grunge chart-room game: seeded 28x18 fog-grid islands with harbours, drag-to-claim ink economy, A* route plotting with fame scoring + ledger, daily/custom/drift seeds with share links, scroll-driven fog/tide/logbook, kraken easter egg (type kraken or 5x compass). localStorage per-seed persistence, responsive to 375px, node --check clean."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 210088,
+  "at": "2026-10-01T01:08:18.346Z"
+}

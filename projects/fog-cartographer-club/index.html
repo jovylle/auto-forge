@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Fog Cartographer Club — chart the shifting fog</title>
+<meta name="description" content="Procedural fog-grid islands. Drag to claim territory, plot trade routes, share the daily seed." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="fog-layer fog-a" aria-hidden="true"></div>
+<div class="fog-layer fog-b" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="mast-inner">
+    <div class="stamp">EST.<br/>FOG<br/>№7</div>
+    <div class="title-block">
+      <p class="kicker">The // members-only chart room</p>
+      <h1>FOG <span class="amp">CARTOGRAPHER</span> CLUB</h1>
+      <p class="sub">Chart shifting fog islands · claim tiles · run trade routes with friends.</p>
+    </div>
+    <button id="compass" class="compass" title="tap 5× …something happens" aria-label="compass easter egg">✧<span>N</span></button>
+  </div>
+  <div class="tape-strip" aria-hidden="true"></div>
+</header>
+
+<main id="app">
+  <section class="hud" aria-label="chart controls">
+    <div class="seed-card">
+      <label for="seedInput">CHART SEED</label>
+      <div class="seed-row">
+        <input id="seedInput" maxlength="24" spellcheck="false" autocomplete="off" />
+        <button id="applySeed" class="btn">CHART →</button>
+      </div>
+      <div class="seed-meta">
+        <span id="seedBadge" class="seed-badge">DAILY · —</span>
+        <button id="dailyBtn" class="linklike" title="jump to today's map">today's map</button>
+        <button id="diceBtn" class="linklike" title="random chart">⚄ drift</button>
+      </div>
+      <button id="shareBtn" class="btn ghost full">⧉ COPY SHARE LINK</button>
+      <p id="shareMsg" class="share-msg" role="status"></p>
+    </div>
+
+    <div class="meters">
+      <div class="meter"><div class="meter-top"><span>INK</span><b id="inkVal">0</b></div>
+        <div class="bar"><i id="inkBar"></i></div></div>
+      <div class="meter"><div class="meter-top"><span>CLAIMED</span><b id="claimVal">0</b></div>
+        <div class="bar"><i id="claimBar"></i></div></div>
+      <div class="meter"><div class="meter-top"><span>FAME</span><b id="fameVal">0</b></div>
+        <div class="bar gold"><i id="fameBar"></i></div></div>
+    </div>
+
+    <div class="modes" role="tablist" aria-label="tool mode">
+      <button id="modeClaim" class="btn mode active" role="tab" aria-selected="true">◉ CLAIM <small>drag</small></button>
+      <button id="modeRoute" class="btn mode" role="tab" aria-selected="false">⟿ ROUTE <small>2 taps</small></button>
+      <button id="modeErase" class="btn mode" role="tab" aria-selected="false">✕ SCRAPE <small>drag</small></button>
+    </div>
+    <p class="hint" id="modeHint">Drag across <b>revealed land</b> to stamp your claim. Ink refills as you map fog.</p>
+  </section>
+
+  <section class="chart-wrap">
+    <div class="chart-head">
+      <span id="mapTitle">— uncharted —</span>
+      <span id="tideGauge" title="scroll the page: the tide shifts the fog">TIDE ▓▓░░ <b id="tideVal">low</b></span>
+    </div>
+    <canvas id="chart" width="1120" height="720" aria-label="fog chart grid. drag to claim tiles."></canvas>
+    <div class="chart-foot">
+      <span>◼ claimed &nbsp; ▲ peak &nbsp; ⚓ harbour &nbsp; ≈ fog</span>
+      <span id="routeReadout">no route plotted</span>
+    </div>
+  </section>
+
+  <section class="ledger-row">
+    <div class="ledger">
+      <h2>ROUTE LEDGER <span class="count" id="routeCount">0</span></h2>
+      <ol id="routeList"><li class="empty">No routes yet. Switch to <b>⟿ ROUTE</b>, tap two harbours or claimed tiles.</li></ol>
+      <div class="ledger-actions">
+        <button id="clearRoutes" class="btn ghost sm">burn ledger</button>
+        <button id="sonarBtn" class="btn ghost sm">☄ sonar pulse <small>(reveals fog)</small></button>
+      </div>
+    </div>
+    <div class="logbook" id="logbook">
+      <h2>CAPTAIN'S LOGBOOK <span class="scroll-note">⇅ scroll — the fog answers</span></h2>
+      <article class="log reveal"><h3>I. Sound the fog</h3><p>Every chart is born of a <b>seed</b>. Today's seed is the date. Share the link and your crew charts the <i>same</i> islands.</p></article>
+      <article class="log reveal"><h3>II. Stamp your ground</h3><p>Drag over revealed land to claim it. Ink is precious — mapping fog earns more. Peaks can't be claimed; harbours pay double.</p></article>
+      <article class="log reveal"><h3>III. Run the route</h3><p>Plot harbour-to-harbour runs. Short water crossings pay; long fog crossings pay <i>more</i>. Island-hops multiply fame.</p></article>
+      <article class="log reveal"><h3>IV. Mind the tide</h3><p><b>Scroll this page</b> and watch: the fog drifts, the tide gauge swings, and at high tide low sandbars drown again. Keep scrolling… <span class="redact">there are things in the deep that answer to a name</span>.</p></article>
+      <article class="log reveal"><h3>V. Club rules</h3><p>No engines past the reef. What the fog takes, the Club keeps. Type the old word if you dare — or tap the compass five times.</p></article>
+      <div class="spacer" aria-hidden="true"><p>↓ keep scrolling — drag the tide ↓</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>FOG CARTOGRAPHER CLUB · chart № <span id="footSeed">—</span> · progress kept in this browser · works offline from <code>file://</code></p>
+  </footer>
+</main>
+
+<div id="kraken" class="kraken" aria-hidden="true"><div class="tent">🦑</div><p id="krakenMsg">THE KRAKEN TAKES ITS CUT</p></div>
+<div id="toast" class="toast" role="status"></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
