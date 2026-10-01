@@ -1,0 +1,30 @@
+{
+  "slug": "zephyr-zine-machine",
+  "title": "Zephyr Zine Machine",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "cyberpunk",
+  "theme": "maps",
+  "constraints": [
+    "uses only one interaction type (click OR drag OR type)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "wind press",
+      "zine templates",
+      "gust print"
+    ],
+    "status": "pass",
+    "summary": "Zephyr Zine Machine — cyberpunk click-only wind press. CATCH GUST harvests a seeded west-wind gust (gauge, pressure, named storm, reloadable chips); 4 templates (Neon Prophecy, Sector-7 Map, Static Verse, Wanted: Signal) generate unique seeded zines; SLAM THE PRESS prints with wind-scaled ink distortion, localStorage shelf archive, and print-CSS paper output. Verified: node --check clean, all DOM ids resolve, no input/drag/keyboard handlers, responsive to 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 180453,
+  "at": "2026-10-01T22:03:57.786Z"
+}
