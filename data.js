@@ -3570,7 +3570,7 @@ export const projects = [
     "slug": "dewpoint-diner",
     "title": "Dewpoint Diner",
     "category": "social",
-    "stack": "vite",
+    "stack": "html",
     "stackReason": "no strong keyword — random",
     "aesthetic": "glassmorphism",
     "theme": "maps",
@@ -3589,14 +3589,14 @@ export const projects = [
       "dew",
       "social"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-10-01T03:20:11.448Z",
-    "updatedAt": "2026-10-01T03:28:42.325Z",
-    "buildPassed": false,
-    "lastError": "build failed",
+    "updatedAt": "2026-10-01T04:00:00Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    "lastModel": "worker built complete dependency-free app under wrong vite label; human relabeled html + shipped"
   }
 ];
-export const stats = { total: 115, done: 105, counts: {"done":105,"needs-human":10} };
+export const stats = { total: 115, done: 106, counts: {"done":106,"needs-human":9} };

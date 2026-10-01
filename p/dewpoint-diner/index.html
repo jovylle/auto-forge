@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="description" content="Dewpoint Diner — a 4 AM roadside diner that only opens when the air hits dewpoint. Seat regulars, serve dewy dishes, ring the tip jar." />
+  <title>Dewpoint Diner — opens at dewpoint</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%2310221F'/%3E%3Ctext x='2' y='12' font-size='9' fill='%238FD9C6'%3E%E2%97%8B%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="blob blob-mist" aria-hidden="true"></div>
+  <div class="blob blob-apricot" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="page">
+    <header class="masthead glass">
+      <div class="brand">
+        <p class="kicker">EST. 4 AM · ROUTE DEW-9</p>
+        <h1 class="wordmark">Dewpoint <span>Diner</span></h1>
+        <p class="tagline">we open when the air gives up its water</p>
+      </div>
+      <div class="mast-right">
+        <div id="open-sign" class="open-sign closed" role="status" aria-live="polite">
+          <span class="neon">OPEN</span><span class="neon-sub">at dewpoint</span>
+        </div>
+        <div class="day-chip">
+          <span class="day-label">NIGHT</span>
+          <strong id="day-num">1</strong>
+        </div>
+        <button id="mute-btn" class="icon-btn" type="button" aria-pressed="false" aria-label="Mute sounds">♪</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- 1 · dewpoint meter -->
+      <section class="meter glass" aria-label="Dewpoint meter">
+        <h2>Dew&shy;point</h2>
+        <div class="tube-wrap">
+          <div class="tube" role="img" aria-label="Dewpoint spread meter">
+            <div id="tube-fill" class="tube-fill"></div>
+            <div id="tube-dewline" class="dewline"></div>
+          </div>
+          <div class="tube-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <dl class="readout">
+          <div><dt>AIR</dt><dd><span id="r-temp">18.0</span>°</dd></div>
+          <div><dt>DEW</dt><dd><span id="r-dew">12.0</span>°</dd></div>
+          <div><dt>SPREAD</dt><dd><span id="r-spread">6.0</span>°</dd></div>
+          <div><dt>MIST</dt><dd><span id="r-hum">55</span>%</dd></div>
+        </dl>
+        <button id="mist-btn" class="cta" type="button">❋ pump mist</button>
+        <button id="heat-btn" class="ghost-btn" type="button">patio heaters</button>
+        <p class="hint">Mist cools the air toward dew. Heaters do the opposite. Spread ≤ 0.5° opens the doors.</p>
+        <button id="dawn-btn" class="ghost-btn" type="button" hidden>close up · next night →</button>
+      </section>
+
+      <!-- 2 · diner sim -->
+      <section class="sim glass" aria-label="Diner floor">
+        <div class="sim-head">
+          <h2>The Floor</h2>
+          <div class="till" role="status" aria-live="polite">
+            <span class="till-label">TILL</span>
+            <strong>₵ <span id="coins">0</span></strong>
+            <span class="jar" aria-hidden="true">🫙<em id="tips">0</em></span>
+          </div>
+        </div>
+        <div class="counter">
+          <div class="counter-top"><span>COUNTER</span></div>
+          <div id="stools" class="stools"></div>
+        </div>
+        <div class="booths" id="booths"></div>
+        <div id="rail" class="rail" aria-live="polite">
+          <p class="rail-empty">ticket rail is clear — no orders hanging</p>
+        </div>
+        <p class="hint">Tap a seated guest to serve their order. The longer they wait, the thinner the tip.</p>
+      </section>
+
+      <!-- 3 · right stack -->
+      <div class="stack">
+        <section class="menu glass" aria-label="Dew menu">
+          <div class="menu-head">
+            <h2>Dew Menu</h2>
+            <p>condensed nightly · served only while open</p>
+          </div>
+          <ul id="menu-list" class="menu-list"></ul>
+        </section>
+
+        <section class="regulars glass" aria-label="Regulars board">
+          <div class="menu-head">
+            <h2>Regulars Board</h2>
+            <p>locals who brave the damp · ♥ to pin a fave</p>
+          </div>
+          <ul id="regulars-list" class="regulars-list"></ul>
+          <form id="regular-form" class="regular-form" autocomplete="off">
+            <input id="regular-name" name="name" maxlength="24" placeholder="new regular's name…" aria-label="New regular's name" />
+            <input id="regular-note" name="note" maxlength="80" placeholder="note (e.g. takes extra mist)" aria-label="Note about the regular" />
+            <button type="submit">pin up</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer class="foot">
+      <p>Dewpoint Diner · tips in the jar · sounds synthesized live with WebAudio · progress saved locally</p>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
