@@ -47,7 +47,22 @@
       },
       "elapsedMs": 244730,
       "at": "2026-10-01T09:47:17.754Z"
+    },
+    {
+      "slug": "thistle-drum-corps",
+      "title": "Thistle Drum Corps",
+      "stack": "html",
+      "aesthetic": "pixel-art",
+      "model": "opencode/muse-spark-1.3-contributor-free",
+      "modelVia": "primary",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 196830,
+      "at": "2026-10-01T15:55:21.185Z"
     }
   ],
-  "updatedAt": "2026-10-01T09:47:17.754Z"
+  "updatedAt": "2026-10-01T15:55:21.185Z"
 }

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Thistle Drum Corps — March the Thistledown Line</title>
+<meta name="description" content="A pixel-art rhythm march. Keep the cadence, strike the drums, lead the corps down the field." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<main id="app">
+  <header class="marquee-top" aria-hidden="true">
+    <span>★ THISTLE DRUM CORPS ★ 112 BPM ★ 50-YARD LINE ★ KEEP THE CADENCE ★</span>
+    <span>★ THISTLE DRUM CORPS ★ 112 BPM ★ 50-YARD LINE ★ KEEP THE CADENCE ★</span>
+  </header>
+
+  <section class="cabinet">
+    <div class="title-row">
+      <div>
+        <h1><span class="px">THISTLE</span> DRUM CORPS</h1>
+        <p class="sub">March a thistledown drum line down the parade field.</p>
+      </div>
+      <div class="score-chip" aria-live="polite">
+        <div class="chip-label">CORPS SCORE</div>
+        <div class="chip-score" id="hudScore">000000</div>
+        <div class="chip-row"><span id="hudCombo">COMBO ×0</span><span id="hudRank">CADET</span></div>
+      </div>
+    </div>
+
+    <div class="field-wrap">
+      <canvas id="game" width="480" height="270"></canvas>
+      <div class="field-overlay" id="overlay">
+        <div class="ov-card" id="ovCard">
+          <div class="ov-kicker" id="ovKicker">READY TO MARCH?</div>
+          <div class="ov-title" id="ovTitle">THISTLE DRUM CORPS</div>
+          <p class="ov-text" id="ovText">Hit drums on the gold strike-line. Keys <b>D F J K</b> or tap the pads. Don't break step.</p>
+          <button id="btnStart" class="btn">▶ START MARCH</button>
+          <div class="ov-keys">
+            <span><kbd>D</kbd> snare</span><span><kbd>F</kbd> tenor</span><span><kbd>J</kbd> bass</span><span><kbd>K</kbd> crash</span>
+          </div>
+          <div class="ov-best" id="ovBest">BEST: 0 · RANK: —</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hud-strip">
+      <div class="meter"><label>PARADE PROGRESS</label><div class="bar"><i id="progressFill"></i><em id="progressFlag">⚑</em></div></div>
+      <div class="judge" id="judge">— ON THE MARK —</div>
+      <div class="meter"><label>ACCURACY <span id="accVal">100%</span></label><div class="bar slim"><i id="accFill"></i></div></div>
+    </div>
+
+    <div class="pads" role="group" aria-label="Drum pads">
+      <button class="pad" data-lane="0"><span class="pad-key">D</span><span class="pad-icon" data-icon="snare"></span><span class="pad-name">SNARE</span></button>
+      <button class="pad" data-lane="1"><span class="pad-key">F</span><span class="pad-icon" data-icon="tenor"></span><span class="pad-name">TENOR</span></button>
+      <button class="pad" data-lane="2"><span class="pad-key">J</span><span class="pad-icon" data-icon="bass"></span><span class="pad-name">BASS</span></button>
+      <button class="pad" data-lane="3"><span class="pad-key">K</span><span class="pad-icon" data-icon="crash"></span><span class="pad-name">CRASH</span></button>
+    </div>
+
+    <footer class="foot">
+      <span>◀ ▲ keep cadence ▲ ▶</span>
+      <span id="footStat">60s PARADE · 112 BPM</span>
+      <button id="btnMute" class="linkbtn" aria-pressed="false">SOUND: ON</button>
+    </footer>
+  </section>
+  <p class="hint">Tip: watch the bouncing baton — strike exactly when a note touches the gold line. 8 misses and the line halts.</p>
+</main>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
