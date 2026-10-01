@@ -3559,12 +3559,44 @@ export const projects = [
       "navigation"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-01T01:04:44.176Z",
-    "updatedAt": "2026-10-01T01:08:18.343Z",
+    "updatedAt": "2026-10-01T01:08:47.133Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "dewpoint-diner",
+    "title": "Dewpoint Diner",
+    "category": "social",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "glassmorphism",
+    "theme": "maps",
+    "constraints": [
+      "single HTML file if html stack, single component if vite",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Run a diner that opens at dewpoint.",
+    "features": [
+      "dew menu",
+      "diner sim",
+      "regulars board"
+    ],
+    "tags": [
+      "diner",
+      "dew",
+      "social"
+    ],
+    "status": "needs-human",
+    "deployed": false,
+    "createdAt": "2026-10-01T03:20:11.448Z",
+    "updatedAt": "2026-10-01T03:28:42.325Z",
+    "buildPassed": false,
+    "lastError": "build failed",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 114, done: 105, counts: {"done":105,"needs-human":9} };
+export const stats = { total: 115, done: 105, counts: {"done":105,"needs-human":10} };
