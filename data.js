@@ -3526,12 +3526,45 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-09-30T21:12:25.189Z",
-    "updatedAt": "2026-09-30T21:16:36.730Z",
+    "updatedAt": "2026-09-30T21:16:45.077Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "fog-cartographer-club",
+    "title": "Fog Cartographer Club",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "grunge",
+    "theme": "maps",
+    "constraints": [
+      "must react to scroll",
+      "must have an easter egg"
+    ],
+    "description": "Chart shifting fog islands, claim tiles, and trade routes with friends.",
+    "features": [
+      "procedural fog-grid islands",
+      "click-drag territory claiming",
+      "route pathfinder scoring",
+      "seeded daily map share"
+    ],
+    "tags": [
+      "maps",
+      "grids",
+      "territory",
+      "navigation"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-01T01:04:44.176Z",
+    "updatedAt": "2026-10-01T01:08:18.343Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 113, done: 104, counts: {"done":104,"needs-human":9} };
+export const stats = { total: 114, done: 105, counts: {"done":105,"needs-human":9} };

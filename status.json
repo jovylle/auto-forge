@@ -1,7 +1,7 @@
 {
-  "total": 113,
+  "total": 114,
   "counts": {
-    "done": 104,
+    "done": 105,
     "needs-human": 9
   },
   "projects": [
@@ -2456,7 +2456,30 @@
         "ember",
         "game"
       ],
-      "updatedAt": "2026-09-30T21:16:36.730Z",
+      "updatedAt": "2026-09-30T21:16:45.077Z",
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "fog-cartographer-club",
+      "title": "Fog Cartographer Club",
+      "status": "done",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "category": "game",
+      "aesthetic": "grunge",
+      "theme": "maps",
+      "constraints": [
+        "must react to scroll",
+        "must have an easter egg"
+      ],
+      "tags": [
+        "maps",
+        "grids",
+        "territory",
+        "navigation"
+      ],
+      "updatedAt": "2026-10-01T01:08:18.343Z",
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
@@ -2465,8 +2488,8 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-09-30T15:04:58.867Z",
-    "lastSlug": "yarrow-yodel-yard"
+    "lastRun": "2026-09-30T21:16:49.209Z",
+    "lastSlug": "ember-post-office"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -2507,5 +2530,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-09-30T21:16:37.109Z"
+  "updatedAt": "2026-10-01T01:08:18.951Z"
 }
