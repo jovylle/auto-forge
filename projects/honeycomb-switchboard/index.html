@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Honeycomb Switchboard — 蜂の交換台</title>
+<meta name="description" content="A quiet hex-path puzzle. Connect the hive's switchboard, cell by cell." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="brand">
+    <span class="hanko" aria-hidden="true">蜂</span>
+    <div>
+      <h1>Honeycomb Switchboard</h1>
+      <p class="jp-sub">蜂の交換台 &nbsp;·&nbsp; a quiet game of connections</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <div class="level-pill" title="Current level">
+      <span class="k">第</span><span id="levelNum">1</span><span class="k">局</span>
+      <span class="lv-name" id="levelName">朝露 · morning dew</span>
+    </div>
+    <button id="btnHow" class="btn ghost" type="button">遊び方 · How</button>
+    <button id="btnSound" class="btn ghost" type="button" aria-pressed="true" title="Toggle sound">♪ on</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="board-card" aria-label="Game board">
+    <div class="board-head">
+      <div class="stat"><span class="stat-k">手 moves</span><strong id="statMoves">0</strong><span class="stat-sub" id="statPar">par 0</span></div>
+      <div class="stat"><span class="stat-k">時 time</span><strong id="statTime">0:00</strong></div>
+      <div class="stat"><span class="stat-k">星 stars</span><strong id="statStars">☆☆☆</strong></div>
+    </div>
+    <div class="flow-line" aria-hidden="true"><span id="flowMsg">灯をともして、巣をつなぐ — light cells to join entrance to exit.</span></div>
+    <div id="boardWrap">
+      <div id="board" role="grid" aria-label="Honeycomb grid"></div>
+      <div id="stamp" class="stamp" aria-hidden="true"><span>完成</span></div>
+    </div>
+    <div class="board-foot">
+      <button id="btnNew" class="btn primary" type="button">新規 · New board</button>
+      <button id="btnReset" class="btn" type="button"> reset</button>
+      <button id="btnHint" class="btn" type="button">手がかり · Hint <small id="hintCount"></small></button>
+      <div class="level-nav">
+        <button id="btnPrevLv" class="btn ghost sm" type="button" aria-label="Previous level">‹</button>
+        <button id="btnNextLv" class="btn ghost sm" type="button" aria-label="Next level">›</button>
+      </div>
+    </div>
+  </section>
+
+  <aside class="side">
+    <div class="panel legend">
+      <h2>番台の約束 <span>rules</span></h2>
+      <ol>
+        <li><i class="dot enter"></i>Connect <b>entrance 繋</b> (top) to <b>exit 巣</b> (bottom).</li>
+        <li><i class="dot relay"></i>Every <b>relay 中継</b> cell must glow in the same circuit.</li>
+        <li><i class="dot block"></i><b>Broken 故障</b> cells can never light.</li>
+        <li>Tap a cell to light / snuff it. The current flows only through touching lit cells.</li>
+      </ol>
+      <p class="keys"><kbd>←↑↓→</kbd> move · <kbd>space</kbd> toggle · <kbd>n</kbd> new · <kbd>h</kbd> hint · <kbd>r</kbd> reset</p>
+    </div>
+
+    <div class="panel log-panel">
+      <h2>通信記録 <span>log</span></h2>
+      <ul id="log" aria-live="polite"></ul>
+    </div>
+
+    <div class="panel share-panel">
+      <h2>分ける <span>share / export</span></h2>
+      <div class="share-row">
+        <button id="btnCopyLink" class="btn" type="button">Copy link</button>
+        <button id="btnCopyAscii" class="btn" type="button">Copy board</button>
+        <button id="btnPng" class="btn" type="button">Save PNG</button>
+      </div>
+      <label class="share-label" for="shareCode">Board code — paste to a friend, or paste one in:</label>
+      <div class="share-row">
+        <input id="shareCode" class="code" type="text" spellcheck="false" autocomplete="off" placeholder="hcb1-…" />
+        <button id="btnLoadCode" class="btn ghost" type="button">Load</button>
+      </div>
+      <p id="shareMsg" class="share-msg" role="status"></p>
+    </div>
+
+    <div class="panel best-panel">
+      <h2>記録 <span>best</span></h2>
+      <p id="bestLine" class="best-line">No completed boards yet. 一局どうぞ。</p>
+      <button id="btnWipe" class="btn ghost sm" type="button">erase memory</button>
+    </div>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span class="vert" aria-hidden="true">一期一会 — one moment, one meeting</span>
+  <span>Honeycomb Switchboard · CSS hexagons only · progress lives in this browser (localStorage)</span>
+</footer>
+
+<div id="howModal" class="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="howTitle">
+    <button id="btnCloseHow" class="btn ghost sm modal-x" type="button" aria-label="Close">✕</button>
+    <h2 id="howTitle">遊び方 — how to play</h2>
+    <p class="jp">静かに、灯をともす。<br />Light the comb, and let the signal find its way home.</p>
+    <ol>
+      <li>Tap hex cells to switch them <b>on / off</b>.</li>
+      <li>Golden cells are <b>energized</b> — they touch the entrance through other lit cells.</li>
+      <li>You win when the <b>exit</b> and <b>every relay ◆</b> are all energized at once.</li>
+      <li>Dark cracked cells are broken — route around them.</li>
+      <li>Fewer moves than <b>par</b> earns up to three stars ★.</li>
+    </ol>
+    <p class="tip">Tip: relays are the puzzle. Connect them first, then run one trunk down to the exit.</p>
+    <button id="btnStartPlay" class="btn primary" type="button">はじめる · Begin</button>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
