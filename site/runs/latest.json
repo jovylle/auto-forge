@@ -1,8 +1,8 @@
 {
-  "slug": "marble-murmuration",
-  "title": "Marble Murmuration",
+  "slug": "quartz-cantina",
+  "title": "Quartz Cantina",
   "stack": "html",
-  "aesthetic": "retro-wave",
+  "aesthetic": "sci-fi-terminal",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 109074,
-  "at": "2026-10-02T10:15:36.820Z"
+  "elapsedMs": 229736,
+  "at": "2026-10-02T16:23:55.519Z"
 }

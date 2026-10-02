@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Quartz Cantina — a sci-fi terminal social board. Dock at a sector, broadcast transmissions, buy rounds." />
+  <title>QUARTZ CANTINA // terminal social board</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2304060a'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%233df2a6'%3E%E2%97%88%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="crt" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">◈</span>
+      <div>
+        <h1>QUARTZ&nbsp;CANTINA</h1>
+        <p class="tagline" id="bootline">establishing uplink…</p>
+      </div>
+    </div>
+    <div class="top-status">
+      <div class="clock" title="station time"><span class="dot"></span><time id="clock">--:--:--</time></div>
+      <div class="patrons"><span id="patronCount">0</span> SOULS DOCKED</div>
+      <button id="soundBtn" class="chipbtn" aria-pressed="true" title="toggle cantina audio">♪ SOUND:ON</button>
+    </div>
+  </header>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-inner" id="ticker"></div></div>
+
+  <main id="app">
+    <!-- identity strip -->
+    <section class="panel ident" aria-label="your identity">
+      <div class="field">
+        <label for="callsign">CALLSIGN</label>
+        <input id="callsign" maxlength="16" placeholder="e.g. NOVA_JAX" autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="field">
+        <label>HOUSE</label>
+        <div class="houses" role="radiogroup" aria-label="house">
+          <button class="house h-void is-on" data-house="void" role="radio" aria-checked="true" title="Voidrunners — phosphor green">◍ VOID</button>
+          <button class="house h-solar" data-house="solar" role="radio" aria-checked="false" title="Solaris Cartel — amber">◍ SOLAR</button>
+          <button class="house h-rouge" data-house="rouge" role="radio" aria-checked="false" title="Rouge Signal — rose">◍ ROUGE</button>
+        </div>
+      </div>
+      <div class="field sector-readout">
+        <label>DOCKED SECTOR</label>
+        <div class="sector-big" id="sectorReadout">▚ --·--</div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <!-- sector map -->
+      <section class="panel" aria-label="sector map">
+        <div class="panel-head">
+          <h2>◧ SECTOR CHART</h2>
+          <button id="randomDock" class="chipbtn" title="dock at a random sector">⚄ RANDOM DOCK</button>
+        </div>
+        <div id="map" class="map" role="grid" aria-label="click a sector to dock"></div>
+        <p class="hint">CLICK A SECTOR TO DOCK · BLIPS = ACTIVE TRANSMISSIONS · <span class="you-blip">◆</span> = YOU</p>
+      </section>
+
+      <!-- composer -->
+      <section class="panel" aria-label="broadcast">
+        <div class="panel-head"><h2>◣ HAIL THE CANTINA</h2><span id="charCount" class="count">140</span></div>
+        <div class="tones" role="radiogroup" aria-label="tone">
+          <button class="tone is-on" data-tone="toast" role="radio" aria-checked="true">🥂 TOAST</button>
+          <button class="tone" data-tone="rumor" role="radio" aria-checked="false">👁 RUMOR</button>
+          <button class="tone" data-tone="request" role="radio" aria-checked="false">⚠ REQUEST</button>
+          <button class="tone" data-tone="signal" role="radio" aria-checked="false">✦ SIGNAL</button>
+        </div>
+        <textarea id="composer" rows="3" maxlength="140" placeholder="&gt; raise your glass, spacer… (140 chars)"></textarea>
+        <div class="composer-row">
+          <button id="sendBtn" class="send">▶ BROADCAST <kbd>ctrl+↵</kbd></button>
+        </div>
+      </section>
+    </div>
+
+    <!-- feed -->
+    <section class="panel feed-panel" aria-label="cantina feed">
+      <div class="panel-head">
+        <h2>◭ LIVE WIRE <span id="feedCount" class="count">0</span></h2>
+        <div class="feed-tools">
+          <input id="search" placeholder="filter wire…" autocomplete="off" spellcheck="false" />
+          <select id="houseFilter" aria-label="filter by house">
+            <option value="all">ALL HOUSES</option>
+            <option value="void">VOID</option>
+            <option value="solar">SOLAR</option>
+            <option value="rouge">ROUGE</option>
+          </select>
+          <div class="sharebox">
+            <button id="copyLink" class="chipbtn" title="copy share link encoding your wire">⧉ SHARE</button>
+            <button id="exportTxt" class="chipbtn" title="download cantina log (.txt)">.TXT</button>
+            <button id="exportJson" class="chipbtn" title="download wire (.json)">.JSON</button>
+            <button id="wipeBtn" class="chipbtn danger" title="burn your transmissions">✕ BURN</button>
+          </div>
+        </div>
+      </div>
+      <ul id="feed" class="feed"></ul>
+      <p id="emptyFeed" class="empty" hidden>— wire is silent. be the first to hail. —</p>
+    </section>
+
+    <footer class="foot">
+      <span>QUARTZ CANTINA v1.0 · static build · your wire lives in <code>localStorage</code> · no accounts, no tracking</span>
+      <span class="foot-right">tip your synth-bartender 🤖🍸</span>
+    </footer>
+  </main>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
