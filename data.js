@@ -3775,12 +3775,43 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-02T10:13:40.917Z",
-    "updatedAt": "2026-10-02T10:15:36.815Z",
+    "updatedAt": "2026-10-02T10:15:46.145Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "quartz-cantina",
+    "title": "Quartz Cantina",
+    "category": "social",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "maps",
+    "constraints": [
+      "single HTML file if html stack, single component if vite",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Quartz Cantina",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "cantina",
+      "social",
+      "audio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-02T16:20:01.772Z",
+    "updatedAt": "2026-10-02T16:23:55.514Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 121, done: 112, counts: {"done":112,"needs-human":9} };
+export const stats = { total: 122, done: 113, counts: {"done":113,"needs-human":9} };
