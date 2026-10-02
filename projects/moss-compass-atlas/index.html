@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Moss Compass Atlas — Field Survey 001</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="rule-top" aria-hidden="true"></div>
+<header class="mast">
+  <div class="mast-left">
+    <p class="kicker">Field survey Nº 001 — Bryophyta / Hex grid</p>
+    <h1>Moss<br>Compass<br><span class="red">Atlas</span></h1>
+    <p class="lede">Paint moss territories. Fog lifts where you walk. Outgrow the rival colonies before the survey ends.</p>
+  </div>
+  <div class="mast-right">
+    <div class="clock-block">
+      <span class="label">Survey ends in</span>
+      <span id="timer" class="timer">60</span>
+      <span class="label">sec — playable in 30</span>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><span class="label">Explored</span><strong id="statFog">0%</strong></div>
+      <div class="stat"><span class="label">Your moss</span><strong id="statYou">0</strong></div>
+      <div class="stat"><span class="label">Best</span><strong id="statBest">0</strong></div>
+    </div>
+    <div class="btn-row">
+      <button id="btnNew" class="btn btn-dark" type="button">↻ New survey</button>
+      <button id="btnPng" class="btn btn-red" type="button">↓ Export PNG</button>
+    </div>
+  </div>
+</header>
+
+<nav class="ticker" aria-hidden="true">
+  <span>Paint — Explore — Spread —</span><span>Paint — Explore — Spread —</span><span>Paint — Explore — Spread —</span>
+</nav>
+
+<main class="layout">
+  <section class="map-panel">
+    <div class="panel-head">
+      <span class="ph">01 / Chart</span>
+      <span class="ph" id="hint">Drag to paint · WASD / arrows / tap to move ◉</span>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="map" width="880" height="640"></canvas>
+      <div id="toast" class="toast" hidden></div>
+    </div>
+    <div class="panel-foot">
+      <div class="legend">
+        <span class="lg"><i class="sw you"></i>You — #1A7A2E</span>
+        <span class="lg"><i class="sw r1"></i>Ochre colony</span>
+        <span class="lg"><i class="sw r2"></i>Ultramarine colony</span>
+        <span class="lg"><i class="sw r3"></i>Carmine colony</span>
+        <span class="lg"><i class="sw fog"></i>Fog — unexplored</span>
+      </div>
+      <p class="keys">Keys: <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrows move surveyor ◉ · <kbd>Space</kbd> pulse-spread · fog lifts in radius 2</p>
+    </div>
+  </section>
+
+  <aside class="side">
+    <section class="card">
+      <div class="panel-head"><span class="ph">02 / Leaderboard</span><span class="ph">Live</span></div>
+      <ol id="board" class="board"></ol>
+      <p class="note" id="boardNote">Territory = hexes held. Your moss also self-seeds to neighbours every pulse.</p>
+    </section>
+    <section class="card">
+      <div class="panel-head"><span class="ph">03 / Protocol</span><span class="ph">30-sec play</span></div>
+      <ol class="steps">
+        <li><b>01</b> Drag on the chart to paint moss.</li>
+        <li><b>02</b> Move ◉ to lift fog — rivals hide in it.</li>
+        <li><b>03</b> Each pulse, every colony spreads. Biggest at 0:00 wins.</li>
+      </ol>
+      <label class="toggle"><input type="checkbox" id="optPulse" checked /> Auto-pulse spread (1.2s)</label>
+      <button id="btnPulse" class="btn btn-dark btn-full" type="button">◉ Pulse spread now</button>
+    </section>
+    <section class="card result" id="resultCard" hidden>
+      <div class="panel-head"><span class="ph">04 / Verdict</span><span class="ph" id="verdictTag">—</span></div>
+      <p id="verdict" class="verdict"></p>
+      <button id="btnAgain" class="btn btn-red btn-full" type="button">↻ Survey again</button>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span>MCA—001 · Swiss field grid · 13 × 9 hexes</span>
+  <span>Canvas 2D · no build · localStorage best</span>
+</footer>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "slug": "moss-compass-atlas",
+  "title": "Moss Compass Atlas",
+  "stack": "html",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "swiss",
+  "theme": "maps",
+  "constraints": [
+    "must be playable in 30 seconds"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "paint moss on hex grid",
+      "fog lifts as you explore",
+      "territory size leaderboard",
+      "export map as PNG"
+    ],
+    "status": "pass",
+    "summary": "Moss Compass Atlas: Swiss-styled canvas hex survey (13x9). Drag/tap/WASD paints moss and marches surveyor, fog lifts in radius 2 plus hover scouting, 3 rival colonies auto-spread each 1.2s pulse alongside player moss, live 4-way leaderboard with bars, 60s timer with verdict + localStorage best, 2x PNG export with title/standings. node --check passes, all DOM ids wired, responsive at 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 151188,
+  "at": "2026-10-02T01:05:11.791Z"
+}
