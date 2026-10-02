@@ -3744,12 +3744,43 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-02T04:07:41.209Z",
-    "updatedAt": "2026-10-02T04:11:35.699Z",
+    "updatedAt": "2026-10-02T04:11:44.646Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "marble-murmuration",
+    "title": "Marble Murmuration",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "retro-wave",
+    "theme": "maps",
+    "constraints": [
+      "single HTML file if html stack, single component if vite",
+      "must react to scroll"
+    ],
+    "description": "Marble Murmuration",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "murmuration",
+      "canvas",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-02T10:13:40.917Z",
+    "updatedAt": "2026-10-02T10:15:36.815Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 120, done: 111, counts: {"done":111,"needs-human":9} };
+export const stats = { total: 121, done: 112, counts: {"done":112,"needs-human":9} };
