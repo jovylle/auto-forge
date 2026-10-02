@@ -1,7 +1,7 @@
 {
-  "total": 122,
+  "total": 123,
   "counts": {
-    "done": 113,
+    "done": 114,
     "needs-human": 9
   },
   "projects": [
@@ -2652,7 +2652,28 @@
         "social",
         "audio"
       ],
-      "updatedAt": "2026-10-02T16:23:55.514Z",
+      "updatedAt": "2026-10-02T16:24:04.581Z",
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "moss-telegraph",
+      "title": "Moss Telegraph",
+      "status": "done",
+      "stack": "html",
+      "stackReason": "seed stack (dedup guard)",
+      "category": "social",
+      "aesthetic": "grunge",
+      "theme": "maps",
+      "constraints": [
+        "sound on interaction (WebAudio, no assets)"
+      ],
+      "tags": [
+        "moss",
+        "telegraph",
+        "social"
+      ],
+      "updatedAt": "2026-10-02T22:28:53.527Z",
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
@@ -2661,8 +2682,8 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-10-02T10:15:50.015Z",
-    "lastSlug": "marble-murmuration"
+    "lastRun": "2026-10-02T16:24:08.681Z",
+    "lastSlug": "quartz-cantina"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -2703,5 +2724,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-10-02T16:23:56.285Z"
+  "updatedAt": "2026-10-02T22:28:54.128Z"
 }
