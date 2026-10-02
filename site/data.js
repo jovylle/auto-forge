@@ -3806,12 +3806,42 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-02T16:20:01.772Z",
-    "updatedAt": "2026-10-02T16:23:55.514Z",
+    "updatedAt": "2026-10-02T16:24:04.581Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "moss-telegraph",
+    "title": "Moss Telegraph",
+    "category": "social",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "grunge",
+    "theme": "maps",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Moss Telegraph",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "moss",
+      "telegraph",
+      "social"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-02T22:27:18.731Z",
+    "updatedAt": "2026-10-02T22:28:53.527Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 122, done: 113, counts: {"done":113,"needs-human":9} };
+export const stats = { total: 123, done: 114, counts: {"done":114,"needs-human":9} };

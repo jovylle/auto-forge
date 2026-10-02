@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Moss Telegraph — Tap the Wire</title>
+<meta name="description" content="A grungy slow-social telegraph. Tap dots & dashes, transmit across the moss map, share the wire." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="mast-top">
+    <span class="kicker">EST. 1844 · OVERRGROWN · STILL HUMMING</span>
+    <span class="kicker right">VOL. VII — THE MOSS ISSUE</span>
+  </div>
+  <h1>MOSS <span>TELEGRAPH</span></h1>
+  <p class="tagline">tap the key · grow the wire · the bog remembers everything</p>
+  <div class="mast-actions">
+    <button id="btn-copy" class="btn stamp" type="button">⧉ copy wire</button>
+    <button id="btn-dl" class="btn stamp" type="button">⬇ transcript .txt</button>
+    <button id="btn-json" class="btn stamp" type="button">{ } export json</button>
+    <button id="btn-link" class="btn stamp hot" type="button">🔗 share link</button>
+    <button id="btn-mute" class="btn stamp" type="button" aria-pressed="false">♪ sound: on</button>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</header>
+
+<main id="app">
+  <!-- KEY / TRANSMIT -->
+  <section class="panel key-panel" aria-label="Telegraph key">
+    <div class="tape t1" aria-hidden="true"></div>
+    <div class="tape t2" aria-hidden="true"></div>
+    <h2><span class="rule"></span>1 · POUND THE KEY<span class="rule"></span></h2>
+    <p class="hint">HOLD the brass key (or hold <kbd>SPACE</kbd>): quick tap = <b>·</b> dot, long hold = <b>−</b> dash. Pause = new letter. <b>Longer pause</b> = new word. Or poke · / − buttons.</p>
+
+    <div class="keyrow">
+      <button id="key" class="telegraph-key" type="button" aria-label="Telegraph key — press and hold">
+        <span class="knob"></span>
+        <span class="stem"></span>
+        <span class="base"></span>
+        <span class="keylabel">HOLD TO TAP</span>
+      </button>
+      <div class="meterbox">
+        <div class="meter"><div id="needle" class="needle"></div></div>
+        <div class="meter-cap">LINE<br/>VOLTAGE</div>
+      </div>
+    </div>
+
+    <div class="tapbtns">
+      <button id="btn-dot" class="btn chunk" type="button">· DOT</button>
+      <button id="btn-dash" class="btn chunk" type="button">− DASH</button>
+      <button id="btn-gap" class="btn chunk" type="button">␣ WORD GAP</button>
+      <button id="btn-back" class="btn chunk danger" type="button">⌫ BKSP</button>
+      <button id="btn-clear" class="btn chunk danger" type="button">✕ CLEAR</button>
+    </div>
+
+    <div class="readout">
+      <div class="ro-block">
+        <label>MORSE</label>
+        <div id="morseOut" class="morse-out" aria-live="polite"><span class="ghost">··· −−− ··· waiting for signal…</span></div>
+      </div>
+      <div class="ro-block">
+        <label>DECODED</label>
+        <div id="textOut" class="text-out" aria-live="polite"><span class="ghost">your words crawl out here…</span></div>
+      </div>
+    </div>
+
+    <div class="sendrow">
+      <div class="field">
+        <label for="handle">SIGN AS</label>
+        <input id="handle" maxlength="16" placeholder="e.g. bogwitch" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="station">RELAY TO</label>
+        <select id="station"></select>
+      </div>
+      <button id="btn-send" class="btn send" type="button">⚡ TRANSMIT ▸</button>
+    </div>
+    <p class="cheatsheet"><b>MORSE CARD:</b> <span id="cheat"></span></p>
+  </section>
+
+  <!-- MAP -->
+  <section class="panel map-panel" aria-label="Moss relay map">
+    <h2><span class="rule"></span>2 · THE OVERGROWN MAP<span class="rule"></span></h2>
+    <p class="hint">Six relay huts swallowed by moss. Pick one above — your dispatch pins itself there. Click a pin to read it.</p>
+    <div id="map" class="map" role="list" aria-label="Relay stations"></div>
+    <div class="map-legend">
+      <span><i class="pin mini"></i> dispatch</span>
+      <span><i class="drop">💧</i> = water (like)</span>
+      <span id="wireCount">0 on the wire</span>
+    </div>
+  </section>
+
+  <!-- WIRE FEED -->
+  <section class="panel wire-panel" aria-label="The wire feed">
+    <h2><span class="rule"></span>3 · THE WIRE<span class="rule"></span></h2>
+    <div id="wire" class="wire"></div>
+  </section>
+
+  <footer class="colophon">
+    <p>MOSS TELEGRAPH · printed on salvaged pulp · set in Special Elite & Permanent Marker · no servers, no accounts — the wire lives in your browser (localStorage) until you share it. <button id="btn-wipe" class="linklike" type="button">burn the whole wire</button></p>
+  </footer>
+</main>
+
+<!-- reading modal -->
+<div id="modal" class="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <button id="m-close" class="btn chunk" type="button">✕</button>
+    <div class="m-stamp" id="m-station">BOG HUT</div>
+    <h3 id="m-title">dispatch</h3>
+    <p id="m-meta" class="m-meta"></p>
+    <p id="m-morse" class="m-morse"></p>
+    <p id="m-text" class="m-text"></p>
+    <div class="m-actions">
+      <button id="m-water" class="btn stamp" type="button">💧 water (<span id="m-wc">0</span>)</button>
+      <button id="m-copy" class="btn stamp" type="button">⧉ copy</button>
+      <button id="m-share" class="btn stamp hot" type="button">🔗 share</button>
+      <button id="m-del" class="btn stamp danger" type="button">burn it</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
