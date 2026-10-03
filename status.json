@@ -1,7 +1,7 @@
 {
-  "total": 126,
+  "total": 127,
   "counts": {
-    "done": 117,
+    "done": 118,
     "needs-human": 9
   },
   "projects": [
@@ -2741,7 +2741,30 @@
         "territory",
         "strategy"
       ],
-      "updatedAt": "2026-10-03T10:42:08.693Z",
+      "updatedAt": "2026-10-03T10:42:17.230Z",
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "hexlight-harbor-charts",
+      "title": "Hexlight Harbor Charts",
+      "status": "done",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "category": "game",
+      "aesthetic": "cyberpunk",
+      "theme": "maps",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "must have an easter egg"
+      ],
+      "tags": [
+        "maps",
+        "hexgrid",
+        "strategy",
+        "procedural"
+      ],
+      "updatedAt": "2026-10-03T16:51:28.662Z",
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
@@ -2750,8 +2773,8 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-10-03T04:36:51.232Z",
-    "lastSlug": "juniper-waypoint-arcade"
+    "lastRun": "2026-10-03T10:42:21.300Z",
+    "lastSlug": "pebble-grid-pilgrims"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -2792,5 +2815,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-10-03T10:42:09.196Z"
+  "updatedAt": "2026-10-03T16:51:29.168Z"
 }

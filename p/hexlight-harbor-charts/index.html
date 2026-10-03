@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Hexlight Harbor Charts — chart shifting islands, claim hexes, and run trade routes before the tide resets." />
+  <title>Hexlight Harbor Charts</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <main id="app">
+    <header class="hud-top">
+      <div class="brand">
+        <button id="beacon" class="beacon" title="harbor beacon" aria-label="harbor beacon — click me">◈</button>
+        <div>
+          <h1>HEXLIGHT <span>HARBOR</span> CHARTS</h1>
+          <p class="sub">chart shifting islands · claim hexes · run routes · beat the tide</p>
+        </div>
+      </div>
+      <div class="tidebox">
+        <div class="tide-label">TIDE SEED <code id="seedLabel">—</code></div>
+        <div class="tide-count">next tide <b id="countdown">--:--:--</b></div>
+      </div>
+    </header>
+
+    <section class="hud-stats" aria-live="polite">
+      <div class="stat you"><label>YOU</label><b id="youCount">0</b><small>claimed</small></div>
+      <div class="stat score"><label>SCORE</label><b id="score">0</b><small>best <span id="best">0</span></small></div>
+      <div class="stat foe"><label>VANTA&nbsp;CORP</label><b id="foeCount">0</b><small>claimed</small></div>
+      <div class="stat energy"><label>ENERGY</label><b id="energy">14</b><small>/ 14</small></div>
+    </section>
+
+    <section class="toolbar">
+      <div class="modes" role="tablist" aria-label="mode">
+        <button id="modeClaim" class="on" role="tab" aria-selected="true">⚓ CLAIM</button>
+        <button id="modeRoute" role="tab" aria-selected="false">⟡ ROUTE</button>
+      </div>
+      <div class="actions">
+        <button id="finishRoute" disabled>COMPLETE&nbsp;ROUTE</button>
+        <button id="clearRoute" disabled>CLEAR</button>
+        <button id="newTide" title="demo: roll a new random tide">↻ NEW&nbsp;TIDE</button>
+      </div>
+    </section>
+
+    <div id="routeBar" class="routebar hidden">
+      <span id="routeInfo">pick one of YOUR hexes to start a route…</span>
+      <b id="routeScore"></b>
+    </div>
+
+    <div id="stage">
+      <svg id="board" viewBox="0 0 640 560" role="application" aria-label="hex island chart"></svg>
+      <div id="kraken" class="kraken hidden" aria-hidden="true"><div class="k-title">⬢ KRAKEN SURFACES ⬢</div><div class="k-sub">the harbor remembers. +50 phantom cargo</div></div>
+    </div>
+
+    <section class="legend">
+      <span><i class="sw water"></i>water</span>
+      <span><i class="sw sand"></i>shoal</span>
+      <span><i class="sw land"></i>isle</span>
+      <span><i class="sw port"></i>port ×2</span>
+      <span><i class="sw you"></i>you</span>
+      <span><i class="sw foe"></i>vanta</span>
+      <span><i class="sw reef"></i>reef ✕</span>
+    </section>
+
+    <section class="logwrap">
+      <h2>harbor log</h2>
+      <ol id="log"></ol>
+    </section>
+
+    <footer>
+      <p>daily tide seed · progress saves per tide · <span class="hint">psst — the konami code wakes something…</span></p>
+    </footer>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
