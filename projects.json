@@ -3876,6 +3876,38 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "juniper-waypoint-arcade",
+      "title": "Juniper Waypoint Arcade",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "aesthetic": "neo-brutalism",
+      "theme": "maps",
+      "constraints": [
+        "3 colors max (plus black/white)"
+      ],
+      "description": "Claim tiles, plot routes, and outmaneuver rivals on shifting neon maps.",
+      "features": [
+        "hex-grid territory capture",
+        "daily shifting obstacle maps",
+        "route-plotting score combos",
+        "local leaderboard races"
+      ],
+      "tags": [
+        "maps",
+        "grids",
+        "strategy",
+        "arcade"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-03T04:34:45.118Z",
+      "updatedAt": "2026-10-03T04:36:47.130Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
