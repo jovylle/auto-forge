@@ -3836,12 +3836,45 @@ export const projects = [
       "social"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-02T22:27:18.731Z",
-    "updatedAt": "2026-10-02T22:28:53.527Z",
+    "updatedAt": "2026-10-02T22:29:02.214Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "lantern-fog-atlas",
+    "title": "Lantern Fog Atlas",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "bauhaus",
+    "theme": "maps",
+    "constraints": [
+      "must react to scroll",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Chart foggy islands, claim tiles, and trade lantern light with wandering neighbors.",
+    "features": [
+      "Paint territory on hex grid",
+      "Navigate with lantern light radius",
+      "Trade glow with wandering neighbors",
+      "Daily fog seed map"
+    ],
+    "tags": [
+      "maps",
+      "territory",
+      "fog",
+      "hexgrid"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-03T01:02:14.872Z",
+    "updatedAt": "2026-10-03T01:04:26.124Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 123, done: 114, counts: {"done":114,"needs-human":9} };
+export const stats = { total: 124, done: 115, counts: {"done":115,"needs-human":9} };

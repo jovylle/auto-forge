@@ -1,0 +1,32 @@
+{
+  "slug": "lantern-fog-atlas",
+  "title": "Lantern Fog Atlas",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "bauhaus",
+  "theme": "maps",
+  "constraints": [
+    "must react to scroll",
+    "sound on interaction (WebAudio, no assets)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Paint territory on hex grid",
+      "Navigate with lantern light radius",
+      "Trade glow with wandering neighbors",
+      "Daily fog seed map"
+    ],
+    "status": "pass",
+    "summary": "Bauhaus hex-charting game: seeded daily fog islands, click/WASD lantern navigation with light radius, glow economy with claims, 4 wandering trade neighbours, scroll-reactive beam + WebAudio sfx, localStorage per-day saves."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 125460,
+  "at": "2026-10-03T01:04:26.127Z"
+}

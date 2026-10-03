@@ -3843,6 +3843,39 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "lantern-fog-atlas",
+      "title": "Lantern Fog Atlas",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "aesthetic": "bauhaus",
+      "theme": "maps",
+      "constraints": [
+        "must react to scroll",
+        "sound on interaction (WebAudio, no assets)"
+      ],
+      "description": "Chart foggy islands, claim tiles, and trade lantern light with wandering neighbors.",
+      "features": [
+        "Paint territory on hex grid",
+        "Navigate with lantern light radius",
+        "Trade glow with wandering neighbors",
+        "Daily fog seed map"
+      ],
+      "tags": [
+        "maps",
+        "territory",
+        "fog",
+        "hexgrid"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-03T01:02:14.872Z",
+      "updatedAt": "2026-10-03T01:04:47.419Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

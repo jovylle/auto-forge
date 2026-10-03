@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Lantern Fog Atlas — a Bauhaus charting game</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<header class="masthead" id="mast">
+  <div class="mast-shapes" aria-hidden="true"><span class="sq"></span><span class="ci"></span><span class="tr"></span></div>
+  <div class="mast-text">
+    <p class="kicker">Expedition <span id="seedLabel">—</span> · Bauhaus Cartographic Society</p>
+    <h1>LANTERN<br/>FOG ATLAS</h1>
+    <p class="sub">Chart foggy islands. Claim tiles. Trade lantern-light with wandering neighbours. Scroll to raise your lantern.</p>
+  </div>
+  <div class="hud">
+    <div class="dial"><span class="dial-label">GLOW</span><strong id="glowVal">30</strong><span class="bar"><i id="glowBar"></i></span></div>
+    <div class="dial"><span class="dial-label">CLAIMED</span><strong id="claimVal">0</strong><span class="bar blue"><i id="claimBar"></i></span></div>
+    <div class="dial"><span class="dial-label">LANTERN Ø</span><strong id="radiusVal">3</strong><span class="bar red"><i id="radiusBar"></i></span></div>
+  </div>
+</header>
+
+<main id="app">
+  <section class="controls">
+    <div class="btnrow">
+      <button id="btnUp" aria-label="move up">▲</button>
+    </div>
+    <div class="btnrow">
+      <button id="btnLeft" aria-label="move left">◀</button>
+      <button id="btnClaim">◉ CLAIM</button>
+      <button id="btnRight" aria-label="move right">▶</button>
+    </div>
+    <div class="btnrow">
+      <button id="btnDown" aria-label="move down">▼</button>
+    </div>
+    <p class="hint">Click / tap a glowing hex to walk &amp; claim · WASD / arrows move · <b>Scroll</b> widens the lantern beam · M mutes</p>
+    <div class="btnrow secondary">
+      <button id="btnTrade" class="ghost">⚖ trade with neighbour</button>
+      <button id="btnNewSeed" class="ghost">↻ new fog (practice)</button>
+      <button id="btnReset" class="ghost">✕ reset day</button>
+    </div>
+  </section>
+
+  <section class="mapwrap">
+    <canvas id="map" width="900" height="640" aria-label="foggy hex island map"></canvas>
+    <div id="toast" role="status"></div>
+    <div class="legend">
+      <span><i class="sw you"></i>you</span>
+      <span><i class="sw claimed"></i>claimed</span>
+      <span><i class="sw fog"></i>fog</span>
+      <span><i class="sw pal"></i>neighbour</span>
+    </div>
+  </section>
+
+  <section class="logboard">
+    <div class="card neighbours">
+      <h2>◐ Wandering neighbours</h2>
+      <ul id="pals"></ul>
+    </div>
+    <div class="card atlas">
+      <h2>◑ Atlas log</h2>
+      <ol id="log"></ol>
+      <p class="seedline">Daily fog seed <code id="seedCode"></code> · <span id="chartPct">0% charted</span></p>
+    </div>
+  </section>
+
+  <footer><p>Scroll = lantern focus · sound on (WebAudio, no files) · progress saved per-day in localStorage · works from file://</p></footer>
+</main>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
