@@ -1,8 +1,8 @@
 {
-  "slug": "juniper-waypoint-arcade",
-  "title": "Juniper Waypoint Arcade",
+  "slug": "pebble-grid-pilgrims",
+  "title": "Pebble Grid Pilgrims",
   "stack": "html",
-  "aesthetic": "neo-brutalism",
+  "aesthetic": "glassmorphism",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 104594,
-  "at": "2026-10-03T04:36:38.530Z"
+  "elapsedMs": 80238,
+  "at": "2026-10-03T10:42:08.696Z"
 }

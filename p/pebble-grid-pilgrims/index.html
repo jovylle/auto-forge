@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Pebble Grid Pilgrims — claim land, walk the path</title>
+<meta name="description" content="Claim grid squares with pebbles and chart winding pilgrim routes. A tiny glassmorphic territory game." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="stars"></i></div>
+
+<header class="top glass">
+  <button id="moonBtn" class="moon" title="psst… the moon likes taps" aria-label="moon easter egg">🌕</button>
+  <div class="brand">
+    <h1>Pebble Grid Pilgrims</h1>
+    <p class="sub">Claim squares with pebbles · chart a winding pilgrim route</p>
+  </div>
+  <div class="top-actions">
+    <button id="soundBtn" class="pill" aria-pressed="true" title="toggle sound">🔊 sound</button>
+    <button id="shareBtn" class="pill primary" title="make a shareable postcard">✉ postcard</button>
+  </div>
+</header>
+
+<main id="app">
+  <section class="layout">
+    <div class="board-wrap glass">
+      <div class="board-head">
+        <div>
+          <div class="seedline"><span id="seedLabel" class="seed">week 00 · seed 0</span><span id="countdown" class="count" title="time until next weekly reshuffle"></span></div>
+          <div id="statLine" class="stats">0 pebbles · 0% land · 0-step path</div>
+        </div>
+        <div class="board-tools">
+          <button id="journeyBtn" class="pill glow" title="send the pilgrim walking">▶ journey</button>
+          <button id="clearBtn" class="pill" title="lift all pebbles">⌫ clear</button>
+        </div>
+      </div>
+      <div id="boardOuter">
+        <div id="board" role="grid" aria-label="pilgrim territory grid"></div>
+        <svg id="routeSvg" aria-hidden="true"></svg>
+        <div id="walker" aria-hidden="true">🚶</div>
+      </div>
+      <p class="hint">Tap a <b>meadow</b> square to drop a pebble · tap again to lift it · pebbles link up in order into a pilgrim route. <span class="dim">Water &amp; crag can't be claimed.</span></p>
+      <div class="legend">
+        <span><i class="dot meadow"></i>meadow</span>
+        <span><i class="dot water"></i>water</span>
+        <span><i class="dot crag"></i>crag</span>
+        <span><i class="dot shrine"></i>shrine ×2 pts</span>
+        <span><i class="dot peb"></i>pebble</span>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="card glass">
+        <h2>🗺 map seed</h2>
+        <p class="cardsub">The map reshuffles every Monday. Same seed = same land, anywhere in the world.</p>
+        <div class="row">
+          <button id="weeklyBtn" class="pill primary">this week's map</button>
+          <button id="shuffleBtn" class="pill">🎲 wander</button>
+        </div>
+        <label class="seedrow">seed <input id="seedInput" inputmode="numeric" placeholder="e.g. 202640" /><button id="seedGo" class="pill small">go</button></label>
+        <div id="shrines" class="shrines"></div>
+      </div>
+
+      <div class="card glass">
+        <h2>📿 pilgrim log</h2>
+        <ol id="log" class="log"><li class="dim">No pebbles yet — drop your first stone.</li></ol>
+      </div>
+
+      <div class="card glass tiny">
+        <h2>✨ postcards</h2>
+        <p class="cardsub">Postcard encodes seed + route into a link. Anyone opening it walks your exact path.</p>
+        <div class="row">
+          <button id="copyBtn" class="pill">⧉ copy link</button>
+          <button id="pngBtn" class="pill">⬇ png</button>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <footer class="foot">built with pebbles &amp; webaudio · progress saves locally · <span class="dim">try typing “pilgrim”…</span></footer>
+</main>
+
+<div id="postcardModal" class="modal" hidden>
+  <div class="sheet glass">
+    <button id="closeModal" class="x" aria-label="close">×</button>
+    <h2>Route postcard</h2>
+    <canvas id="postcard" width="900" height="560"></canvas>
+    <p id="postText" class="post-text"></p>
+    <div class="row center">
+      <button id="copyBtn2" class="pill primary">⧉ copy share link</button>
+      <button id="pngBtn2" class="pill">⬇ download png</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status"></div>
+<div id="meteorLayer" aria-hidden="true"></div>
+
+<script src="./app.js"></script>
+</body>
+</html>

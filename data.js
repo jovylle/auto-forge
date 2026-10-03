@@ -3901,12 +3901,45 @@ export const projects = [
       "arcade"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-03T04:34:45.118Z",
-    "updatedAt": "2026-10-03T04:36:38.521Z",
+    "updatedAt": "2026-10-03T04:36:47.130Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "pebble-grid-pilgrims",
+    "title": "Pebble Grid Pilgrims",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "glassmorphism",
+    "theme": "maps",
+    "constraints": [
+      "must have an easter egg",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Claim grid squares with pebbles and chart winding pilgrim routes.",
+    "features": [
+      "click-to-claim territory grid",
+      "auto-routed pilgrim paths",
+      "weekly seed reshuffles map",
+      "shareable route postcards"
+    ],
+    "tags": [
+      "maps",
+      "grids",
+      "territory",
+      "strategy"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-03T10:40:44.738Z",
+    "updatedAt": "2026-10-03T10:42:08.693Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 125, done: 116, counts: {"done":116,"needs-human":9} };
+export const stats = { total: 126, done: 117, counts: {"done":117,"needs-human":9} };
