@@ -3869,12 +3869,44 @@ export const projects = [
       "hexgrid"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-03T01:02:14.872Z",
-    "updatedAt": "2026-10-03T01:04:26.124Z",
+    "updatedAt": "2026-10-03T01:04:47.419Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "juniper-waypoint-arcade",
+    "title": "Juniper Waypoint Arcade",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "neo-brutalism",
+    "theme": "maps",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Claim tiles, plot routes, and outmaneuver rivals on shifting neon maps.",
+    "features": [
+      "hex-grid territory capture",
+      "daily shifting obstacle maps",
+      "route-plotting score combos",
+      "local leaderboard races"
+    ],
+    "tags": [
+      "maps",
+      "grids",
+      "strategy",
+      "arcade"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-03T04:34:45.118Z",
+    "updatedAt": "2026-10-03T04:36:38.521Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 124, done: 115, counts: {"done":115,"needs-human":9} };
+export const stats = { total: 125, done: 116, counts: {"done":116,"needs-human":9} };

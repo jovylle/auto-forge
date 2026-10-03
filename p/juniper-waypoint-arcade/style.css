@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap');
+/* JUNIPER WAYPOINT ARCADE — neo-brutalism, 3 colors + black/white only
+   --acid #D6FF3F (you) · --juni #00C2A8 (waypoint/route) · --blaze #FF4D00 (rival) */
+:root{
+  --acid:#D6FF3F; --juni:#00C2A8; --blaze:#FF4D00;
+  --paper:#FFFEF5; --ink:#111111;
+  --sh:6px 6px 0 var(--ink);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;font-size:15px;line-height:1.45;
+  background-image:radial-gradient(var(--ink) 1px, transparent 1px);background-size:22px 22px;}
+::selection{background:var(--ink);color:var(--paper)}
+.ticker{background:var(--ink);color:var(--paper);overflow:hidden;border-bottom:3px solid var(--ink);font-weight:700;letter-spacing:.08em;font-size:12px}
+.ticker-inner{display:flex;width:max-content;animation:tick 22s linear infinite;padding:7px 0}
+@keyframes tick{to{transform:translateX(-50%)}}
+.mast{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch;justify-content:space-between;padding:18px clamp(12px,3vw,32px);}
+.logo-block{display:flex;gap:14px;align-items:center;background:var(--paper);border:3px solid var(--ink);box-shadow:var(--sh);padding:12px 16px;transform:rotate(-.6deg)}
+.logo-j{width:58px;height:58px;background:var(--acid);border:3px solid var(--ink);display:grid;place-items:center;font-family:'Archivo Black';font-size:34px;box-shadow:4px 4px 0 var(--ink)}
+h1{font-family:'Archivo Black';font-size:clamp(22px,3.6vw,34px);line-height:.95;margin:0;letter-spacing:.01em}
+.tag{margin:4px 0 0;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--ink);color:var(--paper);display:inline-block;padding:2px 8px}
+.hud{display:flex;gap:12px;flex-wrap:wrap}
+.hud-card{background:var(--paper);border:3px solid var(--ink);box-shadow:var(--sh);min-width:118px;padding:8px 12px;display:flex;flex-direction:column;transform:rotate(.5deg)}
+.hud-card.time{background:var(--juni)} .hud-card.score{background:var(--acid)}
+.hud-card .k{font-size:11px;font-weight:700;letter-spacing:.14em}
+.hud-card strong{font-family:'Archivo Black';font-size:24px;line-height:1}
+.sub2{font-size:11px;font-weight:700}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;padding:0 clamp(12px,3vw,32px) 26px;max-width:1180px;margin:0 auto}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
+.board-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.mode-btns{display:flex;gap:10px}
+.brut-btn{font-family:'Archivo Black';font-size:14px;letter-spacing:.03em;background:var(--paper);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:9px 14px;cursor:pointer;transition:transform .08s, box-shadow .08s;text-transform:uppercase}
+.brut-btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.brut-btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.brut-btn.active{background:var(--ink);color:var(--paper)}
+.brut-btn.dark{background:var(--ink);color:var(--paper)}
+.brut-btn.small{font-size:12px;padding:7px 10px;box-shadow:3px 3px 0 var(--ink)}
+.brut-btn.ghost{box-shadow:none}
+.brut-btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;font-weight:700;background:var(--paper);border:3px solid var(--ink);padding:7px 10px;box-shadow:4px 4px 0 var(--ink)}
+.sw{display:inline-block;width:14px;height:14px;border:2px solid var(--ink);vertical-align:-2px;margin-right:4px}
+.sw.me{background:var(--acid)} .sw.foe{background:var(--blaze)} .sw.way{background:var(--juni);transform:rotate(45deg)} .sw.void{background:var(--ink)}
+.svg-shell{position:relative;background:var(--paper);border:3px solid var(--ink);box-shadow:var(--sh);padding:6px}
+#grid{width:100%;height:auto;display:block;touch-action:manipulation}
+#grid polygon{stroke:var(--ink);stroke-width:2.5;cursor:pointer;transition:filter .12s, opacity .12s}
+#grid polygon.me{fill:var(--acid)} #grid polygon.foe{fill:var(--blaze)}
+#grid polygon.free{fill:#fff} #grid polygon.void{fill:var(--ink);cursor:not-allowed}
+#grid polygon.way{stroke-width:4}
+#grid polygon.inroute{filter:invert(1)}
+#grid polygon.hint{stroke-dasharray:6 4;stroke-width:3.5}
+#grid polygon.pop{animation:pop .28s}
+@keyframes pop{40%{transform:scale(1.06)}}
+#grid text{font-family:'Archivo Black';font-size:13px;pointer-events:none;text-anchor:middle;dominant-baseline:central}
+.toast{position:absolute;left:50%;top:14px;transform:translateX(-50%) rotate(-1deg);background:var(--ink);color:var(--paper);font-weight:700;font-size:13px;padding:6px 12px;border:3px solid var(--ink);opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+.under-bar{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.route-readout,.map-controls{background:var(--paper);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:10px 12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-weight:700;font-size:13px}
+.route-readout{border-left:12px solid var(--juni)}
+.map-controls input{font:inherit;border:3px solid var(--ink);padding:5px 8px;background:#fff}
+.side{display:flex;flex-direction:column;gap:16px}
+.card{background:var(--paper);border:3px solid var(--ink);box-shadow:var(--sh);padding:14px}
+.card h2{font-family:'Archivo Black';font-size:16px;margin:0 0 10px;letter-spacing:.02em;display:flex;justify-content:space-between;align-items:center}
+.how{transform:rotate(.6deg)} .board{transform:rotate(-.5deg)} .foot{transform:rotate(.3deg);font-size:12px}
+.how ol{margin:0 0 12px 18px;padding:0;font-size:13.5px}
+.how li{margin-bottom:6px} .how b{background:var(--acid);border:2px solid var(--ink);padding:0 5px}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;border:3px solid var(--ink)}
+.stats div{padding:8px;text-align:center} .stats div+div{border-left:3px solid var(--ink)}
+.stats span{display:block;font-size:10px;font-weight:700;letter-spacing:.12em} .stats strong{font-family:'Archivo Black';font-size:20px}
+#leaders{margin:0;padding:0;list-style:none}
+#leaders li{display:flex;gap:8px;align-items:center;border:3px solid var(--ink);padding:6px 8px;margin-bottom:8px;font-weight:700;font-size:13px;background:#fff}
+#leaders li:nth-child(1){background:var(--acid)} #leaders li:nth-child(2){background:var(--juni)}
+#leaders li.me{outline:3px dashed var(--blaze);outline-offset:2px}
+#leaders .rk{font-family:'Archivo Black';background:var(--ink);color:var(--paper);min-width:26px;text-align:center;padding:2px 0}
+.mini{font:inherit;font-size:11px;font-weight:700;border:2px solid var(--ink);background:var(--paper);cursor:pointer;padding:2px 6px}
+.save{display:flex;flex-direction:column;gap:8px;margin-top:10px;border-top:3px solid var(--ink);padding-top:10px}
+.save.hidden{display:none}
+.save input{font:inherit;font-weight:700;border:3px solid var(--ink);padding:8px;text-transform:uppercase}
+.c1{background:var(--acid);padding:0 5px;border:2px solid var(--ink)} .c2{background:var(--juni);padding:0 5px;border:2px solid var(--ink)} .c3{background:var(--blaze);color:#fff;padding:0 5px;border:2px solid var(--ink)}
+.over{position:fixed;inset:0;background:rgba(17,17,17,.72);display:grid;place-items:center;padding:16px;z-index:10}
+.over.hidden{display:none}
+.over-card{background:var(--paper);border:4px solid var(--ink);box-shadow:10px 10px 0 var(--ink);max-width:420px;width:100%;padding:22px;text-align:center;transform:rotate(-1deg)}
+.over-card h2{font-family:'Archivo Black';font-size:42px;margin:6px 0;background:var(--acid);border:3px solid var(--ink);display:inline-block;padding:4px 14px}
+.over-card .k{font-weight:700;letter-spacing:.12em;font-size:12px}
+.over-card .row{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+@media(max-width:480px){.mast{padding:12px}.layout{padding:0 10px 20px}.logo-j{width:46px;height:46px;font-size:26px}}
+@media(prefers-reduced-motion:reduce){.ticker-inner{animation:none}#grid polygon.pop{animation:none}}

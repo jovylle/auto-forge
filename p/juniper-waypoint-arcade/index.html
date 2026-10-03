@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Juniper Waypoint Arcade</title>
+<meta name="description" content="Claim hex tiles, plot routes, beat rivals on daily shifting neon maps." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="ticker" aria-hidden="true"><div class="ticker-inner" id="ticker">
+<span>HEX TERRITORY CAPTURE ★ DAILY SHIFTING MAPS ★ ROUTE COMBOS ★ LOCAL LEADERBOARD ★&nbsp;</span><span>HEX TERRITORY CAPTURE ★ DAILY SHIFTING MAPS ★ ROUTE COMBOS ★ LOCAL LEADERBOARD ★&nbsp;</span>
+</div></div>
+
+<header class="mast">
+  <div class="logo-block">
+    <div class="logo-j">J</div>
+    <div>
+      <h1>JUNIPER<br/>WAYPOINT ARCADE</h1>
+      <p class="tag">Claim tiles · Plot routes · Outmaneuver rivals</p>
+    </div>
+  </div>
+  <div class="hud">
+    <div class="hud-card"><span class="k">MAP</span><strong id="mapCode">JWA-TODAY</strong><span class="sub2" id="mapDate"></span></div>
+    <div class="hud-card time"><span class="k">TIME</span><strong id="clock">90</strong></div>
+    <div class="hud-card score"><span class="k">SCORE</span><strong id="score">0</strong><span class="sub2" id="gap">—</span></div>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="board-wrap">
+    <div class="board-bar">
+      <div class="mode-btns" role="tablist" aria-label="Mode">
+        <button id="modeClaim" class="brut-btn active" aria-pressed="true">◈ CLAIM</button>
+        <button id="modeRoute" class="brut-btn" aria-pressed="false">〜 ROUTE</button>
+      </div>
+      <div class="legend">
+        <span><i class="sw me"></i>YOU</span>
+        <span><i class="sw foe"></i>RIVAL</span>
+        <span><i class="sw way"></i>WAYPOINT</span>
+        <span><i class="sw void"></i>VOID</span>
+      </div>
+    </div>
+    <div class="svg-shell"><svg id="grid" viewBox="0 0 640 560" role="grid" aria-label="Hex territory grid"></svg>
+      <div id="toast" class="toast" aria-live="polite"></div>
+    </div>
+    <div class="under-bar">
+      <div class="route-readout"><span id="routeLabel">ROUTE: — pick ROUTE mode, tap your tiles</span>
+        <button id="bankBtn" class="brut-btn small" disabled>BANK COMBO ⏎</button>
+        <button id="clearRoute" class="brut-btn small ghost" disabled>CLEAR</button>
+      </div>
+      <div class="map-controls">
+        <label>DAY <input type="date" id="dayPicker" /></label>
+        <button id="todayBtn" class="brut-btn small">TODAY</button>
+        <button id="shiftBtn" class="brut-btn small">⟳ SHIFT</button>
+        <button id="restartBtn" class="brut-btn small dark">↺ RESTART</button>
+      </div>
+    </div>
+  </section>
+
+  <aside class="side">
+    <div class="card how">
+      <h2>HOW TO PLAY</h2>
+      <ol>
+        <li><b>CLAIM:</b> tap glowing tiles. First 3 free, then only beside your turf.</li>
+        <li><b>ROUTE:</b> switch mode, chain your tiles. Bank 3+ for combos.</li>
+        <li><b>COMBOS:</b> waypoints +50 · loops ×2 · 6+ tiles ×2 · 9+ ×3.</li>
+        <li><b>RIVALS:</b> orange bots expand every second. Cut them off!</li>
+      </ol>
+      <div class="stats">
+        <div><span>TILES</span><strong id="tiles">0</strong></div>
+        <div><span>BEST COMBO</span><strong id="best">0</strong></div>
+        <div><span>CLAIMED %</span><strong id="pct">0%</strong></div>
+      </div>
+    </div>
+    <div class="card board">
+      <h2>LOCAL LEADERBOARD <button id="scopeBtn" class="mini">MAP ▾</button></h2>
+      <ol id="leaders"></ol>
+      <form id="saveForm" class="save hidden">
+        <p id="finalLine">GAME OVER</p>
+        <input id="pilot" maxlength="10" placeholder="YOUR TAG (e.g. JUNI)" aria-label="Your tag" />
+        <button class="brut-btn small dark" type="submit">SAVE SCORE</button>
+      </form>
+    </div>
+    <div class="card foot">
+      <p>3-COLOR RULE: <b class="c1">ACID</b> + <b class="c2">JUNIPER</b> + <b class="c3">BLAZE</b> on black/white. Seeded daily maps · offline · localStorage only.</p>
+    </div>
+  </aside>
+</main>
+
+<div id="over" class="over hidden">
+  <div class="over-card">
+    <p class="k">TIME UP — MAP <span id="overMap"></span></p>
+    <h2 id="overScore">0 PTS</h2>
+    <p id="overDetail"></p>
+    <div class="row">
+      <button id="againBtn" class="brut-btn dark">PLAY AGAIN</button>
+      <button id="dismissBtn" class="brut-btn">REVIEW MAP</button>
+    </div>
+  </div>
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>
