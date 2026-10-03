@@ -3908,6 +3908,39 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "pebble-grid-pilgrims",
+      "title": "Pebble Grid Pilgrims",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "aesthetic": "glassmorphism",
+      "theme": "maps",
+      "constraints": [
+        "must have an easter egg",
+        "sound on interaction (WebAudio, no assets)"
+      ],
+      "description": "Claim grid squares with pebbles and chart winding pilgrim routes.",
+      "features": [
+        "click-to-claim territory grid",
+        "auto-routed pilgrim paths",
+        "weekly seed reshuffles map",
+        "shareable route postcards"
+      ],
+      "tags": [
+        "maps",
+        "grids",
+        "territory",
+        "strategy"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-03T10:40:44.738Z",
+      "updatedAt": "2026-10-03T10:42:17.230Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

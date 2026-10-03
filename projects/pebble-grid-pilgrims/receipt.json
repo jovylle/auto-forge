@@ -1,0 +1,32 @@
+{
+  "slug": "pebble-grid-pilgrims",
+  "title": "Pebble Grid Pilgrims",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "glassmorphism",
+  "theme": "maps",
+  "constraints": [
+    "must have an easter egg",
+    "sound on interaction (WebAudio, no assets)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Glassmorphic 9x9 territory game: click-to-claim pebbles, BFS auto-routed pilgrim paths with animated journey, weekly-seed maps with countdown, canvas postcards with share-link/PNG. Easter egg (moon taps / typing pilgrim) and WebAudio sounds. localStorage persistence, 375px responsive, works from file://.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "click-to-claim territory grid",
+      "auto-routed pilgrim paths",
+      "weekly seed reshuffles map",
+      "shareable route postcards"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 80238,
+  "at": "2026-10-03T10:42:08.695Z"
+}
