@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Wandergrid Parcel Routes — 30s delivery dash</title>
+  <meta name="description" content="Drag delivery routes across a shifting hex grid, dodge the fog, claim neighborhoods. A 30-second Memphis arcade game with daily seeds." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+  <div class="bg-shapes" aria-hidden="true">
+    <span class="shape tri t1"></span><span class="shape ring r1"></span>
+    <span class="shape zig z1"></span><span class="shape dot-grid d1"></span>
+    <span class="shape squig s1"></span><span class="shape tri t2"></span>
+    <span class="shape ring r2"></span><span class="shape plus p1">+</span>
+    <span class="shape plus p2">+</span>
+  </div>
+
+  <header class="topbar">
+    <div class="logo">
+      <span class="logo-badge">◈</span>
+      <div>
+        <h1>Wandergrid <em>Parcel Routes</em></h1>
+        <p class="tagline">draw routes · dodge fog · claim the grid — 30 seconds!</p>
+      </div>
+    </div>
+    <div class="seed-chip" id="seedChip" title="Daily seed">📅 <span id="seedLabel"></span></div>
+  </header>
+
+  <main id="app">
+    <section class="hud">
+      <div class="stat time-stat"><span class="k">time</span><strong id="clock">30</strong>
+        <div class="timebar"><i id="timebarFill"></i></div>
+      </div>
+      <div class="stat"><span class="k">score</span><strong id="score">0</strong></div>
+      <div class="stat"><span class="k">parcels</span><strong id="parcels">0</strong></div>
+      <div class="stat"><span class="k">best</span><strong id="best">0</strong></div>
+    </section>
+
+    <section class="board-wrap">
+      <div class="board-frame">
+        <svg id="board" viewBox="0 0 640 600" role="application"
+             aria-label="Hex delivery grid. Drag from the depot through hexes to reach parcel houses."></svg>
+        <div class="toast" id="toast" aria-live="polite"></div>
+        <div class="overlay" id="overlay">
+          <div class="card">
+            <div class="card-kicker" id="ovKicker">daily grid · memphis post co.</div>
+            <h2 id="ovTitle">30 seconds.<br />Claim the grid.</h2>
+            <p id="ovBody">Drag from the <b>DEPOT</b> (or any pink tile) through hexes to a <b>📦 house</b>.
+              Fog <span class="fog-word">▒▒</span> blocks you — striped tiles fog next!
+              Long routes = bonus. Go!</p>
+            <div class="how">
+              <span>👆 drag a route</span><span>📦 deliver</span><span>🌫 dodge fog</span>
+            </div>
+            <button id="startBtn">▶ Start route day</button>
+            <p class="hint">seed <code id="ovSeed"></code> · works offline · no sign-up</p>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="panel legend">
+          <h3>Legend</h3>
+          <ul>
+            <li><i class="sw depot"></i> depot — start here</li>
+            <li><i class="sw house"></i> 📦 house = points</li>
+            <li><i class="sw claimed"></i> claimed turf (+2)</li>
+            <li><i class="sw fog"></i> fog — blocked</li>
+            <li><i class="sw warn"></i> fog incoming!</li>
+          </ul>
+          <button id="restartBtn" class="ghost">↻ new grid, same seed</button>
+        </div>
+        <div class="panel board-panel">
+          <h3>🏆 Daily leaderboard <span class="seed-mini" id="boardSeed"></span></h3>
+          <ol id="boardList"></ol>
+          <form id="scoreForm" class="score-form" hidden>
+            <input id="nameInput" maxlength="10" placeholder="YOUR TAG" autocomplete="off" />
+            <button type="submit">log it!</button>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="foot">
+      <span>wiggle-tested at 375px · drag with mouse, finger, or ←↑→↓ + enter</span>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

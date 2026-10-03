@@ -1,0 +1,31 @@
+{
+  "slug": "wandergrid-parcel-routes",
+  "title": "Wandergrid Parcel Routes",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "memphis",
+  "theme": "maps",
+  "constraints": [
+    "must be playable in 30 seconds"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag routes on hex grid",
+      "shifting fog blocks paths",
+      "claim territory for points",
+      "daily seed leaderboards"
+    ],
+    "status": "pass",
+    "summary": "Wandergrid Parcel Routes — 30s Memphis delivery dash on a 37-cell SVG hex grid: drag routes from depot/claimed turf (8-tile max, backtrack undo, mouse/touch/keyboard), two-phase fog drift with striped warnings every 4s, turf claiming +2/tile with parcel delivery values and long-haul bonus, seeded daily grid + bot rivals with localStorage leaderboard. node --check clean, all DOM ids verified, responsive at 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 85763,
+  "at": "2026-10-03T22:55:25.019Z"
+}

@@ -3967,12 +3967,44 @@ export const projects = [
       "procedural"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-03T16:47:17.239Z",
-    "updatedAt": "2026-10-03T16:51:28.662Z",
+    "updatedAt": "2026-10-03T16:51:37.065Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "wandergrid-parcel-routes",
+    "title": "Wandergrid Parcel Routes",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "memphis",
+    "theme": "maps",
+    "constraints": [
+      "must be playable in 30 seconds"
+    ],
+    "description": "Draw delivery routes across shifting tiles to claim neighborhoods before fog closes in",
+    "features": [
+      "drag routes on hex grid",
+      "shifting fog blocks paths",
+      "claim territory for points",
+      "daily seed leaderboards"
+    ],
+    "tags": [
+      "maps",
+      "grids",
+      "strategy",
+      "routing"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-03T22:53:56.894Z",
+    "updatedAt": "2026-10-03T22:55:25.015Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 127, done: 118, counts: {"done":118,"needs-human":9} };
+export const stats = { total: 128, done: 119, counts: {"done":119,"needs-human":9} };
