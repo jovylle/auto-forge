@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Emberline Islet Cartography — 浮島海図</title>
+  <meta name="description" content="Sketch drifting islands, claim tiles with beacons, and auto-route trade paths. Export your map as a postcard." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="rail rail-left" aria-hidden="true">浮島海図<br />─ E M B E R L I N E ─</div>
+  <div class="rail rail-right" aria-hidden="true">貿易風<br />T R A D E W I N D S</div>
+
+  <header class="masthead">
+    <p class="kicker">電脳諸島測量所 · NEON SURVEY OFFICE 03</p>
+    <h1><span class="jp">浮島海図</span> Emberline <em>Islet Cartography</em></h1>
+    <p class="sub">Paint islands · stake <b>灯 beacons</b> to claim waters · trade winds route themselves · <b>30 seconds</b> to your first postcard.</p>
+    <p class="howto"><span>① 島 paint land</span><span>② 灯 drop 2 beacons</span><span>③ watch the route draw itself → ⛩ export</span></p>
+  </header>
+
+  <main class="layout">
+    <section class="map-card">
+      <div class="map-head">
+        <span id="isleName" class="isle-name">—</span>
+        <span class="coords">13×9 GRID · <span id="statClaimed">0</span> CLAIMED</span>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="sea" aria-label="Paintable hex island grid. Choose a brush, then drag on the map."></canvas>
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      </div>
+      <div class="toolbar" role="toolbar" aria-label="Brushes and actions">
+        <div class="brushes">
+          <button class="brush is-active" data-brush="island" title="Paint island tiles (drag)">島 island</button>
+          <button class="brush" data-brush="sea" title="Dredge back to sea (drag)">海 sea</button>
+          <button class="brush" data-brush="beacon" title="Place or lift a beacon (tap land)">灯 beacon</button>
+        </div>
+        <div class="actions">
+          <button id="btnDrift" title="Generate a fresh drifting archipelago">⟳ new drift</button>
+          <button id="btnClear" title="Sink everything back to open sea">✦ still sea</button>
+          <button id="btnExport" class="export" title="Download your map as a postcard PNG">⛩ postcard</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="ledger">
+      <section class="panel">
+        <h2>測量 LEDGER</h2>
+        <div class="stats">
+          <div><b id="statLand">0</b><span>land tiles</span></div>
+          <div><b id="statBeacons">0/6</b><span>beacons</span></div>
+          <div><b id="statRoutes">0</b><span>trade legs</span></div>
+          <div><b id="statMiles">0</b><span>wind-miles</span></div>
+        </div>
+        <ol id="beaconList" class="beacons"></ol>
+        <p class="hint">Beacons claim every land tile within <b>2 sails</b>. Trade winds prefer open water and link beacons in the order you stake them.</p>
+      </section>
+      <section class="panel postcard-panel">
+        <h2>絵葉書 POSTCARD</h2>
+        <p>Export paints your chart onto washi paper with a hanko stamp, route manifest and the islet's true name.</p>
+        <label class="captain">Captain's hand — sign the postcard:
+          <input id="captain" maxlength="24" placeholder="e.g. Kaito of the drift" autocomplete="off" />
+        </label>
+        <button id="btnExport2" class="export big">⛩ export postcard PNG</button>
+      </section>
+      <section class="panel tiny">
+        <h2>港 PORT NOTES</h2>
+        <p>Autosaves to this browser. Works offline from <code>file://</code>. Three inks only — ember, lagoon, gold — on black &amp; white.</p>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <span>EMBERLINE SURVEY OFFICE · 浮島海図 · trade winds v1.0</span>
+    <span class="palette" aria-label="Palette: ember, lagoon, gold, black, white">
+      <i style="background:#ff4d2e"></i><i style="background:#27e6c4"></i><i style="background:#ffb627"></i><i style="background:#0a0a12"></i><i style="background:#f7f2e7"></i>
+    </span>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

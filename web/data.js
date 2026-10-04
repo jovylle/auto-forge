@@ -4097,12 +4097,46 @@ export const projects = [
       "strategy"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-04T11:05:53.684Z",
-    "updatedAt": "2026-10-04T11:09:04.545Z",
+    "updatedAt": "2026-10-04T11:09:13.748Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "emberline-islet-cartography",
+    "title": "Emberline Islet Cartography",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "maps",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "must be playable in 30 seconds"
+    ],
+    "description": "Sketch drifting islands, claim tiles, and trade routes in a cozy hex-map sandbox.",
+    "features": [
+      "paintable hex island grid",
+      "territory claiming with beacons",
+      "auto-routed trade paths",
+      "export map as postcard"
+    ],
+    "tags": [
+      "maps",
+      "hexgrid",
+      "territories",
+      "cozy",
+      "sandbox"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-04T17:13:07.752Z",
+    "updatedAt": "2026-10-04T17:15:56.280Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 131, done: 122, counts: {"done":122,"needs-human":9} };
+export const stats = { total: 132, done: 123, counts: {"done":123,"needs-human":9} };

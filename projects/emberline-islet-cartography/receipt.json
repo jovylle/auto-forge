@@ -1,0 +1,32 @@
+{
+  "slug": "emberline-islet-cartography",
+  "title": "Emberline Islet Cartography",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "japanese-cyberpunk",
+  "theme": "maps",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "must be playable in 30 seconds"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "paintable hex island grid",
+      "territory claiming with beacons",
+      "auto-routed trade paths",
+      "export map as postcard"
+    ],
+    "status": "pass",
+    "summary": "Emberline Islet Cartography — a japanese-cyberpunk hex-map sandbox (13x9 pointy-top grid). Drag 島/海 brushes to raise/sink islands, tap 灯 to stake up to 6 lantern-beacons that claim land within 2 sails, Dijkstra trade winds auto-route between beacons preferring open water with animated neon dashes, and ⛩ export renders a 1200x880 washi postcard PNG with manifest, signature and hanko stamp. First run seeds a drifting archipelago with 2 beacons + live route; autosaves to localStorage; works from file://. Palette is exactly 3 inks (ember, lagoon, gold) + black/white. Headless harness verified boot, 4 animation frames, stats (25 land / 2 beacons / 1 route) and persistence with zero errors."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 163407,
+  "at": "2026-10-04T17:15:56.285Z"
+}
