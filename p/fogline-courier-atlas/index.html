@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Fogline Courier Atlas — 霧線飛脚図</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+:root{
+  --paper:#F6F1E5; --paper2:#EDE4CF; --card:#FBF8EF;
+  --ink:#1E1D1A; --ink-soft:#4A4740;
+  --fog:#B9C2C6; --fog-deep:#9AA6AC;
+  --verm:#C73E2A; --indigo:#3E5468; --moss:#7A8B6F; --gold:#B8934A;
+  --line:#1E1D1A;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New",system-ui,sans-serif;
+  min-height:100vh;
+  background-image:
+    radial-gradient(ellipse 60% 30% at 15% 0%, rgba(62,84,104,.08), transparent),
+    radial-gradient(ellipse 50% 25% at 90% 100%, rgba(199,62,42,.06), transparent);
+}
+body::before{ /* washi grain */
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:20px 18px 60px}
+header.mast{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;border-bottom:3px double var(--ink);padding-bottom:14px;flex-wrap:wrap}
+.brand h1{font-family:"Shippori Mincho",serif;font-weight:800;font-size:clamp(26px,4.5vw,44px);margin:0;letter-spacing:.02em}
+.brand h1 .kana{font-size:.62em;font-weight:500;color:var(--verm);margin-left:.4em;letter-spacing:.35em}
+.brand .sub{margin:6px 0 0;color:var(--ink-soft);font-size:14px;max-width:56ch}
+.tategaki{writing-mode:vertical-rl;font-family:"Shippori Mincho",serif;letter-spacing:.4em;font-size:13px;color:var(--indigo);border-left:1px solid var(--ink);padding-left:10px;min-height:90px}
+.sealrow{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.hanko{background:var(--verm);color:#FBF8EF;font-family:"Shippori Mincho",serif;font-weight:700;padding:6px 10px;border-radius:4px;letter-spacing:.2em;font-size:13px;box-shadow:2px 2px 0 rgba(30,29,26,.85);transform:rotate(-3deg)}
+.dateseal{border:1.5px solid var(--ink);border-radius:4px;padding:5px 10px;font-size:13px;font-weight:700;letter-spacing:.08em;background:var(--card)}
+.dateseal b{color:var(--verm)}
+main.grid{display:grid;grid-template-columns:1.6fr .9fr;gap:18px;margin-top:18px}
+@media(max-width:820px){main.grid{grid-template-columns:1fr}}
+.board-card{background:var(--card);border:2px solid var(--ink);border-radius:14px;box-shadow:6px 6px 0 rgba(30,29,26,.9);overflow:hidden}
+.board-head{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1.5px solid var(--ink);font-size:13px;font-weight:700;letter-spacing:.06em;flex-wrap:wrap;gap:8px}
+.board-head .seed{font-variant-numeric:tabular-nums}
+#board{width:100%;height:auto;display:block;background:
+  linear-gradient(180deg,#FBF8EF 0%, #F3ECDA 100%);touch-action:manipulation}
+#board:focus{outline:3px solid var(--verm);outline-offset:-3px}
+.hintbar{padding:10px 14px;border-top:1.5px solid var(--ink);font-size:13px;color:var(--ink-soft);background:var(--paper2)}
+.hintbar kbd{font-family:inherit;font-weight:900;background:var(--ink);color:var(--paper);border-radius:5px;padding:1px 7px;font-size:12px;margin:0 1px}
+aside.ledger{display:flex;flex-direction:column;gap:14px}
+.panel{background:var(--card);border:2px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 rgba(30,29,26,.9);padding:14px}
+.panel h2{font-family:"Shippori Mincho",serif;font-size:15px;margin:0 0 10px;letter-spacing:.25em;border-bottom:1px solid var(--ink);padding-bottom:8px}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stat{border:1.5px solid var(--ink);border-radius:10px;padding:8px 10px;background:var(--paper)}
+.stat .k{font-size:11px;letter-spacing:.18em;color:var(--ink-soft);font-weight:700}
+.stat .v{font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:12px;font-weight:700}
+.inkbar{height:10px;border:1.5px solid var(--ink);border-radius:99px;overflow:hidden;margin-top:6px;background:#fff}
+.inkbar i{display:block;height:100%;background:linear-gradient(90deg,var(--ink),var(--indigo));transition:width .3s}
+.checks{display:flex;flex-direction:column;gap:8px}
+.check{display:flex;gap:10px;align-items:center;border:1.5px dashed var(--ink-soft);border-radius:10px;padding:8px 10px;font-size:13px}
+.check.done{border-style:solid;border-color:var(--verm);background:#FDF3EC}
+.check .dot{width:26px;height:26px;flex:none;display:grid;place-items:center;border-radius:50%;border:2px solid var(--ink);font-weight:900;background:var(--paper)}
+.check.done .dot{background:var(--verm);color:#fff;border-color:var(--verm)}
+.keys{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center;font-size:12px}
+.keys div{border:1.5px solid var(--ink);border-radius:8px;padding:6px 2px;background:var(--paper);font-weight:700}
+.keys div b{display:block;font-size:15px}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+button{font-family:inherit;font-weight:900;font-size:13px;border:2px solid var(--ink);border-radius:10px;padding:8px 12px;background:var(--paper);color:var(--ink);cursor:pointer;box-shadow:3px 3px 0 rgba(30,29,26,.9);transition:transform .08s}
+button:hover{transform:translate(-1px,-1px)}
+button:active{transform:translate(2px,2px);box-shadow:0 0 0}
+button.primary{background:var(--ink);color:var(--paper)}
+button.verm{background:var(--verm);color:#fff;border-color:#8f2a1c}
+#status{min-height:44px;font-size:14px}
+#status .win{background:var(--verm);color:#fff;border-radius:8px;padding:8px 10px;font-weight:900;animation:stamp .35s cubic-bezier(.2,2.4,.4,1)}
+@keyframes stamp{0%{transform:scale(1.6) rotate(-6deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+.route-legend{font-size:12px;color:var(--ink-soft)}
+footer{margin-top:22px;border-top:3px double var(--ink);padding-top:12px;font-size:12px;color:var(--ink-soft);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hex-fog{transition:opacity .6s}
+.hex-claim{transition:all .4s}
+@media(max-width:420px){.wrap{padding:14px 10px 50px}.statgrid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div class="brand">
+      <h1>霧線 Fogline <span class="kana">飛脚図</span></h1>
+      <p class="sub">Courier Atlas — plot ink routes across shifting fog grids. Reveal the mist, stamp every checkpoint, claim the territory before your ink runs dry.</p>
+      <div class="sealrow">
+        <span class="hanko">飛脚印</span>
+        <span class="dateseal">SEED <b id="seedLabel">—</b></span>
+        <span class="dateseal">REVEALED <b id="seedPct">0%</b></span>
+      </div>
+    </div>
+    <div class="tategaki" aria-hidden="true">霧の中に道をひらく</div>
+  </header>
+
+  <main class="grid">
+    <section class="board-card" aria-label="Hex atlas board">
+      <div class="board-head">
+        <span id="dayLabel">DAY —</span>
+        <span class="seed">⬢ <span id="movesLabel">0</span> steps · <span id="inkLabel">60</span> ink</span>
+      </div>
+      <svg id="board" viewBox="0 0 640 560" role="application" tabindex="0"
+        aria-label="Hex courier board. Use Q W E A S D or arrow keys to move and draw your route."></svg>
+      <div class="hintbar">
+        <kbd>Q</kbd><kbd>W</kbd><kbd>E</kbd> north · <kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> south &nbsp;|&nbsp;
+        <kbd>←↑↓→</kbd> move &nbsp;|&nbsp; <kbd>U</kbd> undo · <kbd>R</kbd> restart · <kbd>[</kbd><kbd>]</kbd> day · <kbd>T</kbd> today · <kbd>N</kbd> wander · <kbd>?</kbd> help
+      </div>
+    </section>
+
+    <aside class="ledger">
+      <div class="panel">
+        <h2>旅程 LEDGER</h2>
+        <div class="statgrid">
+          <div class="stat"><div class="k">INK 墨</div><div class="v" id="stInk">60</div><div class="inkbar"><i id="inkFill" style="width:100%"></i></div></div>
+          <div class="stat"><div class="k">CLAIMED 領地</div><div class="v" id="stClaim">0<small>%</small></div></div>
+          <div class="stat"><div class="k">STAMPS 判子</div><div class="v" id="stStamp">0/4</div></div>
+          <div class="stat"><div class="k">BEST 最良</div><div class="v" id="stBest">—</div></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>関所 CHECKPOINTS</h2>
+        <div class="checks" id="checks"></div>
+      </div>
+      <div class="panel">
+        <h2>飛脚 MESSAGE</h2>
+        <div id="status" aria-live="polite">Press any move key to begin your run.</div>
+        <div class="actions" style="margin-top:10px">
+          <button class="primary" id="bUndo">Undo (U)</button>
+          <button id="bRestart">Restart (R)</button>
+          <button id="bDay">Today (T)</button>
+          <button class="verm" id="bNew">Wander (N)</button>
+        </div>
+        <p class="route-legend">Every step spends ink — pine forest and shallows cost 2, open washi costs 1. Stamping a checkpoint refunds +12 ink and claims the land around it. Stranded at 0 ink? Restart keeps the same fog.</p>
+      </div>
+      <div class="panel" id="helpPanel" hidden>
+        <h2>使い方 HOW TO</h2>
+        <p style="font-size:13px;margin:0">Six neighbours, six keys. Top row <b>Q W E</b> reaches north-west, north-east, east. Bottom row <b>A S D</b> reaches west, south-west, south-east. Arrow keys cover four of the six; <b>Q / E</b> cover the diagonals. Grey hexes are unrevealed fog. Red <b>○</b> marks are unclaimed checkpoints — step on one to stamp it. Claim all four to complete the atlas.</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <span>霧線飛脚図 · single-file atlas · keyboard-only · works from file://</span>
+    <span id="footSeed">—</span>
+  </footer>
+</div>
+<p class="sr" id="srLive" aria-live="polite"></p>
+
+<script type="module">
+// ---------- seeded RNG ----------
+function xmur3(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=h<<13|h>>>19;}return()=>{h=Math.imul(h^(h>>>16),2246822507);h=Math.imul(h^(h>>>13),3266489909);return(h^=h>>>16)>>>0;};}
+function mulberry32(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const rngFrom = seed => mulberry32(xmur3(seed)());
+const todaySeed = (d=new Date()) => d.toISOString().slice(0,10);
+
+// ---------- hex grid (axial, radius 4 => 61 cells) ----------
+const R = 4, SIZE = 36;
+const key = (q,r) => q+','+r;
+const DIRS = { q:[0,-1], w:[1,-1], e:[1,0], a:[-1,0], s:[-1,1], d:[0,1] };
+const DIRS_ARROW = { ArrowLeft:'a', ArrowRight:'e', ArrowUp:'w', ArrowDown:'s' };
+const NAMES = ['松 Matsu','梅 Ume','竹 Take','鶴 Tsuru','亀 Kame','桜 Sakura','月 Tsuki','川 Kawa'];
+const TERRAIN_COST = { plain:1, pine:2, water:2 };
+
+let S = null; // game state
+
+function allCells(){
+  const cells=[];
+  for(let q=-R;q<=R;q++)for(let r=-R;r<=R;r++){
+    const s=-q-r; if(Math.abs(s)>R) continue; cells.push({q,r});
+  }
+  return cells;
+}
+function dist(a,b){return (Math.abs(a.q-b.q)+Math.abs(a.r-b.r)+Math.abs(a.q+a.r-b.q-b.r))/2;}
+function neighbors(c){
+  return Object.values({e:[1,0],w:[-1,0],ne:[1,-1],nw:[0,-1],se:[0,1],sw:[-1,1]})
+    .map(([dq,dr])=>({q:c.q+dq,r:c.r+dr}))
+    .filter(p=>Math.abs(p.q)<=R&&Math.abs(p.r)<=R&&Math.abs(p.q+p.r)<=R);
+}
+function px(q,r){ // pointy-top
+  return { x: 320 + SIZE*Math.sqrt(3)*(q + r/2), y: 280 + SIZE*1.5*r };
+}
+function hexPoints(cx,cy,s){
+  const p=[]; for(let i=0;i<6;i++){const a=Math.PI/180*(60*i-30);p.push((cx+s*Math.cos(a)).toFixed(1)+','+(cy+s*Math.sin(a)).toFixed(1));}
+  return p.join(' ');
+}
+
+function newGame(seed){
+  const rand = rngFrom(seed);
+  const cells = allCells();
+  const terrain = {};
+  cells.forEach(c=>{
+    const v = rand();
+    terrain[key(c.q,c.r)] = v<0.12 ? 'water' : v<0.24 ? 'pine' : 'plain';
+  });
+  const depot = {q:0,r:0};
+  terrain['0,0']='plain';
+  // checkpoints: far cells, spaced apart
+  const far = cells.filter(c=>dist(c,depot)>=3).sort(()=>rand()-0.5);
+  const cps=[]; const used=new Set();
+  for(const c of far){
+    if(cps.length>=4) break;
+    if(cps.every(o=>dist(o,c)>=3) && !used.has(key(c.q,c.r))){
+      used.add(key(c.q,c.r)); cps.push(c);
+    }
+  }
+  const checkpoints = cps.map((c,i)=>({...c, name:NAMES[Math.floor(rand()*NAMES.length)]+'・'+(i+1), claimed:false}));
+  checkpoints.forEach(c=>{ terrain[key(c.q,c.r)]='plain'; });
+  S = {
+    seed, cells, terrain, depot, checkpoints,
+    pos:{...depot}, path:[{...depot}], visited:new Set(['0,0']),
+    revealed:new Set(), claimed:new Set(),
+    ink:60, moves:0, done:false,
+  };
+  revealAround(depot,2);
+  revealAround(depot,1);
+  say(`Day ${seed} — fog is thick. Six keys, one brush. Go claim ${checkpoints.length} checkpoints.`);
+  save(); render();
+}
+
+function revealAround(c,rad){
+  S.cells.forEach(o=>{ if(dist(c,o)<=rad) S.revealed.add(key(o.q,o.r)); });
+}
+function costAt(c){ return TERRAIN_COST[S.terrain[key(c.q,c.r)]] ?? 1; }
+
+function move(dir){
+  if(!S || S.done) { if(S?.done && dir) say('Atlas complete. Press N to wander a new fog, or [ ] to shift days.'); return; }
+  const d = DIRS[dir]; if(!d) return;
+  const np = {q:S.pos.q+d[0], r:S.pos.r+d[1]};
+  if(Math.abs(np.q)>R||Math.abs(np.r)>R||Math.abs(np.q+np.r)>R){ say('The atlas ends there — mist beyond mist. Try another direction.'); return; }
+  const cost = costAt(np);
+  if(S.ink < cost){ say(`Out of ink (need ${cost}). Press U to undo a step, or R to restart this fog.`); return; }
+  S.ink -= cost; S.moves++;
+  S.pos = np; S.path.push({...np}); S.visited.add(key(np.q,np.r));
+  revealAround(np,2);
+  // checkpoint?
+  const cp = S.checkpoints.find(c=>c.q===np.q&&c.r===np.r&&!c.claimed);
+  if(cp){
+    cp.claimed = true; S.ink = Math.min(99, S.ink+12);
+    S.cells.forEach(o=>{ if(dist(np,o)<=2){ S.claimed.add(key(o.q,o.r)); S.revealed.add(key(o.q,o.r)); }});
+    say(`STAMPED ${cp.name} — territory claimed, +12 ink. ${remaining()} checkpoint(s) remain.`);
+  }
+  if(S.checkpoints.every(c=>c.claimed)){
+    S.done = true;
+    const pct = claimPct();
+    const score = 400 + pct*2 - S.moves + S.ink;
+    const bk = 'fogline:'+S.seed;
+    const prev = +(localStorage.getItem(bk)||0);
+    if(score>prev) localStorage.setItem(bk, String(Math.round(score)));
+    say(`WIN — Atlas complete in ${S.moves} steps. Score ${Math.round(score)}. The fog remembers you.`, true);
+  }
+  save(); render();
+}
+function remaining(){ return S.checkpoints.filter(c=>!c.claimed).length; }
+function claimPct(){ return Math.round(S.claimed.size / S.cells.length * 100); }
+function revealPct(){ return Math.round(S.revealed.size / S.cells.length * 100); }
+
+// ---------- render ----------
+const svg = document.getElementById('board');
+const NS = 'http://www.w3.org/2000/svg';
+function el(n,attrs){ const e=document.createElementNS(NS,n); for(const k in attrs) e.setAttribute(k,attrs[k]); return e; }
+
+function render(){
+  document.getElementById('seedLabel').textContent = S.seed;
+  document.getElementById('dayLabel').textContent = 'DAY ' + S.seed;
+  document.getElementById('footSeed').textContent = 'seed:'+S.seed+' · radius 4 · 61 hexes';
+  document.getElementById('movesLabel').textContent = S.moves;
+  document.getElementById('inkLabel').textContent = S.ink;
+  document.getElementById('stInk').textContent = S.ink;
+  document.getElementById('stClaim').innerHTML = claimPct()+'<small>%</small>';
+  document.getElementById('seedPct').textContent = revealPct()+'%';
+  document.getElementById('stStamp').textContent = S.checkpoints.filter(c=>c.claimed).length+'/'+S.checkpoints.length;
+  document.getElementById('inkFill').style.width = Math.max(0,S.ink/99*100)+'%';
+  const bk = 'fogline:'+S.seed;
+  document.getElementById('stBest').textContent = localStorage.getItem(bk) || '—';
+
+  const cl = document.getElementById('checks'); cl.innerHTML='';
+  S.checkpoints.forEach(c=>{
+    const d=document.createElement('div'); d.className='check'+(c.claimed?' done':'');
+    d.innerHTML=`<span class="dot">${c.claimed?'判':'○'}</span><span><b>${c.name}</b><br><span style="opacity:.65">${c.claimed?'claimed 領地化':'unclaimed · somewhere in the fog'}</span></span>`;
+    cl.appendChild(d);
+  });
+
+  svg.innerHTML='';
+  // defs: brush filter + fog pattern
+  svg.innerHTML = `<defs>
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2"/></filter>
+  </defs>`;
+  // hexes
+  S.cells.forEach(c=>{
+    const {x,y} = px(c.q,c.r);
+    const k = key(c.q,c.r);
+    const rev = S.revealed.has(k);
+    const t = S.terrain[k];
+    const g = el('g',{});
+    const fill = !rev ? '#B9C2C6' : S.claimed.has(k) ? '#F3DFC4' : t==='water' ? '#DCE7E4' : t==='pine' ? '#E4E7D2' : '#FBF8EF';
+    const hex = el('polygon',{points:hexPoints(x,y,SIZE-2),fill,stroke:'#1E1D1A','stroke-width':rev?1.6:1,'stroke-dasharray':rev?'none':'4 3',opacity:rev?1:0.85,class:'hex-fog'});
+    g.appendChild(hex);
+    if(rev && t==='pine'){ const tx=el('text',{x,y:y+5,'text-anchor':'middle','font-size':13,fill:'#7A8B6F'}); tx.textContent='🌲'; g.appendChild(tx); }
+    if(rev && t==='water'){ const tx=el('text',{x,y:y+5,'text-anchor':'middle','font-size':13,fill:'#3E5468'}); tx.textContent='〜'; g.appendChild(tx); }
+    // checkpoint marker
+    const cp = S.checkpoints.find(o=>o.q===c.q&&o.r===c.r);
+    if(cp && rev){
+      const m = el('g',{});
+      const ring = el('circle',{cx:x,cy:y,r:13,fill:cp.claimed?'#C73E2A':'none',stroke:'#C73E2A','stroke-width':2.5});
+      const tx = el('text',{x,y:y+5,'text-anchor':'middle','font-size':11,'font-weight':900,fill:cp.claimed?'#fff':'#C73E2A'});
+      tx.textContent = cp.claimed?'判':' checkpoint'.slice(0,0)+'○';
+      m.appendChild(ring); m.appendChild(tx); g.appendChild(m);
+    }
+    // courier
+    if(S.pos.q===c.q&&S.pos.r===c.r){
+      const cur = el('circle',{cx:x,cy:y,r:9,fill:'#1E1D1A',stroke:'#F6F1E5','stroke-width':2.5});
+      g.appendChild(cur);
+      const ring2 = el('circle',{cx:x,cy:y,r:15,fill:'none',stroke:'#C73E2A','stroke-width':2,'stroke-dasharray':'3 3'});
+      const an = document.createElementNS(NS,'animateTransform');
+      an.setAttribute('attributeName','transform'); an.setAttribute('type','rotate');
+      an.setAttribute('from',`0 ${x} ${y}`); an.setAttribute('to',`360 ${x} ${y}`);
+      an.setAttribute('dur','8s'); an.setAttribute('repeatCount','indefinite');
+      ring2.appendChild(an); g.appendChild(ring2);
+    }
+    // depot
+    if(c.q===0&&c.r===0){
+      const tx=el('text',{x,y:y-16,'text-anchor':'middle','font-size':10,'font-weight':900,fill:'#3E5468','letter-spacing':'2'}); tx.textContent='起点'; g.appendChild(tx);
+    }
+    svg.appendChild(g);
+    if(!rev){ // drifting mist dot
+      const m = el('circle',{cx:x+(x%7),cy:y-8,r:1.6,fill:'#fff',opacity:.5}); svg.appendChild(m);
+    }
+  });
+  // route polyline (brush feel: double stroke)
+  const pts = S.path.map(p=>{const {x,y}=px(p.q,p.r);return x.toFixed(1)+','+y.toFixed(1);}).join(' ');
+  if(S.path.length>1){
+    svg.appendChild(el('polyline',{points:pts,fill:'none',stroke:'#C73E2A','stroke-width':7,'stroke-linecap':'round','stroke-linejoin':'round',opacity:.28}));
+    svg.appendChild(el('polyline',{points:pts,fill:'none',stroke:'#1E1D1A','stroke-width':2.6,'stroke-linecap':'round','stroke-linejoin':'round',filter:'url(#rough)'}));
+  }
+}
+
+function say(msg, win=false){
+  const s = document.getElementById('status');
+  s.innerHTML = win ? `<div class="win">㊗ ${msg}</div>` : msg;
+  document.getElementById('srLive').textContent = msg;
+}
+
+// ---------- persistence (daily progress) ----------
+function save(){
+  try{
+    localStorage.setItem('fogline:progress:'+S.seed, JSON.stringify({path:S.path,ink:S.ink,moves:S.moves,claimed:[...S.claimed],revealed:[...S.revealed],cps:S.checkpoints.map(c=>c.claimed)}));
+  }catch(e){}
+}
+function load(seed){
+  try{
+    const raw = localStorage.getItem('fogline:progress:'+seed);
+    return raw?JSON.parse(raw):null;
+  }catch(e){ return null; }
+}
+function start(seed){
+  newGame(seed);
+  const p = load(seed);
+  // re-apply progress only if same checkpoint layout would match is overkill; skip restore of layout-dependent sets
+  // (kept simple: fresh run each visit, best score persists). Clear stale:
+  if(p && p.path && p.path.length<=2){ /* ignore tiny */ }
+}
+
+// ---------- day shifting ----------
+function shiftDay(delta){
+  const d = new Date(S.seed+'T12:00:00');
+  if(isNaN(d)) return start(todaySeed());
+  d.setDate(d.getDate()+delta);
+  start(d.toISOString().slice(0,10));
+}
+
+// ---------- input: keyboard only ----------
+document.addEventListener('keydown', e=>{
+  const k = e.key;
+  if(k==='?'||k==='/'){ e.preventDefault(); const h=document.getElementById('helpPanel'); h.hidden=!h.hidden; return; }
+  const low = k.toLowerCase();
+  if(DIRS[low]){ e.preventDefault(); move(low); svg.focus({preventScroll:true}); return; }
+  if(DIRS_ARROW[k]){ e.preventDefault(); move(DIRS_ARROW[k]); return; }
+  if(low==='u'||k==='Backspace'){ e.preventDefault(); undo(); return; }
+  if(low==='r'){ e.preventDefault(); start(S.seed); say(`Fog reset for ${S.seed}. Ink restored to 60.`); return; }
+  if(low==='n'){ e.preventDefault(); start('wander-'+Math.random().toString(36).slice(2,8)); return; }
+  if(low==='t'){ e.preventDefault(); start(todaySeed()); return; }
+  if(k==='['){ e.preventDefault(); shiftDay(-1); return; }
+  if(k===']'){ e.preventDefault(); shiftDay(1); return; }
+  if(k==='Enter'&&S.done){ e.preventDefault(); start('wander-'+Math.random().toString(36).slice(2,8)); return; }
+});
+function undo(){
+  if(S.path.length<=1){ say('Nothing to undo — you are at the depot 起点.'); return; }
+  const last = S.path.pop();
+  S.pos = {...S.path[S.path.length-1]};
+  S.ink = Math.min(99, S.ink + Math.max(1,Math.floor(costAt(last)/2)));
+  S.moves = Math.max(0,S.moves-1);
+  // un-stamp if we back off a checkpoint? keep stamps (hanko is permanent)
+  save(); render(); say('Brush lifted one stroke. 半歩戻る.');
+}
+document.getElementById('bUndo').onclick=undo;
+document.getElementById('bRestart').onclick=()=>{start(S.seed);say(`Fog reset for ${S.seed}. Ink restored.`);};
+document.getElementById('bDay').onclick=()=>start(todaySeed());
+document.getElementById('bNew').onclick=()=>start('wander-'+Math.random().toString(36).slice(2,8));
+
+// ---------- boot ----------
+const params = new URLSearchParams(location.search);
+start(params.get('seed') || todaySeed());
+svg.focus({preventScroll:true});
+console.log('fogline courier atlas ready', S.seed);
+</script>
+</body>
+</html>
