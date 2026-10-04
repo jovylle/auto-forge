@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tidepool Street Oracle — sketch streets, flood them, watch ghosts reroute</title>
+  <meta name="description" content="Sketch a street, flood it with tides, watch ghost walkers reroute live. A dark-fantasy cartography toy." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="fog fog-a" aria-hidden="true"></div>
+  <div class="fog fog-b" aria-hidden="true"></div>
+
+  <header class="hero">
+    <p class="eyebrow">❖&nbsp; a dark-fantasy cartography toy &nbsp;❖</p>
+    <h1><span class="h-ghost">Tidepool</span> <span class="h-street">Street Oracle</span></h1>
+    <p class="sub">Sketch a street. Raise the tide. Watch the ghost-walkers reroute live.</p>
+    <div class="runes" id="runes" aria-hidden="true">ᚦ ᛁ ᛞ ᛖ ᛈ ᛟ ᛟ ᛚ &nbsp;·&nbsp; ᛊ ᛏ ᚱ ᛖ ᛖ ᛏ &nbsp;·&nbsp; ᛟ ᚱ ᚨ ᚲ ᛚ ᛖ</div>
+    <p class="cue">scroll ↓ — the tide obeys your descent</p>
+  </header>
+
+  <main>
+    <section class="panel atelier reveal" id="atelier" aria-label="Map atelier">
+      <div class="panel-head">
+        <h2><span class="num">I.</span> The Sketching Table</h2>
+        <p>Drag on the chart to lay streets. Raise banks, dredge channels, then drown it all.</p>
+      </div>
+
+      <div class="toolbar" role="toolbar" aria-label="Brushes and omens">
+        <div class="brushes">
+          <button class="tool is-active" data-tool="street" title="Paint walkable streets">🛤 street</button>
+          <button class="tool" data-tool="erase" title="Erase streets">⌫ erase</button>
+          <button class="tool" data-tool="raise" title="Raise land (holds back water)">▲ raise</button>
+          <button class="tool" data-tool="dredge" title="Dig low channels (floods first)">▼ dredge</button>
+        </div>
+        <div class="omens">
+          <button id="btnWalkers" title="Summon more ghost walkers">👻 +walker</button>
+          <button id="btnRegrow" title="Conjure a new seabed">🎲 new omen</button>
+          <button id="btnClear" title="Wash away all streets">🌊 clear</button>
+          <button id="btnPause" title="Freeze / resume the water shimmer">⏸ still</button>
+          <button id="btnPostcard" class="primary" title="Export a map postcard PNG">✉ postcard</button>
+        </div>
+      </div>
+
+      <div class="map-wrap">
+        <canvas id="map" aria-label="Floodable street map. Drag to sketch streets."></canvas>
+        <div class="map-toast" id="toast" role="status"></div>
+        <div class="map-legend">
+          <span><i class="sw sw-street"></i>street</span>
+          <span><i class="sw sw-dry"></i>dry block</span>
+          <span><i class="sw sw-shallow"></i>shallows</span>
+          <span><i class="sw sw-deep"></i>drowned</span>
+          <span><i class="sw sw-ghost"></i>walker</span>
+        </div>
+      </div>
+
+      <div class="tidebar">
+        <div class="tide-top">
+          <label for="tide">🌊 tide <strong id="tideVal">38</strong><span class="unit">ft</span></label>
+          <label class="bind"><input type="checkbox" id="bindScroll" checked /> tide follows scroll</label>
+        </div>
+        <input type="range" id="tide" min="0" max="100" value="38" step="1" aria-label="Tide level" />
+        <div class="stats">
+          <div class="stat"><b id="stDry">–</b><span>streets dry</span></div>
+          <div class="stat"><b id="stDrowned">–</b><span>blocks drowned</span></div>
+          <div class="stat"><b id="stWalk">–</b><span>walkers abroad</span></div>
+          <div class="stat"><b id="stStrand">–</b><span>stranded</span></div>
+          <div class="stat"><b id="stReroute">0</b><span>reroutes</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tidewell reveal" id="tidewell" aria-label="Scroll tide well">
+      <div class="well-sticky">
+        <div class="well-moon" aria-hidden="true">☾</div>
+        <div class="well-track"><div class="well-fill" id="wellFill"></div></div>
+        <p class="well-cap">the wellorov — scroll depth <b id="scrollPct">0%</b> → tide <b id="scrollTide">38</b></p>
+      </div>
+    </section>
+
+    <section class="prophecy" id="prophecy" aria-label="The prophecy">
+      <h2 class="reveal"><span class="num">II.</span> The Drowning Prophecy</h2>
+      <p class="reveal prophecy-lede">Three readings. As you descend, the sea rises — if the tide is scroll-bound.</p>
+      <article class="chapter reveal">
+        <div class="chap-moon">☽ low water</div>
+        <h3>First reading — the cobbles remember</h3>
+        <p>At low tide every alley holds. Ghosts walk the long way round, past lantern-blocks and sleeping courts. Sketch generously; the town rewards the bold.</p>
+      </article>
+      <article class="chapter reveal">
+        <div class="chap-moon">☾ half tide</div>
+        <h3>Second reading — the shallows bargain</h3>
+        <p>Half-drowned crossings flicker. Watch the pale ones hesitate, then swerve — a live reroute, mid-step. Raise a causeway with the <b>▲ raise</b> brush to save a drowning lane.</p>
+      </article>
+      <article class="chapter reveal">
+        <div class="chap-moon">● high water</div>
+        <h3>Third reading — the oracle keeps what it kisses</h3>
+        <p>At full flood only the high roads survive. Stranded walkers gutter like candles. Export a postcard of the ruin — proof you were warned.</p>
+      </article>
+    </section>
+
+    <section class="panel postcards reveal" id="postcards" aria-label="Export postcards">
+      <div class="panel-head">
+        <h2><span class="num">III.</span> Postcards from the Drowned Town</h2>
+        <p>Seal the current chart — map, tide-mark and date — into a keepsake PNG.</p>
+      </div>
+      <div class="post-row">
+        <img id="postPreview" alt="Postcard preview (appears after export)" />
+        <div class="post-side">
+          <button id="btnPostcard2" class="primary">✉ export map postcard</button>
+          <a id="postDownload" class="hidden" download="tidepool-oracle-postcard.png">⬇ download postcard</a>
+          <p class="hint">Tip: uncheck “tide follows scroll”, set a cruel tide, then export the wreck.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Tidepool Street Oracle · a single-file-ish experiment · streets &amp; tides persist in <code>localStorage</code> · works from <code>file://</code></p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
