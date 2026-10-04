@@ -4032,12 +4032,44 @@ export const projects = [
       "strategy"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-04T01:01:46.796Z",
-    "updatedAt": "2026-10-04T01:03:01.684Z",
+    "updatedAt": "2026-10-04T01:03:25.862Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "cinder-atlas-arcade",
+    "title": "Cinder Atlas Arcade",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "organic-brutalist",
+    "theme": "maps",
+    "constraints": [
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Claim tiles, dodge fog, and race rivals to map the glowing ember grid.",
+    "features": [
+      "Procedurally shifting fog-of-war grid",
+      "Click-drag territory claiming",
+      "3 rival AI navigators",
+      "60-second map-run timer"
+    ],
+    "tags": [
+      "maps",
+      "territory",
+      "arcade",
+      "grids"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-04T05:01:04.073Z",
+    "updatedAt": "2026-10-04T05:02:59.375Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 129, done: 120, counts: {"done":120,"needs-human":9} };
+export const stats = { total: 130, done: 121, counts: {"done":121,"needs-human":9} };
