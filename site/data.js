@@ -3999,12 +3999,45 @@ export const projects = [
       "routing"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-03T22:53:56.894Z",
-    "updatedAt": "2026-10-03T22:55:25.015Z",
+    "updatedAt": "2026-10-03T22:55:33.794Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "fogline-courier-atlas",
+    "title": "Fogline Courier Atlas",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "japanese-minimal",
+    "theme": "maps",
+    "constraints": [
+      "must work with keyboard only",
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Plot courier routes across shifting fog grids to claim territories.",
+    "features": [
+      "draw routes on hex grid",
+      "fog reveals as you explore",
+      "claim territory checkpoints",
+      "daily shifting map seed"
+    ],
+    "tags": [
+      "maps",
+      "grids",
+      "navigation",
+      "strategy"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-04T01:01:46.796Z",
+    "updatedAt": "2026-10-04T01:03:01.684Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 128, done: 119, counts: {"done":119,"needs-human":9} };
+export const stats = { total: 129, done: 120, counts: {"done":120,"needs-human":9} };
