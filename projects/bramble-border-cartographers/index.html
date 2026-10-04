@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Bramble Border Cartographers</title>
+<meta name="description" content="Claim hex territories by drawing routes before rivals encircle you. A retro-wave hex strategy game." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="sun" aria-hidden="true"><div class="sun-disc"></div></div>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-kicker">NEON ATLAS CLUB · WEEKLY MAP</div>
+    <h1 class="chrome">BRAMBLE <span>BORDER</span> CARTOGRAPHERS</h1>
+    <p class="tagline">Claim hexes. Wind trade routes. Bramble your rivals. Don't get encircled.</p>
+  </div>
+  <div class="seed-card">
+    <div class="seed-row">
+      <span class="seed-label">WEEKLY SEED</span>
+      <strong id="seedName" class="seed-name">—</strong>
+    </div>
+    <div class="seed-controls">
+      <button id="btnPrevWeek" class="chip" title="Previous week map">◀</button>
+      <button id="btnThisWeek" class="chip chip-hot" title="Back to this week's map">THIS WEEK</button>
+      <button id="btnNextWeek" class="chip" title="Next week map">▶</button>
+    </div>
+    <div class="seed-custom">
+      <input id="seedInput" maxlength="24" spellcheck="false" placeholder="custom seed…" aria-label="Custom seed" />
+      <button id="btnSeedGo" class="chip chip-hot">MAP IT</button>
+      <button id="btnSeedRandom" class="chip" title="Random map">⚄</button>
+    </div>
+    <div class="seed-meta"><span id="seedMeta">—</span><button id="btnCopySeed" class="linklike" title="Copy seed">copy</button></div>
+  </div>
+</header>
+
+<main id="app">
+  <section class="hud">
+    <div class="stat"><span class="stat-k">TURN</span><strong><span id="statTurn">1</span><em>/14</em></strong></div>
+    <div class="stat"><span class="stat-k">INK</span><strong id="statInk" class="ink">●●●</strong></div>
+    <div class="stat"><span class="stat-k">YOU</span><strong id="statYou" class="c-you">0</strong></div>
+    <div class="stat"><span class="stat-k">VOLT</span><strong id="statVolt" class="c-volt">0</strong></div>
+    <div class="stat"><span class="stat-k">THORN</span><strong id="statThorn" class="c-thorn">0</strong></div>
+    <div class="stat wide"><span class="stat-k">COINS</span><strong id="statCoins" class="c-coins">0 ⬡</strong></div>
+  </section>
+
+  <section class="toolbar" role="toolbar" aria-label="Tools">
+    <button id="toolPaint" class="tool active" data-tool="paint">
+      <span class="tool-glyph">⬢</span><span class="tool-t"><b>PAINT</b><i>claim · 1 ink</i></span>
+    </button>
+    <button id="toolRoute" class="tool" data-tool="route">
+      <span class="tool-glyph">≋</span><span class="tool-t"><b>ROUTE</b><i>link · seal 3+</i></span>
+    </button>
+    <button id="toolBramble" class="tool" data-tool="bramble">
+      <span class="tool-glyph">☙</span><span class="tool-t"><b>BRAMBLE</b><i>block · 2 ink</i></span>
+    </button>
+    <div class="toolbar-actions">
+      <button id="btnSeal" class="btn btn-neon" disabled>SEAL ROUTE</button>
+      <button id="btnCancelRoute" class="btn btn-ghost" disabled>✕</button>
+      <button id="btnEndTurn" class="btn btn-hot">END TURN ▸</button>
+    </div>
+  </section>
+
+  <section class="board-wrap">
+    <canvas id="board" width="640" height="600" aria-label="Hex territory board. Click hexes to play."></canvas>
+    <div id="hint" class="hint">Paint glowing hexes next to your territory.</div>
+    <div class="floor" aria-hidden="true"></div>
+  </section>
+
+  <section class="panels">
+    <div class="panel">
+      <h2>SCORES</h2>
+      <div class="scores">
+        <div class="score-row you"><span class="dot"></span><span>YOU · magenta</span><b id="scoreYou">0</b></div>
+        <div class="score-row volt"><span class="dot"></span><span>VOLT · cyan rival</span><b id="scoreVolt">0</b></div>
+        <div class="score-row thorn"><span class="dot"></span><span>THORN · amber rival</span><b id="scoreThorn">0</b></div>
+      </div>
+      <p class="fine">Score = territory × 10 + route coins + encircled bonus (+15 per sealed cell ring). Most points at turn 14 wins.</p>
+      <div class="legend">
+        <span><i class="sw fertile"></i>fertile +coin</span>
+        <span><i class="sw crystal"></i>crystal +6</span>
+        <span><i class="sw thornt"></i>wild · 2 ink</span>
+        <span><i class="sw bramble"></i>bramble · blocked</span>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>FIELD LOG</h2>
+      <ol id="log" class="log" aria-live="polite"></ol>
+      <div class="panel-btns">
+        <button id="btnHow" class="btn btn-ghost">HOW TO PLAY</button>
+        <button id="btnRestart" class="btn btn-ghost">RESTART MAP</button>
+      </div>
+      <p class="fine">Best on this seed: <b id="bestSeed">—</b></p>
+    </div>
+  </section>
+
+  <footer class="foot">BRAMBLE BORDER CARTOGRAPHERS · retro-wave hex duel · no images, all canvas + CSS · progress saves locally</footer>
+</main>
+
+<div id="modalHow" class="modal" hidden>
+  <div class="modal-card">
+    <h2>HOW TO PLAY</h2>
+    <ol class="how">
+      <li><b>PAINT</b> — click a pulsing hex next to yours to claim it (1 ink, wild hexes cost 2). Drag to paint chains.</li>
+      <li><b>ROUTE</b> — click your hexes in a chain (each step adjacent), then <b>SEAL ROUTE</b> with 3+ links. Longer + windier = more coins.</li>
+      <li><b>BRAMBLE</b> — spend 2 ink to thorn-block any open hex. Rivals can never cross it. You only get 5 per game.</li>
+      <li><b>END TURN</b> — rivals expand. After turn 14 the top cartographer wins. Encircled rings (your hex fully hugged by you) pay +15.</li>
+      <li><b>WEEKLY SEED</b> — everyone mapping the same week shares one map. Copy the seed to challenge a friend.</li>
+    </ol>
+    <button id="btnCloseHow" class="btn btn-neon">GOT IT ▸</button>
+  </div>
+</div>
+
+<div id="modalEnd" class="modal" hidden>
+  <div class="modal-card end">
+    <div class="end-kicker">SURVEY COMPLETE</div>
+    <h2 id="endTitle">YOU WIN</h2>
+    <p id="endBody" class="end-body">—</p>
+    <div class="end-scores"><span id="endYou">0</span><span id="endVolt">0</span><span id="endThorn">0</span></div>
+    <div class="end-btns">
+      <button id="btnAgain" class="btn btn-hot">REMATCH</button>
+      <button id="btnNextSeed" class="btn btn-neon">NEXT SEED ▸</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
