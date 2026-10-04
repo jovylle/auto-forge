@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cinder Atlas Arcade — map the ember grid</title>
+  <meta name="description" content="Claim tiles, dodge fog, and race 3 rival AI navigators in a 60-second map-run across a shifting ember grid." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="mast wrap">
+    <div class="mast-mark" aria-hidden="true"><span class="mark-dot"></span>CINDER ATLAS</div>
+    <h1>Map the glowing <em>ember grid</em> before the fog eats it.</h1>
+    <p class="sub">Click-drag to claim territory. Pale fog is safe — thick ash scorches. Race <strong>3 rival navigators</strong> in a <strong>60-second</strong> map-run.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="hud" aria-label="Run status">
+      <div class="hud-card timer-card">
+        <div class="hud-label">Map-run</div>
+        <div class="timer-row">
+          <svg class="ring" viewBox="0 0 44 44" aria-hidden="true">
+            <circle class="ring-bg" cx="22" cy="22" r="18" />
+            <circle class="ring-fg" id="ringFg" cx="22" cy="22" r="18" />
+          </svg>
+          <div class="timer-num"><span id="clock">60</span><small>s</small></div>
+        </div>
+        <div class="fog-meter" title="Ash density">
+          <div class="hud-label">Ash surge <span id="surgeLabel">calm</span></div>
+          <div class="fog-bar"><div id="fogFill"></div></div>
+        </div>
+      </div>
+
+      <div class="hud-card board-card">
+        <div class="hud-label">Standings <span class="live" id="liveDot">● live</span></div>
+        <ol class="standings" id="standings"></ol>
+        <div class="hud-row">
+          <button id="startBtn" class="btn btn-fire">Start 60s run</button>
+          <button id="againBtn" class="btn btn-ghost" hidden>Remap</button>
+          <button id="muteBtn" class="btn btn-ghost" aria-pressed="false" title="Toggle sound">🔊</button>
+        </div>
+        <p class="best">Best atlas: <strong id="best">0</strong> embers · <span id="runState">idle — press start</span></p>
+      </div>
+
+      <div class="hud-card how-card">
+        <div class="hud-label">Field guide</div>
+        <ul class="guide">
+          <li><span class="sw sw-you"></span> you — drag to claim</li>
+          <li><span class="sw sw-fog"></span> thick fog = scorched, can't claim</li>
+          <li><span class="sw sw-ember"></span> pip count = ember value</li>
+        </ul>
+        <div class="bots">
+          <span class="bot b2">▲ Bramble</span>
+          <span class="bot b3">◆ Rust</span>
+          <span class="bot b4">● Wisp</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="atlas-wrap">
+      <div id="board" class="board" role="grid" aria-label="Ember grid. Click and drag to claim tiles."></div>
+      <div id="overlay" class="overlay">
+        <div class="overlay-card">
+          <p class="ov-kicker" id="ovKicker">Cartographer's briefing</p>
+          <h2 id="ovTitle">Claim the atlas in 60 seconds</h2>
+          <p id="ovBody">Drag across open tiles to stamp your ember sigil. Fog drifts every few heartbeats — pale ash is safe, dark ash burns your streak. Bramble, Rust and Wisp are mapping too.</p>
+          <button id="ovBtn" class="btn btn-fire btn-big">Ignite the run</button>
+        </div>
+      </div>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </section>
+
+    <footer class="foot">
+      <span>Cinder Atlas Arcade · organic-brutalist field kit</span>
+      <span>fog is procedural · rivals are local AI · best kept on this device</span>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
