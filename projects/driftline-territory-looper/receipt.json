@@ -1,0 +1,32 @@
+{
+  "slug": "driftline-territory-looper",
+  "title": "Driftline Territory Looper",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "vaporwave",
+  "theme": "maps",
+  "constraints": [
+    "sound on interaction (WebAudio, no assets)",
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Draw closed loops to claim grid territory",
+      "Drifting rival couriers steal edges",
+      "Weekly seed map with fog zones",
+      "60-second blitz rounds"
+    ],
+    "status": "pass",
+    "summary": "Driftline Territory Looper — vaporwave canvas arcade: drag/WASD to lay routes, self-crossing loops claim interiors via flood fill, 2 momentum-drift rivals steal edges and sever trails, ISO-week seeded map with 3 fog zones revealed by claiming, 60s blitz with countdown/urgent timer/score card, per-seed best in localStorage, WebAudio SFX, zero images."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 73152,
+  "at": "2026-10-05T01:04:00.411Z"
+}
