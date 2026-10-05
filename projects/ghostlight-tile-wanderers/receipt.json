@@ -1,0 +1,32 @@
+{
+  "slug": "ghostlight-tile-wanderers",
+  "title": "Ghostlight Tile Wanderers",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "glassmorphism",
+  "theme": "maps",
+  "constraints": [
+    "no external fonts — system fonts only",
+    "must work with keyboard only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "fog-of-war tile exploring",
+      "territory painting and stealing",
+      "daily shifting maze seed",
+      "shortcut beacon carving"
+    ],
+    "status": "pass",
+    "summary": "Glassmorphism keyboard-only maze: seeded daily DFS maze with lantern-radius fog-of-war + line-of-sight, player-vs-wisp territory painting/stealing with HUD bars, 3 beacon blink shortcuts + 3 wall carves, 6 lanterns + 55% win condition, per-seed localStorage progress/best. node --check clean, all mazes BFS-connected, 375px media query present."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 104045,
+  "at": "2026-10-05T15:51:40.135Z"
+}

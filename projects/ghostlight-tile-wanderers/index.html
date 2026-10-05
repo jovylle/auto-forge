@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ghostlight Tile Wanderers</title>
+<meta name="description" content="Wander foggy tiles, claim territory, and chart shortcuts in shifting mazes. Keyboard-only glassmorphism maze game." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="bg-orbs" aria-hidden="true"><i class="o1"></i><i class="o2"></i><i class="o3"></i></div>
+<main id="app">
+  <header class="glass panel hero">
+    <div class="hero-top">
+      <div>
+        <p class="kicker">daily shifting maze · keyboard only</p>
+        <h1>👻 Ghostlight Tile Wanderers</h1>
+        <p class="sub">Wander foggy tiles, claim territory, and chart shortcuts in shifting mazes.</p>
+      </div>
+      <div class="seed-card glass-in" role="status" aria-live="polite">
+        <span class="seed-label">maze seed</span>
+        <strong id="seedDate">—</strong>
+        <span id="seedNum" class="seed-num">—</span>
+        <div class="seed-nav">
+          <button id="btnPrev" aria-label="Previous day maze">◀</button>
+          <button id="btnToday" aria-label="Today's maze">today</button>
+          <button id="btnNext" aria-label="Next day maze">▶</button>
+        </div>
+      </div>
+    </div>
+    <div class="stats" role="status" aria-live="polite">
+      <div class="stat"><span class="k">you</span><strong id="stYou">0%</strong><i class="bar"><i id="barYou"></i></i></div>
+      <div class="stat"><span class="k">wisp 👺</span><strong id="stWisp">0%</strong><i class="bar"><i id="barWisp"></i></i></div>
+      <div class="stat"><span class="k">explored</span><strong id="stFog">0%</strong></div>
+      <div class="stat"><span class="k">lanterns</span><strong id="stLan">0/6</strong></div>
+      <div class="stat"><span class="k">moves</span><strong id="stMoves">0</strong></div>
+    </div>
+    <p id="msg" class="msg" role="status" aria-live="polite">Wake the tiles…</p>
+  </header>
+
+  <section class="layout">
+    <div class="glass panel board-wrap">
+      <div id="board" role="grid" aria-label="Foggy maze. Use arrow keys to wander." tabindex="0"></div>
+      <div class="board-foot">
+        <span id="goalLine">Claim <b>55%</b> of open tiles + light <b>6 lanterns</b> to win.</span>
+        <button id="btnReset" class="ghost-btn">↻ restart maze (R)</button>
+      </div>
+    </div>
+
+    <aside class="glass panel side">
+      <h2>⌨️ keys</h2>
+      <ul class="keys">
+        <li><kbd>←↑↓→</kbd>/<kbd>WASD</kbd> wander</li>
+        <li><kbd>B</kbd> carve beacon <span class="dim">(max 3)</span></li>
+        <li><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> blink to beacon</li>
+        <li><kbd>E</kbd> carve wall <span class="dim">(3 charges)</span></li>
+        <li><kbd>R</kbd> restart · <kbd>N</kbd> today's maze</li>
+      </ul>
+      <h2>🔦 how it plays</h2>
+      <ul class="rules">
+        <li>Fog lifts in a <b>lantern radius</b>; explored tiles stay dimly charted.</li>
+        <li>Every step <b>paints</b> your ghostlight. Stepping on wisp ink <b>steals</b> it back.</li>
+        <li>The <b>wisp</b> roams and repaints while you wander. Out-paint it.</li>
+        <li>Beacons are <b>shortcuts</b>: drop, then blink across the maze.</li>
+        <li>New maze every day from the date seed — arrows flip days.</li>
+      </ul>
+      <div class="best glass-in" id="bestLine">best on this seed: —</div>
+      <div id="winCard" class="win glass-in" hidden>
+        <strong>✨ maze charted!</strong>
+        <span id="winText"></span>
+        <button id="btnAgain" class="ghost-btn">play again (R)</button>
+      </div>
+    </aside>
+  </section>
+
+  <footer class="foot">system fonts only · no build · progress saves to localStorage · works from file://</footer>
+</main>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

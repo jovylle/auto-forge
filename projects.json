@@ -4270,6 +4270,39 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "ghostlight-tile-wanderers",
+      "title": "Ghostlight Tile Wanderers",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "aesthetic": "glassmorphism",
+      "theme": "maps",
+      "constraints": [
+        "no external fonts — system fonts only",
+        "must work with keyboard only"
+      ],
+      "description": "Wander foggy tiles, claim territory, and chart shortcuts in shifting mazes.",
+      "features": [
+        "fog-of-war tile exploring",
+        "territory painting and stealing",
+        "daily shifting maze seed",
+        "shortcut beacon carving"
+      ],
+      "tags": [
+        "maps",
+        "grids",
+        "territory",
+        "navigation"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-05T15:49:53.945Z",
+      "updatedAt": "2026-10-05T15:52:05.583Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
