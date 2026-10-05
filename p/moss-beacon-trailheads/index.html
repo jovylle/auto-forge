@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moss Beacon Trailheads — 苔の道</title>
+  <meta name="description" content="Claim glowing trail tiles to link beacons before fog reclaims the map. A daily-seed moss-walking game." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scroll-thread" aria-hidden="true"><span id="threadFill"></span></div>
+
+  <header class="topbar">
+    <span class="brand"><span class="hanko-mini">苔</span> Moss Beacon Trailheads</span>
+    <span class="top-mid" id="seedLabel">seed —</span>
+    <span class="enso-wrap" title="scroll progress">
+      <svg viewBox="0 0 36 36" width="26" height="26" aria-hidden="true">
+        <circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(26,26,24,.18)" stroke-width="3"/>
+        <circle id="ensoArc" cx="18" cy="18" r="15.5" fill="none" stroke="#c73e1d" stroke-width="3"
+          stroke-linecap="round" stroke-dasharray="97.4" stroke-dashoffset="97.4" transform="rotate(-90 18 18)"/>
+      </svg>
+    </span>
+  </header>
+
+  <main id="app">
+    <section class="hero">
+      <p class="kicker">日々の山道 &nbsp;·&nbsp; daily trail challenge</p>
+      <h1><span class="kanji-hero" lang="ja">苔の道</span><br />Moss Beacon<br />Trailheads</h1>
+      <p class="sub">Walk the grid to paint living moss. Link every beacon into one glowing route before the fog reclaims your steps.</p>
+      <div class="hero-meta">
+        <span>一 walk to paint</span><span>二 link beacons</span><span>三 outpace the fog</span>
+      </div>
+      <p class="wind-line">scroll the page — your scrolling stirs the <span lang="ja">風</span> wind. <span id="windReadout">風 wind: still air</span></p>
+    </section>
+
+    <section class="game-wrap" id="gameSection">
+      <div class="board-col">
+        <div class="board-frame" id="boardFrame">
+          <div class="board-head">
+            <span id="timer" role="timer" aria-label="time left">2:30</span>
+            <span class="board-head-seed" id="boardSeed">—</span>
+          </div>
+          <div class="board-scroll" id="boardScroll">
+            <div class="board" id="board" role="grid" aria-label="trail grid"></div>
+            <canvas id="mist" aria-hidden="true"></canvas>
+          </div>
+          <div id="banner" class="banner" aria-live="polite"></div>
+        </div>
+        <div class="dpad" aria-label="move controls">
+          <span></span><button data-dir="up" aria-label="move up">↑</button><span></span>
+          <button data-dir="left" aria-label="move left">←</button>
+          <button data-dir="down" aria-label="move down">↓</button>
+          <button data-dir="right" aria-label="move right">→</button>
+        </div>
+        <p class="hint">move: <kbd>WASD</kbd> / <kbd>←↑↓→</kbd> · tap a tile to walk there · scroll the page to stir wind</p>
+      </div>
+
+      <aside class="panel">
+        <div class="seal-row">
+          <div class="hanko" id="hanko" lang="ja">未踏</div>
+          <div>
+            <p class="score-label">trail score</p>
+            <p class="score" id="score">0</p>
+            <p class="best" id="best">best (this seed): 0</p>
+          </div>
+        </div>
+        <dl class="stats">
+          <div><dt>moss tiles</dt><dd id="statTiles">0</dd></div>
+          <div><dt>beacons lit</dt><dd id="statBeacons">0 / 5</dd></div>
+          <div><dt>routes linked</dt><dd id="statLinks">0</dd></div>
+          <div><dt>combo</dt><dd id="statCombo">×1</dd></div>
+          <div><dt>fog appetite</dt><dd id="statFog">calm</dd></div>
+        </dl>
+        <div class="seed-box">
+          <label for="seedInput">map seed</label>
+          <div class="seed-row">
+            <input id="seedInput" type="text" spellcheck="false" autocomplete="off" />
+            <button id="seedGo" type="button">walk</button>
+          </div>
+          <div class="seed-row">
+            <button id="dailyBtn" type="button" class="ghost">today's mountain</button>
+            <button id="randomBtn" type="button" class="ghost">wander</button>
+            <button id="restartBtn" type="button" class="ghost">↺</button>
+          </div>
+        </div>
+        <ol class="legend">
+          <li><i class="sw sw-you"></i>you — the walker</li>
+          <li><i class="sw sw-moss"></i>moss — your painted trail</li>
+          <li><i class="sw sw-route"></i>route — linked beacon path</li>
+          <li><i class="sw sw-beacon"></i>beacon — step on it to light</li>
+          <li><i class="sw sw-fog"></i>fog — idle moss fades back</li>
+        </ol>
+        <p class="panel-note">Idle moss withers back into fog after ~22 breaths; glowing routes hold ~45. Link all five beacons into one route for <span lang="ja">全結び</span> — the grand linking.</p>
+      </aside>
+    </section>
+
+    <section class="scroll-story">
+      <article>
+        <p class="num">一</p>
+        <h2>Walk to paint</h2>
+        <p>Each step presses moss into the stone. Keep moving — every tile you touch glows, and your territory is the sum of everywhere your feet have lately been.</p>
+      </article>
+      <article>
+        <p class="num">二</p>
+        <h2>Link the beacons</h2>
+        <p>Five stone beacons sleep in the fog. Wake each one by stepping onto it, then keep your moss-path unbroken between them. Connected beacons hum as one route — pairs of linked beacons score fifty stones each, multiplied by your combo.</p>
+      </article>
+      <article>
+        <p class="num">三</p>
+        <h2>Outpace the fog</h2>
+        <p>Moss left unwalked withers. Fog creeps back over idle tiles, so circle back to refresh your trail. Scrolling stirs the wind: a brisk scroll slows the fog's appetite; still air lets it hunger. The mountain is new every day — one shared seed for everyone, midnight to midnight.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <span lang="ja">霧のち苔、苔のち道。</span>
+    <span>After fog, moss; after moss, the way. — <span id="footSeed"></span></span>
+  </footer>
+
+  <p class="vert vert-left" lang="ja" aria-hidden="true">霧深き山に灯を結ぶ</p>
+  <p class="vert vert-right" lang="ja" aria-hidden="true">苔むす道を歩く</p>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
