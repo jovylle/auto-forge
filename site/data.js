@@ -4230,12 +4230,45 @@ export const projects = [
       "board"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-05T05:26:51.246Z",
-    "updatedAt": "2026-10-05T05:32:13.077Z",
+    "updatedAt": "2026-10-05T05:32:22.188Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "sable-meridian-outpost",
+    "title": "Sable Meridian Outpost",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "extreme-minimal",
+    "theme": "maps",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Claim hex territories, chart foggy routes, outmaneuver rivals in async grid conquest.",
+    "features": [
+      "Claim hex tiles daily",
+      "Fog-of-war exploration",
+      "Async friend rivalries",
+      "Trade route scoring"
+    ],
+    "tags": [
+      "maps",
+      "territory",
+      "strategy",
+      "grids"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-05T11:41:41.223Z",
+    "updatedAt": "2026-10-05T11:43:59.232Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 135, done: 126, counts: {"done":126,"needs-human":9} };
+export const stats = { total: 136, done: 127, counts: {"done":127,"needs-human":9} };

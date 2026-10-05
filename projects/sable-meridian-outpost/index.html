@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sable Meridian Outpost — async hex conquest</title>
+  <meta name="description" content="Claim hex territories daily, lift the fog, outmaneuver rivals, score trade routes. An extreme-minimal async grid conquest." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="rule-top" aria-hidden="true"></div>
+  <main id="app">
+    <header class="mast">
+      <p class="kicker">SABLE&thinsp;/&thinsp;MERIDIAN&thinsp;·&thinsp;OUTPOST <span id="seasonTag">— Season 01</span></p>
+      <h1>Claim<br />the fog<span class="dot">.</span></h1>
+      <p class="sub">An async grid conquest in 37 hexes. Three claims a day. Rivals move while you sleep. Routes pay.</p>
+    </header>
+
+    <section class="hud" aria-label="game status">
+      <div class="hud-cell">
+        <span class="hud-label">Day</span>
+        <span class="hud-num" id="hudDay">01</span>
+      </div>
+      <div class="hud-cell">
+        <span class="hud-label">Claims left</span>
+        <span class="hud-num" id="hudClaims">3</span>
+      </div>
+      <div class="hud-cell">
+        <span class="hud-label">You</span>
+        <span class="hud-num" id="hudYou">1</span>
+      </div>
+      <div class="hud-cell">
+        <span class="hud-label">Route</span>
+        <span class="hud-num accent" id="hudRoute">0</span>
+      </div>
+      <div class="hud-cell hud-score">
+        <span class="hud-label">Score</span>
+        <span class="hud-num" id="hudScore">0</span>
+      </div>
+    </section>
+
+    <p class="hint" id="hint" role="status">Select a glowing hex beside your territory to claim it.</p>
+
+    <section class="board-wrap">
+      <svg id="board" viewBox="-210 -190 420 380" role="application" aria-label="hex territory board"></svg>
+      <div class="day-veil" id="dayVeil" aria-hidden="true"><span id="dayVeilText">DAY 02</span></div>
+    </section>
+
+    <section class="actions">
+      <button id="btnScoutMode" class="btn ghost" aria-pressed="false" title="Scout reveals a fogged hex without spending a claim">Scout: off</button>
+      <button id="btnEndDay" class="btn solid">End day →</button>
+    </section>
+
+    <section class="panels">
+      <details class="panel" open>
+        <summary>Scoring &amp; routes</summary>
+        <div class="panel-body" id="scoreBody"></div>
+      </details>
+      <details class="panel" open>
+        <summary>Rivals — async</summary>
+        <div class="panel-body">
+          <ul class="rivals" id="rivalList"></ul>
+          <div class="row">
+            <button id="btnCopyLink" class="btn ghost sm">Copy rival link</button>
+            <button id="btnHotseat" class="btn ghost sm">Hot-seat pass</button>
+          </div>
+          <label class="link-label" for="linkBox">Paste a rival link to load their map:</label>
+          <div class="row">
+            <input id="linkBox" class="link-input" placeholder="smo1.…" spellcheck="false" autocomplete="off" />
+            <button id="btnLoadLink" class="btn ghost sm">Load</button>
+          </div>
+          <p class="fine" id="hotseatMsg"></p>
+        </div>
+      </details>
+      <details class="panel">
+        <summary>Log</summary>
+        <div class="panel-body"><ol class="log" id="log"></ol></div>
+      </details>
+    </section>
+
+    <footer class="foot">
+      <button id="btnReset" class="btn text">Reset season</button>
+      <span class="fine">3 colours · system type · saves locally</span>
+    </footer>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

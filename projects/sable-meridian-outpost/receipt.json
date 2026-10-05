@@ -1,0 +1,32 @@
+{
+  "slug": "sable-meridian-outpost",
+  "title": "Sable Meridian Outpost",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "extreme-minimal",
+  "theme": "maps",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Claim hex tiles daily",
+      "Fog-of-war exploration",
+      "Async friend rivalries",
+      "Trade route scoring"
+    ],
+    "status": "pass",
+    "summary": "Sable Meridian Outpost — extreme-minimal 37-hex async conquest: 3 claims/day with End-day turns, fog-of-war with free Scout reveals, simulated rivals (Vesper/Halcyon) plus share-link (#smo1.) and hot-seat async, trade-route scoring (chains 2+, depot bonuses). Palette sand/rust/sage on ink, system fonts only. Logic verified headlessly (37 tiles, depots, fog, claims, rival expansion, link round-trip, route scoring); all element IDs resolve; node --check clean."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 133068,
+  "at": "2026-10-05T11:43:59.234Z"
+}
