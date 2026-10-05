@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>DRIFTLINE — Territory Looper</title>
+<meta name="description" content="Draw looping routes to claim tiles and outmaneuver drifting rivals. 60-second vapor blitz." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="sun" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">≋</div>
+    <div>
+      <h1 class="chrome">DRIFTLINE</h1>
+      <p class="tag">territory looper · weekly seed <span id="seedLabel">—</span></p>
+    </div>
+  </div>
+  <div class="hud">
+    <div class="pill timer" id="timerPill"><span class="lbl">BLITZ</span><span id="clock">60.0</span></div>
+    <div class="pill"><span class="lbl">YOU</span><span id="scoreYou">0%</span></div>
+    <div class="pill rivals"><span class="lbl">RIVALS</span><span id="scoreRival">0%</span></div>
+    <button id="muteBtn" class="iconbtn" aria-label="toggle sound" title="sound">♪</button>
+  </div>
+</header>
+
+<main id="app">
+  <section class="board-wrap">
+    <div class="board-frame">
+      <canvas id="board" width="640" height="640" aria-label="territory grid. drag to draw a loop"></canvas>
+      <div id="toast" class="toast" role="status"></div>
+      <div id="countdown" class="countdown hidden">3</div>
+      <div id="gameover" class="gameover hidden">
+        <div class="card">
+          <p class="kicker" id="goKicker">BLITZ COMPLETE</p>
+          <h2 class="chrome-sm" id="goTitle">Claim the grid.</h2>
+          <div class="go-stats">
+            <div><b id="goYou">0%</b><span>your turf</span></div>
+            <div><b id="goRival">0%</b><span>rivals</span></div>
+            <div><b id="goBest">0%</b><span>best</span></div>
+          </div>
+          <p class="go-note" id="goNote"></p>
+          <div class="go-row">
+            <button id="againBtn" class="btn primary">↻ run it back</button>
+            <button id="copySeedBtn" class="btn ghost">copy seed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="panel">
+        <h3>how to loop</h3>
+        <ol>
+          <li><b>Drag</b> across tiles to lay a route.</li>
+          <li><b>Close the loop</b> — cross your own trail or return to start to claim everything inside.</li>
+          <li>Rival couriers <i class="dot r1"></i><i class="dot r2"></i> drift &amp; steal pink edges. Cut them off.</li>
+          <li>Fog zones <span class="fogchip">░▒▓</span> hide tiles — loop next to them to burn fog off for bonus.</li>
+        </ol>
+        <div class="keys"><span><kbd>WASD</kbd>/<kbd>←↑↓→</kbd> move</span><span><kbd>space</kbd> drop anchor</span></div>
+      </div>
+      <div class="panel row2">
+        <div>
+          <h3>round</h3>
+          <div class="roundbtns">
+            <button id="startBtn" class="btn primary">▶ start 60s blitz</button>
+            <button id="seedBtn" class="btn ghost" title="new random map">🎲 daily dice</button>
+          </div>
+          <p class="fine" id="fogNote">fog: 3 zones · seed <span id="seedLabel2">—</span></p>
+        </div>
+        <div class="legend">
+          <div><i class="sw you"></i>you</div>
+          <div><i class="sw trail"></i>route</div>
+          <div><i class="sw r1"></i>vex courier</div>
+          <div><i class="sw r2"></i>null courier</div>
+          <div><i class="sw fog"></i>fog</div>
+        </div>
+      </div>
+      <div class="panel best">
+        <span>🏆 best blitz <b id="bestLabel">—</b></span>
+        <span class="fine">local only · no account, no cloud, just chrome</span>
+      </div>
+    </aside>
+  </section>
+  <footer class="foot">DRIFTLINE TERRITORY LOOPER · vaporwave grid arcade · canvas + webaudio only · <span id="footSeed"></span></footer>
+</main>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

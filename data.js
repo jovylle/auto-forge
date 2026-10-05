@@ -4163,12 +4163,45 @@ export const projects = [
       "navigation"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-04T23:18:15.568Z",
-    "updatedAt": "2026-10-04T23:20:15.185Z",
+    "updatedAt": "2026-10-04T23:20:23.507Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "driftline-territory-looper",
+    "title": "Driftline Territory Looper",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "vaporwave",
+    "theme": "maps",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)",
+      "no images — CSS/canvas only"
+    ],
+    "description": "Draw looping routes to claim tiles and outmaneuver drifting rivals.",
+    "features": [
+      "Draw closed loops to claim grid territory",
+      "Drifting rival couriers steal edges",
+      "Weekly seed map with fog zones",
+      "60-second blitz rounds"
+    ],
+    "tags": [
+      "maps",
+      "territory",
+      "grids",
+      "arcade"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-05T01:02:44.832Z",
+    "updatedAt": "2026-10-05T01:04:00.407Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 133, done: 124, counts: {"done":124,"needs-human":9} };
+export const stats = { total: 134, done: 125, counts: {"done":125,"needs-human":9} };
