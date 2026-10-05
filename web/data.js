@@ -4329,12 +4329,45 @@ export const projects = [
       "neon"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-05T17:48:21.521Z",
-    "updatedAt": "2026-10-05T17:50:52.828Z",
+    "updatedAt": "2026-10-05T17:51:05.903Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "moss-beacon-trailheads",
+    "title": "Moss Beacon Trailheads",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "japanese-minimal",
+    "theme": "maps",
+    "constraints": [
+      "must react to scroll",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Claim glowing trail tiles to link beacons before fog reclaims the map.",
+    "features": [
+      "walk grids to paint territory",
+      "link beacons for combo routes",
+      "fog regrows idle tiles",
+      "daily seed map challenge"
+    ],
+    "tags": [
+      "maps",
+      "grids",
+      "territories",
+      "navigation"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-05T23:57:15.673Z",
+    "updatedAt": "2026-10-05T23:58:55.118Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 138, done: 129, counts: {"done":129,"needs-human":9} };
+export const stats = { total: 139, done: 130, counts: {"done":130,"needs-human":9} };

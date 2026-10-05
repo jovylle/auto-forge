@@ -1,0 +1,32 @@
+{
+  "slug": "moss-beacon-trailheads",
+  "title": "Moss Beacon Trailheads",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "japanese-minimal",
+  "theme": "maps",
+  "constraints": [
+    "must react to scroll",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Moss Beacon Trailheads: japanese-minimal moss-walking game on 11x11 grid (paper/sumi/vermillion, vertical kanji accents, hanko score seal). WASD/arrows/tap-to-walk/D-pad paints moss territory, 5 seeded beacons light on visit and link into gold combo routes via claimed-tile connectivity (50 x combo per pair), idle moss withers after ~22s (routes ~45s) on a 500ms fog tick, daily date-seed challenge with custom/wander/restart + localStorage bests, 2:30 timer with grand-linking win. Scroll reacts: wind readout + fog-slow shelter, mist canvas drift, enso progress ring, board tilt, chapter reveals. node --check passes, all 24 DOM ids wired, zero external refs, responsive at 375px.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "walk grids to paint territory",
+      "link beacons for combo routes",
+      "fog regrows idle tiles",
+      "daily seed map challenge"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 96267,
+  "at": "2026-10-05T23:58:55.132Z"
+}
