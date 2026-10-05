@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<title>Velvet Meridian Drifters — cozy map-duel</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap');
+:root{
+  --paper:#fdf3e3; --ink:#16130e;
+  --velvet:#7c3aed; --velvet-dk:#4c1d95; --velvet-soft:#ddd0ff;
+  --merid:#0ea5a5; --merid-dk:#0b5f5f; --merid-soft:#c4f4ec;
+  --sun:#ffc700; --coral:#ff5d5d; --leaf:#22c55e;
+  --card:#fffdf7;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:'Space Grotesk',system-ui,sans-serif;min-height:100vh;
+  background-image:radial-gradient(#16130e22 1.5px,transparent 1.5px);
+  background-size:22px 22px;
+}
+header.top{
+  border-bottom:4px solid var(--ink);background:var(--sun);
+  padding:10px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  position:sticky;top:0;z-index:30;
+}
+.logo{
+  font-family:'Archivo Black',sans-serif;font-size:clamp(18px,4.5vw,30px);
+  background:var(--ink);color:var(--sun);padding:6px 12px;transform:rotate(-2deg);
+  border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);white-space:nowrap;
+}
+.logo em{font-style:normal;color:#fff}
+.tag{font-weight:700;font-size:13px;background:#fff;border:3px solid var(--ink);
+  padding:4px 10px;box-shadow:3px 3px 0 var(--ink);transform:rotate(1deg)}
+.seedpill{margin-left:auto;font-weight:700;font-size:13px;background:var(--ink);color:#fff;
+  padding:5px 12px;border-radius:999px;display:flex;gap:8px;align-items:center}
+.seedpill button{background:var(--sun);border:2px solid #fff;color:var(--ink);font-weight:700;
+  border-radius:999px;padding:1px 10px;cursor:pointer;font-size:12px}
+main{max-width:1060px;margin:0 auto;padding:14px 14px 60px}
+.layout{display:grid;grid-template-columns:300px 1fr;gap:14px;align-items:start;margin-top:14px}
+@media(max-width:860px){.layout{grid-template-columns:1fr}}
+.panel{background:var(--card);border:4px solid var(--ink);box-shadow:6px 6px 0 var(--ink);
+  border-radius:14px;padding:14px}
+.panel h2{font-family:'Archivo Black',sans-serif;font-size:16px;margin:0 0 10px;
+  text-transform:uppercase;letter-spacing:.5px}
+.panel h2 .n{display:inline-grid;place-items:center;background:var(--ink);color:#fff;
+  width:26px;height:26px;border-radius:8px;margin-right:8px;transform:rotate(-4deg)}
+.scorecards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.score{background:#fff;border:3px solid var(--ink);border-radius:12px;padding:8px;box-shadow:4px 4px 0 var(--ink);position:relative;overflow:hidden}
+.score.active{outline:4px solid var(--sun);outline-offset:-4px}
+.score.p1 .who{background:var(--velvet);color:#fff}
+.score.p2 .who{background:var(--merid);color:#fff}
+.who{display:inline-block;font-weight:700;font-size:12px;padding:2px 10px;border:2px solid var(--ink);border-radius:999px;margin-bottom:4px}
+.pts{font-family:'Archivo Black',sans-serif;font-size:28px;line-height:1}
+.tiles{font-size:12px;font-weight:700;opacity:.75}
+.turnbanner{background:var(--ink);color:#fff;border-radius:10px;padding:10px;font-weight:700;
+  font-size:14px;margin-bottom:10px;border:3px solid var(--ink)}
+.turnbanner .dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;vertical-align:baseline}
+.movesbar{display:flex;gap:6px;margin:8px 0}
+.movesbar i{flex:1;height:12px;border:3px solid var(--ink);border-radius:99px;background:#fff}
+.movesbar i.on{background:var(--sun)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}
+button{font-family:inherit;font-weight:700}
+.btn{border:3px solid var(--ink);background:#fff;padding:8px 12px;border-radius:10px;
+  box-shadow:4px 4px 0 var(--ink);cursor:pointer;font-size:14px;transition:transform .08s,box-shadow .08s}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn.primary{background:var(--sun)}
+.btn.velvet{background:var(--velvet);color:#fff}
+.btn.merid{background:var(--merid);color:#fff}
+.btn.danger{background:var(--coral);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn.small{font-size:12px;padding:5px 9px;box-shadow:3px 3px 0 var(--ink)}
+input[type=text],input[type=date]{border:3px solid var(--ink);border-radius:10px;padding:7px 10px;
+  font-family:inherit;font-weight:700;font-size:14px;width:100%;background:#fff}
+label.flabel{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
+.pow{border:3px solid var(--ink);border-radius:12px;background:#fff;padding:8px;margin-top:8px;box-shadow:4px 4px 0 var(--ink)}
+.pow b{font-size:14px}
+.pow p{font-size:12px;margin:4px 0 8px}
+.pow .have{display:inline-block;background:var(--sun);border:2px solid var(--ink);border-radius:999px;
+  padding:0 10px;font-weight:700;font-size:13px;margin-left:6px}
+.log{max-height:150px;overflow:auto;font-size:12.5px;background:var(--ink);color:#ffeec2;
+  border-radius:10px;padding:8px 10px;border:3px solid var(--ink)}
+.log div{padding:2px 0;border-bottom:1px dashed #ffffff33}
+.boardwrap{position:relative}
+.boardhead{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.meridtag{background:var(--coral);color:#fff;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);
+  border-radius:10px;padding:6px 12px;font-weight:700;font-size:13px}
+.roundtag{background:#fff;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);
+  border-radius:10px;padding:6px 12px;font-weight:700;font-size:13px}
+#grid{
+  --n:8;display:grid;grid-template-columns:repeat(var(--n),1fr);gap:7px;
+  background:var(--ink);border:4px solid var(--ink);border-radius:16px;padding:9px;
+  box-shadow:8px 8px 0 #16130e55;touch-action:none;user-select:none;-webkit-user-select:none;
+}
+.tile{
+  aspect-ratio:1/1;border:3px solid var(--ink);border-radius:10px;position:relative;
+  display:grid;place-items:center;cursor:pointer;font-size:clamp(13px,3.4vw,22px);font-weight:700;
+  transition:transform .07s;background:#fff;overflow:hidden;
+}
+.tile.land{background:#fffdf7}
+.tile.water{background:#bfe9ff;background-image:repeating-linear-gradient(45deg,#bfe9ff 0 8px,#a5dcf7 8px 16px)}
+.tile .mini{position:absolute;font-size:.62em;pointer-events:none}
+.tile .v{position:absolute;bottom:1px;right:4px;font-size:10px;font-weight:700;opacity:.7}
+.tile.meridian{outline:4px solid var(--coral);outline-offset:-4px}
+.tile.meridian::after{content:'MERIDIAN ×2';position:absolute;top:1px;left:0;right:0;text-align:center;
+  font-size:8px;font-weight:700;color:var(--coral);letter-spacing:.4px}
+.tile.preview{background:var(--sun)!important;transform:scale(1.06) rotate(-1deg)}
+.tile.p1{background:var(--velvet);color:#fff}
+.tile.p2{background:var(--merid);color:#fff}
+.tile.locked{cursor:not-allowed}
+.tile.locked::before{content:'🔒';position:absolute;font-size:.7em;opacity:.9}
+.tile.p1.meridian,.tile.p2.meridian{outline:4px solid var(--coral)}
+.tile.pop{animation:pop .25s}
+@keyframes pop{50%{transform:scale(1.18) rotate(2deg)}}
+.tile.shake{animation:shake .25s}
+@keyframes shake{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+.overlay{position:fixed;inset:0;background:#16130ecc;display:grid;place-items:center;z-index:50;padding:16px}
+.card{background:var(--paper);border:5px solid var(--ink);border-radius:18px;box-shadow:10px 10px 0 var(--ink);
+  max-width:440px;width:100%;padding:22px;text-align:center;transform:rotate(-1deg)}
+.card h1{font-family:'Archivo Black',sans-serif;margin:0 0 6px;font-size:26px}
+.card p{font-weight:500}
+.sticker{display:inline-block;background:var(--sun);border:3px solid var(--ink);border-radius:999px;
+  padding:3px 14px;font-weight:700;box-shadow:3px 3px 0 var(--ink);margin:4px}
+.hidden{display:none!important}
+footer{margin-top:16px;font-size:12px;font-weight:700;opacity:.8}
+.kbd{background:var(--ink);color:#fff;border-radius:6px;padding:0 7px}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) rotate(-1deg);z-index:60;
+  background:var(--ink);color:#fff;font-weight:700;padding:10px 18px;border-radius:12px;
+  border:3px solid #fff;box-shadow:5px 5px 0 #00000055;max-width:92vw;text-align:center}
+html,body{overflow-x:hidden}
+@media(max-width:560px){
+  header.top{gap:8px;padding:8px 10px}
+  .logo{font-size:16px;white-space:normal;line-height:1.15}
+  .tag{font-size:11px}
+  .seedpill{margin-left:0;font-size:11px}
+  .card h1{font-size:19px;overflow-wrap:break-word}
+  .card{padding:16px;transform:none}
+  #grid{gap:5px;padding:7px}
+  .tile{border-width:2px;border-radius:8px}
+}
+.howto{font-size:13px}
+.howto li{margin:5px 0}
+.soundrow{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="logo">VELVET <em>MERIDIAN</em> DRIFTERS</div>
+  <div class="tag">⛵ cozy map-duel · pass &amp; play</div>
+  <div class="seedpill">🗺️ <span id="seedLabel">—</span>
+    <button id="copySeed" title="copy seed">copy</button>
+  </div>
+</header>
+
+<main>
+  <div class="layout">
+    <aside class="panel">
+      <h2><span class="n">1</span>Skippers</h2>
+      <div class="scorecards">
+        <div class="score p1" id="card1"><span class="who">◈ P1 VELVET</span><div class="pts" id="pts1">0</div><div class="tiles" id="tiles1">0 tiles</div></div>
+        <div class="score p2" id="card2"><span class="who">◎ P2 MERIDIAN</span><div class="pts" id="pts2">0</div><div class="tiles" id="tiles2">0 tiles</div></div>
+      </div>
+      <div class="turnbanner" id="turnBanner"><span class="dot" id="turnDot"></span><span id="turnText">…</span></div>
+      <div class="row" style="justify-content:space-between">
+        <label class="flabel">Drag-moves left</label><label class="flabel" id="movesNum">6</label>
+      </div>
+      <div class="movesbar" id="movesBar"></div>
+      <div class="row">
+        <button class="btn primary small" id="endTurn">✔ end turn / pass ⏎</button>
+        <button class="btn small" id="newGame">↻ new board</button>
+      </div>
+
+      <h2 style="margin-top:14px"><span class="n">2</span>Daily board</h2>
+      <div class="row">
+        <input type="date" id="datePick" />
+      </div>
+      <div class="row">
+        <button class="btn small velvet" id="todayBtn">📅 today's drift</button>
+        <button class="btn small merid" id="randomBtn">🎲 random drift</button>
+      </div>
+      <div class="row">
+        <input type="text" id="seedInput" placeholder="seed e.g. DRIFT-7Q2X" maxlength="24" />
+      </div>
+      <div class="row"><button class="btn small" id="loadSeed">load seed →</button></div>
+
+      <h2 style="margin-top:14px"><span class="n">3</span>Power-ups ⚡</h2>
+      <div id="powList"></div>
+
+      <h2 style="margin-top:14px"><span class="n">4</span>Log</h2>
+      <div class="log" id="log"></div>
+      <div class="row soundrow" style="margin-top:10px">
+        <button class="btn small" id="soundBtn">🔊 sound: on</button>
+        <button class="btn small" id="helpBtn">❓ how to play</button>
+      </div>
+    </aside>
+
+    <section class="panel boardwrap">
+      <div class="boardhead">
+        <div class="roundtag" id="roundTag">ROUND 1/12</div>
+        <div class="meridtag" id="meridTag">〰 MERIDIAN col 4 · ×2 · shifts in 2</div>
+        <div class="roundtag" id="streakTag">🔥 streak 0</div>
+      </div>
+      <div id="grid" role="grid" aria-label="drift chart board"></div>
+      <footer>DRAG across connected tiles to claim them · start next to your color (or anywhere on your 1st turn) · red-outlined column = <b>meridian ×2</b> · ★ star-charts = 3 pts · 〰 blocked reefs can't be claimed · grab ⚡ for power-ups. Same device, pass &amp; play!</footer>
+    </section>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h2><span class="n">✎</span>How to drift (30 seconds)</h2>
+    <ol class="howto">
+      <li><b>Drag</b> a connected trail of open tiles (≤ moves left). Release to claim for your color.</li>
+      <li>Tiles on the glowing <b>meridian column count ×2</b>. It <b>shifts every 2 rounds</b> — plan ahead!</li>
+      <li>Claim a <b>⚡ tile</b> to earn a power-up: <b>Gust</b> (blast a 3×3), <b>Anchor</b> (lock 3 tiles vs steals), <b>Spyglass</b> (+3 moves now).</li>
+      <li>Hit <b>end turn</b>, then <b>pass the device</b>. After 12 rounds the higher score wins. Daily boards share one seed for everyone, every day.</li>
+    </ol>
+  </div>
+</main>
+
+<div class="overlay hidden" id="passOverlay">
+  <div class="card">
+    <div class="sticker" id="passSticker">📦 PASS THE DEVICE</div>
+    <h1 id="passTitle">Skipper 2, take the helm!</h1>
+    <p id="passBody">No peeking, skipper 1… hand it over, then tap ready to reveal your chart.</p>
+    <button class="btn primary" id="passReady" style="font-size:17px;padding:12px 26px">🙈 ready — reveal board</button>
+  </div>
+</div>
+
+<div class="overlay hidden" id="startOverlay">
+  <div class="card">
+    <div class="sticker">⛵ NEW VOYAGE</div>
+    <h1>Velvet Meridian Drifters</h1>
+    <p>Two skippers. One drifting chart. <b>Drag trails</b> to claim tiles, ride the <b>shifting meridian ×2</b>, and out-chart your rival over <b>12 rounds</b></p>
+    <div class="row" style="justify-content:center">
+      <input type="text" id="name1" maxlength="12" value="Violet" style="flex:1;min-width:0;max-width:160px" />
+      <input type="text" id="name2" maxlength="12" value="Teal" style="flex:1;min-width:0;max-width:160px" />
+    </div>
+    <div class="row" style="justify-content:center">
+      <button class="btn velvet" id="startBtn">⚓ set sail!</button>
+    </div>
+    <p style="font-size:12px">P1 = <b style="color:#7c3aed">◈ velvet</b> · P2 = <b style="color:#0ea5a5">◎ meridian</b> · sound on first tap 🔊</p>
+  </div>
+</div>
+
+<div class="overlay hidden" id="endOverlay">
+  <div class="card">
+    <div class="sticker" id="endSticker">🏆 VOYAGE COMPLETE</div>
+    <h1 id="endTitle">—</h1>
+    <p id="endBody">—</p>
+    <div class="row" style="justify-content:center">
+      <button class="btn primary" id="rematchBtn">⚓ rematch (same seed)</button>
+      <button class="btn" id="dailyBtn2">📅 next daily</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay hidden" id="helpOverlay">
+  <div class="card" style="text-align:left">
+    <div class="sticker">❓ SKIPPER'S HANDBOOK</div>
+    <h1 style="text-align:center">How to play</h1>
+    <ol class="howto">
+      <li>On your turn, <b>press &amp; drag</b> across orthogonally-connected open tiles. Max 6 per turn (Spyglass gives +3).</li>
+      <li>Your trail must <b>touch your color</b> (after your first claim). Blocked 〰 reefs break trails.</li>
+      <li><b>Star-charts ★ = 3 pts</b>, plain tiles = 1 pt, anything on the <b>meridian = ×2</b>.</li>
+      <li><b>⚡ tiles</b> grant a random power-up. Use them from the side panel anytime on your turn.</li>
+      <li><b>Gust</b>: tap any open tile → claims the 3×3 around it. <b>Anchor</b>: your next 3 claimed tiles lock 🔒 (can't be storm-stolen). <b>Spyglass</b>: +3 drag-moves immediately.</li>
+      <li>Every few turns a <b>storm steals</b> an unlocked edge tile back to the sea — anchors stop it!</li>
+      <li>12 rounds total (12 turns each). Highest points wins. Daily seed = same chart for everyone that day.</li>
+    </ol>
+    <div class="row" style="justify-content:center"><button class="btn primary" id="helpClose">got it!</button></div>
+  </div>
+</div>
+
+<div class="toast hidden" id="toast"></div>
+
+<script>
+'use strict';
+/* ============ SOUND (WebAudio, no assets) ============ */
+let AC=null, soundOn=true;
+function ac(){ try{ if(!AC){ AC=new (window.AudioContext||window.webkitAudioContext)(); } if(AC.state==='suspended')AC.resume(); return AC; }catch(e){ return null; } }
+function tone(f,dur,type,vol,when,slide){
+  if(!soundOn) return;
+  try{
+    const c=ac(); if(!c) return;
+    const o=c.createOscillator(), g=c.createGain(), t=c.currentTime+(when||0);
+    o.type=type||'square'; o.frequency.setValueAtTime(f,t);
+    if(slide) o.frequency.exponentialRampToValueAtTime(slide,t+dur);
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(vol||0.12,t+0.012);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    o.connect(g).connect(c.destination); o.start(t); o.stop(t+dur+0.02);
+  }catch(e){}
+}
+const SFX={
+  claim(i){ tone(300+i*40,0.09,'square',0.10); tone(600+i*40,0.07,'sine',0.08,0.03); },
+  star(){ tone(880,0.1,'triangle',0.12); tone(1320,0.14,'triangle',0.12,0.08); },
+  power(){ tone(200,0.22,'sawtooth',0.10,0,800); },
+  meridian(){ tone(520,0.12,'sine',0.12); tone(780,0.16,'sine',0.12,0.09); },
+  err(){ tone(160,0.16,'square',0.10,0,110); },
+  turn(){ tone(440,0.09,'triangle',0.11); tone(660,0.11,'triangle',0.11,0.08); },
+  gust(){ tone(900,0.3,'sawtooth',0.09,0,150); },
+  anchor(){ tone(240,0.18,'triangle',0.12); tone(360,0.18,'triangle',0.12,0.1); },
+  win(){ [523,659,784,1047,784,1047].forEach((f,i)=>tone(f,0.16,'triangle',0.12,i*0.11)); },
+  storm(){ tone(300,0.4,'sawtooth',0.08,0,70); }
+};
+
+/* ============ SEEDED RNG ============ */
+function xmur3(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=h<<13|h>>>19;}return()=>{h=Math.imul(h^(h>>>16),2246822507);h=Math.imul(h^(h>>>13),3266489909);return (h^=h>>>16)>>>0;};}
+function mulberry32(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function rngFromSeed(s){const f=xmur3(s);return mulberry32(f());}
+function todayStr(d){d=d||new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function seedForDate(ds){return 'DAILY-'+ds;}
+function randomSeed(){const c='ABCDEFGHJKMNPQRSTUVWXYZ23456789';let s='DRIFT-';const r=Math.random;for(let i=0;i<4;i++)s+=c[Math.floor(r()*c.length)];return s;}
+
+/* ============ STATE ============ */
+const N=8, ROUNDS=12, MOVES=6;
+const grid=document.getElementById('grid');
+const $=id=>document.getElementById(id);
+let S=null;
+
+function newState(seed){
+  const rng=rngFromSeed(seed);
+  const kind=[], val=[];
+  for(let i=0;i<N*N;i++){
+    const r=rng();
+    if(r<0.10){kind.push('water');val.push(0);}       // blocked reef
+    else if(r<0.24){kind.push('star');val.push(3);}   // star chart
+    else{kind.push('land');val.push(1);}
+  }
+  // power-up tiles: 7 random claimable
+  const open=[];for(let i=0;i<N*N;i++)if(kind[i]!=='water')open.push(i);
+  for(let k=0;k<7 && open.length;k++){const j=Math.floor(rng()*open.length);const idx=open.splice(j,1)[0];kind[idx]='bolt';val[idx]=2;}
+  const mcol=Math.floor(rng()*N);
+  return {
+    seed, kind, val,
+    owner:new Array(N*N).fill(0), locked:new Array(N*N).fill(false),
+    turn:1, round:1, movesLeft:MOVES,
+    mcol, mShiftIn:2,
+    names:['Violet','Teal'],
+    inv:{1:{gust:0,anchor:0,spy:0},2:{gust:0,anchor:0,spy:0}},
+    anchorArmed:{1:false,2:false},
+    gustMode:false,
+    log:[], over:false, started:false,
+    firstClaim:{1:false,2:false}
+  };
+}
+
+/* ============ HELPERS ============ */
+const rc=i=>[Math.floor(i/N),i%N];
+const idx=(r,c)=>r*N+c;
+const inB=(r,c)=>r>=0&&r<N&&c>=0&&c<N;
+const adj=(a,b)=>{const[r1,c1]=rc(a),[r2,c2]=rc(b);return Math.abs(r1-r2)+Math.abs(c1-c2)===1;};
+function touchesOwn(path,p){
+  if(!S.firstClaim[p]) return true;
+  for(const t of path){const[r,c]=rc(t);
+    for(const[dr,dc]of[[1,0],[-1,0],[0,1],[0,-1]]){const nr=r+dr,nc=c+dc;
+      if(inB(nr,nc)&&S.owner[idx(nr,nc)]===p)return true;}}
+  return false;
+}
+function pts(i,p){let v=S.val[i];if(rc(i)[1]===S.mcol)v*=2;return v;}
+function scores(){
+  let s1=0,s2=0,t1=0,t2=0;
+  for(let i=0;i<N*N;i++){if(S.owner[i]===1){s1+=pts(i,1);t1++;}if(S.owner[i]===2){s2+=pts(i,2);t2++;}}
+  return{s1,s2,t1,t2};
+}
+function log(m){S.log.unshift(m);if(S.log.length>40)S.log.pop();
+  $('log').innerHTML=S.log.map(x=>'<div>'+x+'</div>').join('');}
+let toastT=null;
+function toast(m,ms){const t=$('toast');t.textContent=m;t.classList.remove('hidden');
+  clearTimeout(toastT);toastT=setTimeout(()=>t.classList.add('hidden'),ms||2200);}
+
+/* ============ RENDER ============ */
+let cells=[];
+function buildGrid(){
+  grid.innerHTML='';cells=[];
+  for(let i=0;i<N*N;i++){
+    const d=document.createElement('div');
+    d.className='tile';d.dataset.i=i;d.setAttribute('role','gridcell');
+    grid.appendChild(d);cells.push(d);
+  }
+}
+function render(){
+  const{s1,s2,t1,t2}=scores();
+  $('pts1').textContent=s1;$('pts2').textContent=s2;
+  $('tiles1').textContent=t1+' tiles';$('tiles2').textContent=t2+' tiles';
+  $('card1').classList.toggle('active',S.turn===1&&!S.over);
+  $('card2').classList.toggle('active',S.turn===2&&!S.over);
+  $('turnDot').style.background=S.turn===1?'#7c3aed':'#0ea5a5';
+  const nm=S.names[S.turn-1];
+  $('turnText').textContent=S.over?'voyage over!':('◈ '+nm+'’s helm · drag up to '+S.movesLeft+' tiles');
+  $('movesNum').textContent=S.movesLeft;
+  $('movesBar').innerHTML='';for(let i=0;i<MOVES+3;i++){const b=document.createElement('i');
+    if(i<S.movesLeft)b.className='on';if(i>=MOVES)b.style.opacity='.55';$('movesBar').appendChild(b);}
+  $('roundTag').textContent='ROUND '+Math.min(S.round,ROUNDS)+'/'+ROUNDS;
+  $('meridTag').textContent='〰 MERIDIAN col '+(S.mcol+1)+' · ×2 · shifts in '+S.mShiftIn;
+  $('seedLabel').textContent=S.seed;
+  for(let i=0;i<N*N;i++){
+    const d=cells[i],k=S.kind[i],o=S.owner[i];
+    d.className='tile '+(o===1?'p1':o===2?'p2':(k==='water'?'water':'land'));
+    if(!o&&rc(i)[1]===S.mcol)d.classList.add('meridian');
+    if(o&&S.locked[i])d.classList.add('locked');
+    let inner='';
+    if(!o){
+      if(k==='water')inner='<span class="mini">〰</span>';
+      else if(k==='star')inner='<span class="mini">★</span>';
+      else if(k==='bolt')inner='<span class="mini">⚡</span>';
+      inner+='<span class="v">'+(rc(i)[1]===S.mcol?S.val[i]*2:S.val[i])+'</span>';
+    }else{
+      inner='<span class="mini">'+(S.locked[i]?'':(S.turn===o?'':' '))+'</span>';
+      if(k==='star')inner='★';else if(k==='bolt')inner='⚡';
+      else inner=o===1?'◈':'◎';
+    }
+    d.innerHTML=inner;
+  }
+  renderPow();
+}
+const POWS=[
+  {k:'gust',icon:'💨',name:'Gust blast',desc:'Tap any open tile → claim the 3×3 around it (this turn).'},
+  {k:'anchor',icon:'⚓',name:'Anchor ward',desc:'Arm it → your next 3 claimed tiles lock 🔒 vs storms.'},
+  {k:'spy',icon:'🔭',name:'Spyglass',desc:'+3 drag-moves right now.'}
+];
+function renderPow(){
+  const inv=S.inv[S.turn], el=$('powList');el.innerHTML='';
+  POWS.forEach(p=>{
+    const d=document.createElement('div');d.className='pow';
+    d.innerHTML='<b>'+p.icon+' '+p.name+'</b><span class="have">×'+inv[p.k]+'</span><p>'+p.desc+'</p>';
+    const b=document.createElement('button');b.className='btn small primary';b.textContent='use '+p.icon;
+    b.disabled=inv[p.k]<=0||S.over;
+    b.onclick=()=>usePow(p.k);
+    d.appendChild(b);el.appendChild(d);
+  });
+}
+
+/* ============ DRAG CLAIM ============ */
+let dragging=false,path=[],gustArmed=false;
+function tileFromEvent(e){
+  const t=document.elementFromPoint(e.clientX,e.clientY);
+  if(!t)return null;
+  const c=t.closest?t.closest('.tile'):null;
+  return c?parseInt(c.dataset.i,10):null;
+}
+grid.addEventListener('pointerdown',e=>{
+  ac();if(S.over||!S.started)return;
+  e.preventDefault();
+  const i=tileFromEvent(e);if(i==null)return;
+  if(S.gustMode){fireGust(i);return;}
+  if(S.kind[i]==='water'||S.owner[i]!==0){SFX.err();cells[i].classList.add('shake');setTimeout(()=>cells[i].classList.remove('shake'),260);return;}
+  dragging=true;path=[i];grid.setPointerCapture&&tryCapture(e);paintPreview();
+});
+function tryCapture(e){try{grid.setPointerCapture(e.pointerId);}catch(_){}}
+grid.addEventListener('pointermove',e=>{
+  if(!dragging||S.gustMode)return;
+  const i=tileFromEvent(e);if(i==null||i===path[path.length-1])return;
+  if(path.includes(i)){
+    if(i===path[path.length-2]){path.pop();paintPreview();}
+    return;
+  }
+  if(path.length>=S.movesLeft){return;}
+  if(!adj(path[path.length-1],i))return;
+  if(S.kind[i]==='water'||S.owner[i]!==0){return;}
+  path.push(i);paintPreview();SFX.claim(path.length);
+});
+window.addEventListener('pointerup',()=>{
+  if(!dragging)return;dragging=false;
+  commitPath();clearPreview();path=[];
+});
+grid.addEventListener('pointercancel',()=>{dragging=false;path=[];clearPreview();});
+grid.addEventListener('contextmenu',e=>e.preventDefault());
+function paintPreview(){clearPreview(false);path.forEach(i=>cells[i].classList.add('preview'));}
+function clearPreview(full){cells.forEach(c=>c.classList.remove('preview'));}
+function commitPath(){
+  if(!path.length)return;
+  if(!touchesOwn(path,S.turn)){SFX.err();toast('⛔ trail must touch your color, skipper!');return;}
+  const p=S.turn;let gained=0,gotPow=null,stars=0,onMer=0;
+  path.forEach((t,k)=>{
+    S.owner[t]=p;S.firstClaim[p]=true;
+    if(S.anchorArmed[p]){S.locked[t]=true;}
+    const v=pts(t,p);gained+=v;
+    if(S.kind[t]==='star'){stars++;SFX.star();}
+    if(rc(t)[1]===S.mcol)onMer++;
+    if(S.kind[t]==='bolt'){gotPow=randomPow();}
+    cells[t].classList.add('pop');setTimeout(()=>cells[t]&&cells[t].classList.remove('pop'),260);
+    SFX.claim(k);
+  });
+  if(S.anchorArmed[p]){
+    const locked=path.filter(t=>S.locked[t]).length;
+    S.anchorArmed[p]=locked>=3?false:S.anchorArmed[p];
+    if(!S.anchorArmed[p])log('⚓ '+S.names[p-1]+'’s ward settled (3 locked).');
+  }
+  S.movesLeft-=path.length;
+  if(gotPow){S.inv[p][gotPow]++;SFX.power();
+    toast('⚡ power-up! +1 '+gotPow.toUpperCase()+' for '+S.names[p-1]);}
+  let msg='◈ '+S.names[p-1]+' claimed '+path.length+' → +'+gained+'pts';
+  if(onMer){msg+=' (〰×2!)';SFX.meridian();}
+  if(stars)msg+=' ★×'+stars;
+  log(msg);
+  if(S.movesLeft<=0){render();endTurn(true);return;}
+  render();
+  save();
+}
+function randomPow(){const r=Math.random();return r<0.34?'gust':r<0.67?'anchor':'spy';}
+
+/* ============ POWER-UPS ============ */
+function usePow(k){
+  const p=S.turn,inv=S.inv[p];
+  if(inv[k]<=0||S.over)return;ac();
+  if(k==='spy'){inv.spy--;S.movesLeft=Math.min(S.movesLeft+3,9);SFX.power();log('🔭 '+S.names[p-1]+' spyglassed +3 moves!');toast('🔭 +3 moves!');}
+  else if(k==='anchor'){inv.anchor--;S.anchorArmed[p]=true;SFX.anchor();log('⚓ '+S.names[p-1]+' armed an anchor ward.');toast('⚓ ward armed — next 3 claims lock 🔒');}
+  else if(k==='gust'){inv.gust--;S.gustMode=true;SFX.gust();toast('💨 GUST armed — tap any open tile!');}
+  render();save();
+}
+function fireGust(i){
+  S.gustMode=false;
+  if(S.kind[i]==='water'||S.owner[i]!==0){SFX.err();toast('💨 gust fizzled — pick an open tile');render();return;}
+  const p=S.turn,[r0,c0]=rc(i);let n=0,g=0;
+  for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){
+    const r=r0+dr,c=c0+dc;if(!inB(r,c))continue;const t=idx(r,c);
+    if(S.kind[t]==='water'||S.owner[t]!==0)continue;
+    S.owner[t]=p;S.firstClaim[p]=true;n++;g+=pts(t,p);
+    cells[t].classList.add('pop');setTimeout(()=>cells[t]&&cells[t].classList.remove('pop'),300);
+  }
+  SFX.gust();log('💨 '+S.names[p-1]+' gusted '+n+' tiles → +'+g+'pts');
+  toast('💨 gust claimed '+n+' tiles!');
+  maybeStorm();render();save();
+}
+
+/* ============ TURNS / MERIDIAN / STORM ============ */
+function endTurn(auto){
+  if(S.over)return;
+  SFX.turn();
+  maybeStorm();
+  S.turn=S.turn===1?2:1;
+  if(S.turn===1){ // full round completed when returning to P1... count rounds on P2->P1
+  }
+  if(S.turn===2&&!auto){/* pass overlay below */}
+  // round counting: each player turn = half round; round increments when P1 starts after P2
+  if(S.turn===1){S.round++;}
+  if(S.round>ROUNDS){finishGame();return;}
+  S.movesLeft=MOVES;
+  S.mShiftIn--;
+  if(S.mShiftIn<=0){
+    let nm;do{nm=Math.floor(Math.random()*N);}while(nm===S.mcol);
+    S.mcol=nm;S.mShiftIn=2;SFX.meridian();
+    log('〰 the MERIDIAN drifts to column '+(nm+1)+'! ×2 there.');
+    toast('〰 meridian shifted to column '+(nm+1)+'!');
+  }
+  render();save();
+  showPass();
+}
+function maybeStorm(){
+  // 25% chance: storm reclaims one unlocked edge tile of the player who just moved
+  if(Math.random()>0.25)return;
+  const justMoved=S.turn;
+  const cand=[];
+  for(let i=0;i<N*N;i++)if(S.owner[i]===justMoved&&!S.locked[i])cand.push(i);
+  if(!cand.length)return;
+  const t=cand[Math.floor(Math.random()*cand.length)];
+  S.owner[t]=0;SFX.storm();
+  log('⛈ storm stole a tile back to the sea! (anchors prevent this)');
+  toast('⛈ storm reclaimed a tile!');
+}
+function showPass(){
+  if(S.over)return;
+  $('passSticker').textContent='📦 PASS THE DEVICE';
+  $('passTitle').textContent=S.names[S.turn-1]+', take the helm!';
+  $('passBody').textContent='Round '+Math.min(S.round,ROUNDS)+'/'+ROUNDS+' · '+S.names[0]+' vs '+S.names[1]+' · no peeking, hand it over, then tap ready.';
+  $('passOverlay').classList.remove('hidden');
+}
+$('passReady').onclick=()=>{ac();SFX.turn();$('passOverlay').classList.add('hidden');render();};
+$('endTurn').onclick=()=>{if(!S.over&&S.started){S.gustMode=false;endTurn(false);}};
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&(e.ctrlKey||e.metaKey||document.activeElement===$('endTurn'))){/*noop*/}
+  if(e.key==='Enter'&&!$('passOverlay').classList.contains('hidden')){$('passReady').click();}
+});
+
+/* ============ GAME OVER ============ */
+function finishGame(){
+  S.over=true;render();
+  const{s1,s2}=scores();
+  let title,body;
+  if(s1===s2){title="🤝 Dead calm — a tie!";SFX.win();}
+  else{const w=s1>s2?1:2;title='🏆 '+S.names[w-1]+' rules the meridian!';SFX.win();}
+  body='Final: '+S.names[0]+' '+s1+' pts · '+S.names[1]+' '+s2+' pts · seed '+S.seed;
+  // streak: daily wins
+  try{
+    const k='vmd-streak';
+    const isDaily=S.seed.indexOf('DAILY-')===0;
+    let st=JSON.parse(localStorage.getItem(k)||'{"n":0,"last":""}');
+    if(isDaily){const ds=S.seed.slice(6);
+      const d=new Date(ds+'T12:00:00');const y=new Date(d);y.setDate(y.getDate()-1);
+      const ys=todayStr(y);
+      st.n=(st.last===ys||st.last===''||st.last===ds)?(st.last===ds?st.n:st.n+1):1;
+      st.last=ds;localStorage.setItem(k,JSON.stringify(st));
+    }
+    const st2=JSON.parse(localStorage.getItem(k)||'{"n":0}');
+    $('streakTag').textContent='🔥 streak '+st2.n;
+    body+=' · 🔥 streak '+st2.n;
+  }catch(e){}
+  $('endTitle').textContent=title;$('endBody').textContent=body;
+  $('endOverlay').classList.remove('hidden');
+  try{localStorage.removeItem('vmd-save');}catch(e){}
+}
+$('rematchBtn').onclick=()=>{$('endOverlay').classList.add('hidden');startGame(S.seed);};
+$('dailyBtn2').onclick=()=>{$('endOverlay').classList.add('hidden');startGame(seedForDate(todayStr()));syncDate();};
+
+/* ============ START / SEEDS ============ */
+function startGame(seed){
+  S=newState(seed);
+  S.started=true;
+  const n1=($('name1').value||'Violet').slice(0,12),n2=($('name2').value||'Teal').slice(0,12);
+  if(S.names)S.names=[n1,n2];
+  buildGrid();render();
+  log('⚓ new voyage on seed '+seed+' — '+n1+' (◈) vs '+n2+' (◎)');
+  log('〰 meridian starts at column '+(S.mcol+1)+' (×2). shifts every 2 rounds.');
+  try{const st=JSON.parse(localStorage.getItem('vmd-streak')||'{"n":0}');$('streakTag').textContent='🔥 streak '+(st.n||0);}catch(e){}
+  save();
+  showPass();
+  // first-turn pass overlay says P1
+  $('passTitle').textContent=n1+', take the helm — you start!';
+}
+function save(){try{if(S&&!S.over)localStorage.setItem('vmd-save',JSON.stringify({seed:S.seed,names:S.names}));}catch(e){}}
+function syncDate(){$('datePick').value=todayStr();}
+$('todayBtn').onclick=()=>{ac();syncDate();startGame(seedForDate(todayStr()));};
+$('randomBtn').onclick=()=>{ac();startGame(randomSeed());};
+$('loadSeed').onclick=()=>{
+  let v=$('seedInput').value.trim()||$('datePick').value;
+  if(!v){SFX.err();toast('enter a seed or pick a date');return;}
+  if(/^\d{4}-\d{2}-\d{2}$/.test(v))v=seedForDate(v);
+  ac();startGame(v);
+};
+$('datePick').addEventListener('change',()=>{const v=$('datePick').value;if(v)startGame(seedForDate(v));});
+$('newGame').onclick=()=>{if(confirm('Abandon this voyage and chart a fresh board?'))startGame(randomSeed());};
+$('startBtn').onclick=()=>{ac();SFX.turn();$('startOverlay').classList.add('hidden');startGame(S?S.seed:seedForDate(todayStr()));};
+$('copySeed').onclick=()=>{
+  const s=S?S.seed:'';
+  if(navigator.clipboard)navigator.clipboard.writeText(s).then(()=>toast('seed copied: '+s));
+  else toast('seed: '+s);
+};
+$('soundBtn').onclick=()=>{soundOn=!soundOn;$('soundBtn').textContent=soundOn?'🔊 sound: on':'🔇 sound: off';if(soundOn){ac();SFX.turn();}};
+$('helpBtn').onclick=()=>$('helpOverlay').classList.remove('hidden');
+$('helpClose').onclick=()=>$('helpOverlay').classList.add('hidden');
+
+/* ============ BOOT ============ */
+(function boot(){
+  syncDate();
+  let seed=seedForDate(todayStr()),names=null;
+  try{
+    const sv=JSON.parse(localStorage.getItem('vmd-save')||'null');
+    if(sv&&sv.seed){seed=sv.seed;names=sv.names;}
+  }catch(e){}
+  S=newState(seed);S.started=false;
+  if(names)S.names=names;
+  $('name1').value=S.names[0];$('name2').value=S.names[1];
+  buildGrid();render();
+  log('⛵ welcome, drifters! today’s chart: '+seedForDate(todayStr()));
+  $('startOverlay').classList.remove('hidden');
+})();
+</script>
+</body>
+</html>

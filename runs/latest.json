@@ -1,8 +1,8 @@
 {
-  "slug": "driftline-territory-looper",
-  "title": "Driftline Territory Looper",
+  "slug": "velvet-meridian-drifters",
+  "title": "Velvet Meridian Drifters",
   "stack": "html",
-  "aesthetic": "vaporwave",
+  "aesthetic": "neo-brutalism",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 73152,
-  "at": "2026-10-05T01:04:00.412Z"
+  "elapsedMs": 317962,
+  "at": "2026-10-05T05:32:13.080Z"
 }
