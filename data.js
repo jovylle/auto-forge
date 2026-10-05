@@ -4263,12 +4263,45 @@ export const projects = [
       "grids"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-05T11:41:41.223Z",
-    "updatedAt": "2026-10-05T11:43:59.232Z",
+    "updatedAt": "2026-10-05T11:44:08.390Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "ghostlight-tile-wanderers",
+    "title": "Ghostlight Tile Wanderers",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "glassmorphism",
+    "theme": "maps",
+    "constraints": [
+      "no external fonts — system fonts only",
+      "must work with keyboard only"
+    ],
+    "description": "Wander foggy tiles, claim territory, and chart shortcuts in shifting mazes.",
+    "features": [
+      "fog-of-war tile exploring",
+      "territory painting and stealing",
+      "daily shifting maze seed",
+      "shortcut beacon carving"
+    ],
+    "tags": [
+      "maps",
+      "grids",
+      "territory",
+      "navigation"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-05T15:49:53.945Z",
+    "updatedAt": "2026-10-05T15:51:40.132Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 136, done: 127, counts: {"done":127,"needs-human":9} };
+export const stats = { total: 137, done: 128, counts: {"done":128,"needs-human":9} };
