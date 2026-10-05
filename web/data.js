@@ -4196,12 +4196,46 @@ export const projects = [
       "arcade"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-05T01:02:44.832Z",
-    "updatedAt": "2026-10-05T01:04:00.407Z",
+    "updatedAt": "2026-10-05T01:04:20.733Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "velvet-meridian-drifters",
+    "title": "Velvet Meridian Drifters",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "neo-brutalism",
+    "theme": "maps",
+    "constraints": [
+      "single HTML file if html stack, single component if vite",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Claim drifting map tiles in cozy meridian navigation duels.",
+    "features": [
+      "Drag to claim map tiles",
+      "Shifting meridian power-ups",
+      "Daily seed navigation boards",
+      "Local 2-player pass-and-play"
+    ],
+    "tags": [
+      "maps",
+      "strategy",
+      "grids",
+      "cozy",
+      "board"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-05T05:26:51.246Z",
+    "updatedAt": "2026-10-05T05:32:13.077Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 134, done: 125, counts: {"done":125,"needs-human":9} };
+export const stats = { total: 135, done: 126, counts: {"done":126,"needs-human":9} };
