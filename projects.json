@@ -4303,6 +4303,39 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "neon-cartogram-drift",
+      "title": "Neon Cartogram Drift",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "aesthetic": "organic-brutalist",
+      "theme": "maps",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "no external fonts — system fonts only"
+      ],
+      "description": "Plot drifting districts on a neon grid and trade routes to win.",
+      "features": [
+        "drag districts on grid",
+        "draw trade routes",
+        "fog reveals tiles",
+        "daily seed challenge"
+      ],
+      "tags": [
+        "maps",
+        "grids",
+        "strategy",
+        "neon"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-05T17:48:21.521Z",
+      "updatedAt": "2026-10-05T17:51:05.903Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

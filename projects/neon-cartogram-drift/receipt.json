@@ -1,0 +1,32 @@
+{
+  "slug": "neon-cartogram-drift",
+  "title": "Neon Cartogram Drift",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "organic-brutalist",
+  "theme": "maps",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag districts on grid",
+      "draw trade routes",
+      "fog reveals tiles",
+      "daily seed challenge"
+    ],
+    "status": "pass",
+    "summary": "Neon Cartogram Drift: 8x8 neon grid strategy sketch. 5 wobbling districts drift each tide and can be dragged to empty tiles; tap blob-to-blob (or drop blob on blob) to draw up to 6 SVG trade routes that pay goods+soil-distance per tide; fog hides soil until districts/routes/pulse reveal it; seeded RNG (xmur3+mulberry32) powers random maps plus a daily YYYY-MM-DD challenge with localStorage bests and streak. Quota-vs-20-tides win/lose overlays, tide log, ledgers, auto-tide, Space/Esc shortcuts. Verified: node --check clean, all 36 DOM ids resolve, seeds deterministic, zero external refs, 5 hex colors total (3+black/white), 375px stacking via media query."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 148859,
+  "at": "2026-10-05T17:50:52.831Z"
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neon Cartogram Drift</title>
+  <meta name="description" content="Plot drifting districts on a neon grid and trade routes to win. A daily-seed strategy sketch." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="ticker" aria-hidden="true"><span id="tickerText">drift the districts · link the routes · lift the fog · drift the districts · link the routes · lift the fog ·&nbsp;</span></div>
+
+  <main id="app">
+    <header class="mast">
+      <div class="mast-title">
+        <p class="kicker">organic-brutalist field game · nº 08</p>
+        <h1>Neon<br />Cartogram<br /><em>Drift</em></h1>
+        <p class="sub">Plot drifting districts on a neon grid. Draw trade routes. Lift the fog. Hit quota before the tide runs out.</p>
+      </div>
+      <div class="mast-panel">
+        <div class="seedrow">
+          <span class="seedchip" id="seedChip" title="Current map seed">◈ SEED —</span>
+          <span class="dailybadge" id="dailyBadge" hidden>★ DAILY</span>
+        </div>
+        <div class="meters">
+          <div class="meter">
+            <div class="meter-top"><span>quota</span><b><span id="credits">0</span>/<span id="quota">100</span>◦</b></div>
+            <div class="bar"><i id="quotaBar"></i></div>
+          </div>
+          <div class="meter">
+            <div class="meter-top"><span>tide</span><b><span id="tide">0</span>/<span id="tideMax">20</span></b></div>
+            <div class="bar thin"><i id="tideBar"></i></div>
+          </div>
+        </div>
+        <div class="statline">
+          <span>routes <b id="routeCount">0/6</b></span>
+          <span>revealed <b id="fogCount">0%</b></span>
+          <span>best <b id="best">—</b></span>
+        </div>
+        <div class="btnrow">
+          <button id="btnDrift" class="btn primary">drift ▸ +1 tide</button>
+          <button id="btnAuto" class="btn" aria-pressed="false">auto: off</button>
+          <button id="btnPulse" class="btn" title="Reveal fog (costs 3◦, cooldown 2 tides)">pulse ◉ 3◦</button>
+        </div>
+        <div class="btnrow">
+          <button id="btnDaily" class="btn">★ daily seed</button>
+          <button id="btnNew" class="btn">⚄ new map</button>
+          <button id="btnHelp" class="btn">?</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="boardwrap">
+      <div class="boardframe">
+        <div id="board" aria-label="Neon grid">
+          <div id="tiles"></div>
+          <svg id="routes" viewBox="0 0 800 800" preserveAspectRatio="none" aria-hidden="true"></svg>
+          <div id="pieces"></div>
+        </div>
+        <div class="boardfoot">
+          <span id="hint">drag a blob to move it · tap one blob, then another, to draw a route · tap a route to cut it</span>
+          <span id="modeTag">mode: plot</span>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="card ledger">
+          <h2>district ledger</h2>
+          <ul id="ledger"></ul>
+        </div>
+        <div class="card routes">
+          <h2>trade routes</h2>
+          <ul id="routeList"></ul>
+        </div>
+        <div class="card logcard">
+          <h2>tide log</h2>
+          <ol id="log" aria-live="polite"></ol>
+        </div>
+      </aside>
+    </section>
+
+    <div id="overlay" class="overlay" hidden>
+      <div class="sheet" role="dialog" aria-modal="true">
+        <p class="kicker" id="ovKicker">quota met</p>
+        <h2 id="ovTitle">Cartogram complete</h2>
+        <p id="ovBody"></p>
+        <div class="btnrow">
+          <button id="btnAgain" class="btn primary">↻ replay seed</button>
+          <button id="btnNextDaily" class="btn">★ daily seed</button>
+          <button id="btnClose" class="btn">keep drifting</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="help" class="overlay" hidden>
+      <div class="sheet" role="dialog" aria-modal="true">
+        <p class="kicker">field manual</p>
+        <h2>How to play</h2>
+        <ol class="manual">
+          <li><b>Drag blobs</b> onto empty tiles. Districts drift on their own each tide — anchor them where the soil is rich (◍ pips).</li>
+          <li><b>Tap blob → blob</b> (or drag blob onto blob) to draw a trade route (max 6). Routes pay every tide: goods + soil − distance. Tap a route line to cut it.</li>
+          <li><b>Fog</b> hides soil. Districts reveal the 8 tiles around them; routes light their path. <b>Pulse ◉</b> burns 3◦ to reveal far tiles (cooldown 2 tides).</li>
+          <li><b>Win:</b> reach quota before tide 20 ends. <b>★ Daily seed:</b> same map for everyone today — beat it, keep the streak.</li>
+        </ol>
+        <div class="btnrow"><button id="btnHelpClose" class="btn primary">got it</button></div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <span>neon cartogram drift · file:// friendly · progress lives in localStorage</span>
+      <span id="streak"></span>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

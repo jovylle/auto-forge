@@ -4296,12 +4296,45 @@ export const projects = [
       "navigation"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-05T15:49:53.945Z",
-    "updatedAt": "2026-10-05T15:51:40.132Z",
+    "updatedAt": "2026-10-05T15:52:05.583Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "neon-cartogram-drift",
+    "title": "Neon Cartogram Drift",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "organic-brutalist",
+    "theme": "maps",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Plot drifting districts on a neon grid and trade routes to win.",
+    "features": [
+      "drag districts on grid",
+      "draw trade routes",
+      "fog reveals tiles",
+      "daily seed challenge"
+    ],
+    "tags": [
+      "maps",
+      "grids",
+      "strategy",
+      "neon"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-05T17:48:21.521Z",
+    "updatedAt": "2026-10-05T17:50:52.828Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 137, done: 128, counts: {"done":128,"needs-human":9} };
+export const stats = { total: 138, done: 129, counts: {"done":129,"needs-human":9} };
