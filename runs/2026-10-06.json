@@ -60,7 +60,22 @@
       },
       "elapsedMs": 113376,
       "at": "2026-10-06T12:24:58.614Z"
+    },
+    {
+      "slug": "fogline-parcel-scouts",
+      "title": "Fogline Parcel Scouts",
+      "stack": "html",
+      "aesthetic": "grunge",
+      "model": "opencode/muse-spark-1.3-contributor-free",
+      "modelVia": "primary",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 133795,
+      "at": "2026-10-06T18:35:55.724Z"
     }
   ],
-  "updatedAt": "2026-10-06T12:24:58.614Z"
+  "updatedAt": "2026-10-06T18:35:55.724Z"
 }
