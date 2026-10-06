@@ -4427,12 +4427,44 @@ export const projects = [
       "strategy"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-06T01:02:30.974Z",
-    "updatedAt": "2026-10-06T01:04:37.993Z",
+    "updatedAt": "2026-10-06T01:05:01.939Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "mistral-hexway-nomads",
+    "title": "Mistral Hexway Nomads",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "vaporwave",
+    "theme": "maps",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Claim glowing hex tiles while routing caravans through shifting fog.",
+    "features": [
+      "Paint territories on hex grid",
+      "Plot caravan routes",
+      "Dodge roaming fog walls",
+      "Daily seed leaderboard"
+    ],
+    "tags": [
+      "maps",
+      "hexgrid",
+      "territory",
+      "strategy"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-06T06:16:50.724Z",
+    "updatedAt": "2026-10-06T06:19:36.328Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 141, done: 132, counts: {"done":132,"needs-human":9} };
+export const stats = { total: 142, done: 133, counts: {"done":133,"needs-human":9} };

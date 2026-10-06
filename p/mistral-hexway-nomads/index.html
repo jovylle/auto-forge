@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mistral Hexway Nomads — vaporwave caravan strategy</title>
+  <meta name="description" content="Claim glowing hex tiles, plot caravan routes, and dodge roaming fog walls. Daily seed. Keyboard only." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="sun" aria-hidden="true"></div>
+  <div class="gridfloor" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div>
+      <p class="kicker">ｍｉｓｔｒａｌ ｈｅｘｗａｙ</p>
+      <h1 class="chrome">NOMADS</h1>
+      <p class="tagline">Claim glowing hexes · route caravans · dodge the fog — <span id="seedLabel">SEED ----.--.--</span></p>
+    </div>
+    <div class="hud" role="status" aria-label="game status">
+      <div class="stat"><span class="k">SCORE</span><span class="v" id="hudScore">0</span></div>
+      <div class="stat"><span class="k">TIME</span><span class="v" id="hudTime">3:00</span></div>
+      <div class="stat"><span class="k">MIST ⚡</span><span class="v" id="hudMist">80</span></div>
+      <div class="stat"><span class="k">TILES</span><span class="v" id="hudTiles">0</span></div>
+      <div class="stat"><span class="k">HAULS</span><span class="v" id="hudHauls">0</span></div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="board-wrap">
+      <div class="board-head">
+        <div id="phaseBanner" class="banner">◈ cursor on board — move with arrows · <b>SPACE</b> claim · <b>R</b> route</div>
+        <div class="board-actions">
+          <button id="btnPause" type="button">⏸ pause (P)</button>
+          <button id="btnRestart" type="button">↻ restart (N)</button>
+          <button id="btnHelp" type="button">? help (H)</button>
+        </div>
+      </div>
+      <div id="boardFocus" tabindex="0" aria-label="hex board. Use arrow keys to move, space to claim, R to plot routes.">
+        <svg id="board" viewBox="0 0 640 560" role="application" aria-describedby="srHelp"></svg>
+      </div>
+      <p id="srHelp" class="sr">Keyboard only. Arrows or WASD move. Space claims a tile. R starts and finishes a caravan route. C cancels. P pauses. N restarts. M mutes.</p>
+      <div id="toast" class="toast" aria-live="polite"></div>
+    </section>
+
+    <aside class="side">
+      <section class="card routes">
+        <h2>🐪 caravans <span id="routeCount" class="pill">0 / 3</span></h2>
+        <ol id="routeList" class="route-list"></ol>
+        <p id="plotHint" class="hint">No route plotting. Stand on a <b>claimed</b> tile, press <kbd>R</kbd>, walk the cursor, press <kbd>R</kbd> on another claimed tile.</p>
+      </section>
+
+      <section class="card">
+        <h2>🌫 fog forecast</h2>
+        <p class="hint">Two mist blobs drift diagonally + one wall sweeps across. Fog blocks claims &amp; robs caravans (−15).</p>
+        <div class="fogkey">
+          <span class="dot fog"></span> fog
+          <span class="dot yours"></span> yours
+          <span class="dot route"></span> route
+          <span class="dot cursor"></span> cursor
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>🏆 daily leaderboard <span id="boardSeed" class="pill">…</span></h2>
+        <ol id="leaders" class="leaders"></ol>
+        <p class="hint">Scores persist per-day in this browser (localStorage). Beat the seed bots.</p>
+      </section>
+
+      <section class="card keys" id="helpCard">
+        <h2>⌨ keys</h2>
+        <ul>
+          <li><kbd>←↑↓→</kbd>/<kbd>WASD</kbd> move cursor</li>
+          <li><kbd>Space</kbd>/<kbd>Enter</kbd> claim tile (12⚡)</li>
+          <li><kbd>R</kbd> start / finish route</li>
+          <li><kbd>C</kbd>/<kbd>Esc</kbd> cancel route</li>
+          <li><kbd>P</kbd> pause · <kbd>N</kbd> restart · <kbd>M</kbd> sound</li>
+          <li><kbd>H</kbd> toggle this help</li>
+        </ul>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <span>MISTRAL HEXWAY NOMADS · vaporwave territory runner · keyboard-only · no build · file:// OK</span>
+  </footer>
+
+  <div id="overModal" class="modal" hidden>
+    <div class="modal-card">
+      <p class="kicker">run complete</p>
+      <h2 class="chrome small">SHIFT&nbsp;OVER</h2>
+      <p id="finalLine" class="final"></p>
+      <label class="initials">CALLSIGN (3 letters)
+        <input id="initials" maxlength="3" value="NOM" autocomplete="off" spellcheck="false" />
+      </label>
+      <div class="modal-row">
+        <button id="btnSave" type="button">💾 save score (Enter)</button>
+        <button id="btnAgain" type="button">↻ run it back (N)</button>
+      </div>
+      <p class="hint">Type 3 letters, hit Enter. Leaderboard is per daily seed.</p>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
