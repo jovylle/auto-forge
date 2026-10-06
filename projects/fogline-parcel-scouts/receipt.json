@@ -1,0 +1,32 @@
+{
+  "slug": "fogline-parcel-scouts",
+  "title": "Fogline Parcel Scouts",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "grunge",
+  "theme": "maps",
+  "constraints": [
+    "no external fonts — system fonts only",
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Fog-of-war grid exploration",
+      "Claim and paint territories",
+      "Procedural map seeds",
+      "Rival scout AI"
+    ],
+    "status": "pass",
+    "summary": "Fogline Parcel Scouts — 15x15 canvas fog-of-war territory game in grunge style (asphalt, spray paint, stamps). Move to chart/claim tiles, stake 3x3 with ink, seeded procedural maps, two rival AIs (greedy Jackals + poaching Magpies), 140-turn win condition, localStorage best, mobile dpad + responsive layout. Verified: node --check clean, no external fonts/images."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 133795,
+  "at": "2026-10-06T18:35:55.723Z"
+}

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Fogline Parcel Scouts — claim the fog</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="tape tape-a" aria-hidden="true"></div>
+<div class="tape tape-b" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="kicker"><span class="stamp">FIELD UNIT 07</span><span class="kicker-text">fogline parcel scouts · est. 1987 · sector K</span></div>
+  <h1>FOGLINE <em>PARCEL</em> SCOUTS</h1>
+  <p class="tag">Chart the fog. Stake your paint. Outrun the rival crews.</p>
+</header>
+
+<main id="app">
+  <section class="hud">
+    <div class="meters">
+      <div class="meter"><label>CHARTED</label><b id="mChart">0%</b></div>
+      <div class="meter you"><label>YOUR PAINT</label><b id="mYou">0</b></div>
+      <div class="meter r1"><label>RUST JACKALS</label><b id="mR1">0</b></div>
+      <div class="meter r2"><label>VIOLET MAGPIES</label><b id="mR2">0</b></div>
+      <div class="meter"><label>INK</label><b id="mInk">0</b></div>
+      <div class="meter"><label>TURN</label><b id="mTurn">0/140</b></div>
+    </div>
+    <div class="seedbar">
+      <label for="seed">SEED</label>
+      <input id="seed" value="FOG-1987" maxlength="24" spellcheck="false" autocomplete="off" />
+      <button id="btnReseed" title="Generate map from this seed">SURVEY ▸</button>
+      <button id="btnDice" title="Random seed">⚄</button>
+      <button id="btnHelp" title="How to play">?</button>
+      <button id="btnMute" title="Toggle sound">♪</button>
+    </div>
+  </section>
+
+  <section class="board-wrap">
+    <div class="board-frame">
+      <canvas id="map" width="600" height="600" aria-label="Foggy parcel grid"></canvas>
+      <div id="banner" class="banner hidden"></div>
+    </div>
+    <aside class="side">
+      <div class="card orders">
+        <h2>FIELD ORDERS</h2>
+        <ol>
+          <li><b>MOVE</b> — click a glowing tile, tap it, or use <kbd>WASD</kbd> / arrows. Moving claims the tile.</li>
+          <li><b>STAKE <kbd>Space</kbd></b> — spend <b>6 ink</b> to blast-paint a 3×3 block.</li>
+          <li><b>INK</b> — earn +1 for every new tile charted, +2 for forest / rubble caches.</li>
+          <li><b>WIN</b> — hold the most paint when the fog lifts at turn 140, or hit 45% first.</li>
+        </ol>
+        <div class="btnrow">
+          <button id="btnStake">◉ STAKE 3×3 (6 ink)</button>
+          <button id="btnRestart">↻ NEW SURVEY</button>
+        </div>
+        <p class="legend">
+          <span><i class="sw you"></i>you · acid crew</span>
+          <span><i class="sw r1"></i>rust jackals</span>
+          <span><i class="sw r2"></i>violet magpies</span>
+          <span><i class="sw fog"></i>uncharted fog</span>
+        </p>
+      </div>
+      <div class="card logcard">
+        <h2>WIRE LOG</h2>
+        <ul id="log" aria-live="polite"></ul>
+      </div>
+      <div class="dpad" aria-label="Move controls">
+        <button data-dx="0" data-dy="-1">▲</button>
+        <div><button data-dx="-1" data-dy="0">◀</button><button data-dx="0" data-dy="1">▼</button><button data-dx="1" data-dy="0">▶</button></div>
+      </div>
+    </aside>
+  </section>
+
+  <footer class="foot">
+    <span>best haul: <b id="best">—</b></span>
+    <span class="x">no fonts · no images · ink &amp; static only</span>
+  </footer>
+</main>
+
+<div id="help" class="help hidden" role="dialog" aria-modal="true">
+  <div class="help-card">
+    <h2>HOW TO SCOUT</h2>
+    <p>The parish is fogged. Every tile you step on gets <b>charted</b> and <b>painted</b> in your acid yellow. Water can't be claimed — it just gets charted. Forests and rubble pay bonus ink.</p>
+    <p><b>Rust Jackals</b> expand greedily toward open fog. <b>Violet Magpies</b> lurk, then swoop to poach your border paint. They move once per your move — so every step counts.</p>
+    <p>Keys: <kbd>WASD</kbd>/<kbd>arrows</kbd> move · <kbd>Space</kbd> stake · <kbd>N</kbd> new map · <kbd>M</kbd> mute.</p>
+    <button id="btnCloseHelp">BACK TO THE FOG</button>
+  </div>
+</div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

@@ -4491,12 +4491,45 @@ export const projects = [
       "cozy"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-06T12:22:57.869Z",
-    "updatedAt": "2026-10-06T12:24:58.611Z",
+    "updatedAt": "2026-10-06T12:25:07.496Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "fogline-parcel-scouts",
+    "title": "Fogline Parcel Scouts",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "grunge",
+    "theme": "maps",
+    "constraints": [
+      "no external fonts — system fonts only",
+      "no images — CSS/canvas only"
+    ],
+    "description": "Chart foggy parcels, claim territory, and outmaneuver rival scouts.",
+    "features": [
+      "Fog-of-war grid exploration",
+      "Claim and paint territories",
+      "Procedural map seeds",
+      "Rival scout AI"
+    ],
+    "tags": [
+      "maps",
+      "grids",
+      "territory",
+      "strategy"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-06T18:33:39.963Z",
+    "updatedAt": "2026-10-06T18:35:55.720Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 143, done: 134, counts: {"done":134,"needs-human":9} };
+export const stats = { total: 144, done: 135, counts: {"done":135,"needs-human":9} };
