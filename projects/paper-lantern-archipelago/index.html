@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Paper Lantern Archipelago</title>
+  <meta name="description" content="Chart drifting islands, trade lantern-light, and map shifting shoals before the tide erases your routes. A 30-second pop-art sailing sprint." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="halftone-bg" aria-hidden="true"></div>
+  <main id="app">
+    <header class="masthead">
+      <div class="kicker">★ POP-ART SAILING SPRINT ★</div>
+      <h1><span class="w1">PAPER</span> <span class="w2">LANTERN</span> <span class="w3">ARCHIPELAGO</span></h1>
+      <p class="sub">Light all <b>3 trade islands</b> before the tide erases your routes!</p>
+    </header>
+
+    <section class="hud" aria-label="game status">
+      <div class="meter tide-meter">
+        <div class="meter-label">🌊 TIDE <span id="tideName">RISING</span></div>
+        <div class="meter-track"><div id="tideFill" class="meter-fill tide"></div></div>
+      </div>
+      <div class="meter clock-meter">
+        <div class="meter-label">⏱ <span id="clock">45</span>s LEFT</div>
+        <div class="meter-track"><div id="clockFill" class="meter-fill clock"></div></div>
+      </div>
+      <div class="chips">
+        <span class="chip" id="chipRoutes">🏮 0/3 lit</span>
+        <span class="chip" id="chipChart">🗺 0% charted</span>
+        <span class="chip" id="chipBest">⭐ best —</span>
+      </div>
+    </section>
+
+    <section class="board-wrap">
+      <div class="board-frame">
+        <canvas id="map" width="600" height="600" aria-label="archipelago map"></canvas>
+        <canvas id="fog" width="600" height="600" aria-hidden="true"></canvas>
+        <div id="burst" class="burst" aria-hidden="true"></div>
+        <div id="overlay" class="overlay hidden">
+          <div class="overlay-card">
+            <div id="overlayKicker" class="overlay-kicker">★ CHART COMPLETE ★</div>
+            <h2 id="overlayTitle">ALL LANTERNS LIT!</h2>
+            <p id="overlayText"></p>
+            <button id="againBtn" type="button">⚓ SAIL AGAIN</button>
+          </div>
+        </div>
+      </div>
+      <p class="hint" id="hint">Tap a glowing neighbor to sail • WASD / arrows work too • pale shoals open only at high tide!</p>
+      <div class="controls">
+        <button id="newBtn" type="button">🎲 NEW CHART</button>
+        <button id="soundBtn" type="button" aria-pressed="true">🔊 SOUND</button>
+      </div>
+    </section>
+
+    <section class="howto">
+      <div class="howto-card c1"><b>① SAIL</b><span>Tap glowing neighbor isles. Glowing ring = your boat.</span></div>
+      <div class="howto-card c2"><b>② TRADE</b><span>Reach a 🏮 island to light its lantern route.</span></div>
+      <div class="howto-card c3"><b>③ TIDE</b><span>Shoals (pale dots) open at HIGH tide, shut at LOW.</span></div>
+    </section>
+
+    <footer class="foot">hand-drawn fog • shifting shoals • 30-second sprint • best kept in this browser</footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
