@@ -4459,12 +4459,44 @@ export const projects = [
       "strategy"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-06T06:16:50.724Z",
-    "updatedAt": "2026-10-06T06:19:36.328Z",
+    "updatedAt": "2026-10-06T06:19:45.336Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "paper-lantern-archipelago",
+    "title": "Paper Lantern Archipelago",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "pop-art",
+    "theme": "maps",
+    "constraints": [
+      "must be playable in 30 seconds"
+    ],
+    "description": "Chart drifting islands, trade lantern-light, and map shifting shoals before tide erases routes.",
+    "features": [
+      "procedural island grid",
+      "lantern trade routes",
+      "tide-shifted navigation",
+      "hand-drawn fog reveal"
+    ],
+    "tags": [
+      "maps",
+      "islands",
+      "navigation",
+      "cozy"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-06T12:22:57.869Z",
+    "updatedAt": "2026-10-06T12:24:58.611Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 142, done: 133, counts: {"done":133,"needs-human":9} };
+export const stats = { total: 143, done: 134, counts: {"done":134,"needs-human":9} };
