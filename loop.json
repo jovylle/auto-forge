@@ -2,6 +2,6 @@
   "enabled": true,
   "schedule": "0 9 * * *",
   "timezone": "Asia/Manila",
-  "lastRun": "2026-10-05T23:59:22.333Z",
-  "lastSlug": "moss-beacon-trailheads"
+  "lastRun": "2026-10-06T00:09:10.853Z",
+  "lastSlug": "lantern-grid-wayfinders"
 }

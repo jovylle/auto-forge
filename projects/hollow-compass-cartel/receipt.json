@@ -1,0 +1,32 @@
+{
+  "slug": "hollow-compass-cartel",
+  "title": "Hollow Compass Cartel",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "sci-fi-terminal",
+  "theme": "maps",
+  "constraints": [
+    "must react to scroll",
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Hex trade-chart game: sail/click BFS routing, fog-of-war reveal, tide-shifted living compass, seed share links, scroll-driven tide. Canvas+CSS only, responsive to 375px.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "draw trade routes on hex grid",
+      "fog lifts as you explore",
+      "tide-shifted compass navigation",
+      "share seed maps with rivals"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 123286,
+  "at": "2026-10-06T01:04:37.996Z"
+}
