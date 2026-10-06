@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>HOLLOW COMPASS CARTEL — fog charts & tide trade</title>
+<meta name="description" content="Chart trade routes across a shifting foggy archipelago with a living compass." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand"><span class="sig">◈</span> HOLLOW COMPASS <em>CARTEL</em></div>
+  <div class="top-meta">
+    <span id="seedChip" class="chip">SEED ——</span>
+    <span id="tideChip" class="chip amber">TIDE +0.0°</span>
+    <span id="clockChip" class="chip">T+00:00</span>
+  </div>
+</header>
+
+<main id="app">
+  <section class="hero reveal">
+    <div class="hero-left">
+      <p class="kicker">// CARTEL UPLINK 07 — SHIFTING ARCHIPELAGO</p>
+      <h1>HOLLOW<br><span class="glow">COMPASS</span> CARTEL</h1>
+      <p class="lede">Chart trade routes across a fog-drowned archipelago. The tide lies to your compass — sail anyway, lift the fog, and sell the map to rivals before they sell you.</p>
+      <div class="hero-cta">
+        <button id="btnNew" class="btn primary">⟳ NEW CHART</button>
+        <button id="btnShare" class="btn">⧉ COPY RIVAL LINK</button>
+        <label class="seedbox">SEED <input id="seedInput" spellcheck="false" maxlength="12" /></label>
+      </div>
+      <div class="modes" role="tablist" aria-label="mode">
+        <button id="modeSail" class="btn mode active">⚓ SAIL — click water to move</button>
+        <button id="modeChart" class="btn mode">✎ CHART — click port → port to route</button>
+      </div>
+      <p class="hint" id="modeHint">SAIL: click any lit water hex. Fog lifts as you explore. Supplies burn per league.</p>
+    </div>
+    <div class="hero-right">
+      <div class="compass-shell">
+        <canvas id="compass" width="220" height="220" aria-label="living compass"></canvas>
+        <div class="compass-cap">
+          <div>DECLINATION <b id="declVal">+0.0°</b></div>
+          <div>TIDE <b id="tideVal">FLOOD ▲</b></div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><label>CREDITS</label><b id="stCredits">0</b></div>
+        <div class="stat"><label>SUPPLIES</label><b id="stSup">40</b></div>
+        <div class="stat"><label>CHARTED</label><b id="stFog">0%</b></div>
+        <div class="stat"><label>ROUTES</label><b id="stRoutes">0</b></div>
+      </div>
+      <div class="tidebar"><div id="tideFill"></div><span id="tideLabel">SCROLL ⇅ TO TUG THE TIDE</span></div>
+    </div>
+  </section>
+
+  <section class="board-wrap reveal">
+    <div class="board-head">
+      <span id="statusLine">▸ awaiting orders, captain.</span>
+      <span class="board-head-r">
+        <button id="btnSonar" class="btn small">◉ SONAR PULSE (−4 sup)</button>
+        <button id="btnClear" class="btn small ghost">✕ cut routes</button>
+      </span>
+    </div>
+    <canvas id="map" aria-label="hex trade chart"></canvas>
+    <div class="pad" aria-label="helm">
+      <div></div><button data-dx="0" data-dy="-1">▲</button><div></div>
+      <button data-dx="-1" data-dy="0">◀</button><button data-dx="0" data-dy="0" class="hold">·</button><button data-dx="1" data-dy="0">▶</button>
+      <div></div><button data-dx="0" data-dy="1">▼</button><div></div>
+    </div>
+    <p class="board-foot">scroll the page to drag the tide — the compass slips ±24°. routes pay more when they cross unknown water. arrow keys / WASD also helm the ship.</p>
+  </section>
+
+  <section class="ledger-grid">
+    <div class="panel reveal">
+      <h2>◈ LEDGER <span class="dim">/ trade routes</span></h2>
+      <ol id="ledger"><li class="empty">No routes inked yet. Switch to CHART, click a lit port, then a second port.</li></ol>
+    </div>
+    <div class="panel reveal">
+      <h2>◈ SHIP'S LOG <span class="dim">/ tide-bound, scroll-driven</span></h2>
+      <div id="log"></div>
+    </div>
+  </section>
+
+  <section class="scroll-lore">
+    <article class="lore reveal"><h3>01 / THE FOG KEEPS ACCOUNTS</h3><p>Every hex you have not sailed is a debt. Sonar, sail-patterns and rival charts are the only currency that clears it. Keep scrolling — the page itself tugs the tide.</p></article>
+    <article class="lore reveal"><h3>02 / THE COMPASS IS ALIVE</h3><p>Tidewater iron in the straits bends every needle. Declination breathes with the moon and with your scroll. Learn to steer <em>into</em> the lie and your routes run fat.</p></article>
+    <article class="lore reveal"><h3>03 / SELL THE MAP, NOT THE SHIP</h3><p>Copy a rival link and dare the cartel to beat your credits on the same seed. Same fog. Same lies. Better captain wins.</p></article>
+  </section>
+
+  <footer>
+    <span>HOLLOW COMPASS CARTEL — a single-file-ish tide experiment · no images, canvas + CSS only</span>
+    <span id="winBanner"></span>
+  </footer>
+</main>
+
+<div id="toast" role="status"></div>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
