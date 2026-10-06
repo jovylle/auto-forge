@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lantern Grid Wayfinders</title>
+  <meta name="description" content="Chart glowing trails across shifting districts to reconnect 12 scattered lantern outposts." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <div class="stars"></div>
+    <button class="sun" id="sunBtn" title="psst — the sun likes attention" aria-label="retro sun (it likes attention)"></button>
+    <div class="sun-glow" aria-hidden="true"></div>
+  </div>
+
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="top">
+    <p class="kicker">SECTOR 7 // NIGHT GRID</p>
+    <h1>Lantern Grid <span>Wayfinders</span></h1>
+    <p class="sub">Chart glowing trails across shifting districts to reconnect scattered lantern outposts.</p>
+  </header>
+
+  <section class="hud" aria-label="status">
+    <div class="meter"><b id="litCount">1/13</b><i>lanterns lit</i></div>
+    <div class="meter"><b id="fogCount">–</b><i>fog tiles</i></div>
+    <div class="meter"><b id="clock">00:00</b><i>night time</i></div>
+    <div class="meter trail-meter"><b id="trailLen">0/14</b><i>trail charge</i>
+      <div class="chargebar"><span id="chargeFill"></span></div>
+    </div>
+  </section>
+
+  <main class="layout">
+    <div class="board-wrap">
+      <canvas id="board" width="900" height="760" aria-label="hex district grid. Drag from a lit lantern across hexes to an unlit outpost."></canvas>
+      <p class="hint" id="hint">Drag from a <b>lit lantern</b> across glowing hexes to an <b>unlit outpost</b>. Fog eats drafts — route around it.</p>
+      <div class="board-actions">
+        <button id="newMapBtn" class="btn ghost" type="button">↻ new map</button>
+        <button id="muteBtn" class="btn ghost" type="button" aria-pressed="false">♪ sound on</button>
+        <button id="helpBtn" class="btn ghost" type="button">? how to play</button>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="card">
+        <h2>Night log</h2>
+        <ol id="log" class="log"></ol>
+      </div>
+      <div class="card legend">
+        <h2>Districts</h2>
+        <ul>
+          <li><i class="sw d0"></i>Ember district</li>
+          <li><i class="sw d1"></i>Neon district</li>
+          <li><i class="sw d2"></i>Gold district</li>
+          <li><i class="sw fog"></i>Living fog — unwalkable</li>
+        </ul>
+        <p class="tiny">Districts shift every 8s. Fog rewrites tiles every 5s. Lit rails repel fog forever.</p>
+      </div>
+      <div class="card">
+        <h2>Best nights</h2>
+        <p class="tiny" id="best">No completed night yet. Relight all 12 outposts.</p>
+      </div>
+    </aside>
+  </main>
+
+  <div class="floor" aria-hidden="true"></div>
+
+  <footer class="foot">
+    <span>LANTERN GRID WAYFINDERS · a retro-wave wayfinding rite</span>
+    <span class="psst">psst — the sun likes attention · try the old code ↑↑↓↓←→←→BA</span>
+  </footer>
+
+  <div class="overlay hidden" id="helpOverlay" role="dialog" aria-modal="true" aria-label="how to play">
+    <div class="panel">
+      <h2>How to play</h2>
+      <ol>
+        <li><b>Press + drag</b> (or tap-drag) starting on a <b>lit lantern</b> — the big glowing hex.</li>
+        <li>Chain through <b>adjacent hexes</b>. Max trail charge: <b>14 hexes</b>.</li>
+        <li>Release <b>on / next to</b> an unlit outpost to relight it. Chain outward from lit ones.</li>
+        <li><b>Fog tiles</b> (static noise) are unwalkable and rewrite districts. Lit rails are immune.</li>
+        <li>Relight all <b>12 outposts</b> to dawn the grid and win.</li>
+      </ol>
+      <button class="btn primary" id="helpClose" type="button">Back to the grid</button>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="winOverlay" role="dialog" aria-modal="true" aria-label="victory">
+    <div class="panel win">
+      <p class="kicker">DAWN BREAKS</p>
+      <h2>All 12 outposts relit</h2>
+      <p class="tiny" id="winStats">—</p>
+      <div class="row">
+        <button class="btn primary" id="againBtn" type="button">Run another night</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="eggOverlay" role="dialog" aria-modal="true" aria-label="easter egg">
+    <div class="panel egg">
+      <p class="kicker">✦ SECRET FREQUENCY ✦</p>
+      <h2>NIGHT DRIVE ENGAGED</h2>
+      <pre class="ascii" aria-hidden="true">      ______
+   __/_____\__
+  |  _     _  |
+  '-(_)---(_)-'   ___  ________
+   //|| ||\\    /___/ /_  __/ /
+  // || || \\  /___/   / / /_/___</pre>
+      <p class="tiny">You found the Night Driver. Trails now burn starlight until dawn. Chrome stays in the garage — only three neon inks on this grid.</p>
+      <button class="btn primary" id="eggClose" type="button">Keep cruising</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

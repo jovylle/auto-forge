@@ -1,0 +1,32 @@
+{
+  "slug": "lantern-grid-wayfinders",
+  "title": "Lantern Grid Wayfinders",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "retro-wave",
+  "theme": "maps",
+  "constraints": [
+    "must have an easter egg",
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Drag routes across hex districts (pointer drag, 14-hex charge, backtrack undo, generous adjacent-target commit)",
+      "Dodge fog that rewrites tiles (5s crawl, draft-eating, district rewrite, rails immune; districts shift every 8s)",
+      "Relight 12 outposts to win (HUD, night log, timer, victory overlay, localStorage progress + best night, new-map reshuffle)",
+      "Easter egg (clickable retro sun x5 + Konami code unlock NIGHT DRIVE overlay/mode)"
+    ],
+    "status": "pass",
+    "summary": "Retro-wave hex wayfinder: canvas pointy-top 9x8 grid with heart lantern + 12 outposts, drag-to-route glowing trails, crawling district-rewriting fog, win at 12/12 with best-night persistence, sun-click/Konami NIGHT DRIVE easter egg. 3 inks (#ff2e88/#22e6ff/#ffb02e) + black/white, Orbitron/Space Mono, scanlines + scrolling grid, WebAudio SFX, 375px responsive. node --check + ref/ID audit clean."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 110157,
+  "at": "2026-10-06T00:08:58.149Z"
+}

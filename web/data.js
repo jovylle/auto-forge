@@ -4368,6 +4368,38 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "lantern-grid-wayfinders",
+    "title": "Lantern Grid Wayfinders",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "retro-wave",
+    "theme": "maps",
+    "constraints": [
+      "must have an easter egg",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Chart glowing trails across shifting districts to reconnect scattered lantern outposts.",
+    "features": [
+      "Drag routes across hex districts",
+      "Dodge fog that rewrites tiles",
+      "Relight 12 outposts to win"
+    ],
+    "tags": [
+      "maps",
+      "grids",
+      "navigation",
+      "puzzle"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-06T00:06:42.080Z",
+    "updatedAt": "2026-10-06T00:08:58.147Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 139, done: 130, counts: {"done":130,"needs-human":9} };
+export const stats = { total: 140, done: 131, counts: {"done":131,"needs-human":9} };
