@@ -4616,12 +4616,46 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-07T06:49:12.909Z",
-    "updatedAt": "2026-10-07T06:51:46.113Z",
+    "updatedAt": "2026-10-07T06:51:54.867Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "ember-atlas-waypoints",
+    "title": "Ember Atlas Waypoints",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "maps",
+    "constraints": [
+      "no external fonts — system fonts only",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Pin drifting waypoints to paint a living atlas from your wanderings.",
+    "features": [
+      "drop custom waypoints",
+      "connect routes live",
+      "animate territory growth",
+      "export shareable mini-map"
+    ],
+    "tags": [
+      "maps",
+      "atlas",
+      "navigation",
+      "canvas",
+      "territories"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-07T12:55:56.685Z",
+    "updatedAt": "2026-10-07T13:07:45.724Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 147, done: 138, counts: {"done":138,"needs-human":9} };
+export const stats = { total: 148, done: 139, counts: {"done":139,"needs-human":9} };
