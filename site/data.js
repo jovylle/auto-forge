@@ -4650,12 +4650,44 @@ export const projects = [
       "territories"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-07T12:55:56.685Z",
-    "updatedAt": "2026-10-07T13:07:45.724Z",
+    "updatedAt": "2026-10-07T13:07:55.131Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "fogbound-hex-cartographers",
+    "title": "Fogbound Hex Cartographers",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "cottagecore",
+    "theme": "maps",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)"
+    ],
+    "description": "Chart drifting fog islands, claim hexes, and trade routes with fellow wanderers.",
+    "features": [
+      "Procedural fog-grid map",
+      "Claim and name hexes",
+      "Draw trade routes",
+      "Nightly map reshuffle"
+    ],
+    "tags": [
+      "maps",
+      "hexgrid",
+      "exploration",
+      "cozy"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-07T19:13:20.854Z",
+    "updatedAt": "2026-10-07T19:15:11.324Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 148, done: 139, counts: {"done":139,"needs-human":9} };
+export const stats = { total: 149, done: 140, counts: {"done":140,"needs-human":9} };

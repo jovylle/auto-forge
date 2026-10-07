@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fogbound Hex Cartographers — a cozy charting game</title>
+  <meta name="description" content="Chart drifting fog islands, claim hexes, and stitch trade routes. A click-only cottagecore map game." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="fireflies" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="kicker">~ the wanderers' cartography club ~</p>
+      <h1>Fogbound Hex Cartographers</h1>
+      <p class="sub">Chart drifting fog islands, claim hexes &amp; stitch trade routes with fellow wanderers. <strong>Everything is one click</strong> — no typing, no dragging.</p>
+      <div class="nightbar">
+        <div class="night-pill" id="nightPill" role="status">
+          <span class="moon" aria-hidden="true">☾</span>
+          <span id="nightLabel">Night 1</span>
+          <span class="dot-sep" aria-hidden="true">·</span>
+          <span>fog drifts at dawn in <strong id="dawnIn">--:--:--</strong></span>
+        </div>
+        <button class="btn bell" id="bellBtn" type="button" title="Ring the night bell to sleep till dawn">🔔 Ring the night bell <small>(sleep till dawn)</small></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout" id="app">
+    <section class="map-card" aria-label="Fog grid map">
+      <div class="map-head">
+        <div>
+          <h2>The Drifting Chart</h2>
+          <p class="hint" id="hint">Click a glowing fog hex beside the meadow to chart it.</p>
+        </div>
+        <div class="stats" aria-label="Progress">
+          <div class="stat"><span class="stat-num" id="statCharted">0</span><span class="stat-lab">charted</span></div>
+          <div class="stat"><span class="stat-num" id="statClaimed">0</span><span class="stat-lab">claimed</span></div>
+          <div class="stat"><span class="stat-num" id="statRoutes">0</span><span class="stat-lab">routes</span></div>
+          <div class="stat"><span class="stat-num" id="statBaskets">0</span><span class="stat-lab">baskets</span></div>
+        </div>
+      </div>
+      <div class="map-wrap" id="mapWrap">
+        <svg id="map" viewBox="0 0 672 412" role="img" aria-label="Procedural fog hex map. Click hexes to play."></svg>
+        <div class="dawn-veil" id="dawnVeil" aria-hidden="true"><span>night fog rolling through…</span></div>
+      </div>
+      <ul class="legend" aria-label="Terrain legend">
+        <li><i class="sw meadow"></i>Meadow</li>
+        <li><i class="sw grove"></i>Grove</li>
+        <li><i class="sw pond"></i>Pond</li>
+        <li><i class="sw bramble"></i>Bramble</li>
+        <li><i class="sw hollow"></i>Hollow</li>
+        <li><i class="sw apiary"></i>Apiary</li>
+      </ul>
+    </section>
+
+    <aside class="side">
+      <section class="card" aria-label="Selected hex">
+        <h2>Field satchel</h2>
+        <div id="satchel"><p class="empty">No hex selected yet.<br/>Click any claimed hex edged in honey-gold to open it here.</p></div>
+      </section>
+
+      <section class="card" aria-label="Name picker">
+        <h2>Name the land <span class="tag">click to choose</span></h2>
+        <p class="micro">The club forbids ink-pens — pick a name by clicking. Names are drawn fresh for each hex.</p>
+        <div class="names" id="nameTray"><p class="empty">Select a hex you own to draw name-cards.</p></div>
+        <button class="btn ghost" id="rerollBtn" type="button">↻ Draw fresh name-cards</button>
+      </section>
+
+      <section class="card" aria-label="Trade routes">
+        <h2>Trade-route ledger</h2>
+        <p class="micro">Click one claimed hex, then click another, to stitch a route. Click a route below to snip it.</p>
+        <ol class="routes" id="routeList"></ol>
+      </section>
+
+      <section class="card log" aria-label="Wanderers log">
+        <h2>Wanderers' logbook</h2>
+        <ol id="logList"></ol>
+      </section>
+
+      <section class="card">
+        <h2>How an evening goes</h2>
+        <ol class="how">
+          <li><strong>Click</strong> glowing fog to <strong>chart</strong> it.</li>
+          <li><strong>Click</strong> a charted hex to <strong>claim</strong> &amp; name it.</li>
+          <li><strong>Click</strong> two claimed hexes to <strong>stitch a route</strong>.</li>
+          <li>At dawn the fog <strong>reshuffles</strong> — unclaimed chartings may drift away. Claims hold.</li>
+        </ol>
+        <button class="btn ghost" id="anewBtn" type="button">✦ Begin a brand-new chart</button>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <p>Made with pressed flowers &amp; pocket lanterns · progress rests in your browser (localStorage) · one interaction only: <strong>click</strong>.</p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
