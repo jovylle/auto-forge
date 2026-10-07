@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Foghorn Library — a biomorphic archive of mythical foghorns</title>
+<meta name="description" content="Browse, sound, and share mythical foghorns. Synthesized live in your browser." />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Karla:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root{
+  --abyss:#0b1b1e;
+  --abyss-2:#10282b;
+  --kelp:#1d4a43;
+  --seafoam:#d9efe1;
+  --mist:#f3eee1;
+  --mist-dim:rgba(243,238,225,.62);
+  --glow:#ffcf8a;
+  --ember:#ff8a6b;
+  --algae:#7fd6a8;
+  --lilac:#cdbcf2;
+  --ink:#13211f;
+  --blob:42% 58% 61% 39% / 46% 41% 59% 54%;
+  --blob2:61% 39% 42% 58% / 54% 59% 41% 46%;
+  --radius:26px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--mist);
+  font-family:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(1100px 600px at 85% -10%, rgba(127,214,168,.14), transparent 60%),
+    radial-gradient(900px 700px at -10% 30%, rgba(255,207,138,.10), transparent 60%),
+    radial-gradient(700px 500px at 50% 110%, rgba(205,188,242,.10), transparent 60%),
+    linear-gradient(180deg,#0e2225 0%, var(--abyss) 40%, #081214 100%);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body::before{ /* drifting ambient spores */
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+  background-image:
+    radial-gradient(2px 2px at 12% 22%, rgba(243,238,225,.5), transparent 60%),
+    radial-gradient(1.6px 1.6px at 68% 12%, rgba(255,207,138,.6), transparent 60%),
+    radial-gradient(2.4px 2.4px at 84% 64%, rgba(127,214,168,.55), transparent 60%),
+    radial-gradient(1.5px 1.5px at 32% 78%, rgba(205,188,242,.55), transparent 60%),
+    radial-gradient(2px 2px at 48% 42%, rgba(243,238,225,.35), transparent 60%);
+  animation:drift 26s ease-in-out infinite alternate;
+}
+@keyframes drift{to{transform:translateY(-24px) translateX(14px)}}
+
+.wrap{max-width:1020px; margin:0 auto; padding:28px 20px 80px; position:relative; z-index:1}
+
+/* ---------- header ---------- */
+header.hero{display:flex; gap:20px; align-items:center; flex-wrap:wrap; margin-bottom:8px}
+.mark{
+  width:86px; height:86px; flex:0 0 auto; display:grid; place-items:center;
+  background:radial-gradient(circle at 35% 30%, var(--glow), var(--ember) 55%, var(--kelp) 130%);
+  border-radius:var(--blob); color:#2a1408; font-size:40px;
+  animation:morph 9s ease-in-out infinite alternate;
+  box-shadow:0 12px 40px rgba(255,138,107,.35), inset 0 -8px 22px rgba(11,27,30,.35);
+}
+@keyframes morph{
+  0%{border-radius:42% 58% 61% 39% / 46% 41% 59% 54%}
+  50%{border-radius:58% 42% 39% 61% / 55% 60% 40% 45%}
+  100%{border-radius:38% 62% 55% 45% / 60% 38% 62% 40%}
+}
+h1{
+  font-family:"Fraunces",Georgia,serif; font-weight:600; letter-spacing:.5px;
+  font-size:clamp(34px,6vw,58px); line-height:1.02; margin:0;
+}
+h1 em{font-style:italic; color:var(--glow)}
+.tag{margin:6px 0 0; color:var(--mist-dim); font-size:clamp(14px,2.4vw,17px); max-width:60ch}
+.top-actions{margin-left:auto; display:flex; gap:10px; flex-wrap:wrap}
+
+/* ---------- buttons ---------- */
+.btn{
+  appearance:none; border:1px solid rgba(243,238,225,.22); cursor:pointer;
+  background:rgba(243,238,225,.07); color:var(--mist);
+  padding:10px 16px; border-radius:999px; font:inherit; font-weight:700; font-size:14px;
+  transition:transform .15s ease, background .2s, box-shadow .2s;
+  backdrop-filter:blur(6px);
+}
+.btn:hover{background:rgba(243,238,225,.15); transform:translateY(-1px)}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn.primary{background:linear-gradient(135deg,var(--glow),var(--ember)); border:none; color:#31160a;
+  box-shadow:0 8px 26px rgba(255,138,107,.35)}
+.btn.primary:hover{box-shadow:0 12px 32px rgba(255,138,107,.5)}
+.btn.ghost{background:transparent}
+.btn.small{padding:7px 12px; font-size:13px}
+
+/* ---------- sections ---------- */
+section.panel{
+  background:linear-gradient(180deg, rgba(243,238,225,.07), rgba(243,238,225,.03));
+  border:1px solid rgba(243,238,225,.14);
+  border-radius:var(--radius); padding:22px; margin-top:22px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  backdrop-filter:blur(8px);
+}
+section.panel h2{
+  font-family:"Fraunces",serif; font-weight:600; margin:0 0 4px;
+  font-size:clamp(20px,3.4vw,27px);
+}
+.eyebrow{font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--algae); margin:0 0 6px; font-weight:800}
+.sub{color:var(--mist-dim); margin:0 0 14px; font-size:14.5px}
+
+/* ---------- chart (map) ---------- */
+.chart{display:flex; gap:18px; align-items:stretch; flex-wrap:wrap}
+.chart svg{flex:1 1 320px; min-width:0; height:auto; background:rgba(8,18,20,.55);
+  border-radius:18px; border:1px solid rgba(243,238,225,.12)}
+.coast{fill:none; stroke:var(--algae); stroke-width:3; stroke-linecap:round; opacity:.8}
+.station{cursor:pointer}
+.station circle.dot{fill:var(--abyss-2); stroke:var(--glow); stroke-width:2.5; transition:r .2s}
+.station:hover circle.dot{fill:var(--glow)}
+.station.active circle.dot{fill:var(--ember); stroke:var(--mist); filter:drop-shadow(0 0 8px var(--ember))}
+.station text{fill:var(--mist-dim); font-size:11px; font-family:"Karla",sans-serif}
+.station.active text{fill:var(--mist); font-weight:800}
+.chart-legend{flex:1 1 220px; min-width:200px; align-self:center}
+.now-reading{background:rgba(8,18,20,.55); border:1px solid rgba(255,207,138,.3); border-radius:18px; padding:16px 18px}
+.now-reading .who{font-family:"Fraunces",serif; font-size:22px; color:var(--glow); margin:0}
+.now-reading p{margin:6px 0 0; color:var(--mist-dim); font-size:14px; line-height:1.55}
+.spec-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+.chip{font-size:12.5px; font-weight:700; padding:5px 11px; border-radius:999px;
+  background:rgba(127,214,168,.14); border:1px solid rgba(127,214,168,.4); color:var(--seafoam)}
+
+/* ---------- shelf ---------- */
+.shelf{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:14px; margin-top:6px}
+.card{
+  text-align:left; cursor:pointer; color:var(--mist); font:inherit;
+  background:linear-gradient(160deg, rgba(29,74,67,.85), rgba(16,40,43,.9));
+  border:1px solid rgba(243,238,225,.14); padding:16px 15px 14px;
+  border-radius:38% 62% 55% 45% / 12% 12% 14% 14%;
+  transition:transform .18s ease, box-shadow .2s, border-color .2s;
+  position:relative;
+}
+.card:nth-child(2n){border-radius:62% 38% 45% 55% / 14% 14% 12% 12%}
+.card:nth-child(3n){border-radius:45% 55% 60% 40% / 13% 13% 13% 13%}
+.card:hover{transform:translateY(-3px) rotate(-.4deg); box-shadow:0 14px 34px rgba(0,0,0,.45)}
+.card.active{border-color:var(--glow); box-shadow:0 0 0 2px var(--glow), 0 14px 40px rgba(255,207,138,.25)}
+.card .nm{font-family:"Fraunces",serif; font-size:19px; margin:0 0 2px}
+.card .st{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--algae); font-weight:800; margin:0 0 8px}
+.card .ds{font-size:13.5px; color:var(--mist-dim); margin:0 0 10px; line-height:1.5; min-height:40px}
+.card .meta{display:flex; justify-content:space-between; align-items:center; gap:8px}
+.hz{font-variant-numeric:tabular-nums; font-weight:800; color:var(--glow); font-size:14px}
+.fav{background:none; border:none; cursor:pointer; font-size:18px; line-height:1; padding:4px; filter:grayscale(1); opacity:.6}
+.fav.on{filter:none; opacity:1; transform:scale(1.15)}
+
+/* ---------- chamber ---------- */
+.chamber{display:grid; grid-template-columns:1fr; gap:18px}
+@media(min-width:760px){.chamber{grid-template-columns:300px 1fr; align-items:stretch}}
+.blow-zone{display:grid; place-items:center; padding:10px}
+#blow{
+  width:220px; height:220px; border:none; cursor:pointer; color:#31160a;
+  font-family:"Fraunces",serif; font-size:26px; font-weight:700;
+  background:radial-gradient(circle at 35% 28%, #ffe3b3, var(--glow) 38%, var(--ember) 72%, #a33c2a 100%);
+  border-radius:var(--blob); animation:morph 7s ease-in-out infinite alternate;
+  box-shadow:0 18px 60px rgba(255,138,107,.45), inset 0 -14px 30px rgba(49,22,10,.35);
+  transition:transform .12s ease, box-shadow .2s;
+  touch-action:none; user-select:none; -webkit-user-select:none;
+}
+#blow:hover{transform:scale(1.03)}
+#blow.sounding{transform:scale(.93); box-shadow:0 6px 24px rgba(255,138,107,.6), inset 0 10px 30px rgba(49,22,10,.45)}
+#blow small{display:block; font-family:"Karla",sans-serif; font-size:11.5px; font-weight:800; letter-spacing:.18em; margin-top:6px; opacity:.75}
+.controls{display:flex; flex-direction:column; gap:14px; justify-content:center}
+.ctl label{display:flex; justify-content:space-between; font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--mist-dim); margin-bottom:6px}
+.ctl label output{color:var(--glow)}
+input[type=range]{width:100%; accent-color:var(--ember); height:28px; cursor:pointer}
+#fogCanvas{width:100%; height:190px; display:block; border-radius:16px;
+  background:radial-gradient(120% 130% at 50% 110%, rgba(29,74,67,.9), rgba(8,18,20,.9));
+  border:1px solid rgba(243,238,225,.12)}
+.hint{font-size:13px; color:var(--mist-dim); margin:0}
+.hint kbd{background:rgba(243,238,225,.12); border:1px solid rgba(243,238,225,.25); border-bottom-width:2px;
+  border-radius:6px; padding:1px 7px; font-family:inherit; font-size:12px}
+
+/* ---------- log ---------- */
+.log-head{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.log-head .spacer{flex:1}
+#logList{list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:10px}
+#logList li{
+  display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+  background:rgba(8,18,20,.5); border:1px solid rgba(243,238,225,.12);
+  border-radius:16px; padding:10px 14px; font-size:14px;
+}
+#logList .t{font-family:"Fraunces",serif; color:var(--glow); font-weight:700}
+#logList .m{color:var(--mist-dim); font-size:13px}
+#logList .grow{flex:1}
+.empty{color:var(--mist-dim); border:1px dashed rgba(243,238,225,.3); border-radius:16px; padding:18px; text-align:center; margin-top:14px}
+
+/* ---------- toast / footer ---------- */
+#toast{
+  position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(20px);
+  background:var(--mist); color:var(--ink); font-weight:700; font-size:14px;
+  padding:12px 20px; border-radius:999px; opacity:0; pointer-events:none;
+  transition:opacity .25s, transform .25s; z-index:50; max-width:min(92vw,480px); text-align:center;
+  box-shadow:0 12px 40px rgba(0,0,0,.5);
+}
+#toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+footer{margin-top:34px; text-align:center; color:var(--mist-dim); font-size:13px}
+footer .blobline{display:inline-block; width:120px; height:10px; margin-bottom:10px;
+  background:linear-gradient(90deg,var(--algae),var(--glow),var(--ember));
+  border-radius:60% 40% 55% 45% / 50%; opacity:.7}
+@media(max-width:480px){
+  .wrap{padding:20px 14px 70px}
+  section.panel{padding:16px}
+  #blow{width:190px; height:190px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before{animation:none !important; transition:none !important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="mark" aria-hidden="true">📯</div>
+    <div>
+      <h1>Foghorn <em>Library</em></h1>
+      <p class="tag">An archive of mythical foghorns from the misted coast — every horn synthesized live, no recordings. Pick a specimen, sound it through the fog, take it with you.</p>
+    </div>
+    <div class="top-actions">
+      <button class="btn primary" id="shareBtn" type="button">⛓ Share this horn</button>
+      <button class="btn" id="wavBtn" type="button">⬇ Export .wav</button>
+    </div>
+  </header>
+
+  <section class="panel" aria-label="Chart of stations">
+    <p class="eyebrow">Chart · the misted coast</p>
+    <h2>Where the horns live</h2>
+    <p class="sub">Tap a station on the chart — or a specimen below — to bring that horn into the sounding chamber.</p>
+    <div class="chart">
+      <svg id="chartSvg" viewBox="0 0 520 260" role="img" aria-label="Coastal chart with foghorn stations"></svg>
+      <div class="chart-legend">
+        <div class="now-reading">
+          <p class="eyebrow">Now reading</p>
+          <p class="who" id="nowName">—</p>
+          <p id="nowDesc">—</p>
+          <div class="spec-row" id="nowSpecs"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="Horn specimens">
+    <p class="eyebrow">Stacks · six specimens</p>
+    <h2>The collection</h2>
+    <p class="sub">Low, living tones. Each horn lists its fundamental — the fog does the rest. ♥ marks a favourite, kept in this browser.</p>
+    <div class="shelf" id="shelf"></div>
+  </section>
+
+  <section class="panel" aria-label="Sounding chamber">
+    <p class="eyebrow">Sounding chamber</p>
+    <h2>Blow the horn</h2>
+    <p class="sub">Press and hold the bulb — or tap <kbd>Space</kbd> — to sound. Fog thickens the wobble, distance muffles the edge.</p>
+    <div class="chamber">
+      <div class="blow-zone">
+        <button id="blow" type="button" aria-label="Press and hold to sound the foghorn">BLOW<small id="blowSub">HOLD TO SOUND</small></button>
+      </div>
+      <div class="controls">
+        <canvas id="fogCanvas" width="600" height="190" aria-hidden="true"></canvas>
+        <div class="ctl">
+          <label>Blast length <output id="oDur">2.5s</output></label>
+          <input type="range" id="rDur" min="0.6" max="6" step="0.1" value="2.5" />
+        </div>
+        <div class="ctl">
+          <label>Fog density <output id="oFog">55%</output></label>
+          <input type="range" id="rFog" min="0" max="100" step="1" value="55" />
+        </div>
+        <div class="ctl">
+          <label>Distance <output id="oDist">300m</output></label>
+          <input type="range" id="rDist" min="40" max="2000" step="20" value="300" />
+        </div>
+        <p class="hint"><kbd>Space</kbd> timed blast · <kbd>C</kbd> copy share link · <kbd>W</kbd> export .wav</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="Sounding log">
+    <div class="log-head">
+      <div>
+        <p class="eyebrow">Ledger · kept locally</p>
+        <h2>Sounding log</h2>
+      </div>
+      <div class="spacer"></div>
+      <button class="btn small ghost" id="copyCardBtn" type="button">⧉ Copy specimen card</button>
+      <button class="btn small ghost" id="jsonBtn" type="button">⬇ Log .json</button>
+      <button class="btn small ghost" id="clearLogBtn" type="button">✕ Clear</button>
+    </div>
+    <p class="sub">Every blast is scribbled here with its settings. Nothing leaves your browser unless you share it.</p>
+    <ul id="logList"></ul>
+    <div class="empty" id="logEmpty">No soundings yet — the fog is waiting.</div>
+  </section>
+
+  <footer>
+    <span class="blobline"></span><br />
+    Foghorn Library · a single-file experiment · tones are synthesized with Web Audio, mist is drawn on canvas · works offline from file://
+  </footer>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+/* ============ data ============ */
+const HORNS = [
+  { id:"elder-maw", name:"Elder Maw", station:"Brinehook Point", x:60,  y:200, base:48,  beat:0.7, wave:"sawtooth", bright:0.5, desc:"The oldest throat on the coast. A slow tectonic hum that loosens gull nests.", character:"abyssal · patient" },
+  { id:"kelp-mother", name:"Kelp Mother", station:"Swaywater Reef", x:140, y:150, base:65,  beat:1.4, wave:"triangle", bright:0.7, desc:"A warm, photosynthetic moan. Smells faintly of iodine and lullabies.", character:"maternal · green" },
+  { id:"granite-throat", name:"Granite Throat", station:"Hewnlight Rock", x:225, y:185, base:55,  beat:0.4, wave:"square", bright:0.35, desc:"Cliff-cut and uncompromising. Ships set their clocks by its square jaw.", character:"granite · stern" },
+  { id:"glass-eel", name:"Glass Eel", station:"Pellucid Shoal", x:310, y:120, base:110, beat:2.6, wave:"sine", bright:1.0, desc:"The librarian's favourite — a translucent sine that slips through fog unbent.", character:"lucid · high" },
+  { id:"moon-jelly", name:"Moon Jelly", station:"Driftbell Cove", x:390, y:170, base:82,  beat:3.4, wave:"sine", bright:0.8, desc:"A pulsing bell-tone. Throbs at the rate of a sleeping jellyfish.", character:"tidal · dreamy" },
+  { id:"barnacle-choir", name:"Barnacle Choir", station:"Choirwall Quay", x:465, y:90,  base:73,  beat:5.0, wave:"sawtooth", bright:0.9, desc:"Many tiny mouths, one enormous vowel. The loudest specimen in the stacks.", character:"collective · wild" },
+];
+const LS = { favs:"foghorn.favs.v1", log:"foghorn.log.v1", settings:"foghorn.settings.v1" };
+const $ = (s)=>document.querySelector(s);
+
+/* ============ state ============ */
+const state = {
+  hornId: HORNS[3].id, dur: 2.5, fog: 55, dist: 300,
+  favs: new Set(), log: [],
+};
+try {
+  const f = JSON.parse(localStorage.getItem(LS.favs) || "[]");
+  state.favs = new Set(f.filter((x)=>HORNS.some((h)=>h.id===x)));
+  state.log = JSON.parse(localStorage.getItem(LS.log) || "[]");
+  Object.assign(state, JSON.parse(localStorage.getItem(LS.settings) || "{}"));
+  if (!HORNS.some((h)=>h.id===state.hornId)) state.hornId = HORNS[0].id;
+} catch(e){ /* fresh start, private mode etc. */ }
+const horn = ()=>HORNS.find((h)=>h.id===state.hornId) || HORNS[0];
+function persist(){
+  try{
+    localStorage.setItem(LS.favs, JSON.stringify([...state.favs]));
+    localStorage.setItem(LS.log, JSON.stringify(state.log.slice(0,60)));
+    localStorage.setItem(LS.settings, JSON.stringify({hornId:state.hornId, dur:state.dur, fog:state.fog, dist:state.dist}));
+  }catch(e){}
+}
+
+/* ============ toast ============ */
+let toastT = 0;
+function toast(msg){
+  const el = $("#toast"); el.textContent = msg; el.classList.add("show");
+  clearTimeout(toastT); toastT = setTimeout(()=>el.classList.remove("show"), 2600);
+}
+
+/* ============ chart ============ */
+function buildChart(){
+  const svg = $("#chartSvg");
+  const NS = "http://www.w3.org/2000/svg";
+  svg.innerHTML = "";
+  const coast = document.createElementNS(NS,"path");
+  coast.setAttribute("d","M-10,230 C60,215 90,190 130,175 C180,155 200,170 250,160 C300,150 320,110 370,120 C420,130 430,90 530,70");
+  coast.setAttribute("class","coast");
+  svg.appendChild(coast);
+  const mist = document.createElementNS(NS,"path");
+  mist.setAttribute("d","M-10,250 C80,238 200,232 340,220 C420,213 470,200 530,190");
+  mist.setAttribute("class","coast");
+  mist.setAttribute("opacity","0.3");
+  mist.setAttribute("stroke-dasharray","2 10");
+  svg.appendChild(mist);
+  HORNS.forEach((h,i)=>{
+    const g = document.createElementNS(NS,"g");
+    g.setAttribute("class","station"+(h.id===state.hornId?" active":""));
+    g.dataset.id = h.id;
+    g.setAttribute("tabindex","0"); g.setAttribute("role","button");
+    g.setAttribute("aria-label", h.name+" at "+h.station);
+    const pulse = document.createElementNS(NS,"circle");
+    pulse.setAttribute("cx",h.x); pulse.setAttribute("cy",h.y); pulse.setAttribute("r",6);
+    pulse.setAttribute("fill","none"); pulse.setAttribute("stroke","#ffcf8a");
+    pulse.setAttribute("opacity", h.id===state.hornId ? "0.8" : "0");
+    g.appendChild(pulse);
+    const c = document.createElementNS(NS,"circle");
+    c.setAttribute("cx",h.x); c.setAttribute("cy",h.y); c.setAttribute("r",10);
+    c.setAttribute("class","dot");
+    g.appendChild(c);
+    const t = document.createElementNS(NS,"text");
+    t.setAttribute("x", Math.min(h.x+14, 400)); t.setAttribute("y", h.y+4);
+    t.textContent = (i+1)+" · "+h.name;
+    g.appendChild(t);
+    const go = ()=>selectHorn(h.id, true);
+    g.addEventListener("click", go);
+    g.addEventListener("keydown",(e)=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault(); go();} });
+    svg.appendChild(g);
+  });
+}
+
+/* ============ shelf + reading ============ */
+function buildShelf(){
+  const shelf = $("#shelf"); shelf.innerHTML = "";
+  HORNS.forEach((h)=>{
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "card"+(h.id===state.hornId?" active":"");
+    b.dataset.id = h.id;
+    b.setAttribute("aria-pressed", h.id===state.hornId ? "true":"false");
+    const fav = state.favs.has(h.id) ? "on" : "";
+    b.innerHTML = '<p class="st">'+h.station+'</p><p class="nm"></p><p class="ds"></p>'+
+      '<div class="meta"><span class="hz">≋ '+h.base+' Hz · '+h.wave+'</span>'+
+      '<span class="fav '+fav+'" role="img" aria-label="favourite">'+(state.favs.has(h.id)?"♥":"♡")+'</span></div>';
+    b.querySelector(".nm").textContent = h.name;
+    b.querySelector(".ds").textContent = h.desc;
+    b.addEventListener("click",(e)=>{
+      if (e.target.closest(".fav")){ toggleFav(h.id); return; }
+      selectHorn(h.id, true);
+    });
+    shelf.appendChild(b);
+  });
+}
+function toggleFav(id){
+  state.favs.has(id) ? state.favs.delete(id) : state.favs.add(id);
+  persist(); buildShelf();
+  toast(state.favs.has(id) ? "♥ Kept among favourites." : "Removed from favourites.");
+}
+function renderReading(){
+  const h = horn();
+  $("#nowName").textContent = h.name + " — " + h.station;
+  $("#nowDesc").textContent = h.desc;
+  $("#nowSpecs").innerHTML = "";
+  [h.base+" Hz fundamental", h.wave, h.character].forEach((s)=>{
+    const c = document.createElement("span"); c.className="chip"; c.textContent=s;
+    $("#nowSpecs").appendChild(c);
+  });
+  document.querySelectorAll(".station").forEach((g)=>g.classList.toggle("active", g.dataset.id===h.id));
+  document.querySelectorAll(".card").forEach((c)=>{
+    const on = c.dataset.id===h.id;
+    c.classList.toggle("active", on); c.setAttribute("aria-pressed", on?"true":"false");
+  });
+}
+function selectHorn(id, announce){
+  state.hornId = id; persist(); renderReading(); buildChart();
+  document.querySelectorAll(".card").forEach((c)=>{
+    const on = c.dataset.id===id;
+    c.classList.toggle("active", on); c.setAttribute("aria-pressed", on?"true":"false");
+  });
+  if (announce) toast("📯 "+horn().name+" enters the chamber.");
+}
+
+/* ============ audio engine ============ */
+let AC = null, live = null;
+function ac(){
+  if (!AC) AC = new (window.AudioContext || window.webkitAudioContext)();
+  if (AC.state === "suspended") AC.resume();
+  return AC;
+}
+/* shared graph builder so live + offline render sound identical */
+function buildVoice(ctx, dest, h, fog01, distM, when, dur){
+  const t0 = when;
+  const cutoff = Math.max(160, 2600 * Math.pow(200/distM, 0.55)) * (0.5 + h.bright*0.9);
+  const lp = ctx.createBiquadFilter(); lp.type="lowpass"; lp.frequency.value=cutoff; lp.Q.value=0.8;
+  const g = ctx.createGain();
+  const peak = 0.5 * Math.pow(300/Math.max(distM,60), 0.35);
+  g.gain.setValueAtTime(0.0001, t0);
+  g.gain.exponentialRampToValueAtTime(Math.max(peak,0.08), t0 + Math.min(0.35, dur*0.25));
+  g.gain.setValueAtTime(Math.max(peak,0.08), t0 + Math.max(0.05, dur-0.35));
+  g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+  const wob = 0.4 + fog01*6;                 // fog thickens the wobble
+  const lfo = ctx.createOscillator(); lfo.frequency.value = h.beat;
+  const lfoG = ctx.createGain(); lfoG.gain.value = h.base * 0.012 * (0.3 + fog01*1.4);
+  lfo.connect(lfoG);
+  [[0,1],[h.beat,0.55],[2,0.28]].forEach(([det,mul])=>{
+    const o = ctx.createOscillator(); o.type = h.wave;
+    o.frequency.value = h.base + det;
+    lfoG.connect(o.frequency);
+    const og = ctx.createGain(); og.gain.value = mul;
+    o.connect(og); og.connect(lp);
+    o.start(t0); o.stop(t0 + dur + 0.05);
+  });
+  lfo.start(t0); lfo.stop(t0 + dur + 0.05);
+  // breath of fog: soft filtered noise swelling under the tone
+  const nb = ctx.createBuffer(1, Math.ceil(ctx.sampleRate*dur), ctx.sampleRate);
+  const d = nb.getChannelData(0);
+  for (let i=0;i<d.length;i++) d[i] = (Math.random()*2-1) * 0.25 * (0.25+fog01*0.75);
+  const ns = ctx.createBufferSource(); ns.buffer = nb;
+  const nf = ctx.createBiquadFilter(); nf.type="lowpass"; nf.frequency.value = 300 + fog01*500;
+  const ng = ctx.createGain();
+  ng.gain.setValueAtTime(0.0001,t0);
+  ng.gain.exponentialRampToValueAtTime(0.05+fog01*0.06, t0+dur*0.3);
+  ng.gain.exponentialRampToValueAtTime(0.0001, t0+dur);
+  ns.connect(nf); nf.connect(ng); ng.connect(dest);
+  ns.start(t0); ns.stop(t0+dur+0.05);
+  lp.connect(g); g.connect(dest);
+  return { stop:(t)=>{ try{ g.gain.cancelScheduledValues(t); g.gain.setTargetAtTime(0.0001, t, 0.09); }catch(e){} } };
+}
+function blastStart(dur){
+  const ctx = ac();
+  const h = horn(), fog01 = state.fog/100;
+  blastStop(true);
+  const v = buildVoice(ctx, ctx.destination, h, fog01, state.dist, ctx.currentTime, Math.max(dur, 8));
+  live = v;
+  rings.push({r:10, a:1});
+  $("#blow").classList.add("sounding");
+  $("#blowSub").textContent = "SOUNDING…";
+  logSounding();
+}
+function blastStop(silent){
+  if (!live) return;
+  try{ live.stop(AC.currentTime); }catch(e){}
+  live = null;
+  if (!silent){ $("#blow").classList.remove("sounding"); $("#blowSub").textContent = "HOLD TO SOUND"; }
+}
+function timedBlast(){
+  const ctx = ac();
+  const h = horn(), fog01 = state.fog/100, dur = state.dur;
+  buildVoice(ctx, ctx.destination, h, fog01, state.dist, ctx.currentTime, dur);
+  rings.push({r:10, a:1});
+  const b = $("#blow");
+  b.classList.add("sounding"); $("#blowSub").textContent = "SOUNDING…";
+  setTimeout(()=>{ b.classList.remove("sounding"); $("#blowSub").textContent="HOLD TO SOUND"; }, dur*1000);
+  logSounding();
+}
+
+/* ============ sounding log ============ */
+function logSounding(){
+  const h = horn();
+  state.log.unshift({ at:new Date().toISOString(), horn:h.name, station:h.station,
+    hz:h.base, dur:+state.dur, fog:+state.fog, dist:+state.dist });
+  state.log = state.log.slice(0,60);
+  persist(); renderLog();
+}
+function renderLog(){
+  const ul = $("#logList"); ul.innerHTML = "";
+  $("#logEmpty").style.display = state.log.length ? "none" : "block";
+  state.log.slice(0,12).forEach((e)=>{
+    const li = document.createElement("li");
+    const when = new Date(e.at);
+    li.innerHTML = '<span class="t"></span><span class="m"></span><span class="grow"></span>';
+    li.querySelector(".t").textContent = "📯 "+e.horn;
+    li.querySelector(".m").textContent =
+      when.toLocaleString() + " · " + e.dur + "s · fog " + e.fog + "% · " + e.dist + "m";
+    const again = document.createElement("button");
+    again.type="button"; again.className="btn small ghost"; again.textContent="Sound again";
+    again.addEventListener("click",()=>{
+      const f = HORNS.find((x)=>x.name===e.horn);
+      if (f) selectHorn(f.id, false);
+      state.dur=e.dur; state.fog=e.fog; state.dist=e.dist; syncControls(); persist();
+      timedBlast();
+    });
+    li.appendChild(again);
+    ul.appendChild(li);
+  });
+}
+
+/* ============ fog canvas ============ */
+const canvas = $("#fogCanvas"), cx2d = canvas.getContext("2d");
+const blobs = Array.from({length:26},()=>({
+  x:Math.random(), y:Math.random()*0.9+0.05, r:0.08+Math.random()*0.22,
+  vx:(Math.random()-0.3)*0.0006, vy:(Math.random()-0.5)*0.0003, p:Math.random()*Math.PI*2
+}));
+const rings = [];
+function fitCanvas(){
+  const r = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio||1, 2);
+  canvas.width = Math.max(300, r.width*dpr); canvas.height = 190*dpr;
+}
+function drawFog(t){
+  const W = canvas.width, H = canvas.height;
+  cx2d.clearRect(0,0,W,H);
+  const fog01 = state.fog/100, sounding = $("#blow").classList.contains("sounding");
+  blobs.forEach((b)=>{
+    b.x += b.vx*(1+fog01*2); b.y += b.vy; b.p += 0.008;
+    if (b.x>1.25) b.x=-0.25; if (b.x<-0.3) b.x=1.25;
+    if (b.y>1.2) b.y=-0.2; if (b.y<-0.25) b.y=1.2;
+    const R = b.r*Math.min(W,H)*(1+fog01*0.9);
+    const grd = cx2d.createRadialGradient(b.x*W,b.y*H,0,b.x*W,b.y*H,R);
+    const glow = 0.05+fog01*0.16+(sounding?0.10+0.06*Math.sin(b.p*2):0);
+    grd.addColorStop(0,"rgba(217,239,225,"+glow.toFixed(3)+")");
+    grd.addColorStop(1,"rgba(217,239,225,0)");
+    cx2d.fillStyle = grd;
+    cx2d.beginPath(); cx2d.arc(b.x*W,b.y*H,R,0,Math.PI*2); cx2d.fill();
+  });
+  // sonar rings from the bulb
+  for (let i=rings.length-1;i>=0;i--){
+    const g = rings[i]; g.r += Math.max(W,H)*0.008; g.a -= 0.012;
+    if (g.a<=0){ rings.splice(i,1); continue; }
+    cx2d.strokeStyle = "rgba(255,207,138,"+g.a.toFixed(3)+")";
+    cx2d.lineWidth = Math.max(2, W*0.004);
+    cx2d.beginPath(); cx2d.arc(W/2,H*0.62,g.r,0,Math.PI*2); cx2d.stroke();
+  }
+  if (sounding && Math.random()<0.35) rings.push({r:8, a:0.9});
+  requestAnimationFrame(drawFog);
+}
+
+/* ============ controls ============ */
+function syncControls(){
+  $("#rDur").value = state.dur; $("#oDur").textContent = (+state.dur).toFixed(1)+"s";
+  $("#rFog").value = state.fog; $("#oFog").textContent = state.fog+"%";
+  $("#rDist").value = state.dist; $("#oDist").textContent = state.dist>=1000 ? (state.dist/1000).toFixed(1)+"km" : state.dist+"m";
+}
+function bindControls(){
+  $("#rDur").addEventListener("input",(e)=>{ state.dur=+e.target.value; syncControls(); persist(); });
+  $("#rFog").addEventListener("input",(e)=>{ state.fog=+e.target.value; syncControls(); persist(); });
+  $("#rDist").addEventListener("input",(e)=>{ state.dist=+e.target.value; syncControls(); persist(); });
+  const blow = $("#blow");
+  let holdT = 0, held = false;
+  blow.addEventListener("pointerdown",(e)=>{
+    e.preventDefault(); blow.setPointerCapture && blow.setPointerCapture(e.pointerId);
+    held = true; blastStart(8);
+    clearTimeout(holdT);
+  });
+  ["pointerup","pointercancel","lostpointercapture"].forEach((ev)=>blow.addEventListener(ev,()=>{
+    if (!held) return; held = false; blastStop(); $("#blow").classList.remove("sounding");
+    $("#blowSub").textContent = "HOLD TO SOUND";
+    clearTimeout(holdT);
+  }));
+  blow.addEventListener("click",()=>{ /* tap = timed blast for keyboard/touch taps */ });
+  blow.addEventListener("keydown",(e)=>{ if(e.key===" "||e.key==="Enter"){e.preventDefault(); timedBlast();} });
+  document.addEventListener("keydown",(e)=>{
+    if (e.target.matches("input,textarea")) return;
+    if (e.target.closest && e.target.closest("#blow")) return; // button handles its own keys
+    if (e.code==="Space"){ e.preventDefault(); timedBlast(); }
+    else if (e.key==="c"||e.key==="C"){ shareHorn(); }
+    else if (e.key==="w"||e.key==="W"){ exportWav(); }
+  });
+}
+
+/* ============ share / export ============ */
+function shareParams(){
+  return new URLSearchParams({h:state.hornId, dur:state.dur, fog:state.fog, dist:state.dist});
+}
+function shareUrl(){
+  const base = location.href.split("#")[0];
+  return base + "#"+shareParams().toString();
+}
+async function copyText(text, okMsg){
+  try{ await navigator.clipboard.writeText(text); toast(okMsg); return true; }
+  catch(e){
+    const ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); toast(okMsg); return true; }
+    catch(e2){ prompt("Copy this link:", text); return false; }
+    finally{ ta.remove(); }
+  }
+}
+function shareHorn(){
+  copyText(shareUrl(), "⛓ Link copied — it replays this exact horn + fog.");
+}
+function applyHash(){
+  if (!location.hash || location.hash.length<3) return false;
+  try{
+    const p = new URLSearchParams(location.hash.slice(1));
+    const h = HORNS.find((x)=>x.id===p.get("h"));
+    if (h) state.hornId = h.id;
+    if (p.get("dur")) state.dur = Math.min(6, Math.max(0.6, +p.get("dur")||state.dur));
+    if (p.get("fog")) state.fog = Math.min(100, Math.max(0, +p.get("fog") ?? state.fog));
+    if (p.get("dist")) state.dist = Math.min(2000, Math.max(40, +p.get("dist")||state.dist));
+    persist(); return !!h;
+  }catch(e){ return false; }
+}
+function specimenCard(){
+  const h = horn();
+  return ["📯 "+h.name+" — "+h.station, h.desc,
+    "fundamental "+h.base+" Hz · "+h.wave+" · "+h.character,
+    "settings: blast "+state.dur+"s · fog "+state.fog+"% · "+state.dist+"m",
+    "replay: "+shareUrl()].join("\n");
+}
+function download(name, content, type){
+  const blob = content instanceof Blob ? content : new Blob([content],{type});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 800);
+}
+function exportJson(){
+  download("foghorn-log.json", JSON.stringify({exportedAt:new Date().toISOString(), log:state.log, favourites:[...state.favs]}, null, 2), "application/json");
+  toast("⬇ Sounding log exported as JSON.");
+}
+async function exportWav(){
+  const h = horn(), dur = state.dur, fog01 = state.fog/100;
+  toast("Rendering "+h.name+" to .wav…");
+  try{
+    const rate = 44100;
+    const off = new OfflineAudioContext(1, Math.ceil(rate*(dur+0.3)), rate);
+    buildVoice(off, off.destination, h, fog01, state.dist, 0, dur);
+    const buf = await off.startRendering();
+    download(h.id+"-"+Math.round(dur*10)/10+"s.wav", encodeWav(buf), "audio/wav");
+    toast("⬇ "+h.name+".wav saved — pure synthesized fog.");
+  }catch(e){ toast("Couldn't render audio here — try sounding it live instead."); }
+}
+function encodeWav(buf){
+  const n = buf.length, ch = buf.getChannelData(0);
+  const ab = new ArrayBuffer(44 + n*2), v = new DataView(ab);
+  const ws = (o,s)=>{ for(let i=0;i<s.length;i++) v.setUint8(o+i, s.charCodeAt(i)); };
+  ws(0,"RIFF"); v.setUint32(4, 36+n*2, true); ws(8,"WAVE"); ws(12,"fmt ");
+  v.setUint32(16,16,true); v.setUint16(20,1,true); v.setUint16(22,1,true);
+  v.setUint32(24,buf.sampleRate,true); v.setUint32(28,buf.sampleRate*2,true);
+  v.setUint16(32,2,true); v.setUint16(34,16,true); ws(36,"data");
+  v.setUint32(40,n*2,true);
+  for (let i=0;i<n;i++){ const s=Math.max(-1,Math.min(1,ch[i])); v.setInt16(44+i*2, s*32767, true); }
+  return new Blob([ab],{type:"audio/wav"});
+}
+function bindShare(){
+  $("#shareBtn").addEventListener("click", shareHorn);
+  $("#wavBtn").addEventListener("click", exportWav);
+  $("#jsonBtn").addEventListener("click", exportJson);
+  $("#copyCardBtn").addEventListener("click", ()=>copyText(specimenCard(), "⧉ Specimen card copied."));
+  $("#clearLogBtn").addEventListener("click", ()=>{
+    if (!state.log.length){ toast("The log is already empty."); return; }
+    state.log = []; persist(); renderLog(); toast("Log cleared — the fog forgets.");
+  });
+}
+
+/* ============ boot ============ */
+const shared = applyHash();
+buildChart(); buildShelf(); renderReading(); syncControls(); bindControls(); bindShare(); renderLog();
+fitCanvas(); window.addEventListener("resize", fitCanvas);
+requestAnimationFrame(drawFog);
+if (shared) setTimeout(()=>toast("📯 A shared horn drifts in: "+horn().name+"."), 400);
+console.log("Foghorn Library ready —", HORNS.length, "specimens");
+</script>
+</body>
+</html>
