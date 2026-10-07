@@ -4531,6 +4531,37 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "saffron-circuit",
+      "title": "Saffron Circuit",
+      "category": "viz",
+      "stack": "vite",
+      "stackReason": "seed stack (dedup guard)",
+      "aesthetic": "glassmorphism",
+      "theme": "maps",
+      "constraints": [
+        "no external fonts — system fonts only",
+        "3 colors max (plus black/white)"
+      ],
+      "description": "Saffron Circuit",
+      "features": [
+        "core interaction",
+        "polished UI",
+        "share/export"
+      ],
+      "tags": [
+        "circuit",
+        "saffron",
+        "canvas"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-07T00:40:25.777Z",
+      "updatedAt": "2026-10-07T00:45:18.466Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

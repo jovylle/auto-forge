@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+:root {
+  --saffron: #f5a623;
+  --signal: #2dd4bf;
+  --alert: #ff5a5f;
+  --ink: #0a0d12;
+  --paper: #f2f4f8;
+}
+
+html,
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  min-height: 100%;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* ambient background: two blurred color fields + vignette */
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(52rem 30rem at 12% -8%, rgba(245, 166, 35, 0.16), transparent 60%),
+    radial-gradient(48rem 34rem at 105% 110%, rgba(45, 212, 191, 0.14), transparent 60%),
+    radial-gradient(30rem 22rem at 85% 8%, rgba(255, 90, 95, 0.07), transparent 60%),
+    #0a0d12;
+}
+.ambient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(0, 0, 0, 0.55));
+}
+
+/* glass panels */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.glass-deep {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+}
+
+/* diagonal brand slash */
+.slash {
+  background: linear-gradient(100deg, var(--saffron) 0 55%, var(--signal) 55% 82%, var(--alert) 82% 100%);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+}
+
+.tool-btn {
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.tool-btn:hover {
+  transform: translateY(-2px);
+}
+.tool-btn:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+.tool-btn.active-saffron {
+  border-color: rgba(245, 166, 35, 0.7);
+  box-shadow: 0 0 0 1px rgba(245, 166, 35, 0.5), 0 0 22px rgba(245, 166, 35, 0.35);
+}
+.tool-btn.active-signal {
+  border-color: rgba(45, 212, 191, 0.7);
+  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.5), 0 0 22px rgba(45, 212, 191, 0.3);
+}
+
+canvas.board {
+  cursor: crosshair;
+  touch-action: none;
+}
+
+/* range inputs */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--saffron);
+  border: 2px solid #0a0d12;
+  box-shadow: 0 0 12px rgba(245, 166, 35, 0.8);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--saffron);
+  border: 2px solid #0a0d12;
+  cursor: pointer;
+}
+
+@keyframes ping-ring {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.flash-dot {
+  animation: ping-ring 0.45s ease-out forwards;
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise {
+  animation: rise-in 0.5s ease both;
+}
+
+@keyframes marquee-glow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.live-dot {
+  animation: marquee-glow 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise, .live-dot, .flash-dot { animation: none; }
+}

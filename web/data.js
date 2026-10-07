@@ -4524,12 +4524,43 @@ export const projects = [
       "strategy"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-06T18:33:39.963Z",
-    "updatedAt": "2026-10-06T18:35:55.720Z",
+    "updatedAt": "2026-10-06T18:36:06.652Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "saffron-circuit",
+    "title": "Saffron Circuit",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "glassmorphism",
+    "theme": "maps",
+    "constraints": [
+      "no external fonts — system fonts only",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Saffron Circuit",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "circuit",
+      "saffron",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-07T00:40:25.777Z",
+    "updatedAt": "2026-10-07T00:45:08.206Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 144, done: 135, counts: {"done":135,"needs-human":9} };
+export const stats = { total: 145, done: 136, counts: {"done":136,"needs-human":9} };
