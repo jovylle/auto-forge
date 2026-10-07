@@ -4555,12 +4555,42 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-07T00:40:25.777Z",
-    "updatedAt": "2026-10-07T00:45:08.206Z",
+    "updatedAt": "2026-10-07T00:45:18.466Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "foghorn-library",
+    "title": "Foghorn Library",
+    "category": "tool",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "biomorphic",
+    "theme": "maps",
+    "constraints": [
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "Foghorn Library",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "library",
+      "foghorn",
+      "audio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-07T01:02:47.065Z",
+    "updatedAt": "2026-10-07T01:04:32.031Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 145, done: 136, counts: {"done":136,"needs-human":9} };
+export const stats = { total: 146, done: 137, counts: {"done":137,"needs-human":9} };
