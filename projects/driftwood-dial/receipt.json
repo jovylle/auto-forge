@@ -1,0 +1,31 @@
+{
+  "slug": "driftwood-dial",
+  "title": "Driftwood Dial",
+  "stack": "html",
+  "stackReason": "seed stack (dedup guard)",
+  "aesthetic": "steampunk",
+  "theme": "maps",
+  "constraints": [
+    "must react to scroll",
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "status": "pass",
+    "summary": "Steampunk drift computer: draggable brass helm dial + throttle/current/horizon levers plot a projected drift route on a procedural canvas archipelago with animated currents, reefs, landfall reckoning, and voyage-plan fixes. Page scroll stokes the boiler gauge, turns gears, sails a ghost ship along the route, and logbook chapters seize the helm. Share via URL-hash link, settings JSON, chart PNG, and captain's log .txt. No images — CSS/canvas only."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 147934,
+  "at": "2026-10-07T06:51:46.116Z"
+}

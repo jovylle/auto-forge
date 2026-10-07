@@ -4585,12 +4585,43 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-07T01:02:47.065Z",
-    "updatedAt": "2026-10-07T01:04:32.031Z",
+    "updatedAt": "2026-10-07T01:05:12.475Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "driftwood-dial",
+    "title": "Driftwood Dial",
+    "category": "tool",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "steampunk",
+    "theme": "maps",
+    "constraints": [
+      "must react to scroll",
+      "no images — CSS/canvas only"
+    ],
+    "description": "Driftwood Dial",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "driftwood",
+      "dial",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-07T06:49:12.909Z",
+    "updatedAt": "2026-10-07T06:51:46.113Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 146, done: 137, counts: {"done":137,"needs-human":9} };
+export const stats = { total: 147, done: 138, counts: {"done":138,"needs-human":9} };

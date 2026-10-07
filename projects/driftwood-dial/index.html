@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Driftwood Dial — A Steampunk Drift Computer</title>
+  <meta name="description" content="Turn the brass dial, read the currents, and chart a drift voyage across a procedural archipelago. Scroll winds the mainspring." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="boiler-glow" aria-hidden="true"></div>
+
+  <!-- ══ Top brass bar ══ -->
+  <header class="topbar">
+    <div class="rivets" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="brand">
+      <span class="gear-spin" aria-hidden="true">⚙</span>
+      <div>
+        <h1>Driftwood Dial</h1>
+        <p class="tagline">Patent Drift Computer · No. 1887 · Cinder Quay Works</p>
+      </div>
+    </div>
+    <div class="boiler-meter" title="Scroll to stoke the boiler — page scroll winds the mainspring">
+      <label>Boiler <span id="boilerPct">0%</span></label>
+      <div class="meter"><div id="boilerFill"></div><div class="meter-shine"></div></div>
+    </div>
+    <nav class="top-actions">
+      <button id="btnCopyLink" class="btn brass" title="Copy a share link with current settings">⛓ Copy Link</button>
+      <button id="btnPng" class="btn brass" title="Download the chart as PNG">🖨 Chart PNG</button>
+      <button id="btnSound" class="btn ghost" aria-pressed="false" title="Toggle dial clicks">🔔 Sound off</button>
+    </nav>
+  </header>
+
+  <main id="app">
+    <!-- ══ Hero ══ -->
+    <section class="hero">
+      <p class="kicker">✦ · An instrument of wind, current &amp; seasoned timber · ✦</p>
+      <h2>Turn the dial.<br /><em>Read the drift.</em></h2>
+      <p class="lede">Set a heading on seasoned driftwood &amp; brass, trim the throttle against the current,
+        and the computer lays your projected drift across the chart. <strong>Scroll the page</strong> to stoke the
+        boiler — the mainspring winds, the gears turn, and a ghost ship sails your plotted course.</p>
+      <div class="hero-hints">
+        <span>⟡ Drag the dial · scroll over it · or use ← → keys</span>
+        <span>⟡ Scroll the logbook below to sail each leg</span>
+      </div>
+    </section>
+
+    <!-- ══ Instrument + Chart ══ -->
+    <section class="console">
+      <!-- Dial panel -->
+      <div class="panel instrument">
+        <div class="panel-title"><span>❖</span> Helm Dial <span>❖</span></div>
+
+        <div class="dial-wrap">
+          <div id="dial" role="slider" tabindex="0" aria-label="Heading dial"
+               aria-valuemin="0" aria-valuemax="359" aria-valuenow="45"
+               title="Drag to turn · mouse-wheel trims · arrow keys nudge">
+            <div class="dial-ring"></div>
+            <div id="ticks" aria-hidden="true"></div>
+            <div class="cardinal n">N</div><div class="cardinal e">E</div>
+            <div class="cardinal s">S</div><div class="cardinal w">W</div>
+            <div id="needle" aria-hidden="true"><div class="needle-point"></div><div class="needle-tail"></div></div>
+            <div class="dial-hub">⚓</div>
+          </div>
+          <div class="dial-readout">
+            <div class="heading-big"><span id="headingVal">045</span><small>°</small></div>
+            <div id="pointName" class="point-name">North-East</div>
+            <div class="nudge-row">
+              <button class="btn small" id="nudgeMinus" title="−5°">−5°</button>
+              <button class="btn small" id="nudgePlus" title="+5°">+5°</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="levers">
+          <div class="lever">
+            <label for="knots">Throttle · <b id="knotsVal">6.0 kn</b></label>
+            <input type="range" id="knots" min="1" max="14" step="0.5" value="6" />
+          </div>
+          <div class="lever">
+            <label for="current">Current · <b id="currentVal">2.0 kn E</b></label>
+            <input type="range" id="current" min="0" max="6" step="0.5" value="2" />
+          </div>
+          <div class="lever">
+            <label for="hours">Horizon · <b id="hoursVal">12 h</b></label>
+            <input type="range" id="hours" min="2" max="48" step="1" value="12" />
+          </div>
+        </div>
+
+        <div class="gauges">
+          <div class="gauge"><div class="g-face"><div class="g-needle" id="gSpeed"></div><div class="g-hub"></div></div><span>Speed</span></div>
+          <div class="gauge"><div class="g-face"><div class="g-needle" id="gDrift"></div><div class="g-hub"></div></div><span>Drift</span></div>
+          <div class="gauge"><div class="g-face"><div class="g-needle" id="gBoiler"></div><div class="g-hub"></div></div><span>Steam</span></div>
+        </div>
+
+        <div class="waypoints-box">
+          <div class="wp-head">
+            <h3>Voyage Plan</h3>
+            <div>
+              <button id="btnAddWp" class="btn small brass">+ Fix from dial</button>
+              <button id="btnClearWp" class="btn small ghost">Clear</button>
+            </div>
+          </div>
+          <ol id="wpList" class="wp-list"><li class="wp-empty">No fixes yet — set the dial &amp; press “Fix from dial”.</li></ol>
+        </div>
+      </div>
+
+      <!-- Chart panel -->
+      <div class="panel chart-panel">
+        <div class="panel-title"><span>❖</span> Admiralty Chart · The Verdigris Reach <span>❖</span></div>
+        <div class="chart-frame">
+          <canvas id="chart" width="900" height="680"></canvas>
+          <div class="chart-plaque">
+            <span id="plaqueRoute">H 045° · 6.0 kn · 12 h</span>
+            <span id="plaqueLandfall">Landfall: —</span>
+          </div>
+        </div>
+        <div class="chart-legend">
+          <span><i class="swatch route"></i> projected drift</span>
+          <span><i class="swatch sailed"></i> sailed (scroll)</span>
+          <span><i class="swatch current"></i> easterly current</span>
+          <span><i class="swatch hazard"></i> reef / lee shore</span>
+        </div>
+        <div class="chart-actions">
+          <button id="btnCopyJson" class="btn small">⧉ Copy JSON</button>
+          <button id="btnLog" class="btn small">📜 Download log</button>
+          <button id="btnNewChart" class="btn small ghost" title="Generate a new archipelago">🎲 New waters</button>
+        </div>
+        <p class="scroll-cue">▼&nbsp; Scroll down — the logbook sails your course &nbsp;▼</p>
+      </div>
+    </section>
+
+    <!-- ══ Logbook (scroll-driven) ══ -->
+    <section class="logbook" id="logbook">
+      <h2 class="section-title">— Captain's Log —</h2>
+      <p class="section-sub">Each chapter is a leg of the voyage. Scroll a chapter into view and the dial answers the helm.</p>
+
+      <article class="chapter" data-heading="45" data-knots="7">
+        <div class="ch-num">I</div>
+        <div class="ch-body">
+          <h3>Departure from Cinder Quay</h3>
+          <p class="ch-meta">Leg 1 · ordered heading <b>045°</b> · full sail, boiler banked</p>
+          <p>We cast off at first bell, the dial trembling to north-east. Gulls like torn proclamations overhead.
+          The driftwood helm — salvaged from a wreck older than the lighthouse — turns smooth as buttered clockwork.</p>
+        </div>
+      </article>
+
+      <article class="chapter" data-heading="120" data-knots="8">
+        <div class="ch-num">II</div>
+        <div class="ch-body">
+          <h3>Cross-currents of the Reach</h3>
+          <p class="ch-meta">Leg 2 · ordered heading <b>120°</b> · current abeam, mind the set</p>
+          <p>By noon the easterly current takes us by the shoulder and walks us sideways. The needle argues with the
+          compass; the wise captain splits the difference and lets the dial do the sums.</p>
+        </div>
+      </article>
+
+      <article class="chapter" data-heading="210" data-knots="5">
+        <div class="ch-num">III</div>
+        <div class="ch-body">
+          <h3>Threading the Brass Narrows</h3>
+          <p class="ch-meta">Leg 3 · ordered heading <b>210°</b> · slow ahead, reefs both sides</p>
+          <p>Reefs grin either side like brass teeth. Throttle eased to five knots, breath held, eyes on the dotted
+          line. The computer has never lied to me yet — though it has, once, been economical with the truth.</p>
+        </div>
+      </article>
+
+      <article class="chapter" data-heading="300" data-knots="9">
+        <div class="ch-num">IV</div>
+        <div class="ch-body">
+          <h3>Landfall at Driftwood Light</h3>
+          <p class="ch-meta">Leg 4 · ordered heading <b>300°</b> · stoke the boiler, homeward</p>
+          <p>Full steam at last. The light swings round — there! — and every scroll of the log has sailed us closer.
+          Mark the landfall bearing in the plaque above, sign the log, and export it for the Admiralty.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ══ Share / export ══ -->
+    <section class="panel share">
+      <h2 class="section-title">— Signals &amp; Dispatches —</h2>
+      <p class="section-sub">Your settings live in the link itself — no account, no wireless, just brass &amp; paper.</p>
+      <div class="share-row">
+        <code id="shareUrl" class="share-url">…</code>
+        <button id="btnCopyLink2" class="btn brass">⛓ Copy share link</button>
+      </div>
+      <div class="share-row">
+        <button id="btnCopyJson2" class="btn">⧉ Copy settings JSON</button>
+        <button id="btnPng2" class="btn">🖨 Download chart PNG</button>
+        <button id="btnLog2" class="btn">📜 Download captain's log</button>
+        <button id="btnReset" class="btn ghost">Reset instrument</button>
+      </div>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </section>
+
+    <footer class="footer">
+      <p>⚙ Driftwood Dial · built of salvage, steam &amp; stylesheets · no images were harmed — dial, gauges &amp; chart are pure CSS + canvas ⚙</p>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
