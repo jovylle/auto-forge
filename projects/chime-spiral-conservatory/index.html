@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chime Spiral Conservatory — 鐘螺旋</title>
+<meta name="description" content="Grow musical spirals where each sampled tick blooms into evolving melodies." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<header class="top">
+  <div class="brand">
+    <div class="seal" id="seal" title="hanko — click?" role="button" tabindex="0" aria-label="hanko seal easter egg"> conserv<br>鐘 </div>
+    <div>
+      <p class="kicker">時刻 の 庭 &nbsp;·&nbsp; generative study nº 7</p>
+      <h1>Chime Spiral <em>Conservatory</em></h1>
+      <p class="sub">Grow musical spirals — each sampled tick blooms into an evolving melody.</p>
+    </div>
+  </div>
+  <div class="vertical" aria-hidden="true">螺旋に鐘を育てる<br><span>spiral clock · sampled ticks</span></div>
+</header>
+
+<main id="app">
+  <section class="panel spiral-panel">
+    <div class="panel-head">
+      <h2><span class="num">壱</span> Spiral Clock</h2>
+      <div class="clock-readout">
+        <span id="barBeat">BAR 1 · TICK —</span>
+        <span id="scaleName">宮 IN — Miyako-bushi</span>
+      </div>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="spiral" width="640" height="640" aria-label="spiral clock visualizer"></canvas>
+      <div class="transport-overlay">
+        <button id="playBtn" class="play" aria-label="play or pause">▶</button>
+      </div>
+      <p id="haiku" class="haiku" hidden></p>
+    </div>
+    <div class="transport-row">
+      <label class="ctl">Tempo <b id="bpmVal">96</b>
+        <input id="bpm" type="range" min="60" max="160" value="96" />
+      </label>
+      <label class="ctl">Bloom <b id="evolveVal">40%</b>
+        <input id="evolve" type="range" min="0" max="100" value="40" />
+      </label>
+      <label class="ctl">Voice
+        <select id="voice">
+          <option value="kachi">拍子木 Kachi — woodblock</option>
+          <option value="suzu">鈴 Suzu — bell</option>
+          <option value="taiko">太鼓 Taiko — drum</option>
+        </select>
+      </label>
+    </div>
+    <div class="btn-row">
+      <button id="evolveBtn" class="btn ghost">⟳ Evolve one generation</button>
+      <button id="clearBtn" class="btn ghost">○ Clear spiral</button>
+      <button id="exportBtn" class="btn solid">⬇ Export loop (.wav)</button>
+    </div>
+    <p id="exportMsg" class="hint" role="status"></p>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2><span class="num">弐</span> Sampled Tick Sequencer</h2>
+      <span class="hint">tap ticks · 16 steps · pentatonic garden</span>
+    </div>
+    <div id="steps" class="steps" role="group" aria-label="16 step sequencer"></div>
+    <div class="seq-foot">
+      <label class="ctl inline">Scale
+        <select id="scale">
+          <option value="miyako">Miyako-bushi 宮</option>
+          <option value="in">In-sei 法</option>
+          <option value="yo">Yō 陽</option>
+          <option value="ryukyu">Ryūkyū 琉球</option>
+        </select>
+      </label>
+      <label class="ctl inline">Root
+        <select id="root">
+          <option value="220">A3 · 220Hz</option>
+          <option value="246.94" selected>B3 · 247Hz</option>
+          <option value="261.63">C4 · 262Hz</option>
+          <option value="293.66">D4 · 294Hz</option>
+        </select>
+      </label>
+      <button id="randomBtn" class="btn ghost small">✦ Scatter seeds</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2><span class="num">参</span> History — Scrub Timeline</h2>
+      <span class="hint" id="genLabel">generation 0</span>
+    </div>
+    <canvas id="timeline" width="640" height="72" aria-label="history scrub timeline"></canvas>
+    <div class="scrub-row">
+      <input id="scrub" type="range" min="0" max="0" value="0" aria-label="scrub history" />
+      <button id="restoreBtn" class="btn ghost small">Restore this moment</button>
+      <button id="branchBtn" class="btn ghost small">Branch from here ♻</button>
+    </div>
+    <p class="hint">Every loop &amp; every evolve-press is pressed like a flower into the record. Drag to revisit. <span class="faint">psst — the hanko seal remembers old songs… click it 5 times.</span></p>
+  </section>
+
+  <footer class="foot">
+    <span class="rule"></span>
+    <p>一期一会 — one time, one meeting. Sound is synthesized live, no files. Works offline from <code>file://</code>.</p>
+  </footer>
+</main>
+
+<div id="petals" aria-hidden="true"></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
