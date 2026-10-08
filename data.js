@@ -4780,12 +4780,45 @@ export const projects = [
       "history"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-08T07:26:04.473Z",
-    "updatedAt": "2026-10-08T07:31:48.459Z",
+    "updatedAt": "2026-10-08T07:31:57.063Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "hourglass-loop-atelier",
+    "title": "Hourglass Loop Atelier",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "swiss",
+    "theme": "time",
+    "constraints": [
+      "must work with keyboard only",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Remix history snippets into looping clockwork visuals that tick with your cursor.",
+    "features": [
+      "drag time sliders to warp loops",
+      "sample history ticks into beats",
+      "export looping gif cards",
+      "daily clock seed remix"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "clocks",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-08T13:40:18.950Z",
+    "updatedAt": "2026-10-08T13:42:40.286Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 152, done: 143, counts: {"done":143,"needs-human":9} };
+export const stats = { total: 153, done: 144, counts: {"done":144,"needs-human":9} };

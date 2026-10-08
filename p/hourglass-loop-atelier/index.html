@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hourglass Loop Atelier — Swiss Clockwork Remixer</title>
+<meta name="description" content="Remix history snippets into looping clockwork visuals that tick with your cursor." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<a class="skip" href="#controls">Skip to controls</a>
+<header class="topbar" role="banner">
+  <div class="brand">
+    <span class="mark" aria-hidden="true">◷</span>
+    <span class="brand-text"><strong>HOURGLASS LOOP ATELIER</strong><em>Generative clockwork · Swiss edition · Nº 08</em></span>
+  </div>
+  <div class="top-meta">
+    <span id="clockReadout" class="tabular" aria-live="off">00:00:00</span>
+    <span id="seedBadge" class="seed-badge tabular">SEED —</span>
+  </div>
+</header>
+<div class="rule" aria-hidden="true"></div>
+
+<main id="app">
+  <section class="hero">
+    <h1>REMIX<br />TIME<span class="red">.</span></h1>
+    <p class="lede">History snippets into looping clockwork visuals that tick with your cursor. Drag time — or play it entirely from the keyboard.</p>
+    <ul class="kbd-help" aria-label="Keyboard shortcuts">
+      <li><kbd>Tab</kbd> move</li>
+      <li><kbd>←</kbd><kbd>→</kbd> sliders / cursor</li>
+      <li><kbd>Space</kbd> play beat</li>
+      <li><kbd>R</kbd> remix seed</li>
+      <li><kbd>E</kbd> export GIF</li>
+      <li><kbd>1</kbd>–<kbd>8</kbd> sample tick</li>
+    </ul>
+  </section>
+
+  <div class="grid">
+    <section class="panel stage-panel" aria-labelledby="h-stage">
+      <div class="panel-head"><span class="num">01</span><h2 id="h-stage">Clockwork loop</h2><span class="tag">canvas</span></div>
+      <div id="canvasWrap" tabindex="0" role="application"
+        aria-label="Clockwork canvas. Use arrow keys to move the cursor that warps time. Left right moves cursor X, up down moves cursor Y.">
+        <canvas id="loop" width="640" height="640"></canvas>
+        <div id="cursorDot" aria-hidden="true"></div>
+        <p class="hint">Mouse moves the tick · focused here, <kbd>←→↑↓</kbd> move it · <kbd>Shift</kbd>+arrows = fine</p>
+      </div>
+      <div class="transport">
+        <button id="btnPlay" type="button" aria-pressed="false">▶ Play beat <span class="muted">[Space]</span></button>
+        <button id="btnRemix" type="button">⟳ Daily remix <span class="muted">[R]</span></button>
+        <button id="btnExport" type="button" class="primary">⬇ Export GIF card <span class="muted">[E]</span></button>
+      </div>
+      <p id="exportStatus" class="status" role="status" aria-live="polite">Ready. 12 frames · 12 fps · 1 loop.</p>
+      <div class="card-preview">
+        <img id="gifPreview" alt="Exported looping GIF card preview" hidden />
+        <div class="card-meta">
+          <a id="gifDownload" href="#" download="hourglass-loop.gif" hidden>Download GIF</a>
+          <button id="btnPng" type="button" hidden>Download PNG still</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="controls" aria-labelledby="h-time" tabindex="-1">
+      <div class="panel-head"><span class="num">02</span><h2 id="h-time">Time sliders</h2><span class="tag">warp loops</span></div>
+      <div class="sliders">
+        <label>Tempo <output id="o-tempo" class="tabular" for="s-tempo">1.00×</output>
+          <input id="s-tempo" type="range" min="10" max="300" value="100" step="5" aria-describedby="d-tempo" />
+          <small id="d-tempo">Loop speed. 0.1×–3×.</small></label>
+        <label>Rings <output id="o-rings" class="tabular" for="s-rings">4</output>
+          <input id="s-rings" type="range" min="1" max="8" value="4" step="1" />
+          <small>Concentric gear loops.</small></label>
+        <label>Warp <output id="o-warp" class="tabular" for="s-warp">0.50</output>
+          <input id="s-warp" type="range" min="0" max="100" value="50" step="1" />
+          <small>Cursor-driven distortion.</small></label>
+        <label>Divisions <output id="o-div" class="tabular" for="s-div">12</output>
+          <input id="s-div" type="range" min="2" max="60" value="12" step="1" />
+          <small>Teeth per master gear.</small></label>
+        <label>Trail <output id="o-trail" class="tabular" for="s-trail">0.22</output>
+          <input id="s-trail" type="range" min="0" max="90" value="22" step="1" />
+          <small>Phosphor persistence.</small></label>
+        <label>Cursor X <output id="o-cx" class="tabular" for="s-cx">0.50</output>
+          <input id="s-cx" type="range" min="0" max="100" value="50" step="1" />
+          <small>Mirrors mouse X. Keyboard equivalent.</small></label>
+        <label>Cursor Y <output id="o-cy" class="tabular" for="s-cy">0.50</output>
+          <input id="s-cy" type="range" min="0" max="100" value="50" step="1" />
+          <small>Mirrors mouse Y. Keyboard equivalent.</small></label>
+      </div>
+      <div class="seed-row">
+        <div>
+          <div class="seed-label">DAILY CLOCK SEED</div>
+          <div id="seedLine" class="tabular">—</div>
+        </div>
+        <div class="seed-btns">
+          <button id="btnToday" type="button">Today</button>
+          <button id="btnPrevDay" type="button" aria-label="Previous day seed">← Day</button>
+          <button id="btnNextDay" type="button" aria-label="Next day seed">Day →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="h-hist">
+      <div class="panel-head"><span class="num">03</span><h2 id="h-hist">History ticks</h2><span class="tag">sample → beats</span></div>
+      <ol id="historyList" class="history"></ol>
+    </section>
+
+    <section class="panel" aria-labelledby="h-beat">
+      <div class="panel-head"><span class="num">04</span><h2 id="h-beat">Beat sampler</h2><span class="tag">16 steps</span></div>
+      <div class="beat-head">
+        <label>BPM <output id="o-bpm" class="tabular" for="s-bpm">96</output>
+          <input id="s-bpm" type="range" min="60" max="180" value="96" step="1" /></label>
+        <div class="beat-btns">
+          <button id="btnClear" type="button">Clear</button>
+          <button id="btnFill" type="button">Fill 4/4</button>
+        </div>
+      </div>
+      <div id="beatGrid" class="beats" role="group" aria-label="16-step beat grid. Each step is a checkbox, toggle with Space."></div>
+      <p class="hint">Sampled history ORs its tick pattern into the grid. Steps sound on play; the red playhead also pulses the gears.</p>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <span>Set in system Helvetica/Arial — no webfonts. Works from <code>file://</code>. State persists to <code>localStorage</code>.</span>
+    <span class="tabular" id="footSeed"></span>
+  </footer>
+</main>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
