@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Pocket Sundial Loops — remix daylight</title>
+<meta name="description" content="Loop tiny sundials across history to remix daylight into ambient patterns. Drag the sun, switch 12 historic dials, loop shadow trails, export GIFs." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<a class="skip" href="#timeSlider">Skip to time scrubber</a>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-chip" aria-hidden="true">◷</span>
+    <div>
+      <p class="eyebrow">POCKET // DAYLIGHT REMIXER v1.0</p>
+      <h1 class="glitch" data-text="SUNDIAL LOOPS">SUNDIAL <span>LOOPS</span></h1>
+    </div>
+  </div>
+  <div class="top-actions">
+    <div class="clock" aria-live="polite">
+      <span id="clockTime">06:00</span>
+      <span id="clockDial">EGYPTIAN SHADOW CLOCK</span>
+    </div>
+    <button id="helpBtn" class="btn ghost" aria-haspopup="dialog" aria-controls="helpDialog">? keys</button>
+  </div>
+</header>
+
+<main id="app">
+  <section class="deck stage-deck" aria-label="Sundial stage">
+    <div class="deck-head">
+      <span class="dot" aria-hidden="true"></span>
+      <h2>Dial deck <em id="dialEra">c. 1500 BCE · Egypt</em></h2>
+      <span class="live" id="loopBadge" hidden>● LOOP</span>
+    </div>
+
+    <div class="sun-track-wrap">
+      <canvas id="sunTrack" width="720" height="86" aria-hidden="true"></canvas>
+      <div id="sunOrb" role="slider" tabindex="0" aria-label="Sun position — drag or use arrow keys to scrub time"
+        aria-valuemin="240" aria-valuemax="1200" aria-valuenow="360" aria-valuetext="06:00">
+        <span class="orb-core" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="canvas-wrap">
+      <canvas id="dial" width="720" height="520"></canvas>
+      <p id="dialBlurb" class="blurb">Shadow clock — a crossbar casts a travelling shadow across hour marks. Drag the sun.</p>
+    </div>
+
+    <div class="scrub-row">
+      <label for="timeSlider">TIME <output id="timeOut" for="timeSlider">06:00</output></label>
+      <input id="timeSlider" type="range" min="240" max="1200" step="1" value="360" aria-describedby="dialBlurb" />
+      <div class="transport">
+        <button id="playBtn" class="btn" aria-pressed="false" title="Auto-cycle daylight (Space)">▶ cycle</button>
+        <button id="loopBtn" class="btn neon" aria-pressed="false" title="Record / play a time loop (L)">◌ loop</button>
+        <button id="trailBtn" class="btn neon-pink" aria-pressed="true" title="Toggle shadow trails (T)">≋ trails</button>
+      </div>
+    </div>
+
+    <div class="loop-bar" id="loopBar" hidden>
+      <span id="loopLabel">LOOP 8s · idle</span>
+      <div class="loop-meter"><i id="loopMeter"></i></div>
+      <label>loop <select id="loopLen" aria-label="Loop length">
+        <option value="4">4s</option><option value="8" selected>8s</option><option value="12">12s</option>
+      </select></label>
+    </div>
+  </section>
+
+  <aside class="deck side-deck" aria-label="Controls">
+    <section aria-labelledby="h-dials">
+      <div class="deck-head"><h2 id="h-dials">12 historic dials</h2><span class="hint">keys 1–9 0 Q W</span></div>
+      <div id="dialGrid" class="dial-grid" role="listbox" aria-label="Historic dial styles" tabindex="0"></div>
+    </section>
+
+    <section aria-labelledby="h-trail">
+      <div class="deck-head"><h2 id="h-trail">Trail remix</h2><span class="hint">T / R</span></div>
+      <label class="row">Trail length <input id="trailLen" type="range" min="10" max="400" value="160" /><output id="trailLenOut">160</output></label>
+      <label class="row">Glow fade <input id="fadeAmt" type="range" min="1" max="40" value="10" /><output id="fadeOut">10</output></label>
+      <label class="row check"><input id="remixChk" type="checkbox" checked /> <span>Ambient remix rings <small>trails drive the halo</small></span></label>
+      <label class="row check"><input id="droneChk" type="checkbox" /> <span>Ambient drone <small>daylight → hum (M)</small></span></label>
+      <div class="row btns">
+        <button id="clearTrailBtn" class="btn ghost" title="Clear trails (R)">clear trails</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-export">
+      <div class="deck-head"><h2 id="h-export">Snapshots</h2><span class="hint">E / S</span></div>
+      <p class="micro">GIFs render locally in-page — no uploads. Canvas-only, no images.</p>
+      <div class="row btns">
+        <button id="gifBtn" class="btn acid" title="Export animated GIF (E)">⬇ export GIF</button>
+        <button id="pngBtn" class="btn ghost" title="Snapshot PNG (S)">PNG still</button>
+      </div>
+      <label class="row">GIF size <select id="gifSize"><option value="240">240px</option><option value="320" selected>320px</option></select></label>
+      <div id="exportStatus" class="micro" role="status" aria-live="polite"></div>
+      <div id="shots" class="shots" aria-label="Exported snapshots"></div>
+    </section>
+
+    <section aria-labelledby="h-keys" class="keys">
+      <div class="deck-head"><h2 id="h-keys">Keyboard</h2></div>
+      <ul>
+        <li><kbd>←</kbd><kbd>→</kbd> scrub 5 min · <kbd>Shift</kbd> = 1 hr</li>
+        <li><kbd>Home</kbd>/<kbd>End</kbd> dawn / dusk · <kbd>Space</kbd> cycle</li>
+        <li><kbd>1</kbd>–<kbd>0</kbd>,<kbd>Q</kbd>,<kbd>W</kbd> dials · <kbd>L</kbd> loop · <kbd>T</kbd> trails</li>
+        <li><kbd>E</kbd> GIF · <kbd>S</kbd> PNG · <kbd>M</kbd> drone · <kbd>R</kbd> clear</li>
+      </ul>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span>CSS + CANVAS ONLY · NO IMAGES · KEYBOARD-FIRST · FILE:// READY</span>
+  <span id="persistNote">autosaves locally</span>
+</footer>
+
+<dialog id="helpDialog" aria-labelledby="helpTitle">
+  <h2 id="helpTitle">Keyboard map</h2>
+  <p>Everything works without a pointer. <kbd>Tab</kbd> to the sun orb or time slider, then:</p>
+  <ul>
+    <li><kbd>←</kbd> <kbd>→</kbd> — scrub time · with <kbd>Shift</kbd> jump an hour</li>
+    <li><kbd>1</kbd>…<kbd>9</kbd>, <kbd>0</kbd>, <kbd>Q</kbd>, <kbd>W</kbd> — switch the 12 dials</li>
+    <li><kbd>Space</kbd> — auto-cycle · <kbd>L</kbd> — record / play loop · <kbd>T</kbd> — trails</li>
+    <li><kbd>E</kbd> — GIF · <kbd>S</kbd> — PNG · <kbd>M</kbd> — drone · <kbd>R</kbd> — clear trails · <kbd>Esc</kbd> — close</li>
+  </ul>
+  <form method="dialog"><button class="btn">close</button></form>
+</dialog>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

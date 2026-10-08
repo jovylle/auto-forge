@@ -4747,12 +4747,45 @@ export const projects = [
       "sound"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-08T01:20:54.275Z",
-    "updatedAt": "2026-10-08T01:22:32.494Z",
+    "updatedAt": "2026-10-08T01:22:40.866Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "pocket-sundial-loops",
+    "title": "Pocket Sundial Loops",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "cyberpunk",
+    "theme": "time",
+    "constraints": [
+      "no images — CSS/canvas only",
+      "must work with keyboard only"
+    ],
+    "description": "Loop tiny sundials across history to remix daylight into ambient patterns.",
+    "features": [
+      "drag sun to scrub time",
+      "12 historic dial styles",
+      "loopable shadow trails",
+      "export gif snapshots"
+    ],
+    "tags": [
+      "time",
+      "sundial",
+      "loops",
+      "history"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-08T07:26:04.473Z",
+    "updatedAt": "2026-10-08T07:31:09.235Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 151, done: 142, counts: {"done":142,"needs-human":9} };
+export const stats = { total: 152, done: 143, counts: {"done":143,"needs-human":9} };
