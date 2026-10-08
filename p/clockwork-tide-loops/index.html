@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clockwork Tide Loops — tidal clock garden</title>
+  <meta name="description" content="Plant looping chimes that bloom on each hour in a tidal clock garden. A vaporwave ambient toy." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vhs" aria-hidden="true">▶ TIDE-88&nbsp;&nbsp;SP&nbsp;&nbsp;<span id="vhsClock">--:--:--</span></div>
+
+  <header class="hero">
+    <p class="kicker">ＣＬＯＣＫＷＯＲＫ ・ ＴＩＤＡＬ ・ ＳＹＳＴＥＭ</p>
+    <h1 class="chrome">CLOCKWORK<br />TIDE LOOPS</h1>
+    <p class="tag">Plant looping chimes. Ride the tide. Bloom on the hour. 🌊🕰️🌴</p>
+    <div class="clockbar">
+      <div class="clock" title="Real local time">
+        <span class="clock-label">LOCAL</span>
+        <span id="realClock">--:--:--</span>
+      </div>
+      <div class="clock tide-clock" title="Tide phase">
+        <span class="clock-label">TIDE</span>
+        <span id="tidePhase">RISING ◐</span>
+        <span id="bloomIn" class="bloom-in">bloom in --s</span>
+      </div>
+      <div class="clock" title="Planted chimes">
+        <span class="clock-label">CHIMES</span>
+        <span id="chimeCount">0 / 12</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="app">
+    <section class="panel garden-panel">
+      <div class="panel-head">
+        <h2>◈ tidal garden</h2>
+        <div class="head-btns">
+          <button id="bloomNow" class="btn hot" title="Trigger a full bloom right now">✺ BLOOM NOW</button>
+          <button id="tideFast" class="btn ghost" title="Toggle demo tide: 12s instead of 60s" aria-pressed="true">⚡ demo tide: ON</button>
+        </div>
+      </div>
+      <p class="hint" id="hint">Pick a seed note below → <b>click an empty plot to plant</b> → tap a bloom to ring it. Full bloom at every high tide + top of the hour.</p>
+
+      <div class="seedbar" id="seedbar" role="radiogroup" aria-label="Seed note picker"></div>
+
+      <div class="garden-wrap">
+        <div class="sun" aria-hidden="true"></div>
+        <div class="garden-grid" id="garden" aria-label="Tidal garden plots"></div>
+        <div class="water" id="water" aria-hidden="true">
+          <svg class="wave" viewBox="0 0 600 40" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,20 Q37,4 75,20 T150,20 T225,20 T300,20 T375,20 T450,20 T525,20 T600,20 V40 H0 Z"/>
+          </svg>
+        </div>
+        <div class="fx" id="fx" aria-hidden="true"></div>
+      </div>
+
+      <div class="tide-meter">
+        <div class="tide-track"><div class="tide-fill" id="tideFill"></div><div class="tide-needle" id="tideNeedle"></div></div>
+        <div class="tide-labels"><span>low ▼</span><span id="tidePct">tide 0%</span><span>high ▲</span></div>
+      </div>
+    </section>
+
+    <div class="cols">
+      <section class="panel">
+        <div class="panel-head"><h2>♒ ambient loop mixer</h2></div>
+        <div class="mixer-top">
+          <button id="audioToggle" class="btn hot big">▶ start the tide</button>
+          <label class="tempo">tempo <input id="tempo" type="range" min="60" max="140" value="92" /> <span id="tempoVal">92</span></label>
+        </div>
+        <div class="mixer" id="mixer"></div>
+        <p class="fine">100% synthesized — pad + bass + surf noise + your planted chimes, live in WebAudio. No samples, no network.</p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2>✉ snapshots</h2></div>
+        <p class="fine">Freeze the garden into a shareable link. Anyone opening it grows your exact arrangement.</p>
+        <div class="snap-row">
+          <input id="snapName" maxlength="24" placeholder="name this tide…" />
+          <button id="snapSave" class="btn">📸 snapshot</button>
+        </div>
+        <div class="snap-row">
+          <button id="snapCopy" class="btn ghost">🔗 copy link</button>
+          <button id="snapDl" class="btn ghost">💾 .json</button>
+          <button id="snapClear" class="btn ghost danger">clear</button>
+        </div>
+        <div class="gallery" id="gallery"></div>
+      </section>
+    </div>
+
+    <footer class="foot">
+      <span>ＣＬＯＣＫＷＯＲＫ ＴＩＤＥ ＬＯＯＰＳ — a 30-second toy: plant → bloom → vibe.</span>
+      <span class="foot-right">hours bloom the chime they own · high tide blooms them all</span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

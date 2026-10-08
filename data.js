@@ -4682,12 +4682,44 @@ export const projects = [
       "cozy"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-07T19:13:20.854Z",
-    "updatedAt": "2026-10-07T19:15:11.324Z",
+    "updatedAt": "2026-10-07T19:15:20.148Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "clockwork-tide-loops",
+    "title": "Clockwork Tide Loops",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "vaporwave",
+    "theme": "time",
+    "constraints": [
+      "must be playable in 30 seconds"
+    ],
+    "description": "Plant looping chimes that bloom on each hour in a tidal clock garden.",
+    "features": [
+      "plant time-looped chimes",
+      "tide-synced hourly blooms",
+      "shareable garden snapshots",
+      "ambient loop mixer"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "garden",
+      "ambient"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-08T01:03:08.401Z",
+    "updatedAt": "2026-10-08T01:04:45.374Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 149, done: 140, counts: {"done":140,"needs-human":9} };
+export const stats = { total: 150, done: 141, counts: {"done":141,"needs-human":9} };
