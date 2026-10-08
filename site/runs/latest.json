@@ -1,8 +1,8 @@
 {
-  "slug": "chrono-loop-garden",
-  "title": "Chrono Loop Garden",
+  "slug": "pocket-sundial-loops",
+  "title": "Pocket Sundial Loops",
   "stack": "html",
-  "aesthetic": "extreme-minimal",
+  "aesthetic": "cyberpunk",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 92749,
-  "at": "2026-10-08T01:22:32.496Z"
+  "elapsedMs": 300240,
+  "at": "2026-10-08T07:31:09.239Z"
 }
