@@ -4813,12 +4813,44 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-08T13:40:18.950Z",
-    "updatedAt": "2026-10-08T13:42:40.286Z",
+    "updatedAt": "2026-10-08T13:42:49.270Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "chime-spiral-conservatory",
+    "title": "Chime Spiral Conservatory",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-minimal",
+    "theme": "time",
+    "constraints": [
+      "must have an easter egg"
+    ],
+    "description": "Grow musical spirals where each sampled tick blooms into evolving melodies.",
+    "features": [
+      "sampled tick sequencer",
+      "spiral clock visualizer",
+      "history scrub timeline",
+      "one-click loop export"
+    ],
+    "tags": [
+      "time",
+      "clocks",
+      "sampling",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-08T19:45:43.908Z",
+    "updatedAt": "2026-10-08T19:47:31.489Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 153, done: 144, counts: {"done":144,"needs-human":9} };
+export const stats = { total: 154, done: 145, counts: {"done":145,"needs-human":9} };
