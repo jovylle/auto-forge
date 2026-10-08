@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chrono Loop Garden — drag-planted time melodies</title>
+  <meta name="description" content="Grow looping melodies where each planted clock blooms into generative sound. One gesture: drag." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main id="app">
+    <header id="mast">
+      <p id="brand"><span id="brand-dot" aria-hidden="true"></span>CHRONO&nbsp;LOOP&nbsp;GARDEN</p>
+      <p id="status"><span id="gen">gen 00</span><span class="sep">·</span><span id="clock">evolves in 1:00</span><span class="sep">·</span><span id="voices">0 voices</span></p>
+    </header>
+
+    <p id="hint">drag on soil to plant&ensp;·&ensp;drag a bloom sideways to rewind&ensp;·&ensp;drag onto the line below to export</p>
+
+    <section id="grid" aria-label="garden grid — drag to plant time seeds"></section>
+
+    <section id="rail" aria-label="export rail — drag a bloom here to export garden as chime">
+      <span id="rail-line" aria-hidden="true"></span>
+      <span id="rail-label">—&ensp;drag a bloom here to export garden as chime&ensp;—</span>
+    </section>
+
+    <footer id="foot">
+      <span id="chime">no chime yet</span>
+      <span id="sig">one gesture only · drag · sound wakes on first drag</span>
+    </footer>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

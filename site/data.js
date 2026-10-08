@@ -4714,12 +4714,45 @@ export const projects = [
       "ambient"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-08T01:03:08.401Z",
-    "updatedAt": "2026-10-08T01:04:45.374Z",
+    "updatedAt": "2026-10-08T01:05:04.026Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "chrono-loop-garden",
+    "title": "Chrono Loop Garden",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "extreme-minimal",
+    "theme": "time",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)"
+    ],
+    "description": "Grow looping melodies where each planted clock blooms into generative sound.",
+    "features": [
+      "plant time-seeds on grid",
+      "loops evolve every minute",
+      "drag to rewind blooms",
+      "export garden as chime"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "generative",
+      "clocks",
+      "sound"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-08T01:20:54.275Z",
+    "updatedAt": "2026-10-08T01:22:32.494Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 150, done: 141, counts: {"done":141,"needs-human":9} };
+export const stats = { total: 151, done: 142, counts: {"done":142,"needs-human":9} };
