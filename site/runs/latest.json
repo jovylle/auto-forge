@@ -1,8 +1,8 @@
 {
-  "slug": "pocket-sundial-loops",
-  "title": "Pocket Sundial Loops",
+  "slug": "hourglass-loop-atelier",
+  "title": "Hourglass Loop Atelier",
   "stack": "html",
-  "aesthetic": "cyberpunk",
+  "aesthetic": "swiss",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 103394,
-  "at": "2026-10-08T07:31:48.462Z"
+  "elapsedMs": 135943,
+  "at": "2026-10-08T13:42:40.291Z"
 }

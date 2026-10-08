@@ -1,0 +1,32 @@
+{
+  "slug": "hourglass-loop-atelier",
+  "title": "Hourglass Loop Atelier",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "swiss",
+  "theme": "time",
+  "constraints": [
+    "must work with keyboard only",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Swiss clockwork remixer: canvas gears warp with cursor/keyboard sliders, 8 history ticks sample into 16-step WebAudio beats, daily seed remix, in-page GIF89a card export.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag time sliders to warp loops",
+      "sample history ticks into beats",
+      "export looping gif cards",
+      "daily clock seed remix"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 135943,
+  "at": "2026-10-08T13:42:40.290Z"
+}
