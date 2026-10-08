@@ -1,8 +1,8 @@
 {
-  "slug": "fogbound-hex-cartographers",
-  "title": "Fogbound Hex Cartographers",
+  "slug": "clockwork-tide-loops",
+  "title": "Clockwork Tide Loops",
   "stack": "html",
-  "aesthetic": "cottagecore",
+  "aesthetic": "vaporwave",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 107743,
-  "at": "2026-10-07T19:15:11.328Z"
+  "elapsedMs": 94824,
+  "at": "2026-10-08T01:04:45.379Z"
 }

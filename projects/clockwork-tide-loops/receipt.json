@@ -1,0 +1,31 @@
+{
+  "slug": "clockwork-tide-loops",
+  "title": "Clockwork Tide Loops",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "vaporwave",
+  "theme": "time",
+  "constraints": [
+    "must be playable in 30 seconds"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "plant time-looped chimes",
+      "tide-synced hourly blooms",
+      "shareable garden snapshots",
+      "ambient loop mixer"
+    ],
+    "status": "pass",
+    "summary": "Clockwork Tide Loops — vaporwave tidal clock garden. 12-plot garden with pentatonic seed planting, per-chime loop lengths and tap-to-ring; tide engine (12s demo / 60s true) with high-tide full blooms + real hourly blooms + BLOOM NOW; snapshots via #g= share links with clipboard, localStorage gallery and JSON download; fully synthesized WebAudio mixer (pad/bass/surf/chime-arp) with mutes and tempo. Starter garden pre-planted so it's playable in <30s. node --check clean, all DOM ids wired, responsive down to 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 94824,
+  "at": "2026-10-08T01:04:45.378Z"
+}
