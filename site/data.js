@@ -4883,6 +4883,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "meridian-ghost-loops",
+    "title": "Meridian Ghost Loops",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "steampunk",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no images — CSS/canvas only"
+    ],
+    "description": "Loop tiny histories into layered clockwork melodies that decay with each passing hour.",
+    "features": [
+      "record 8-second time loops",
+      "stack echoes on spiral timeline",
+      "share tick-synced mixes",
+      "midnight reset ritual"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "audio",
+      "history"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-09T01:51:37.001Z",
+    "updatedAt": "2026-10-09T02:00:09.804Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 155, done: 146, counts: {"done":146,"needs-human":9} };
+export const stats = { total: 156, done: 147, counts: {"done":147,"needs-human":9} };
