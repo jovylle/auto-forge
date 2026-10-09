@@ -4975,12 +4975,46 @@ export const projects = [
       "clocks"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-09T14:17:02.899Z",
-    "updatedAt": "2026-10-09T14:20:56.226Z",
+    "updatedAt": "2026-10-09T14:21:05.254Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "pendulum-moss-reliquary",
+    "title": "Pendulum Moss Reliquary",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "grunge",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "must react to scroll"
+    ],
+    "description": "Grow mossy clock-trees where each branch loops yesterday's chimes into ambient melodies.",
+    "features": [
+      "plant seed-clocks that chime hourly",
+      "loop history into generative melodies",
+      "prune branches to remix time",
+      "share garden as ambient soundscape"
+    ],
+    "tags": [
+      "clocks",
+      "loops",
+      "generative",
+      "ambient",
+      "garden"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-09T20:27:11.811Z",
+    "updatedAt": "2026-10-09T20:28:49.192Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 158, done: 149, counts: {"done":149,"needs-human":9} };
+export const stats = { total: 159, done: 150, counts: {"done":150,"needs-human":9} };
