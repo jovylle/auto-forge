@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pendulum Moss Reliquary — mossy clock-trees</title>
+  <meta name="description" content="Plant seed-clocks that chime hourly. Loop yesterday's chimes into ambient melodies. Prune branches to remix time." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="stamp" aria-hidden="true">RELIQUARY<br/>No. 13</div>
+
+  <header class="hero">
+    <p class="kicker">FIELD RECORDING · HOUR 00–23 · MOSS DIVISION</p>
+    <h1>Pendulum<br/><span class="moss-t">Moss</span> Reliquary</h1>
+    <p class="sub">Grow mossy clock-trees where each branch loops <em>yesterday's chimes</em> into ambient melodies. Plant seed-clocks. Let them ring. Prune time itself.</p>
+    <div class="hero-row">
+      <button id="btnPlant" class="btn btn-rust">✚ PLANT SEED-CLOCK</button>
+      <button id="btnChime" class="btn">◉ RING THE HOUR</button>
+      <button id="btnPlay" class="btn">▶ LOOP HISTORY</button>
+    </div>
+    <p class="hint">SCROLL ↓ — the wind answers. Scroll sways every pendulum, scrubs the light &amp; the melody.</p>
+    <div class="marquee" aria-hidden="true"><span id="marqueeTxt">HOURLY CHIMES · GENERATIVE LOOPS · PRUNE TO REMIX · SHARE THE SOUNDSCAPE · HOURLY CHIMES · GENERATIVE LOOPS · PRUNE TO REMIX · SHARE THE SOUNDSCAPE ·&nbsp;</span></div>
+  </header>
+
+  <main>
+    <!-- STICKY GARDEN STAGE -->
+    <section class="stage-wrap" id="garden">
+      <div class="stage-sticky">
+        <div class="stage-head">
+          <h2><span class="tag">01</span> THE GARDEN</h2>
+          <p class="stage-meta"><span id="clockNow">--:--</span> · <span id="treeCount">0 TREES</span> · <span id="windLab">WIND 0%</span> · click a branch to <b>PRUNE / REGROW</b></p>
+        </div>
+        <canvas id="stage" width="900" height="520" aria-label="Mossy clock-tree garden. Click branches to prune them."></canvas>
+        <div class="transport">
+          <button id="btnDrone" class="btn sm" aria-pressed="false">DRONE: OFF</button>
+          <label class="tempo">TEMPO <input id="tempo" type="range" min="40" max="160" value="84" /> <span id="tempoVal">84</span></label>
+          <label class="tempo">MIST <input id="mist" type="range" min="0" max="100" value="35" /> <span id="mistVal">35</span></label>
+          <button id="btnMute" class="btn sm">MUTE</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHIME HISTORY / LOOP SCORE -->
+    <section class="strata" id="history">
+      <h2><span class="tag">02</span> YESTERDAY'S CHIMES → TODAY'S MELODY</h2>
+      <p class="sec-sub">Every hourly strike is pressed into the strata below. The loop-player reads un-pruned branches left → right, low → high, forever. Scroll to dig deeper — older hours surface as you descend.</p>
+      <ol id="chimeLog" class="log"></ol>
+      <div class="loop-readout">
+        <h3>NOW LOOPING</h3>
+        <p id="loopNow">— press ▶ LOOP HISTORY —</p>
+        <div id="loopDots" class="dots"></div>
+      </div>
+    </section>
+
+    <!-- PRUNE / REMIX -->
+    <section class="strata" id="remix">
+      <h2><span class="tag">03</span> PRUNE BRANCHES TO REMIX TIME</h2>
+      <p class="sec-sub">Click any branch in the garden to snip it — its note drops out of the loop and the melody rewrites itself. Click a stump to let it regrow. Or use the shears:</p>
+      <div class="shears">
+        <button id="btnPruneRand" class="btn sm">✂ SNIP RANDOM BRANCH</button>
+        <button id="btnRegrow" class="btn sm">❋ REGROW ALL</button>
+        <button id="btnFell" class="btn sm danger">🪓 FELL LAST TREE</button>
+        <button id="btnReseed" class="btn sm">↺ RESEED YESTERDAY</button>
+      </div>
+      <p class="sec-sub small" id="pruneStat">No cuts yet. The trees trust you.</p>
+    </section>
+
+    <!-- SHARE -->
+    <section class="strata" id="share">
+      <h2><span class="tag">04</span> SHARE GARDEN AS AMBIENT SOUNDSCAPE</h2>
+      <p class="sec-sub">Your garden compresses into a single link — trees, cuts, tempo. Anyone opening it hears <em>your</em> hours.</p>
+      <div class="shears">
+        <button id="btnShare" class="btn btn-rust">⧉ COPY SOUNDSCAPE LINK</button>
+        <button id="btnScore" class="btn sm">DOWNLOAD SCORE (.json)</button>
+        <button id="btnWipe" class="btn sm danger">✕ BURN GARDEN</button>
+      </div>
+      <p class="sec-sub small" id="shareStat">No link minted yet.</p>
+      <textarea id="shareBox" readonly rows="3" placeholder="Your soundscape link will appear here…"></textarea>
+    </section>
+
+    <footer>
+      <p>PENDULUM MOSS RELIQUARY · grown in plain HTML/CSS/JS · no servers, no keys · persists in <code>localStorage</code> · works from <code>file://</code></p>
+      <p class="small">Three inks only: bone · moss · rust (+ black &amp; white). The grime is free.</p>
+    </footer>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
