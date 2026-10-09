@@ -4877,7 +4877,7 @@ export const projects = [
       "clocks"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-09T01:01:06.942Z",
     "updatedAt": "2026-10-09T01:02:49.659Z",
     "buildPassed": true,
@@ -4910,12 +4910,44 @@ export const projects = [
       "history"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-09T01:51:37.001Z",
-    "updatedAt": "2026-10-09T02:00:09.804Z",
+    "updatedAt": "2026-10-09T02:00:18.610Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "second-hand-orchestra",
+    "title": "Second Hand Orchestra",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "glassmorphism",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Conduct drifting loops where every second ticks a new layer of sound.",
+    "features": [
+      "tap tempo clock ensemble",
+      "layered loop mixer",
+      "history timeline scrubber",
+      "shareable minute symphonies"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "music",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-09T08:04:55.548Z",
+    "updatedAt": "2026-10-09T08:12:37.973Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 156, done: 147, counts: {"done":147,"needs-human":9} };
+export const stats = { total: 157, done: 148, counts: {"done":148,"needs-human":9} };
