@@ -4845,12 +4845,77 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-08T19:45:43.908Z",
-    "updatedAt": "2026-10-08T19:47:31.489Z",
+    "updatedAt": "2026-10-08T19:47:41.796Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "tidal-minute-archive",
+    "title": "Tidal Minute Archive",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "organic-brutalist",
+    "theme": "time",
+    "constraints": [
+      "no external fonts — system fonts only"
+    ],
+    "description": "Generative tide-clock that loops sampled chimes into evolving history tapestries.",
+    "features": [
+      "Looping tide-clock sequencer",
+      "One-tap chime sampling",
+      "Evolving history ribbon",
+      "Exportable loop cards"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "sampling",
+      "clocks"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-09T01:01:06.942Z",
+    "updatedAt": "2026-10-09T01:02:49.659Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "meridian-ghost-loops",
+    "title": "Meridian Ghost Loops",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "steampunk",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no images — CSS/canvas only"
+    ],
+    "description": "Loop tiny histories into layered clockwork melodies that decay with each passing hour.",
+    "features": [
+      "record 8-second time loops",
+      "stack echoes on spiral timeline",
+      "share tick-synced mixes",
+      "midnight reset ritual"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "audio",
+      "history"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-09T01:51:37.001Z",
+    "updatedAt": "2026-10-09T02:00:09.804Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 154, done: 145, counts: {"done":145,"needs-human":9} };
+export const stats = { total: 156, done: 147, counts: {"done":147,"needs-human":9} };

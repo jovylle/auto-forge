@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meridian Ghost Loops — Clockwork Time Loops</title>
+  <meta name="description" content="Record 8-second time loops, stack echoes on a spiral timeline, share tick-synced mixes, and seal them at the midnight reset ritual." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="rivets" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <p class="eyebrow">Horological Engine &middot; No. 8 &middot; Meridian Works</p>
+    <h1>Meridian Ghost Loops</h1>
+    <p class="sub">Loop tiny histories into layered clockwork melodies that decay with each passing hour.</p>
+    <div class="clockrow">
+      <div class="clockbox">
+        <span class="clocklabel">Local time</span>
+        <span id="clock" class="clockface">--:--:--</span>
+      </div>
+      <div class="clockbox">
+        <span class="clocklabel">Until midnight reset</span>
+        <span id="countdown" class="clockface">--:--:--</span>
+      </div>
+      <div class="clockbox">
+        <span class="clocklabel">Ghosts sealed</span>
+        <span id="ghostCount" class="clockface">0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="panel engine" aria-label="Spiral timeline engine">
+      <h2><span class="num">I.</span> The Spiral Engine</h2>
+      <div class="canvaswrap">
+        <canvas id="spiral" width="520" height="520" role="img" aria-label="Spiral timeline showing stacked echo loops"></canvas>
+      </div>
+      <div id="ticks" class="ticks" aria-hidden="true"></div>
+      <p id="status" class="status" role="status">Silent. Press play, then record an 8-second loop.</p>
+      <div class="transport">
+        <button id="btnPlay" class="btn big" type="button">▶ Start works</button>
+        <button id="btnRec" class="btn big rec" type="button">● Record 8s loop</button>
+        <button id="btnRitual" class="btn" type="button">☾ Midnight ritual</button>
+      </div>
+      <label class="tickrow"><input id="chkTick" type="checkbox" checked /> Audible escapement tick (120&nbsp;bpm)</label>
+    </section>
+
+    <section class="panel keys" aria-label="Chime keys">
+      <h2><span class="num">II.</span> Chime Keys</h2>
+      <p class="hint">Strike keys while recording to inscribe notes into the loop. Keys sound freely when idle.</p>
+      <div class="pads" id="pads"></div>
+      <p class="hint small">Keyboard: A S D F G &middot; Space: play/stop &middot; R: record</p>
+    </section>
+
+    <section class="panel stack" aria-label="Stacked echoes">
+      <h2><span class="num">III.</span> Stacked Echoes</h2>
+      <p class="hint">Each loop loses strength with every passing hour (×0.8 per hour). <em>Polish</em> a loop to restore its echo.</p>
+      <ul id="loopList" class="looplist"></ul>
+    </section>
+
+    <section class="panel share" aria-label="Share mix">
+      <h2><span class="num">IV.</span> Tick-Synced Mixes</h2>
+      <p class="hint">Share links carry every loop and snap playback to the next downbeat tick, so mixes start in sync on any engine.</p>
+      <div class="sharerow">
+        <button id="btnCopy" class="btn" type="button">⧉ Copy synced link</button>
+        <button id="btnDownload" class="btn" type="button">⬇ Mix scroll (.json)</button>
+      </div>
+      <p id="shareNote" class="hint small">No mix shared yet in this session.</p>
+    </section>
+
+    <section class="panel vault" aria-label="Midnight vault">
+      <h2><span class="num">V.</span> Vault of Midnights</h2>
+      <p class="hint">At midnight the works go silent and all loops are sealed as ghosts. A new day begins empty.</p>
+      <ul id="vaultList" class="vaultlist"></ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Brass &amp; parchment engine &middot; CSS + canvas only, no images &middot; persists in this browser via localStorage</p>
+  </footer>
+
+  <div id="ritual" class="ritual" aria-hidden="true">
+    <div class="ritual-gear" aria-hidden="true"></div>
+    <div class="ritual-card">
+      <p class="eyebrow">The midnight reset ritual</p>
+      <h2 id="ritualTitle">The bells toll twelve.</h2>
+      <p id="ritualText">Loosening the mainspring&hellip;</p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
