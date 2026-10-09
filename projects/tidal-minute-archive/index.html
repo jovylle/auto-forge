@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tidal Minute Archive — generative tide-clock</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div>
+      <p class="kicker">FIELD UNIT 07 · SALT MERIDIAN</p>
+      <h1>Tidal Minute <em>Archive</em></h1>
+      <p class="sub">A looping tide-clock that samples chimes into evolving history tapestries.</p>
+    </div>
+  </div>
+  <div class="top-stats">
+    <div class="stat"><span class="stat-label">LOOP</span><span class="stat-val" id="statLoop">#001</span></div>
+    <div class="stat"><span class="stat-label">TIDE</span><span class="stat-val" id="statTide">50%</span></div>
+    <div class="stat"><span class="stat-label">CHIMES</span><span class="stat-val" id="statChimes">0</span></div>
+    <div class="transport">
+      <button id="btnPlay" class="btn btn-big" aria-pressed="false">▶&nbsp;FLOOD</button>
+      <button id="btnTap" class="btn btn-tap" title="Sample a chime at the playhead (Space)">◉&nbsp;TAP CHIME</button>
+    </div>
+  </div>
+</header>
+
+<div class="wave-divider" aria-hidden="true">
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0,22 Q60,4 120,22 T240,22 T360,22 T480,22 T600,22 T720,22 T840,22 T960,22 T1080,22 T1200,22 L1200,40 L0,40 Z"/></svg>
+</div>
+
+<main class="layout">
+  <!-- CLOCK -->
+  <section class="panel clock-panel">
+    <div class="panel-head">
+      <h2>01 · Tide-clock sequencer</h2>
+      <span class="stamp" id="tideStamp">NEAP</span>
+    </div>
+    <div class="clock-wrap">
+      <svg id="clock" viewBox="0 0 320 320" role="img" aria-label="12-step tide clock">
+        <defs>
+          <radialGradient id="faceGrad" cx="50%" cy="42%" r="65%">
+            <stop offset="0%" stop-color="#f4efe0"/>
+            <stop offset="70%" stop-color="#e7dfc9"/>
+            <stop offset="100%" stop-color="#cfc4a4"/>
+          </radialGradient>
+        </defs>
+        <circle cx="160" cy="160" r="148" class="ring-outer"/>
+        <circle cx="160" cy="160" r="128" fill="url(#faceGrad)" stroke="#141a15" stroke-width="3"/>
+        <path id="tideRing" fill="none" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+        <g id="steps"></g>
+        <g id="hand">
+          <line x1="160" y1="160" x2="160" y2="52" class="hand-line"/>
+          <circle cx="160" cy="52" r="7" class="hand-dot"/>
+        </g>
+        <circle cx="160" cy="160" r="16" class="hub"/>
+        <text x="160" y="166" text-anchor="middle" class="hub-text" id="hubText">12</text>
+      </svg>
+      <div class="tide-meter">
+        <div class="tide-meter-head"><span>TIDE HEIGHT</span><span id="tidePct">50%</span></div>
+        <div class="tide-trough"><div class="tide-fill" id="tideFill"></div><div class="tide-bob" id="tideBob">≋</div></div>
+      </div>
+    </div>
+    <div class="controls">
+      <label class="ctl">Tide speed · <b id="bpmVal">72</b> bpm
+        <input type="range" id="bpm" min="40" max="160" value="72" />
+      </label>
+      <label class="ctl">Tide depth · <b id="depthVal">60%</b>
+        <input type="range" id="depth" min="0" max="100" value="60" />
+      </label>
+      <label class="ctl">Decay · <b id="decayVal">1.8s</b>
+        <input type="range" id="decay" min="40" max="400" value="180" />
+      </label>
+      <div class="ctl-row">
+        <label class="ctl half">Voice
+          <select id="voice">
+            <option value="shell">Shell — soft sine</option>
+            <option value="bell" selected>Bell — salt glass</option>
+            <option value="kelp">Kelp — hollow wood</option>
+            <option value="fog">Foghorn — low brass</option>
+          </select>
+        </label>
+        <label class="chk"><input type="checkbox" id="evolve" checked /> <span>EVOLVE each loop</span></label>
+      </div>
+      <div class="btn-row">
+        <button id="btnClear" class="btn">⌫ clear</button>
+        <button id="btnSeed" class="btn">✳ seed tide</button>
+        <button id="btnMute" class="btn" aria-pressed="false">♪ sound on</button>
+      </div>
+      <p class="hint">Tap steps on the dial (or keys <kbd>1</kbd>–<kbd>9</kbd>,<kbd>0</kbd>,<kbd>–</kbd>,<kbd>=</kbd>) to score chimes. <kbd>Space</kbd> = one-tap sample at the playhead.</p>
+    </div>
+  </section>
+
+  <!-- RIBBON -->
+  <section class="panel ribbon-panel">
+    <div class="panel-head">
+      <h2>02 · History ribbon</h2>
+      <span class="count-pill" id="ribbonCount">0 strata</span>
+    </div>
+    <p class="panel-note">Every finished loop lays down one stratum. Darker = higher tide. Click a stratum to reload it.</p>
+    <div id="ribbon" class="ribbon" aria-live="polite"></div>
+    <div class="btn-row">
+      <button id="btnKeep" class="btn">＋ keep loop as stratum</button>
+      <button id="btnWipe" class="btn btn-danger">wipe archive</button>
+    </div>
+  </section>
+
+  <!-- CARD -->
+  <section class="panel card-panel">
+    <div class="panel-head">
+      <h2>03 · Loop card</h2>
+      <span class="stamp stamp-alt">EXPORT</span>
+    </div>
+    <article class="loopcard" id="loopCard">
+      <div class="loopcard-top">
+        <span id="cardLoop">LOOP #001</span><span id="cardTide">TIDE 50% · NEAP</span>
+      </div>
+      <h3 id="cardTitle">Neap Glass Study</h3>
+      <canvas id="cardWave" width="520" height="120"></canvas>
+      <div class="card-dots" id="cardDots"></div>
+      <p class="card-meta" id="cardMeta">0 chimes · 72 bpm · bell voice</p>
+      <div class="card-foot"><span>TIDAL MINUTE ARCHIVE</span><span id="cardDate"></span></div>
+    </article>
+    <div class="btn-row wrap">
+      <button id="btnPNG" class="btn btn-big">⬇ PNG card</button>
+      <button id="btnCopy" class="btn">⧉ copy text</button>
+      <button id="btnJSON" class="btn">{} json</button>
+    </div>
+    <p class="hint">PNG renders the card + wave + pattern off-screen — no server, works from <code>file://</code>.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>◍ organic-brutalist field instrument · system fonts only · WebAudio, no network</span>
+  <span>sound on for full tide · <kbd>Space</kbd> tap · <kbd>P</kbd> play</span>
+</footer>
+<div id="toast" class="toast" role="status"></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

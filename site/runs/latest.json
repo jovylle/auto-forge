@@ -1,8 +1,8 @@
 {
-  "slug": "chime-spiral-conservatory",
-  "title": "Chime Spiral Conservatory",
+  "slug": "tidal-minute-archive",
+  "title": "Tidal Minute Archive",
   "stack": "html",
-  "aesthetic": "japanese-minimal",
+  "aesthetic": "organic-brutalist",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 104359,
-  "at": "2026-10-08T19:47:31.492Z"
+  "elapsedMs": 100653,
+  "at": "2026-10-09T01:02:49.664Z"
 }
