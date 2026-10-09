@@ -1,0 +1,31 @@
+{
+  "slug": "second-hand-orchestra",
+  "title": "Second Hand Orchestra",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "glassmorphism",
+  "theme": "time",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "tap tempo clock ensemble",
+      "layered loop mixer",
+      "history timeline scrubber",
+      "shareable minute symphonies"
+    ],
+    "status": "pass",
+    "summary": "Second Hand Orchestra — glassmorphic generative clock ensemble in projects/second-hand-orchestra (index.html, style.css, app.js, README.md). Tap-tempo (button/Space/slider) driving tick/tock/bar-bell voices; 5 generative WebAudio layers with per-second mutation + pitched second-tick, mixer with enable/volume/mute/solo; rolling 60s event-log timeline canvas with drag-to-scrub loop replay + back-to-live; minute symphonies frozen to localStorage and shared via compact base64url #s= hash links. Verified: node syntax check, stub-DOM init with zero exceptions, headless Chromium zero JS errors, full render at narrow viewport (earlier crop proven headless min-width artifact), palette audit 3 colors + black/white, share round-trip of 300 events = 8.3KB hash."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 454531,
+  "at": "2026-10-09T08:12:37.979Z"
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Second Hand Orchestra — conduct drifting loops</title>
+  <meta name="description" content="Conduct drifting loops where every second ticks a new layer of sound. Tap tempo, layered loop mixer, history scrubber, shareable minute symphonies." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>
+
+  <main id="app">
+    <header class="hero glass">
+      <div class="hero-top">
+        <p class="kicker">generative &middot; time &middot; loops</p>
+        <h1>Second Hand <em>Orchestra</em></h1>
+        <p class="sub">Conduct drifting loops where every second ticks a new layer of sound.</p>
+      </div>
+      <div class="transport">
+        <button id="btn-power" class="btn power" aria-pressed="false">▶ Start the clock</button>
+        <div class="tempo-cluster">
+          <button id="btn-tap" class="btn tap" disabled>Tap tempo</button>
+          <div class="bpm-read" aria-live="polite">
+            <strong id="bpm-num">96</strong><span>bpm</span>
+          </div>
+          <label class="bpm-slider">tempo
+            <input id="bpm-range" type="range" min="50" max="180" value="96" step="1" disabled />
+          </label>
+        </div>
+        <div class="secondhand" title="The second hand: each tick adds a new layer">
+          <canvas id="ring" width="220" height="220" aria-label="Sixty-second ring"></canvas>
+          <div class="sec-read"><strong id="sec-num">00</strong><span>sec</span></div>
+        </div>
+      </div>
+      <p id="audio-hint" class="hint">Press “Start the clock” — browsers need one tap before any sound.</p>
+    </header>
+
+    <section class="glass panel" aria-labelledby="h-ensemble">
+      <div class="panel-head">
+        <h2 id="h-ensemble">Tap-tempo clock ensemble</h2>
+        <p>Three clock voices follow your tapped tempo. Toggle each voice.</p>
+      </div>
+      <div class="ensemble" id="ensemble">
+        <button class="voice is-on" data-voice="tick" aria-pressed="true"><b>Tick</b><small>every beat &middot; high wood</small></button>
+        <button class="voice is-on" data-voice="tock" aria-pressed="true"><b>Tock</b><small>off-beats &middot; low wood</small></button>
+        <button class="voice is-on" data-voice="bell" aria-pressed="true"><b>Bell</b><small>each bar &middot; glass chime</small></button>
+      </div>
+    </section>
+
+    <section class="glass panel" aria-labelledby="h-mixer">
+      <div class="panel-head">
+        <h2 id="h-mixer">Layered loop mixer</h2>
+        <p>Five generative loops drift on the clock. Every second, the pattern mutates.</p>
+      </div>
+      <div class="mixer" id="mixer"><!-- channels rendered by app.js --></div>
+    </section>
+
+    <section class="glass panel" aria-labelledby="h-history">
+      <div class="panel-head row">
+        <div>
+          <h2 id="h-history">History timeline scrubber</h2>
+          <p>Rolling record of everything played. Drag to scrub back &amp; replay any moment.</p>
+        </div>
+        <button id="btn-live" class="btn ghost hidden">● Back to live</button>
+      </div>
+      <canvas id="timeline" height="148" aria-label="History timeline — drag to scrub"></canvas>
+      <div class="tl-meta"><span id="tl-label">live · last 60s</span><span id="tl-count">0 events</span></div>
+    </section>
+
+    <section class="glass panel" aria-labelledby="h-share">
+      <div class="panel-head">
+        <h2 id="h-share">Shareable minute symphonies</h2>
+        <p>Freeze the last 60 seconds into a symphony. It lives in a link — send it, replay it.</p>
+      </div>
+      <div class="share-row">
+        <button id="btn-capture" class="btn accent" disabled>❄ Capture this minute</button>
+        <button id="btn-copy" class="btn ghost" disabled>⧉ Copy share link</button>
+      </div>
+      <p id="share-link" class="share-link hidden"><a id="share-url" href="#">…</a></p>
+      <ul id="sym-list" class="sym-list" aria-live="polite"></ul>
+    </section>
+
+    <footer class="foot">
+      <p>Second Hand Orchestra · plain HTML/CSS/JS · WebAudio, no samples · data stays in your browser</p>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
