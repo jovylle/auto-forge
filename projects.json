@@ -4878,7 +4878,7 @@
         "clocks"
       ],
       "status": "done",
-      "deployed": false,
+      "deployed": true,
       "createdAt": "2026-10-09T01:01:06.942Z",
       "updatedAt": "2026-10-09T01:02:49.659Z",
       "buildPassed": true,
