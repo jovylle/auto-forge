@@ -4949,6 +4949,39 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "lantern-minute-menagerie",
+      "title": "Lantern Minute Menagerie",
+      "category": "generative",
+      "stack": "html",
+      "stackReason": "keyword html (generative)",
+      "aesthetic": "neo-brutalism",
+      "theme": "time",
+      "constraints": [
+        "must have an easter egg",
+        "3 colors max (plus black/white)"
+      ],
+      "description": "Wind up glass minutes that hatch into glowing clock-creatures every hour.",
+      "features": [
+        "wind clock eggs alive",
+        "loop 60-second habitats",
+        "crossbreed history echoes",
+        "mint midnight evolutions"
+      ],
+      "tags": [
+        "time",
+        "loops",
+        "creatures",
+        "clocks"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-09T14:17:02.899Z",
+      "updatedAt": "2026-10-09T14:21:05.254Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

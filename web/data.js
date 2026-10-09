@@ -4942,12 +4942,45 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-09T08:04:55.548Z",
-    "updatedAt": "2026-10-09T08:12:37.973Z",
+    "updatedAt": "2026-10-09T08:12:47.192Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "lantern-minute-menagerie",
+    "title": "Lantern Minute Menagerie",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "neo-brutalism",
+    "theme": "time",
+    "constraints": [
+      "must have an easter egg",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Wind up glass minutes that hatch into glowing clock-creatures every hour.",
+    "features": [
+      "wind clock eggs alive",
+      "loop 60-second habitats",
+      "crossbreed history echoes",
+      "mint midnight evolutions"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "creatures",
+      "clocks"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-09T14:17:02.899Z",
+    "updatedAt": "2026-10-09T14:20:56.226Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 157, done: 148, counts: {"done":148,"needs-human":9} };
+export const stats = { total: 158, done: 149, counts: {"done":149,"needs-human":9} };

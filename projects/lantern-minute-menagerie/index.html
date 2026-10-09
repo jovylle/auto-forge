@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Lantern Minute Menagerie — wind up glass minutes</title>
+<meta name="description" content="Wind up glass clock-eggs. Hatch glowing clock-creatures that live in 60-second looping habitats. Crossbreed echoes. Mint midnight evolutions." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="tape top-tape" aria-hidden="true">★ WIND · HATCH · LOOP · CROSSBREED · MINT ★ EVERY HOUR A NEW CREATURE ★</div>
+
+<header class="mast">
+  <button id="lanternBtn" class="lantern" aria-label="Lantern — keep clicking, something hides here">🏮</button>
+  <div class="mast-text">
+    <p class="kicker">hourly hatching engine · nº 60</p>
+    <h1>LANTERN<br/>MINUTE<br/><span class="outline">MENAGERIE</span></h1>
+    <p class="sub">Wind up glass minutes. They hatch into glowing clock-creatures that live in 60-second loops.</p>
+  </div>
+  <div class="clock-chip" aria-live="polite">
+    <div id="bigClock" class="big-clock">00:00:00</div>
+    <div id="loopLabel" class="loop-label">LOOP :00 / :60</div>
+    <div class="loopbar"><div id="loopFill" class="loopfill"></div><div id="loopTick" class="looptick"></div></div>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- 1 · WIND -->
+  <section class="card" id="windCard" aria-label="Wind clock eggs alive">
+    <div class="card-head"><span class="tag">01</span><h2>WIND CLOCK EGGS ALIVE</h2><span class="sticker">hold to wind!</span></div>
+    <p class="hint">Pick an egg, then <b>HOLD</b> the WIND key (or the crank) to wind it. At <b>60 ticks</b> it hatches. Each egg has a secret winding temperament.</p>
+    <div class="eggs" id="eggs" role="list"></div>
+    <div class="windrow">
+      <button id="windBtn" class="btn wind" aria-label="Hold to wind the selected egg">🌀 HOLD TO WIND</button>
+      <button id="layEggBtn" class="btn ghost">+ lay new egg</button>
+      <div class="meter" aria-hidden="true"><div id="windFill" class="windfill"></div></div>
+    </div>
+    <p id="windMsg" class="msg" aria-live="polite">Select the pulsing egg, then wind it alive.</p>
+  </section>
+
+  <!-- 2 · HABITAT -->
+  <section class="card" id="habCard" aria-label="60 second habitat loop">
+    <div class="card-head"><span class="tag">02</span><h2>60-SECOND HABITAT LOOP</h2><span class="sticker alt">:00 → :60 ∞</span></div>
+    <div class="habwrap">
+      <canvas id="habitat" width="640" height="360" aria-label="Looping habitat canvas"></canvas>
+      <div class="habside">
+        <div id="nowName" class="nowname">— no creature yet —</div>
+        <div id="nowMeta" class="nowmeta">wind an egg to hatch your first beast</div>
+        <div class="habbtns">
+          <button id="prevBtn" class="btn small">◀ prev</button>
+          <button id="nextBtn" class="btn small">next ▶</button>
+          <button id="chimeBtn" class="btn small ghost">🔔 hourly chime: <span id="chimeState">on</span></button>
+        </div>
+        <p class="hint small">The habitat loops every 60 seconds. Hands, legs &amp; glow all sync to the wall-clock second. A new wild egg auto-lays <b>every hour</b> — like clockwork.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · CROSSBREED + ECHOES -->
+  <section class="card" aria-label="Crossbreed history echoes">
+    <div class="card-head"><span class="tag">03</span><h2>CROSSBREED HISTORY ECHOES</h2><span class="sticker">pick 2 → breed</span></div>
+    <p class="hint">Tap two creatures to select them as parents, then <b>CROSSBREED</b>. The child inherits parts from both; the parents linger as glowing <b>echo ghosts</b> behind it.</p>
+    <div class="breedrow">
+      <button id="breedBtn" class="btn">⚗ CROSSBREED SELECTED 2</button>
+      <button id="clearSelBtn" class="btn ghost small">clear</button>
+    </div>
+    <div id="menagerie" class="menagerie" role="list"></div>
+    <h3 class="minih">⌁ history echoes <span id="echoCount"></span></h3>
+    <div id="echoes" class="echoes"></div>
+  </section>
+
+  <!-- 4 · MIDNIGHT -->
+  <section class="card dark" aria-label="Mint midnight evolutions">
+    <div class="card-head"><span class="tag inv">04</span><h2>MIDNIGHT EVOLUTIONS</h2><span class="sticker">🌙 00:00 only</span></div>
+    <p class="hint light">At <b>midnight (00:00)</b> the lanterns turn violet-black and one creature may <b>EVOLVE</b> into a mint — a crowned, one-of-one edition stamped with the date. Missed midnight? Flip the time-machine switch. No judgment.</p>
+    <div class="midrow">
+      <div class="countbox"><div class="countlabel">TO MIDNIGHT</div><div id="midCount" class="midcount">--:--:--</div></div>
+      <button id="mintBtn" class="btn mint">🌙 MINT MIDNIGHT EVOLUTION</button>
+      <label class="timeswitch"><input type="checkbox" id="timeMachine" /> <span>time-machine: pretend it's midnight</span></label>
+    </div>
+    <div id="mints" class="mints"></div>
+    <p id="mintMsg" class="msg light" aria-live="polite"></p>
+  </section>
+
+  <footer class="foot">
+    <p><b>LANTERN MINUTE MENAGERIE</b> · neo-brutalist clock-toy · canvas + localStorage, no backend · <span class="dim">psst — the lantern likes attention… and so does the Konami code.</span></p>
+    <p class="dim">Palette: amber / teal / coral + black &amp; paper only. <button id="resetBtn" class="linkbtn">release all creatures (reset)</button></p>
+  </footer>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="keeperVeil" class="keeper-veil" hidden><div class="keeper-card"><div class="keeper-big">🏮</div><h2>LANTERN KEEPER!</h2><p>You found the easter egg.<br/>The Keeper parades every hatched creature across the sky for 60 seconds of glory.</p><button id="keeperClose" class="btn">back to the menagerie</button></div></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

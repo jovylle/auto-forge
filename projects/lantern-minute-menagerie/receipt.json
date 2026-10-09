@@ -1,0 +1,32 @@
+{
+  "slug": "lantern-minute-menagerie",
+  "title": "Lantern Minute Menagerie",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "neo-brutalism",
+  "theme": "time",
+  "constraints": [
+    "must have an easter egg",
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "wind clock eggs alive",
+      "loop 60-second habitats",
+      "crossbreed history echoes",
+      "mint midnight evolutions"
+    ],
+    "status": "pass",
+    "summary": "Lantern Minute Menagerie — neo-brutalist clock-creature hatcher (index.html, style.css, app.js, README.md). Hold-to-wind eggs with temperaments (eager/sleepy/tricky) hatching at 60 ticks; wall-clock-synced 60s canvas habitat with clock-belly creatures + sun arc; tap-2 crossbreeding with echo-ghost trails + history strip; midnight-gated crowned evolution mints (time-machine preview, 1/night); hourly wild eggs, WebAudio chimes, localStorage. 3 easter eggs: 7x lantern rub, Konami code, typing 'moon'. Verified: node --check clean, all DOM IDs resolve, headless Chromium zero console errors, 3 colors + black/white only."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 229164,
+  "at": "2026-10-09T14:20:56.230Z"
+}
