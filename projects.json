@@ -5016,6 +5016,38 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "velvet-hour-reverie",
+      "title": "Velvet Hour Reverie",
+      "category": "generative",
+      "stack": "html",
+      "stackReason": "keyword html (generative)",
+      "aesthetic": "retro-wave",
+      "theme": "time",
+      "constraints": [
+        "must be playable in 30 seconds"
+      ],
+      "description": "Paint looping clock chimes into ambient generative soundscapes that warp with time.",
+      "features": [
+        "drag hours to bend tempo",
+        "layer chime loops live",
+        "evolving clockwork visuals",
+        "export midnight mix"
+      ],
+      "tags": [
+        "time",
+        "loops",
+        "ambient",
+        "generative"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-10T01:04:52.290Z",
+      "updatedAt": "2026-10-10T01:07:25.260Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

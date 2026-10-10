@@ -1,0 +1,31 @@
+{
+  "slug": "velvet-hour-reverie",
+  "title": "Velvet Hour Reverie",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "retro-wave",
+  "theme": "time",
+  "constraints": [
+    "must be playable in 30 seconds"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag hours to bend tempo",
+      "layer chime loops live",
+      "evolving clockwork visuals",
+      "export midnight mix"
+    ],
+    "status": "pass",
+    "summary": "Velvet Hour Reverie — retro-wave generative clock-chime soundscape (index.html, style.css, app.js, README.md). Draggable 24h neon dial bends tempo 0.6x-1.6x + key + sky; 5 live WebAudio chime layers with toggles/faders/echo; canvas retro-sun/grid/gears/orbit visuals pulsing with beats; 16s deterministic WAV export via OfflineAudioContext. Verified: node syntax OK, all DOM ids wired, responsive + playable in one tap."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 132044,
+  "at": "2026-10-10T01:07:06.190Z"
+}

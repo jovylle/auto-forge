@@ -5009,12 +5009,44 @@ export const projects = [
       "garden"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-09T20:27:11.811Z",
-    "updatedAt": "2026-10-09T20:28:49.192Z",
+    "updatedAt": "2026-10-09T20:28:57.884Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "velvet-hour-reverie",
+    "title": "Velvet Hour Reverie",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "retro-wave",
+    "theme": "time",
+    "constraints": [
+      "must be playable in 30 seconds"
+    ],
+    "description": "Paint looping clock chimes into ambient generative soundscapes that warp with time.",
+    "features": [
+      "drag hours to bend tempo",
+      "layer chime loops live",
+      "evolving clockwork visuals",
+      "export midnight mix"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "ambient",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-10T01:04:52.290Z",
+    "updatedAt": "2026-10-10T01:07:06.186Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 159, done: 150, counts: {"done":150,"needs-human":9} };
+export const stats = { total: 160, done: 151, counts: {"done":151,"needs-human":9} };

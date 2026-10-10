@@ -1,8 +1,8 @@
 {
-  "slug": "pendulum-moss-reliquary",
-  "title": "Pendulum Moss Reliquary",
+  "slug": "velvet-hour-reverie",
+  "title": "Velvet Hour Reverie",
   "stack": "html",
-  "aesthetic": "grunge",
+  "aesthetic": "retro-wave",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 92609,
-  "at": "2026-10-09T20:28:49.197Z"
+  "elapsedMs": 132044,
+  "at": "2026-10-10T01:07:06.191Z"
 }
