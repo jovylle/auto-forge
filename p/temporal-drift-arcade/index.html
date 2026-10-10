@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Temporal Drift Arcade — Rewind 10 Seconds</title>
+<meta name="description" content="Rewind ten seconds to dodge clocks in a neon time-loop maze. Swiss arcade experiment." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="dot"></span>TDA<span class="sup">/86</span></div>
+  <div class="top-meta"><span id="seedLabel">SEED —</span><span id="clockLabel">T+00.0</span></div>
+  <nav><button id="btnHelp" class="ghost" aria-label="How to play">?</button></nav>
+</header>
+
+<main id="app">
+  <section class="hero">
+    <p class="kicker">01 — Time-loop maze · Daily seed challenge</p>
+    <h1>TEMPORAL<br/>DRIFT <span class="outline">ARCADE</span></h1>
+    <p class="sub">Rewind <strong>10&nbsp;seconds</strong> to dodge the clocks. Collect shards in combo, escape the maze before the loop collapses.</p>
+    <div class="cta-row">
+      <button id="btnStart" class="btn solid">Start loop ↵</button>
+      <button id="btnRewind" class="btn" disabled>⟲ Rewind <kbd>R</kbd></button>
+      <button id="btnDaily" class="btn ghostbtn">Daily seed</button>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <div class="board-wrap">
+      <div class="hud hud-top">
+        <div class="stat"><label>SCORE</label><b id="score">0</b></div>
+        <div class="stat"><label>SHARDS</label><b id="shards">0/0</b></div>
+        <div class="stat"><label>COMBO</label><b id="combo">×1</b></div>
+        <div class="stat"><label>TIME</label><b id="time">90.0</b></div>
+        <div class="stat"><label>REWINDS</label><b id="charges">3</b></div>
+      </div>
+      <div class="canvas-holder">
+        <canvas id="game" width="760" height="760" aria-label="Maze canvas"></canvas>
+        <div id="overlay" class="overlay hidden"></div>
+      </div>
+      <div class="hud hud-bottom">
+        <div class="loopbar">
+          <label>10s LOOP BUFFER <span id="bufPct">0%</span></label>
+          <input id="scrub" type="range" min="0" max="100" value="100" step="0.5" aria-label="Rewind scrub" />
+        </div>
+        <div class="seedrow">
+          <input id="seedInput" inputmode="numeric" placeholder="seed e.g. 20261010" aria-label="Seed" />
+          <button id="btnSeed" class="mini">Load</button>
+          <button id="btnRandom" class="mini">Random</button>
+          <button id="btnCopy" class="mini">Copy link</button>
+        </div>
+      </div>
+      <div class="dpad" aria-hidden="false">
+        <button data-dx="0" data-dy="-1">▲</button>
+        <div><button data-dx="-1" data-dy="0">◀</button><button data-dx="0" data-dy="1">▼</button><button data-dx="1" data-dy="0">▶</button></div>
+      </div>
+      <p class="keys">WASD / arrows — move · <kbd>R</kbd> — enter rewind · drag slider + <kbd>Enter</kbd> — resume · <kbd>Esc</kbd> — cancel</p>
+    </div>
+
+    <aside class="side">
+      <div class="card"><h3>02 — Brief</h3>
+        <ol>
+          <li>Reach the <i class="sq exit"></i> exit gate.</li>
+          <li>Dodge <i class="sq clock"></i> clock patrols — one touch kills.</li>
+          <li>Grab <i class="sq shard"></i> shards within 2.5s to build combo.</li>
+          <li>Death? Spend a rewind, scrub back ≤10s, try again.</li>
+        </ol>
+      </div>
+      <div class="card"><h3>03 — Daily challenge</h3>
+        <p id="dailyInfo">—</p>
+        <p class="best">Best today: <b id="bestDaily">0</b> · Best this maze: <b id="bestSeed">0</b></p>
+      </div>
+      <div class="card log"><h3>04 — Loop log</h3><ul id="log"></ul></div>
+    </aside>
+  </section>
+
+  <footer>SWISS RULES — 3 colours + black/white · Helvetica logic · <span id="footSeed"></span></footer>
+</main>
+
+<div id="help" class="hidden" role="dialog" aria-modal="true">
+  <div class="sheet">
+    <h2>How it works</h2>
+    <p>Every frame is recorded into a 10-second ring buffer. Press <kbd>R</kbd> to freeze time and scrub the slider backwards — player position, shards, score and combo are restored. Clocks keep their patrol but you keep your knowledge. 3 charges per run; every 8-shard combo streak earns +1.</p>
+    <p>Mazes are procedural (recursive backtracker) from the seed. The daily seed is <b id="helpSeed"></b> — same maze for everyone today.</p>
+    <button id="btnCloseHelp" class="btn solid">Got it</button>
+  </div>
+</div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
