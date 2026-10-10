@@ -207,6 +207,11 @@ async function buildProject(idea, isContinue=false) {
 }
 
 async function main() {
+  if (args.includes("--help") || args.includes("-h")) {
+    console.log("usage: node daily.mjs [--status] [--dry-run] [--only <slug>]");
+    console.log("  (no args = run a full tick; --help is safe, other unknown flags still run a tick — pass --dry-run to preview)");
+    return;
+  }
   if (STATUS) {
     const q = readQueue();
     const counts = {};
