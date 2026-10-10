@@ -1,0 +1,32 @@
+{
+  "slug": "fossil-clockwork-menagerie",
+  "title": "Fossil Clockwork Menagerie",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "memphis",
+  "theme": "time",
+  "constraints": [
+    "must have an easter egg",
+    "must work with keyboard only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Hatch ticking creatures",
+      "Time-loop breeding",
+      "Fossil timeline gallery",
+      "Sampled chime soundscapes"
+    ],
+    "status": "pass",
+    "summary": "Fossil Clockwork Menagerie — Memphis generative pet lab (index.html, style.css, app.js, README.md). Generative SVG creatures hatch/tick/age through 4 stages, 2-parent loop breeding with rewind + loop counter, auto/manual fossilization into epoch diorama timeline with JSON export, WebAudio bell-chime soundscape with pads/drone/echo/volume. Verified: node --check clean, all DOM ids wired, responsive at 375px. Constraints: 'ticktock' easter egg hatches golden Chrono-Squid; fully keyboard operable with ? guide."
+  },
+  "buildPassed": false,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 120236,
+  "at": "2026-10-10T21:13:55.368Z"
+}
