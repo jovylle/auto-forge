@@ -3604,17 +3604,17 @@
         "generative",
         "history"
       ],
-      "updatedAt": "2026-10-10T21:13:55.362Z",
+      "updatedAt": "2026-10-10T21:18:20.071Z",
       "lastError": "Error: Timed out waiting for the background service to start\n    at <anonymous> (/$bunfs/root/chunk-n8d8mk37.js:3:6979)\n    at service.ensure (/$bunfs/root/chunk-ktw99a5w.js:3:732)\n    at service.ensure (definition) (/$bunfs/root/chunk-n8d8mk37.js:3:5523)\n    at cli.server-connection.resolve (/$bunfs/root/chunk-08cwxx0a.js:2:1056)\n    at cli.server-connection.resolve (definition) (/$bunfs/root/chu",
-      "lastModel": "opencode/muse-spark-1.3-contributor-free"
+      "lastModel": "opencode-go/muse-spark-1.3-contributor"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-10-10T15:04:04.911Z",
-    "lastSlug": "century-echo-dial"
+    "lastRun": "2026-10-10T21:14:08.825Z",
+    "lastSlug": "fossil-clockwork-menagerie"
   },
   "health": {
     "opencode/deepseek-v4-flash-free": {
@@ -3633,9 +3633,9 @@
       "lastError": "Error: Timed out waiting for the background service to start\n    at <anonymous> (/$bunfs/root/chunk-n8d8mk37.js:3:6979)\n    at service.ensure (/$bunfs/root/chunk-ktw99a5w.js:3:732)\n    at service.ensure (definition) (/$bunfs/root/chunk-n8d8mk37.js:3:5523)\n    at cli.server-connection.resolve (/$bunf"
     },
     "opencode-go/muse-spark-1.3-contributor": {
-      "failStreak": 0,
-      "lastFail": null,
-      "lastError": ""
+      "failStreak": 2,
+      "lastFail": "2026-10-10T21:18:20.062Z",
+      "lastError": "Error: Timed out waiting for the background service to start\n    at <anonymous> (/$bunfs/root/chunk-n8d8mk37.js:3:6979)\n    at service.ensure (/$bunfs/root/chunk-ktw99a5w.js:3:732)\n    at service.ensure (definition) (/$bunfs/root/chunk-n8d8mk37.js:3:5523)\n    at cli.server-connection.resolve (/$bunf"
     }
   },
   "logs": [
@@ -3655,5 +3655,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-10-10T21:13:56.159Z"
+  "updatedAt": "2026-10-10T21:18:20.848Z"
 }
