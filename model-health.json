@@ -15,8 +15,8 @@
     "lastError": "Error: Timed out waiting for the background service to start\n    at <anonymous> (/$bunfs/root/chunk-n8d8mk37.js:3:6979)\n    at service.ensure (/$bunfs/root/chunk-ktw99a5w.js:3:732)\n    at service.ensure (definition) (/$bunfs/root/chunk-n8d8mk37.js:3:5523)\n    at cli.server-connection.resolve (/$bunf"
   },
   "opencode-go/muse-spark-1.3-contributor": {
-    "failStreak": 0,
-    "lastFail": null,
-    "lastError": ""
+    "failStreak": 2,
+    "lastFail": "2026-10-10T21:18:20.062Z",
+    "lastError": "Error: Timed out waiting for the background service to start\n    at <anonymous> (/$bunfs/root/chunk-n8d8mk37.js:3:6979)\n    at service.ensure (/$bunfs/root/chunk-ktw99a5w.js:3:732)\n    at service.ensure (definition) (/$bunfs/root/chunk-n8d8mk37.js:3:5523)\n    at cli.server-connection.resolve (/$bunf"
   }
 }
