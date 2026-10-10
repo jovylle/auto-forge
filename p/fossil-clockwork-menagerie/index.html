@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fossil Clockwork Menagerie — hatch · loop · fossilize</title>
+  <meta name="description" content="Breed clockwork creatures that age, loop, and fossilize into generative history dioramas." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip" href="#meadow">Skip to menagerie</a>
+  <div class="bg-shapes" aria-hidden="true">
+    <span class="tri"></span><span class="dots"></span><span class="zig"></span>
+    <span class="ring"></span><span class="squig"></span><span class="cross"></span>
+  </div>
+
+  <header class="topbar">
+    <div class="logo" aria-label="Fossil Clockwork Menagerie">
+      <span class="logo-gear" aria-hidden="true">⚙</span>
+      <span class="logo-text">FOSSIL<br />CLOCKWORK<br /><em>MENAGERIE</em></span>
+    </div>
+    <div class="hud" role="status" aria-live="polite">
+      <div class="hud-chip"><span class="hud-label">TICK</span><span id="hudTick" class="hud-val">0</span></div>
+      <div class="hud-chip alt"><span class="hud-label">LOOP</span><span id="hudLoop" class="hud-val">1</span></div>
+      <div class="hud-chip alt2"><span class="hud-label">EPOCH</span><span id="hudEpoch" class="hud-val">Dawn Gears</span></div>
+      <div class="hud-chip"><span class="hud-label">POP</span><span id="hudPop" class="hud-val">0</span></div>
+    </div>
+    <div class="top-actions">
+      <button id="btnSound" class="btn chunky pink" aria-pressed="true" title="Toggle sound (M)">🔔 Sound ON</button>
+      <button id="btnHelp" class="btn chunky white" title="Keyboard help (?)">? Keys</button>
+    </div>
+  </header>
+
+  <p class="tagline"><strong>Breed clockwork creatures</strong> that age, loop &amp; fossilize into generative history dioramas. <span class="tag-kbd">100% keyboard playable — press <kbd>?</kbd> anytime.</span></p>
+
+  <main id="app">
+    <section class="panel hatch-panel" aria-labelledby="hHatch">
+      <div class="panel-tape" aria-hidden="true"></div>
+      <h2 id="hHatch"><span class="num">01</span> Hatchery <span class="h-sub">— hatch ticking creatures (H)</span></h2>
+      <div class="hatch-row">
+        <button id="btnHatch" class="btn mega yellow" title="Hatch a creature (H)">🥚 HATCH <kbd>H</kbd></button>
+        <button id="btnHatch3" class="btn mega teal" title="Hatch three (Shift+H)">×3 CLUTCH <kbd>⇧H</kbd></button>
+        <div class="tempo-box">
+          <label for="tempo">Tick tempo <output id="tempoVal" for="tempo">132ms</output></label>
+          <input id="tempo" type="range" min="60" max="400" step="4" value="132" aria-describedby="tempoHint" />
+          <small id="tempoHint">Keys <kbd>[</kbd> slower · <kbd>]</kbd> faster</small>
+        </div>
+      </div>
+      <div id="meadow" class="meadow" role="list" aria-label="Living creatures" tabindex="0"></div>
+      <p class="hint">Meadow: <kbd>1</kbd>–<kbd>9</kbd> select · <kbd>Enter</kbd> on a focused card toggles select · <kbd>F</kbd> fossilize selected · <kbd>X</kbd> release · <kbd>C</kbd> clear fossils</p>
+    </section>
+
+    <section class="panel breed-panel" aria-labelledby="hBreed">
+      <div class="panel-tape t2" aria-hidden="true"></div>
+      <h2 id="hBreed"><span class="num">02</span> Time-Loop Breeding <span class="h-sub">— breed two (B)</span></h2>
+      <div class="breed-grid">
+        <div class="breed-slots">
+          <div id="slotA" class="slot" aria-label="Parent A slot">A: —</div>
+          <div class="loop-glyph" aria-hidden="true">⟳</div>
+          <div id="slotB" class="slot" aria-label="Parent B slot">B: —</div>
+        </div>
+        <div class="breed-controls">
+          <button id="btnBreed" class="btn mega pink" title="Breed selected pair (B)">⚗ BREED LOOP <kbd>B</kbd></button>
+          <button id="btnRewind" class="btn chunky white" title="Rewind ages one stage (R)">⏪ Rewind <kbd>R</kbd></button>
+          <p id="breedMsg" class="breed-msg" role="status" aria-live="polite">Select 2 creatures to splice their gears.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel fossil-panel" aria-labelledby="hFossil">
+      <div class="panel-tape t3" aria-hidden="true"></div>
+      <h2 id="hFossil"><span class="num">03</span> Fossil Timeline Gallery <span class="h-sub">— deep time dioramas</span></h2>
+      <div class="fossil-bar">
+        <button id="btnFossil" class="btn chunky black" title="Fossilize oldest / selected (F)">🦴 FOSSILIZE <kbd>F</kbd></button>
+        <button id="btnExport" class="btn chunky white" title="Download fossil record JSON (P)">⬇ Record <kbd>P</kbd></button>
+        <button id="btnWipe" class="btn chunky white" title="Release all living (X)">☁ Release <kbd>X</kbd></button>
+        <span id="fossilCount" class="count-pill" role="status">0 fossils</span>
+      </div>
+      <ol id="timeline" class="timeline" aria-label="Fossil timeline" tabindex="0"></ol>
+      <p class="hint">Elders fossilize on their own at max age. Each fossil seals a diorama + chime motif.</p>
+    </section>
+
+    <section class="panel sound-panel" aria-labelledby="hSound">
+      <div class="panel-tape t4" aria-hidden="true"></div>
+      <h2 id="hSound"><span class="num">04</span> Sampled Chime Soundscape <span class="h-sub">— WebAudio gears</span></h2>
+      <div class="sound-grid">
+        <div class="pad-grid" role="group" aria-label="Chime pads (keys Q W E R T)">
+          <button class="pad" data-note="0" title="Chime 1 (Q)">Q<span>doon</span></button>
+          <button class="pad" data-note="1" title="Chime 2 (W)">W<span>dell</span></button>
+          <button class="pad" data-note="2" title="Chime 3 (E)">E<span>daan</span></button>
+          <button class="pad" data-note="3" title="Chime 4 (R)">R<span>dorr</span></button>
+          <button class="pad" data-note="4" title="Chime 5 (T)">T<span>diin</span></button>
+        </div>
+        <div class="soundscape-ctrl">
+          <button id="btnDrone" class="btn chunky teal" aria-pressed="false" title="Ambient drone (D)">🌊 Drone <kbd>D</kbd>: OFF</button>
+          <label class="vol">Chime volume <input id="vol" type="range" min="0" max="100" value="70" /></label>
+          <label class="vol">Echo <input id="echo" type="range" min="0" max="80" value="35" /></label>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>⚙ tick · loop · fossil · <span class="foot-secret">the curator hums at midnight…</span></span>
+    <span class="foot-keys">Fully keyboard operable · <kbd>Tab</kbd> moves · <kbd>Enter</kbd>/<kbd>Space</kbd> activates everything</span>
+  </footer>
+
+  <div id="helpDlg" class="dlg-backdrop" hidden>
+    <div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dlgTitle">
+      <h2 id="dlgTitle">⌨ Keyboard field guide</h2>
+      <ul class="keys">
+        <li><kbd>H</kbd> hatch · <kbd>⇧H</kbd> hatch 3</li>
+        <li><kbd>1</kbd>–<kbd>9</kbd> select creature · <kbd>0</kbd> clear selection</li>
+        <li><kbd>B</kbd> breed selected pair · <kbd>R</kbd> rewind ages</li>
+        <li><kbd>F</kbd> fossilize · <kbd>X</kbd> release living · <kbd>C</kbd> clear fossils</li>
+        <li><kbd>Q</kbd><kbd>W</kbd><kbd>E</kbd><kbd>R</kbd><kbd>T</kbd> chime pads</li>
+        <li><kbd>M</kbd> sound on/off · <kbd>D</kbd> drone · <kbd>[</kbd> <kbd>]</kbd> tempo</li>
+        <li><kbd>P</kbd> export fossil record · <kbd>?</kbd> this card · <kbd>Esc</kbd> close</li>
+      </ul>
+      <p class="dlg-rumor">Rumor: somewhere a sequence of eight letters wakes something golden…</p>
+      <button id="btnCloseHelp" class="btn chunky pink">Got it ⏎</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <div id="loopFlash" class="loop-flash" aria-hidden="true"></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

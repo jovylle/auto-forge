@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root{
+  --pink:#ff2e88; --teal:#00c2a8; --yellow:#ffd02e; --purple:#6c3bff;
+  --ink:#14101f; --paper:#fff6e9; --white:#ffffff; --blue:#2e9bff;
+  --shadow:5px 5px 0 var(--ink);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Space Grotesk',system-ui,sans-serif; overflow-x:hidden;
+  background-image:radial-gradient(var(--ink) 1.2px, transparent 1.2px);
+  background-size:26px 26px;
+}
+h1,h2,.logo-text,.btn.mega{font-family:'Archivo Black',sans-serif}
+kbd{
+  font-family:inherit; font-size:.72em; background:var(--ink); color:#fff;
+  border-radius:5px; padding:.1em .45em; margin-left:.35em; white-space:nowrap;
+}
+.btn kbd{background:rgba(0,0,0,.28)}
+:focus-visible{outline:4px solid var(--blue); outline-offset:2px; border-radius:6px}
+.skip{position:absolute; left:-999px; top:0; background:var(--ink); color:#fff; padding:.6em 1em; z-index:99}
+.skip:focus{left:8px; top:8px}
+
+/* floating memphis shapes */
+.bg-shapes span{position:fixed; z-index:0; pointer-events:none; opacity:.9}
+.tri{top:12%; right:4%; width:0; height:0; border-left:34px solid transparent; border-right:34px solid transparent; border-bottom:58px solid var(--teal); transform:rotate(12deg)}
+.dots{bottom:8%; left:3%; width:150px; height:60px; background-image:radial-gradient(var(--pink) 5px, transparent 5px); background-size:22px 22px}
+.zig{top:46%; left:-8px; width:120px; height:22px; background:repeating-linear-gradient(-45deg, var(--yellow) 0 10px, transparent 10px 20px); transform:rotate(-8deg)}
+.ring{top:22%; left:44%; width:64px; height:64px; border:10px solid var(--purple); border-radius:50%}
+.squig{bottom:14%; right:6%; width:110px; height:26px; background:var(--pink); border-radius:20px; transform:rotate(10deg); mask:radial-gradient(12px at 12px 50%, transparent 98%, #000) -12px 0/24px 26px repeat-x}
+.cross{top:64%; right:12%; font-size:2rem; color:var(--ink)}
+.cross::after{content:'✕ ✕ ✕'}
+
+/* topbar */
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; gap:1rem; align-items:center; flex-wrap:wrap;
+  background:var(--ink); color:#fff; padding:.7rem 1rem; border-bottom:6px solid var(--pink);
+}
+.logo{display:flex; align-items:center; gap:.6rem}
+.logo-gear{font-size:2.4rem; display:inline-block; animation:spin 6s linear infinite; color:var(--yellow)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.logo-text{font-size:.82rem; line-height:1.05; letter-spacing:.04em}
+.logo-text em{font-style:normal; background:var(--teal); color:var(--ink); padding:0 .3em}
+.hud{display:flex; gap:.5rem; flex-wrap:wrap; margin-inline:auto}
+.hud-chip{background:var(--yellow); color:var(--ink); border:3px solid #fff; border-radius:12px; padding:.15em .6em; font-weight:700; transform:rotate(-1deg)}
+.hud-chip.alt{background:var(--teal)} .hud-chip.alt2{background:var(--pink); color:#fff}
+.hud-label{font-size:.62rem; letter-spacing:.12em; margin-right:.4em; opacity:.75}
+.top-actions{display:flex; gap:.5rem}
+
+.tagline{position:relative; z-index:1; max-width:1060px; margin:1rem auto 0; padding:0 1rem; font-size:1.02rem}
+.tag-kbd{opacity:.75}
+
+/* panels */
+#app{position:relative; z-index:1; max-width:1060px; margin:0 auto; padding:1rem 1rem 3rem; display:grid; gap:1.4rem}
+.panel{background:var(--white); border:4px solid var(--ink); border-radius:18px; box-shadow:8px 8px 0 var(--ink); padding:1rem 1.1rem 1.2rem; position:relative}
+.panel-tape{position:absolute; top:-14px; left:32px; width:120px; height:26px; background:var(--yellow); border:3px solid var(--ink); transform:rotate(-4deg)}
+.panel-tape.t2{background:var(--teal); transform:rotate(3deg)}
+.panel-tape.t3{background:var(--pink); transform:rotate(-2deg)}
+.panel-tape.t4{background:var(--purple); transform:rotate(2deg)}
+.panel h2{margin:.2rem 0 .8rem; font-size:1.25rem; letter-spacing:.01em}
+.num{display:inline-block; background:var(--ink); color:var(--yellow); border-radius:10px; padding:.05em .45em; margin-right:.3em}
+.h-sub{font-family:'Space Grotesk'; font-size:.85rem; font-weight:500; opacity:.7}
+
+/* buttons */
+.btn{font-family:'Space Grotesk'; font-weight:700; border:3px solid var(--ink); border-radius:12px; cursor:pointer; box-shadow:var(--shadow); transition:transform .08s, box-shadow .08s}
+.btn:hover{transform:translate(-1px,-1px)} .btn:active{transform:translate(3px,3px); box-shadow:1px 1px 0 var(--ink)}
+.btn.mega{font-size:1rem; padding:.7rem 1.1rem; letter-spacing:.02em}
+.btn.chunky{padding:.45rem .8rem; background:var(--white)}
+.yellow{background:var(--yellow)} .teal{background:var(--teal)} .pink{background:var(--pink); color:#fff} .black{background:var(--ink); color:#fff} .white{background:#fff}
+
+.hatch-row{display:flex; gap:.7rem; align-items:end; flex-wrap:wrap; margin-bottom:.9rem}
+.tempo-box{display:grid; gap:.2rem; background:var(--paper); border:3px solid var(--ink); border-radius:12px; padding:.4rem .7rem; min-width:220px}
+.tempo-box label{font-weight:700; font-size:.85rem} .tempo-box output{color:var(--pink)}
+input[type=range]{accent-color:var(--pink); width:100%}
+
+/* meadow */
+.meadow{display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:.8rem; min-height:120px; border:3px dashed var(--ink); border-radius:14px; padding:.8rem; background:
+  repeating-linear-gradient(0deg, transparent 0 18px, rgba(108,59,255,.08) 18px 20px), var(--paper)}
+.meadow:empty::after{content:'The meadow is silent. Press H to hatch a ticking friend.'; opacity:.6; padding:1rem}
+.creature{background:#fff; border:3px solid var(--ink); border-radius:14px; padding:.5rem; text-align:center; box-shadow:4px 4px 0 var(--ink); cursor:pointer; position:relative; transition:transform .12s}
+.creature:hover{transform:rotate(-1deg) scale(1.02)}
+.creature.selected{outline:4px solid var(--pink); background:#fff0f6}
+.creature .cname{font-weight:700; font-size:.85rem}
+.creature .cmeta{font-size:.72rem; opacity:.75}
+.creature svg{width:100%; height:96px; display:block}
+.creature .stage-pill{display:inline-block; font-size:.65rem; font-weight:700; border:2px solid var(--ink); border-radius:20px; padding:0 .5em; margin-top:.25em}
+.st-egg{background:#eee} .st-hatch{background:var(--yellow)} .st-adult{background:var(--teal)} .st-elder{background:var(--pink); color:#fff} .st-gold{background:gold}
+.creature .agebar{height:8px; border:2px solid var(--ink); border-radius:6px; overflow:hidden; margin-top:.3em; background:#fff}
+.creature .agebar i{display:block; height:100%; background:repeating-linear-gradient(-45deg, var(--purple) 0 6px, var(--pink) 6px 12px)}
+.creature.ticking{animation:tickpulse var(--tick,.4s) ease-in-out infinite}
+@keyframes tickpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.045) rotate(.6deg)}}
+.gear{transform-origin:center; transform-box:fill-box; animation:spin 5s linear infinite}
+.gear.rev{animation-direction:reverse}
+
+/* breeding */
+.breed-grid{display:grid; grid-template-columns:1fr; gap:.8rem}
+.breed-slots{display:flex; gap:.6rem; align-items:stretch}
+.slot{flex:1; border:3px solid var(--ink); border-radius:12px; padding:.6rem; background:var(--paper); font-weight:700; min-height:56px}
+.slot.filled{background:#e8fff8}
+.loop-glyph{font-size:2rem; align-self:center; animation:spin 3s linear infinite}
+.breed-controls{display:flex; gap:.6rem; align-items:center; flex-wrap:wrap}
+.breed-msg{font-size:.9rem; background:var(--ink); color:#fff; border-radius:10px; padding:.4em .8em; margin:0}
+
+/* fossils */
+.fossil-bar{display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; margin-bottom:.8rem}
+.count-pill{background:var(--ink); color:var(--yellow); font-weight:700; border-radius:20px; padding:.25em .9em}
+.timeline{list-style:none; margin:0; padding:.4rem .2rem .8rem; display:flex; gap:.9rem; overflow-x:auto; scroll-snap-type:x mandatory}
+.timeline li{scroll-snap-align:start; min-width:210px; max-width:230px; border:3px solid var(--ink); border-radius:14px; box-shadow:5px 5px 0 var(--ink); overflow:hidden; background:#fff; flex-shrink:0}
+.timeline li:focus-visible{outline-offset:-2px}
+.diorama{height:110px; display:grid; place-items:center; font-size:3rem; border-bottom:3px solid var(--ink)}
+.fossil-body{padding:.5rem .6rem .7rem}
+.fossil-body h3{margin:.1rem 0; font-size:.95rem}
+.fossil-body p{margin:.15rem 0; font-size:.78rem}
+.epoch-tag{display:inline-block; font-size:.65rem; font-weight:700; background:var(--ink); color:#fff; border-radius:6px; padding:.1em .5em}
+.timeline li:nth-child(odd){transform:rotate(-1deg)} .timeline li:nth-child(even){transform:rotate(1deg)}
+.timeline:empty::after{content:'No fossils yet — deep time awaits.'; opacity:.6}
+
+/* sound */
+.sound-grid{display:grid; grid-template-columns:1fr; gap:.8rem}
+.pad-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:.5rem}
+.pad{font-family:'Archivo Black'; font-size:1.2rem; border:3px solid var(--ink); border-radius:14px; padding:.6rem .2rem; box-shadow:var(--shadow); cursor:pointer; display:grid; gap:.1em; background:var(--yellow)}
+.pad span{font-family:'Space Grotesk'; font-size:.7rem; font-weight:700}
+.pad:nth-child(2){background:var(--teal)} .pad:nth-child(3){background:var(--pink); color:#fff}
+.pad:nth-child(4){background:var(--purple); color:#fff} .pad:nth-child(5){background:#fff}
+.pad:active{transform:translate(3px,3px); box-shadow:1px 1px 0 var(--ink)}
+.soundscape-ctrl{display:flex; gap:1rem; align-items:center; flex-wrap:wrap}
+.vol{display:grid; font-size:.82rem; font-weight:700}
+
+.hint{font-size:.8rem; opacity:.75}
+.foot{position:relative; z-index:1; background:var(--ink); color:#fff; padding:.8rem 1rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-size:.85rem}
+.foot-secret{color:var(--yellow)}
+
+/* dialog / toast / flash */
+.dlg-backdrop{position:fixed; inset:0; background:rgba(20,16,31,.6); display:grid; place-items:center; z-index:50; padding:1rem}
+.dlg-backdrop[hidden]{display:none}
+.dlg{background:var(--white); border:4px solid var(--ink); border-radius:18px; box-shadow:10px 10px 0 var(--pink); padding:1.2rem 1.4rem; max-width:440px}
+.dlg h2{margin-top:0}
+.keys{list-style:none; padding:0; display:grid; gap:.35rem}
+.dlg-rumor{background:var(--paper); border:2px dashed var(--ink); border-radius:10px; padding:.5em .8em; font-size:.85rem}
+.toast{position:fixed; bottom:18px; left:50%; transform:translateX(-50%) rotate(-1deg); background:var(--ink); color:#fff; border:3px solid var(--yellow); border-radius:12px; padding:.6em 1.1em; z-index:60; font-weight:700; max-width:92vw}
+.toast[hidden]{display:none}
+.loop-flash{position:fixed; inset:0; pointer-events:none; z-index:40; opacity:0; background:conic-gradient(from 0deg, var(--pink), var(--yellow), var(--teal), var(--purple), var(--pink))}
+.loop-flash.go{animation:flash .7s ease-out}
+@keyframes flash{0%{opacity:.55}100%{opacity:0}}
+
+@media (max-width:640px){
+  .pad-grid{grid-template-columns:repeat(5,1fr)}
+  .breed-slots{flex-direction:column} .loop-glyph{transform:rotate(90deg); align-self:center}
+  .topbar{position:static}
+}
+@media (min-width:760px){ .breed-grid{grid-template-columns:1fr 1fr} .sound-grid{grid-template-columns:1.2fr 1fr} }
+@media (prefers-reduced-motion:reduce){ *{animation:none !important; transition:none !important} }
