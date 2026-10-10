@@ -5106,12 +5106,44 @@ export const projects = [
       "retro"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-10T08:41:19.583Z",
-    "updatedAt": "2026-10-10T08:42:54.967Z",
+    "updatedAt": "2026-10-10T08:43:03.996Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "century-echo-dial",
+    "title": "Century Echo Dial",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "extreme-minimal",
+    "theme": "time",
+    "constraints": [
+      "must have an easter egg"
+    ],
+    "description": "Spin a clock dial to remix centuries of history into looping ambient soundscapes.",
+    "features": [
+      "Drag time dial to scrub eras",
+      "Auto-loop historic samples",
+      "Layer chimes and ticks",
+      "Export 30s loop"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "history",
+      "ambient"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-10T14:48:08.236Z",
+    "updatedAt": "2026-10-10T15:03:51.776Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 162, done: 153, counts: {"done":153,"needs-human":9} };
+export const stats = { total: 163, done: 154, counts: {"done":154,"needs-human":9} };

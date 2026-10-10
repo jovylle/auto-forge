@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Century Echo Dial</title>
+  <meta name="description" content="Spin a clock dial to remix centuries of history into looping ambient soundscapes." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="rule-top" aria-hidden="true"></div>
+  <main id="app">
+    <header class="masthead">
+      <span class="mono micro">C.E.D — 001</span>
+      <span class="mono micro title">Century Echo Dial</span>
+      <span class="mono micro">1500 — 2026 <i id="eggDot" class="eggdot" hidden></i></span>
+    </header>
+
+    <section class="era" aria-live="polite">
+      <p class="mono micro label" id="eraLabel">BAROQUE PLUCK · C.</p>
+      <h1 class="era-name" id="eraName">Baroque Pluck</h1>
+      <p class="mono year" id="yearReadout" aria-label="Current year">1 6 4 3</p>
+      <p class="era-sub" id="eraSub">Catgut strings &amp; chapel stone.</p>
+    </section>
+
+    <section class="dial-wrap">
+      <div id="dial" class="dial" role="slider" tabindex="0"
+           aria-label="Time dial. Drag or use arrow keys to scrub eras."
+           aria-valuemin="1500" aria-valuemax="2026" aria-valuenow="1643"
+           title="drag the ring — the dial remembers 1776">
+        <svg id="ticks" viewBox="0 0 200 200" aria-hidden="true"></svg>
+        <div id="needle" class="needle" aria-hidden="true"></div>
+        <button id="centerBtn" class="center" aria-label="Play or pause the loop">
+          <span id="centerGlyph" aria-hidden="true">▶</span>
+        </button>
+      </div>
+      <div class="meter" aria-hidden="true"><span id="meterFill"></span></div>
+    </section>
+
+    <section class="layers" aria-label="Layers">
+      <button id="btnChime" class="pill on" aria-pressed="true">CHIME</button>
+      <button id="btnTick" class="pill on" aria-pressed="true">TICK</button>
+      <button id="btnWash" class="pill on" aria-pressed="true">WASH</button>
+    </section>
+
+    <section class="transport">
+      <button id="btnPlay" class="btn">PLAY</button>
+      <button id="btnExport" class="btn ghost">EXPORT 30S LOOP</button>
+      <label class="mono micro vol">VOL
+        <input id="vol" type="range" min="0" max="100" value="70" aria-label="Volume" />
+      </label>
+    </section>
+    <p class="mono micro status" id="status" aria-live="polite">stopped · drag the ring</p>
+
+    <footer class="foot mono micro">
+      <span>drag ring · ←/→ scrub · space play</span>
+      <span>loops are synthesized live — no samples, works offline</span>
+    </footer>
+  </main>
+
+  <div id="egg" class="egg" hidden>
+    <p class="mono micro">1 7 7 6</p>
+    <p class="egg-big">the bell cracks.</p>
+    <p class="mono micro">twelve colonies, one fractured bronze throat — listen.</p>
+    <button id="eggClose" class="btn ghost">RETURN TO THE DIAL</button>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
