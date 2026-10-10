@@ -1,0 +1,31 @@
+{
+  "slug": "temporal-drift-arcade",
+  "title": "Temporal Drift Arcade",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "swiss",
+  "theme": "time",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "10-second rewind mechanic",
+      "procedural clock mazes",
+      "combo time shards",
+      "daily seed challenge"
+    ],
+    "status": "pass",
+    "summary": "Temporal Drift Arcade — Swiss-poster neon time-loop maze (index.html, style.css, app.js, README.md). 10s 60fps ring-buffer rewind with scrub slider + charges, seeded recursive-backtracker mazes with 5 clock patrols, 14 combo shards (2.5s chain, x9 mult, charge rewards), daily YYYYMMDD seed + custom/random/?seed= link + localStorage bests. Verified: node --check clean, deterministic maze gen, 4 hex colors = 2 chromatic + black/white."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 86997,
+  "at": "2026-10-10T08:42:54.971Z"
+}

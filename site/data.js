@@ -5074,12 +5074,44 @@ export const projects = [
       "clocks"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-10T02:36:43.602Z",
-    "updatedAt": "2026-10-10T02:38:48.340Z",
+    "updatedAt": "2026-10-10T02:38:57.591Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "temporal-drift-arcade",
+    "title": "Temporal Drift Arcade",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "swiss",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Rewind ten seconds to dodge clocks in a neon time-loop maze.",
+    "features": [
+      "10-second rewind mechanic",
+      "procedural clock mazes",
+      "combo time shards",
+      "daily seed challenge"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "arcade",
+      "retro"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-10T08:41:19.583Z",
+    "updatedAt": "2026-10-10T08:42:54.967Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 161, done: 152, counts: {"done":152,"needs-human":9} };
+export const stats = { total: 162, done: 153, counts: {"done":153,"needs-human":9} };
