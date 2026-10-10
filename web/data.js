@@ -5041,12 +5041,45 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-10T01:04:52.290Z",
-    "updatedAt": "2026-10-10T01:07:06.186Z",
+    "updatedAt": "2026-10-10T01:07:25.260Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "echo-hour-carousel",
+    "title": "Echo Hour Carousel",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "time",
+    "constraints": [
+      "no images — CSS/canvas only",
+      "must be playable in 30 seconds"
+    ],
+    "description": "Spinning clock rings brew ambient loops from hours, minutes, history echoes.",
+    "features": [
+      "drag time rings to remix",
+      "auto-generating tick melodies",
+      "history mode replays past hours",
+      "one-click loop export"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "ambient",
+      "clocks"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-10T02:36:43.602Z",
+    "updatedAt": "2026-10-10T02:38:48.340Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 160, done: 151, counts: {"done":151,"needs-human":9} };
+export const stats = { total: 161, done: 152, counts: {"done":152,"needs-human":9} };

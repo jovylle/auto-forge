@@ -1,0 +1,32 @@
+{
+  "slug": "echo-hour-carousel",
+  "title": "Echo Hour Carousel",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "japanese-cyberpunk",
+  "theme": "time",
+  "constraints": [
+    "no images — CSS/canvas only",
+    "must be playable in 30 seconds"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag time rings to remix",
+      "auto-generating tick melodies",
+      "history mode replays past hours",
+      "one-click loop export"
+    ],
+    "status": "pass",
+    "summary": "Echo Hour Carousel — japanese-cyberpunk generative time-ring looper in projects/echo-hour-carousel (index.html, style.css, app.js, README.md). 3 draggable canvas neon rings (24h root / 60min density+brightness / 12-step echo feedback) drive a WebAudio Insen-scale generative tick scheduler with feedback delay; history stamps to localStorage with 4s replay walk + clickable timeline; one-click 8s MediaRecorder loop export to .webm. Verified: node --check clean, all DOM ids resolve, headless Chromium zero page errors, no images, responsive to 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 120796,
+  "at": "2026-10-10T02:38:48.345Z"
+}
