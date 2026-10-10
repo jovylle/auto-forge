@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Echo Hour Carousel — 電響回転時計</title>
+<meta name="description" content="Spinning clock rings brew ambient loops from hours, minutes and history echoes." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vtext vtext-left" aria-hidden="true">電響回転時計・午前零時</div>
+<div class="vtext vtext-right" aria-hidden="true">エコー・アワー・カルーセル</div>
+
+<header class="top">
+  <div class="brand">
+    <span class="kanji">電響</span>
+    <span class="brand-sub">ECHO HOUR CAROUSEL<br/>回転時計ループ</span>
+  </div>
+  <div class="clockbox">
+    <div id="bigClock" class="bigclock">00:00</div>
+    <div class="clockmeta"><span id="bpmLabel">84 BPM</span> · <span id="scaleLabel">INSEN A</span></div>
+  </div>
+  <div class="topbtns">
+    <button id="playBtn" class="btn btn-play" aria-pressed="false">▶ 起動 PLAY</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="stage-card">
+    <canvas id="rings" width="560" height="560" aria-label="Three draggable time rings: hour, minute, echo"></canvas>
+    <p class="hint">⟲ <b>drag a ring</b> to remix — 外 outer = hour / 中 middle = minute / 内 inner = echo · works with touch + mouse · <kbd>←</kbd><kbd>→</kbd> nudge selected ring</p>
+    <div class="ring-tabs" role="tablist" aria-label="Select ring for keyboard">
+      <button class="ring-tab active" data-ring="hour" role="tab">外 HOUR <b id="vHour">0</b></button>
+      <button class="ring-tab" data-ring="min" role="tab">中 MIN <b id="vMin">0</b></button>
+      <button class="ring-tab" data-ring="echo" role="tab">内 ECHO <b id="vEcho">4</b></button>
+    </div>
+  </section>
+
+  <aside class="panel">
+    <div class="card">
+      <h2><span class="jp">自動生成</span> TICK MELODY</h2>
+      <p class="desc">Every 8th-note tick is composed live from the rings: <b>hour</b> picks the root, <b>minute</b> bends rhythm &amp; brightness, <b>echo</b> feeds the delay ghost.</p>
+      <div class="meters">
+        <div class="meter"><label>ROOT <span id="rootNote">A2</span></label><div class="bar"><i id="mRoot"></i></div></div>
+        <div class="meter"><label>DENSITY <span id="densVal">50%</span></label><div class="bar"><i id="mDens"></i></div></div>
+        <div class="meter"><label>ECHO FB <span id="fbVal">35%</span></label><div class="bar"><i id="mFb"></i></div></div>
+      </div>
+      <div class="row">
+        <button id="mutateBtn" class="btn ghost">🎲 mutate 変化</button>
+        <button id="stampBtn" class="btn ghost">＋ stamp hour 刻印</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="jp">履歴</span> HISTORY MODE</h2>
+      <p class="desc">Past hours are stamped to localStorage. Replay walks the carousel through them, 4s each.</p>
+      <div class="row">
+        <button id="histBtn" class="btn ghost" aria-pressed="false">⏪ history: OFF</button>
+        <button id="clearHistBtn" class="btn ghost danger">clear</button>
+      </div>
+      <div id="timeline" class="timeline" aria-live="polite"></div>
+    </div>
+
+    <div class="card">
+      <h2><span class="jp">出力</span> LOOP EXPORT</h2>
+      <p class="desc">One click records 8 seconds of the live loop and downloads it. No server, all local.</p>
+      <button id="exportBtn" class="btn btn-export">⤓ EXPORT 8s LOOP</button>
+      <div id="exportStatus" class="status" aria-live="polite">ready — press export while playing</div>
+    </div>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span>電響 ECHO HOUR CAROUSEL — CSS/canvas only, no images · WebAudio generative · file:// safe</span>
+</footer>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

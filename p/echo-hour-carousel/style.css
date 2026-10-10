@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Shippori+Mincho+B1:wght@600;800&family=JetBrains+Mono:wght@500;800&display=swap');
+
+:root{
+  --bg:#08070f; --bg2:#0e0c1d; --ink:#f2ecdf; --dim:#9d94b8;
+  --mag:#ff2d78; --cyan:#00f0ff; --gold:#ffcf5c; --verm:#ff3b30; --vio:#7b5cff;
+  --card:#12102466; --line:#2a2450;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:
+    radial-gradient(900px 500px at 15% -5%, #2a1650 0%, transparent 60%),
+    radial-gradient(800px 500px at 90% 110%, #3d0b33 0%, transparent 55%),
+    radial-gradient(600px 400px at 80% 0%, #062b33 0%, transparent 55%),
+    var(--bg);
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New", system-ui, sans-serif;
+  min-height:100vh; overflow-x:hidden;
+}
+.scanlines{position:fixed;inset:0;pointer-events:none;z-index:5;opacity:.5;
+  background:repeating-linear-gradient(0deg, transparent 0 3px, #00000055 3px 4px);}
+.vtext{position:fixed;top:90px;writing-mode:vertical-rl;font-family:"Shippori Mincho B1",serif;
+  letter-spacing:.5em;color:#ffffff2e;font-size:13px;z-index:0;user-select:none}
+.vtext-left{left:10px}.vtext-right{right:10px}
+
+.top{display:flex;align-items:center;gap:16px;justify-content:space-between;
+  max-width:1080px;margin:0 auto;padding:22px 18px 6px;position:relative;z-index:2;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.kanji{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:44px;line-height:1;
+  color:#fff;text-shadow:0 0 18px var(--mag),0 0 46px var(--mag),3px 3px 0 var(--verm);}
+.brand-sub{font-size:11px;letter-spacing:.18em;color:var(--dim);line-height:1.7;font-weight:700}
+.clockbox{text-align:center}
+.bigclock{font-family:"JetBrains Mono",monospace;font-weight:800;font-size:44px;letter-spacing:.08em;
+  color:var(--cyan);text-shadow:0 0 14px #00f0ff88,0 0 40px #00f0ff44}
+.clockmeta{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--gold);letter-spacing:.2em}
+
+.btn{font-family:inherit;font-weight:900;letter-spacing:.08em;border:1px solid var(--line);
+  background:#1a1533;color:var(--ink);border-radius:12px;padding:12px 18px;cursor:pointer;
+  transition:transform .12s ease, box-shadow .12s ease, background .2s;font-size:14px}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn-play{background:linear-gradient(135deg,var(--mag),var(--verm));border:none;color:#fff;
+  font-size:16px;box-shadow:0 0 22px #ff2d7866,0 4px 0 #7c1039}
+.btn-play.live{background:linear-gradient(135deg,var(--cyan),#0a7);box-shadow:0 0 22px #00f0ff66,0 4px 0 #045}
+.btn-export{background:linear-gradient(135deg,var(--gold),#ff9d2e);border:none;color:#231300;
+  width:100%;font-size:15px;box-shadow:0 0 22px #ffcf5c55,0 4px 0 #7a4d00}
+.btn.ghost{background:#141130;border-color:#37306a}
+.btn.danger{color:#ff8f8f}
+.btn:disabled{opacity:.55;cursor:wait;transform:none}
+
+.layout{max-width:1080px;margin:0 auto;padding:10px 18px 30px;display:grid;
+  grid-template-columns:1.15fr .85fr;gap:18px;position:relative;z-index:2}
+@media(max-width:860px){.layout{grid-template-columns:1fr}}
+.stage-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;
+  backdrop-filter:blur(6px);box-shadow:0 0 0 1px #000,0 0 60px #7b5cff22;text-align:center}
+#rings{width:100%;max-width:560px;height:auto;touch-action:none;cursor:grab;border-radius:14px}
+#rings:active{cursor:grabbing}
+.hint{font-size:12.5px;color:var(--dim);margin:8px 4px 10px}
+.hint b{color:var(--gold)}
+kbd{font-family:"JetBrains Mono",monospace;background:#000;border:1px solid #444;border-bottom-width:3px;
+  border-radius:6px;padding:0 6px;font-size:11px}
+.ring-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.ring-tab{background:#0d0b22;border:1px solid var(--line);color:var(--dim);border-radius:999px;
+  padding:8px 14px;font-family:"JetBrains Mono",monospace;font-size:12px;cursor:pointer;letter-spacing:.1em}
+.ring-tab b{color:var(--cyan)}
+.ring-tab.active{border-color:var(--mag);color:#fff;box-shadow:0 0 14px #ff2d7855}
+.ring-tab.active b{color:var(--gold)}
+
+.panel{display:flex;flex-direction:column;gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px}
+.card h2{margin:0 0 6px;font-size:15px;letter-spacing:.14em}
+.card h2 .jp{font-family:"Shippori Mincho B1",serif;color:var(--mag);margin-right:8px;letter-spacing:.3em}
+.desc{font-size:13px;color:var(--dim);margin:0 0 12px}
+.desc b{color:var(--ink)}
+.meters{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.meter label{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.15em;color:var(--dim);
+  display:flex;justify-content:space-between}
+.meter label span{color:var(--gold)}
+.bar{height:8px;background:#00000088;border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:30%;border-radius:99px;
+  background:linear-gradient(90deg,var(--vio),var(--mag),var(--gold));box-shadow:0 0 10px var(--mag)}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row .btn{flex:1;white-space:nowrap}
+.timeline{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;min-height:40px}
+.chip{font-family:"JetBrains Mono",monospace;font-size:12px;background:#0d0b22;color:var(--cyan);
+  border:1px solid #1e5f6b;border-radius:10px;padding:7px 10px;cursor:pointer}
+.chip small{color:var(--dim);display:block;font-size:10px}
+.chip.now{border-color:var(--gold);color:var(--gold);box-shadow:0 0 12px #ffcf5c44}
+.chip:hover{border-color:var(--mag);color:#fff}
+.empty{font-size:12px;color:var(--dim)}
+.status{margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--dim);
+  border:1px dashed var(--line);border-radius:10px;padding:8px 10px;min-height:34px}
+.status.hot{color:var(--gold);border-color:var(--gold)}
+.foot{max-width:1080px;margin:0 auto;padding:0 18px 34px;color:#ffffff44;font-size:11px;
+  letter-spacing:.12em;text-align:center;position:relative;z-index:2}
+@media(max-width:420px){
+  .kanji{font-size:34px}.bigclock{font-size:34px}
+  .vtext{display:none}
+}
