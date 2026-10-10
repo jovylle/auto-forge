@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Velvet Hour Reverie — clock-chime soundscape</title>
+  <meta name="description" content="Paint looping clock chimes into ambient generative soundscapes that warp with time." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <main id="app">
+    <header class="masthead">
+      <p class="kicker">GENERATIVE · CLOCKWORK · AMBIENT</p>
+      <h1 class="chrome">VELVET HOUR<br /><span>REVERIE</span></h1>
+      <p class="sub">Paint looping clock chimes into ambient soundscapes that warp with time. One tap, then drag the hours.</p>
+    </header>
+
+    <section class="deck">
+      <!-- TIME DIAL -->
+      <div class="panel dial-panel">
+        <div class="panel-title"><span class="dot"></span> HOUR BENDER</div>
+        <div id="dial" role="slider" aria-label="Hour of night" aria-valuemin="0" aria-valuemax="23"
+             aria-valuenow="23" tabindex="0" title="Drag around the dial to bend time">
+          <svg id="dialSvg" viewBox="0 0 200 200" aria-hidden="true"></svg>
+          <div class="dial-center">
+            <div id="clockReadout">23:12</div>
+            <div id="tempoReadout">86 BPM · 1.19×</div>
+            <div id="keyReadout">KEY B · MIN-PENT</div>
+          </div>
+        </div>
+        <div class="dial-hints">
+          <span>◀ drag hours to bend tempo ▶</span>
+        </div>
+        <div class="row">
+          <button id="midnightBtn" class="btn ghost" title="Snap to midnight">⛧ MIDNIGHT</button>
+          <button id="flowBtn" class="btn ghost" aria-pressed="false" title="Let time drift on its own">FLOW: OFF</button>
+        </div>
+        <input id="hourSlider" type="range" min="0" max="23.99" step="0.01" value="23.2" aria-label="Hour scrubber" />
+      </div>
+
+      <!-- MIXER -->
+      <div class="panel mix-panel">
+        <div class="panel-title"><span class="dot cyan"></span> CHIME LOOPS · LIVE</div>
+        <button id="startBtn" class="start-btn">▶ ENTER THE REVERIE</button>
+        <p class="micro">sound starts instantly — playable in under 30 seconds</p>
+        <div id="layers" class="layers"></div>
+        <div class="row">
+          <button id="exportBtn" class="btn primary" disabled title="Render a 16-second mix to WAV">⬇ EXPORT MIDNIGHT MIX</button>
+        </div>
+        <p id="exportStatus" class="micro" role="status"></p>
+        <div class="row tiny-row">
+          <button id="demoBtn" class="btn ghost" title="Turn on a lush preset">✦ LUSH PRESET</button>
+          <button id="clearBtn" class="btn ghost" title="Silence all layers">✧ CLEAR</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel about">
+      <div class="panel-title"><span class="dot gold"></span> HOW IT PLAYS</div>
+      <ol>
+        <li><b>Enter</b> — one tap starts the generative clockwork.</li>
+        <li><b>Drag the dial</b> — hours bend tempo (0.6×–1.6×), key &amp; sky color.</li>
+        <li><b>Layer chimes</b> — toggle loops live, ride the faders.</li>
+        <li><b>Export</b> — render tonight's 16-second midnight mix as <code>.wav</code>.</li>
+      </ol>
+      <p class="micro">Keys: <kbd>space</kbd> play/stop · <kbd>1–5</kbd> layers · <kbd>←→</kbd> nudge hour · <kbd>M</kbd> midnight</p>
+    </section>
+
+    <footer class="foot">VELVET HOUR REVERIE · WebAudio synthesis, no samples · settings persist locally</footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
