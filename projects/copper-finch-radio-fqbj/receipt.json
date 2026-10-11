@@ -9,15 +9,23 @@
     "must react to scroll",
     "must be playable in 30 seconds"
   ],
-  "model": "opencode/muse-spark-1.3-contributor-free",
-  "modelVia": "primary",
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
   "verifyLine": null,
-  "workerResult": null,
-  "buildPassed": false,
-  "verify": {
-    "ok": false,
-    "reason": "index.html missing"
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "dawn dial",
+      "chorus trade",
+      "flock board"
+    ],
+    "status": "pass",
+    "summary": "Copper Finch Radio (glassmorphism, vanilla TS + Tailwind v4): draggable 4-7AM dawn dial with moods/light-meter/perch tints, 8-note WebAudio chirp sequencer with broadcast-and-answer trade flow + nest inbox, localStorage flock board with likes/filters/seeds. Scroll-reactive sky canvas + parallax orbs + phase rail + reveals; 30-second one-tap quick flight. Verified: vite build exit 0, relative ./assets paths, preview 200s for html/js/css."
   },
-  "elapsedMs": 120646,
-  "at": "2026-10-11T01:16:35.476Z"
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 232779,
+  "at": "2026-10-11T04:14:53.122Z"
 }
