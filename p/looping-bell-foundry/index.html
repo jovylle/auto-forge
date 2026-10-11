@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Looping Bell Foundry — cast bells, ring the hours</title>
+  <meta name="description" content="Cast tiny bells on a 24-hour timeline. Loops shift with the real hour and season. WebAudio only, no assets." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="termbar">
+    <div class="termbar-left">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="termbar-title">FOUNDRY.OS <em>v2.4</em></span>
+    </div>
+    <div class="termbar-right">
+      <span id="liveClock" class="live-clock">--:--:--</span>
+      <span id="seasonBadge" class="season-badge">···</span>
+    </div>
+  </header>
+
+  <main id="app">
+    <section class="hero">
+      <p class="kicker">// GENERATIVE TIME INSTRUMENT · 001</p>
+      <h1>LOOPING BELL <span class="glow">FOUNDRY</span></h1>
+      <p class="sub">Cast tiny bells onto the 24-hour ring. The loop re-roots itself to the <strong>real clock hour</strong> and the <strong>season</strong> — the same bells ring a different melody at dawn, noon and midnight.</p>
+      <div id="shiftReadout" class="shift-readout" role="status">initializing…</div>
+    </section>
+
+    <div class="deck">
+      <section class="panel dial-panel">
+        <div class="panel-head"><span>◈ FOUNDRY RING — 24H</span><span id="bellCount" class="head-meta">0 bells</span></div>
+        <div class="dial-wrap" id="dialWrap">
+          <canvas id="ripples"></canvas>
+          <svg id="dial" viewBox="0 0 400 400" role="group" aria-label="24 hour bell ring"></svg>
+          <div class="dial-core">
+            <div id="coreHour" class="core-hour">--</div>
+            <div class="core-label">SYNC HOUR</div>
+            <button id="corePlay" class="core-play" aria-label="Play or stop the loop">▶</button>
+          </div>
+        </div>
+        <p class="hint">CLICK an empty node to <b>cast</b> · CLICK a bell to <b>reclaim</b> (melt it down)</p>
+        <div id="strata" class="strata" aria-label="Chime layers"></div>
+      </section>
+
+      <aside class="panel control-panel">
+        <div class="panel-head"><span>◈ CONTROL DECK</span><span class="head-meta blink" id="audioState">AUDIO: OFF</span></div>
+
+        <div class="ctl-row">
+          <button id="playBtn" class="btn primary">▶ IGNITE LOOP</button>
+          <button id="clearBtn" class="btn ghost" title="Remove all bells">MELT ALL</button>
+        </div>
+
+        <label class="ctl">
+          <span class="ctl-label">TEMPO <b id="tempoVal">84</b> BPM</span>
+          <input id="tempo" type="range" min="40" max="168" value="84" />
+        </label>
+
+        <div class="ctl-row two">
+          <label class="ctl"> <span class="ctl-label">ALLOY</span>
+            <select id="alloy">
+              <option value="bronze">BRONZE · warm</option>
+              <option value="iron">IRON · cold</option>
+              <option value="glass">GLASS · pure</option>
+              <option value="void">VOID · dark</option>
+            </select>
+          </label>
+          <label class="ctl"> <span class="ctl-label">OCTAVE <b id="octVal">+0</b></span>
+            <input id="octave" type="range" min="-1" max="2" step="1" value="0" />
+          </label>
+        </div>
+
+        <div class="ctl-row two">
+          <label class="ctl"> <span class="ctl-label">SEASON</span>
+            <select id="season">
+              <option value="auto">AUTO (real date)</option>
+              <option value="spring">SPRING · lydian</option>
+              <option value="summer">SUMMER · ionian</option>
+              <option value="autumn">AUTUMN · dorian</option>
+              <option value="winter">WINTER · aeolian</option>
+            </select>
+          </label>
+          <label class="ctl check"><span class="ctl-label">FOLLOW REAL CLOCK</span>
+            <button id="liveBtn" class="btn toggle on" aria-pressed="true">LIVE</button>
+          </label>
+        </div>
+
+        <label class="ctl">
+          <span class="ctl-label">SIMULATE HOUR <b id="simVal">14</b>:00 <span class="dim">(disable LIVE to scrub time)</span></span>
+          <input id="simHour" type="range" min="0" max="23" step="1" value="14" disabled />
+        </label>
+
+        <div class="export-block">
+          <div class="panel-sub">◈ EXPORT DAILY MELODY</div>
+          <div class="ctl-row">
+            <button id="wavBtn" class="btn">⬇ WAV LOOP</button>
+            <button id="jsonBtn" class="btn">⬇ JSON</button>
+            <button id="copyBtn" class="btn ghost">COPY SCORE</button>
+          </div>
+          <p class="dim small">WAV renders one full 24-step loop (+ tail) offline with today's tuning. JSON holds bells, tuning &amp; note names.</p>
+        </div>
+
+        <div class="panel-sub">◈ FOUNDRY LOG</div>
+        <div id="log" class="log" aria-live="polite"></div>
+      </aside>
+    </div>
+
+    <section class="panel timeline-panel">
+      <div class="panel-head"><span>◈ CASTING TIMELINE — 00→23</span><span class="head-meta">tap a cell to cast / reclaim</span></div>
+      <div id="timeline" class="timeline"></div>
+    </section>
+
+    <footer class="foot">
+      <span>LOOPING BELL FOUNDRY · WebAudio only · no samples · no servers</span>
+      <span id="footDate"></span>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
