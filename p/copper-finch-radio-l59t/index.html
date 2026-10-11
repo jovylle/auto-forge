@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Copper Finch Radio — trade dawn choruses</title>
+<meta name="description" content="Tune the dawn dial, compose a chorus, and trade songs with fellow finches." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="blob-field" aria-hidden="true">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+</div>
+
+<header class="wrap topbar">
+  <div class="brand">
+    <div class="seed" aria-hidden="true"><span class="seed-dot"></span></div>
+    <div>
+      <p class="kicker">nest frequency 04:00–08:00</p>
+      <h1>Copper Finch Radio</h1>
+    </div>
+  </div>
+  <div class="live" title="Your local dawn phase">
+    <span class="pulse" id="liveDot"></span>
+    <span id="liveLabel">first light</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="lede">Trade dawn choruses with fellow finches. Tune the dial to wake the thicket, stitch your own
+  eight-note phrase, then release it to the flock board.</p>
+
+  <!-- 1 · DAWN DIAL -->
+  <section class="pod" id="dialPod" aria-labelledby="dialH">
+    <div class="pod-head">
+      <h2 id="dialH"><span class="num">01</span> Dawn dial</h2>
+      <p class="hint">Drag the knob or slide the reed. Press <strong>wake the thicket</strong> to hear the chorus.</p>
+    </div>
+    <div class="dial-grid">
+      <div class="dial-stage">
+        <div class="dial-ring" id="dialRing">
+          <div class="dial-knob" id="dialKnob" role="slider" tabindex="0"
+               aria-label="Dawn time" aria-valuemin="240" aria-valuemax="480" aria-valuenow="330">
+            <span class="knob-beak" aria-hidden="true"></span>
+            <span class="knob-time"><strong id="dialTime">5:30</strong><small id="dialPhase">chorus peak</small></span>
+          </div>
+          <div class="tick-field" id="tickField" aria-hidden="true"></div>
+        </div>
+        <input class="reed" id="dialSlider" type="range" min="240" max="480" value="330" step="1"
+               aria-label="Dawn time in minutes" />
+        <div class="reed-labels"><span>4:00 night</span><span>6:00 first light</span><span>8:00 full day</span></div>
+      </div>
+      <div class="dial-side">
+        <canvas id="thicket" width="520" height="220" aria-label="Thicket visualizer"></canvas>
+        <div class="meters">
+          <div class="meter"><label>density <output id="mDensity">62%</output></label><i><b id="bDensity"></b></i></div>
+          <div class="meter"><label>pitch <output id="mPitch">A5</output></label><i><b id="bPitch"></b></i></div>
+          <div class="meter"><label>glow <output id="mGlow">warm</output></label><i><b id="bGlow"></b></i></div>
+        </div>
+        <div class="row">
+          <button class="btn primary" id="btnWake">wake the thicket</button>
+          <button class="btn ghost" id="btnSleep" disabled>roost</button>
+          <label class="vol">air <input id="vol" type="range" min="0" max="100" value="70" aria-label="Volume" /></label>
+        </div>
+        <p class="micro" id="dialMicro">Before sunrise the wrens murmur. Near 6 the whole hedge sings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · CHORUS TRADE -->
+  <section class="pod" id="tradePod" aria-labelledby="tradeH">
+    <div class="pod-head">
+      <h2 id="tradeH"><span class="num">02</span> Chorus trade</h2>
+      <p class="hint">Tap a seed to cycle its call — <em>rest → peep → trill → warble → buzz</em>. Then release it.</p>
+    </div>
+    <div class="trade-grid">
+      <div>
+        <div class="steps" id="steps" role="group" aria-label="Eight-note phrase composer"></div>
+        <div class="legend" aria-hidden="true">
+          <span><i class="pip p0"></i>rest</span><span><i class="pip p1"></i>peep</span><span><i class="pip p2"></i>trill</span><span><i class="pip p3"></i>warble</span><span><i class="pip p4"></i>buzz</span>
+        </div>
+        <div class="row">
+          <button class="btn primary" id="btnPreview">play my phrase</button>
+          <button class="btn ghost" id="btnScatter">scatter</button>
+          <button class="btn ghost" id="btnCatch">catch a wild chorus</button>
+        </div>
+        <p class="micro" id="caughtNote" role="status"></p>
+      </div>
+      <form class="release" id="releaseForm">
+        <h3>release to the flock</h3>
+        <label>finch name <input id="finchName" maxlength="18" placeholder="e.g. Mossbeak" autocomplete="off" /></label>
+        <label>phrase name <input id="phraseName" maxlength="26" placeholder="e.g. Copper Sunrise" autocomplete="off" /></label>
+        <button class="btn primary" type="submit">release ⁀➶</button>
+        <details class="codes">
+          <summary>carry a chorus by code</summary>
+          <div class="code-row">
+            <button class="btn ghost" id="btnCopy" type="button">copy my code</button>
+            <button class="btn ghost" id="btnDownload" type="button">save .chorus</button>
+          </div>
+          <label>paste a friend's code
+            <span class="paste-row"><input id="codeIn" placeholder="CFR1-…" autocomplete="off" /><button class="btn ghost" id="btnImport" type="button">perch it</button></span>
+          </label>
+          <input id="fileIn" type="file" accept=".chorus,.txt,.json" hidden />
+          <button class="btn ghost" id="btnUpload" type="button">load a .chorus file</button>
+          <p class="micro" id="codeNote" role="status"></p>
+        </details>
+      </form>
+    </div>
+  </section>
+
+  <!-- 3 · FLOCK BOARD -->
+  <section class="pod" id="flockPod" aria-labelledby="flockH">
+    <div class="pod-head flock-head">
+      <div>
+        <h2 id="flockH"><span class="num">03</span> Flock board</h2>
+        <p class="hint">Every nest is a trade. Play a neighbour's dawn, heart the ones that lift you.</p>
+      </div>
+      <div class="flock-tools">
+        <label class="sort">sort
+          <select id="sortSel" aria-label="Sort flock board">
+            <option value="new">newest first</option>
+            <option value="loved">most loved</option>
+            <option value="early">earliest risers</option>
+          </select>
+        </label>
+        <button class="btn ghost" id="btnDusk" type="button">fold for dusk (reset)</button>
+      </div>
+    </div>
+    <div class="nests" id="nests"></div>
+    <p class="micro center" id="flockCount" role="status"></p>
+  </section>
+
+  <footer class="foot">
+    <p>Copper Finch Radio · a single-file-ish dawn experiment · songs live in your browser (localStorage) · no servers, no feathers harmed.</p>
+  </footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="./app.js" defer></script>
+</body>
+</html>
