@@ -1,18 +1,18 @@
 {
   "seeds": [
-    { "title": "Brass Lantern Relay", "category": "game", "stack": "html", "tags": ["lantern","relay","game"] },
-    { "title": "Velvet Avalanche", "category": "generative", "stack": "html", "tags": ["avalanche","canvas","generative"] },
-    { "title": "Pebble Semaphore", "category": "tool", "stack": "html", "tags": ["semaphore","signals","tool"] },
-    { "title": "Honeycomb Switchboard", "category": "game", "stack": "html", "tags": ["honeycomb","switchboard","game"] },
-    { "title": "Marble Murmuration", "category": "generative", "stack": "html", "tags": ["murmuration","canvas","generative"] },
-    { "title": "Paper Crane Exchange", "category": "social", "stack": "html", "tags": ["crane","trade","social"] },
-    { "title": "Saffron Circuit", "category": "viz", "stack": "vite", "tags": ["circuit","saffron","canvas"] },
-    { "title": "Driftwood Dial", "category": "tool", "stack": "html", "tags": ["driftwood","dial","tool"] },
-    { "title": "Neon Apiary", "category": "game", "stack": "html", "tags": ["bees","neon","game"] },
-    { "title": "Quartz Cantina", "category": "social", "stack": "html", "tags": ["cantina","social","audio"] },
-    { "title": "Ember Post Office", "category": "game", "stack": "vite", "tags": ["post","ember","game"] },
-    { "title": "Foghorn Library", "category": "tool", "stack": "html", "tags": ["library","foghorn","audio"] },
-    { "title": "Moss Telegraph", "category": "social", "stack": "html", "tags": ["moss","telegraph","social"] },
-    { "title": "Salt Meridian", "category": "viz", "stack": "html", "tags": ["salt","meridian","canvas"] }
+    { "title": "Magpie Voltage Chapel", "category": "generative", "stack": "html", "tags": ["chapel","voltage","audio"] },
+    { "title": "Nettle Coin Laundry", "category": "game", "stack": "html", "tags": ["laundry","coins","game"] },
+    { "title": "Ochre Badger Bureau", "category": "tool", "stack": "html", "tags": ["bureau","badger","tool"] },
+    { "title": "Quarry Wren Gala", "category": "social", "stack": "html", "tags": ["gala","wren","social"] },
+    { "title": "Reed Fox Registry", "category": "tool", "stack": "html", "tags": ["registry","fox","tool"] },
+    { "title": "Silt Heron Hotel", "category": "game", "stack": "html", "tags": ["hotel","heron","game"] },
+    { "title": "Vetch Starling Studio", "category": "generative", "stack": "html", "tags": ["studio","starling","audio"] },
+    { "title": "Fennel Shrew Pharmacy", "category": "viz", "stack": "html", "tags": ["pharmacy","shrew","canvas"] },
+    { "title": "Hazel Dormouse Disco", "category": "game", "stack": "html", "tags": ["disco","dormouse","audio"] },
+    { "title": "Iris Molecule Inn", "category": "social", "stack": "html", "tags": ["inn","molecule","social"] },
+    { "title": "Larkspur Seal Salon", "category": "viz", "stack": "vite", "tags": ["salon","seal","canvas"] },
+    { "title": "Myrtle Vole Vault", "category": "tool", "stack": "html", "tags": ["vault","vole","tool"] },
+    { "title": "Nixie Pond Pavilion", "category": "generative", "stack": "html", "tags": ["pavilion","pond","canvas"] },
+    { "title": "Oat Mantis Minster", "category": "game", "stack": "vite", "tags": ["minster","mantis","game"] }
   ]
 }
