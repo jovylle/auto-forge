@@ -1,15 +1,16 @@
 {
-  "slug": "fossil-clockwork-menagerie",
-  "title": "Fossil Clockwork Menagerie",
-  "stack": "html",
-  "aesthetic": "memphis",
+  "slug": "copper-finch-radio-fqbj",
+  "title": "Copper Finch Radio",
+  "stack": "vite",
+  "aesthetic": "glassmorphism",
   "model": "opencode/muse-spark-1.3-contributor-free",
-  "modelVia": "primary (original successful worker)",
+  "modelVia": "primary",
   "verifyLine": null,
-  "buildPassed": true,
+  "buildPassed": false,
   "verify": {
-    "ok": true
+    "ok": false,
+    "reason": "index.html missing"
   },
-  "elapsedMs": 63253,
-  "at": "2026-10-10T21:26:14.086Z"
+  "elapsedMs": 120646,
+  "at": "2026-10-11T01:16:35.477Z"
 }

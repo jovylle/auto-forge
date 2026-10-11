@@ -5172,13 +5172,45 @@ export const projects = [
       "history"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-10T21:05:57.345Z",
-    "updatedAt": "2026-10-10T21:26:14.063Z",
+    "updatedAt": "2026-10-10T21:26:25.988Z",
     "buildPassed": true,
     "lastError": null,
     "retries": 2,
     "lastModel": "opencode/muse-spark-1.3-contributor-free (original worker pass; 2 re-runs failed on broken opencode service, recovered via manual post-process)"
+  },
+  {
+    "slug": "copper-finch-radio-fqbj",
+    "title": "Copper Finch Radio",
+    "category": "social",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "glassmorphism",
+    "theme": "time",
+    "constraints": [
+      "must react to scroll",
+      "must be playable in 30 seconds"
+    ],
+    "description": "Trade dawn choruses with fellow finches.",
+    "features": [
+      "dawn dial",
+      "chorus trade",
+      "flock board"
+    ],
+    "tags": [
+      "finch",
+      "radio",
+      "dawn"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-10-11T01:13:14.817Z",
+    "updatedAt": "2026-10-11T01:16:35.471Z",
+    "buildPassed": false,
+    "lastError": "Error: Timed out waiting for the background service to start\n    at <anonymous> (/$bunfs/root/chunk-n8d8mk37.js:3:6979)\n    at service.ensure (/$bunfs/root/chunk-ktw99a5w.js:3:732)\n    at service.ensure (definition) (/$bunfs/root/chunk-n8d8mk37.js:3:5523)\n    at cli.server-connection.resolve (/$bunfs/root/chunk-08cwxx0a.js:2:1056)\n    at cli.server-connection.resolve (definition) (/$bunfs/root/chunk-ktw99a5w.js:2:402)\n",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 164, done: 155, counts: {"done":155,"needs-human":9} };
+export const stats = { total: 165, done: 155, counts: {"done":155,"needs-human":9,"needs-iteration":1} };
