@@ -5237,12 +5237,45 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-11T10:26:36.943Z",
-    "updatedAt": "2026-10-11T10:29:18.967Z",
+    "updatedAt": "2026-10-11T10:29:28.705Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "sundial-loop-workshop",
+    "title": "Sundial Loop Workshop",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "grunge",
+    "theme": "time",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Remix daylight hours into looping ambient soundscapes and visuals.",
+    "features": [
+      "drag sun to scrub time",
+      "generates loops from hour",
+      "shareable daily cycles",
+      "visual sundial playback"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "ambient",
+      "sundial",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-11T16:33:15.494Z",
+    "updatedAt": "2026-10-11T16:35:15.447Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 166, done: 157, counts: {"done":157,"needs-human":9} };
+export const stats = { total: 167, done: 158, counts: {"done":158,"needs-human":9} };

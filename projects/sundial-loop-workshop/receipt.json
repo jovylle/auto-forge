@@ -1,0 +1,31 @@
+{
+  "slug": "sundial-loop-workshop",
+  "title": "Sundial Loop Workshop",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "grunge",
+  "theme": "time",
+  "constraints": [
+    "must work with keyboard only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag sun to scrub time",
+      "generates loops from hour",
+      "shareable daily cycles",
+      "visual sundial playback"
+    ],
+    "status": "pass",
+    "summary": "Sundial Loop Workshop — grunge generative daylight remixer in projects/sundial-loop-workshop (index.html, style.css, app.js, README.md). Draggable canvas sun + global arrow-key scrubbing, deterministic WebAudio ambient loops brewed per hour (root/mode/tempo/wave/pattern + elevation-driven filter), stampable daily cycles with URL-hash sharing + localStorage saved days + demo day, visual sundial playback with shadow, rivets, beat pips. Verified: node --check clean, 31/31 JS element refs resolve, 375px responsive CSS. Keyboard-only constraint honored via shortcuts, native controls, skip link, aria-live."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 109476,
+  "at": "2026-10-11T16:35:15.448Z"
+}
