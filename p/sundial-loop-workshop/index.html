@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sundial Loop Workshop — Remix Daylight into Loops</title>
+  <meta name="description" content="Drag the sun to scrub the day. Every hour brews a looping ambient soundscape on a grungy visual sundial. Stamp hours into shareable daily cycles. Fully keyboard-operable." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip" href="#controls">Skip to controls</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="kicker">DAYLIGHT REMIX UNIT Nº 24 — EST. CHAOS</p>
+      <h1>SUNDIAL <span class="h1-loot">LOOP</span> WORKSHOP</h1>
+      <p class="tagline">Drag the sun. Scrub the hours. Every hour of daylight brews its own
+        looping ambient soundscape — stamp them into a daily cycle and pass it on.</p>
+      <p class="stamp" aria-hidden="true">100% KEYBOARD<br />OPERABLE</p>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ SUNDIAL INSTRUMENT ============ -->
+    <section class="panel dial-panel" aria-labelledby="dial-h">
+      <h2 id="dial-h" class="panel-title tape">☀ The Sundial <span class="sub-note">— drag it, or arrow-key it</span></h2>
+      <div class="dial-wrap">
+        <canvas id="dial" width="660" height="440" role="img"
+          aria-label="Visual sundial. Use left and right arrows to scrub the time of day."></canvas>
+        <div class="time-tape" aria-hidden="true"><span id="tapeTime">06:00</span></div>
+      </div>
+
+      <div class="readout" aria-live="off">
+        <div class="now-big"><span id="nowBig">06:00</span></div>
+        <div class="now-meta">
+          <p id="hourName" class="hour-name">DAWN CHORUS RIOT</p>
+          <p class="phase-line"><span id="dayPhase">DAWN</span> · SUN <span id="elevPct">+0%</span></p>
+          <div class="elev-track" aria-hidden="true"><div id="elevBar" class="elev-bar"></div></div>
+        </div>
+      </div>
+
+      <label class="slider-label" for="timeSlider">
+        SCRUB TIME <span class="dim">(focus + ←/→ = 1 min · global ←/→ = 1 hour · ⇧←/→ = 5 min)</span>
+      </label>
+      <input id="timeSlider" type="range" min="0" max="1439" step="1" value="360"
+        aria-describedby="keys-hint" />
+      <p id="keys-hint" class="hint">Mouse/touch: drag the sun disc on the dial. Keyboard-only:
+        <kbd>←</kbd><kbd>→</kbd> scrub hours anywhere on this page.</p>
+    </section>
+
+    <!-- ============ CONTROLS ============ -->
+    <section id="controls" class="panel controls" aria-labelledby="ctl-h" tabindex="-1">
+      <h2 id="ctl-h" class="panel-title tape">◉ Loop Deck</h2>
+
+      <div class="transport" role="group" aria-label="Transport">
+        <button id="btnPlay" class="btn btn-big" aria-pressed="false">▶ PLAY LOOP</button>
+        <button id="btnCycle" class="btn" aria-pressed="false" title="Play stamped hours in sequence (key: L)">↻ CYCLE: OFF</button>
+        <button id="btnMute" class="btn" aria-pressed="false" title="Mute (key: M)">🔊 SOUND</button>
+      </div>
+
+      <article class="recipe" aria-labelledby="recipe-h" aria-live="off">
+        <h3 id="recipe-h">LOOP DNA <span class="dim">— brewed fresh from the current hour</span></h3>
+        <dl class="dna">
+          <div><dt>ROOT</dt><dd id="rRoot">—</dd></div>
+          <div><dt>MODE</dt><dd id="rMode">—</dd></div>
+          <div><dt>TEMPO</dt><dd id="rBpm">—</dd></div>
+          <div><dt>WAVE</dt><dd id="rWave">—</dd></div>
+        </dl>
+        <div id="rSteps" class="steps" aria-hidden="true"></div>
+        <p class="recipe-note">Same hour = same loop, every visit. Deterministic like sunrise.</p>
+      </article>
+
+      <div class="stamper">
+        <button id="btnStamp" class="btn btn-rust" title="Stamp current hour into cycle (key: Enter)">✚ STAMP <span id="stampHour">06</span>:00</button>
+        <button id="btnDrop" class="btn" title="Remove last stamp (key: Backspace)">⌫ DROP LAST</button>
+        <button id="btnDemo" class="btn" title="Load a demo day">⚄ DEMO DAY</button>
+        <button id="btnClear" class="btn" title="Clear the cycle">✕ CLEAR</button>
+      </div>
+
+      <h3 class="cycle-h">TODAY'S CYCLE <span id="cycleCount" class="dim">(0 stamps)</span></h3>
+      <ol id="cycleList" class="cycle-list" aria-label="Stamped hours in your daily cycle"></ol>
+      <p id="cycleEmpty" class="dim">No stamps yet — scrub to an hour you like and hit STAMP (or Enter).</p>
+
+      <h3 class="cycle-h">SHARE THIS DAY</h3>
+      <div class="share-row">
+        <label class="sr-only" for="shareLink">Shareable link for this cycle</label>
+        <input id="shareLink" type="text" readonly value="" placeholder="stamp some hours first…" />
+        <button id="btnCopy" class="btn" title="Copy link (key: C)">⧉ COPY</button>
+      </div>
+      <p id="shareMsg" class="share-msg" role="status"></p>
+      <div class="share-row">
+        <label class="sr-only" for="saveName">Name for this cycle</label>
+        <input id="saveName" type="text" maxlength="40" placeholder="name this day… e.g. rust-dawn" />
+        <button id="btnSave" class="btn">★ SAVE</button>
+      </div>
+      <ul id="savedList" class="saved-list" aria-label="Saved daily cycles"></ul>
+    </section>
+
+    <!-- ============ KEYBOARD MANIFEST ============ -->
+    <section class="panel keys" aria-labelledby="keys-h">
+      <h2 id="keys-h" class="panel-title tape">⌨ Keyboard Manifest <span class="sub-note">— no mouse required, ever</span></h2>
+      <ul class="key-grid">
+        <li><kbd>←</kbd><kbd>→</kbd> scrub ±1 hour</li>
+        <li><kbd>⇧</kbd>+<kbd>←</kbd><kbd>→</kbd> scrub ±5 min</li>
+        <li><kbd>↑</kbd><kbd>↓</kbd> scrub ±15 min</li>
+        <li><kbd>Home</kbd> dawn 06:00 · <kbd>End</kbd> dusk 18:00</li>
+        <li><kbd>Space</kbd> play / stop loop</li>
+        <li><kbd>Enter</kbd> stamp hour · <kbd>⌫</kbd> drop last</li>
+        <li><kbd>L</kbd> cycle mode · <kbd>M</kbd> mute · <kbd>C</kbd> copy link</li>
+      </ul>
+      <p class="hint">Every button, the slider, and every stamp is a real focusable control —
+        <kbd>Tab</kbd> reaches everything, <kbd>Space</kbd>/<kbd>Enter</kbd> fires it. The dial canvas
+        narrates itself to screen readers via <span id="srEchoSample">the live readout</span>.</p>
+    </section>
+  </main>
+
+  <div id="live" class="sr-only" aria-live="polite"></div>
+
+  <footer class="colophon">
+    <p>SUNDIAL LOOP WORKSHOP · a single-file-ish grunge experiment · HTML/CSS/JS, no build, no backend ·
+      saved days live in your browser's localStorage · sounds synthesized live with WebAudio</p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
