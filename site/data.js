@@ -5204,13 +5204,45 @@ export const projects = [
       "dawn"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-11T01:13:14.817Z",
-    "updatedAt": "2026-10-11T04:14:53.121Z",
+    "updatedAt": "2026-10-11T04:15:02.836Z",
     "buildPassed": true,
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "looping-bell-foundry",
+    "title": "Looping Bell Foundry",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "time",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Cast tiny bells that ring loops synced to real-world clocks and seasons.",
+    "features": [
+      "cast bells on timeline",
+      "loops shift with hour",
+      "layer chimes visually",
+      "export daily melody"
+    ],
+    "tags": [
+      "time",
+      "bells",
+      "loops",
+      "generative"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-11T10:26:36.943Z",
+    "updatedAt": "2026-10-11T10:29:18.967Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 165, done: 156, counts: {"done":156,"needs-human":9} };
+export const stats = { total: 166, done: 157, counts: {"done":157,"needs-human":9} };
