@@ -1,0 +1,31 @@
+{
+  "slug": "copper-finch-radio-l59t",
+  "title": "Copper Finch Radio",
+  "stack": "html",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "biomorphic",
+  "theme": "time",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback after preflight fail",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Copper Finch Radio — biomorphic dawn-chorus trading experiment (index.html, style.css, app.js, README.md). Dawn dial tunes a generative WebAudio chorus across 4:00-8:00 with canvas hedge visualizer; 8-step chorus composer with CFR1- code carry, .chorus files, and wild-chorus catching; flock board with 6 seed finches, likes, sorting, localStorage persistence. Verified: headless Chromium renders 6 nests + 8 steps + 25 dial ticks with zero console errors, 375px screenshot clean. Constraints honored: 3 colors + black/white, system fonts only.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "dawn dial",
+      "chorus trade",
+      "flock board"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 132585,
+  "at": "2026-10-11T22:40:00.649Z"
+}

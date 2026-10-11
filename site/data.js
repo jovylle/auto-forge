@@ -5270,12 +5270,43 @@ export const projects = [
       "generative"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-11T16:33:15.494Z",
-    "updatedAt": "2026-10-11T16:35:15.447Z",
+    "updatedAt": "2026-10-11T16:35:24.187Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "copper-finch-radio-l59t",
+    "title": "Copper Finch Radio",
+    "category": "social",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "biomorphic",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Trade dawn choruses with fellow finches.",
+    "features": [
+      "dawn dial",
+      "chorus trade",
+      "flock board"
+    ],
+    "tags": [
+      "finch",
+      "radio",
+      "dawn"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-11T22:37:10.724Z",
+    "updatedAt": "2026-10-11T22:40:00.645Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 167, done: 158, counts: {"done":158,"needs-human":9} };
+export const stats = { total: 168, done: 159, counts: {"done":159,"needs-human":9} };
