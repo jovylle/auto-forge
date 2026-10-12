@@ -5371,6 +5371,36 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "gale-petrel-post",
+      "title": "Gale Petrel Post",
+      "category": "tool",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "aesthetic": "japanese-cyberpunk",
+      "theme": "time",
+      "constraints": [
+        "3 colors max (plus black/white)"
+      ],
+      "description": "Storm petrels deliver mail on the gale.",
+      "features": [
+        "gale routes",
+        "petrel log",
+        "post tracker"
+      ],
+      "tags": [
+        "petrels",
+        "post",
+        "tool"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-12T10:49:09.047Z",
+      "updatedAt": "2026-10-12T10:53:41.939Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

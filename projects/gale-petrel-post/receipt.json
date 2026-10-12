@@ -1,0 +1,30 @@
+{
+  "slug": "gale-petrel-post",
+  "title": "Gale Petrel Post",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "japanese-cyberpunk",
+  "theme": "time",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "gale routes",
+      "petrel log",
+      "post tracker"
+    ],
+    "status": "pass",
+    "summary": "Gale Petrel Post built: japanese-cyberpunk storm-mail exchange (vanilla, localStorage-only). Gale routes with status cycling/sort/dispatch, petrel log with roster + flight ledger, post tracker with frank/search/filter/pipeline + stamp celebration. npm run build exits 0, dist uses relative paths, preview serves 200s, palette is exactly 3 colors + black/white."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 246759,
+  "at": "2026-10-12T10:53:32.654Z"
+}

@@ -5364,12 +5364,42 @@ export const projects = [
       "social"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-12T04:43:07.126Z",
-    "updatedAt": "2026-10-12T04:48:11.970Z",
+    "updatedAt": "2026-10-12T04:48:21.248Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "gale-petrel-post",
+    "title": "Gale Petrel Post",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Storm petrels deliver mail on the gale.",
+    "features": [
+      "gale routes",
+      "petrel log",
+      "post tracker"
+    ],
+    "tags": [
+      "petrels",
+      "post",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-12T10:49:09.047Z",
+    "updatedAt": "2026-10-12T10:53:32.652Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 170, done: 161, counts: {"done":161,"needs-human":9} };
+export const stats = { total: 171, done: 162, counts: {"done":162,"needs-human":9} };

@@ -1,0 +1,11 @@
+{
+  "name": "gale-petrel-post",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Gale Petrel Post — storm-petrel mail service. Gale routes, petrel log, post tracker. localStorage only.",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node preview.mjs"
+  }
+}

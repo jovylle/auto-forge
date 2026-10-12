@@ -1,8 +1,8 @@
 {
-  "slug": "tallow-moth-terminal",
-  "title": "Tallow Moth Terminal",
+  "slug": "gale-petrel-post",
+  "title": "Gale Petrel Post",
   "stack": "vite",
-  "aesthetic": "pixel-art",
+  "aesthetic": "japanese-cyberpunk",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 282510,
-  "at": "2026-10-12T04:48:11.974Z"
+  "elapsedMs": 246759,
+  "at": "2026-10-12T10:53:32.655Z"
 }
