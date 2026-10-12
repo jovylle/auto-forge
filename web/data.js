@@ -5394,12 +5394,43 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-12T10:49:09.047Z",
-    "updatedAt": "2026-10-12T10:53:32.652Z",
+    "updatedAt": "2026-10-12T10:53:41.939Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "ulva-gull-union",
+    "title": "Ulva Gull Union",
+    "category": "social",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "extreme-minimal",
+    "theme": "time",
+    "constraints": [
+      "must work with keyboard only",
+      "must have an easter egg"
+    ],
+    "description": "Unionize the gulls of the sea-lettuce beds.",
+    "features": [
+      "gull roster",
+      "tide demands",
+      "union votes"
+    ],
+    "tags": [
+      "gulls",
+      "union",
+      "social"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-12T16:55:06.917Z",
+    "updatedAt": "2026-10-12T16:57:00.833Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 171, done: 162, counts: {"done":162,"needs-human":9} };
+export const stats = { total: 172, done: 163, counts: {"done":163,"needs-human":9} };

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Ulva Gull Union — unionize the gulls of the sea-lettuce beds. Roster, demands, votes." />
+  <title>Ulva Gull Union — Local 07</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to hall floor</a>
+  <div class="tide-line" aria-hidden="true"><span></span></div>
+
+  <header class="mast">
+    <p class="kicker">ULVA · SEA-LETTUCE BEDS · EST. FIRST LOW TIDE</p>
+    <h1>Ulva Gull<br />Union <span class="local">Local&nbsp;07</span></h1>
+    <p class="sub">One bed. One flock. One contract. <em>Keyboard only — no mice on the picket line.</em></p>
+    <nav class="tabs" role="tablist" aria-label="Hall sections">
+      <button role="tab" aria-selected="true" data-tab="roster" id="tab-roster" aria-controls="panel-roster"><span class="n">01</span> Roster <kbd>1</kbd></button>
+      <button role="tab" aria-selected="false" data-tab="demands" id="tab-demands" aria-controls="panel-demands" tabindex="-1"><span class="n">02</span> Demands <kbd>2</kbd></button>
+      <button role="tab" aria-selected="false" data-tab="votes" id="tab-votes" aria-controls="panel-votes" tabindex="-1"><span class="n">03</span> Votes <kbd>3</kbd></button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- 01 ROSTER -->
+    <section id="panel-roster" role="tabpanel" aria-labelledby="tab-roster" data-panel="roster">
+      <div class="sec-head">
+        <h2><span class="n">01</span> Gull roster</h2>
+        <p class="count"><strong id="signedCount">0</strong> / <span id="totalCount">0</span> signed · quorum <span id="quorumNote">4</span></p>
+      </div>
+      <form id="addGull" class="addrow" autocomplete="off">
+        <label class="visually-hidden" for="gullName">New gull name</label>
+        <input id="gullName" name="gullName" maxlength="28" placeholder="name a new gull…  ( / to focus )" />
+        <button type="submit">Sign card <kbd>↵</kbd></button>
+      </form>
+      <ul id="roster" class="roster" aria-label="Gull roster. Up and down arrows move, Enter toggles signed."></ul>
+      <p class="hint">↑ ↓ move · <kbd>Enter</kbd> sign / unsign · <kbd>x</kbd> retire gull · <kbd>/</kbd> name a gull</p>
+    </section>
+
+    <!-- 02 DEMANDS -->
+    <section id="panel-demands" role="tabpanel" aria-labelledby="tab-demands" data-panel="demands" hidden>
+      <div class="sec-head">
+        <h2><span class="n">02</span> Tide demands</h2>
+        <p class="count">non-negotiable, barnacle-grade</p>
+      </div>
+      <form id="addDemand" class="addrow" autocomplete="off">
+        <label class="visually-hidden" for="demandText">New demand</label>
+        <input id="demandText" name="demandText" maxlength="80" placeholder="state a demand…  ( d to focus )" />
+        <button type="submit">Nail it up <kbd>↵</kbd></button>
+      </form>
+      <ol id="demands" class="demands" aria-label="Tide demands"></ol>
+      <p class="hint"><kbd>+</kbd> / <kbd>−</kbd> weight on focused demand · <kbd>w</kbd> mark won · <kbd>x</kbd> strike demand</p>
+    </section>
+
+    <!-- 03 VOTES -->
+    <section id="panel-votes" role="tabpanel" aria-labelledby="tab-votes" data-panel="votes" hidden>
+      <div class="sec-head">
+        <h2><span class="n">03</span> Union votes</h2>
+        <p class="count" id="voteCount"></p>
+      </div>
+      <form id="addMotion" class="addrow" autocomplete="off">
+        <label class="visually-hidden" for="motionText">New motion</label>
+        <input id="motionText" name="motionText" maxlength="90" placeholder="call a motion…  ( m to focus )" />
+        <button type="submit">Call vote <kbd>↵</kbd></button>
+      </form>
+      <div id="motions" class="motions"></div>
+      <p class="hint">focus a motion, then <kbd>a</kbd> aye · <kbd>n</kbd> nay · <kbd>c</kbd> close &amp; record · <kbd>x</kbd> scrap</p>
+      <h3 class="record-h">Record <span aria-hidden="true">—</span> <span id="recordCount"></span></h3>
+      <ul id="record" class="record" aria-label="Vote record"></ul>
+    </section>
+
+    <footer class="foot">
+      <p>Solidarity is a shellfish thing. · Press <kbd>?</kbd> for the steward's keys · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> switch halls</p>
+      <p class="tiny">stored in your browser only (localStorage). no servers. no crumbs shared.</p>
+    </footer>
+  </main>
+
+  <div id="help" class="help" hidden role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+    <div class="help-card">
+      <h2>Steward's keys</h2>
+      <dl>
+        <div><dt><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></dt><dd>roster / demands / votes</dd></div>
+        <div><dt><kbd>←</kbd> <kbd>→</kbd> / <kbd>Tab</kbd></dt><dd>move between halls</dd></div>
+        <div><dt><kbd>↑</kbd> <kbd>↓</kbd> / <kbd>j</kbd> <kbd>k</kbd></dt><dd>move within a list</dd></div>
+        <div><dt><kbd>Enter</kbd> / <kbd>Space</kbd></dt><dd>sign card · open focused control</dd></div>
+        <div><dt><kbd>/</kbd> <kbd>d</kbd> <kbd>m</kbd></dt><dd>focus name / demand / motion box</dd></div>
+        <div><dt><kbd>a</kbd> <kbd>n</kbd></dt><dd>aye / nay on focused motion</dd></div>
+        <div><dt><kbd>+</kbd> <kbd>−</kbd> <kbd>w</kbd> <kbd>c</kbd> <kbd>x</kbd></dt><dd>weight · won · close · retire</dd></div>
+        <div><dt><kbd>?</kbd> / <kbd>Esc</kbd></dt><dd>this card / close</dd></div>
+      </dl>
+      <p class="tiny">rumour: type <code>squawk</code> on the hall floor…</p>
+      <button id="helpClose">Back to the floor <kbd>Esc</kbd></button>
+    </div>
+  </div>
+
+  <div id="egg" class="egg" hidden aria-live="polite"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
