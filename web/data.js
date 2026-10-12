@@ -5333,12 +5333,43 @@ export const projects = [
       "garden"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-12T01:01:20.419Z",
-    "updatedAt": "2026-10-12T01:03:22.174Z",
+    "updatedAt": "2026-10-12T01:03:42.306Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "tallow-moth-terminal",
+    "title": "Tallow Moth Terminal",
+    "category": "social",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "pixel-art",
+    "theme": "time",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)",
+      "must have an easter egg"
+    ],
+    "description": "Moths gather at the candlewax terminal.",
+    "features": [
+      "wax board",
+      "moth arrivals",
+      "terminal chat"
+    ],
+    "tags": [
+      "moths",
+      "terminal",
+      "social"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-12T04:43:07.126Z",
+    "updatedAt": "2026-10-12T04:48:11.970Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 169, done: 160, counts: {"done":160,"needs-human":9} };
+export const stats = { total: 170, done: 161, counts: {"done":161,"needs-human":9} };

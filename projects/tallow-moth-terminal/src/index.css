@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-soot: #1c0e0b;
+  --color-coal: #2a1512;
+  --color-plum: #3b2447;
+  --color-plumdeep: #241430;
+  --color-seal: #8c2b2b;
+  --color-sealdeep: #5e1b1b;
+  --color-tallow: #d9a441;
+  --color-tallowdeep: #8a5f1c;
+  --color-cream: #e8d5a3;
+  --color-flame: #ffe9a8;
+  --color-luna: #8fd18c;
+  --color-lunadeep: #2e5b34;
+  --font-pixel: "Press Start 2P", monospace;
+  --font-term: "VT323", monospace;
+}
+
+html {
+  background: var(--color-soot);
+}
+
+body {
+  background: var(--color-soot);
+  color: var(--color-cream);
+  font-family: var(--font-term);
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+/* ---------- pixel panels & buttons (zero border-radius anywhere) ---------- */
+.px-panel {
+  border: 4px solid var(--color-tallowdeep);
+  box-shadow: 6px 6px 0 #000, inset 0 0 0 2px var(--color-coal);
+  background: var(--color-coal);
+}
+
+.px-panel-plum {
+  border-color: var(--color-plum);
+  background: var(--color-plumdeep);
+}
+
+.px-btn {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 4px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  padding: 12px 14px;
+  min-height: 48px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 60ms steps(2), box-shadow 60ms steps(2), filter 120ms steps(2);
+}
+
+.px-btn:hover {
+  filter: brightness(1.18);
+}
+
+.px-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 #000;
+}
+
+.px-btn:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-flame);
+  outline-offset: 2px;
+}
+
+.px-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: grayscale(0.6);
+}
+
+/* ---------- dither + scanlines (no smooth gradients) ---------- */
+.dither {
+  background-image: repeating-conic-gradient(rgba(0, 0, 0, 0.28) 0% 25%, transparent 0% 50%);
+  background-size: 4px 4px;
+}
+
+.dither-gold {
+  background-image: repeating-conic-gradient(rgba(217, 164, 65, 0.16) 0% 25%, transparent 0% 50%);
+  background-size: 6px 6px;
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.22) 3px,
+    rgba(0, 0, 0, 0.22) 4px
+  );
+}
+
+.night-sky {
+  background-color: var(--color-soot);
+  background-image:
+    repeating-conic-gradient(rgba(59, 36, 71, 0.35) 0% 25%, transparent 0% 50%);
+  background-size: 8px 8px;
+}
+
+/* ---------- ticker ---------- */
+.ticker-mask {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-block;
+  white-space: nowrap;
+  animation: crawl 36s linear infinite;
+  will-change: transform;
+}
+@keyframes crawl {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- moth flutter: two stacked frames, hard swap ---------- */
+.flutter-wrap {
+  position: relative;
+  image-rendering: pixelated;
+}
+.flutter-top {
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: flap 0.5s steps(1, start) infinite alternate;
+}
+@keyframes flap {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* ---------- candle flame flicker (stepped, no easing) ---------- */
+.flame {
+  transform-origin: 50% 100%;
+  animation: flick 0.44s steps(2) infinite;
+}
+@keyframes flick {
+  0% { transform: scaleY(1) scaleX(1); filter: brightness(1); }
+  50% { transform: scaleY(1.18) scaleX(0.92); filter: brightness(1.35); }
+  100% { transform: scaleY(0.94) scaleX(1.05); filter: brightness(0.9); }
+}
+
+.flame-halo {
+  animation: halo 0.88s steps(2) infinite;
+}
+@keyframes halo {
+  0% { opacity: 0.55; }
+  50% { opacity: 0.85; }
+  100% { opacity: 0.6; }
+}
+
+/* ---------- wax drip: stepped fall then splat ---------- */
+.drip-drop {
+  animation: dripfall 0.65s steps(7) forwards;
+}
+@keyframes dripfall {
+  from { transform: translateY(0) scaleY(1); }
+  80% { transform: translateY(96px) scaleY(1.25); }
+  100% { transform: translateY(104px) scaleY(0.4) scaleX(1.8); opacity: 0; }
+}
+
+/* ---------- screen shake on stamp ---------- */
+.shake {
+  animation: shake 0.14s steps(2) 2;
+}
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(3px, -2px); }
+  50% { transform: translate(-3px, 2px); }
+  75% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ---------- melt reveal ---------- */
+.melt-in {
+  animation: meltin 0.4s steps(4) both;
+  transform-origin: 50% 0%;
+}
+@keyframes meltin {
+  from { transform: scaleY(0.1); opacity: 0; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+
+.seal-pop {
+  animation: sealpop 0.3s steps(3) both;
+}
+@keyframes sealpop {
+  from { transform: scale(0.2) rotate(-8deg); }
+  to { transform: scale(1) rotate(0deg); }
+}
+
+/* ---------- greet hop + spark ---------- */
+.hop {
+  animation: hop 0.36s steps(3) 1;
+}
+@keyframes hop {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+.spark {
+  animation: sparkfly 0.6s steps(4) both;
+}
+@keyframes sparkfly {
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to { transform: translateY(-26px) scale(0.3); opacity: 0; }
+}
+
+/* ---------- luna descent ---------- */
+.luna-descend {
+  animation: descend 3.2s steps(14) both;
+}
+@keyframes descend {
+  from { transform: translateY(-190px); }
+  to { transform: translateY(0); }
+}
+
+.luna-wash {
+  animation: lunawash 8s steps(8) both;
+}
+@keyframes lunawash {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ---------- lamp glow pulse ---------- */
+.lamp-glow {
+  animation: lampulse 1.6s steps(3) infinite;
+}
+@keyframes lampulse {
+  0% { opacity: 0.75; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+/* ---------- chat ping flash ---------- */
+.flash-flame {
+  animation: flashflame 0.9s steps(3) 2;
+}
+@keyframes flashflame {
+  0%, 100% { background-color: inherit; }
+  50% { background-color: var(--color-flame); color: #000; }
+}
+
+/* ---------- blinking terminal cursor ---------- */
+.cursor-blink {
+  animation: cursorblink 1s steps(1) infinite;
+}
+@keyframes cursorblink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-inner,
+  .flutter-top,
+  .flame,
+  .flame-halo,
+  .lamp-glow,
+  .cursor-blink {
+    animation: none;
+  }
+  .drip-drop,
+  .shake,
+  .melt-in,
+  .seal-pop,
+  .hop,
+  .spark,
+  .luna-descend,
+  .luna-wash,
+  .flash-flame {
+    animation-duration: 0.01ms;
+  }
+}
