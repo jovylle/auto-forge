@@ -5301,12 +5301,44 @@ export const projects = [
       "dawn"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-11T22:37:10.724Z",
-    "updatedAt": "2026-10-11T22:40:00.645Z",
+    "updatedAt": "2026-10-11T22:40:09.186Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "clockwork-pollen-archive",
+    "title": "Clockwork Pollen Archive",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "pop-art",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Breed clockwork bees that pollinate looping hours into blooming timelines.",
+    "features": [
+      "Hatch clockwork bees",
+      "Pollinate hour blooms",
+      "Loop evolving garden",
+      "Export time honeycomb"
+    ],
+    "tags": [
+      "time",
+      "loops",
+      "generative",
+      "garden"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-12T01:01:20.419Z",
+    "updatedAt": "2026-10-12T01:03:22.174Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 168, done: 159, counts: {"done":159,"needs-human":9} };
+export const stats = { total: 169, done: 160, counts: {"done":160,"needs-human":9} };

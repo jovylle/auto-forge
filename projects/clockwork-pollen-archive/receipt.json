@@ -1,0 +1,31 @@
+{
+  "slug": "clockwork-pollen-archive",
+  "title": "Clockwork Pollen Archive",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "pop-art",
+  "theme": "time",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Pop-art clockwork bee garden: hatchable gear-bees pollinate 12 hour-blooms on a looping clock dial, generations evolve, honeycomb exports to PNG/JSON, localStorage persistence.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Hatch clockwork bees",
+      "Pollinate hour blooms",
+      "Loop evolving garden",
+      "Export time honeycomb"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 112110,
+  "at": "2026-10-12T01:03:22.178Z"
+}

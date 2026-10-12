@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Clockwork Pollen Archive — Breed Bees, Bloom Hours</title>
+<meta name="description" content="Hatch clockwork bees, pollinate 12 hour-blooms, loop an evolving garden, export your time honeycomb." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="dots" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="kicker"><span class="burst">POP!</span> GENERATIVE GARDEN Nº 12 <span class="burst b2">ZAP!</span></div>
+  <h1 class="title"><span class="t-clock">CLOCKWORK</span> <span class="t-pollen">POLLEN</span> <span class="t-arch">ARCHIVE</span></h1>
+  <p class="tagline">Breed clockwork bees that pollinate looping hours into blooming timelines.</p>
+  <div class="ticker" aria-hidden="true"><div class="ticker-inner" id="tickerInner">
+    <span>HATCH BEES ★ POLLINATE HOURS ★ LOOP THE GARDEN ★ EXPORT HONEYCOMB ★&nbsp;</span><span>HATCH BEES ★ POLLINATE HOURS ★ LOOP THE GARDEN ★ EXPORT HONEYCOMB ★&nbsp;</span>
+  </div></div>
+</header>
+
+<main class="layout">
+  <!-- GARDEN -->
+  <section class="panel garden-panel" aria-label="Looping garden">
+    <div class="panel-head">
+      <h2>◉ LOOPING GARDEN</h2>
+      <div class="gen-chip">GEN <b id="genNum">001</b> · LOOP <b id="loopPct">0%</b></div>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="garden" width="640" height="640" aria-label="Clockwork garden canvas"></canvas>
+      <div id="powLayer" aria-hidden="true"></div>
+      <div class="clock-readout"><span id="hourReadout">HOUR 12</span><span id="honeyReadout">⬢ 0 HONEY</span></div>
+    </div>
+    <div class="loop-controls">
+      <button id="btnLoop" class="btn btn-blue" title="Force the loop to complete now">↻ FORCE LOOP</button>
+      <label class="speed">SPEED
+        <input id="speed" type="range" min="1" max="5" step="1" value="2" />
+        <span id="speedLabel">2×</span>
+      </label>
+      <button id="btnPause" class="btn btn-small" aria-pressed="false">❚❚ PAUSE</button>
+    </div>
+    <div class="timeline-wrap">
+      <h3>BLOOMING TIMELINES</h3>
+      <div id="timeline" class="timeline"></div>
+    </div>
+  </section>
+
+  <!-- SIDE -->
+  <aside class="side">
+    <section class="panel hatch-panel" aria-label="Hatchery">
+      <div class="panel-head"><h2>✦ BEE HATCHERY</h2><span id="beeCount" class="count">0/12</span></div>
+      <p class="hint">Wind a key, hatch a bee. Each bee has gears, appetite &amp; a favourite colour.</p>
+      <div class="hatch-row">
+        <button id="btnHatch" class="btn btn-pink">⚙ HATCH BEE</button>
+        <button id="btnHatch5" class="btn btn-yellow">HATCH ×5</button>
+      </div>
+      <div id="hive" class="hive" aria-live="polite"></div>
+    </section>
+
+    <section class="panel bloom-panel" aria-label="Hour blooms">
+      <div class="panel-head"><h2>❀ HOUR BLOOMS</h2><span id="bloomAvg" class="count">AVG 0.0</span></div>
+      <div id="bloomGrid" class="bloom-grid"></div>
+    </section>
+
+    <section class="panel export-panel" aria-label="Export honeycomb">
+      <div class="panel-head"><h2>⬢ TIME HONEYCOMB</h2></div>
+      <canvas id="honeycomb" width="360" height="220" aria-label="Honeycomb export preview"></canvas>
+      <p class="hint">Each hex = one hour. Fill = pollen stored. Export the archive.</p>
+      <div class="export-row">
+        <button id="btnPng" class="btn btn-blue">⬇ PNG</button>
+        <button id="btnJson" class="btn btn-small">⬇ JSON</button>
+        <button id="btnReset" class="btn btn-ghost">RESET</button>
+      </div>
+      <div id="log" class="log" aria-live="polite"></div>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span>★ CLOCKWORK POLLEN ARCHIVE ★ 3 INKS + BLACK &amp; WHITE ★ FILE:// READY ★</span>
+</footer>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
