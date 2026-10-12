@@ -5425,12 +5425,43 @@ export const projects = [
       "social"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-12T16:55:06.917Z",
-    "updatedAt": "2026-10-12T16:57:00.833Z",
+    "updatedAt": "2026-10-12T16:57:09.731Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "marrow-lark-depot",
+    "title": "Marrow Lark Depot",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "dark-fantasy",
+    "theme": "time",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)",
+      "must react to scroll"
+    ],
+    "description": "Larks stock a marrow-bone supply depot.",
+    "features": [
+      "stock ledger",
+      "lark shifts",
+      "depot map"
+    ],
+    "tags": [
+      "larks",
+      "depot",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-12T22:58:04.404Z",
+    "updatedAt": "2026-10-12T23:11:28.777Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 172, done: 163, counts: {"done":163,"needs-human":9} };
+export const stats = { total: 173, done: 164, counts: {"done":164,"needs-human":9} };
