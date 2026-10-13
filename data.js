@@ -5580,12 +5580,43 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-13T17:22:05.832Z",
-    "updatedAt": "2026-10-13T17:24:58.141Z",
+    "updatedAt": "2026-10-13T17:25:07.001Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "kelp-lantern-marina",
+    "title": "Kelp Lantern Marina",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "cottagecore",
+    "theme": "time",
+    "constraints": [
+      "must react to scroll",
+      "must have an easter egg"
+    ],
+    "description": "Light the marina with kelp lanterns.",
+    "features": [
+      "lantern map",
+      "tide lights",
+      "marina export"
+    ],
+    "tags": [
+      "kelp",
+      "lanterns",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-13T23:26:04.219Z",
+    "updatedAt": "2026-10-13T23:33:41.175Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 177, done: 168, counts: {"done":168,"needs-human":9} };
+export const stats = { total: 178, done: 169, counts: {"done":169,"needs-human":9} };
