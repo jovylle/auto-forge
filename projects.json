@@ -5587,6 +5587,37 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "kelp-lantern-marina",
+      "title": "Kelp Lantern Marina",
+      "category": "viz",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "aesthetic": "cottagecore",
+      "theme": "time",
+      "constraints": [
+        "must react to scroll",
+        "must have an easter egg"
+      ],
+      "description": "Light the marina with kelp lanterns.",
+      "features": [
+        "lantern map",
+        "tide lights",
+        "marina export"
+      ],
+      "tags": [
+        "kelp",
+        "lanterns",
+        "canvas"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-13T23:26:04.219Z",
+      "updatedAt": "2026-10-13T23:33:50.121Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/muse-spark-1.3-contributor"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

@@ -1,0 +1,31 @@
+{
+  "slug": "kelp-lantern-marina",
+  "title": "Kelp Lantern Marina",
+  "stack": "vite",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "cottagecore",
+  "theme": "time",
+  "constraints": [
+    "must react to scroll",
+    "must have an easter egg"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback after preflight fail",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "lantern map",
+      "tide lights",
+      "marina export"
+    ],
+    "status": "pass",
+    "summary": "Kelp Lantern Marina — cottagecore tide-lit harbor in projects/kelp-lantern-marina (Vite+TS+Tailwind v4). SVG cove map with 12 clickable/renamable/recolorable lantern berths persisted to localStorage; harmonic M2+S2+K1 tide model with 24h canvas chart, high/low predictions, day-skim slider and tide-following lantern swell; postcard export with JSON download, hash share-link copy/import, logbook copy and reset. Scroll drives a tide gauge, hero pond rise, lantern parallax and reveals; clicking the moon 5x unlocks Smuggler's Cove, a will-o'-wisp glow and a night-watch otter. Verified: vite build exits 0, relative ./assets paths, preview serves 200 with real content."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 380611,
+  "at": "2026-10-13T23:33:41.177Z"
+}
