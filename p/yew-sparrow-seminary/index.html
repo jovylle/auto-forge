@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yew Sparrow Seminary — 雀の寺</title>
+  <meta name="description" content="Train sparrows in an ancient yew seminary. Perch classes, sermon trials, and the seminary score." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="petals" aria-hidden="true"></canvas>
+  <div class="sky" aria-hidden="true"></div>
+
+  <header class="top" id="topbar">
+    <a class="brand" href="#hero">
+      <span class="brand-seal" aria-hidden="true">雀</span>
+      <span class="brand-text">Yew Sparrow <em>Seminary</em></span>
+    </a>
+    <div class="top-chips">
+      <span class="chip" title="Grain feeds and recruits sparrows">🌾 <b id="chip-grain">0</b> grain</span>
+      <span class="chip score" title="Seminary score">⛩ <b id="chip-score">0</b></span>
+      <span class="chip season" id="chip-season" title="Where you are on the mountain path">麓 · Foothills</span>
+    </div>
+  </header>
+
+  <aside class="rail" aria-hidden="true">
+    <div class="rail-line"><div class="rail-fill" id="rail-fill"></div></div>
+    <div class="rail-dots" id="rail-dots">
+      <span class="dot" data-ch="hero" title="Gate"></span>
+      <span class="dot" data-ch="perches" title="Perch classes"></span>
+      <span class="dot" data-ch="trials" title="Sermon trials"></span>
+      <span class="dot" data-ch="score" title="Seminary score"></span>
+    </div>
+  </aside>
+
+  <main id="app">
+    <!-- ══════════ GATE ══════════ -->
+    <section class="chapter hero" id="hero" data-season="麓 · Foothills">
+      <div class="hero-parallax">
+        <svg class="torii" viewBox="0 0 300 220" aria-hidden="true">
+          <rect x="20" y="30" width="260" height="22" rx="4" class="t-wood"/>
+          <rect x="45" y="58" width="210" height="12" rx="3" class="t-wood2"/>
+          <rect x="60" y="52" width="22" height="130" class="t-wood"/>
+          <rect x="218" y="52" width="22" height="130" class="t-wood"/>
+          <rect x="138" y="8" width="24" height="24" class="t-plaque"/>
+        </svg>
+        <svg class="enso" viewBox="0 0 200 200" aria-hidden="true">
+          <path d="M100 18 C 52 18, 18 55, 20 102 C 22 148, 60 182, 108 180 C 150 178, 182 145, 180 100 C 178 66, 152 40, 118 34" />
+        </svg>
+      </div>
+      <p class="kicker reveal">いちご いちえ — one meeting, one lifetime</p>
+      <h1 class="reveal">Yew Sparrow<br /><span class="h-light">Seminary</span></h1>
+      <p class="lede reveal">High on the mountain, beneath a thousand-year yew, novice sparrows gather to learn the three disciplines. Teach them to chant, to sit, to soar — then let them preach.</p>
+      <div class="hero-actions reveal">
+        <a class="btn primary" href="#perches">Enter the perch halls ↓</a>
+        <button class="btn ghost" id="btn-ring" type="button">🔔 Ring the morning bell</button>
+      </div>
+      <div class="hero-strip reveal" id="hero-strip">
+        <div><b id="stat-birds">0</b><span>sparrows</span></div>
+        <div><b id="stat-trials">0</b><span>trials held</span></div>
+        <div><b id="stat-best">0</b><span>best sermon</span></div>
+        <div><b id="stat-rank">雛</b><span>current rank</span></div>
+      </div>
+      <p class="scroll-hint" aria-hidden="true"><span>scroll to climb</span><i></i></p>
+    </section>
+
+    <!-- ══════════ PERCH CLASSES ══════════ -->
+    <section class="chapter" id="perches" data-season="山門 · Gate of Perches">
+      <p class="kicker reveal">第一 — chapter one</p>
+      <h2 class="reveal">Perch Classes <span class="jp">止まり木の授業</span></h2>
+      <p class="lede reveal">Each sparrow sits in one of three halls. Perched sparrows grow in their hall's discipline with every temple tick. Press <b>attend</b> for a personal lesson — but even masters must rest between teachings.</p>
+
+      <div class="halls">
+        <article class="hall reveal" data-hall="voice">
+          <div class="hall-head"><span class="hall-kanji">暁</span><div><h3>Dawn Chant</h3><p>trains <b>Voice</b> · first light lessons</p></div></div>
+          <div class="hall-perch" id="perch-voice"></div>
+        </article>
+        <article class="hall reveal" data-hall="stillness">
+          <div class="hall-head"><span class="hall-kanji">静</span><div><h3>Stillness Zazen</h3><p>trains <b>Stillness</b> · sitting like stone</p></div></div>
+          <div class="hall-perch" id="perch-stillness"></div>
+        </article>
+        <article class="hall reveal" data-hall="wing">
+          <div class="hall-head"><span class="hall-kanji">翔</span><div><h3>Wing Liturgy</h3><p>trains <b>Wing</b> · scripture of the wind</p></div></div>
+          <div class="hall-perch" id="perch-wing"></div>
+        </article>
+      </div>
+
+      <h3 class="subhead reveal">The novices <span class="jp">弟子たち</span></h3>
+      <div class="roster" id="roster"></div>
+
+      <div class="recruit reveal">
+        <p id="recruit-text">The yew shelters more lost sparrows…</p>
+        <button class="btn primary" id="btn-recruit" type="button">Recruit a sparrow · 🌾30</button>
+      </div>
+    </section>
+
+    <!-- ══════════ SERMON TRIALS ══════════ -->
+    <section class="chapter" id="trials" data-season="庭 · Trial Garden">
+      <p class="kicker reveal">第二 — chapter two</p>
+      <h2 class="reveal">Sermon Trials <span class="jp">説法の試練</span></h2>
+      <p class="lede reveal">When the bell tolls thrice, your champion preaches before the yew. Strike the clapper as the brush sweeps through the <b class="gold">golden moment</b> — three rounds, narrowing light. A great Voice carries a shaky hand; a steady hand lifts a small Voice.</p>
+
+      <div class="trial-panel reveal">
+        <svg class="bell" id="trial-bell" viewBox="0 0 120 140" aria-hidden="true">
+          <rect x="52" y="4" width="16" height="14" rx="3" class="b-top"/>
+          <path d="M60 18 C 34 34, 28 70, 30 104 L 90 104 C 92 70, 86 34, 60 18 Z" class="b-body"/>
+          <circle cx="60" cy="116" r="9" class="b-clap"/>
+          <rect x="18" y="104" width="84" height="8" rx="4" class="b-rim"/>
+        </svg>
+        <div class="trial-controls">
+          <label class="field">Champion
+            <select id="champion"></select>
+          </label>
+          <p class="champ-note" id="champ-note"></p>
+          <button class="btn primary big" id="btn-trial" type="button">Begin the sermon trial 🔔</button>
+        </div>
+      </div>
+
+      <h3 class="subhead reveal">Book of honors <span class="jp">功徳帳</span></h3>
+      <ol class="honors" id="honors"><li class="empty">No sermons yet. The yew waits.</li></ol>
+    </section>
+
+    <!-- ══════════ SEMINARY SCORE ══════════ -->
+    <section class="chapter" id="score" data-season="奥の院 · Inner Sanctuary">
+      <p class="kicker reveal">第三 — chapter three</p>
+      <h2 class="reveal">Seminary Score <span class="jp">総合成績</span></h2>
+      <p class="lede reveal">Every feather of training and every sermon sung beneath the yew is weighed here.</p>
+
+      <div class="score-card reveal">
+        <div class="hanko" id="hanko">雛</div>
+        <div class="score-body">
+          <p class="rank-name" id="rank-name">Hatchling</p>
+          <p class="score-num"><span id="score-num">0</span><small> seminary score</small></p>
+          <div class="rank-bar"><div class="rank-fill" id="rank-fill"></div></div>
+          <p class="rank-next" id="rank-next"></p>
+        </div>
+      </div>
+
+      <div class="ledger reveal" id="ledger"></div>
+
+      <div class="score-actions reveal">
+        <button class="btn ghost" id="btn-top" type="button">↑ Return to the gate</button>
+        <button class="btn danger" id="btn-reset" type="button">Disband the seminary</button>
+      </div>
+    </section>
+
+    <footer class="colophon">
+      <p>雀の寺 · grown beneath the old yew · progress is kept in your browser</p>
+      <p class="tiny">A single-file-ish folk game · HTML/CSS/JS · no backend, no build</p>
+    </footer>
+  </main>
+
+  <!-- ══════════ TRIAL OVERLAY ══════════ -->
+  <div class="trial-veil" id="trial-veil" hidden>
+    <div class="trial-modal" role="dialog" aria-modal="true" aria-label="Sermon trial">
+      <p class="kicker">説法 — the sermon</p>
+      <h3 id="trial-title">Chiyo preaches</h3>
+      <p class="round-line" id="trial-round">Round one of three</p>
+      <div class="sweep" id="sweep">
+        <div class="zone" id="zone"></div>
+        <div class="marker" id="marker"></div>
+      </div>
+      <p class="trial-hint">Strike as the brush enters the golden moment. <kbd>Space</kbd> works too.</p>
+      <button class="btn primary big" id="btn-strike" type="button">Strike the bell 🔔</button>
+      <ol class="trial-results" id="trial-results"></ol>
+      <button class="btn ghost" id="btn-close-trial" type="button" hidden>Return to the garden</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
