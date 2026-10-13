@@ -45,7 +45,22 @@
       },
       "elapsedMs": 150719,
       "at": "2026-10-13T11:20:45.903Z"
+    },
+    {
+      "slug": "rowan-tern-roundhouse",
+      "title": "Rowan Tern Roundhouse",
+      "stack": "html",
+      "aesthetic": "vaporwave",
+      "model": "opencode/muse-spark-1.3-contributor-free",
+      "modelVia": "primary",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 163563,
+      "at": "2026-10-13T17:24:58.147Z"
     }
   ],
-  "updatedAt": "2026-10-13T11:20:45.903Z"
+  "updatedAt": "2026-10-13T17:24:58.147Z"
 }
