@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rowan Tern Roundhouse — Vaporwave Harbor Game</title>
+  <meta name="description" content="Stable seabirds in a spinning roundhouse. Click to calm the terns, meet the spin schedule, raise your harbor score." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="gridfloor" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="kana" aria-hidden="true">ローワン・ターン・ラウンドハウス</div>
+    <button id="sun" class="sun" title="the sun watches..." aria-label="A vaporwave sun. It seems to be watching.">☀</button>
+    <h1 class="chrome">ROWAN TERN<br />ROUNDHOUSE</h1>
+    <p class="sub">安定した海鳥 — stable seabirds in a spinning roundhouse.</p>
+    <div class="chips">
+      <span class="chip">🕰 <span id="clock">00:00</span></span>
+      <span class="chip">🏆 best <b id="best">0</b></span>
+      <span class="chip">🌊 tide <b id="tide">1</b></span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="roundhouse-card" aria-label="The roundhouse">
+      <div class="card-title">▲ THE ROUNDHOUSE <span class="blink">●</span> LIVE</div>
+      <div id="house" class="house">
+        <div id="disc" class="disc" aria-hidden="true">
+          <div class="spokes"></div>
+          <div class="hub">◉<br /><small id="hubTimer">14.0</small></div>
+        </div>
+        <div id="pointer" class="pointer" aria-hidden="true">▼</div>
+        <div id="midnight" class="midnight hidden" aria-hidden="true">🌙✨<br /><small>MIDNIGHT TERN</small></div>
+        <!-- stalls injected by app.js -->
+      </div>
+      <p class="hint">CLICK a tern to settle it — <b>3 feathers = STABLE</b> and ready to spin. Feathers fade with time.</p>
+      <div class="controls">
+        <button id="soundBtn" class="btn">🔊 sound: on</button>
+        <button id="resetBtn" class="btn ghost">↺ reset best</button>
+      </div>
+    </section>
+
+    <aside class="side">
+      <section class="card score-card" aria-label="Harbor score">
+        <div class="card-title">★ HARBOR SCORE</div>
+        <div id="score" class="score">0</div>
+        <div id="rank" class="rank">rank: Driftwood</div>
+        <div class="streak-row">
+          <span>🔥 streak <b id="streak">0</b></span>
+          <span>✔ spins <b id="good">0</b>/<span id="total">0</span></span>
+        </div>
+        <div id="pop" class="pop hidden">+100</div>
+      </section>
+
+      <section class="card" aria-label="Spin schedule">
+        <div class="card-title">◷ SPIN SCHEDULE</div>
+        <ol id="schedule" class="schedule"></ol>
+      </section>
+
+      <section class="card" aria-label="Harbor log">
+        <div class="card-title">≋ HARBOR LOG</div>
+        <ul id="log" class="log"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <p>HOW TO PLAY — the turntable spins every <b>14 seconds</b>. The tern on the schedule must be <b>STABLE</b> when its spin arrives. Click terns to calm them. That is the only move. The sun knows more. <span class="jp">がんばって 🌊</span></p>
+  </footer>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

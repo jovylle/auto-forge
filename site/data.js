@@ -5549,12 +5549,43 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-13T11:18:06.156Z",
-    "updatedAt": "2026-10-13T11:20:45.898Z",
+    "updatedAt": "2026-10-13T11:20:54.965Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "rowan-tern-roundhouse",
+    "title": "Rowan Tern Roundhouse",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "vaporwave",
+    "theme": "time",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)",
+      "must have an easter egg"
+    ],
+    "description": "Stable seabirds in a spinning roundhouse.",
+    "features": [
+      "tern stalls",
+      "spin schedule",
+      "harbor score"
+    ],
+    "tags": [
+      "terns",
+      "roundhouse",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-13T17:22:05.832Z",
+    "updatedAt": "2026-10-13T17:24:58.141Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 176, done: 167, counts: {"done":167,"needs-human":9} };
+export const stats = { total: 177, done: 168, counts: {"done":168,"needs-human":9} };

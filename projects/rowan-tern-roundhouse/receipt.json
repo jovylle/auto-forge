@@ -1,0 +1,31 @@
+{
+  "slug": "rowan-tern-roundhouse",
+  "title": "Rowan Tern Roundhouse",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "vaporwave",
+  "theme": "time",
+  "constraints": [
+    "uses only one interaction type (click OR drag OR type)",
+    "must have an easter egg"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "tern stalls",
+      "spin schedule",
+      "harbor score"
+    ],
+    "status": "pass",
+    "summary": "Rowan Tern Roundhouse — vaporwave click-only harbor game in projects/rowan-tern-roundhouse (index.html, style.css, app.js, README.md). 8 named tern stalls in a circle with feather/calm meters and decay, 14s spin schedule with live 4-upcoming panel + hub countdown + pulsing next stall, harbor score with streak/tide bonuses, rank ladder, localStorage best. Verified: node --check clean, all DOM ids resolve, only click listeners, no inputs/drag, responsive at 375px. Constraints honored: click-only interaction, easter egg (7 sun clicks summon the Midnight Tern)."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 163563,
+  "at": "2026-10-13T17:24:58.147Z"
+}
