@@ -1,0 +1,30 @@
+{
+  "slug": "inkcap-night-market",
+  "title": "Inkcap Night Market",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "grunge",
+  "theme": "time",
+  "constraints": [
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "fungus stalls",
+      "midnight deals",
+      "market score"
+    ],
+    "status": "pass",
+    "summary": "Inkcap Night Market — grunge mushroom-trading game in projects/inkcap-night-market (index.html, style.css, app.js, README.md). 6 fungus stalls with CSS-only glowing mushrooms, live prices, sparklines and crate stock; midnight deals (fire sales + buying frenzies) strike at 00:00 on an accelerated night clock; market score = net worth with rank ladder + trades/deals/profit stats, best persisted to localStorage. Verified: node --check clean, headless Chromium zero page errors, 6/6 stalls render, full trade/deal/rot logic passes in Node harness. Constraint honored: no images (canvas spores + CSS only; sole url() is Google Fonts @import)."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 150719,
+  "at": "2026-10-13T11:20:45.902Z"
+}

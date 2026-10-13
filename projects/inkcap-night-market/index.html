@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Inkcap Night Market — trade glowing mushrooms after midnight. A grunge trading game. No images, CSS/canvas only." />
+  <title>Inkcap Night Market — trade glowing mushrooms after midnight</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="spores" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="tape top-tape" aria-hidden="true"><span id="ticker">LOADING MARKET WIRES…</span></div>
+
+  <main id="app">
+    <header class="masthead">
+      <p class="kicker">EST. AFTER MIDNIGHT &middot; STALL ROW 13 &middot; CASH ONLY &middot; NO REFUNDS</p>
+      <h1 class="neon"><span class="flick">I</span>NKCAP<br />NIGHT MARKET</h1>
+      <p class="sub">Trade glowing mushrooms after midnight. Buy low off the damp crates, sell high before the caps rot. When the clock strikes <strong>00:00</strong>, a <strong>midnight deal</strong> screams out of the dark — catch it before it spoils.</p>
+      <div class="rules">
+        <span>◈ 60¤ starting purse</span><span>◈ prices twitch every few seconds</span><span>◈ stock rots if you hoard</span>
+      </div>
+    </header>
+
+    <section class="hud" aria-label="Market status">
+      <div class="hud-card purse">
+        <span class="label">PURSE</span>
+        <span class="big" id="coins">60¤</span>
+        <span class="delta" id="coinsDelta"></span>
+      </div>
+      <div class="hud-card worth">
+        <span class="label">MARKET SCORE (NET WORTH)</span>
+        <span class="big" id="worth">60¤</span>
+        <span class="rank" id="rank">RANK: SPORE DRIFTER</span>
+      </div>
+      <div class="hud-card clock">
+        <span class="label">NIGHT CLOCK</span>
+        <span class="big mono" id="clock">23:41</span>
+        <span class="night" id="nightLabel">NIGHT 1 · PRE-MIDNIGHT</span>
+      </div>
+      <div class="hud-card best">
+        <span class="label">BEST SCORE (THIS LANTERN)</span>
+        <span class="big mono" id="best">—</span>
+        <button id="resetSave" class="ghost-btn" type="button" title="Wipe saved best score">burn ledger</button>
+      </div>
+    </section>
+
+    <section id="dealBanner" class="deal hidden" role="alert" aria-live="assertive">
+      <div class="deal-stamp">MIDNIGHT DEAL</div>
+      <div class="deal-body">
+        <h2 id="dealTitle">—</h2>
+        <p id="dealText">—</p>
+        <div class="deal-meta"><span id="dealTimer" class="mono">00s</span><span id="dealEffect"></span></div>
+      </div>
+      <button id="dealGo" class="deal-btn" type="button">GRAB IT →</button>
+    </section>
+
+    <h2 class="section-title"><span>FUNGUS STALLS</span><em id="tickNote">prices twitch…</em></h2>
+    <section id="stalls" class="stalls" aria-label="Fungus stalls"></section>
+
+    <div class="columns">
+      <section class="panel satchel">
+        <h2 class="section-title"><span>SATCHEL</span><em>what you're holding</em></h2>
+        <ul id="satchel"></ul>
+        <div class="satchel-foot">
+          <button id="dumpAll" class="chunky" type="button">SELL ALL (AT ASK)</button>
+          <p class="hint">Selling pays the stall's <b>bid</b> (a hair under ask — the house eats). Hoarded caps <b>rot −1 per night</b> past 6 of a kind.</p>
+        </div>
+      </section>
+
+      <section class="panel ledger">
+        <h2 class="section-title"><span>NIGHT LEDGER</span><em>score &amp; gossip</em></h2>
+        <dl class="stats">
+          <div><dt>Trades</dt><dd id="statTrades" class="mono">0</dd></div>
+          <div><dt>Deals caught</dt><dd id="statDeals" class="mono">0</dd></div>
+          <div><dt>Profit (realised)</dt><dd id="statProfit" class="mono">+0¤</dd></div>
+          <div><dt>Nights survived</dt><dd id="statNights" class="mono">0</dd></div>
+        </dl>
+        <ol id="log" class="log" aria-live="polite"></ol>
+      </section>
+    </div>
+
+    <footer class="colophon">
+      <p>INKCAP NIGHT MARKET · a single-file-ish grunge trading game · no images were harmed — every mushroom is pure CSS, every spore is canvas · progress (best score) sleeps in <span class="mono">localStorage</span></p>
+      <p><button id="newRun" class="ghost-btn" type="button">↺ start a fresh night (60¤)</button></p>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
