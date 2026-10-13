@@ -5456,12 +5456,45 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-12T22:58:04.404Z",
-    "updatedAt": "2026-10-12T23:11:28.777Z",
+    "updatedAt": "2026-10-12T23:11:42.319Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "sidereal-moth-observatory",
+    "title": "Sidereal Moth Observatory",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "glassmorphism",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "must be playable in 30 seconds"
+    ],
+    "description": "Breed glowing moths that hatch, flutter, and fade on orbital clocks.",
+    "features": [
+      "Hatch moths from time seeds",
+      "Orbit dials warp wing patterns",
+      "Loopable dusk chorus audio",
+      "Export moth as wallpaper"
+    ],
+    "tags": [
+      "time",
+      "moths",
+      "generative",
+      "clocks"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-13T01:01:13.430Z",
+    "updatedAt": "2026-10-13T01:02:58.934Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 173, done: 164, counts: {"done":164,"needs-human":9} };
+export const stats = { total: 174, done: 165, counts: {"done":165,"needs-human":9} };

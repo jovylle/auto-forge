@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sidereal Moth Observatory — hatch moths from time</title>
+<meta name="description" content="Breed glowing moths from time seeds. Orbit dials warp their wings. Dusk chorus loops. Export wallpapers." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+<header class="topbar glass">
+  <div class="brand">
+    <div class="sigil" aria-hidden="true"><span></span></div>
+    <div>
+      <h1>Sidereal Moth Observatory</h1>
+      <p class="tag">Hatch &middot; Orbit &middot; Fade &mdash; moths bred from time itself</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <button id="chorusBtn" class="btn ghost" aria-pressed="false" title="Loop the generative dusk chorus">🦉 Dusk chorus: off</button>
+    <button id="wallpaperBtn" class="btn solid" title="Export the focused moth as a wallpaper PNG">⬇ Wallpaper</button>
+  </div>
+</header>
+
+<main class="layout">
+  <!-- Observatory dome -->
+  <section class="dome glass" aria-label="Observatory dome">
+    <div class="dome-head">
+      <div class="live-dot" aria-hidden="true"></div>
+      <span id="clockReadout" class="mono">--:--:--</span>
+      <span class="orbit-count mono" id="orbitCount">orbit 0</span>
+    </div>
+    <canvas id="sky" width="900" height="620" aria-label="Moths fluttering on orbital clocks"></canvas>
+    <div class="dome-foot">
+      <div id="mothName" class="moth-name">No moth yet — hatch one below ✦</div>
+      <div class="life-row">
+        <div class="life-track"><div id="lifeBar" class="life-fill"></div></div>
+        <span id="lifeLabel" class="mono">—</span>
+      </div>
+    </div>
+    <div class="orbit-rings" aria-hidden="true"><i></i><i></i><i></i></div>
+  </section>
+
+  <!-- Control deck -->
+  <aside class="deck">
+    <section class="card glass" aria-label="Hatch from time seed">
+      <h2><span class="num">01</span> Hatch from a time seed</h2>
+      <p class="hint">Every second grows a different moth. The seed <em>is</em> the time.</p>
+      <div class="seed-row">
+        <input id="seedInput" class="mono" value="" maxlength="12" spellcheck="false"
+               placeholder="HH:MM:SS" aria-label="Time seed (HH:MM:SS)" />
+        <button id="nowBtn" class="btn chip" title="Use the current time">Now</button>
+        <button id="diceBtn" class="btn chip" title="Random time seed">⚄</button>
+      </div>
+      <button id="hatchBtn" class="btn solid big">✦ Hatch moth</button>
+      <div id="seedMeta" class="mono seed-meta">seed — · genome —</div>
+      <div id="flock" class="flock" aria-label="Your flock"></div>
+    </section>
+
+    <section class="card glass" aria-label="Orbit dials">
+      <h2><span class="num">02</span> Orbit dials warp wings</h2>
+      <p class="hint">Drag — wing patterns re-weave live.</p>
+      <label class="dial">
+        <span class="dial-top"><span>Orbit speed</span><b id="vSpeed" class="mono">1.0×</b></span>
+        <input id="dSpeed" type="range" min="0" max="200" value="100" />
+      </label>
+      <label class="dial">
+        <span class="dial-top"><span>Wing curl</span><b id="vCurl" class="mono">50</b></span>
+        <input id="dCurl" type="range" min="0" max="100" value="50" />
+      </label>
+      <label class="dial">
+        <span class="dial-top"><span>Starlight spots</span><b id="vSpots" class="mono">50</b></span>
+        <input id="dSpots" type="range" min="0" max="100" value="50" />
+      </label>
+      <label class="dial">
+        <span class="dial-top"><span>Glow</span><b id="vGlow" class="mono">50</b></span>
+        <input id="dGlow" type="range" min="0" max="100" value="50" />
+      </label>
+    </section>
+
+    <section class="card glass" aria-label="Dusk chorus and export">
+      <h2><span class="num">03</span> Chorus &amp; keepsake</h2>
+      <div class="row">
+        <button id="chorusBtn2" class="btn ghost">▶ Loop dusk chorus</button>
+        <input id="vol" type="range" min="0" max="100" value="60" aria-label="Chorus volume" />
+      </div>
+      <p class="hint small">Synthesized live: cricket shimmer + low dusk pad + distant owl. Loops forever, no files.</p>
+      <div class="row">
+        <select id="wallSize" aria-label="Wallpaper size">
+          <option value="1920x1080">Desktop 1920×1080</option>
+          <option value="1080x1920">Phone 1080×1920</option>
+          <option value="2048x2048">Square 2048²</option>
+        </select>
+        <button id="wallpaperBtn2" class="btn solid">Export PNG</button>
+      </div>
+      <p class="hint small">Tip: click a moth card in your flock to focus it. <kbd>Space</kbd> hatches, <kbd>C</kbd> toggles chorus.</p>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span>Sidereal Moth Observatory · one sky, three colors, infinite moths</span>
+  <span class="mono" id="fps">— fps</span>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
