@@ -5519,12 +5519,42 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-13T05:13:05.630Z",
-    "updatedAt": "2026-10-13T05:16:49.694Z",
+    "updatedAt": "2026-10-13T05:16:58.308Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "inkcap-night-market",
+    "title": "Inkcap Night Market",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "grunge",
+    "theme": "time",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "Trade glowing mushrooms after midnight.",
+    "features": [
+      "fungus stalls",
+      "midnight deals",
+      "market score"
+    ],
+    "tags": [
+      "mushrooms",
+      "market",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-13T11:18:06.156Z",
+    "updatedAt": "2026-10-13T11:20:45.898Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 175, done: 166, counts: {"done":166,"needs-human":9} };
+export const stats = { total: 176, done: 167, counts: {"done":167,"needs-human":9} };
