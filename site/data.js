@@ -5489,12 +5489,42 @@ export const projects = [
       "clocks"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-13T01:01:13.430Z",
-    "updatedAt": "2026-10-13T01:02:58.934Z",
+    "updatedAt": "2026-10-13T01:03:19.347Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "yew-sparrow-seminary",
+    "title": "Yew Sparrow Seminary",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "japanese-minimal",
+    "theme": "time",
+    "constraints": [
+      "must react to scroll"
+    ],
+    "description": "Train sparrows in an ancient yew seminary.",
+    "features": [
+      "perch classes",
+      "sermon trials",
+      "seminary score"
+    ],
+    "tags": [
+      "sparrows",
+      "seminary",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-13T05:13:05.630Z",
+    "updatedAt": "2026-10-13T05:16:49.694Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 174, done: 165, counts: {"done":165,"needs-human":9} };
+export const stats = { total: 175, done: 166, counts: {"done":166,"needs-human":9} };

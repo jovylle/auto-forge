@@ -5496,6 +5496,36 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "yew-sparrow-seminary",
+      "title": "Yew Sparrow Seminary",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "aesthetic": "japanese-minimal",
+      "theme": "time",
+      "constraints": [
+        "must react to scroll"
+      ],
+      "description": "Train sparrows in an ancient yew seminary.",
+      "features": [
+        "perch classes",
+        "sermon trials",
+        "seminary score"
+      ],
+      "tags": [
+        "sparrows",
+        "seminary",
+        "game"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-13T05:13:05.630Z",
+      "updatedAt": "2026-10-13T05:16:58.308Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
