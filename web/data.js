@@ -5704,12 +5704,42 @@ export const projects = [
       "social"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-14T11:40:18.900Z",
-    "updatedAt": "2026-10-14T11:44:29.941Z",
+    "updatedAt": "2026-10-14T11:44:39.547Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "magpie-voltage-chapel",
+    "title": "Magpie Voltage Chapel",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "time",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Magpie Voltage Chapel",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "chapel",
+      "voltage",
+      "audio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-14T17:46:17.105Z",
+    "updatedAt": "2026-10-14T17:49:01.229Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 181, done: 172, counts: {"done":172,"needs-human":9} };
+export const stats = { total: 182, done: 173, counts: {"done":173,"needs-human":9} };
