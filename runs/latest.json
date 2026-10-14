@@ -1,8 +1,8 @@
 {
-  "slug": "chrono-tide-conservatory",
-  "title": "Chrono Tide Conservatory",
-  "stack": "html",
-  "aesthetic": "organic-brutalist",
+  "slug": "urchin-brass-library",
+  "title": "Urchin Brass Library",
+  "stack": "vite",
+  "aesthetic": "pixel-art",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 215058,
-  "at": "2026-10-14T01:05:16.141Z"
+  "elapsedMs": 203753,
+  "at": "2026-10-14T05:38:43.319Z"
 }
