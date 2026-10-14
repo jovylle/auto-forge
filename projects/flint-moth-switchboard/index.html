@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flint Moth Switchboard — Night Shift</title>
+<meta name="description" content="Patch night calls through moth operators. A retro-wave switchboard toy." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>★ NIGHT SHIFT ★ FLINT MOTH SWITCHBOARD ★ PATCH THE NIGHT ★ MOTH OPERATORS STANDING BY ★&nbsp;</span>
+    <span>★ NIGHT SHIFT ★ FLINT MOTH SWITCHBOARD ★ PATCH THE NIGHT ★ MOTH OPERATORS STANDING BY ★&nbsp;</span>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="rail" aria-label="Station identity">
+    <h1 class="rail-title">FLINT&nbsp;MOTH</h1>
+    <p class="rail-sub">SWITCHBOARD<br />Nº 23</p>
+    <div class="rail-clock" aria-live="off">
+      <span id="clock" class="clock-face">00:00</span>
+      <span class="clock-tag">NIGHT&nbsp;TIME</span>
+    </div>
+    <div class="rail-stats">
+      <div class="stat"><span class="stat-num" id="statPatched">0</span><span class="stat-lab">PATCHED</span></div>
+      <div class="stat"><span class="stat-num" id="statTalk">0m</span><span class="stat-lab">TALK</span></div>
+      <div class="stat"><span class="stat-num" id="statMoths">6</span><span class="stat-lab">MOTHS</span></div>
+    </div>
+    <button id="muteBtn" class="ghost-btn" aria-pressed="false" aria-label="Toggle sound">SOUND: ON</button>
+  </aside>
+
+  <section class="lines" aria-label="Night lines">
+    <header class="sec-head"><span class="sec-num">01</span><h2>NIGHT LINES</h2></header>
+    <p class="sec-hint">Tap a <em>ringing</em> line, then tap a free moth jack →</p>
+    <ol id="lineList" class="line-list"></ol>
+  </section>
+
+  <section class="board" aria-label="Moth plug board" id="board">
+    <canvas id="scene" aria-hidden="true"></canvas>
+    <header class="sec-head board-head"><span class="sec-num">02</span><h2>MOTH PLUGS</h2></header>
+    <svg id="cords" aria-hidden="true"></svg>
+    <ol id="jackList" class="jack-list"></ol>
+    <div class="board-foot">
+      <span id="patchHint" class="patch-hint" role="status">BOARD IDLE — AWAITING RING</span>
+    </div>
+    <button id="deadJack" class="dead-jack" aria-label="Unlabeled jack" title=""></button>
+  </section>
+
+  <aside class="logpanel" aria-label="Call log">
+    <header class="sec-head"><span class="sec-num">03</span><h2>CALL LOG</h2></header>
+    <ol id="logList" class="log-list" aria-live="polite"></ol>
+    <button id="clearLog" class="ghost-btn">CLEAR LOG</button>
+  </aside>
+</div>
+
+<footer class="foot">
+  <span>FLINT MOTH SWITCHBOARD · LOCAL EXCHANGE ONLY · NO CALL LEAVES THIS PAGE</span>
+</footer>
+
+<script src="./app.js"></script>
+</body>
+</html>

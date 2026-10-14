@@ -1,0 +1,31 @@
+{
+  "slug": "flint-moth-switchboard",
+  "title": "Flint Moth Switchboard",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "retro-wave",
+  "theme": "time",
+  "constraints": [
+    "must have an easter egg",
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "moth plugs",
+      "night lines",
+      "call log"
+    ],
+    "status": "pass",
+    "summary": "Flint Moth Switchboard — retro-wave patchboard in projects/flint-moth-switchboard (index.html, style.css, app.js, README.md). 5 self-ringing night lines patched onto 6 moth-operator jacks on a diagonal cascade over a canvas amber-sun/cyan-grid scene; SVG patch cords (cyan talking/amber hold), CSS moths that flap while patched, hold/resume/drop, missed-call + timeout handling, persisted call log, stats, clock, sound toggle. Easter egg: triple-click dead jack triggers 8s moth swarm + title flicker + OPERATOR ACK log + revisit greeting flag. Constraints honored: exactly 3 hues (#FFB454/#FF3D6E/#29E0D8) + soot black + cream white. Verified: node --check clean, static serve 200s on all assets, real content in response."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 497496,
+  "at": "2026-10-14T23:58:54.089Z"
+}

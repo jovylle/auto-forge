@@ -5734,12 +5734,43 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-14T17:46:17.105Z",
-    "updatedAt": "2026-10-14T17:49:01.229Z",
+    "updatedAt": "2026-10-14T17:49:10.106Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "flint-moth-switchboard",
+    "title": "Flint Moth Switchboard",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "retro-wave",
+    "theme": "time",
+    "constraints": [
+      "must have an easter egg",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Patch night calls through moth operators.",
+    "features": [
+      "moth plugs",
+      "night lines",
+      "call log"
+    ],
+    "tags": [
+      "moths",
+      "switchboard",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-14T23:50:17.512Z",
+    "updatedAt": "2026-10-14T23:58:54.083Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 182, done: 173, counts: {"done":173,"needs-human":9} };
+export const stats = { total: 183, done: 174, counts: {"done":174,"needs-human":9} };
