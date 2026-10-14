@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chrono Tide Conservatory — tidal clocks breed looping soundscapes</title>
+  <meta name="description" content="Live tidal clock dials, loopable ambient tide audio, lunar history scrub, exportable loop stems. Fully keyboard operable." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip" href="#transport">Skip to tide transport</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="mast">
+    <p class="kicker">generative · organic-brutalist · no. 07</p>
+    <h1>Chrono Tide<br /><span>Conservatory</span></h1>
+    <p class="sub">Tidal clocks breed looping soundscapes from lunar history and daily rhythms.</p>
+    <p class="live-line" role="status" aria-live="polite" id="liveLine">tuning the estuary…</p>
+  </header>
+
+  <main id="app">
+    <!-- DIALS -->
+    <section class="slab" aria-labelledby="h-dials">
+      <div class="slab-head">
+        <h2 id="h-dials">01 · Live tidal clock dials</h2>
+        <p class="hint">Computed in-browser from lunar age + harmonic tide model. No network.</p>
+      </div>
+      <div class="dials">
+        <figure class="dial-card" aria-label="Tide height dial">
+          <svg class="dial" viewBox="0 0 200 200" role="img" aria-label="Tide height gauge">
+            <circle cx="100" cy="100" r="88" class="ring" />
+            <g id="tideTicks"></g>
+            <line id="needleTide" x1="100" y1="100" x2="100" y2="28" class="needle tide-n" />
+            <circle cx="100" cy="100" r="10" class="hub" />
+            <text x="100" y="178" class="dial-cap">tide</text>
+          </svg>
+          <figcaption>
+            <strong id="tideHeight">+0.00 m</strong>
+            <span id="tideDir">flood · rising</span>
+            <span class="micro" id="tideNext">next high —:--</span>
+          </figcaption>
+        </figure>
+
+        <figure class="dial-card" aria-label="Lunar dial">
+          <svg class="dial" viewBox="0 0 200 200" role="img" aria-label="Moon age gauge">
+            <circle cx="100" cy="100" r="88" class="ring" />
+            <g id="moonTicks"></g>
+            <text id="moonGlyph" x="100" y="112" class="moon-glyph">◐</text>
+            <line id="needleMoon" x1="100" y1="100" x2="100" y2="28" class="needle moon-n" />
+            <circle cx="100" cy="100" r="10" class="hub" />
+            <text x="100" y="178" class="dial-cap">moon</text>
+          </svg>
+          <figcaption>
+            <strong id="moonName">Waxing Gibbous</strong>
+            <span id="moonAge">age 0.0 d · illum 0%</span>
+            <span class="micro" id="moonNext">full moon in — d</span>
+          </figcaption>
+        </figure>
+
+        <figure class="dial-card" aria-label="Daily rhythm dial">
+          <svg class="dial" viewBox="0 0 200 200" role="img" aria-label="Day cycle gauge">
+            <circle cx="100" cy="100" r="88" class="ring" />
+            <g id="dayTicks"></g>
+            <circle id="loopArc" cx="100" cy="100" r="70" class="loop-arc" />
+            <line id="needleDay" x1="100" y1="100" x2="100" y2="28" class="needle day-n" />
+            <circle cx="100" cy="100" r="10" class="hub" />
+            <text x="100" y="178" class="dial-cap">day · loop</text>
+          </svg>
+          <figcaption>
+            <strong id="clockNow">--:--:--</strong>
+            <span id="loopPos">loop bar 1 / 8</span>
+            <span class="micro">ring = loop position</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- TRANSPORT + MIXER -->
+    <section class="slab" id="transport" aria-labelledby="h-loop" tabindex="-1">
+      <div class="slab-head">
+        <h2 id="h-loop">02 · Loopable ambient tide audio</h2>
+        <p class="hint">Keys: <kbd>Space</kbd> play/stop · <kbd>1</kbd>–<kbd>4</kbd> mute stems · <kbd>L</kbd> loop length</p>
+      </div>
+      <div class="transport">
+        <button id="btnPlay" class="big-btn" aria-pressed="false">▶&nbsp; flood the room</button>
+        <div class="loop-len" role="group" aria-label="Loop length in bars">
+          <span class="lbl">loop</span>
+          <button data-bars="4" aria-pressed="false">4</button>
+          <button data-bars="8" aria-pressed="true">8</button>
+          <button data-bars="16" aria-pressed="false">16</button>
+        </div>
+        <div class="tempo">
+          <label for="gainMaster">room <output id="gainMasterOut" for="gainMaster">70%</output></label>
+          <input id="gainMaster" type="range" min="0" max="100" value="70" />
+        </div>
+      </div>
+      <ul class="stems" aria-label="Loop stems mixer">
+        <li class="stem" data-stem="swell">
+          <div class="stem-top"><strong>I · swell</strong><span class="key">key <kbd>1</kbd></span></div>
+          <p>filtered surf noise, breathing with tide height</p>
+          <div class="stem-ctl">
+            <input type="range" min="0" max="100" value="80" aria-label="Swell volume" data-vol="swell" />
+            <button data-mute="swell" aria-pressed="false">mute</button>
+          </div>
+        </li>
+        <li class="stem" data-stem="undertow">
+          <div class="stem-top"><strong>II · undertow</strong><span class="key">key <kbd>2</kbd></span></div>
+          <p>sub-bass pull, tuned by lunar distance</p>
+          <div class="stem-ctl">
+            <input type="range" min="0" max="100" value="70" aria-label="Undertow volume" data-vol="undertow" />
+            <button data-mute="undertow" aria-pressed="false">mute</button>
+          </div>
+        </li>
+        <li class="stem" data-stem="drone">
+          <div class="stem-top"><strong>III · moon drone</strong><span class="key">key <kbd>3</kbd></span></div>
+          <p>detuned chord rooted to the moon's age</p>
+          <div class="stem-ctl">
+            <input type="range" min="0" max="100" value="65" aria-label="Moon drone volume" data-vol="drone" />
+            <button data-mute="drone" aria-pressed="false">mute</button>
+          </div>
+        </li>
+        <li class="stem" data-stem="shimmer">
+          <div class="stem-top"><strong>IV · gull shimmer</strong><span class="key">key <kbd>4</kbd></span></div>
+          <p>pentatonic plucks seeded by the breeding day</p>
+          <div class="stem-ctl">
+            <input type="range" min="0" max="100" value="75" aria-label="Gull shimmer volume" data-vol="shimmer" />
+            <button data-mute="shimmer" aria-pressed="false">mute</button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- HISTORY -->
+    <section class="slab" aria-labelledby="h-hist">
+      <div class="slab-head">
+        <h2 id="h-hist">03 · History scrub timeline</h2>
+        <p class="hint">Keys: <kbd>[</kbd> / <kbd>]</kbd> scrub a day · <kbd>B</kbd> breed loop from day</p>
+      </div>
+      <canvas id="tideChart" width="900" height="220" aria-label="Thirty day tide-range chart" role="img"></canvas>
+      <div class="scrub-row">
+        <label for="scrub">lunar history <output id="scrubOut" for="scrub">today</output></label>
+        <input id="scrub" type="range" min="0" max="29" step="1" value="0" aria-describedby="scrubInfo" />
+      </div>
+      <p id="scrubInfo" class="scrub-info">today · seed tide-0000</p>
+      <div class="breed-row">
+        <button id="btnBreed" class="big-btn ghost">✦ breed loop from this day <kbd>B</kbd></button>
+        <p class="micro" id="breedInfo">breeding crosses today's tide with the scrubbed day into a new pluck melody.</p>
+      </div>
+    </section>
+
+    <!-- EXPORT -->
+    <section class="slab" aria-labelledby="h-exp">
+      <div class="slab-head">
+        <h2 id="h-exp">04 · Export loop stems</h2>
+        <p class="hint">Key: <kbd>E</kbd> export full mix · rendered offline to 16-bit WAV</p>
+      </div>
+      <ul class="exports">
+        <li><button data-exp="swell">↓ swell.wav</button></li>
+        <li><button data-exp="undertow">↓ undertow.wav</button></li>
+        <li><button data-exp="drone">↓ moon-drone.wav</button></li>
+        <li><button data-exp="shimmer">↓ gull-shimmer.wav</button></li>
+        <li><button data-exp="mix" class="hot">↓ full mix.wav</button></li>
+        <li><button data-exp="json">↓ session.json</button></li>
+      </ul>
+      <p class="micro" id="expStatus" role="status" aria-live="polite">stems render one full loop at 44.1 kHz. nothing leaves your machine.</p>
+    </section>
+
+    <footer class="foot">
+      <p>chrono tide conservatory · tides computed, not fetched · persists mixer + seed in localStorage</p>
+      <p class="micro">all controls are native buttons &amp; sliders — tab through everything. press <kbd>?</kbd> for the key map.</p>
+    </footer>
+  </main>
+
+  <div id="keymap" class="keymap" hidden role="dialog" aria-modal="true" aria-label="Keyboard map">
+    <div class="keymap-card">
+      <h2>key map</h2>
+      <dl>
+        <dt><kbd>Space</kbd></dt><dd>play / stop the tide</dd>
+        <dt><kbd>1</kbd>–<kbd>4</kbd></dt><dd>mute / unmute stems</dd>
+        <dt><kbd>L</kbd></dt><dd>cycle loop length 4 → 8 → 16</dd>
+        <dt><kbd>[</kbd> <kbd>]</kbd></dt><dd>scrub history ∓ / ± 1 day</dd>
+        <dt><kbd>B</kbd></dt><dd>breed loop from scrubbed day</dd>
+        <dt><kbd>E</kbd></dt><dd>export full mix WAV</dd>
+        <dt><kbd>?</kbd></dt><dd>this panel · <kbd>Esc</kbd> closes</dd>
+      </dl>
+      <button id="keymapClose" class="big-btn ghost">close · Esc</button>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
