@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MAGPIE VOLTAGE CHAPEL — generative voltage liturgy</title>
+<meta name="description" content="A keyboard-only generative voltage sequencer in a sci-fi terminal chapel. Ring the hours, feed the magpie, export the liturgy." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<a class="skip" href="#grid">skip to the voltage grid</a>
+<div id="boot" aria-hidden="true"><span id="boot-text"></span><span class="caret">▌</span></div>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="brand">
+    <div class="sigil" aria-hidden="true">◈</div>
+    <div>
+      <h1>MAGPIE <span>VOLTAGE</span> CHAPEL</h1>
+      <p class="tagline">generative voltage liturgy · choir of stray current · est. cycle 000</p>
+    </div>
+  </div>
+  <div class="chapel-clock" role="status" aria-label="chapel clock">
+    <div class="hour" id="hour-name">VIGILS</div>
+    <div class="clock-sub"><span id="cycle-count">CYCLE 000</span> · <span id="bpm-readout">112 BPM</span> · <span id="audio-state">AUDIO DORMANT</span></div>
+  </div>
+</header>
+
+<nav class="toolbar" aria-label="chapel controls">
+  <div class="tool-group" role="group" aria-label="transport">
+    <button id="btn-play" class="btn primary" aria-pressed="false" title="Play / stop the liturgy">▶ PLAY <kbd>T</kbd></button>
+    <button id="btn-bell" class="btn" title="Toll the chapel bell and advance the hour">♰ BELL <kbd>B</kbd></button>
+    <button id="btn-panic" class="btn danger" title="Cut all sound immediately">∅ PANIC <kbd>0</kbd></button>
+  </div>
+  <div class="tool-group" role="group" aria-label="generation">
+    <button id="btn-generate" class="btn" title="Generate a brand-new liturgy">✦ GENERATE <kbd>G</kbd></button>
+    <button id="btn-mutate" class="btn" title="Small magpie mutation">⤨ MUTATE <kbd>V</kbd></button>
+    <button id="btn-steal" class="btn" title="The magpie steals one shiny cell and hides it nearby">◈ STEAL <kbd>X</kbd></button>
+    <button id="btn-fill" class="btn" title="Euclidean fill">▦ FILL <kbd>F</kbd></button>
+    <button id="btn-clear" class="btn" title="Extinguish every candle">· CLEAR <kbd>C</kbd></button>
+    <button id="btn-drift" class="btn toggle" aria-pressed="true" title="Generative drift: the liturgy rewrites itself each cycle">≋ DRIFT <kbd>M</kbd></button>
+  </div>
+  <div class="tool-group" role="group" aria-label="share and export">
+    <button id="btn-export" class="btn" title="Download liturgy as JSON">⤓ JSON <kbd>E</kbd></button>
+    <button id="btn-share" class="btn" title="Copy shareable link (state in URL hash)">🔗 SHARE <kbd>Y</kbd></button>
+    <button id="btn-liturgy" class="btn" title="Copy the liturgy as ASCII text">📜 LITURGY <kbd>L</kbd></button>
+    <button id="btn-help" class="btn" title="Open the key map">? KEYS <kbd>?</kbd></button>
+  </div>
+</nav>
+
+<main class="layout">
+  <section class="chapel" aria-labelledby="grid-heading">
+    <h2 id="grid-heading" class="section-title">⌁ THE CHOIR GRID <span class="hint">— arrows move · <kbd>space</kbd> lights a candle · <kbd>1</kbd>–<kbd>4</kbd> mute a voice</span></h2>
+    <div class="grid-wrap">
+      <div id="grid" role="grid" aria-label="voltage choir grid, 4 voices by 16 steps"></div>
+    </div>
+    <div class="tempo-row">
+      <label for="tempo">TEMPO <span id="tempo-val">112</span> BPM <kbd>[</kbd><kbd>]</kbd></label>
+      <input id="tempo" type="range" min="60" max="180" step="1" value="112" aria-label="tempo in beats per minute" />
+      <div class="presets" role="group" aria-label="preset liturgies">
+        <span class="presets-label">PSALMS:</span>
+        <button class="btn small" data-preset="vigils" title="Load the Vigils psalm">ⅰ VIGILS <kbd>5</kbd></button>
+        <button class="btn small" data-preset="lauds" title="Load the Lauds psalm">ⅱ LAUDS <kbd>6</kbd></button>
+        <button class="btn small" data-preset="vespers" title="Load the Vespers psalm">ⅲ VESPERS <kbd>7</kbd></button>
+      </div>
+    </div>
+  </section>
+
+  <aside class="side">
+    <section aria-labelledby="scope-heading">
+      <h2 id="scope-heading" class="section-title">◉ VOLTAGE SCOPE</h2>
+      <canvas id="scope" width="520" height="150" aria-label="oscilloscope showing the chapel output waveform" role="img"></canvas>
+      <div class="meter-row">
+        <span>GRID CHARGE</span>
+        <div class="meter" aria-hidden="true"><div id="meter-fill"></div></div>
+        <span id="meter-val">0%</span>
+      </div>
+      <ul class="legend" aria-label="voice legend">
+        <li><i class="dot v0"></i>CANTOR <em>sine · root chant</em> <kbd>1</kbd></li>
+        <li><i class="dot v1"></i>MAGPIE <em>triangle · shiny thefts</em> <kbd>2</kbd></li>
+        <li><i class="dot v2"></i>RELIC <em>saw · buried drone</em> <kbd>3</kbd></li>
+        <li><i class="dot v3"></i>SURGE <em>square · arc faults</em> <kbd>4</kbd></li>
+      </ul>
+    </section>
+    <section aria-labelledby="log-heading">
+      <h2 id="log-heading" class="section-title">▤ CHAPEL LOG</h2>
+      <ol id="log" class="log" aria-live="polite" aria-label="chapel event log"></ol>
+    </section>
+  </aside>
+</main>
+
+<footer class="keymap" aria-label="keyboard map">
+  <span><kbd>←↑↓→</kbd>/<kbd>HJKL</kbd> move</span>
+  <span><kbd>space</kbd> candle</span>
+  <span><kbd>T</kbd> play</span>
+  <span><kbd>G</kbd>/<kbd>V</kbd>/<kbd>X</kbd> generate/mutate/steal</span>
+  <span><kbd>M</kbd> drift</span>
+  <span><kbd>E</kbd>/<kbd>Y</kbd>/<kbd>L</kbd> export/share/liturgy</span>
+  <span><kbd>?</kbd> all keys</span>
+</footer>
+
+<div id="help" role="dialog" aria-modal="true" aria-labelledby="help-title" hidden>
+  <div class="help-card">
+    <h2 id="help-title">⌨ KEY CANON <span class="hint">— everything works keyboard-only</span></h2>
+    <div class="help-cols">
+      <div>
+        <h3>GRID</h3>
+        <p><kbd>← ↑ ↓ →</kbd> or <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> move between candles</p>
+        <p><kbd>space</kbd>/<kbd>enter</kbd> light or snuff a candle (auditions it)</p>
+        <p><kbd>tab</kbd> walks the whole chapel in order</p>
+        <p><kbd>N</kbd> / <kbd>shift</kbd>+<kbd>N</kbd> next / previous voice row</p>
+      </div>
+      <div>
+        <h3>CHAPEL</h3>
+        <p><kbd>T</kbd> play / stop · <kbd>B</kbd> toll bell · <kbd>0</kbd> panic</p>
+        <p><kbd>[</kbd> / <kbd>]</kbd> tempo down / up</p>
+        <p><kbd>1</kbd>–<kbd>4</kbd> mute voices · <kbd>5 6 7</kbd> psalms</p>
+      </div>
+      <div>
+        <h3>MAGPIE</h3>
+        <p><kbd>G</kbd> generate · <kbd>V</kbd> mutate · <kbd>X</kbd> steal shiny</p>
+        <p><kbd>F</kbd> euclidean fill · <kbd>C</kbd> clear · <kbd>M</kbd> drift</p>
+        <p><kbd>E</kbd> export JSON · <kbd>Y</kbd> share link · <kbd>L</kbd> liturgy text</p>
+      </div>
+    </div>
+    <button id="btn-help-close" class="btn primary">RETURN TO THE CHAPEL <kbd>esc</kbd></button>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite" hidden></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
