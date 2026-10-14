@@ -5745,7 +5745,7 @@ export const projects = [
     "slug": "flint-moth-switchboard",
     "title": "Flint Moth Switchboard",
     "category": "tool",
-    "stack": "vite",
+    "stack": "html",
     "stackReason": "keyword vite (tool)",
     "aesthetic": "retro-wave",
     "theme": "time",
@@ -5765,9 +5765,9 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-14T23:50:17.512Z",
-    "updatedAt": "2026-10-14T23:58:54.083Z",
+    "updatedAt": "2026-10-14T23:59:02.709Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"

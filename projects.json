@@ -5746,7 +5746,7 @@
       "slug": "flint-moth-switchboard",
       "title": "Flint Moth Switchboard",
       "category": "tool",
-      "stack": "vite",
+      "stack": "html",
       "stackReason": "keyword vite (tool)",
       "aesthetic": "retro-wave",
       "theme": "time",
