@@ -1,0 +1,31 @@
+{
+  "slug": "chrono-tide-conservatory",
+  "title": "Chrono Tide Conservatory",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "organic-brutalist",
+  "theme": "time",
+  "constraints": [
+    "must work with keyboard only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Chrono Tide Conservatory: 3 live SVG tide/moon/day dials from in-browser lunar+harmonic model, WebAudio 4-stem generative loop (4/8/16 bars), 30-day scrub chart with seed breeding, offline WAV stem + session.json export, full keyboard operation with shortcuts and aria-live.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "live tidal clock dials",
+      "loopable ambient tide audio",
+      "history scrub timeline",
+      "export loop stems"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 215058,
+  "at": "2026-10-14T01:05:16.140Z"
+}

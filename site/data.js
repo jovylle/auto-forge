@@ -5611,12 +5611,44 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-13T23:26:04.219Z",
-    "updatedAt": "2026-10-13T23:33:41.175Z",
+    "updatedAt": "2026-10-13T23:33:50.121Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "chrono-tide-conservatory",
+    "title": "Chrono Tide Conservatory",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "organic-brutalist",
+    "theme": "time",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Tidal clocks breed looping soundscapes from lunar history and daily rhythms.",
+    "features": [
+      "live tidal clock dials",
+      "loopable ambient tide audio",
+      "history scrub timeline",
+      "export loop stems"
+    ],
+    "tags": [
+      "tides",
+      "loops",
+      "clocks",
+      "ambient"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-14T01:01:34.520Z",
+    "updatedAt": "2026-10-14T01:05:16.137Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 178, done: 169, counts: {"done":169,"needs-human":9} };
+export const stats = { total: 179, done: 170, counts: {"done":170,"needs-human":9} };
