@@ -1,0 +1,31 @@
+{
+  "slug": "cinder-sparrow-parlor",
+  "title": "Cinder Sparrow Parlor",
+  "stack": "vite",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "neo-brutalism",
+  "theme": "time",
+  "constraints": [
+    "must be playable in 30 seconds",
+    "sound on interaction (WebAudio, no assets)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "gossip trade",
+      "ember seats",
+      "flock board"
+    ],
+    "status": "pass",
+    "summary": "Cinder Sparrow Parlor — neo-brutalist Vite+React social trading game in projects/cinder-sparrow-parlor. Trade gossip with 3 craving-matched sparrow offers (warm/cold scoring), stoke 6 ember seats around an animated fire pit for x0.25/lit trade multiplier with cooling tick, pin/chirp/sort gossip on the persistent flock board; WebAudio synth sounds on every interaction, 30-second coach strip + session clock. Verified: vite build exit 0, relative ./assets paths, preview 200s on index/js/css."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 233609,
+  "at": "2026-10-14T11:44:29.943Z"
+}

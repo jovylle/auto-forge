@@ -5680,6 +5680,37 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "cinder-sparrow-parlor",
+      "title": "Cinder Sparrow Parlor",
+      "category": "social",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "aesthetic": "neo-brutalism",
+      "theme": "time",
+      "constraints": [
+        "must be playable in 30 seconds",
+        "sound on interaction (WebAudio, no assets)"
+      ],
+      "description": "Sparrows trade gossip over warm cinders.",
+      "features": [
+        "gossip trade",
+        "ember seats",
+        "flock board"
+      ],
+      "tags": [
+        "sparrows",
+        "parlor",
+        "social"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-14T11:40:18.900Z",
+      "updatedAt": "2026-10-14T11:44:39.547Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

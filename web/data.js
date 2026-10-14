@@ -5673,12 +5673,43 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-14T05:35:03.617Z",
-    "updatedAt": "2026-10-14T05:38:43.317Z",
+    "updatedAt": "2026-10-14T05:38:52.649Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "cinder-sparrow-parlor",
+    "title": "Cinder Sparrow Parlor",
+    "category": "social",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "neo-brutalism",
+    "theme": "time",
+    "constraints": [
+      "must be playable in 30 seconds",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Sparrows trade gossip over warm cinders.",
+    "features": [
+      "gossip trade",
+      "ember seats",
+      "flock board"
+    ],
+    "tags": [
+      "sparrows",
+      "parlor",
+      "social"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-14T11:40:18.900Z",
+    "updatedAt": "2026-10-14T11:44:29.941Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 180, done: 171, counts: {"done":171,"needs-human":9} };
+export const stats = { total: 181, done: 172, counts: {"done":172,"needs-human":9} };
