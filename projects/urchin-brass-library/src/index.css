@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-abyss: #0e2a2b;
+  --color-abyss-deep: #08191a;
+  --color-brass: #d9a441;
+  --color-brass-hi: #f2cd72;
+  --color-verdi: #4e9b8f;
+  --color-coral: #e2603f;
+  --color-parch: #f4e3c1;
+  --color-kelp: #7fa65a;
+  --color-wreck: #3a2418;
+  --font-pixel: "Press Start 2P", monospace;
+  --font-term: "VT323", monospace;
+}
+
+html {
+  background: var(--color-abyss-deep);
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(78, 155, 143, 0.16) 0 90px, transparent 91px),
+    radial-gradient(circle at 88% 22%, rgba(226, 96, 63, 0.12) 0 70px, transparent 71px),
+    radial-gradient(circle at 70% 90%, rgba(217, 164, 65, 0.1) 0 110px, transparent 111px),
+    var(--color-abyss);
+  color: var(--color-parch);
+  font-family: var(--font-term);
+  font-size: 20px;
+  image-rendering: pixelated;
+  min-height: 100vh;
+}
+
+/* scanline overlay */
+.scanlines::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    transparent 0 2px,
+    rgba(8, 25, 26, 0.22) 2px 4px
+  );
+}
+
+/* chunky pixel bevel: brass top/left, wreck bottom/right */
+.px-bevel {
+  border-radius: 0;
+  box-shadow:
+    inset 4px 4px 0 0 var(--color-brass-hi),
+    inset -4px -4px 0 0 var(--color-wreck),
+    0 0 0 3px var(--color-abyss-deep);
+}
+.px-bevel-thin {
+  border-radius: 0;
+  box-shadow:
+    inset 2px 2px 0 0 var(--color-brass-hi),
+    inset -2px -2px 0 0 var(--color-wreck),
+    0 0 0 2px var(--color-abyss-deep);
+}
+.px-panel {
+  border: 3px solid var(--color-abyss-deep);
+  outline: 3px solid var(--color-brass);
+  outline-offset: -6px;
+  border-radius: 0;
+}
+
+/* stepped pixel corners */
+.px-cut {
+  clip-path: polygon(
+    0 8px, 4px 8px, 4px 4px, 8px 4px, 8px 0,
+    calc(100% - 8px) 0, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, 100% 8px,
+    100% calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) 100%,
+    8px 100%, 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 0 calc(100% - 8px)
+  );
+}
+
+.font-pixel { font-family: var(--font-pixel); }
+.font-term { font-family: var(--font-term); }
+
+::selection { background: var(--color-coral); color: var(--color-abyss-deep); }
+
+/* focus: 3px brass ring on ink */
+:focus-visible {
+  outline: 3px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+/* ---- spine interactions ---- */
+.spine {
+  transition: none;
+  cursor: pointer;
+  position: relative;
+}
+.spine:hover, .spine:focus-visible {
+  transform: translateY(-6px);
+}
+.spine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(242, 205, 114, 0.55) 46%, transparent 54%);
+  background-size: 250% 100%;
+  background-position: 120% 0;
+  pointer-events: none;
+}
+.spine:hover::after {
+  animation: glint 0.45s steps(3) 1;
+  background-position: -20% 0;
+}
+@keyframes glint {
+  from { background-position: 120% 0; }
+  to { background-position: -20% 0; }
+}
+
+.spine-dim { opacity: 0.28; }
+.spine-match { animation: matchpulse 0.6s steps(3) 2; }
+@keyframes matchpulse {
+  0%, 100% { filter: none; }
+  50% { filter: drop-shadow(0 0 6px var(--color-kelp)); }
+}
+
+/* ---- urchin idle bob: spines wiggle, body static ---- */
+.urchin-spikes { animation: bob 1.2s steps(2) infinite; transform-origin: 50% 90%; }
+@keyframes bob {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+.urchin-work .urchin-spikes { animation: shelve-shake 0.5s steps(2) infinite; }
+@keyframes shelve-shake {
+  0%, 100% { transform: translateX(-3px) rotate(-6deg); }
+  50% { transform: translateX(3px) rotate(6deg); }
+}
+
+/* ---- buttons: instant bevel swap, no transition ---- */
+.px-btn {
+  font-family: var(--font-pixel);
+  border-radius: 0;
+  box-shadow: 0 4px 0 0 var(--color-wreck), 0 0 0 3px var(--color-abyss-deep);
+  transform: translateY(0);
+}
+.px-btn:active {
+  box-shadow: inset 0 4px 0 0 var(--color-wreck), 0 0 0 3px var(--color-abyss-deep);
+  transform: translateY(4px);
+}
+.px-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---- sprint falling book ---- */
+.drop-book { animation: drop-in 0.5s steps(4) 1; }
+@keyframes drop-in {
+  from { transform: translateY(-72px); }
+  to { transform: translateY(0); }
+}
+.puff { animation: puff 0.4s steps(3) 1; }
+@keyframes puff {
+  0% { transform: scale(0.4); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* timer blink at <= 5s */
+.timer-low { animation: blink 0.5s steps(2) infinite; }
+@keyframes blink {
+  50% { color: var(--color-coral); }
+}
+
+/* marquee ticker */
+.ticker-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker 22s linear infinite;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* bubble float */
+.bubble { animation: rise 7s linear infinite; }
+@keyframes rise {
+  from { transform: translateY(20px); opacity: 0; }
+  15% { opacity: 0.8; }
+  to { transform: translateY(-120px); opacity: 0; }
+}
+
+/* stat bar pixel chunks */
+.statbar { image-rendering: pixelated; }
+
+/* vertical spine titles */
+.spine-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--font-term);
+  letter-spacing: 1px;
+}
+
+input, select, textarea {
+  font-family: var(--font-term);
+  font-size: 20px;
+}
+input::placeholder { color: rgba(244, 227, 193, 0.45); }
+
+@media (max-width: 767px) {
+  body { font-size: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spine-match, .urchin-spikes, .ticker-track, .bubble, .drop-book, .puff, .timer-low,
+  .spine:hover::after {
+    animation: none !important;
+  }
+  .spine:hover { transform: none; }
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "urchin-brass-library",
+  "title": "Urchin Brass Library",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "pixel-art",
+  "theme": "time",
+  "constraints": [
+    "must be playable in 30 seconds"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "spine catalog",
+      "urchin clerks",
+      "shelf search"
+    ],
+    "status": "pass",
+    "summary": "Urchin Brass Library — pixel-art Vite+React+TS+Tailwind tool in projects/urchin-brass-library. 18-tome spine catalog on 3 staggered brass shelves with catalog cards, checkout + add-book (localStorage); 4 pixel urchin clerks with SPD/CARE stats and animated reshelve assignments; live shelf search with dim/pulse + aria-live drawer; 30-second Night Shift Sprint tap-the-spine game with house record. Verified: npm run build exit 0, dist uses relative ./assets paths, vite preview serves 200s."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 203753,
+  "at": "2026-10-14T05:38:43.319Z"
+}

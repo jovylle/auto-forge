@@ -5650,6 +5650,36 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "urchin-brass-library",
+      "title": "Urchin Brass Library",
+      "category": "tool",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "aesthetic": "pixel-art",
+      "theme": "time",
+      "constraints": [
+        "must be playable in 30 seconds"
+      ],
+      "description": "Sea urchins shelve a brass library.",
+      "features": [
+        "spine catalog",
+        "urchin clerks",
+        "shelf search"
+      ],
+      "tags": [
+        "urchins",
+        "library",
+        "tool"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-14T05:35:03.617Z",
+      "updatedAt": "2026-10-14T05:38:52.649Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

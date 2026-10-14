@@ -5643,12 +5643,42 @@ export const projects = [
       "ambient"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-14T01:01:34.520Z",
-    "updatedAt": "2026-10-14T01:05:16.137Z",
+    "updatedAt": "2026-10-14T01:05:40.918Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "urchin-brass-library",
+    "title": "Urchin Brass Library",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "pixel-art",
+    "theme": "time",
+    "constraints": [
+      "must be playable in 30 seconds"
+    ],
+    "description": "Sea urchins shelve a brass library.",
+    "features": [
+      "spine catalog",
+      "urchin clerks",
+      "shelf search"
+    ],
+    "tags": [
+      "urchins",
+      "library",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-14T05:35:03.617Z",
+    "updatedAt": "2026-10-14T05:38:43.317Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 179, done: 170, counts: {"done":170,"needs-human":9} };
+export const stats = { total: 180, done: 171, counts: {"done":171,"needs-human":9} };
