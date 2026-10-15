@@ -1,0 +1,22 @@
+{
+  "slug": "hazel-dormouse-disco",
+  "title": "Hazel Dormouse Disco",
+  "stack": "html",
+  "stackReason": "seed stack",
+  "aesthetic": "japanese-cyberpunk",
+  "theme": "color",
+  "constraints": [
+    "sound on interaction (WebAudio, no assets)",
+    "uses only one interaction type (click OR drag OR type)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": null,
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 195185,
+  "at": "2026-10-15T01:03:39.915Z"
+}

@@ -5772,6 +5772,37 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "hazel-dormouse-disco",
+      "title": "Hazel Dormouse Disco",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "seed stack",
+      "aesthetic": "japanese-cyberpunk",
+      "theme": "color",
+      "constraints": [
+        "sound on interaction (WebAudio, no assets)",
+        "uses only one interaction type (click OR drag OR type)"
+      ],
+      "description": "Hazel Dormouse Disco",
+      "features": [
+        "core interaction",
+        "polished UI",
+        "share/export"
+      ],
+      "tags": [
+        "disco",
+        "dormouse",
+        "audio"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-15T01:00:16.585Z",
+      "updatedAt": "2026-10-15T01:03:59.742Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
