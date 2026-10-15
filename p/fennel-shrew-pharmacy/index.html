@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Fennel Shrew Pharmacy — compound whimsical tinctures, watch them brew in glass, share your recipes." />
+  <title>Fennel Shrew Pharmacy 🧪</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+    <span class="grain"></span>
+  </div>
+
+  <main id="app">
+    <header class="hero glass">
+      <div class="hero-top">
+        <div class="shrew" aria-hidden="true">🐭</div>
+        <div>
+          <h1>Fennel Shrew Pharmacy</h1>
+          <p class="sub">Tiny apothecary, potent tinctures. Dial in your drops, brew the flask, shelve &amp; share.</p>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" id="statBrewed">0</span><span class="stat-label">brewed</span></div>
+        <div class="stat"><span class="stat-num" id="statShelved">0</span><span class="stat-label">shelved</span></div>
+        <div class="stat"><span class="stat-num" id="statPotency">–</span><span class="stat-label">last potency</span></div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <section class="glass card" aria-label="Recipe bench">
+        <h2>⚗️ Compounding bench</h2>
+
+        <fieldset class="base-row">
+          <legend>Base spirit</legend>
+          <div class="base-pills" id="basePills" role="radiogroup" aria-label="Base spirit"></div>
+        </fieldset>
+
+        <div class="ingredients" id="ingredients"></div>
+
+        <div class="bench-actions">
+          <button class="btn primary" id="brewBtn">✨ Brew tincture</button>
+          <button class="btn ghost" id="surpriseBtn" title="Randomize a recipe">🎲 Surprise me</button>
+          <button class="btn ghost" id="resetBtn" title="Clear all drops">↺ Reset</button>
+        </div>
+        <p class="hint" id="dropHint">0 drops · add at least 1 drop to brew</p>
+      </section>
+
+      <section class="glass card flask-card" aria-label="Brewing flask">
+        <h2>🍶 The flask</h2>
+        <div class="flask-wrap">
+          <canvas id="flask" width="360" height="420" aria-label="Animated potion flask"></canvas>
+        </div>
+        <div class="potion-meta">
+          <p class="potion-name" id="potionName">Empty flask — awaiting inspiration</p>
+          <div class="swatches">
+            <span class="swatch" id="swatch"></span>
+            <code id="hexCode">#000000</code>
+            <span class="potency" id="potencyBadge">–</span>
+          </div>
+          <p class="notes" id="notes"></p>
+          <div class="meter" aria-label="Potency meter"><span id="meterFill"></span></div>
+        </div>
+        <div class="share-row">
+          <button class="btn small" id="copyBtn">🔗 Copy link</button>
+          <button class="btn small" id="pngBtn">🖼️ PNG card</button>
+          <button class="btn small" id="jsonBtn">⬇️ JSON</button>
+          <button class="btn small" id="shelfBtn">📚 Shelve it</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="glass card" aria-label="Your shelf">
+      <div class="shelf-head">
+        <h2>📚 Your shelf <span class="count" id="shelfCount">(0)</span></h2>
+        <button class="btn small ghost" id="clearShelfBtn">clear</button>
+      </div>
+      <ul class="shelf" id="shelf"></ul>
+      <p class="empty-shelf" id="emptyShelf">Nothing shelved yet — brew something worth keeping.</p>
+    </section>
+
+    <footer class="foot">
+      <p>Run by one industrious shrew · no shrews were hurried · works offline from <code>file://</code></p>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

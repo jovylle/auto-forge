@@ -5858,12 +5858,42 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-15T12:21:07.830Z",
-    "updatedAt": "2026-10-15T12:23:01.943Z",
+    "updatedAt": "2026-10-15T12:23:10.627Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "fennel-shrew-pharmacy",
+    "title": "Fennel Shrew Pharmacy",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "glassmorphism",
+    "theme": "color",
+    "constraints": [
+      "no external fonts — system fonts only"
+    ],
+    "description": "Fennel Shrew Pharmacy",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "pharmacy",
+      "shrew",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-15T18:31:03.739Z",
+    "updatedAt": "2026-10-15T18:35:12.821Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 186, done: 177, counts: {"done":177,"needs-human":9} };
+export const stats = { total: 187, done: 178, counts: {"done":178,"needs-human":9} };
