@@ -1,10 +1,11 @@
 import { SITE_DIR } from "../config.mjs";
 import fs from "node:fs";
 import path from "node:path";
+import { cfToken } from "../lib/cf-token.mjs";
 
 export async function ensureAfDns(slug) {
-  const token = process.env.CLOUDFLARE_API_TOKEN;
-  if (!token) { console.log("  af-dns: no CLOUDFLARE_API_TOKEN — skip"); return; }
+  const token = cfToken();
+  if (!token) { console.log("  af-dns: no CLOUDFLARE_API_TOKEN (env or ~/.env) — skip"); return; }
   const zone = "ad1e2401f625042ce70db3594f283ce6";
   const name = `${slug}-af`;
   // check exists
