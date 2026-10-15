@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vervain Rat Relay ･ﾟ✶ VAPOR RELAY</title>
+  <meta name="description" content="Relay herbs through rat-run tunnels. A vaporwave timing relay." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="sun" aria-hidden="true"></div>
+  <div class="gridfloor" aria-hidden="true"></div>
+
+  <main id="app">
+    <header class="masthead">
+      <p class="kicker">✶ ＶＥＲＶＡＩＮ ＲＡＴ ＲＥＬＡＹ ✶</p>
+      <h1 class="chrome">RAT&nbsp;RELAY</h1>
+      <p class="sub">Relay herbs through rat-run tunnels. Tap <kbd>PASS</kbd> inside the glowing gate — clean hands, fresh herbs.</p>
+    </header>
+
+    <section class="hud" aria-label="Relay status">
+      <div class="hud-card"><span class="hud-label">LEG</span><strong id="hudLeg">– / 4</strong></div>
+      <div class="hud-card"><span class="hud-label">FRESHNESS</span><strong id="hudFresh">100%</strong></div>
+      <div class="hud-card"><span class="hud-label">TIME</span><strong id="hudTime">0.0s</strong></div>
+      <div class="hud-card"><span class="hud-label">SCORE</span><strong id="hudScore">0</strong></div>
+    </section>
+
+    <div class="freshbar" aria-hidden="true"><div id="freshFill"></div></div>
+
+    <section id="herbPick" class="panel">
+      <h2>① — choose your herb baton</h2>
+      <div class="herbs" role="radiogroup" aria-label="Herb batons">
+        <button class="herb selected" data-herb="vervain" role="radio" aria-checked="true">
+          <span class="herb-glyph">🌿</span><span class="herb-name">VERVAIN</span>
+          <span class="herb-stat">balanced pace · steady wilt</span>
+        </button>
+        <button class="herb" data-herb="moonmint" role="radio" aria-checked="false">
+          <span class="herb-glyph">🍃</span><span class="herb-name">MOONMINT</span>
+          <span class="herb-stat">fast rat · wilts fast</span>
+        </button>
+        <button class="herb" data-herb="sageshade" role="radio" aria-checked="false">
+          <span class="herb-glyph">🪻</span><span class="herb-name">SAGESHADE</span>
+          <span class="herb-stat">slow rat · barely wilts</span>
+        </button>
+      </div>
+      <button id="startBtn" class="btn big">▶ START RELAY</button>
+    </section>
+
+    <section id="track" class="track hidden" aria-label="Tunnel legs"></section>
+
+    <div id="actionRow" class="action-row hidden">
+      <button id="passBtn" class="btn pass">⛩ PASS BATON ⛩</button>
+      <p class="hint">SPACE / tap — inside the glowing gate. Early grabs fumble the herbs.</p>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <section id="result" class="panel result hidden" aria-label="Relay score">
+      <h2 id="resultTitle">🏁 RELAY COMPLETE 🏁</h2>
+      <p class="final-score"><span id="finalScore">0</span><span class="pts">pts</span></p>
+      <p id="resultLine" class="result-line"></p>
+      <ol id="legLog" class="leg-log"></ol>
+      <p class="best">BEST <strong id="bestScore">0</strong> <span id="newBest" class="newbest hidden">✶ NEW BEST ✶</span></p>
+      <div class="row">
+        <button id="againBtn" class="btn big">↻ RUN IT BACK</button>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>🐀 ･ﾟ✶ fresh herbs · tunnel legs · relay score ✶ﾟ･ 🐀</p>
+      <p class="tiny">one-button timing · no rats were rushed · best kept on this machine</p>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

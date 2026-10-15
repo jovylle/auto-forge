@@ -1,0 +1,31 @@
+{
+  "slug": "vervain-rat-relay",
+  "title": "Vervain Rat Relay",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "vaporwave",
+  "theme": "color",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "tunnel legs",
+      "herb batons",
+      "relay score"
+    ],
+    "status": "pass",
+    "summary": "Vervain Rat Relay — vaporwave one-button timing relay in projects/vervain-rat-relay (index.html, style.css, app.js, README.md). 4 tunnel legs with auto-running rats and glowing handoff gates, 3 herb batons with speed/wilt tradeoffs, relay score from handoff ratings + freshness + time bonuses with localStorage best. Verified: node syntax OK, all DOM ids resolve, 4 hex colors (3 + black), zero external requests, 375px media query."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 105037,
+  "at": "2026-10-15T12:23:01.946Z"
+}

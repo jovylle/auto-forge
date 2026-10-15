@@ -5827,12 +5827,43 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-15T06:00:31.087Z",
-    "updatedAt": "2026-10-15T06:04:12.815Z",
+    "updatedAt": "2026-10-15T06:04:22.944Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "vervain-rat-relay",
+    "title": "Vervain Rat Relay",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "vaporwave",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Relay herbs through rat-run tunnels.",
+    "features": [
+      "tunnel legs",
+      "herb batons",
+      "relay score"
+    ],
+    "tags": [
+      "rats",
+      "relay",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-15T12:21:07.830Z",
+    "updatedAt": "2026-10-15T12:23:01.943Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 185, done: 176, counts: {"done":176,"needs-human":9} };
+export const stats = { total: 186, done: 177, counts: {"done":177,"needs-human":9} };
