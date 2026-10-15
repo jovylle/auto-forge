@@ -136,6 +136,19 @@ function reclaimRootFiles(dir, snap, slug) {
   }
 }
 
+// Pages is served from the GitHub Actions artifact (build_type=workflow), so the
+// gh-pages branch push never reaches the live site. After a successful push, kick
+// the publish-only workflow so this tick's project goes live in ~1-2 min instead of
+// waiting for the scheduled run (which GitHub often delays by hours).
+async function triggerPagesPublish() {
+  try {
+    const { run } = await import("./lib/run.mjs");
+    const r = await run("gh", ["workflow", "run", "daily.yml", "--ref", "master"], { cwd: ROOT });
+    log(r.code === 0 ? "  pages: dispatched daily.yml (publish-only) — live site updates in ~1-2 min"
+                     : `  pages: dispatch failed — ${(r.err || r.out || "").slice(-200)}`);
+  } catch (e) { log("  pages: dispatch skipped", e.message); }
+}
+
 function parseVerify(out) {
   // find last VERIFY: {...} line
   const m = out.match(/VERIFY:\s*(\{[\s\S]*?\})\s*$/m) || out.match(/VERIFY:\s*(\{[\s\S]*?\})/);
@@ -354,6 +367,14 @@ async function main() {
         if (tgt === "gh-pages")   { const m = await import("./deploy/ghpages.mjs"); const ok = await m.deploy(); if (ok && buildPassed) updateProject(idea.slug, { deployed: true }); }
       } catch(e){ log(`deploy ${tgt} failed:`, e.message); }
     }
+    // loop.json must be written BEFORE the commit so lastRun/lastSlug land on
+    // origin — writing it after left origin one tick behind on every run.
+    try {
+      const loop2 = JSON.parse(fs.readFileSync(LOOP_FILE,"utf8"));
+      loop2.lastRun = new Date().toISOString();
+      loop2.lastSlug = idea.slug;
+      fs.writeFileSync(LOOP_FILE, JSON.stringify(loop2, null, 2));
+    } catch(e) { log("loop.json write failed", e.message); }
     try {
       const { run } = await import("./lib/run.mjs");
       const hasGit = fs.existsSync(path.join(ROOT, ".git"));
@@ -384,6 +405,7 @@ async function main() {
                 else { pr = await run("git",["push"],{cwd:ROOT}); }
               }
               log(pr.code === 0 ? `  git: committed & pushed — ${msg}` : `  git: PUSH FAILED after rebase retry — commits local only: ${pr.err.slice(-500)}`);
+              if (pr.code === 0) await triggerPagesPublish();
             } else {
               log(`  git: committed (no remote) — ${msg}`);
             }
@@ -391,10 +413,6 @@ async function main() {
       }
     }
     } catch(e){ log("git commit failed", e.message); }
-    const loop2 = JSON.parse(fs.readFileSync(LOOP_FILE,"utf8"));
-    loop2.lastRun = new Date().toISOString();
-    loop2.lastSlug = idea.slug;
-    fs.writeFileSync(LOOP_FILE, JSON.stringify(loop2, null, 2));
     // ——— notify bot (best-effort, never fails the tick) ———
     try {
       const { spawnSync } = await import("node:child_process");
