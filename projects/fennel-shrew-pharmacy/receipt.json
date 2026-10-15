@@ -1,0 +1,30 @@
+{
+  "slug": "fennel-shrew-pharmacy",
+  "title": "Fennel Shrew Pharmacy",
+  "stack": "html",
+  "stackReason": "seed stack",
+  "aesthetic": "glassmorphism",
+  "theme": "color",
+  "constraints": [
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback after preflight fail",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction: compounding bench with 3 bases + 6 ingredient drop steppers, brew/surprise/reset, animated canvas flask (wave, bubbles, shake, fizz)",
+      "polished UI: glassmorphism cards over drifting gradient blobs, sheen, bobbing shrew, potency meter, toasts, 375px responsive",
+      "share/export: URL-hash recipe links with auto-rebrew, PNG potion card export, JSON download, localStorage shelf (save/re-brew/delete)"
+    ],
+    "status": "pass",
+    "summary": "Fennel Shrew Pharmacy — glassmorphism tincture brewer in projects/fennel-shrew-pharmacy (index.html, style.css, app.js, README.md). Compound 6 botanicals over 3 bases, canvas flask brews with bubbles/shake, potion naming + potency + tasting notes, share via URL hash, export PNG/JSON, localStorage shelf. Verified: node syntax OK, all 25 DOM ids resolve, zero external refs (system fonts only)."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 200059,
+  "at": "2026-10-15T18:35:12.827Z"
+}

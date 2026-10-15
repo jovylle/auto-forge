@@ -10,9 +10,9 @@
     "lastError": "UnknownError"
   },
   "opencode/muse-spark-1.3-contributor-free": {
-    "failStreak": 0,
-    "lastFail": "2026-10-13T23:26:49.096Z",
-    "lastError": ""
+    "failStreak": 1,
+    "lastFail": "2026-10-15T18:31:33.779Z",
+    "lastError": "preflight timeout"
   },
   "opencode-go/muse-spark-1.3-contributor": {
     "failStreak": 0,
