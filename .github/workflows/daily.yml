@@ -14,12 +14,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: install opencode
-        run: curl -fsSL https://opencode.ai/install | bash
-      - name: daily tick
-        env:
-          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
-        run: node daily.mjs
+      - name: build gallery (publish-only — hermes cron owns ticks, see logs/triage-2026-10-15-pages.log)
+        run: npm run build:gallery
       - name: deploy pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
