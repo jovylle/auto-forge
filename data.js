@@ -5796,12 +5796,43 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-15T01:00:16.585Z",
-    "updatedAt": "2026-10-15T01:03:39.910Z",
+    "updatedAt": "2026-10-15T01:03:59.742Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "nettle-coin-laundry",
+    "title": "Nettle Coin Laundry",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "japanese-minimal",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Nettle Coin Laundry",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "laundry",
+      "coins",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-15T06:00:31.087Z",
+    "updatedAt": "2026-10-15T06:04:12.815Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 184, done: 175, counts: {"done":175,"needs-human":9} };
+export const stats = { total: 185, done: 176, counts: {"done":176,"needs-human":9} };
