@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Hazel Dormouse Disco — a pocket neon step-sequencer. Click lanterns, wake the dormouse DJ." />
+  <title>Hazel Dormouse Disco — ヘーゼルヤマネ・ディスコ</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="rain" aria-hidden="true"></canvas>
+
+  <main id="app">
+    <!-- ══ NEON SIGN HEADER ══ -->
+    <header class="sign">
+      <p class="sign-kicker"><span class="jp">ネオ京都・地下クラブ</span> · NEO-KYOTO UNDERGROUND · <span class="jp">開演中</span></p>
+      <h1 class="sign-title" aria-label="Hazel Dormouse Disco">
+        <span class="neon-pink">HAZEL DORMOUSE</span>
+        <span class="neon-cyan">DISCO</span>
+      </h1>
+      <p class="sign-sub"><span class="jp big">ヘーゼルヤマネ・ディスコ</span> — the sleepiest DJ in Neo-Kyoto. Click lanterns to program his light-dance.</p>
+    </header>
+
+    <!-- ══ DJ BOOTH: mascot + groove meter ══ -->
+    <section class="booth" aria-label="DJ booth">
+      <div class="dormouse-wrap">
+        <!-- inline SVG dormouse DJ, dances via CSS class .dancing -->
+        <svg id="dormouse" viewBox="0 0 120 110" role="img" aria-label="Hazel the dormouse DJ">
+          <ellipse cx="60" cy="100" rx="34" ry="6" class="shadow"/>
+          <ellipse cx="60" cy="68" rx="30" ry="26" class="fur"/>
+          <ellipse cx="60" cy="76" rx="20" ry="16" class="belly"/>
+          <circle cx="28" cy="44" r="13" class="fur"/>
+          <circle cx="28" cy="44" r="6" class="inner-ear"/>
+          <circle cx="92" cy="44" r="13" class="fur"/>
+          <circle cx="92" cy="44" r="6" class="inner-ear"/>
+          <circle cx="46" cy="62" r="5" class="eye"/>
+          <circle cx="74" cy="62" r="5" class="eye"/>
+          <circle cx="47.5" cy="60.5" r="1.6" class="spark"/>
+          <circle cx="75.5" cy="60.5" r="1.6" class="spark"/>
+          <ellipse cx="60" cy="72" rx="4" ry="3" class="nose"/>
+          <path d="M60 75 q0 4 -5 5 M60 75 q0 4 5 5" class="mouth" fill="none"/>
+          <path d="M88 84 q16 2 14 16 q-1 8 -10 7" class="tail" fill="none"/>
+          <!-- tiny DJ headphones -->
+          <path d="M30 50 q30 -26 60 0" class="phones" fill="none"/>
+          <rect x="22" y="48" width="10" height="18" rx="4" class="cup"/>
+          <rect x="88" y="48" width="10" height="18" rx="4" class="cup"/>
+        </svg>
+        <p id="dj-mood" class="dj-mood"><span class="jp">睡眠中</span> · asleep… click PLAY</p>
+      </div>
+
+      <div class="groove">
+        <div class="groove-top">
+          <span class="groove-label">GROOVE <span class="jp">溝</span></span>
+          <span id="groove-score" class="groove-score">0</span>
+        </div>
+        <div class="groove-bar" aria-hidden="true"><div id="groove-fill" class="groove-fill"></div></div>
+        <p id="groove-rank" class="groove-rank">RANK: <strong>見習い appretice</strong></p>
+        <p id="fever" class="fever" hidden>電 FEVER TIME 電</p>
+      </div>
+    </section>
+
+    <!-- ══ STEP GRID ══ -->
+    <section class="board" aria-label="Step sequencer">
+      <div class="board-head">
+        <span class="board-title">電光 <span class="latin">LIGHT-DANCE GRID</span></span>
+        <span class="step-dots" id="step-dots" aria-hidden="true"></span>
+      </div>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <!-- ══ TRANSPORT (all click) ══ -->
+    <section class="transport" aria-label="Transport controls">
+      <button id="btn-play" class="btn btn-play" type="button">▶ PLAY <span class="jp">再生</span></button>
+      <div class="tempo">
+        <button id="btn-slower" class="btn btn-small" type="button" aria-label="Slower">−</button>
+        <span class="tempo-read"><span id="bpm">112</span> <span class="unit">BPM</span></span>
+        <button id="btn-faster" class="btn btn-small" type="button" aria-label="Faster">+</button>
+      </div>
+      <button id="btn-dice" class="btn" type="button">🎲 LUCK <span class="jp">運</span></button>
+      <button id="btn-clear" class="btn" type="button">✕ CLEAR <span class="jp">消</span></button>
+    </section>
+
+    <!-- ══ PRESETS ══ -->
+    <section class="presets" aria-label="House patterns">
+      <span class="presets-label">HOUSE PATTERNS <span class="jp">型</span>:</span>
+      <button class="btn btn-chip" type="button" data-preset="0">真夜中 midnight</button>
+      <button class="btn btn-chip" type="button" data-preset="1">電車 last-train</button>
+      <button class="btn btn-chip" type="button" data-preset="2">祭り matsuri</button>
+    </section>
+
+    <!-- ══ SHARE / EXPORT ══ -->
+    <section class="share" aria-label="Share and export">
+      <button id="btn-copy" class="btn btn-share" type="button">⛓ COPY DISCO LINK <span class="jp">共有</span></button>
+      <button id="btn-download" class="btn btn-share" type="button">⬇ DOWNLOAD .JSON <span class="jp">保存</span></button>
+      <p id="share-msg" class="share-msg" role="status" aria-live="polite"></p>
+    </section>
+
+    <footer class="foot">
+      <p><span class="jp">注意</span> — click only. no drag, no keys. sound is 100% synthesized WebAudio, zero assets. pattern auto-saves in this browser.</p>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

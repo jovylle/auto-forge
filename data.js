@@ -5771,6 +5771,37 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "hazel-dormouse-disco",
+    "title": "Hazel Dormouse Disco",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "color",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)",
+      "uses only one interaction type (click OR drag OR type)"
+    ],
+    "description": "Hazel Dormouse Disco",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "disco",
+      "dormouse",
+      "audio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-15T01:00:16.585Z",
+    "updatedAt": "2026-10-15T01:03:39.910Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 183, done: 174, counts: {"done":174,"needs-human":9} };
+export const stats = { total: 184, done: 175, counts: {"done":175,"needs-human":9} };
