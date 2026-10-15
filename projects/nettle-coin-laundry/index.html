@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nettle Coin Laundry — ネトル コインランドリー</title>
+  <meta name="description" content="A japanese-minimal coin-laundry day-shift game. Load machines, mind the nettles, beat your best." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="page">
+    <!-- Noren curtain -->
+    <div class="noren" aria-hidden="true">
+      <div class="curtain"><span>洗</span></div>
+      <div class="curtain"><span>濯</span></div>
+      <div class="curtain"><span>屋</span></div>
+    </div>
+
+    <header class="masthead">
+      <div class="v-text v-left" aria-hidden="true">いらっしゃいませ</div>
+      <div class="title-block">
+        <p class="kicker">NETTLE COIN LAUNDRY · DAY SHIFT</p>
+        <h1>Nettle <span class="hanko-inline">根</span> Laundry</h1>
+        <p class="jp-sub">ネトル コインランドリー — 一日の仕事</p>
+      </div>
+      <div class="v-text v-right" aria-hidden="true">せんたく日和</div>
+    </header>
+
+    <!-- HUD -->
+    <section class="hud" aria-label="Shop status">
+      <div class="hud-card sun-card">
+        <div class="hud-label"><span class="jp">営業時間</span> DAY <span id="dayNum">1</span></div>
+        <div class="sunbar" role="progressbar" aria-label="Time left in the day" aria-valuemin="0" aria-valuemax="100" id="sunbarAria">
+          <div class="sunbar-fill" id="sunFill"></div>
+          <div class="sun-dot" id="sunDot">☀</div>
+        </div>
+        <div class="hud-time"><span id="clock">—</span></div>
+      </div>
+      <div class="hud-card">
+        <div class="hud-label"><span class="jp">コイン</span> COINS</div>
+        <div class="hud-big coin-big"><span class="coin-glyph" aria-hidden="true">◉</span><span id="coins">6</span></div>
+      </div>
+      <div class="hud-card">
+        <div class="hud-label"><span class="jp">得点</span> SCORE</div>
+        <div class="hud-big" id="score">0</div>
+        <div class="hud-sub">best <span id="best">0</span> <span id="combo" class="combo hidden">連 <span id="comboN">0</span></span></div>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="controls">
+      <button id="openBtn" class="btn btn-open" type="button">開店 OPEN SHOP</button>
+      <button id="soundBtn" class="btn btn-ghost" type="button" aria-pressed="true">♪ SOUND ON</button>
+      <button id="copyBtn" class="btn btn-ghost" type="button">⧉ COPY RECORD</button>
+      <button id="dlBtn" class="btn btn-ghost" type="button">↓ RECEIPT</button>
+    </section>
+
+    <details class="howto">
+      <summary>あそびかた — how to play</summary>
+      <ol>
+        <li>Press <b>開店 OPEN SHOP</b> to start the 90-second day.</li>
+        <li>Baskets pile up on the counter. Click an <b>empty machine (あき)</b> to load the next basket — costs 1 coin.</li>
+        <li>While a machine washes, <b>tap it to agitate</b> (−0.3s per tap). Listen for the bubbles.</li>
+        <li>When a machine flashes <b>できあがり DONE</b>, click to collect: <b>+2 coins, +10 pts</b>. Fast collections build a <b>combo 連</b>.</li>
+        <li><b class="nettle-word">Nettle イガ loads</b> take longer but pay <b>+4 coins, +20 pts</b>. Out of coins? The next load is on the house (おまけ).</li>
+      </ol>
+    </details>
+
+    <!-- Machines -->
+    <main>
+      <h2 class="section-title"><span class="jp">洗濯機</span> THE MACHINES <span class="rule"></span></h2>
+      <div class="machines" id="machines"></div>
+
+      <h2 class="section-title"><span class="jp">かご</span> WAITING BASKETS <span class="rule"></span></h2>
+      <div class="queue" id="queue" aria-live="polite"></div>
+      <p class="queue-note" id="queueNote">The counter is empty. Open the shop to greet the day.</p>
+    </main>
+
+    <!-- Receipt log -->
+    <section class="ledger">
+      <h2 class="section-title"><span class="jp">帳面</span> SHOP LEDGER <span class="rule"></span></h2>
+      <ul class="receipt" id="log"></ul>
+    </section>
+
+    <footer class="foot">
+      <p>根 Nettle Coin Laundry · wash well, fold kindly · <span id="footBest">best 0</span></p>
+    </footer>
+  </div>
+
+  <!-- Day-end overlay -->
+  <div class="overlay hidden" id="overlay" role="dialog" aria-modal="true" aria-labelledby="ovTitle">
+    <div class="sheet">
+      <p class="kicker">本日のお会計 — DAY RECORD</p>
+      <h2 id="ovTitle">閉店 CLOSED</h2>
+      <div class="stamp" id="stamp"><span id="stampKanji">見習</span></div>
+      <p class="rank-line"><span id="rankName">見習い APPRENTICE</span> · <span id="ovScore">0</span> pts</p>
+      <table class="stats">
+        <tr><th>loads finished</th><td id="stLoads">0</td></tr>
+        <tr><th>nettle loads</th><td id="stNettle">0</td></tr>
+        <tr><th>best combo</th><td id="stCombo">0</td></tr>
+        <tr><th>customers lost</th><td id="stLost">0</td></tr>
+        <tr><th>coins in drawer</th><td id="stCoins">0</td></tr>
+      </table>
+      <p class="newbest hidden" id="newBest">★ 新記録 NEW BEST ★</p>
+      <div class="sheet-btns">
+        <button id="againBtn" class="btn btn-open" type="button">再開 PLAY AGAIN</button>
+        <button id="ovCopyBtn" class="btn btn-ghost" type="button">⧉ COPY RECORD</button>
+        <button id="ovDlBtn" class="btn btn-ghost" type="button">↓ RECEIPT</button>
+      </div>
+      <p class="toast hidden" id="toast">copied ✓</p>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

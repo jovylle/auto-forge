@@ -5803,6 +5803,37 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "nettle-coin-laundry",
+      "title": "Nettle Coin Laundry",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "seed stack",
+      "aesthetic": "japanese-minimal",
+      "theme": "color",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "sound on interaction (WebAudio, no assets)"
+      ],
+      "description": "Nettle Coin Laundry",
+      "features": [
+        "core interaction",
+        "polished UI",
+        "share/export"
+      ],
+      "tags": [
+        "laundry",
+        "coins",
+        "game"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-15T06:00:31.087Z",
+      "updatedAt": "2026-10-15T06:04:22.944Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

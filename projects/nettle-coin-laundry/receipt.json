@@ -1,0 +1,31 @@
+{
+  "slug": "nettle-coin-laundry",
+  "title": "Nettle Coin Laundry",
+  "stack": "html",
+  "stackReason": "seed stack",
+  "aesthetic": "japanese-minimal",
+  "theme": "color",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "sound on interaction (WebAudio, no assets)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "status": "pass",
+    "summary": "Nettle Coin Laundry — japanese-minimal 90-second day-shift game in projects/nettle-coin-laundry (index.html, style.css, app.js, README.md). Load 5 machines from a 4-basket queue, tap to agitate (-0.3s), collect DONE loads for coins/points with combo bonuses; nettle loads pay double and take longer. Noren header, hanko buttons, spinning drums with water fill, steam, rank-stamp day sheet. Copy-record share + downloadable receipt + localStorage best. Exactly 3 hues + black/white; all sound via WebAudio. Verified: node syntax check, DOM-id audit, headless 95s autoplay harness (17 loads, day-end sheet, share/export all fire), 375px media query."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 211022,
+  "at": "2026-10-15T06:04:12.821Z"
+}
