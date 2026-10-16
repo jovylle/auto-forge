@@ -1,17 +1,164 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Plover Ash Press</title>
-  <link rel="stylesheet" href="./style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Plover Ash Press — Shorebirds Print Poems in Volcanic Ash</title>
+<meta name="description" content="A retro-wave letterpress run by plovers. Set type, pull the lever, print poems in volcanic ash." />
+<link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main id="app">
-    <h1>Plover Ash Press</h1>
-    <p class="sub">Shorebirds print poems in volcanic ash.</p>
-    <div id="stage"></div>
-  </main>
-  <script type="module" src="./app.js"></script>
+<canvas id="sky-ash" aria-hidden="true"></canvas>
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="mast-top">
+    <span class="kicker">EST. 1984 · TIDELINE Nº <span id="tide-no">07</span> · VOLCANIC JOB PRESS</span>
+    <span class="kicker right"><span class="blink-dot" aria-hidden="true"></span> PRESS IS <span id="press-state">READY</span></span>
+  </div>
+  <button id="sun-btn" class="sun" title="The Ash Sun (rumor: tap it five times)" aria-label="Ash sun — rumor says tapping it five times does something">
+    <span class="sun-core"></span>
+  </button>
+  <h1 class="logo"><span class="chrome">PLOVER</span> <span class="neon">ASH PRESS</span></h1>
+  <p class="tagline">Shorebirds print poems in volcanic ash — set the type, pull the lever.</p>
+  <div class="ticker" aria-hidden="true"><div class="ticker-inner" id="ticker">
+    <span>★ FRESH OFF THE PLATEN — “TIDELINE ELEGY” ★ GHOST EDITION RUMORED ★ PULL LEVER GENTLY ★ ASH IS FRESH TODAY ★ FOUR PLOVERS ON SHIFT ★&nbsp;</span><span>★ FRESH OFF THE PLATEN — “TIDELINE ELEGY” ★ GHOST EDITION RUMORED ★ PULL LEVER GENTLY ★ ASH IS FRESH TODAY ★ FOUR PLOVERS ON SHIFT ★&nbsp;</span>
+  </div></div>
+</header>
+
+<main id="app">
+  <section class="press-grid">
+
+    <!-- CONTROL DECK -->
+    <aside class="deck panel" aria-label="Press controls">
+      <h2><span class="sec-no">01</span> COMPOSITOR'S DECK</h2>
+
+      <label class="field">
+        <span class="label">Compositor plover</span>
+        <div class="birds" role="radiogroup" aria-label="Compositor plover">
+          <button class="bird on" data-bird="piping" role="radio" aria-checked="true" title="Piping Plover — pale, wistful couplets">
+            <span class="glyph" aria-hidden="true">ᕙ(˵•̀ᴗ•́˵)ᕗ</span>
+            <span class="bname">Piping</span><span class="bnote">wistful</span>
+          </button>
+          <button class="bird" data-bird="snowy" role="radio" aria-checked="false" title="Snowy Plover — spare white haiku">
+            <span class="glyph" aria-hidden="true">(•̀ᴗ•́)و</span>
+            <span class="bname">Snowy</span><span class="bnote">spare</span>
+          </button>
+          <button class="bird" data-bird="kentish" role="radio" aria-checked="false" title="Kentish Plover — rust-capped odes">
+            <span class="glyph" aria-hidden="true">‹(•ᴗ•)›</span>
+            <span class="bname">Kentish</span><span class="bnote">rust-red</span>
+          </button>
+          <button class="bird" data-bird="wilson" role="radio" aria-checked="false" title="Wilson's Plover — big-billed ballads">
+            <span class="glyph" aria-hidden="true">ᕦ(ò_ó)ᕤ</span>
+            <span class="bname">Wilson's</span><span class="bnote">brash</span>
+          </button>
+        </div>
+      </label>
+
+      <label class="field">
+        <span class="label">Tide &amp; mood</span>
+        <select id="mood">
+          <option value="dusk">Dusk low-tide — violet &amp; longing</option>
+          <option value="storm">Storm surge — ash &amp; thunder</option>
+          <option value="dawn">Dawn glass — pink &amp; tender</option>
+          <option value="midnight">Midnight crater — black &amp; electric</option>
+        </select>
+      </label>
+
+      <div class="field-row">
+        <label class="field half">
+          <span class="label">Stanzas <b id="stanza-val">3</b></span>
+          <input id="stanzas" type="range" min="1" max="5" value="3" />
+        </label>
+        <label class="field half">
+          <span class="label">Ash fall <b id="ash-val">60%</b></span>
+          <input id="ashfall" type="range" min="0" max="100" value="60" />
+        </label>
+      </div>
+
+      <label class="field check">
+        <input type="checkbox" id="ash-dust" checked />
+        <span>Dust the sheet with ash <em>(print texture)</em></span>
+      </label>
+      <label class="field check">
+        <input type="checkbox" id="sound" checked />
+        <span>Press-room audio <em>(clunks &amp; surf)</em></span>
+      </label>
+
+      <div class="lever-row">
+        <button id="compose" class="btn ghost">↻ Set new type</button>
+        <button id="pull" class="btn big">▼ PULL LEVER</button>
+      </div>
+      <div class="lever-track" aria-hidden="true"><div class="lever-knob" id="knob"></div></div>
+      <p class="hint">Tip: press <kbd>Space</kbd> to pull · <kbd>R</kbd> to reset type · rumor says the press hides a <b>ghost edition</b>…</p>
+    </aside>
+
+    <!-- THE PRESS -->
+    <section class="press panel" aria-label="The ash press">
+      <h2><span class="sec-no">02</span> THE ASH PRESS <span id="edition-tag" class="edition">EDITION Nº 001</span></h2>
+      <div class="platen-wrap">
+        <div class="platen" id="platen" aria-hidden="true"><span>ASH&nbsp;★&nbsp;PRESS</span></div>
+        <div class="beachline" aria-hidden="true">
+          <div class="walker" id="walker"><span id="walker-glyph">ᕙ(˵•̀ᴗ•́˵)ᕗ</span><span class="peck" id="peck">✦</span></div>
+        </div>
+        <!-- PRINTABLE BROADSHEET -->
+        <article id="sheet" class="sheet" aria-live="polite">
+          <div class="sheet-head">
+            <span id="sheet-press">PLOVER ASH PRESS</span><span id="sheet-no">Nº 001</span>
+          </div>
+          <h3 id="poem-title">Tideline Elegy</h3>
+          <p id="poem-byline" class="byline">set by the Piping Plover · dusk low-tide</p>
+          <div id="poem-body" class="poem"><p>Pull the lever to print.</p></div>
+          <div class="colophon">
+            <span id="sheet-date">—</span>
+            <span id="sheet-ash">ash 60%</span>
+          </div>
+          <div class="ash-grain" id="grain" aria-hidden="true"></div>
+        </article>
+      </div>
+      <div class="press-foot">
+        <span id="status" class="status">Type is locked. Ready to print.</span>
+        <button id="keep" class="btn small" title="Save to the drying line">♡ Keep</button>
+      </div>
+    </section>
+  </section>
+
+  <!-- EXPORT + DRYING LINE -->
+  <section class="export-grid">
+    <section class="panel" aria-label="Print export">
+      <h2><span class="sec-no">03</span> PRINT EXPORT</h2>
+      <p class="panel-sub">Exports the sheet above. “Print broadside” opens a clean ink-on-paper layout for paper or PDF.</p>
+      <div class="btn-row">
+        <button id="print" class="btn">🖨 Print broadside</button>
+        <button id="dl-png" class="btn ghost">⬇ PNG poster</button>
+        <button id="dl-txt" class="btn ghost">⬇ .txt</button>
+        <button id="copy-link" class="btn ghost">⧉ Copy poem</button>
+      </div>
+      <p class="hint">PNG is rendered on a retro-wave sunset canvas (1080×1350). TXT is plain UTF-8.</p>
+    </section>
+
+    <section class="panel" aria-label="Drying line">
+      <h2><span class="sec-no">04</span> DRYING LINE <span class="count" id="kept-count">0 kept</span></h2>
+      <p class="panel-sub">Kept prints hang here. Stored in this browser only.</p>
+      <ul id="shelf" class="shelf"><li class="empty">Nothing pinned yet — print something worth keeping.</li></ul>
+      <div class="btn-row"><button id="clear-kept" class="btn ghost small">Clear line</button></div>
+    </section>
+  </section>
+
+  <footer class="foot">
+    <span>PLOVER ASH PRESS · a single-file-ish retro-wave experiment · ash courtesy of Mt. Cinder · no plovers were hurried</span>
+    <span class="foot-egg">psst — try the <b>Konami code</b>, or type <b>ash</b>, or tap the sun ×5</span>
+  </footer>
+</main>
+
+<!-- print-only broadside -->
+<div id="print-zone" aria-hidden="true">
+  <h1 id="pz-title"></h1>
+  <p id="pz-by"></p>
+  <div id="pz-body"></div>
+  <p id="pz-foot"></p>
+</div>
+
+<script type="module" src="./app.js"></script>
 </body>
 </html>
