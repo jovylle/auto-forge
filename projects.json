@@ -5895,6 +5895,37 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode-go/muse-spark-1.3-contributor"
+    },
+    {
+      "slug": "ochre-badger-bureau",
+      "title": "Ochre Badger Bureau",
+      "category": "tool",
+      "stack": "html",
+      "stackReason": "seed stack",
+      "aesthetic": "memphis",
+      "theme": "color",
+      "constraints": [
+        "no external fonts — system fonts only",
+        "must work with keyboard only"
+      ],
+      "description": "Ochre Badger Bureau",
+      "features": [
+        "core interaction",
+        "polished UI",
+        "share/export"
+      ],
+      "tags": [
+        "bureau",
+        "badger",
+        "tool"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-16T00:52:32.326Z",
+      "updatedAt": "2026-10-16T00:57:45.090Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
