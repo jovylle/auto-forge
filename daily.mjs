@@ -167,7 +167,50 @@ function parseVerify(out) {
   try { return JSON.parse(m[1]); } catch { return null; }
 }
 
+// The interactive v2 binary re-migrates ~/.config/opencode/opencode.{json,jsonc}
+// to the V2 `permissions` ARRAY on every run; the tick's pinned v1.19.0 rejects it
+// on spawn (instant death, twice on Oct-16). V2 accepts V1 rules, so strip the V2
+// array back to a minimal V1 block: ticks self-heal, interactive keeps working.
+// Backup-first, no-op when already V1; preflight right after is the verification.
+function repairOpencodeConfig() {
+  const home = process.env.HOME || "";
+  if (!home) return;
+  for (const base of ["opencode.json", "opencode.jsonc"]) {
+    const f = `${home}/.config/opencode/${base}`;
+    let text;
+    try { text = fs.readFileSync(f, "utf8"); } catch { continue; }
+    if (!/"permissions"\s*:\s*\[/.test(text)) continue; // already V1 — untouched
+    // bracket-match each V2 `permissions` array (string-aware) and cut it
+    const spans = [];
+    const keyRe = /"permissions"\s*:\s*\[/g;
+    let m, broken = false;
+    while ((m = keyRe.exec(text))) {
+      let depth = 0, i = m.index + m[0].length - 1;
+      for (; i < text.length; i++) {
+        const c = text[i];
+        if (c === "[") depth++;
+        else if (c === "]") { depth--; if (depth === 0) break; }
+        else if (c === '"') { i++; while (i < text.length) { if (text[i] === "\\") i += 2; else if (text[i] === '"') break; else i++; } }
+      }
+      if (depth !== 0) { broken = true; break; }
+      spans.push([m.index, i + 1]);
+    }
+    if (broken || !spans.length) { log(`  opencode config: ${base} V2 array unparseable — leaving for human`); continue; }
+    let out = text;
+    spans.sort((a, b) => b[0] - a[0]);
+    for (const [s, e] of spans) out = out.slice(0, s) + out.slice(e);
+    out = out.replace(/,\s*,/g, ",").replace(/\{\s*,/g, "{").replace(/,\s*\}/g, "}");
+    if (!/"permission"\s*:/.test(out)) out = out.replace(/\{/, '{\n  "permission": { "edit": "ask", "bash": "ask", "webfetch": "allow" },');
+    try {
+      fs.copyFileSync(f, `${f}.tickstrip.bak-${new Date().toISOString().slice(0, 10)}`);
+      fs.writeFileSync(f, out);
+      log(`  opencode config: stripped V2 permissions from ${base} (backup kept)`);
+    } catch (e) { log(`  opencode config: repair write failed for ${base}`, e.message); }
+  }
+}
+
 async function buildProject(idea, isContinue=false) {
+  repairOpencodeConfig(); // self-heal v2-migrated global config before first spawn
   const dir = path.join(PROJECTS_DIR, idea.slug);
   let retryCtx = "";
   if (isContinue) {
