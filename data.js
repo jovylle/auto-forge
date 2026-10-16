@@ -6012,14 +6012,14 @@ export const projects = [
       "poetry",
       "generator"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-10-16T13:52:04.939Z",
-    "updatedAt": "2026-10-16T13:52:07.049Z",
-    "buildPassed": false,
-    "lastError": "\u001b[91m\u001b[1mError: \u001b[0mConfiguration is invalid at /Users/jovyllebermudez/.config/opencode/opencode.json\n↳ V2 permissions are not supported by OpenCode V1. Use V1 \"permission\" rules or run opencode2. permissions\n",
+    "updatedAt": "2026-10-16T14:00:38.830Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 191, done: 181, counts: {"done":181,"needs-human":9,"needs-iteration":1} };
+export const stats = { total: 191, done: 182, counts: {"done":182,"needs-human":9} };
