@@ -36,10 +36,21 @@ function recordHealth(model, ok, errSnippet="") {
   const h = loadHealth();
   if (!h[model]) h[model] = { failStreak: 0, lastFail: null, lastError: "" };
   if (ok) { h[model].failStreak = 0; h[model].lastError = ""; }
+  else if (INFRA_NO_FAULT.some(re => re.test(errSnippet || ""))) {
+    // Environment/config breakage, not model quality (Oct-10 wedged v2 daemon,
+    // Oct-16 v2-migrated opencode.jsonc): stamp for visibility but don't punish.
+    h[model].lastFail = new Date().toISOString();
+    h[model].lastError = ("[infra-no-fault] " + errSnippet).slice(0,400);
+  }
   else { h[model].failStreak = (h[model].failStreak||0)+1; h[model].lastFail = new Date().toISOString(); h[model].lastError = errSnippet.slice(0,400); }
   saveHealth(h);
   return h;
 }
+// Error signatures that mean "the machine is broken", never "the model failed".
+const INFRA_NO_FAULT = [
+  /Configuration is invalid/i,                                   // opencode.jsonc v1/v2 mismatch
+  /Timed out waiting for the background service to start/i,      // wedged opencode daemon
+];
 function pickModelWithBreaker() {
   const primary = config.models.build;
   const fallback = config.models.buildFallback;
