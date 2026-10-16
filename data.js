@@ -5888,12 +5888,43 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-15T18:31:03.739Z",
-    "updatedAt": "2026-10-15T18:35:12.821Z",
+    "updatedAt": "2026-10-15T18:35:22.569Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "ochre-badger-bureau",
+    "title": "Ochre Badger Bureau",
+    "category": "tool",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "memphis",
+    "theme": "color",
+    "constraints": [
+      "no external fonts — system fonts only",
+      "must work with keyboard only"
+    ],
+    "description": "Ochre Badger Bureau",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "bureau",
+      "badger",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-16T00:52:32.326Z",
+    "updatedAt": "2026-10-16T00:57:16.174Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 187, done: 178, counts: {"done":178,"needs-human":9} };
+export const stats = { total: 188, done: 179, counts: {"done":179,"needs-human":9} };

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Ochre Badger Bureau — a keyboard-first field-dossier desk. File cases, stamp verdicts, share the ledger." />
+<title>Ochre Badger Bureau — Field Dossier Desk</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23FFF6E5' stroke='%231A1310' stroke-width='4'/%3E%3Cellipse cx='32' cy='36' rx='18' ry='15' fill='%23F4F1EA' stroke='%231A1310' stroke-width='3'/%3E%3Cpath d='M25 22 L32 36 L39 22' fill='%231A1310'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<a class="skip" href="#queue">Skip to dossier queue</a>
+
+<!-- floating memphis confetti (decorative, aria-hidden) -->
+<div class="confetti" aria-hidden="true">
+  <span class="c c-tri"></span><span class="c c-dot"></span><span class="c c-sq"></span>
+  <span class="c c-ring"></span><span class="c c-bar"></span><span class="c c-tri2"></span>
+  <span class="c c-dot2"></span><span class="c c-sq2"></span>
+</div>
+
+<header class="masthead">
+  <div class="mast-inner">
+    <div class="logo-wrap">
+      <!-- inline SVG badger badge: self-contained, no external assets -->
+      <svg class="badge" width="72" height="72" viewBox="0 0 72 72" role="img" aria-label="Ochre Badger Bureau badge: a badger face">
+        <circle cx="36" cy="36" r="33" fill="#FFF6E5" stroke="#1A1310" stroke-width="3"/>
+        <circle cx="36" cy="36" r="27" fill="none" stroke="#1A1310" stroke-width="2" stroke-dasharray="5 5"/>
+        <ellipse cx="14" cy="24" rx="7" ry="9" fill="#1A1310"/>
+        <ellipse cx="58" cy="24" rx="7" ry="9" fill="#1A1310"/>
+        <ellipse cx="14" cy="24" rx="3" ry="5" fill="#FF9ED2"/>
+        <ellipse cx="58" cy="24" rx="3" ry="5" fill="#FF9ED2"/>
+        <ellipse cx="36" cy="40" rx="22" ry="19" fill="#F4F1EA" stroke="#1A1310" stroke-width="3"/>
+        <path d="M28 24 L36 40 L44 24" fill="#1A1310"/>
+        <path d="M32 30 L36 40 L40 30" fill="#FFF6E5"/>
+        <ellipse cx="28" cy="42" rx="4.5" ry="5.5" fill="#1A1310"/>
+        <ellipse cx="44" cy="42" rx="4.5" ry="5.5" fill="#1A1310"/>
+        <circle cx="28" cy="41" r="1.4" fill="#FFF6E5"/>
+        <circle cx="44" cy="41" r="1.4" fill="#FFF6E5"/>
+        <ellipse cx="36" cy="50" rx="4" ry="3" fill="#1A1310"/>
+        <path d="M31 56 Q36 59 41 56" stroke="#1A1310" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="title-block">
+        <p class="kicker">EST. 2026 &middot; DEPT. OF SMALL MYSTERIES</p>
+        <h1>Ochre Badger <span class=" bureau-word">Bureau</span></h1>
+        <p class="tagline">File a case. Work the queue. <strong>Stamp it.</strong></p>
+      </div>
+    </div>
+    <div class="mast-actions">
+      <span class="sticker sticker-spin" aria-hidden="true">100%<br/>KEYBOARD!</span>
+      <button id="btn-new" class="btn btn-primary" type="button"><span aria-hidden="true">+</span> New dossier <kbd>N</kbd></button>
+      <button id="btn-help" class="btn btn-ghost" type="button" aria-haspopup="dialog">Shortcuts <kbd>?</kbd></button>
+    </div>
+  </div>
+  <div class="zigzag" aria-hidden="true"></div>
+</header>
+
+<main id="app">
+  <!-- toolbar -->
+  <section class="toolbar card" aria-label="Queue controls">
+    <div class="search-wrap">
+      <label class="visually-hidden" for="search">Search dossiers</label>
+      <span class="search-glyph" aria-hidden="true">&#x2315;</span>
+      <input id="search" type="search" placeholder="Search dossiers…  ( / )" autocomplete="off" />
+    </div>
+    <div class="chips" role="group" aria-label="Filter by status">
+      <button class="chip is-on" data-filter="all" type="button">All <b id="count-all">0</b></button>
+      <button class="chip" data-filter="open" type="button">Open <b id="count-open">0</b></button>
+      <button class="chip" data-filter="approved" type="button">Approved <b id="count-approved">0</b></button>
+      <button class="chip" data-filter="shelved" type="button">Shelved <b id="count-shelved">0</b></button>
+      <button class="chip" data-filter="denied" type="button">Denied <b id="count-denied">0</b></button>
+    </div>
+    <div class="toolbar-right">
+      <label class="visually-hidden" for="sort">Sort dossiers</label>
+      <select id="sort" aria-label="Sort dossiers">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="priority">Top priority</option>
+        <option value="az">Title A–Z</option>
+      </select>
+    </div>
+  </section>
+
+  <div class="desk">
+    <!-- queue -->
+    <section class="card queue-card" aria-label="Dossier queue">
+      <div class="queue-head">
+        <h2>In-tray <span id="queue-count" class="pill">0</span></h2>
+        <p class="hint"><kbd>J</kbd>/<kbd>K</kbd> move &middot; <kbd>Enter</kbd> open &middot; <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> stamp</p>
+      </div>
+      <ul id="queue" class="queue" role="listbox" aria-label="Dossiers. Use up and down arrows to move." tabindex="0"></ul>
+      <div id="empty" class="empty" hidden>
+        <p class="empty-face" aria-hidden="true">&#9673; &#9650; &#9679;</p>
+        <p><strong>Tray empty.</strong> No dossiers match.</p>
+        <button id="btn-empty-new" class="btn btn-primary" type="button">File the first one <kbd>N</kbd></button>
+      </div>
+    </section>
+
+    <!-- detail -->
+    <section class="card detail-card" aria-label="Dossier detail" aria-live="polite">
+      <div id="detail"></div>
+    </section>
+  </div>
+
+  <!-- share / export -->
+  <section class="card export-card" aria-label="Share and export">
+    <h2>Share &amp; export <span class="sticker-mini" aria-hidden="true">LEDGER</span></h2>
+    <p class="export-sub">Everything lives in <code>localStorage</code> — no account, no server. Share links pack the whole ledger into the URL hash.</p>
+    <div class="export-btns">
+      <button id="btn-link" class="btn btn-primary" type="button">Copy share link</button>
+      <button id="btn-md" class="btn" type="button">Copy summary (Markdown)</button>
+      <button id="btn-json" class="btn" type="button">Download JSON</button>
+      <button id="btn-csv" class="btn" type="button">Download CSV</button>
+      <button id="btn-print" class="btn" type="button">Print ledger</button>
+      <label class="btn btn-ghost file-btn">Import JSON<input id="file-import" type="file" accept="application/json,.json" class="visually-hidden" /></label>
+      <button id="btn-wipe" class="btn btn-danger" type="button">Reset demo data</button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p><strong>Ochre Badger Bureau</strong> &middot; system fonts only &middot; fully keyboard-operable &middot; works from <code>file://</code></p>
+  <p class="footer-keys">Press <kbd>?</kbd> anytime for shortcuts &middot; <kbd>Esc</kbd> closes dialogs</p>
+</footer>
+
+<!-- composer dialog -->
+<dialog id="dlg-new" aria-labelledby="dlg-new-title">
+  <form id="form-new" method="dialog">
+    <h2 id="dlg-new-title">File a new dossier</h2>
+    <p class="dlg-sub">All fields keyboard reachable. <kbd>Tab</kbd> moves, <kbd>Esc</kbd> cancels.</p>
+    <label>Title <span class="req" aria-hidden="true">*</span>
+      <input id="f-title" name="title" required maxlength="80" placeholder="e.g. The Case of the Vanishing Biscuits" autocomplete="off" />
+    </label>
+    <div class="form-row">
+      <label>Department
+        <select id="f-dept" name="dept">
+          <option>Snacks &amp; Crumbs</option>
+          <option>Lost &amp; Found</option>
+          <option>Suspicious Pigeons</option>
+          <option>Midnight Noises</option>
+          <option>Weather Grumbles</option>
+          <option>Other Oddities</option>
+        </select>
+      </label>
+      <label>Priority
+        <select id="f-prio" name="prio">
+          <option value="3">★★★ urgent</option>
+          <option value="2" selected>★★ routine</option>
+          <option value="1">★ whenever</option>
+        </select>
+      </label>
+    </div>
+    <label>Field notes
+      <textarea id="f-notes" name="notes" rows="4" maxlength="1200" placeholder="What happened? Who saw it? Any paw-prints?"></textarea>
+    </label>
+    <div class="dlg-btns">
+      <button type="button" class="btn btn-ghost" id="btn-cancel-new">Cancel <kbd>Esc</kbd></button>
+      <button type="submit" class="btn btn-primary" id="btn-save-new">Stamp &amp; file <kbd>↵</kbd></button>
+    </div>
+  </form>
+</dialog>
+
+<!-- shortcuts dialog -->
+<dialog id="dlg-help" aria-labelledby="dlg-help-title">
+  <h2 id="dlg-help-title">Keyboard shortcuts</h2>
+  <table class="keys">
+    <tbody>
+      <tr><td><kbd>N</kbd></td><td>New dossier</td></tr>
+      <tr><td><kbd>/</kbd></td><td>Jump to search</td></tr>
+      <tr><td><kbd>J</kbd> / <kbd>K</kbd> or <kbd>&uarr;</kbd><kbd>&darr;</kbd></td><td>Move in queue</td></tr>
+      <tr><td><kbd>Enter</kbd></td><td>Open focused dossier</td></tr>
+      <tr><td><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></td><td>Stamp Approved / Shelved / Denied</td></tr>
+      <tr><td><kbd>X</kbd></td><td>Shred (delete) open dossier</td></tr>
+      <tr><td><kbd>?</kbd></td><td>This panel</td></tr>
+      <tr><td><kbd>Esc</kbd></td><td>Close dialog / blur search</td></tr>
+    </tbody>
+  </table>
+  <p class="dlg-sub">Every button and field is also in the <kbd>Tab</kbd> order — shortcuts are accelerators, never the only path.</p>
+  <button class="btn btn-primary" id="btn-close-help" type="button">Back to the desk <kbd>Esc</kbd></button>
+</dialog>
+
+<!-- stamp flash overlay -->
+<div id="stamp-flash" class="stamp-flash" aria-hidden="true"><span id="stamp-word">APPROVED</span></div>
+
+<!-- toasts -->
+<div id="toasts" class="toasts" aria-live="polite" aria-atomic="false"></div>
+
+<div id="print-ledger" class="print-only" aria-hidden="true"></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
