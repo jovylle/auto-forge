@@ -5951,12 +5951,44 @@ export const projects = [
       "accessibility"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-16T01:01:06.516Z",
-    "updatedAt": "2026-10-16T01:10:10.042Z",
+    "updatedAt": "2026-10-16T01:10:35.154Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "dune-wren-observatory",
+    "title": "Dune Wren Observatory",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "pop-art",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Wrens chart the stars from dune scopes.",
+    "features": [
+      "star chart",
+      "dune scopes",
+      "night export"
+    ],
+    "tags": [
+      "wrens",
+      "stars",
+      "canvas"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-10-16T07:11:54.559Z",
+    "updatedAt": "2026-10-16T07:12:12.281Z",
+    "buildPassed": false,
+    "lastError": "\u001b[91m\u001b[1mError: \u001b[0mConfiguration is invalid at /Users/jovyllebermudez/.config/opencode/opencode.jsonc\n↳ V2 permissions are not supported by OpenCode V1. Use V1 \"permission\" rules or run opencode2. permissions\n",
+    "retries": 1,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 189, done: 180, counts: {"done":180,"needs-human":9} };
+export const stats = { total: 190, done: 180, counts: {"done":180,"needs-human":9,"needs-iteration":1} };
