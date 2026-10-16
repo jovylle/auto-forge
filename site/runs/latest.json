@@ -1,8 +1,8 @@
 {
-  "slug": "plover-ash-press",
-  "title": "Plover Ash Press",
+  "slug": "woad-ibis-works",
+  "title": "Woad Ibis Works",
   "stack": "html",
-  "aesthetic": "retro-wave",
+  "aesthetic": "neo-brutalism",
   "model": "opencode/muse-spark-1.3-contributor-free",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 267059,
-  "at": "2026-10-16T14:00:38.839Z"
+  "elapsedMs": 219797,
+  "at": "2026-10-16T20:13:23.170Z"
 }

@@ -6013,13 +6013,43 @@ export const projects = [
       "generator"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-16T13:52:04.939Z",
-    "updatedAt": "2026-10-16T14:00:38.830Z",
+    "updatedAt": "2026-10-16T14:00:58.177Z",
     "buildPassed": true,
     "lastError": null,
     "retries": 1,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "woad-ibis-works",
+    "title": "Woad Ibis Works",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "neo-brutalism",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Dye the river blue with ibis flight paths.",
+    "features": [
+      "flight dye",
+      "river canvas",
+      "pigment export"
+    ],
+    "tags": [
+      "ibis",
+      "dye",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-16T20:09:28.544Z",
+    "updatedAt": "2026-10-16T20:13:23.166Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 191, done: 182, counts: {"done":182,"needs-human":9} };
+export const stats = { total: 192, done: 183, counts: {"done":183,"needs-human":9} };

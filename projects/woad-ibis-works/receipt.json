@@ -1,0 +1,30 @@
+{
+  "slug": "woad-ibis-works",
+  "title": "Woad Ibis Works",
+  "stack": "html",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "neo-brutalism",
+  "theme": "color",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "flight dye",
+      "river canvas",
+      "pigment export"
+    ],
+    "status": "pass",
+    "summary": "Woad Ibis Works — neo-brutalist single-page viz in projects/woad-ibis-works (index.html, style.css, app.js, README.md). Animated river canvas with ibis flocks depositing 3-pigment dye advected downstream; click=dropping ibis, drag=gust, flow/wind/dye sliders, auto-flock, dye ledger, saturation stamp; exports to PNG, SVG paths, palette + recipe copy; localStorage persistence. Strict 5-value palette (#2447F9/#FF4D00/#FFD02B + #111111/#FFFEF7). Verified: node --check clean, all 34 DOM ids resolve, no stray colors, responsive at 375px."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 219797,
+  "at": "2026-10-16T20:13:23.170Z"
+}
