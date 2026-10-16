@@ -5919,12 +5919,44 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-16T00:52:32.326Z",
-    "updatedAt": "2026-10-16T00:57:16.174Z",
+    "updatedAt": "2026-10-16T00:57:45.090Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "violet-marmot-prism",
+    "title": "Violet Marmot Prism",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "dark-fantasy",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Mix gradients, test contrast, and export shareable palettes in seconds.",
+    "features": [
+      "live gradient mixer",
+      "color-blind perception preview",
+      "one-click palette export",
+      "random harmony dice"
+    ],
+    "tags": [
+      "color",
+      "palette",
+      "gradient",
+      "accessibility"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-16T01:01:06.516Z",
+    "updatedAt": "2026-10-16T01:10:10.042Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
-export const stats = { total: 188, done: 179, counts: {"done":179,"needs-human":9} };
+export const stats = { total: 189, done: 180, counts: {"done":180,"needs-human":9} };
