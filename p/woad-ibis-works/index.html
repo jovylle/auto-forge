@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Woad Ibis Works — dye the river blue with ibis flight paths. A neo-brutalist river canvas." />
+  <title>Woad Ibis Works — Dye the River Blue</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack">
+      <span>WOAD IBIS WORKS ★ DYE THE RIVER BLUE ★ 3 PIGMENTS ONLY ★ FLIGHT DYE ★ RIVER CANVAS ★ PIGMENT EXPORT ★&nbsp;</span>
+      <span>WOAD IBIS WORKS ★ DYE THE RIVER BLUE ★ 3 PIGMENTS ONLY ★ FLIGHT DYE ★ RIVER CANVAS ★ PIGMENT EXPORT ★&nbsp;</span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="logo-block">
+      <span class="logo-ibis" aria-hidden="true">≋⌄≋</span>
+      <div>
+        <h1>WOAD IBIS<br />WORKS</h1>
+        <p class="tagline">Dye the river blue with ibis flight paths.</p>
+      </div>
+    </div>
+    <div class="mast-badges">
+      <span class="badge badge-woad">3 PIGMENTS</span>
+      <span class="badge">NEO-BRUTAL VIZ Nº 07</span>
+      <span class="badge badge-rust" id="flightBadge">0 FLIGHTS</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- RIVER CANVAS -->
+    <section class="panel river-panel" aria-label="River canvas">
+      <div class="panel-head">
+        <h2><span class="h2-num">01</span> RIVER CANVAS</h2>
+        <div class="head-actions">
+          <button class="btn btn-small" id="pauseBtn" type="button" aria-pressed="false">❚❚ PAUSE</button>
+          <button class="btn btn-small" id="clearBtn" type="button">✕ SCOUR RIVER</button>
+        </div>
+      </div>
+
+      <div class="river-wrap" id="riverWrap">
+        <canvas id="river" aria-label="Animated river. Ibis flight paths deposit dye pigment into the water."></canvas>
+        <div class="hud hud-top">
+          <span class="hud-chip" id="satChip">SATURATION 0%</span>
+          <span class="hud-chip" id="dyeChip">DYE 0</span>
+        </div>
+        <div class="stamp" id="stamp" hidden>RIVER DYED ✓</div>
+        <p class="hint">CLICK river = release ibis here &nbsp;·&nbsp; DRAG = gust &nbsp;·&nbsp; keys <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> pigment, <kbd>space</kbd> flock, <kbd>E</kbd> png</p>
+      </div>
+
+      <div class="toolbar" role="toolbar" aria-label="Flight controls">
+        <div class="tool-row">
+          <button class="btn btn-woad" id="flockBtn" type="button">⌄ RELEASE FLOCK +5</button>
+          <button class="btn" id="mixedBtn" type="button">MIXED TRIO +3</button>
+          <button class="btn btn-rust" id="gustBtn" type="button">≋ GUST!</button>
+        </div>
+        <div class="sliders">
+          <label class="slider">FLOW
+            <input type="range" id="flowRange" min="20" max="300" value="110" />
+            <b id="flowVal">1.1×</b>
+          </label>
+          <label class="slider">WIND
+            <input type="range" id="windRange" min="-100" max="100" value="0" />
+            <b id="windVal">0</b>
+          </label>
+          <label class="slider">DYE LOAD
+            <input type="range" id="dyeRange" min="10" max="250" value="120" />
+            <b id="dyeVal">1.2×</b>
+          </label>
+        </div>
+        <div class="toggles">
+          <label class="check"><input type="checkbox" id="trailsBox" checked /> <span>FLIGHT PATHS</span></label>
+          <label class="check"><input type="checkbox" id="autoBox" checked /> <span>AUTO-FLOCK</span></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIDE COLUMN -->
+    <div class="side">
+      <section class="panel" aria-label="Flight dye pigments">
+        <div class="panel-head">
+          <h2><span class="h2-num">02</span> FLIGHT DYE</h2>
+        </div>
+        <div class="pigments" role="radiogroup" aria-label="Pigment">
+          <button class="pig pig-woad is-active" data-pig="woad" role="radio" aria-checked="true" type="button">
+            <span class="swatch"></span>
+            <span class="pig-name">WOAD</span>
+            <span class="pig-hex">#2447F9</span>
+            <span class="pig-key">1</span>
+          </button>
+          <button class="pig pig-rust" data-pig="rust" role="radio" aria-checked="false" type="button">
+            <span class="swatch"></span>
+            <span class="pig-name">IBIS RUST</span>
+            <span class="pig-hex">#FF4D00</span>
+            <span class="pig-key">2</span>
+          </button>
+          <button class="pig pig-reed" data-pig="reed" role="radio" aria-checked="false" type="button">
+            <span class="swatch"></span>
+            <span class="pig-name">REED GOLD</span>
+            <span class="pig-hex">#FFD02B</span>
+            <span class="pig-key">3</span>
+          </button>
+        </div>
+        <div class="recipe" aria-live="polite">
+          <div class="recipe-head"><span>PIGMENT RECIPE</span><span id="recipeTotal">0 UNITS</span></div>
+          <div class="bar" aria-hidden="true"><i id="barWoad"></i><i id="barRust"></i><i id="barReed"></i></div>
+          <ul class="recipe-list">
+            <li><b class="dot dot-woad"></b>WOAD <span id="pctWoad">0%</span></li>
+            <li><b class="dot dot-rust"></b>RUST <span id="pctRust">0%</span></li>
+            <li><b class="dot dot-reed"></b>REED <span id="pctReed">0%</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Pigment export">
+        <div class="panel-head">
+          <h2><span class="h2-num">03</span> PIGMENT EXPORT</h2>
+        </div>
+        <div class="export-grid">
+          <button class="btn btn-woad" id="pngBtn" type="button">⬇ PNG RIVER</button>
+          <button class="btn" id="svgBtn" type="button">⬇ SVG PATHS</button>
+          <button class="btn" id="palBtn" type="button">⧉ COPY PALETTE</button>
+          <button class="btn btn-reed" id="recipeBtn" type="button">⧉ COPY RECIPE</button>
+        </div>
+        <p class="toast" id="toast" role="status" aria-live="polite"></p>
+        <div class="log-head"><span>DYE LEDGER</span><button class="linklike" id="wipeLog" type="button">wipe</button></div>
+        <ul class="ledger" id="ledger"><li class="ledger-empty">No flights yet — release the flock.</li></ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>WOAD IBIS WORKS — RIVER CANVAS · FLIGHT DYE · PIGMENT EXPORT</span>
+    <span class="foot-palette" aria-label="Palette: woad 2447F9, rust FF4D00, reed FFD02B, plus black and white">
+      <i class="dot dot-woad"></i><i class="dot dot-rust"></i><i class="dot dot-reed"></i> + BLK/WHT
+    </span>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
