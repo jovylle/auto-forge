@@ -5926,6 +5926,38 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    },
+    {
+      "slug": "violet-marmot-prism",
+      "title": "Violet Marmot Prism",
+      "category": "tool",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "aesthetic": "dark-fantasy",
+      "theme": "color",
+      "constraints": [
+        "3 colors max (plus black/white)"
+      ],
+      "description": "Mix gradients, test contrast, and export shareable palettes in seconds.",
+      "features": [
+        "live gradient mixer",
+        "color-blind perception preview",
+        "one-click palette export",
+        "random harmony dice"
+      ],
+      "tags": [
+        "color",
+        "palette",
+        "gradient",
+        "accessibility"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-10-16T01:01:06.516Z",
+      "updatedAt": "2026-10-16T01:10:35.154Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/muse-spark-1.3-contributor-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

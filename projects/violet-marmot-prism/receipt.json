@@ -1,0 +1,32 @@
+{
+  "slug": "violet-marmot-prism",
+  "title": "Violet Marmot Prism",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "dark-fantasy",
+  "theme": "color",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "live gradient mixer (3 chromatic stops max + black/white candle endpoints, linear/radial/conic, angle/focus slider, hex + picker + position controls)",
+      "color-blind perception preview (protan/deutan/tritan/achroma veils via Machado matrices + muddied-stop warnings)",
+      "one-click palette export (CSS/Tailwind/SVG/JSON copy + download + share-link hash)",
+      "random harmony dice (analogous/complement/triadic/mono/wild, tumble animation)",
+      "WCAG contrast altar (pairwise + parchment-text grades) + localStorage persistence"
+    ],
+    "status": "pass",
+    "summary": "Violet Marmot Prism — dark-fantasy gradient forge in projects/violet-marmot-prism (Vite+React+TS+Tailwind v4, Cinzel + Spline Sans Mono, plum-black/gilt/oxblood/verdigris identity). 3-color hard cap + black/white candles enforced in UI, hash restore, and storage validation. Verified: vite build exits 0, dist uses relative ./assets paths, preview serves 200, color-science smoke test green (contrast 21.00, hash round-trip, radial SVG). Reviewer findings fixed (SVG gradient elements, storage validation, candle restore, clipboard fallback, export comments)."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 493471,
+  "at": "2026-10-16T01:10:10.048Z"
+}

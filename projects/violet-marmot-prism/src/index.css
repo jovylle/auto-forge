@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --void: #0e0a0f;
+  --obsidian: #1a1420;
+  --obsidian-2: #241b2c;
+  --parchment: #e8dcc8;
+  --dusk: #9b8fa6;
+  --gilt: #d4a24c;
+  --gilt-dim: #8a6a30;
+  --oxblood: #8e2436;
+  --verdigris: #4e9b87;
+  --hairline: #2a2231;
+}
+
+html {
+  background: var(--void);
+}
+
+body {
+  background: var(--void);
+  color: var(--parchment);
+  font-family: 'Spline Sans Mono', ui-monospace, monospace;
+  min-height: 100vh;
+}
+
+.font-cathedral {
+  font-family: 'Cinzel', serif;
+}
+
+/* Ambient fog blobs */
+.fog {
+  position: fixed;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+.fog-a {
+  width: 44vw; height: 44vw;
+  left: -12vw; top: -10vw;
+  background: radial-gradient(circle, rgba(142, 36, 54, 0.10), transparent 70%);
+  animation: drift-a 40s ease-in-out infinite alternate;
+}
+.fog-b {
+  width: 38vw; height: 38vw;
+  right: -10vw; bottom: -12vw;
+  background: radial-gradient(circle, rgba(78, 155, 135, 0.08), transparent 70%);
+  animation: drift-b 40s ease-in-out infinite alternate;
+}
+@keyframes drift-a {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(6vw, 4vw) scale(1.15); }
+}
+@keyframes drift-b {
+  from { transform: translate(0, 0) scale(1.1); }
+  to { transform: translate(-5vw, -5vw) scale(0.95); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fog-a, .fog-b, .prism-sheen { animation: none !important; }
+}
+
+/* Rotating sheen over the prism plate */
+.prism-sheen {
+  background: linear-gradient(115deg, transparent 30%, rgba(232, 220, 200, 0.10) 45%, rgba(212, 162, 76, 0.12) 50%, rgba(232, 220, 200, 0.10) 55%, transparent 70%);
+  background-size: 250% 250%;
+  animation: sheen 9s ease-in-out infinite;
+}
+@keyframes sheen {
+  0%, 100% { background-position: 0% 40%; }
+  50% { background-position: 100% 60%; }
+}
+
+/* Engraved corner ornaments for the grimoire plate */
+.plate-frame {
+  position: relative;
+  border: 2px solid var(--hairline);
+  box-shadow: 0 0 0 1px #0a070c, 0 18px 60px rgba(0, 0, 0, 0.55), inset 0 0 80px rgba(0, 0, 0, 0.25);
+}
+.plate-frame::before,
+.plate-frame::after {
+  content: '◆';
+  position: absolute;
+  color: var(--gilt);
+  font-size: 14px;
+  line-height: 1;
+  background: var(--void);
+  padding: 0 6px;
+}
+.plate-frame::before { top: -10px; left: 18px; }
+.plate-frame::after { bottom: -9px; right: 18px; }
+
+/* Shield-cut swatches */
+.swatch-shield {
+  clip-path: polygon(50% 0, 100% 18%, 100% 82%, 50% 100%, 0 82%, 0 18%);
+}
+.swatch-selected {
+  outline: 2px solid var(--gilt);
+  outline-offset: 3px;
+  transform: rotate(-1.5deg) scale(1.04);
+}
+
+/* Gilt range sliders */
+input[type='range'].gilt-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 26px;
+  background: transparent;
+  cursor: pointer;
+}
+input[type='range'].gilt-range::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background:
+    repeating-linear-gradient(90deg, rgba(212, 162, 76, 0.35) 0 1px, transparent 1px 10%),
+    linear-gradient(90deg, #241b2c, #1a1420);
+  border: 1px solid var(--hairline);
+}
+input[type='range'].gilt-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px; height: 18px;
+  margin-top: -7px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, #f3d489, var(--gilt) 60%, #6e5223);
+  border: 1px solid #f3d489;
+  box-shadow: 0 0 12px rgba(212, 162, 76, 0.55);
+  transition: transform 120ms ease-out;
+}
+input[type='range'].gilt-range::-webkit-slider-thumb:hover { transform: scale(1.12); }
+input[type='range'].gilt-range::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #241b2c, #1a1420);
+  border: 1px solid var(--hairline);
+}
+input[type='range'].gilt-range::-moz-range-thumb {
+  width: 18px; height: 18px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, #f3d489, var(--gilt) 60%, #6e5223);
+  border: 1px solid #f3d489;
+  box-shadow: 0 0 12px rgba(212, 162, 76, 0.55);
+}
+input[type='range'].gilt-range:focus-visible {
+  outline: 2px solid var(--gilt);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Native color input dressed as a rune stone */
+input[type='color'].rune-color {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  background: var(--obsidian);
+  padding: 3px;
+  cursor: pointer;
+}
+input[type='color'].rune-color::-webkit-color-swatch-wrapper { padding: 2px; }
+input[type='color'].rune-color::-webkit-color-swatch { border: none; border-radius: 5px; }
+input[type='color'].rune-color::-moz-color-swatch { border: none; border-radius: 5px; }
+
+/* Dice tumble */
+@keyframes dice-tumble {
+  0% { transform: rotate(0deg) scale(1); }
+  30% { transform: rotate(140deg) scale(1.18); }
+  60% { transform: rotate(260deg) scale(0.94); }
+  80% { transform: rotate(350deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+.dice-tumbling {
+  animation: dice-tumble 600ms cubic-bezier(0.2, 0.9, 0.3, 1.4);
+}
+@keyframes gilt-flash {
+  0% { box-shadow: 0 0 0 0 rgba(212, 162, 76, 0.7); }
+  100% { box-shadow: 0 0 0 14px rgba(212, 162, 76, 0); }
+}
+.gilt-flash { animation: gilt-flash 500ms ease-out; }
+
+/* Smoke-rise toast */
+@keyframes smoke-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.toast-rise { animation: smoke-rise 220ms ease-out; }
+
+/* Perception tab crossfade */
+@keyframes veil-fade {
+  from { opacity: 0.25; }
+  to { opacity: 1; }
+}
+.veil-fade { animation: veil-fade 150ms ease-out; }
+
+/* Copy ripple on swatches */
+@keyframes bleed {
+  0% { box-shadow: 0 0 0 0 currentColor; }
+  100% { box-shadow: 0 0 0 12px transparent; }
+}
+.bleed { animation: bleed 200ms ease-out; }
+
+/* Vertical spine label */
+.spine-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.35em;
+}
+
+/* Engraved vertical rule */
+.engraved-rule {
+  background: linear-gradient(180deg, transparent, var(--gilt-dim) 20%, var(--gilt-dim) 80%, transparent);
+  width: 1px;
+}
+
+/* Buttons */
+.btn-gilt {
+  background: linear-gradient(180deg, #e2b45e, var(--gilt) 55%, #a37c33);
+  color: #170f04;
+  transition: transform 120ms ease-out, filter 120ms ease-out;
+}
+.btn-gilt:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.btn-gilt:active { transform: translateY(0) scale(0.98); }
+
+.btn-ghost {
+  border: 1px solid var(--verdigris);
+  color: var(--parchment);
+  transition: background 120ms ease-out, transform 120ms ease-out;
+}
+.btn-ghost:hover { background: rgba(78, 155, 135, 0.12); transform: translateY(-1px); }
+.btn-ghost:active { transform: translateY(0) scale(0.98); }
+
+:focus-visible {
+  outline: 2px solid var(--gilt);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(212, 162, 76, 0.35);
+}
