@@ -18,5 +18,8 @@ export async function ensureAfDns(slug) {
     body: JSON.stringify({ type: "CNAME", name, content: "auto-forge-7dq.pages.dev", proxied: true, ttl: 1 })
   });
   const j = await res.json();
-  console.log(j.success ? `  af-dns: created ${name}.uft1.com ✓` : `  af-dns: failed ${name}: ${JSON.stringify(j.errors).slice(0,400)}`);
+  if (j.success) { console.log(`  af-dns: created ${name}.uft1.com ✓`); return; }
+  const codes = (j.errors || []).map(e => e.code);
+  if (codes.includes(81045)) { console.log(`  af-dns: zone quota exceeded — wildcard af-router serves ${name}.uft1.com anyway, skipping`); return; }
+  console.log(`  af-dns: failed ${name}: ${JSON.stringify(j.errors).slice(0,400)}`);
 }
