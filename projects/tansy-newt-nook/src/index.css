@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-washi: #F5F0E6;
+  --color-kinari: #EAE2D0;
+  --color-sumi: #23211C;
+  --color-pond: #2E5A4C;
+  --color-midori: #7F9370;
+  --color-shu: #C0402B;
+  --color-hai: #B7AF9C;
+  --font-mincho: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+  --font-gothic: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-washi);
+  color: var(--color-sumi);
+  font-family: var(--font-gothic);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* washi paper grain */
+.washi-grain {
+  background-image:
+    radial-gradient(rgba(35, 33, 28, 0.055) 1px, transparent 1px),
+    radial-gradient(rgba(46, 90, 76, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px, 34px 34px;
+  background-position: 0 0, 11px 13px;
+}
+
+.book-plate {
+  box-shadow: inset 0 0 0 1px rgba(35, 33, 28, 0.85), inset 0 0 0 5px var(--color-washi), inset 0 0 0 6px rgba(35, 33, 28, 0.35);
+}
+
+.vertical-masthead {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.field-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.hairline {
+  border-color: rgba(35, 33, 28, 0.55);
+}
+
+/* ledger rows stagger in */
+@keyframes ledger-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.ledger-row {
+  animation: ledger-in 320ms ease both;
+}
+
+/* ripple on record */
+@keyframes ripple-ring {
+  0% { transform: scale(0.55); opacity: 0.9; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+.ripple-ring {
+  animation: ripple-ring 700ms ease-out both;
+}
+
+/* hanko press */
+@keyframes hanko-stamp {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.94); }
+  100% { transform: scale(1); }
+}
+.hanko-press {
+  animation: hanko-stamp 220ms ease;
+}
+
+@keyframes ink-dry {
+  0% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.ink-fade {
+  animation: ink-dry 2.4s ease both;
+}
+
+@keyframes enso-draw {
+  from { stroke-dashoffset: 320; }
+  to { stroke-dashoffset: 40; }
+}
+.enso-ring {
+  stroke-dasharray: 320;
+  animation: enso-draw 1.6s ease-out both;
+}
+
+/* nav hairline draw */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  transform: scaleX(1);
+}
+.nav-link[data-active="true"] {
+  color: var(--color-pond);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: var(--color-pond);
+  color: var(--color-washi);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-shu);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ledger-row, .ripple-ring, .hanko-press, .ink-fade, .enso-ring {
+    animation: none;
+  }
+}

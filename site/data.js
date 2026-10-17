@@ -6074,12 +6074,42 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-17T01:00:52.294Z",
-    "updatedAt": "2026-10-17T01:01:57.735Z",
+    "updatedAt": "2026-10-17T01:02:16.524Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "tansy-newt-nook",
+    "title": "Tansy Newt Nook",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "japanese-minimal",
+    "theme": "color",
+    "constraints": [
+      "single HTML file if html stack, single component if vite"
+    ],
+    "description": "A pocket field guide to pond newts.",
+    "features": [
+      "newt log",
+      "pond finder",
+      "field export"
+    ],
+    "tags": [
+      "newts",
+      "guide",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-17T02:16:20.955Z",
+    "updatedAt": "2026-10-17T02:21:46.769Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 193, done: 184, counts: {"done":184,"needs-human":9} };
+export const stats = { total: 194, done: 185, counts: {"done":185,"needs-human":9} };
