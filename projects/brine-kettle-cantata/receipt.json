@@ -1,0 +1,22 @@
+{
+  "slug": "brine-kettle-cantata",
+  "title": "Brine Kettle Cantata",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "cyberpunk",
+  "theme": "color",
+  "constraints": [
+    "uses only one interaction type (click OR drag OR type)"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": null,
+  "buildPassed": false,
+  "verify": {
+    "ok": false,
+    "reason": "scaffold untouched — worker wrote no app code"
+  },
+  "elapsedMs": 5806,
+  "at": "2026-10-17T20:37:12.261Z"
+}

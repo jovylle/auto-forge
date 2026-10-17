@@ -15,8 +15,8 @@
     "lastError": "{\"type\":\"error\",\"timestamp\":1792203389305,\"sessionID\":\"ses_eb85a8895ffe9jkr58fdb0bV7w\",\"error\":{\"name\":\"UnknownError\",\"data\":{\"message\":\"Unexpected server error. Check server logs for details.\",\"ref\":\"err_662b9b98\"}}}\n"
   },
   "opencode-go/muse-spark-1.3-contributor": {
-    "failStreak": 0,
-    "lastFail": "2026-10-11T10:27:06.990Z",
+    "failStreak": 2,
+    "lastFail": "2026-10-17T20:37:12.253Z",
     "lastError": ""
   }
 }

@@ -6165,12 +6165,43 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-17T14:29:29.101Z",
-    "updatedAt": "2026-10-17T14:34:25.881Z",
+    "updatedAt": "2026-10-17T14:34:45.246Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "brine-kettle-cantata",
+    "title": "Brine Kettle Cantata",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "cyberpunk",
+    "theme": "color",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)"
+    ],
+    "description": "A boiling kettle sings in salt water.",
+    "features": [
+      "boil voices",
+      "salt chorus",
+      "cantata export"
+    ],
+    "tags": [
+      "kettle",
+      "brine",
+      "audio"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-10-17T20:36:45.032Z",
+    "updatedAt": "2026-10-17T20:37:12.256Z",
+    "buildPassed": false,
+    "lastError": "scaffold untouched — worker wrote no app code",
+    "retries": 1,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 196, done: 187, counts: {"done":187,"needs-human":9} };
+export const stats = { total: 197, done: 187, counts: {"done":187,"needs-human":9,"needs-iteration":1} };
