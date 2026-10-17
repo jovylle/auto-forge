@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Harbor Vole Verse — Dockside Shipping Forecasts</title>
+  <meta name="description" content="Dock voles squeak out shipping forecasts. Generate tide verses, conduct the vole choir, export the forecast." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="masthead">
+    <div class="plate">
+      <span class="rivet r1" aria-hidden="true"></span><span class="rivet r2" aria-hidden="true"></span>
+      <span class="rivet r3" aria-hidden="true"></span><span class="rivet r4" aria-hidden="true"></span>
+      <p class="kicker">⚙ Est. 1887 · Pier IX · Vole-Operated Tidal Bureau ⚙</p>
+      <h1>Harbor Vole Verse</h1>
+      <p class="sub">Dock voles squeak out shipping forecasts.</p>
+      <div class="gauges" role="group" aria-label="Harbor conditions">
+        <div class="gauge"><span class="g-label">Tide</span><span class="g-val" id="gTide">Flood</span></div>
+        <div class="gauge"><span class="g-label">Wind</span><span class="g-val" id="gWind">Nor'wester</span></div>
+        <div class="gauge"><span class="g-label">Boilers</span><span class="g-val" id="gBoil">Steady</span></div>
+        <div class="gauge"><span class="g-label">Voles on duty</span><span class="g-val" id="gVoles">5 / 5</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- 1 · TIDE VERSES -->
+    <section class="panel" aria-labelledby="verseH">
+      <div class="panel-head">
+        <span class="gear" aria-hidden="true">⚙</span>
+        <h2 id="verseH">Tide-Verse Engine</h2>
+        <span class="gear spin-rev" aria-hidden="true">⚙</span>
+      </div>
+      <div class="controls">
+        <label>Tide
+          <select id="tideSel">
+            <option>Low Water</option>
+            <option>Ebb</option>
+            <option selected>Flood</option>
+            <option>High Water</option>
+            <option>Storm Surge</option>
+          </select>
+        </label>
+        <label>Cargo
+          <select id="cargoSel">
+            <option>Brass fittings</option>
+            <option>Clockwork tea</option>
+            <option>Pressed coal-flowers</option>
+            <option>Carrier-pigeon grain</option>
+            <option>Spare dirigible silk</option>
+            <option>Pickled starlight</option>
+          </select>
+        </label>
+        <label>Mood
+          <select id="moodSel">
+            <option>Ominous</option>
+            <option selected>Jolly</option>
+            <option>Mournful</option>
+            <option>Mutinous</option>
+          </select>
+        </label>
+        <button id="stokeBtn" class="lever" type="button"><span class="lever-knob" aria-hidden="true"></span>Stoke &amp; Versify</button>
+      </div>
+      <div class="pipe" aria-hidden="true"><span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span></div>
+      <article class="telegram" aria-live="polite">
+        <p class="tel-head">— HARBOR TELEGRAM · <span id="telNo">№ 0001</span> · <span id="telTide">FLOOD</span> —</p>
+        <div id="verseOut" class="verse">Press <b>Stoke &amp; Versify</b> and the voles will consult the tide-tables…</div>
+        <p class="tel-foot"><span id="omenLine">omen pending</span></p>
+      </article>
+      <div class="row">
+        <button id="againBtn" class="btn ghost" type="button">↻ Another cast</button>
+        <button id="singBtn" class="btn ghost" type="button">♫ Choir sings this verse</button>
+      </div>
+    </section>
+
+    <!-- 2 · VOLE CHOIR -->
+    <section class="panel" aria-labelledby="choirH">
+      <div class="panel-head">
+        <span class="gear spin-slow" aria-hidden="true">⚙</span>
+        <h2 id="choirH">Vole Choir</h2>
+        <span class="gear" aria-hidden="true">⚙</span>
+      </div>
+      <p class="hint">Tap a vole to hear its squeak · toggle whiskers to mute · then conduct the full choir.</p>
+      <div id="choir" class="choir" role="group" aria-label="Vole choir"></div>
+      <div class="controls choir-controls">
+        <label>Tempo <input id="tempo" type="range" min="60" max="220" value="132" /></label>
+        <button id="choirBtn" class="btn" type="button">▶ Conduct choir</button>
+        <button id="shantyBtn" class="btn ghost" type="button">Sea-shanty mode</button>
+      </div>
+      <p class="meter-wrap"><span>Boiler pressure</span><span class="meter" aria-hidden="true"><span id="meterFill"></span></span></p>
+    </section>
+
+    <!-- 3 · FORECAST EXPORT -->
+    <section class="panel" aria-labelledby="expH">
+      <div class="panel-head">
+        <span class="gear spin-rev" aria-hidden="true">⚙</span>
+        <h2 id="expH">Forecast Export</h2>
+        <span class="gear spin-slow" aria-hidden="true">⚙</span>
+      </div>
+      <div class="row export-row">
+        <button id="copyBtn" class="btn" type="button">⧉ Copy forecast</button>
+        <button id="txtBtn" class="btn ghost" type="button">⬇ Ship's log (.txt)</button>
+        <button id="jsonBtn" class="btn ghost" type="button">⬇ Manifest (.json)</button>
+      </div>
+      <p id="copyNote" class="hint" role="status"></p>
+      <h3 class="logbook-h">Logbook <span id="logCount">(0)</span></h3>
+      <ul id="logbook" class="logbook"></ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Forged in brass &amp; whiskers · palette: brass / rust / harbor-teal + ink &amp; parchment · works offline from <code>file://</code></p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
