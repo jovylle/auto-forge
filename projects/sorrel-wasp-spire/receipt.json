@@ -1,0 +1,31 @@
+{
+  "slug": "sorrel-wasp-spire",
+  "title": "Sorrel Wasp Spire",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "glassmorphism",
+  "theme": "color",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "must react to scroll"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "modelVia": "fallback (primary demoted)",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "spire cells",
+      "hum synth",
+      "swarm export"
+    ],
+    "status": "pass",
+    "summary": "Sorrel Wasp Spire — scroll-reactive generative paper spire (seeded hex tower, wasp swarm, tap-to-lay cells), WebAudio hum synth pitched by spire height/scroll, PNG+JSON+share-link export with localStorage autosave. 3 hues + black/white, glassmorphism, 375px verified, zero console errors."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 274032,
+  "at": "2026-10-17T14:34:25.886Z"
+}

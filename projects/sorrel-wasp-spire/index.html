@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Sorrel Wasp Spire — wasps build a humming paper spire. A scroll-reactive generative glass experiment with hum synth and swarm export." />
+  <title>Sorrel Wasp Spire — a humming paper tower</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="nav glass">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">⬡</span>
+      <span>Sorrel&nbsp;Wasp&nbsp;Spire</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#spire">Spire</a>
+      <a href="#synth">Hum</a>
+      <a href="#export">Swarm&nbsp;Export</a>
+    </nav>
+    <div class="stratum" id="stratum" role="status" aria-live="polite">stratum 01 · foundation</div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner glass">
+        <p class="kicker">generative · glassmorphism · scroll-reactive</p>
+        <h1>Wasps build<br />a <em>humming</em> paper spire.</h1>
+        <p class="lede">Scroll to climb the tower. Every stratum you pass wakes the swarm —
+          cells rise, wings quicken, and the hum climbs with them. Tap the spire to lay paper yourself.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#spire">Descend into the spire ↓</a>
+          <button class="btn ghost" id="heroHum" type="button">🔇 start the hum</button>
+        </div>
+        <div class="hero-stats">
+          <div><strong id="statCells">0</strong><span>paper cells</span></div>
+          <div><strong id="statWasps">0</strong><span>wasps aloft</span></div>
+          <div><strong id="statFreq">—</strong><span>hum pitch</span></div>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span></span>scroll</div>
+    </section>
+
+    <div class="sticky-wrap" id="spire">
+      <section class="stage glass">
+        <div class="canvas-holder">
+          <canvas id="spireCanvas" aria-label="Generative paper wasp spire. Activate to lay a cell."></canvas>
+          <div class="hud" aria-hidden="true">
+            <div class="hud-chip">tier <b id="hudTier">0</b></div>
+            <div class="hud-chip">agitation <b id="hudAgit">calm</b></div>
+            <div class="hud-chip">cam <b id="hudCam">0m</b></div>
+          </div>
+          <button class="lay-hint" id="layHint" type="button">✚ tap the paper to lay a cell</button>
+        </div>
+
+        <aside class="panel">
+          <h2>Spire cells</h2>
+          <p class="panel-sub">The swarm extrudes chewed sorrel-fibre paper, ring by ring. Click the tower — or let them work.</p>
+          <div class="btn-row">
+            <button class="btn primary" id="btnSwarm" type="button">🐝 release swarm</button>
+            <button class="btn" id="btnCell" type="button">⬡ lay a cell</button>
+          </div>
+          <div class="btn-row">
+            <button class="btn" id="btnSeed" type="button">🎲 new seed</button>
+            <button class="btn danger" id="btnReset" type="button">reset</button>
+          </div>
+          <label class="slider">swarm size <output id="oSwarm">14</output>
+            <input type="range" id="sSwarm" min="3" max="40" value="14" />
+          </label>
+          <label class="slider">cell size <output id="oCell">1.0×</output>
+            <input type="range" id="sCell" min="60" max="160" value="100" />
+          </label>
+          <label class="slider">build tempo <output id="oTempo">1.0×</output>
+            <input type="range" id="sTempo" min="20" max="300" value="100" />
+          </label>
+          <p class="seedline">seed <code id="seedLabel">—</code></p>
+        </aside>
+      </section>
+      <!-- strata chapters scroll past the sticky spire -->
+
+    <section class="chapter glass" data-chapter="0" data-name="foundation" data-tier="6">
+      <p class="kicker">stratum 01 · foundation</p>
+      <h2>The foundress chews the first carton.</h2>
+      <p>Low, slow, almost subsonic. The first ring of amber hexagons goes up around the stalk and the whole tower breathes at one cycle per second. Keep scrolling — the spire camera climbs with you.</p>
+    </section>
+
+    <section class="chapter glass" data-chapter="1" data-name="brood comb" data-tier="16">
+      <p class="kicker">stratum 02 · brood comb</p>
+      <h2>Sorrel-capped brood cells hum back.</h2>
+      <p>Every fifth cell is capped in rust-red sorrel pulp. Capped cells resonate: the drone gains its buzzing upper partial, and wasps orbit faster the quicker you scroll. Flick the page and feel them startle.</p>
+    </section>
+
+    <section class="chapter glass" data-chapter="2" data-name="crown" data-tier="30">
+      <p class="kicker">stratum 03 · crown</p>
+      <h2>The crown narrows toward the light.</h2>
+      <p>Rings taper as the tower climbs. The hum brightens with altitude — the filter opens, the wings blur. At the crown you can sting the air (a pitch-zap) or freeze the whole swarm as an image.</p>
+      <div class="btn-row">
+        <button class="btn primary" id="btnSting" type="button">⚡ sting (pitch zap)</button>
+        <a class="btn ghost" href="#synth">tune the hum ↓</a>
+      </div>
+    </section>
+    </div>
+
+    <section class="chapter glass" id="synth" data-chapter="3" data-name="hum synth" data-tier="22">
+      <p class="kicker">hum synth · live webaudio, no samples</p>
+      <h2>Two oscillators and ten thousand wings.</h2>
+      <p>A detuned saw + a sub sine, chewed through a band-pass like paper. Spire height sets the base pitch; scroll velocity bends it. Headphones on.</p>
+      <div class="btn-row">
+        <button class="btn primary" id="btnHum" type="button">🔇 hum: off</button>
+        <button class="btn" id="btnSting2" type="button">⚡ sting</button>
+      </div>
+      <label class="slider">drone root <output id="oDrone">150 Hz</output>
+        <input type="range" id="sDrone" min="70" max="320" value="150" />
+      </label>
+      <label class="slider">buzz (lfo + grit) <output id="oBuzz">40%</output>
+        <input type="range" id="sBuzz" min="0" max="100" value="40" />
+      </label>
+      <label class="slider">volume <output id="oVol">60%</output>
+        <input type="range" id="sVol" min="0" max="100" value="60" />
+      </label>
+      <p class="readout">live pitch <code id="freqReadout">—</code> · scroll to bend it</p>
+    </section>
+
+    <section class="chapter glass" id="export" data-chapter="4" data-name="swarm export" data-tier="10">
+      <p class="kicker">swarm export · take the colony with you</p>
+      <h2>Freeze the swarm. Pocket the genome.</h2>
+      <p>Export a PNG poster of this exact moment, download the colony genome as JSON, or copy a share-link that regrows the identical spire in any browser. Saved automatically to this device too.</p>
+      <div class="btn-row">
+        <button class="btn primary" id="btnPng" type="button">🖼 export PNG</button>
+        <button class="btn" id="btnJson" type="button">⬇ genome JSON</button>
+      </div>
+      <div class="btn-row">
+        <button class="btn" id="btnLink" type="button">🔗 copy share-link</button>
+        <button class="btn ghost" id="btnWipe" type="button">forget saved</button>
+      </div>
+      <p class="readout">autosaved <code id="saveState">local</code> · restores on reload</p>
+    </section>
+
+    <footer class="foot">
+      <p><strong>Sorrel Wasp Spire</strong> — a single-file-ish generative toy. HTML + CSS + JS, no build, no backend. Palette: sorrel rust · wasp amber · moss <span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span> (+ black &amp; white).</p>
+      <p class="tiny">scroll = camera + agitation · click = lay cell · hum = webaudio · exports = png / json / link</p>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="./app.js"></script>
+</body>
+</html>

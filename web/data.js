@@ -6134,12 +6134,43 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-17T08:24:27.183Z",
-    "updatedAt": "2026-10-17T08:25:22.436Z",
+    "updatedAt": "2026-10-17T08:25:40.720Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "sorrel-wasp-spire",
+    "title": "Sorrel Wasp Spire",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "glassmorphism",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "must react to scroll"
+    ],
+    "description": "Wasps build a humming paper spire.",
+    "features": [
+      "spire cells",
+      "hum synth",
+      "swarm export"
+    ],
+    "tags": [
+      "wasps",
+      "spire",
+      "audio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-17T14:29:29.101Z",
+    "updatedAt": "2026-10-17T14:34:25.881Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 195, done: 186, counts: {"done":186,"needs-human":9} };
+export const stats = { total: 196, done: 187, counts: {"done":187,"needs-human":9} };
