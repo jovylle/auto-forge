@@ -6104,12 +6104,42 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-17T02:16:20.955Z",
-    "updatedAt": "2026-10-17T02:21:46.769Z",
+    "updatedAt": "2026-10-17T02:22:04.763Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "dulse-otter-outpost",
+    "title": "Dulse Otter Outpost",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "biomorphic",
+    "theme": "color",
+    "constraints": [
+      "must have an easter egg"
+    ],
+    "description": "Otters run a seaweed trading outpost.",
+    "features": [
+      "kelp trade",
+      "otter crew",
+      "outpost score"
+    ],
+    "tags": [
+      "otters",
+      "trade",
+      "game"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-17T08:24:27.183Z",
+    "updatedAt": "2026-10-17T08:25:22.436Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 194, done: 185, counts: {"done":185,"needs-human":9} };
+export const stats = { total: 195, done: 186, counts: {"done":186,"needs-human":9} };

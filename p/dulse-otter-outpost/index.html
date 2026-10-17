@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dulse Otter Outpost — Seaweed Trading Game</title>
+<meta name="description" content="Otters run a seaweed trading outpost. Harvest kelp, trade the tides, build your crew, grow your renown." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<div class="waves" aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,64 C240,110 420,10 720,50 C1020,90 1200,30 1440,70 L1440,120 L0,120 Z"/></svg>
+</div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="otter-mark" id="secretOtter" title="an otter naps here…">🦦</span>
+    <div>
+      <h1>Dulse Otter Outpost</h1>
+      <p class="tag">a biomorphic seaweed-trading game · tide <span id="dayNum">1</span></p>
+    </div>
+  </div>
+  <div class="wallet">
+    <div class="pill clams">🐚 <b id="clams">60</b> <span>clams</span></div>
+    <div class="pill score">✨ <b id="score">0</b> <span>renown</span></div>
+    <div class="pill rank" id="rankPill">🪵 Driftwood</div>
+  </div>
+</header>
+
+<main id="app">
+  <section class="lagoon card blob-card">
+    <div class="lagoon-art" aria-hidden="true">
+      <div class="moon" id="moon"></div>
+      <div class="kelp-forest">
+        <span class="frond f1">🌿</span><span class="frond f2">🌿</span><span class="frond f3">🌿</span>
+        <span class="frond f4">🪸</span><span class="frond f5">🌿</span>
+      </div>
+      <div class="float-otter">🦦<i>💤</i></div>
+    </div>
+    <div class="lagoon-text">
+      <h2>The outpost breathes with the tide.</h2>
+      <p>Harvest kelp in the lagoon, sell when the market swells, hire otters who make every tide kinder. Reach <b>1,500 renown</b> to become a <b>Living Reef</b>.</p>
+      <div class="actions-row">
+        <button id="btnHarvest" class="btn primary">🌊 Harvest the beds</button>
+        <button id="btnTide" class="btn ghost">⏳ Next tide</button>
+        <button id="btnReset" class="btn tiny" title="reset save">↺</button>
+      </div>
+      <p class="hint">Tip: prices drift every tide. Green ▲ means a seller's market. Psst… the lagoon hides an easter egg. 🐚</p>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card blob-card">
+      <h3>🌿 Kelp Trade <span class="live" id="trendNote">market calm</span></h3>
+      <div id="market"></div>
+    </div>
+
+    <div class="card blob-card">
+      <h3>🦦 Otter Crew <span class="count"><span id="crewCount">0</span>/5 hired</span></h3>
+      <div id="crew"></div>
+    </div>
+  </section>
+
+  <section class="card blob-card">
+    <h3>✨ Outpost Score <span class="rankline" id="rankLine"></span></h3>
+    <div class="scorebar"><div id="scoreFill"></div></div>
+    <div class="score-meta">
+      <span id="scoreBreakdown"></span>
+      <button id="btnChronicle" class="btn tiny">📜 chronicle</button>
+    </div>
+    <ul id="log" class="log"></ul>
+  </section>
+
+  <footer class="foot">made of kelp &amp; moonlight · saves to this shell (localStorage) · works offline from file://</footer>
+</main>
+
+<div id="toasts"></div>
+<div id="eggOverlay" hidden>
+  <div class="egg-card">
+    <div class="egg-otter">🦦👑</div>
+    <h2>THE GOLDEN OTTER WAKES</h2>
+    <p>You petted the sleeping otter <b>5 times</b>. The Moonlit Hoard opens: <b>+150 clams</b>, and <b>Captain Brinewhisker</b> joins your crew free — forever.</p>
+    <button id="btnEggClose" class="btn primary">Slip back into the kelp 🫧</button>
+  </div>
+</div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
