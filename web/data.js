@@ -6044,12 +6044,42 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-16T20:09:28.544Z",
-    "updatedAt": "2026-10-16T20:13:23.166Z",
+    "updatedAt": "2026-10-16T20:13:42.402Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/muse-spark-1.3-contributor-free"
+  },
+  {
+    "slug": "harbor-vole-verse",
+    "title": "Harbor Vole Verse",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "steampunk",
+    "theme": "color",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Dock voles squeak out shipping forecasts.",
+    "features": [
+      "tide verses",
+      "vole choir",
+      "forecast export"
+    ],
+    "tags": [
+      "voles",
+      "harbor",
+      "audio"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-17T01:00:52.294Z",
+    "updatedAt": "2026-10-17T01:01:57.735Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 192, done: 183, counts: {"done":183,"needs-human":9} };
+export const stats = { total: 193, done: 184, counts: {"done":184,"needs-human":9} };
