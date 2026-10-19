@@ -6197,10 +6197,10 @@ export const projects = [
     "status": "needs-iteration",
     "deployed": false,
     "createdAt": "2026-10-17T20:36:45.032Z",
-    "updatedAt": "2026-10-19T01:01:08.307Z",
+    "updatedAt": "2026-10-19T02:53:55.136Z",
     "buildPassed": false,
     "lastError": "scaffold untouched — worker wrote no app code",
-    "retries": 7,
+    "retries": 8,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
