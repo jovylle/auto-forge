@@ -3,14 +3,14 @@
   "title": "Brine Kettle Cantata",
   "stack": "html",
   "aesthetic": "cyberpunk",
-  "model": "opencode-go/muse-spark-1.3-contributor",
-  "modelVia": "fallback retry",
+  "model": "opencode/muse-spark-1.3-contributor-free",
+  "modelVia": "primary (both demoted, older)",
   "verifyLine": null,
   "buildPassed": false,
   "verify": {
     "ok": false,
     "reason": "scaffold untouched — worker wrote no app code"
   },
-  "elapsedMs": 4358,
-  "at": "2026-10-20T09:07:13.151Z"
+  "elapsedMs": 563,
+  "at": "2026-10-20T15:10:01.590Z"
 }
