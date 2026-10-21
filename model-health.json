@@ -16,7 +16,7 @@
   },
   "opencode-go/muse-spark-1.3-contributor": {
     "failStreak": 15,
-    "lastFail": "2026-10-21T03:15:06.552Z",
+    "lastFail": "2026-10-21T15:27:03.608Z",
     "lastError": "[infra-no-fault] \u001b[91m\u001b[1mError: \u001b[0mConfiguration is invalid at /Users/jovyllebermudez/.config/opencode/opencode.jsonc: bad file reference: \"{file:/Users/jovyllebermudez/.config/opencode/.secrets/kiro-acp-key}\" /Users/jovyllebermudez/.config/opencode/.secrets/kiro-acp-key does not exist\n"
   }
 }
