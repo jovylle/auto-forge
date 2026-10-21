@@ -6197,11 +6197,11 @@ export const projects = [
     "status": "needs-iteration",
     "deployed": false,
     "createdAt": "2026-10-17T20:36:45.032Z",
-    "updatedAt": "2026-10-21T03:15:06.554Z",
+    "updatedAt": "2026-10-21T09:17:00.417Z",
     "buildPassed": false,
     "lastError": "\u001b[91m\u001b[1mError: \u001b[0mConfiguration is invalid at /Users/jovyllebermudez/.config/opencode/opencode.jsonc: bad file reference: \"{file:/Users/jovyllebermudez/.config/opencode/.secrets/kiro-acp-key}\" /Users/jovyllebermudez/.config/opencode/.secrets/kiro-acp-key does not exist\n",
-    "retries": 18,
-    "lastModel": "opencode-go/muse-spark-1.3-contributor"
+    "retries": 19,
+    "lastModel": "opencode/muse-spark-1.3-contributor-free"
   }
 ];
 export const stats = { total: 197, done: 187, counts: {"done":187,"needs-human":9,"needs-iteration":1} };
