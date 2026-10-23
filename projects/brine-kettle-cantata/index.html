@@ -1,17 +1,108 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Brine Kettle Cantata</title>
-  <link rel="stylesheet" href="./style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Brine Kettle Cantata — Salt-Water Synth</title>
+<meta name="description" content="A boiling kettle sings in salt water. Click-only generative cantata." />
+<link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main id="app">
-    <h1>Brine Kettle Cantata</h1>
-    <p class="sub">A boiling kettle sings in salt water.</p>
-    <div id="stage"></div>
-  </main>
-  <script type="module" src="./app.js"></script>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-dot" aria-hidden="true"></span>
+    <span class="brand-name">BRINE&nbsp;KETTLE&nbsp;CANTATA</span>
+    <span class="brand-sub">v1.0 // SALT-WATER SYNTH</span>
+  </div>
+  <div class="top-status">
+    <span id="audioState" class="pill">AUDIO: OFF — CLICK IGNITE</span>
+  </div>
+</header>
+
+<main id="app">
+  <section class="hero">
+    <h1>A boiling kettle <em>sings</em> in salt water.</h1>
+    <p class="lede">Click-only instrument. Stoke the heat, dose the salt, pop bubbles to sing. Record a movement, export the cantata.</p>
+    <p class="constraint">◉ SINGLE INPUT PROTOCOL: <strong>CLICK ONLY</strong> — no drag, no type. Every control is a button.</p>
+  </section>
+
+  <section class="deck">
+    <!-- KETTLE STAGE -->
+    <div class="panel kettle-panel">
+      <div class="panel-head">
+        <span class="ph-title">01 / BOIL CHAMBER</span>
+        <span class="ph-live"><span class="blink"></span> LIVE</span>
+      </div>
+      <div class="kettle-wrap">
+        <canvas id="boil" width="520" height="420" aria-label="Boiling kettle visualization. Click bubbles to pop them and sing."></canvas>
+        <div class="kettle-readout">
+          <div class="ro"><label>TEMP</label><strong id="roTemp">20°C</strong></div>
+          <div class="ro"><label>HEAT</label><strong id="roHeat">LV.2</strong></div>
+          <div class="ro"><label>SALT</label><strong id="roSalt">15‰</strong></div>
+          <div class="ro"><label>MOVT</label><strong id="roMov">I</strong></div>
+        </div>
+      </div>
+      <p class="hint">CLICK bubbles in the chamber to pop them → each pop fires a <strong>boil voice</strong>.</p>
+      <div class="btn-row" role="group" aria-label="Heat controls">
+        <button class="btn" id="btnIgnite" type="button">⚡ IGNITE AUDIO</button>
+        <button class="btn ghost" id="btnHeatDown" type="button">− HEAT</button>
+        <button class="btn ghost" id="btnHeatUp" type="button">+ HEAT</button>
+        <button class="btn ghost" id="btnAuto" type="button" aria-pressed="false">▶ AUTO-CANTATA</button>
+      </div>
+    </div>
+
+    <!-- VOICES + CHORUS -->
+    <div class="panel voice-panel">
+      <div class="panel-head">
+        <span class="ph-title">02 / BOIL VOICES × SALT CHORUS</span>
+        <span class="ph-count" id="voiceCount">4 VOICES</span>
+      </div>
+      <div class="voices" id="voices" aria-live="polite"></div>
+      <div class="chorus-meter">
+        <div class="cm-head"><span>SALT CHORUS FIELD</span><span id="saltPct">15%</span></div>
+        <div class="cm-track"><div class="cm-fill" id="saltFill"></div><div class="cm-ticks" aria-hidden="true"></div></div>
+        <div class="btn-row" role="group" aria-label="Salt controls">
+          <button class="btn ghost" id="btnSaltDown" type="button">− SALT</button>
+          <button class="btn ghost" id="btnSaltUp" type="button">+ SALT</button>
+          <button class="btn ghost" id="btnChoir" type="button" aria-pressed="true">CHOIR: ON</button>
+        </div>
+        <p class="micro">Salt = chorus detune + shimmer. Low salt: pure sine chant. High salt: cracked neon choir with 8 detuned layers.</p>
+      </div>
+      <div class="movements" role="group" aria-label="Movements">
+        <span class="mov-label">MOVEMENT</span>
+        <button class="btn chip is-active" data-mov="0" type="button">I · SIMMER</button>
+        <button class="btn chip" data-mov="1" type="button">II · ROLL</button>
+        <button class="btn chip" data-mov="2" type="button">III · BRINE STORM</button>
+      </div>
+    </div>
+
+    <!-- EXPORT -->
+    <div class="panel export-panel">
+      <div class="panel-head">
+        <span class="ph-title">03 / CANTATA EXPORT</span>
+        <span class="ph-count" id="recState">● READY</span>
+      </div>
+      <ol class="score" id="score" aria-live="polite"></ol>
+      <div class="btn-row wrap" role="group" aria-label="Export controls">
+        <button class="btn hot" id="btnRec" type="button">● RECORD TAKE</button>
+        <button class="btn ghost" id="btnWav" type="button">⬇ AUDIO (.webm)</button>
+        <button class="btn ghost" id="btnScore" type="button">⬇ SCORE (.json)</button>
+        <button class="btn ghost" id="btnPoster" type="button">⬇ POSTER (.png)</button>
+        <button class="btn ghost danger" id="btnWipe" type="button">✕ PURGE LOG</button>
+      </div>
+      <p class="micro">Takes are captured live from the WebAudio graph via MediaRecorder. Score is the full note ledger (time, voice, freq, salt, temp). Poster is a PNG snapshot of the boil chamber.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>CLICK-PROTOCOL COMPLIANT · NO SLIDERS · NO KEYS · NO DRAG</span>
+    <span id="statLine">0 pops · 0 notes</span>
+  </footer>
+</main>
+
+<script type="module" src="./app.js"></script>
 </body>
 </html>
