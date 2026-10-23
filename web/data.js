@@ -6195,13 +6195,45 @@ export const projects = [
       "audio"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-17T20:36:45.032Z",
-    "updatedAt": "2026-10-23T09:44:22.871Z",
+    "updatedAt": "2026-10-23T09:44:43.216Z",
     "buildPassed": true,
     "lastError": null,
     "retries": 24,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "oat-mantis-minster",
+    "title": "Oat Mantis Minster",
+    "category": "game",
+    "stack": "vite",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "typography",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)",
+      "must be playable in 30 seconds"
+    ],
+    "description": "Oat Mantis Minster",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "minster",
+      "mantis",
+      "game"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-10-23T15:49:01.849Z",
+    "updatedAt": "2026-10-23T15:49:21.203Z",
+    "buildPassed": false,
+    "lastError": "index.html missing",
+    "retries": 1,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 197, done: 188, counts: {"done":188,"needs-human":9} };
+export const stats = { total: 198, done: 188, counts: {"done":188,"needs-human":9,"needs-iteration":1} };

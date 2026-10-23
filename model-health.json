@@ -15,8 +15,8 @@
     "lastError": "preflight fail"
   },
   "opencode-go/muse-spark-1.3-contributor": {
-    "failStreak": 0,
-    "lastFail": "2026-10-22T09:36:00.761Z",
+    "failStreak": 2,
+    "lastFail": "2026-10-23T15:49:21.202Z",
     "lastError": ""
   }
 }
