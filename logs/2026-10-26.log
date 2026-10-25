@@ -1,0 +1,12 @@
+Auto-forge tick — 2026-10-25T16:23Z (system local date: 2026-10-26)
+
+- Loop enabled; continued `oat-mantis-minster`.
+- OpenCode primary and fallback worker attempts returned `UnknownError`; final verification failed: `index.html missing`.
+- Project remains `needs-iteration`; `buildPassed=false`; retries now 11.
+- Gallery rebuilt: 198 projects (189 shipped, 9 pending; 188 copied to site/p/).
+- Cloudflare Pages deployment succeeded; AF DNS record skipped because zone quota was exceeded (wildcard router remains active).
+- GitHub Pages workflow `daily.yml` dispatched and completed successfully (run 40211487819).
+- Git commit pushed: `f3af849` (`chore(auto): oat-mantis-minster attempt — needs fix`); HEAD matches `origin/master`.
+- Live gallery and project hostname both returned HTTP 200, but the project hostname resolves to the gallery fallback, not a playable project page.
+
+Full worker output: `logs/oat-mantis-minster.log`; build receipt: `projects/oat-mantis-minster/receipt.json`.
