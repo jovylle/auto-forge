@@ -4342,7 +4342,7 @@
         "mantis",
         "game"
       ],
-      "updatedAt": "2026-10-26T04:29:05.689Z",
+      "updatedAt": "2026-10-26T10:31:43.033Z",
       "lastError": "index.html missing",
       "lastModel": "opencode-go/muse-spark-1.3-contributor"
     }
@@ -4351,7 +4351,7 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-10-26T01:00:57.141Z",
+    "lastRun": "2026-10-26T04:29:25.392Z",
     "lastSlug": "oat-mantis-minster"
   },
   "health": {
@@ -4366,13 +4366,13 @@
       "lastError": "UnknownError"
     },
     "opencode/muse-spark-1.3-contributor-free": {
-      "failStreak": 55,
-      "lastFail": "2026-10-26T04:29:01.943Z",
+      "failStreak": 57,
+      "lastFail": "2026-10-26T10:31:37.679Z",
       "lastError": "UnknownError"
     },
     "opencode-go/muse-spark-1.3-contributor": {
-      "failStreak": 15,
-      "lastFail": "2026-10-26T04:29:05.687Z",
+      "failStreak": 16,
+      "lastFail": "2026-10-26T10:31:43.032Z",
       "lastError": ""
     }
   },
@@ -4393,5 +4393,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-10-26T04:29:05.924Z"
+  "updatedAt": "2026-10-26T10:31:43.275Z"
 }
