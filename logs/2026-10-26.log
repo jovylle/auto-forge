@@ -19,3 +19,12 @@ Full worker output: `logs/oat-mantis-minster.log`; build receipt: `projects/oat-
 - GitHub Pages workflow run 40240249801 completed successfully.
 - Commit `c45aa12` (`chore(auto): oat-mantis-minster attempt — needs fix`) is pushed; `HEAD` matches `origin/master`. `loop.json` now records `lastRun=2026-10-25T22:26:57.986Z` and `lastSlug=oat-mantis-minster`.
 - Live `oat-mantis-minster-af.uft1.com` returned HTTP 200 with the generic toy title, but `/p/oat-mantis-minster/` returned 404; project page is still not deployed. DNS quota and repeated worker failures remain unresolved.
+
+## Follow-up tick — 2026-10-26T04:29Z (system local date: 2026-10-26)
+- Loop enabled; continued `oat-mantis-minster`.
+- OpenCode preflight and both worker attempts returned `UnknownError`; final verification failed because `index.html` is missing. Project remains `needs-iteration`.
+- Gallery rebuilt: 198 projects (189 shipped, 9 pending; 188 copied to site/p/).
+- Cloudflare Pages deployment succeeded; AF DNS record skipped because the zone quota is exceeded (wildcard router remains active).
+- GitHub Pages workflow run 40269340670 completed successfully.
+- Commit `e8c4236` (`chore(auto): oat-mantis-minster attempt — needs fix`) is pushed; `HEAD` matches `origin/master`. `loop.json` records `lastRun=2026-10-26T04:29:25.392Z` and `lastSlug=oat-mantis-minster`.
+- Live project hostname and `/p/oat-mantis-minster/` both return HTTP 200 with the generic gallery title, not a playable project page. Repeated worker failures and DNS quota remain unresolved.
