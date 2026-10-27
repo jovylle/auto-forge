@@ -6260,11 +6260,11 @@ export const projects = [
     "status": "needs-iteration",
     "deployed": false,
     "createdAt": "2026-10-27T16:43:45.494Z",
-    "updatedAt": "2026-10-27T16:44:04.387Z",
+    "updatedAt": "2026-10-27T22:46:12.894Z",
     "buildPassed": false,
     "lastError": "scaffold untouched — worker wrote no app code",
-    "retries": 1,
-    "lastModel": "opencode-go/muse-spark-1.3-contributor"
+    "retries": 2,
+    "lastModel": "opencode-go/deepseek-v4.1-flash"
   }
 ];
 export const stats = { total: 199, done: 188, counts: {"done":188,"needs-human":10,"needs-iteration":1} };

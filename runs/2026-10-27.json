@@ -64,7 +64,23 @@
       },
       "elapsedMs": 5433,
       "at": "2026-10-27T16:44:04.391Z"
+    },
+    {
+      "slug": "silt-heron-hotel",
+      "title": "Silt Heron Hotel",
+      "stack": "html",
+      "aesthetic": "retro-wave",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "modelVia": "fallback (primary demoted)",
+      "verifyLine": null,
+      "buildPassed": false,
+      "verify": {
+        "ok": false,
+        "reason": "scaffold untouched — worker wrote no app code"
+      },
+      "elapsedMs": 5560,
+      "at": "2026-10-27T22:46:12.897Z"
     }
   ],
-  "updatedAt": "2026-10-27T16:44:04.391Z"
+  "updatedAt": "2026-10-27T22:46:12.897Z"
 }
