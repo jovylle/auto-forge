@@ -3,5 +3,10 @@
     "failStreak": 2,
     "lastFail": "2026-10-27T16:44:04.384Z",
     "lastError": ""
+  },
+  "opencode-go/deepseek-v4.1-flash": {
+    "failStreak": 2,
+    "lastFail": "2026-10-27T22:46:12.893Z",
+    "lastError": ""
   }
 }
