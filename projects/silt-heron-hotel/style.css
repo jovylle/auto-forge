@@ -1,0 +1,4 @@
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,sans-serif;background:#0b0b0f;color:#e8e8ef}
+#app{max-width:900px;margin:40px auto;padding:24px}
+h1{font-size:32px;margin:0 0 8px}.sub{opacity:.7;margin:0 0 20px}
+#stage{min-height:300px;border:1px dashed #333;border-radius:12px;display:grid;place-items:center;padding:20px}

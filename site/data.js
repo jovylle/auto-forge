@@ -6226,14 +6226,45 @@ export const projects = [
       "mantis",
       "game"
     ],
-    "status": "needs-iteration",
+    "status": "needs-human",
     "deployed": false,
     "createdAt": "2026-10-23T15:49:01.849Z",
-    "updatedAt": "2026-10-27T10:41:51.427Z",
+    "updatedAt": "2026-10-27T14:44:54.238Z",
     "buildPassed": false,
-    "lastError": "index.html missing",
+    "lastError": "parked 2026-10-27 by hand — 17 failed attempts while the worker models were delisted/key-expired; rebuild fresh on request",
     "retries": 20,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor"
+  },
+  {
+    "slug": "silt-heron-hotel",
+    "title": "Silt Heron Hotel",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "retro-wave",
+    "theme": "typography",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "Silt Heron Hotel",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "hotel",
+      "heron",
+      "game"
+    ],
+    "status": "needs-iteration",
+    "deployed": false,
+    "createdAt": "2026-10-27T16:43:45.494Z",
+    "updatedAt": "2026-10-27T16:44:04.387Z",
+    "buildPassed": false,
+    "lastError": "scaffold untouched — worker wrote no app code",
+    "retries": 1,
     "lastModel": "opencode-go/muse-spark-1.3-contributor"
   }
 ];
-export const stats = { total: 198, done: 188, counts: {"done":188,"needs-human":9,"needs-iteration":1} };
+export const stats = { total: 199, done: 188, counts: {"done":188,"needs-human":10,"needs-iteration":1} };
