@@ -6257,14 +6257,14 @@ export const projects = [
       "heron",
       "game"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-10-27T16:43:45.494Z",
-    "updatedAt": "2026-10-28T01:01:01.537Z",
-    "buildPassed": false,
-    "lastError": "retry cap (3) reached, parked — scaffold untouched — worker wrote no app code",
-    "retries": 3,
-    "lastModel": "opencode-go/muse-spark-1.3-contributor"
+    "updatedAt": "2026-10-28T04:51:02.629Z",
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 0,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
   }
 ];
-export const stats = { total: 199, done: 188, counts: {"done":188,"needs-human":11} };
+export const stats = { total: 199, done: 189, counts: {"done":189,"needs-human":10} };
