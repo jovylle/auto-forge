@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cinder Quail Kinetic</title>
+  <meta name="description" content="Type words that explode into kinetic particle letterforms you can fling and remix." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="bar top">
+    <div class="brand"><span class="dot" aria-hidden="true"></span><strong>Cinder&nbsp;Quail</strong><span class="sub">kinetic</span></div>
+    <div class="meta"><span id="count">0</span>&nbsp;glyphs</div>
+  </header>
+
+  <main id="stageWrap">
+    <canvas id="stage" aria-label="Kinetic letter canvas. Type to burst letters, drag to fling them."></canvas>
+    <p id="hint">type to burst&ensp;·&ensp;drag to fling&ensp;·&ensp;double-click to remix</p>
+  </main>
+
+  <footer class="bar bottom">
+    <label class="typebox">
+      <span class="k">type</span>
+      <input id="field" type="text" placeholder="words become letters…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Type words to burst into letters" />
+    </label>
+    <label class="morph">
+      <span class="k" id="morphName">sans·300</span>
+      <input id="morphSlider" type="range" min="0" max="100" value="20" aria-label="Font morph style" />
+    </label>
+    <div class="btns">
+      <button id="settleBtn" type="button">Settle</button>
+      <button id="scatterBtn" type="button">Scatter</button>
+      <button id="clearBtn" type="button">Clear</button>
+      <button id="exportBtn" type="button" class="accent">PNG ↓</button>
+    </div>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
