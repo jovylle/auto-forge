@@ -3,15 +3,85 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Silt Heron Hotel</title>
+  <title>Silt Heron Hotel — retro-wave night manager</title>
+  <meta name="description" content="Run a neon marsh-side hotel for heron guests. Check in, feed, preen, survive 5 nights." />
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
   <main id="app">
-    <h1>Silt Heron Hotel</h1>
-    <p class="sub">Silt Heron Hotel</p>
-    <div id="stage"></div>
+    <header class="masthead">
+      <div class="sign" aria-label="Silt Heron Hotel neon sign">
+        <span class="sign-top">SILT HERON</span>
+        <span class="sign-sub">★ HOTEL ★</span>
+      </div>
+      <div class="hud" role="status" aria-live="polite">
+        <div class="hud-item"><span class="hud-label">Night</span><span class="hud-val" id="hudNight">1<span class="dim">/5</span></span></div>
+        <div class="hud-item"><span class="hud-label">Credits</span><span class="hud-val cyan" id="hudCredits">₡40</span></div>
+        <div class="hud-item"><span class="hud-label">Rep</span><span class="hud-val pink" id="hudRep">★★★☆☆</span></div>
+        <div class="hud-item buttons">
+          <button id="btnSound" class="chip" title="toggle sound">♪ on</button>
+          <button id="btnHelp" class="chip" title="how to play">?</button>
+        </div>
+      </div>
+    </header>
+
+    <p id="hint" class="hint">Select a guest in the lobby → tap a vacant room to check them in.</p>
+
+    <section class="lobby-wrap">
+      <h2>Lobby <span id="lobbyCount" class="count"></span></h2>
+      <div id="lobby" class="lobby"></div>
+    </section>
+
+    <section class="rooms-wrap">
+      <h2>Rooms</h2>
+      <div id="rooms" class="rooms"></div>
+    </section>
+
+    <section id="panel" class="panel hidden" aria-live="polite">
+      <div class="panel-head"><span id="panelTitle">Room 1</span><button id="panelClose" class="chip" aria-label="close panel">✕</button></div>
+      <div id="panelMeters" class="meters"></div>
+      <div class="actions">
+        <button class="act" data-act="feed">🐟 Feed <small>belly+</small></button>
+        <button class="act" data-act="preen">✨ Preen <small>plume+</small></button>
+        <button class="act" data-act="hush">🌙 Hush <small>rest+</small></button>
+      </div>
+      <p class="cooldown" id="cooldown"></p>
+    </section>
+
+    <section class="desk">
+      <button id="btnNight" class="big-btn">☾ End night →</button>
+      <div class="share-row">
+        <button id="btnCopy" class="chip">⧉ copy ledger</button>
+        <button id="btnSave" class="chip">⇩ download ledger</button>
+        <button id="btnLink" class="chip">🔗 share link</button>
+        <button id="btnNew" class="chip danger">↺ new game</button>
+      </div>
+    </section>
+
+    <section class="log-wrap">
+      <h2>Front-desk log</h2>
+      <ol id="log" class="log"></ol>
+    </section>
+
+    <footer class="foot">
+      <span id="best">best: —</span>
+      <span class="foot-note">CSS + canvas only · no images · saves locally</span>
+    </footer>
   </main>
+
+  <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true">
+    <div class="card">
+      <h2 id="ovTitle">How to play</h2>
+      <div id="ovBody" class="ov-body"></div>
+      <button id="ovClose" class="big-btn">back to the desk</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" aria-live="assertive"></div>
+
   <script type="module" src="./app.js"></script>
 </body>
 </html>
