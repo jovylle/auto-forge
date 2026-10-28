@@ -1,0 +1,32 @@
+{
+  "slug": "cinder-quail-kinetic",
+  "title": "Cinder Quail Kinetic",
+  "stack": "html",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "extreme-minimal",
+  "theme": "typography",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "type-to-burst kinetic letters",
+      "drag letters with fling physics",
+      "font-morph style slider",
+      "export poster as PNG"
+    ],
+    "status": "pass",
+    "summary": "Extreme-minimal kinetic type playground in projects/cinder-quail-kinetic (index.html, style.css, app.js, README.md). Type explodes letters with ember sparks, drag/fling physics with gravity+bounce, single slider morphs sans→serif→mono + weight, Settle composes poster rows, export renders 1200x1500 PNG. Verified: node --check clean, all files serve 200, all getElementById targets exist, zero external refs, 1 accent color + black/white, system fonts only."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 150537,
+  "at": "2026-10-28T10:55:05.024Z"
+}

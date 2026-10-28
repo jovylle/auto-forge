@@ -6258,13 +6258,46 @@ export const projects = [
       "game"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-27T16:43:45.494Z",
-    "updatedAt": "2026-10-28T04:51:02.629Z",
+    "updatedAt": "2026-10-28T04:51:22.980Z",
     "buildPassed": true,
     "lastError": null,
     "retries": 0,
     "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+  },
+  {
+    "slug": "cinder-quail-kinetic",
+    "title": "Cinder Quail Kinetic",
+    "category": "art",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "extreme-minimal",
+    "theme": "typography",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Type words that explode into kinetic particle letterforms you can fling and remix.",
+    "features": [
+      "type-to-burst kinetic letters",
+      "drag letters with fling physics",
+      "font-morph style slider",
+      "export poster as PNG"
+    ],
+    "tags": [
+      "typography",
+      "kinetic",
+      "particles",
+      "fonts"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-28T10:52:17.292Z",
+    "updatedAt": "2026-10-28T10:55:05.021Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
   }
 ];
-export const stats = { total: 199, done: 189, counts: {"done":189,"needs-human":10} };
+export const stats = { total: 200, done: 190, counts: {"done":190,"needs-human":10} };
