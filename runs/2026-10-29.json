@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-29",
+  "runs": [
+    {
+      "slug": "moss-frog-chorus",
+      "title": "Moss Frog Chorus",
+      "stack": "html",
+      "aesthetic": "bauhaus",
+      "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
+      "modelVia": "primary",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 189466,
+      "at": "2026-10-29T01:04:11.206Z"
+    }
+  ],
+  "updatedAt": "2026-10-29T01:04:11.206Z"
+}

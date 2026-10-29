@@ -1,8 +1,8 @@
 {
-  "slug": "cinder-quail-kinetic",
-  "title": "Cinder Quail Kinetic",
+  "slug": "moss-frog-chorus",
+  "title": "Moss Frog Chorus",
   "stack": "html",
-  "aesthetic": "extreme-minimal",
+  "aesthetic": "bauhaus",
   "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 150537,
-  "at": "2026-10-28T10:55:05.025Z"
+  "elapsedMs": 189466,
+  "at": "2026-10-29T01:04:11.206Z"
 }
