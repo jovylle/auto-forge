@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Moss Frog Chorus — Bauhaus Pond Sequencer</title>
+<meta name="description" content="Tap lily pads to layer synthesized frog croaks into an evolving polyrhythmic pond chorus. WebAudio only, no assets." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="shapes" aria-hidden="true">
+    <span class="sh circle"></span><span class="sh square"></span><span class="sh tri"></span>
+  </div>
+  <div class="titleblock">
+    <h1>MOSS FROG CHORUS</h1>
+    <p class="sub">Tap lily pads · layer croaks · grow a polyrhythmic pond</p>
+  </div>
+  <div class="badges" aria-label="badges">
+    <span>WEBAUDIO</span><span>8 FROGS</span><span>NO ASSETS</span>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true"><span id="tickerText">RIBBIT — PLOP — CROAK — POLYRHYTHM 16:12:9:8:7:6:5:4 — POND REVERB ON — </span></div>
+
+<main class="layout">
+  <!-- POND -->
+  <section class="panel pond-panel" aria-label="Lily pad grid">
+    <div class="panel-head"><h2><b>01</b> LILY PAD GRID</h2>
+      <div class="head-actions">
+        <button id="btnPreset" class="btn small" title="Load the classic chorus pattern">preset</button>
+        <button id="btnDice" class="btn small" title="Randomize all lanes">dice</button>
+        <button id="btnClear" class="btn small" title="Clear all steps">clear</button>
+      </div>
+    </div>
+    <p class="hint">Tap a pad to croak now. Keys <kbd>1</kbd>–<kbd>8</kbd>. Click steps below to compose. <kbd>Space</kbd> plays.</p>
+    <div id="pads" class="pads" role="grid" aria-label="frog pads"></div>
+    <div class="meter-row">
+      <div class="meter-label">POND LEVEL</div>
+      <div class="meter"><i id="meterFill"></i></div>
+      <div id="stepReadout" class="readout" aria-live="polite">STOPPED · 16 steps</div>
+    </div>
+  </section>
+
+  <!-- CONSOLE -->
+  <section class="panel console-panel" aria-label="Sequencer console">
+    <div class="panel-head"><h2><b>02</b> CHORUS CONSOLE</h2>
+      <button id="btnPlay" class="btn play" aria-pressed="false">▶ START CHORUS</button>
+    </div>
+
+    <div class="sliders">
+      <label class="slider">TEMPO <b id="bpmVal">96</b>
+        <input id="bpm" type="range" min="60" max="180" value="96" step="1" />
+      </label>
+      <label class="slider">PITCH <b id="pitchVal">+0 st</b>
+        <input id="pitch" type="range" min="-12" max="12" value="0" step="1" />
+      </label>
+      <label class="slider">POND REVERB <b id="verbVal">35%</b>
+        <input id="verb" type="range" min="0" max="100" value="35" step="1" />
+      </label>
+      <label class="slider">EVOLVE <b id="evoVal">on · 2 bars</b>
+        <input id="evoRate" type="range" min="1" max="8" value="2" step="1" />
+      </label>
+    </div>
+
+    <div class="toggles">
+      <button id="btnEvolve" class="btn small on" aria-pressed="true">◉ auto-evolve: on</button>
+      <span class="evolve-note">mutates one lane every N bars — polyrhythm never repeats</span>
+    </div>
+
+    <div id="lanes" class="lanes" aria-label="polyrhythm lanes"></div>
+
+    <div class="rec-row">
+      <button id="btnRec" class="btn rec" aria-pressed="false">● REC LOOP</button>
+      <button id="btnShare" class="btn small" disabled>⧉ copy share link</button>
+      <button id="btnDl" class="btn small" disabled>↓ download loop</button>
+      <span id="recTime" class="rec-time"></span>
+    </div>
+    <div id="loopBox" class="loopbox" hidden>
+      <audio id="loopAudio" controls></audio>
+      <p class="hint">Your pond loop, recorded live from the master bus. Share link restores tempo, pitch, reverb + every step.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>● Bauhaus pond — circle / square / triangle · <kbd>R</kbd> record · type <kbd>frog</kbd> for a surprise</span>
+  <span id="saveNote">saved locally ✓</span>
+</footer>
+
+<div id="toasts" aria-live="polite"></div>
+<script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "slug": "moss-frog-chorus",
+  "title": "Moss Frog Chorus",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "bauhaus",
+  "theme": "audio",
+  "constraints": [
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "tap pad grid to trigger frog samples (8 synthesized WebAudio frog voices, keys 1-8, pointer + ripple micro-interactions)",
+      "auto-evolving polyrhythm sequencer (16/12/9/8/7/6/5/4-step lanes, Euclidean patterns, lookahead scheduler, per-step edit + mute, evolve rotation/mutation every N bars)",
+      "pitch and pond reverb sliders (global +-12st transpose, generated-impulse convolver pond reverb + tempo and evolve-rate sliders)",
+      "one-click loop record and share (MediaRecorder master-bus capture with playback, webm download, share-link with hash-encoded full state + localStorage persistence)"
+    ],
+    "status": "pass",
+    "summary": "Moss Frog Chorus — bauhaus WebAudio pond sequencer in projects/moss-frog-chorus (index.html, style.css, app.js, README.md). 8 synthesized frog voices, evolving polyrhythm engine, pitch/reverb console, loop record/download/share-link. Verified: node --check clean, all 26 DOM ids resolve, Euclidean densities + hash round-trip tested, no external refs, responsive at 375px, system fonts only."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 189466,
+  "at": "2026-10-29T01:04:11.205Z"
+}
