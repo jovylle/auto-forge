@@ -6324,12 +6324,44 @@ export const projects = [
       "frogs"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-29T01:00:58.260Z",
-    "updatedAt": "2026-10-29T01:04:11.201Z",
+    "updatedAt": "2026-10-29T01:04:47.169Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+  },
+  {
+    "slug": "copper-lark-loopbox",
+    "title": "Copper Lark Loopbox",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "grunge",
+    "theme": "audio",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Pocket loop station layering mic samples into hypnotic rhythms",
+    "features": [
+      "Live mic sampling",
+      "4-track loop layering",
+      "Tap tempo control",
+      "One-click export"
+    ],
+    "tags": [
+      "webaudio",
+      "loops",
+      "sampling",
+      "rhythm"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-30T01:01:07.040Z",
+    "updatedAt": "2026-10-30T01:03:30.823Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
   }
 ];
-export const stats = { total: 201, done: 191, counts: {"done":191,"needs-human":10} };
+export const stats = { total: 202, done: 192, counts: {"done":192,"needs-human":10} };

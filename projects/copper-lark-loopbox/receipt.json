@@ -1,0 +1,31 @@
+{
+  "slug": "copper-lark-loopbox",
+  "title": "Copper Lark Loopbox",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "grunge",
+  "theme": "audio",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Live mic sampling (getUserMedia + MediaRecorder, auto-quantized to loop length)",
+      "4-track loop layering (synced loop voices, volume/mute/clear/waveforms)",
+      "Tap tempo control (median-of-taps BPM + 2/4/8 loop selector + metronome)",
+      "One-click export (OfflineAudioContext 2-loop mix to downloadable WAV)"
+    ],
+    "status": "pass",
+    "summary": "Copper Lark Loopbox — grunge Vite+TS+Tailwind pocket loop station in projects/copper-lark-loopbox. Verified: npm run build exits 0, dist uses relative ./assets paths, preview serves 200 with real content, exactly 3 accent colors + black/white."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 111502,
+  "at": "2026-10-30T01:03:30.825Z"
+}
