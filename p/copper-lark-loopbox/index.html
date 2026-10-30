@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Copper Lark Loopbox — pocket loop station. Sample the mic, stack 4 tracks, tap tempo, export the mix." />
+    <meta name="theme-color" content="#12100c" />
+    <title>Copper Lark Loopbox</title>
+    <script type="module" crossorigin src="./assets/index-CYiWOu3_.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B0GRM1LV.css">
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="app" class="min-h-screen">
+      <!-- ======= HEADER ======= -->
+      <header class="relative px-5 pt-8 pb-2 md:px-10 max-w-6xl mx-auto">
+        <div class="tape tape-l" aria-hidden="true">SIDE A</div>
+        <p class="stamp-strip">★ pocket loop station ★ est. static ★ no. 004</p>
+        <h1 class="masthead">COPPER<br /><span class="masthead-lark">LARK</span> LOOPBOX</h1>
+        <p class="subhead">sample the room. stack the dirt. <span class="hl">loop it hypnotic.</span></p>
+        <div id="toast" class="toast" role="status" aria-live="polite">plug in. make noise.</div>
+      </header>
+
+      <!-- ======= TRANSPORT ======= -->
+      <section aria-label="Transport" class="px-5 md:px-10 max-w-6xl mx-auto mt-4">
+        <div class="panel transport">
+          <div class="tape tape-r" aria-hidden="true">KEEP FLAT</div>
+          <div class="t-row">
+            <div class="bpm-block">
+              <div class="label">tempo</div>
+              <div class="bpm-read"><span id="bpmVal">96</span><span class="bpm-unit">bpm</span></div>
+              <div class="beats-row" role="group" aria-label="Beats per loop">
+                <button class="beatbtn" data-beats="2" aria-label="2 beats per loop">2</button>
+                <button class="beatbtn on" data-beats="4" aria-label="4 beats per loop">4</button>
+                <button class="beatbtn" data-beats="8" aria-label="8 beats per loop">8</button>
+              </div>
+              <div class="looplen">loop = <span id="loopLen">2.50</span>s</div>
+            </div>
+            <button id="tapPad" class="tappad" aria-label="Tap tempo — click repeatedly to set tempo">
+              <span class="tap-big">TAP</span>
+              <span class="tap-sub">hit 4× to set tempo</span>
+              <span id="tapDots" class="tap-dots" aria-hidden="true"></span>
+            </button>
+            <div class="transport-btns">
+              <button id="playBtn" class="btn btn-play" aria-label="Play or stop all loops">▶ PLAY</button>
+              <button id="metroBtn" class="btn btn-small" aria-pressed="false" aria-label="Toggle metronome">CLICK: OFF</button>
+              <button id="stopBtn" class="btn btn-small" aria-label="Stop all loops">■ STOP</button>
+            </div>
+          </div>
+          <div class="progress-wrap" aria-hidden="true">
+            <div id="loopProg" class="progress-fill"></div>
+            <div class="progress-ticks"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= MIC ======= -->
+      <section aria-label="Microphone" class="px-5 md:px-10 max-w-6xl mx-auto mt-6">
+        <div class="panel micpanel">
+          <div class="m-row">
+            <div>
+              <div class="label">live mic sampling</div>
+              <div id="micStatus" class="mic-status">mic: OFF — hit ENABLE, then ● a track</div>
+            </div>
+            <canvas id="vu" width="220" height="34" class="vu" aria-hidden="true"></canvas>
+          </div>
+          <div class="m-row2">
+            <button id="micBtn" class="btn btn-mic">◉ ENABLE MIC</button>
+            <label class="mon"><input id="monChk" type="checkbox" /> monitor <em>(feedback risk)</em></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= TRACKS ======= -->
+      <main class="px-5 md:px-10 max-w-6xl mx-auto mt-8">
+        <div class="sec-head"><h2>4-track layering</h2><span class="sec-note">● rec = one loop long · stamp = instant grunge groove</span></div>
+        <div id="tracks" class="track-grid"></div>
+      </main>
+
+      <!-- ======= EXPORT ======= -->
+      <section aria-label="Export" class="px-5 md:px-10 max-w-6xl mx-auto mt-8 mb-4">
+        <div class="panel exportpanel">
+          <div class="tape tape-l2" aria-hidden="true">DO NOT BEND</div>
+          <div>
+            <div class="label">one-click export</div>
+            <div class="export-title">PRESS IT. KEEP IT.</div>
+            <p class="export-sub">renders 2 loops of the live mix → <span class="mono">loopbox-mix.wav</span></p>
+          </div>
+          <button id="exportBtn" class="btn btn-export">⬇ EXPORT MIX</button>
+        </div>
+        <p id="exportStatus" class="export-status" role="status"></p>
+      </section>
+
+      <footer class="px-5 md:px-10 max-w-6xl mx-auto pb-12 foot">
+        <p><span class="kbd">space</span> play/stop · <span class="kbd">T</span> tap · <span class="kbd">1–4</span> rec track · <span class="kbd">M</span> click · <span class="kbd">E</span> export</p>
+        <p class="foot2">settings (tempo, vols, mutes) persist in this browser. audio stays in memory — export before you bounce.</p>
+      </footer>
+    </div>
+  </body>
+</html>
