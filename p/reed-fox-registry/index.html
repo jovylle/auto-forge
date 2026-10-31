@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Reed Fox Registry — a field ledger</title>
+<meta name="description" content="A cottagecore field ledger for registering the foxes of the reeds. Log coats, dens, calls. Export and share." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="fireflies" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<header class="masthead">
+  <div class="mast-inner">
+    <div class="brand">
+      <div class="sigil" aria-hidden="true"><span class="ear l"></span><span class="ear r"></span><span class="face"><span class="eye"></span><span class="eye"></span><span class="nose"></span></span></div>
+      <div>
+        <p class="kicker">Field ledger · Vol. VII · the reed beds</p>
+        <h1>Reed Fox Registry</h1>
+        <p class="tagline">Press every fox you meet into the book — coat, den, temperament &amp; call.</p>
+      </div>
+    </div>
+    <dl class="tally" aria-label="Registry totals">
+      <div><dt>foxes</dt><dd id="statFoxes">0</dd></div>
+      <div><dt>sightings</dt><dd id="statSightings">0</dd></div>
+      <div><dt>dens</dt><dd id="statDens">0</dd></div>
+    </dl>
+  </div>
+  <div class="stitched" aria-hidden="true"></div>
+</header>
+
+<main class="wrap">
+  <section class="ledger-grid">
+    <form id="foxForm" class="card entry" autocomplete="off">
+      <h2><span aria-hidden="true">✎</span> New entry</h2>
+      <p class="hint">Give the fox a name the reeds will remember.</p>
+      <label>Fox name
+        <input id="fName" name="name" maxlength="24" placeholder="e.g. Bramblewick" required />
+      </label>
+      <div class="row2">
+        <label>Coat
+          <select id="fCoat">
+            <option>Russet</option>
+            <option>Cross</option>
+            <option>Silver</option>
+            <option>White-tip</option>
+          </select>
+        </label>
+        <label>Reed-bed
+          <select id="fDen">
+            <option>North Reeds</option>
+            <option>Mill Pond</option>
+            <option>Bramble Hollow</option>
+            <option>Old Stone Wall</option>
+            <option>Willow Run</option>
+          </select>
+        </label>
+      </div>
+      <div class="row2">
+        <label>Call
+          <select id="fCall">
+            <option value="yip">Sharp yip</option>
+            <option value="trill">Reed trill</option>
+            <option value="huff">Soft huff</option>
+            <option value="yowl">Dusk yowl</option>
+          </select>
+        </label>
+        <label>Shyness <span id="shyVal" class="shyval">wary · 3</span>
+          <input id="fShy" type="range" min="1" max="5" value="3" />
+        </label>
+      </div>
+      <fieldset class="traits">
+        <legend>Marks &amp; manners</legend>
+        <label><input type="checkbox" value="white socks" /> white socks</label>
+        <label><input type="checkbox" value="torn ear" /> torn ear</label>
+        <label><input type="checkbox" value="bushy brush" /> bushy brush</label>
+        <label><input type="checkbox" value="steals boots" /> steals boots</label>
+        <label><input type="checkbox" value="sings at dusk" /> sings at dusk</label>
+        <label><input type="checkbox" value="shy of lanterns" /> shy of lanterns</label>
+      </fieldset>
+      <label>Field note
+        <textarea id="fNote" rows="2" maxlength="140" placeholder="Seen at golden hour, carrying a feather…"></textarea>
+      </label>
+      <button class="seal-btn" type="submit"><span class="wax" aria-hidden="true">❦</span> Press into ledger</button>
+    </form>
+
+    <section class="card index" aria-label="Registry">
+      <div class="index-head">
+        <h2><span aria-hidden="true">❧</span> The book <span id="countLabel" class="count"></span></h2>
+        <div class="tools">
+          <input id="q" type="search" placeholder="Search name, den, note…" aria-label="Search registry" />
+          <select id="filterCoat" aria-label="Filter by coat">
+            <option value="">All coats</option>
+            <option>Russet</option><option>Cross</option><option>Silver</option><option>White-tip</option>
+          </select>
+          <select id="sortBy" aria-label="Sort registry">
+            <option value="new">Newest first</option>
+            <option value="seen">Most sighted</option>
+            <option value="az">Name A–Z</option>
+          </select>
+        </div>
+      </div>
+      <ul id="list" class="foxlist"></ul>
+      <p id="empty" class="empty" hidden>⁂ The pages are blank.<br />Press your first fox into the ledger — the reeds are waiting.</p>
+      <div class="sharebar">
+        <button id="btnCopyLedger" type="button">Copy ledger tale</button>
+        <button id="btnJSON" type="button">Export JSON</button>
+        <button id="btnCSV" type="button">Export CSV</button>
+        <button id="btnPrint" type="button">Print</button>
+        <label class="import-label">Import <input id="fileImport" type="file" accept="application/json,.json" hidden /></label>
+        <button id="btnWipe" type="button" class="danger">Release all</button>
+      </div>
+      <p class="fineprint">Kept in your browser (localStorage). Exports download as files — works from file://, no network.</p>
+    </section>
+  </section>
+  <footer class="colophon">Reed Fox Registry · kept by lantern-light · <span id="year"></span> · three inks only: paper, moss &amp; russet</footer>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

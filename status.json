@@ -1,7 +1,7 @@
 {
-  "total": 202,
+  "total": 203,
   "counts": {
-    "done": 192,
+    "done": 193,
     "needs-human": 10
   },
   "projects": [
@@ -4429,7 +4429,29 @@
         "sampling",
         "rhythm"
       ],
-      "updatedAt": "2026-10-30T01:03:30.823Z",
+      "updatedAt": "2026-10-30T01:03:56.700Z",
+      "lastError": null,
+      "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+    },
+    {
+      "slug": "reed-fox-registry",
+      "title": "Reed Fox Registry",
+      "status": "done",
+      "stack": "html",
+      "stackReason": "seed stack",
+      "category": "tool",
+      "aesthetic": "cottagecore",
+      "theme": "audio",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "no external fonts — system fonts only"
+      ],
+      "tags": [
+        "registry",
+        "fox",
+        "tool"
+      ],
+      "updatedAt": "2026-10-31T01:02:37.141Z",
       "lastError": null,
       "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
     }
@@ -4438,8 +4460,8 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-10-29T01:04:47.170Z",
-    "lastSlug": "moss-frog-chorus"
+    "lastRun": "2026-10-30T01:03:56.701Z",
+    "lastSlug": "copper-lark-loopbox"
   },
   "health": {
     "opencode-go/muse-spark-1.3-contributor#xhigh": {
@@ -4465,5 +4487,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-10-30T01:03:31.221Z"
+  "updatedAt": "2026-10-31T01:02:37.797Z"
 }
