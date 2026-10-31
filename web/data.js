@@ -6356,12 +6356,43 @@ export const projects = [
       "rhythm"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-30T01:01:07.040Z",
-    "updatedAt": "2026-10-30T01:03:30.823Z",
+    "updatedAt": "2026-10-30T01:03:56.700Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+  },
+  {
+    "slug": "reed-fox-registry",
+    "title": "Reed Fox Registry",
+    "category": "tool",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "cottagecore",
+    "theme": "audio",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Reed Fox Registry",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "registry",
+      "fox",
+      "tool"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-10-31T01:00:44.047Z",
+    "updatedAt": "2026-10-31T01:02:37.141Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
   }
 ];
-export const stats = { total: 202, done: 192, counts: {"done":192,"needs-human":10} };
+export const stats = { total: 203, done: 193, counts: {"done":193,"needs-human":10} };

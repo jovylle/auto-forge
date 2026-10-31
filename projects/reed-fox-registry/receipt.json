@@ -1,0 +1,31 @@
+{
+  "slug": "reed-fox-registry",
+  "title": "Reed Fox Registry",
+  "stack": "html",
+  "stackReason": "seed stack",
+  "aesthetic": "cottagecore",
+  "theme": "audio",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "status": "pass",
+    "summary": "Reed Fox Registry: cottagecore field ledger — add/sighting/release foxes with WebAudio calls, search/filter/sort, JSON+CSV export, card/link copy, file import, localStorage. 3 inks, system fonts, file:// ready."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 109226,
+  "at": "2026-10-31T01:02:37.143Z"
+}
