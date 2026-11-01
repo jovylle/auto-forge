@@ -1,0 +1,31 @@
+{
+  "slug": "juniper-bat-echoloft",
+  "title": "Juniper Bat Echoloft",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "organic-brutalist",
+  "theme": "audio",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "16-step pitch sequencer (click on/off, drag/arrows ±12 semitones, playhead + sonar viz)",
+      "live echo and reverb knobs (ECHO mix, REPEATS feedback, SPACE convolver — tempo-synced dotted-8th)",
+      "built-in bat chirp samples (4 WebAudio-synthesized chirps: PIP, SWEEP, TRILL, THOCK — no files)",
+      "tap tempo and randomize (median-of-taps 50–220bpm + slider, SEED pentatonic flock, ROOST/SWARM/MOTH presets)"
+    ],
+    "status": "pass",
+    "summary": "Juniper Bat Echoloft — organic-brutalist Vite+TS+Tailwind bat-chirp step sequencer in projects/juniper-bat-echoloft. Verified: npm run build exits 0, dist uses relative ./assets paths, preview serves 200 with real content, exactly 3 accent colors + black/white."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 304575,
+  "at": "2026-11-01T01:07:31.659Z"
+}

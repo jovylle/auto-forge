@@ -6387,12 +6387,44 @@ export const projects = [
       "tool"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-10-31T01:00:44.047Z",
-    "updatedAt": "2026-10-31T01:02:37.141Z",
+    "updatedAt": "2026-10-31T01:02:55.210Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+  },
+  {
+    "slug": "juniper-bat-echoloft",
+    "title": "Juniper Bat Echoloft",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "organic-brutalist",
+    "theme": "audio",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Loop bat chirps into echoing rhythms with a tiny step sequencer.",
+    "features": [
+      "16-step pitch sequencer",
+      "live echo and reverb knobs",
+      "built-in bat chirp samples",
+      "tap tempo and randomize"
+    ],
+    "tags": [
+      "webaudio",
+      "sequencer",
+      "echo",
+      "samples"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-01T01:02:05.661Z",
+    "updatedAt": "2026-11-01T01:07:31.657Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
   }
 ];
-export const stats = { total: 203, done: 193, counts: {"done":193,"needs-human":10} };
+export const stats = { total: 204, done: 194, counts: {"done":194,"needs-human":10} };

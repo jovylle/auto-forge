@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Juniper Bat Echoloft — loop bat chirps into echoing rhythms with a tiny 16-step pitch sequencer. Echo + reverb knobs, tap tempo, randomize." />
+    <meta name="theme-color" content="#101208" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101208'/%3E%3Ccircle cx='16' cy='18' r='8' fill='%23e0912f'/%3E%3Ccircle cx='16' cy='10' r='4' fill='%2357a773'/%3E%3C/svg%3E" />
+    <title>Juniper Bat Echoloft</title>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="app" class="min-h-screen">
+      <!-- ======= HEADER ======= -->
+      <header class="px-5 pt-8 pb-2 md:px-10 max-w-6xl mx-auto relative">
+        <p class="stamp-strip">★ night-flight step toy ★ cave-tested ★ no. 016</p>
+        <h1 class="masthead">JUNIPER<br /><span class="masthead-bat">BAT</span> ECHOLOFT</h1>
+        <p class="subhead">loop bat chirps. <span class="hl">drown them in echo.</span></p>
+        <div id="toast" class="toast" role="status" aria-live="polite">click a stalactite. wake the loft.</div>
+      </header>
+
+      <!-- ======= TRANSPORT (tilted left rail card) ======= -->
+      <section aria-label="Transport" class="px-5 md:px-10 max-w-6xl mx-auto mt-4">
+        <div class="panel transport">
+          <div class="tape tape-r" aria-hidden="true">DO NOT FEED</div>
+          <div class="t-row">
+            <div class="bpm-block">
+              <div class="label">tempo</div>
+              <div class="bpm-read"><span id="bpmVal">112</span><span class="bpm-unit">bpm</span></div>
+              <input id="bpmSlider" type="range" min="50" max="220" step="1" value="112"
+                     aria-label="Tempo in beats per minute" class="bpm-slider" />
+              <div class="steplen">16th = <span id="stepLen">134</span>ms · echo = dotted-8th</div>
+            </div>
+            <button id="tapPad" class="tappad" aria-label="Tap tempo — tap repeatedly to set tempo">
+              <span class="tap-big">TAP</span>
+              <span class="tap-sub">hit 3× to set tempo</span>
+              <span id="tapDots" class="tap-dots" aria-hidden="true"></span>
+            </button>
+            <div class="transport-btns">
+              <button id="playBtn" class="btn btn-play" aria-label="Play or stop the sequencer">▶ FLY</button>
+              <button id="randBtn" class="btn btn-rand" aria-label="Randomize the pattern">⚄ SEED</button>
+              <button id="clearBtn" class="btn btn-small" aria-label="Clear all steps">✕ CLEAR</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= MAIN: sequencer + loft panel (asymmetric) ======= -->
+      <main class="px-5 md:px-10 max-w-6xl mx-auto mt-8 loft-grid">
+        <section aria-label="16-step pitch sequencer" class="panel seqpanel">
+          <div class="sec-head">
+            <h2>16 stalactites</h2>
+            <span class="sec-note">click = on/off · drag ↕ = pitch · keys ←→↑↓</span>
+          </div>
+          <div id="steps" class="steps" role="group" aria-label="16 sequencer steps"></div>
+          <canvas id="sonar" class="sonar" height="72" aria-hidden="true"></canvas>
+          <div class="seq-foot">
+            <span class="mono-dim">each hang = one 16th · height = pitch · glyph = chirp</span>
+            <span id="readout" class="mono-dim" role="status">step — · +0 · PIP</span>
+          </div>
+        </section>
+
+        <aside aria-label="Loft controls" class="panel loftpanel">
+          <div class="tape tape-l2" aria-hidden="true">WET ONLY</div>
+          <div class="label">chirp brush</div>
+          <div id="brushRow" class="brush-row" role="group" aria-label="Choose chirp sample"></div>
+          <p class="brush-desc" id="brushDesc">short pip 4.2k→2.6k · synthesized, no files</p>
+          <div class="label knobs-label">live cave fx</div>
+          <div class="knobs">
+            <div class="knob-wrap">
+              <div id="knobEcho" class="knob" role="slider" tabindex="0" aria-label="Echo mix"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="35"><span class="knob-ptr"></span></div>
+              <div class="knob-name">ECHO</div><div class="knob-val" id="valEcho">35</div>
+            </div>
+            <div class="knob-wrap">
+              <div id="knobFb" class="knob" role="slider" tabindex="0" aria-label="Echo repeats"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="45"><span class="knob-ptr"></span></div>
+              <div class="knob-name">REPEATS</div><div class="knob-val" id="valFb">45</div>
+            </div>
+            <div class="knob-wrap">
+              <div id="knobVerb" class="knob" role="slider" tabindex="0" aria-label="Reverb space"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="40"><span class="knob-ptr"></span></div>
+              <div class="knob-name">SPACE</div><div class="knob-val" id="valVerb">40</div>
+            </div>
+          </div>
+          <div class="label">flock presets</div>
+          <div class="preset-row" role="group" aria-label="Pattern presets">
+            <button class="chip" data-preset="roost">ROOST</button>
+            <button class="chip" data-preset="swarm">SWARM</button>
+            <button class="chip" data-preset="moth">MOTH</button>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="px-5 md:px-10 max-w-6xl mx-auto pb-12 foot">
+        <p><span class="kbd">space</span> fly/stop · <span class="kbd">T</span> tap · <span class="kbd">R</span> seed · <span class="kbd">←→↑↓</span> edit hanging step</p>
+        <p class="foot2">pattern, tempo + fx persist in this browser. all chirps synthesized live with WebAudio — no audio files.</p>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

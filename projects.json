@@ -6394,6 +6394,38 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+    },
+    {
+      "slug": "juniper-bat-echoloft",
+      "title": "Juniper Bat Echoloft",
+      "category": "tool",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "aesthetic": "organic-brutalist",
+      "theme": "audio",
+      "constraints": [
+        "3 colors max (plus black/white)"
+      ],
+      "description": "Loop bat chirps into echoing rhythms with a tiny step sequencer.",
+      "features": [
+        "16-step pitch sequencer",
+        "live echo and reverb knobs",
+        "built-in bat chirp samples",
+        "tap tempo and randomize"
+      ],
+      "tags": [
+        "webaudio",
+        "sequencer",
+        "echo",
+        "samples"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-01T01:02:05.661Z",
+      "updatedAt": "2026-11-01T01:07:56.072Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
