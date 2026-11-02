@@ -1,8 +1,8 @@
 {
-  "slug": "juniper-bat-echoloft",
-  "title": "Juniper Bat Echoloft",
+  "slug": "fable-cricket-loop-lab",
+  "title": "Fable Cricket Loop Lab",
   "stack": "vite",
-  "aesthetic": "organic-brutalist",
+  "aesthetic": "biomorphic",
   "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
   "modelVia": "primary",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 304575,
-  "at": "2026-11-01T01:07:31.659Z"
+  "elapsedMs": 522064,
+  "at": "2026-11-02T01:10:13.555Z"
 }

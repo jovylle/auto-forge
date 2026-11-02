@@ -1,0 +1,32 @@
+{
+  "slug": "fable-cricket-loop-lab",
+  "title": "Fable Cricket Loop Lab",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "biomorphic",
+  "theme": "audio",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "sound on interaction (WebAudio, no assets)"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "16 velocity-sensitive drum pads",
+      "4-track loop recorder",
+      "delay plus filter effects",
+      "tap tempo metronome"
+    ],
+    "status": "pass",
+    "summary": "Fable Cricket Loop Lab — biomorphic lo-fi loop instrument (Vite+React+TS+Tailwind). 16 synthesized WebAudio pads with pressure/position/keyboard velocity, 4 event-loop tracks (record/overdub/mute/clear, 1/2/4 bars, playhead lanes, localStorage), dub delay + resonant lowpass with vinyl-crackle bed, tap-tempo metronome with beat pulse. 3 hues (spore/fern/firefly) + ink/bone, Fraunces + Spline Sans Mono, staggered spore-cell pads, FX stalk, soil-strata lanes. Build exits 0, dist uses relative ./assets paths, preview serves 200 with real content."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 522064,
+  "at": "2026-11-02T01:10:13.554Z"
+}

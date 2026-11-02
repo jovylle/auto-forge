@@ -6426,6 +6426,39 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+    },
+    {
+      "slug": "fable-cricket-loop-lab",
+      "title": "Fable Cricket Loop Lab",
+      "category": "tool",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "aesthetic": "biomorphic",
+      "theme": "audio",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "sound on interaction (WebAudio, no assets)"
+      ],
+      "description": "Tap pads to layer lo-fi loops with live WebAudio effects.",
+      "features": [
+        "16 velocity-sensitive drum pads",
+        "4-track loop recorder",
+        "delay plus filter effects",
+        "tap tempo metronome"
+      ],
+      "tags": [
+        "webaudio",
+        "loops",
+        "sampler",
+        "rhythm"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-02T01:01:07.324Z",
+      "updatedAt": "2026-11-02T01:11:35.318Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

@@ -6419,12 +6419,45 @@ export const projects = [
       "samples"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-01T01:02:05.661Z",
-    "updatedAt": "2026-11-01T01:07:31.657Z",
+    "updatedAt": "2026-11-01T01:07:56.072Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+  },
+  {
+    "slug": "fable-cricket-loop-lab",
+    "title": "Fable Cricket Loop Lab",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "biomorphic",
+    "theme": "audio",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Tap pads to layer lo-fi loops with live WebAudio effects.",
+    "features": [
+      "16 velocity-sensitive drum pads",
+      "4-track loop recorder",
+      "delay plus filter effects",
+      "tap tempo metronome"
+    ],
+    "tags": [
+      "webaudio",
+      "loops",
+      "sampler",
+      "rhythm"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-02T01:01:07.324Z",
+    "updatedAt": "2026-11-02T01:10:13.553Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
   }
 ];
-export const stats = { total: 204, done: 194, counts: {"done":194,"needs-human":10} };
+export const stats = { total: 205, done: 195, counts: {"done":195,"needs-human":10} };
