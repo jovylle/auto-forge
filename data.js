@@ -6452,12 +6452,45 @@ export const projects = [
       "rhythm"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-02T01:01:07.324Z",
-    "updatedAt": "2026-11-02T01:10:13.553Z",
+    "updatedAt": "2026-11-02T01:11:35.318Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+  },
+  {
+    "slug": "velvet-kick-drumbox",
+    "title": "Velvet Kick Drumbox",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "audio",
+    "constraints": [
+      "must work with keyboard only",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Tap pads to layer kicks, hats, and bass into tiny loops.",
+    "features": [
+      "16-step sequencer with tap input",
+      "4 synth drum voices",
+      "live filter + delay knobs",
+      "one-tap random groove"
+    ],
+    "tags": [
+      "webaudio",
+      "drums",
+      "sequencer",
+      "loops"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-03T01:01:15.437Z",
+    "updatedAt": "2026-11-03T01:11:02.964Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
   }
 ];
-export const stats = { total: 205, done: 195, counts: {"done":195,"needs-human":10} };
+export const stats = { total: 206, done: 196, counts: {"done":196,"needs-human":10} };
