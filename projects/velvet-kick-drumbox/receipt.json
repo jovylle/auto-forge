@@ -1,0 +1,32 @@
+{
+  "slug": "velvet-kick-drumbox",
+  "title": "Velvet Kick Drumbox",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "sci-fi-terminal",
+  "theme": "audio",
+  "constraints": [
+    "must work with keyboard only",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "16-step sequencer with tap input (toggle cells, audition on tap, arrow-key cursor, playhead + step numbers)",
+      "4 synth drum voices (kick/snare/hat/bass, pure Web Audio synthesis, no samples)",
+      "live filter + delay knobs (round dial range inputs, log-mapped LPF, tempo-synced echo, live while playing)",
+      "one-tap random groove (anchored musical shuffle with stagger flash + hit-count log)"
+    ],
+    "status": "pass",
+    "summary": "Velvet Kick Drumbox — burgundy CRT-terminal Vite+TS+Tailwind drum machine in projects/velvet-kick-drumbox (index.html, src/main.ts, src/index.css, README.md). Reviewer must-fixes applied (NaN guard, background-tab scheduler, audition gating, number/cell alignment). Verified: npm run build exits 0, dist uses relative ./assets paths, preview serves 200, keyboard-only operable, system fonts only, no external requests."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 559188,
+  "at": "2026-11-03T01:11:02.966Z"
+}
