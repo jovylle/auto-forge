@@ -6485,12 +6485,44 @@ export const projects = [
       "loops"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-03T01:01:15.437Z",
-    "updatedAt": "2026-11-03T01:11:02.964Z",
+    "updatedAt": "2026-11-03T01:11:27.175Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+  },
+  {
+    "slug": "birch-finch-fizzbox",
+    "title": "Birch Finch Fizzbox",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "memphis",
+    "theme": "audio",
+    "constraints": [
+      "must react to scroll"
+    ],
+    "description": "Tap bubbles to layer chirps, kicks, and fizz into tiny looping songs.",
+    "features": [
+      "tap-to-trigger bubble synths",
+      "auto-looping 4-bar recorder",
+      "pitch bend by drag",
+      "one-click random groove"
+    ],
+    "tags": [
+      "webaudio",
+      "loops",
+      "synth",
+      "playful"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-04T01:01:10.702Z",
+    "updatedAt": "2026-11-04T01:04:30.281Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
   }
 ];
-export const stats = { total: 206, done: 196, counts: {"done":196,"needs-human":10} };
+export const stats = { total: 207, done: 197, counts: {"done":197,"needs-human":10} };
