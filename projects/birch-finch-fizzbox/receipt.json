@@ -1,0 +1,31 @@
+{
+  "slug": "birch-finch-fizzbox",
+  "title": "Birch Finch Fizzbox",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "memphis",
+  "theme": "audio",
+  "constraints": [
+    "must react to scroll"
+  ],
+  "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
+  "modelVia": "primary",
+  "verifyLine": null,
+  "workerResult": {
+    "buildPassed": true,
+    "featuresImplemented": [
+      "tap-to-trigger bubble synths",
+      "auto-looping 4-bar recorder",
+      "pitch bend by drag",
+      "one-click random groove"
+    ],
+    "status": "pass",
+    "summary": "Birch Finch Fizzbox — Memphis bubble-synth looper in projects/birch-finch-fizzbox (index.html, style.css, app.js, README.md). 7 bubbles (chirp/kick/fizz/pluck, all WebAudio-synthesized); tap plays, hold+drag bends ±7st with live preview and tapes the bent pitch; REC captures one 4-bar take then auto-loops with lookahead scheduler, overdub/undo/clear; dice button generates named pentatonic groove with fresh tempo. Scroll drives progress bar, master-filter wash readout, shape parallax, pond squash, reveal-on-scroll. localStorage persistence. Verified: node --check, DOM-id audit (29/29 resolve), CSS selector audit, 375px media query."
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 196068,
+  "at": "2026-11-04T01:04:30.283Z"
+}

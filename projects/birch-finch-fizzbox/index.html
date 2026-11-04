@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Birch Finch Fizzbox — tap bubbles, loop tiny songs</title>
+  <meta name="description" content="Tap bubbles to layer chirps, kicks, and fizz into tiny looping songs. A Memphis-style generative groove toy." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="scrollbar" aria-hidden="true"><span id="scrollfill"></span></div>
+  <div id="bgshapes" aria-hidden="true">
+    <span class="tri t1" data-float="0.12"></span>
+    <span class="ring r1" data-float="-0.08"></span>
+    <span class="zig z1" data-float="0.2"></span>
+    <span class="dotgrid d1" data-float="-0.15"></span>
+    <span class="bolt b1" data-float="0.1"></span>
+    <span class="ring r2" data-float="0.18"></span>
+  </div>
+
+  <header class="top">
+    <a class="logo" href="#top">◉ BIRCH FINCH<br />FIZZBOX</a>
+    <div class="top-tags">
+      <span class="pill pill-bpm">♪ <b id="topBpm">112</b> BPM</span>
+      <span class="pill pill-loop">∞ 4-BAR LOOP</span>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
+    <section class="hero">
+      <p class="kicker">✶ generative toy nº 07 ✶ memphis edition</p>
+      <h1><span class="w1">TAP BUBBLES.</span><br /><span class="w2">BEND PITCH.</span><br /><span class="w3">LOOP FOREVER.</span></h1>
+      <p class="lede">Pop the pond to layer <b>chirps</b>, <b>kicks</b> and <b>fizz</b> into tiny looping songs. Hold a bubble and <b>drag up / down</b> to bend its pitch. Scroll the page to wash the sound through a filter.</p>
+      <div class="cta-row">
+        <button id="ctaPlay" class="btn btn-big" type="button">▶ START THE FIZZ</button>
+        <button id="ctaDice" class="btn btn-big btn-alt" type="button">🎲 RANDOM GROOVE</button>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>7</b><span>bubbles</span></div>
+        <div class="stat"><b>4</b><span>bars looped</span></div>
+        <div class="stat"><b id="statEvents">0</b><span>notes taped</span></div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div class="ticker-inner" id="tickerInner">
+      <span>CHIRP ✦ KICK ✦ FIZZ ✦ BEND ✦ LOOP ✦ SCROLL WASH ✦&nbsp;</span><span>CHIRP ✦ KICK ✦ FIZZ ✦ BEND ✦ LOOP ✦ SCROLL WASH ✦&nbsp;</span>
+    </div></div>
+
+    <section class="console" id="console">
+      <div class="card transport">
+        <h2>⬤ TRANSPORT</h2>
+        <div class="t-row">
+          <button id="btnPlay" class="btn" type="button">▶ PLAY</button>
+          <button id="btnRec" class="btn btn-rec" type="button">● REC 4-BAR TAKE</button>
+          <button id="btnDice" class="btn btn-alt" type="button">🎲 GROOVE</button>
+        </div>
+        <div class="t-row">
+          <button id="btnUndo" class="btn btn-mini" type="button">↩ UNDO</button>
+          <button id="btnClear" class="btn btn-mini" type="button">✕ CLEAR</button>
+          <label class="over"><input type="checkbox" id="chkOverdub" checked /> OVERDUB</label>
+        </div>
+        <div class="t-row bpm-row">
+          <label for="bpm">TEMPO <b id="bpmVal">112</b></label>
+          <input id="bpm" type="range" min="84" max="140" value="112" step="1" />
+        </div>
+        <p id="status" class="status" role="status">press PLAY, then tap bubbles — everything you tap gets taped to the loop.</p>
+      </div>
+
+      <div class="card pond-card">
+        <h2>◍ THE POND <span class="hint">tap = play · hold + drag ↕ = bend</span></h2>
+        <div id="pond" aria-label="Bubble synth pond. Tap a bubble to play it, drag up or down to bend pitch."></div>
+        <p class="keys">keys <kbd>1</kbd>–<kbd>7</kbd> also pop bubbles · scroll the page for filter wash</p>
+      </div>
+
+      <div class="card mixer">
+        <h2>◍ MIXER</h2>
+        <label class="knob">FIZZ FILTER <input id="knobFilter" type="range" min="0" max="100" value="70" /><b id="filterVal">70</b></label>
+        <label class="knob">WOBBLE ECHO <input id="knobEcho" type="range" min="0" max="100" value="30" /><b id="echoVal">30</b></label>
+        <label class="knob">LOUD <input id="knobVol" type="range" min="0" max="100" value="80" /><b id="volVal">80</b></label>
+        <p class="wash">SCROLL WASH → <b id="washVal">3.9kHz</b> <span class="washbar"><span id="washFill"></span></span></p>
+      </div>
+
+      <div class="card timeline">
+        <h2>▦ 4-BAR TAPE <span id="loopSecs" class="hint">8.6s loop</span></h2>
+        <div id="bars"></div>
+        <div id="roll"><div id="playhead"></div></div>
+        <p class="hint">● red dots = your taps · ◇ white = dice groove · drag the page, the tape keeps rolling</p>
+      </div>
+    </section>
+
+    <section class="tape reveal" id="tapeSec">
+      <h2>✎ YOUR LOOP TAPE</h2>
+      <p class="lede-sm">Every tap is stamped with its bar, voice and bend. Scroll down here and the pond keeps playing — scroll position also opens the filter, so the deeper you read, the brighter it fizzes.</p>
+      <ol id="tapeList" class="tape-list"><li class="empty">nothing taped yet — pop a bubble or roll the dice.</li></ol>
+      <div class="how">
+        <div><b>1 · TAP</b><span>chirps sing, kicks thump, fizz sparkles.</span></div>
+        <div><b>2 · DRAG ↕</b><span>hold a bubble, slide to bend ±7 semitones.</span></div>
+        <div><b>3 · REC</b><span>one 4-bar take, then it loops forever. overdub more.</span></div>
+        <div><b>4 · SCROLL</b><span>scrolling sweeps the filter + parallax shapes.</span></div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p><b>BIRCH FINCH FIZZBOX</b> · webaudio · loops · synth · playful — saved to this browser automatically.</p>
+      <p class="tiny">tip: hit 🎲 GROOVE, then drag a chirp bubble +5 and overdub it. scroll slowly. thank us later.</p>
+    </footer>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

@@ -6492,6 +6492,38 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+    },
+    {
+      "slug": "birch-finch-fizzbox",
+      "title": "Birch Finch Fizzbox",
+      "category": "generative",
+      "stack": "html",
+      "stackReason": "keyword html (generative)",
+      "aesthetic": "memphis",
+      "theme": "audio",
+      "constraints": [
+        "must react to scroll"
+      ],
+      "description": "Tap bubbles to layer chirps, kicks, and fizz into tiny looping songs.",
+      "features": [
+        "tap-to-trigger bubble synths",
+        "auto-looping 4-bar recorder",
+        "pitch bend by drag",
+        "one-click random groove"
+      ],
+      "tags": [
+        "webaudio",
+        "loops",
+        "synth",
+        "playful"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-04T01:01:10.702Z",
+      "updatedAt": "2026-11-04T01:05:01.668Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
