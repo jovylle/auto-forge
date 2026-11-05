@@ -6517,12 +6517,44 @@ export const projects = [
       "playful"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-04T01:01:10.702Z",
-    "updatedAt": "2026-11-04T01:04:30.281Z",
+    "updatedAt": "2026-11-04T01:05:01.668Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+  },
+  {
+    "slug": "pebble-moth-orbitbox",
+    "title": "Pebble Moth Orbitbox",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "pop-art",
+    "theme": "physics",
+    "constraints": [
+      "must react to scroll"
+    ],
+    "description": "Slingshot moths around gravity wells to collect stardust in 60 seconds.",
+    "features": [
+      "drag-to-launch slingshot controls",
+      "movable gravity wells",
+      "60-second stardust run",
+      "springy particle trails"
+    ],
+    "tags": [
+      "gravity",
+      "particles",
+      "slingshot",
+      "arcade"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-05T01:01:21.046Z",
+    "updatedAt": "2026-11-05T01:03:38.882Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
   }
 ];
-export const stats = { total: 207, done: 197, counts: {"done":197,"needs-human":10} };
+export const stats = { total: 208, done: 198, counts: {"done":198,"needs-human":10} };

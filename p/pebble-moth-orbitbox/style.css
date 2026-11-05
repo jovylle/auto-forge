@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root{
+  --pink:#ff2e88; --yellow:#ffd500; --cyan:#00e5ff; --purple:#7b2ff7;
+  --cream:#fff6e9; --ink:#14101f; --blue:#2e6bff; --gold:#ffb300;
+  --scroll:0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--ink); background:var(--cream);
+  font-family:'Space Grotesk',system-ui,sans-serif; overflow-x:hidden;
+}
+.dots-bg{
+  position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+  background-image:radial-gradient(#14101f22 1.6px, transparent 1.7px);
+  background-size:18px 18px;
+  filter:hue-rotate(calc(var(--scroll) * 60deg));
+}
+#scrollbar{position:fixed; top:0; left:0; right:0; height:10px; background:#14101f; z-index:50; border-bottom:3px solid #14101f}
+#scrollfill{height:100%; width:0%; background:linear-gradient(90deg,var(--pink),var(--yellow),var(--cyan)); transition:width .1s linear}
+
+.masthead{position:relative; z-index:1; text-align:center; padding:34px 16px 0; max-width:1000px; margin:0 auto}
+.kicker{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:10px}
+.pill{background:#14101f; color:var(--yellow); font-weight:700; font-size:12px; letter-spacing:.14em; padding:6px 14px; border-radius:999px; transform:rotate(-2deg); border:2px solid #14101f; box-shadow:3px 3px 0 var(--pink)}
+.pill.alt{background:var(--cyan); color:#14101f; transform:rotate(2deg); box-shadow:3px 3px 0 var(--purple)}
+.logo{
+  font-family:'Anton',sans-serif; font-size:clamp(52px,10vw,118px); line-height:.92; margin:6px 0 8px;
+  color:var(--pink); -webkit-text-stroke:3px #14101f; text-stroke:3px #14101f;
+  text-shadow:5px 5px 0 var(--yellow), 10px 10px 0 #14101f; letter-spacing:.01em; transform:rotate(-1.5deg);
+}
+.logo .outline{color:var(--cyan); text-shadow:5px 5px 0 var(--purple), 10px 10px 0 #14101f}
+.tagline{font-size:clamp(14px,2.4vw,19px); max-width:640px; margin:0 auto 12px}
+.tagline b{background:var(--yellow); padding:0 6px; border:2px solid #14101f; border-radius:6px}
+.scroll-hint{display:inline-block; background:#14101f; color:var(--cyan); font-weight:700; font-size:12px; padding:4px 10px; border-radius:6px; margin-left:6px; animation:bob 1.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(4px)}}
+.ticker{background:var(--yellow); border-top:4px solid #14101f; border-bottom:4px solid #14101f; overflow:hidden; white-space:nowrap; font-weight:700; letter-spacing:.06em; margin:14px -16px 0; transform:rotate(.6deg)}
+.ticker-inner{display:inline-block; padding:8px 0; animation:tick 18s linear infinite}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+#app{position:relative; z-index:1; max-width:1000px; margin:0 auto; padding:18px 16px 60px}
+.cabinet{background:#fff; border:5px solid #14101f; border-radius:22px; box-shadow:10px 10px 0 #14101f, 10px 10px 0 0 #14101f; overflow:hidden}
+.hud{display:grid; grid-template-columns:1fr 1fr 1.6fr 1fr; gap:0; border-bottom:5px solid #14101f}
+.hud-card{padding:10px 14px; border-right:4px solid #14101f}
+.hud-card:last-child{border-right:0}
+.hud-card label{font-size:11px; font-weight:700; letter-spacing:.14em}
+.hud-card label em{color:var(--pink); font-style:normal}
+.hud-card>div{font-family:'Anton',sans-serif; font-size:clamp(22px,4vw,34px); line-height:1}
+.hud-card.time{background:var(--yellow)} .hud-card.score{background:var(--pink); color:#fff; text-shadow:2px 2px 0 #14101f}
+.hud-card.grav{background:var(--cyan)} .hud-card.best{background:var(--purple); color:#fff; text-shadow:2px 2px 0 #14101f}
+.hud-card.time.urgent{background:#ff3b30; color:#fff; animation:blink .5s steps(2) infinite}
+@keyframes blink{50%{filter:invert(1)}}
+.gravbar{height:14px; background:#14101f; border-radius:99px; overflow:hidden; margin:6px 0 4px; border:2px solid #14101f}
+#gravfill{height:100%; width:30%; background:linear-gradient(90deg,var(--yellow),var(--pink)); border-radius:99px}
+#gravval{font-size:15px}
+
+.stage-wrap{position:relative; background:#0e0b1e}
+#game{display:block; width:100%; height:min(68vw,520px); min-height:340px; touch-action:none; cursor:crosshair}
+.overlay{
+  position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:10px; padding:24px; color:var(--cream);
+  background:radial-gradient(circle at 30% 20%, #7b2ff7cc, #0e0b1ecc 70%); backdrop-filter:blur(2px);
+  transition:opacity .25s ease;
+}
+.overlay.hidden{opacity:0; pointer-events:none}
+.overlay .pow{font-family:'Anton'; font-size:64px; color:var(--yellow); -webkit-text-stroke:2px #14101f; text-shadow:4px 4px 0 var(--pink), 8px 8px 0 #14101f; transform:rotate(-6deg); animation:pow .6s cubic-bezier(.2,2,.4,1) infinite alternate}
+@keyframes pow{to{transform:rotate(-2deg) scale(1.08)}}
+.overlay h2{font-family:'Anton'; font-size:clamp(30px,6vw,54px); margin:0; letter-spacing:.02em; color:#fff; text-shadow:3px 3px 0 #14101f}
+.overlay p{max-width:460px; margin:0; background:#fff6e9; color:#14101f; border:3px solid #14101f; border-radius:12px; padding:10px 14px; font-size:15px}
+.bigbtn{
+  font-family:'Anton'; font-size:24px; letter-spacing:.04em; color:#14101f; background:var(--yellow);
+  border:4px solid #14101f; border-radius:14px; padding:12px 28px; cursor:pointer;
+  box-shadow:6px 6px 0 var(--pink); transform:rotate(-1deg); transition:transform .12s;
+}
+.bigbtn:hover{transform:rotate(1deg) scale(1.05)} .bigbtn:active{transform:translate(3px,3px); box-shadow:2px 2px 0 var(--pink)}
+.keys{font-size:12px; opacity:.85; color:#fff !important; background:none !important; border:0 !important}
+.toast{
+  position:absolute; left:50%; bottom:14px; transform:translateX(-50%) rotate(-1deg);
+  background:#14101f; color:var(--yellow); font-weight:700; font-size:14px; padding:8px 16px; border-radius:10px;
+  border:2px solid var(--yellow); opacity:0; transition:opacity .2s; pointer-events:none; white-space:nowrap; max-width:94%;
+}
+.toast.show{opacity:1}
+
+.controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:12px 14px; background:var(--yellow); border-top:5px solid #14101f}
+.btn{font-weight:700; background:#fff; border:3px solid #14101f; border-radius:10px; padding:8px 14px; cursor:pointer; box-shadow:3px 3px 0 #14101f; font-size:14px}
+.btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 #14101f}
+.btn.small{font-size:12px; padding:6px 10px}
+.legend{margin-left:auto; font-size:13px; font-weight:700}
+.dot{display:inline-block; width:12px; height:12px; border-radius:50%; border:2px solid #14101f; margin:0 4px 0 10px; vertical-align:-1px}
+.dot.pink{background:var(--pink)} .dot.blue{background:var(--blue)} .dot.gold{background:var(--gold)}
+
+.panels{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:14px; margin-top:16px}
+.panel{border:4px solid #14101f; border-radius:16px; padding:16px; box-shadow:6px 6px 0 #14101f; background:#fff}
+.panel h3{font-family:'Anton'; margin:0 0 8px; font-size:22px; letter-spacing:.03em}
+.panel.p1{background:var(--cyan); transform:rotate(-.6deg)} .panel.p2{background:#fff; transform:rotate(.5deg)} .panel.p3{background:var(--pink); color:#fff; text-shadow:1px 1px 0 #14101f; transform:rotate(-.4deg)}
+.panel.p2 .stamp{display:inline-block; background:#14101f; color:var(--yellow); font-size:11px; font-weight:700; padding:4px 10px; border-radius:6px; transform:rotate(-2deg); margin-top:6px}
+.panel ol{margin:0; padding-left:20px; font-size:14px} .panel li{margin:4px 0} .panel p{font-size:14px; margin:6px 0}
+.panel.p3 .btn{text-shadow:none}
+
+.scroll-zone{margin-top:26px; border:5px dashed #14101f; border-radius:20px; padding:34px 22px 90px; background:linear-gradient(180deg,#fff, var(--cream)); text-align:center}
+.zone-title{font-family:'Anton'; font-size:clamp(22px,5vw,40px); background:#14101f; color:var(--yellow); display:inline-block; padding:8px 18px; border-radius:12px; transform:rotate(-1deg)}
+.halftone-strip{height:60px; margin:18px 0; border:3px solid #14101f; border-radius:12px;
+  background:radial-gradient(var(--pink) 3px, transparent 3.5px) 0 0/22px 22px, radial-gradient(var(--purple) 3px, transparent 3.5px) 11px 11px/22px 22px, var(--yellow);}
+.fine{font-size:12px; opacity:.7}
+.foot{text-align:center; font-size:12px; font-weight:700; letter-spacing:.08em; padding:18px; background:#14101f; color:var(--cream)}
+
+@media (max-width:720px){
+  .hud{grid-template-columns:1fr 1fr} .hud-card{border-bottom:3px solid #14101f}
+  .panels{grid-template-columns:1fr}
+  .legend{margin-left:0}
+}

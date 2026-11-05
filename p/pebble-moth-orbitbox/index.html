@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Pebble Moth Orbitbox — 60s Slingshot Run</title>
+<meta name="description" content="Slingshot moths around gravity wells to collect stardust in 60 seconds. Pop-art physics arcade." />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div id="scrollbar"><div id="scrollfill"></div></div>
+<div class="dots-bg" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="kicker"><span class="pill">★ POP-PHYSICS ARCADE ★</span><span class="pill alt">60-SECOND RUN</span></div>
+  <h1 class="logo">PEBBLE MOTH<br /><span class="outline">ORBITBOX</span></h1>
+  <p class="tagline">Slingshot <b>moths</b> around gravity wells. Grab the <b>stardust</b>. Beat the clock. <span class="scroll-hint">▼ SCROLL = GRAVITY ▼</span></p>
+  <div class="ticker" aria-hidden="true"><div class="ticker-inner">
+    <span>DRAG TO LAUNCH ★ MOVE THE WELLS ★ 60 SECONDS ★ SPRINGY TRAILS ★ SCROLL TO BEND GRAVITY ★ </span>
+    <span>DRAG TO LAUNCH ★ MOVE THE WELLS ★ 60 SECONDS ★ SPRINGY TRAILS ★ SCROLL TO BEND GRAVITY ★ </span>
+  </div></div>
+</header>
+
+<main id="app">
+  <section class="cabinet">
+    <div class="hud">
+      <div class="hud-card time"><label>TIME</label><div id="clock">60.0</div></div>
+      <div class="hud-card score"><label>STARDUST</label><div id="score">0 ★</div></div>
+      <div class="hud-card grav"><label>ORBIT PRESSURE <em>(scroll)</em></label>
+        <div class="gravbar"><div id="gravfill"></div></div>
+        <div id="gravval">1.00× GRAVITY</div>
+      </div>
+      <div class="hud-card best"><label>BEST</label><div id="best">0 ★</div></div>
+    </div>
+
+    <div class="stage-wrap">
+      <canvas id="game" width="900" height="520" aria-label="Orbitbox playfield. Drag from the nest to launch a moth. Drag wells to move them."></canvas>
+      <div id="overlay" class="overlay">
+        <div class="pow">POW!</div>
+        <h2 id="ovTitle">READY?</h2>
+        <p id="ovText">Drag back from the <b>pebble nest</b> (bottom-left) &amp; let go to fling a moth. Drag the <b>wells</b> anywhere. Scroll the page to crank gravity.</p>
+        <button id="startBtn" class="bigbtn">START 60s RUN</button>
+        <p class="keys">tip: golden comets = 5★ · wells pulse when a moth screams past</p>
+      </div>
+      <div id="toast" class="toast" aria-live="polite"></div>
+    </div>
+
+    <div class="controls">
+      <button id="resetBtn" class="btn">↻ restart</button>
+      <button id="wellsBtn" class="btn">⤨ shuffle wells</button>
+      <button id="soundBtn" class="btn" aria-pressed="true">♪ sound on</button>
+      <span class="legend"><i class="dot pink"></i>well pink <i class="dot blue"></i>well blue <i class="dot gold"></i>= 5★ comet</span>
+    </div>
+  </section>
+
+  <section class="panels">
+    <article class="panel p1">
+      <h3>HOW TO FLY</h3>
+      <ol>
+        <li><b>1. DRAG</b> back from the nest — dotted line previews the orbit.</li>
+        <li><b>2. RELEASE</b> to launch. Moths live ~12s, chain as many as you like.</li>
+        <li><b>3. DRAG WELLS</b> mid-flight to bend paths into stardust.</li>
+        <li><b>4. SCROLL</b> this page — gravity gets heavier downhill. Watch the meter!</li>
+      </ol>
+    </article>
+    <article class="panel p2">
+      <h3>FIELD NOTES</h3>
+      <p>Moths ride real-ish gravity: pull ∝ 1/d², capped so nothing slingshots to infinity. Trails are spring chains — each link chases the one ahead, so fast turns go <i>boing</i>. Golden comets drift; whites stay put.</p>
+      <p class="stamp">NO ENGINES WERE HARMED ★</p>
+    </article>
+    <article class="panel p3">
+      <h3>SCORE FEVER</h3>
+      <p id="scoreLine">Your best haul: <b>0★</b>. Stardust respawns, so keep the sky busy — two moths orbiting at once beats one perfect shot.</p>
+      <button id="clearBtn" class="btn small">forget best</button>
+    </article>
+  </section>
+
+  <section class="scroll-zone">
+    <h2 class="zone-title">↓ KEEP SCROLLING — FEEL THE GRAVITY SHIFT ↓</h2>
+    <p>The further down this page you go, the stronger the wells pull (up to 2×). Scroll back up to float again. The meter in the HUD proves it. This dead space is a <b>gravity lever</b>, not filler.</p>
+    <div class="halftone-strip" aria-hidden="true"></div>
+    <p class="fine">Pop-art rule #7: if it doesn't go POW, make it bigger. — Moth Dept.</p>
+  </section>
+</main>
+
+<footer class="foot">PEBBLE MOTH ORBITBOX ★ a 60-second slingshot ★ built with canvas + springs, no deps ★ best score lives in your browser</footer>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
