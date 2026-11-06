@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Gravity Spring Playground</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<main id="app">
+  <header class="topbar glass">
+    <div class="brand">
+      <span class="dot"></span>
+      <h1>Gravity Spring Playground</h1>
+    </div>
+    <p class="sub">Orbit · spring · fall. Tune the forces, watch the vectors, export a GIF.</p>
+  </header>
+
+  <section class="stage-wrap glass">
+    <canvas id="stage"></canvas>
+    <div id="hud" class="hud">
+      <span id="particleCount">0 particles</span>
+      <span id="fps">0 fps</span>
+    </div>
+    <div id="hint" class="hint">Drag on canvas to spawn a particle (direction = velocity)</div>
+  </section>
+
+  <aside class="panel glass">
+    <h2>Forces</h2>
+    <label class="ctrl">
+      <span>Gravity <em id="gVal">600</em></span>
+      <input id="gravity" type="range" min="0" max="2000" value="600" />
+    </label>
+    <label class="ctrl">
+      <span>Spring stiffness <em id="kVal">80</em></span>
+      <input id="stiffness" type="range" min="0" max="400" value="80" />
+    </label>
+    <label class="ctrl">
+      <span>Damping <em id="dVal">0.985</em></span>
+      <input id="damping" type="range" min="900" max="999" value="985" />
+    </label>
+    <label class="ctrl">
+      <span>Spring anchor <em id="aVal">center</em></span>
+      <select id="anchor">
+        <option value="center">Center</option>
+        <option value="top">Top</option>
+        <option value="bottom">Bottom</option>
+      </select>
+    </label>
+
+    <h2>Display</h2>
+    <label class="toggle"><input id="vectors" type="checkbox" checked /> Force vectors</label>
+    <label class="toggle"><input id="trails" type="checkbox" checked /> Trails</label>
+    <label class="toggle"><input id="glow" type="checkbox" checked /> Glow</label>
+
+    <h2>Actions</h2>
+    <div class="actions">
+      <button id="clearBtn" class="btn ghost">Clear</button>
+      <button id="burstBtn" class="btn ghost">Burst</button>
+      <button id="exportBtn" class="btn primary">Export GIF</button>
+    </div>
+    <div id="exportStatus" class="status"></div>
+  </aside>
+</main>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
