@@ -1,15 +1,15 @@
 {
-  "slug": "pebble-moth-orbitbox",
-  "title": "Pebble Moth Orbitbox",
+  "slug": "gravity-spring-playground",
+  "title": "Gravity Spring Playground",
   "stack": "html",
-  "aesthetic": "pop-art",
-  "model": "opencode-go/muse-spark-1.3-contributor#xhigh",
-  "modelVia": "primary",
+  "aesthetic": "glassmorphism",
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
   "verifyLine": null,
   "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 133747,
-  "at": "2026-11-05T01:03:38.885Z"
+  "elapsedMs": 295421,
+  "at": "2026-11-06T05:37:45.260Z"
 }

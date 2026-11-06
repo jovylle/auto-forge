@@ -1,0 +1,31 @@
+{
+  "slug": "gravity-spring-playground",
+  "title": "Gravity Spring Playground",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "glassmorphism",
+  "theme": "physics",
+  "constraints": [
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Gravity Spring Playground — glassmorphism physics sandbox (index.html, style.css, app.js, README.md). Drag to spawn particles with velocity; tunable gravity/spring stiffness/damping and anchor; live force-vector overlay (gravity, spring, net); animated GIF export via built-in LZW encoder. Responsive at 375px; no images.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Drag to spawn particles",
+      "Adjust gravity and spring stiffness",
+      "Live force-vector overlay",
+      "Export as animated GIF"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 295421,
+  "at": "2026-11-06T05:37:45.258Z"
+}

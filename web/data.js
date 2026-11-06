@@ -6549,12 +6549,73 @@ export const projects = [
       "arcade"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-05T01:01:21.046Z",
-    "updatedAt": "2026-11-05T01:03:38.882Z",
+    "updatedAt": "2026-11-05T01:04:01.399Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/muse-spark-1.3-contributor#xhigh"
+  },
+  {
+    "slug": "myrtle-vole-vault",
+    "title": "Myrtle Vole Vault",
+    "category": "tool",
+    "stack": "html",
+    "stackReason": "seed stack",
+    "aesthetic": "retro-wave",
+    "theme": "physics",
+    "constraints": [
+      "uses only one interaction type (click OR drag OR type)",
+      "no images — CSS/canvas only"
+    ],
+    "description": "Myrtle Vole Vault",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "vault",
+      "vole",
+      "tool"
+    ],
+    "status": "building",
+    "deployed": false,
+    "createdAt": "2026-11-06T01:00:59.044Z",
+    "updatedAt": "2026-11-06T01:00:59.051Z"
+  },
+  {
+    "slug": "gravity-spring-playground",
+    "title": "Gravity Spring Playground",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "glassmorphism",
+    "theme": "physics",
+    "constraints": [
+      "no images — CSS/canvas only"
+    ],
+    "description": "A tiny sandbox where particles orbit, spring, and fall under tunable gravity.",
+    "features": [
+      "Drag to spawn particles",
+      "Adjust gravity and spring stiffness",
+      "Live force-vector overlay",
+      "Export as animated GIF"
+    ],
+    "tags": [
+      "physics",
+      "particles",
+      "gravity",
+      "springs",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-06T05:32:39.072Z",
+    "updatedAt": "2026-11-06T05:37:45.254Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 208, done: 198, counts: {"done":198,"needs-human":10} };
+export const stats = { total: 210, done: 199, counts: {"done":199,"needs-human":10,"building":1} };
