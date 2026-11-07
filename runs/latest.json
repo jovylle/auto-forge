@@ -1,15 +1,15 @@
 {
-  "slug": "gravity-spring-playground",
-  "title": "Gravity Spring Playground",
+  "slug": "myrtle-vole-vault",
+  "title": "Myrtle Vole Vault",
   "stack": "html",
-  "aesthetic": "glassmorphism",
+  "aesthetic": "retro-wave",
   "model": "opencode/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
-  "buildPassed": true,
+  "buildPassed": false,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 295421,
-  "at": "2026-11-06T05:37:45.260Z"
+  "elapsedMs": 2700029,
+  "at": "2026-11-07T01:48:55.829Z"
 }
