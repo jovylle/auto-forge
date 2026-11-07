@@ -1,0 +1,85 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - paragraph [ref=e4]: ANALOG CACHE ENGINE · EST. 1986
+      - heading "MYRTLE VOLE VAULT" [level=1] [ref=e6]:
+        - text: MYRTLE VOLE
+        - generic [ref=e7]: VAULT
+      - paragraph [ref=e8]: A neon burrow for winter seeds. Myrtle is counting.
+    - generic "Vault totals" [ref=e9]:
+      - generic [ref=e10]:
+        - term [ref=e11]: CACHE VALUE
+        - definition [ref=e12]: "0"
+      - generic [ref=e13]:
+        - term [ref=e14]: SEEDS
+        - definition [ref=e15]: "0"
+      - generic [ref=e16]:
+        - term [ref=e17]: CHAIN
+        - definition [ref=e18]: ×1
+  - main [ref=e19]:
+    - region "Vault chamber" [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e23]: VOLT-CACHE 6600
+        - generic [ref=e24]: SEED SORTER
+      - generic [ref=e25]:
+        - button "Vault chamber. Click anywhere to drop a seed. Press Enter to drop one at the centre." [ref=e26]
+        - generic [aria-hidden]:
+          - generic: ▼
+          - generic: CLICK THE CHUTE
+          - generic: plant a seed · let gravity file it
+      - generic [ref=e27]:
+        - paragraph [ref=e28]:
+          - generic [ref=e29]: CLICK
+          - text: anywhere in the chamber to drop a seed
+        - paragraph [ref=e30]: GRAVITY 1.24 G · CLICK ONLY
+    - complementary "Vault ledger" [ref=e31]:
+      - generic [ref=e32]:
+        - heading "VAULT LEDGER" [level=2] [ref=e33]
+        - generic [ref=e34]: Nº 0660
+      - generic [ref=e35]:
+        - generic [ref=e36]: NEXT SEED
+        - strong [ref=e38]: VOLT
+        - generic [ref=e39]: "+5"
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e42]: SEAL PROGRESS
+          - generic [ref=e43]: 0 / 300
+        - progressbar "Seal progress" [ref=e44]
+      - list "Burrow bin counts" [ref=e45]:
+        - listitem [ref=e46]:
+          - generic [ref=e47]: A
+          - generic [ref=e48]: NORTH BURROW
+          - generic [ref=e49]: "0"
+        - listitem [ref=e50]:
+          - generic [ref=e51]: B
+          - generic [ref=e52]: HEARTH BURROW
+          - generic [ref=e53]: "0"
+        - listitem [ref=e54]:
+          - generic [ref=e55]: C
+          - generic [ref=e56]: GLASS BURROW
+          - generic [ref=e57]: "0"
+      - paragraph [ref=e58]: "Land twice in the same burrow to build a chain. ×5 cap. Best this vault: ×1."
+      - generic [ref=e59]:
+        - paragraph [ref=e60]: SEED INDEX
+        - list [ref=e61]:
+          - listitem [ref=e62]:
+            - text: VOLT
+            - generic [ref=e64]: "5"
+          - listitem [ref=e65]:
+            - text: EMBER
+            - generic [ref=e67]: "12"
+          - listitem [ref=e68]:
+            - text: MOON
+            - generic [ref=e70]: "40"
+          - listitem [ref=e71]:
+            - text: PRISM
+            - generic [ref=e73]: "100"
+      - generic [ref=e74]:
+        - button "EXPORT POSTER" [ref=e75] [cursor=pointer]
+        - button "COPY SNAPSHOT LINK" [ref=e76] [cursor=pointer]
+        - button "PURGE VAULT" [ref=e77] [cursor=pointer]
+      - paragraph [ref=e78]: Autosaves to this browser. Myrtle remembers.
+  - contentinfo [ref=e79]:
+    - paragraph [ref=e80]: MYRTLE VOLE VAULT · retro-wave burrow experiment
+    - paragraph [ref=e81]: NO IMAGES · CSS + CANVAS · ONE INTERACTION
+  - status

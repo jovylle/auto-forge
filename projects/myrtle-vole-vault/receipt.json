@@ -1,0 +1,22 @@
+{
+  "slug": "myrtle-vole-vault",
+  "title": "Myrtle Vole Vault",
+  "stack": "html",
+  "stackReason": "seed stack",
+  "aesthetic": "retro-wave",
+  "theme": "physics",
+  "constraints": [
+    "uses only one interaction type (click OR drag OR type)",
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": null,
+  "buildPassed": false,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 2700029,
+  "at": "2026-11-07T01:48:55.815Z"
+}

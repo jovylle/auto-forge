@@ -6579,10 +6579,14 @@ export const projects = [
       "vole",
       "tool"
     ],
-    "status": "building",
+    "status": "needs-human",
     "deployed": false,
     "createdAt": "2026-11-06T01:00:59.044Z",
-    "updatedAt": "2026-11-06T01:00:59.051Z"
+    "updatedAt": "2026-11-07T01:48:55.810Z",
+    "buildPassed": false,
+    "lastError": "toast').textContent, shareOutHidden:document.getElementById('shareOut').hidden})\"}}],\"truncated\":false},\"content\":[{\"type\":\"text\",\"text\":\"### Result\\n{\\n  \\\"toast\\\": \\\"SNAPSHOT LINK COPIED\\\",\\n  \\\"shareOutHidden\\\": true\\n}\\n### Ran Playwright code\\n```js\\nawait page.evaluate('() => ({toast:document.getElementById(\\\\'toast\\\\').textContent, shareOutHidden:document.getElementById(\\\\'shareOut\\\\').hidden})');\\n```\"}],\"providerCall\":{\"executed\":false},\"providerResult\":{\"executed\":false},\"rawInput\":\"{\\\"code\\\": \\\"const r = await tools.playwright.browser_evaluate({ function: \\\\\\\"() => ({toast:document.getElementById('toast').textContent, shareOutHidden:document.getElementById('shareOut').hidden})\\\\\\\" });\\\\nreturn r;\\\"}\"},\"time\":{\"start\":1794015169565,\"end\":1794015170417}}}}\n{\"type\":\"step_finish\",\"timestamp\":1794015170535,\"sessionID\":\"ses_e4c77686dffeyc1qmLzTlrqojc\",\"part\":{\"id\":\"prt_1b3a30fe7001MtHyMg43ePdNo2\",\"sessionID\":\"ses_e4c77686dffeyc1qmLzTlrqojc\",\"messageID\":\"msg_1b3a1ccdb0013PSGxQl5GWDCsB\",\"type\":\"step-finish\",\"reason\":\"tool-calls\",\"snapshot\":\"bb06cbabcc995eb7298e717eb12b4a1618584df1\",\"cost\":0,\"tokens\":{\"input\":368,\"output\":55,\"reasoning\":37,\"cache\":{\"read\":75520,\"write\":0}}}}\n{\"type\":\"step_start\",\"timestamp\":1794015185319,\"sessionID\":\"ses_e4c77686dffeyc1qmLzTlrqojc\",\"part\":{\"id\":\"prt_1b3a349a7001fVWcQh0VF7vfKH\",\"sessionID\":\"ses_e4c77686dffeyc1qmLzTlrqojc\",\"messageID\":\"msg_1b3a31037001fdDpZwCYOWSDkj\",\"type\":\"step-start\",\"snapshot\":\"bb06cbabcc995eb7298e717eb12b4a1618584df1\"}}\n",
+    "retries": 1,
+    "lastModel": "opencode/beam-free"
   },
   {
     "slug": "gravity-spring-playground",
@@ -6610,12 +6614,12 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-06T05:32:39.072Z",
-    "updatedAt": "2026-11-06T05:37:45.254Z",
+    "updatedAt": "2026-11-06T05:39:44.941Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 210, done: 199, counts: {"done":199,"needs-human":10,"building":1} };
+export const stats = { total: 210, done: 199, counts: {"done":199,"needs-human":11} };
