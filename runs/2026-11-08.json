@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-08",
+  "runs": [
+    {
+      "slug": "springy-particle-field",
+      "title": "Springy Particle Field",
+      "stack": "html",
+      "aesthetic": "bauhaus",
+      "model": "opencode/beam-free",
+      "modelVia": "chain",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 215948,
+      "at": "2026-11-08T01:04:54.891Z"
+    }
+  ],
+  "updatedAt": "2026-11-08T01:04:54.891Z"
+}

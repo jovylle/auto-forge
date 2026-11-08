@@ -1,15 +1,15 @@
 {
-  "slug": "myrtle-vole-vault",
-  "title": "Myrtle Vole Vault",
+  "slug": "springy-particle-field",
+  "title": "Springy Particle Field",
   "stack": "html",
-  "aesthetic": "retro-wave",
+  "aesthetic": "bauhaus",
   "model": "opencode/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
-  "buildPassed": false,
+  "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 2700029,
-  "at": "2026-11-07T01:48:55.829Z"
+  "elapsedMs": 215948,
+  "at": "2026-11-08T01:04:54.891Z"
 }
