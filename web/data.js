@@ -6620,6 +6620,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "springy-particle-field",
+    "title": "Springy Particle Field",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "keyword html (particle)",
+    "aesthetic": "bauhaus",
+    "theme": "physics",
+    "constraints": [
+      "must have an easter egg"
+    ],
+    "description": "Interactive canvas of spring-connected particles reacting to gravity and mouse pulls.",
+    "features": [
+      "drag to pull particles",
+      "adjust spring stiffness",
+      "toggle gravity direction",
+      "reset to calm state"
+    ],
+    "tags": [
+      "physics",
+      "particles",
+      "springs",
+      "canvas",
+      "interactive"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-08T01:01:17.288Z",
+    "updatedAt": "2026-11-08T01:04:54.880Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 210, done: 199, counts: {"done":199,"needs-human":11} };
+export const stats = { total: 211, done: 200, counts: {"done":200,"needs-human":11} };

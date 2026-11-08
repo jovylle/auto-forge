@@ -1,0 +1,32 @@
+{
+  "slug": "springy-particle-field",
+  "title": "Springy Particle Field",
+  "stack": "html",
+  "stackReason": "keyword html (particle)",
+  "aesthetic": "bauhaus",
+  "theme": "physics",
+  "constraints": [
+    "must have an easter egg"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Springy Particle Field — Bauhaus canvas of spring-connected particles with gravity and mouse pulls (index.html, style.css, app.js, README.md). Drag to pull, stiffness slider, gravity direction cycle, reset. Easter egg: type 'bauhaus' to morph into circle/square/triangle clusters. Verified: node --check, no console errors at 375px, interactions tested via Playwright.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag to pull particles",
+      "adjust spring stiffness",
+      "toggle gravity direction",
+      "reset to calm state",
+      "easter egg (type bauhaus)"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 215948,
+  "at": "2026-11-08T01:04:54.889Z"
+}

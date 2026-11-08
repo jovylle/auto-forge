@@ -5,8 +5,8 @@
     "lastError": "preflight timeout"
   },
   "opencode/beam-free": {
-    "failStreak": 1,
+    "failStreak": 0,
     "lastFail": "2026-11-07T01:48:55.795Z",
-    "lastError": "{\"type\":\"step_start\",\"timestamp\":1794013441436,\"sessionID\":\"ses_e4c77686dffeyc1qmLzTlrqojc\",\"part\":{\"id\":\"prt_1b388ad9c001klGFuyAdYmu4p4\",\"sessionID\":\"ses_e4c77686dffeyc1qmLzTlrqojc\",\"messageID\":\"msg_1b38897de001fOhKAsDaxDEeZ5\",\"type\":\"step-start\",\"snapshot\":\"d5720550a12b765f94daaa4b15be930a02f0dc64"
+    "lastError": ""
   }
 }
