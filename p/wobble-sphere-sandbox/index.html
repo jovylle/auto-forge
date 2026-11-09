@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wobble Sphere Sandbox</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="bar">
+      <div class="brand">
+        <h1>Wobble Sphere Sandbox</h1>
+        <p class="sub">A tiny physics toy — bounce, spring, settle.</p>
+      </div>
+      <div class="controls">
+        <label class="ctrl">Gravity<input type="range" id="g" min="0" max="2000" value="900"><span id="gv">900</span></label>
+        <label class="ctrl">Spring<input type="range" id="k" min="0" max="400" value="180"><span id="kv">180</span></label>
+        <label class="ctrl toggle"><input type="checkbox" id="trails" checked> Trails</label>
+        <button id="reset" class="btn">Reset</button>
+      </div>
+    </header>
+    <canvas id="c"></canvas>
+    <footer class="hint">Drag to launch · tap to drop · reset to clear</footer>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

@@ -1,8 +1,8 @@
 {
-  "slug": "springy-particle-field",
-  "title": "Springy Particle Field",
+  "slug": "wobble-sphere-sandbox",
+  "title": "Wobble Sphere Sandbox",
   "stack": "html",
-  "aesthetic": "bauhaus",
+  "aesthetic": "swiss",
   "model": "opencode/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 215948,
-  "at": "2026-11-08T01:04:54.891Z"
+  "elapsedMs": 122119,
+  "at": "2026-11-09T01:03:24.736Z"
 }
