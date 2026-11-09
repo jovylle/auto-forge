@@ -6654,6 +6654,40 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/beam-free"
+    },
+    {
+      "slug": "wobble-sphere-sandbox",
+      "title": "Wobble Sphere Sandbox",
+      "category": "generative",
+      "stack": "html",
+      "stackReason": "keyword html (generative)",
+      "aesthetic": "swiss",
+      "theme": "physics",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "no external fonts — system fonts only"
+      ],
+      "description": "A tiny physics toy where spheres bounce, spring, and settle under gravity.",
+      "features": [
+        "drag to launch spheres",
+        "adjust gravity and spring stiffness",
+        "trail visualization",
+        "reset with one tap"
+      ],
+      "tags": [
+        "physics",
+        "gravity",
+        "springs",
+        "particles",
+        "canvas"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-09T01:01:20.462Z",
+      "updatedAt": "2026-11-09T01:03:45.144Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/beam-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

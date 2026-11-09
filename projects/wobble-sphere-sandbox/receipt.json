@@ -1,0 +1,32 @@
+{
+  "slug": "wobble-sphere-sandbox",
+  "title": "Wobble Sphere Sandbox",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "swiss",
+  "theme": "physics",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Single-file Swiss-style physics toy: drag to launch spheres, gravity and spring stiffness sliders, trail visualization, one-tap reset. Canvas-based, system fonts, 3 colors (black/white/red).",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag to launch spheres",
+      "adjust gravity and spring stiffness",
+      "trail visualization",
+      "reset with one tap"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 122119,
+  "at": "2026-11-09T01:03:24.733Z"
+}

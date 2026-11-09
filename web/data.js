@@ -6647,12 +6647,46 @@ export const projects = [
       "interactive"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-08T01:01:17.288Z",
-    "updatedAt": "2026-11-08T01:04:54.880Z",
+    "updatedAt": "2026-11-08T01:05:15.592Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "wobble-sphere-sandbox",
+    "title": "Wobble Sphere Sandbox",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "swiss",
+    "theme": "physics",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "A tiny physics toy where spheres bounce, spring, and settle under gravity.",
+    "features": [
+      "drag to launch spheres",
+      "adjust gravity and spring stiffness",
+      "trail visualization",
+      "reset with one tap"
+    ],
+    "tags": [
+      "physics",
+      "gravity",
+      "springs",
+      "particles",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-09T01:01:20.462Z",
+    "updatedAt": "2026-11-09T01:03:24.727Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 211, done: 200, counts: {"done":200,"needs-human":11} };
+export const stats = { total: 212, done: 201, counts: {"done":201,"needs-human":11} };
