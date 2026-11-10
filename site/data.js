@@ -6681,12 +6681,45 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-09T01:01:20.462Z",
-    "updatedAt": "2026-11-09T01:03:24.727Z",
+    "updatedAt": "2026-11-09T01:03:45.144Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "spring-mesh-bloom",
+    "title": "Spring Mesh Bloom",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "cyberpunk",
+    "theme": "physics",
+    "constraints": [
+      "no external fonts — system fonts only"
+    ],
+    "description": "Springy mesh blooms into floral patterns as particles settle under gravity.",
+    "features": [
+      "drag nodes to stretch springs",
+      "gravity slider",
+      "bloom export PNG",
+      "damping toggle"
+    ],
+    "tags": [
+      "spring",
+      "particle",
+      "generative",
+      "physics",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-10T01:01:11.501Z",
+    "updatedAt": "2026-11-10T01:06:36.367Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 212, done: 201, counts: {"done":201,"needs-human":11} };
+export const stats = { total: 213, done: 202, counts: {"done":202,"needs-human":11} };

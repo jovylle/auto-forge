@@ -1,8 +1,8 @@
 {
-  "slug": "wobble-sphere-sandbox",
-  "title": "Wobble Sphere Sandbox",
+  "slug": "spring-mesh-bloom",
+  "title": "Spring Mesh Bloom",
   "stack": "html",
-  "aesthetic": "swiss",
+  "aesthetic": "cyberpunk",
   "model": "opencode/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 122119,
-  "at": "2026-11-09T01:03:24.736Z"
+  "elapsedMs": 322988,
+  "at": "2026-11-10T01:06:36.371Z"
 }

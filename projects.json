@@ -6688,6 +6688,39 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/beam-free"
+    },
+    {
+      "slug": "spring-mesh-bloom",
+      "title": "Spring Mesh Bloom",
+      "category": "generative",
+      "stack": "html",
+      "stackReason": "keyword html (generative)",
+      "aesthetic": "cyberpunk",
+      "theme": "physics",
+      "constraints": [
+        "no external fonts — system fonts only"
+      ],
+      "description": "Springy mesh blooms into floral patterns as particles settle under gravity.",
+      "features": [
+        "drag nodes to stretch springs",
+        "gravity slider",
+        "bloom export PNG",
+        "damping toggle"
+      ],
+      "tags": [
+        "spring",
+        "particle",
+        "generative",
+        "physics",
+        "canvas"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-10T01:01:11.501Z",
+      "updatedAt": "2026-11-10T01:07:03.592Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/beam-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

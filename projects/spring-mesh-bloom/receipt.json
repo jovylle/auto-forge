@@ -1,0 +1,31 @@
+{
+  "slug": "spring-mesh-bloom",
+  "title": "Spring Mesh Bloom",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "cyberpunk",
+  "theme": "physics",
+  "constraints": [
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Spring Mesh Bloom — cyberpunk Verlet spring-mass mesh that blooms under gravity (index.html, style.css, app.js, README.md). Drag nodes to stretch springs, gravity slider, damping toggle, PNG export. System fonts only, no dependencies, works from file://.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag nodes to stretch springs",
+      "gravity slider",
+      "bloom export PNG",
+      "damping toggle"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 322988,
+  "at": "2026-11-10T01:06:36.370Z"
+}
