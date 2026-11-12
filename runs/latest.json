@@ -1,8 +1,8 @@
 {
-  "slug": "spring-mesh-bloom",
-  "title": "Spring Mesh Bloom",
-  "stack": "html",
-  "aesthetic": "cyberpunk",
+  "slug": "drift-grid-cartographer",
+  "title": "Drift Grid Cartographer",
+  "stack": "vite",
+  "aesthetic": "japanese-cyberpunk",
   "model": "opencode/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 322988,
-  "at": "2026-11-10T01:06:36.371Z"
+  "elapsedMs": 621610,
+  "at": "2026-11-12T01:11:58.732Z"
 }

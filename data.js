@@ -6714,12 +6714,107 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-10T01:01:11.501Z",
-    "updatedAt": "2026-11-10T01:06:36.367Z",
+    "updatedAt": "2026-11-10T01:07:03.592Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "orbiting-spring-atoms",
+    "title": "Orbiting Spring Atoms",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "sci-fi-terminal",
+    "theme": "physics",
+    "constraints": [
+      "single HTML file if html stack, single component if vite",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Interactive particles connected by springs orbiting a gravity well.",
+    "features": [
+      "adjust gravity",
+      "drag to add springs",
+      "particle trails",
+      "pause and reset"
+    ],
+    "tags": [
+      "physics",
+      "springs",
+      "particles",
+      "canvas",
+      "interactive"
+    ],
+    "status": "building",
+    "deployed": false,
+    "createdAt": "2026-11-11T01:03:24.943Z",
+    "updatedAt": "2026-11-11T01:03:36.038Z"
+  },
+  {
+    "slug": "elastic-marble-garden",
+    "title": "Elastic Marble Garden",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "biomorphic",
+    "theme": "physics",
+    "constraints": [
+      "sound on interaction (WebAudio, no assets)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Launch elastic particles into a gravity well and watch springy collisions bloom across the canvas.",
+    "features": [
+      "Drag to launch particles",
+      "Adjustable gravity slider",
+      "Toggle spring connections",
+      "Color by velocity",
+      "Export as GIF"
+    ],
+    "tags": [
+      "physics",
+      "particles",
+      "gravity",
+      "springs",
+      "canvas"
+    ],
+    "status": "building",
+    "deployed": false,
+    "createdAt": "2026-11-11T01:11:08.056Z",
+    "updatedAt": "2026-11-11T01:11:08.069Z"
+  },
+  {
+    "slug": "drift-grid-cartographer",
+    "title": "Drift Grid Cartographer",
+    "category": "tool",
+    "stack": "vite",
+    "stackReason": "keyword vite (tool)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "maps",
+    "constraints": [
+      "must have an easter egg"
+    ],
+    "description": "Draw, label, and share tiny hand-drawn grid maps in seconds.",
+    "features": [
+      "drag to paint terrain",
+      "drop labeled pins",
+      "export PNG map",
+      "undo/redo strokes"
+    ],
+    "tags": [
+      "maps",
+      "canvas",
+      "grid",
+      "drawing"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-12T01:01:25.672Z",
+    "updatedAt": "2026-11-12T01:11:58.729Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 213, done: 202, counts: {"done":202,"needs-human":11} };
+export const stats = { total: 216, done: 203, counts: {"done":203,"needs-human":11,"building":2} };
