@@ -1,0 +1,33 @@
+{
+  "slug": "orbiting-spring-atoms",
+  "title": "Orbiting Spring Atoms",
+  "stack": "vite",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "sci-fi-terminal",
+  "theme": "physics",
+  "constraints": [
+    "single HTML file if html stack, single component if vite",
+    "sound on interaction (WebAudio, no assets)"
+  ],
+  "model": "opencode/crouton-alpha-free",
+  "modelVia": "fallback retry",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Orbiting Spring Atoms — sci-fi terminal Vite+TS viz: particles/springs orbit gravity well, adjustable gravity/trails/stiffness, drag-to-add springs, pause/reset, WebAudio sounds, relative asset paths.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "adjust gravity",
+      "drag to add springs",
+      "particle trails",
+      "pause and reset",
+      "sound on interaction (WebAudio)"
+    ]
+  },
+  "buildPassed": false,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 296,
+  "at": "2026-11-13T01:07:51.820Z"
+}

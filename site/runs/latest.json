@@ -1,15 +1,15 @@
 {
-  "slug": "drift-grid-cartographer",
-  "title": "Drift Grid Cartographer",
+  "slug": "orbiting-spring-atoms",
+  "title": "Orbiting Spring Atoms",
   "stack": "vite",
-  "aesthetic": "japanese-cyberpunk",
-  "model": "opencode/beam-free",
-  "modelVia": "chain",
+  "aesthetic": "sci-fi-terminal",
+  "model": "opencode/crouton-alpha-free",
+  "modelVia": "fallback retry",
   "verifyLine": null,
-  "buildPassed": true,
+  "buildPassed": false,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 621610,
-  "at": "2026-11-12T01:11:58.732Z"
+  "elapsedMs": 296,
+  "at": "2026-11-13T01:07:51.821Z"
 }
