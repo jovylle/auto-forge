@@ -5,9 +5,9 @@
     "lastError": "preflight timeout"
   },
   "opencode/beam-free": {
-    "failStreak": 1,
+    "failStreak": 0,
     "lastFail": "2026-11-13T01:07:38.797Z",
-    "lastError": "UnknownError"
+    "lastError": ""
   },
   "opencode/crouton-alpha-free": {
     "failStreak": 1,

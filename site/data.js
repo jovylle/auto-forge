@@ -6783,10 +6783,13 @@ export const projects = [
       "springs",
       "canvas"
     ],
-    "status": "building",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-11-11T01:11:08.056Z",
-    "updatedAt": "2026-11-11T01:11:08.069Z"
+    "updatedAt": "2026-11-14T01:02:58.379Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
   },
   {
     "slug": "drift-grid-cartographer",
@@ -6821,4 +6824,4 @@ export const projects = [
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 216, done: 203, counts: {"done":203,"needs-human":11,"needs-iteration":1,"building":1} };
+export const stats = { total: 216, done: 204, counts: {"done":204,"needs-human":11,"needs-iteration":1} };

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elastic Marble Garden</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="shell">
+    <header class="bar">
+      <div class="brand">
+        <span class="dot"></span>
+        <h1>Elastic Marble Garden</h1>
+      </div>
+      <p class="sub">Launch elastic particles into a gravity well. Drag to sling, release to bloom.</p>
+    </header>
+
+    <section id="stage">
+      <canvas id="c"></canvas>
+      <div id="hint">drag anywhere to launch a marble</div>
+    </section>
+
+    <footer class="controls">
+      <div class="ctrl">
+        <label for="gravity">Gravity</label>
+        <input id="gravity" type="range" min="0" max="2" step="0.01" value="0.9" />
+        <span id="gval">0.90</span>
+      </div>
+      <div class="ctrl">
+        <label for="springs">Springs</label>
+        <button id="springs" class="toggle on" aria-pressed="true">ON</button>
+      </div>
+      <div class="ctrl">
+        <label for="colorvel">Color by velocity</label>
+        <button id="colorvel" class="toggle on" aria-pressed="true">ON</button>
+      </div>
+      <div class="ctrl">
+        <label for="sound">Sound</label>
+        <button id="sound" class="toggle on" aria-pressed="true">ON</button>
+      </div>
+      <div class="ctrl">
+        <button id="clear" class="btn">Clear</button>
+        <button id="export" class="btn primary">Export GIF</button>
+      </div>
+      <div class="status" id="status"></div>
+    </footer>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

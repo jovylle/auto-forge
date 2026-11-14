@@ -6784,10 +6784,13 @@
         "springs",
         "canvas"
       ],
-      "status": "building",
-      "deployed": false,
+      "status": "done",
+      "deployed": true,
       "createdAt": "2026-11-11T01:11:08.056Z",
-      "updatedAt": "2026-11-11T01:11:08.069Z"
+      "updatedAt": "2026-11-14T01:03:48.759Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/beam-free"
     },
     {
       "slug": "drift-grid-cartographer",

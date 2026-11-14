@@ -1,0 +1,33 @@
+{
+  "slug": "elastic-marble-garden",
+  "title": "Elastic Marble Garden",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "biomorphic",
+  "theme": "physics",
+  "constraints": [
+    "sound on interaction (WebAudio, no assets)",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Elastic Marble Garden — canvas physics toy with drag-launch particles, gravity well, toggleable springs, velocity coloring, WebAudio, GIF export. System fonts only.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Drag to launch particles",
+      "Adjustable gravity slider",
+      "Toggle spring connections",
+      "Color by velocity",
+      "Export as GIF"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 147075,
+  "at": "2026-11-14T01:02:58.387Z"
+}
