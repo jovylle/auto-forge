@@ -6747,14 +6747,14 @@ export const projects = [
       "canvas",
       "interactive"
     ],
-    "status": "needs-iteration",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-11-11T01:03:24.943Z",
-    "updatedAt": "2026-11-13T01:07:51.819Z",
-    "buildPassed": false,
-    "lastError": "{\"type\":\"error\",\"timestamp\":1794532071485,\"sessionID\":\"ses_e2d8da82cffemW4JkMPCXmFgPv\",\"error\":{\"type\":\"provider.no-route\",\"message\":\"Model unavailable: opencode/crouton-alpha-free\"}}\n",
+    "updatedAt": "2026-11-15T01:04:24.688Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/crouton-alpha-free"
+    "lastModel": "opencode/beam-free"
   },
   {
     "slug": "elastic-marble-garden",
@@ -6784,9 +6784,9 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-11T01:11:08.056Z",
-    "updatedAt": "2026-11-14T01:02:58.379Z",
+    "updatedAt": "2026-11-14T01:03:48.759Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
@@ -6824,4 +6824,4 @@ export const projects = [
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 216, done: 204, counts: {"done":204,"needs-human":11,"needs-iteration":1} };
+export const stats = { total: 216, done: 205, counts: {"done":205,"needs-human":11} };
