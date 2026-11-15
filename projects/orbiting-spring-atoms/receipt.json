@@ -9,12 +9,12 @@
     "single HTML file if html stack, single component if vite",
     "sound on interaction (WebAudio, no assets)"
   ],
-  "model": "opencode/crouton-alpha-free",
-  "modelVia": "fallback retry",
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
   "verifyLine": null,
   "workerResult": {
     "status": "pass",
-    "summary": "Orbiting Spring Atoms — sci-fi terminal Vite+TS viz: particles/springs orbit gravity well, adjustable gravity/trails/stiffness, drag-to-add springs, pause/reset, WebAudio sounds, relative asset paths.",
+    "summary": "Orbiting Spring Atoms — sci-fi terminal Vite+TS viz: particles/springs orbit gravity well; adjustable gravity/trails/stiffness, drag-to-add springs, pause/reset, WebAudio sounds; fixed unpause-on-reset, stuck drag, smear, stiffness reset; relative asset paths.",
     "buildPassed": true,
     "featuresImplemented": [
       "adjust gravity",
@@ -24,10 +24,10 @@
       "sound on interaction (WebAudio)"
     ]
   },
-  "buildPassed": false,
+  "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 296,
-  "at": "2026-11-13T01:07:51.820Z"
+  "elapsedMs": 210957,
+  "at": "2026-11-15T01:04:24.690Z"
 }

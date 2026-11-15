@@ -14,6 +14,7 @@ type Spring = { a: number; b: number; rest: number; k: number }
 let gravity = 1.6
 let trailLen = TRAIL_DEFAULT
 let paused = false
+let stiff = 0.04
 let particles: Particle[] = []
 let springs: Spring[] = []
 let audioCtx: AudioContext | null = null
@@ -41,6 +42,9 @@ function sweep(up: boolean) {
 
 function reset() {
   particles = []; springs = []
+  paused = false
+  const pb = document.getElementById('pause') as HTMLButtonElement | null
+  if (pb) pb.textContent = 'PAUSE'
   const cx = canvas.width / (2 * dpr()); const cy = canvas.height / (2 * dpr())
   const rng = mulberry32(42)
   for (let i = 0; i < NUM; i++) {
@@ -58,7 +62,7 @@ function reset() {
     })
   }
   // ring springs
-  for (let i = 0; i < NUM; i++) springs.push({ a: i, b: (i + 1) % NUM, rest: 0, k: 0.04 })
+  for (let i = 0; i < NUM; i++) springs.push({ a: i, b: (i + 1) % NUM, rest: 0, k: stiff })
   for (const s of springs) {
     const a = particles[s.a], b = particles[s.b]
     s.rest = Math.hypot(a.x - b.x, a.y - b.y)
@@ -123,7 +127,7 @@ app.innerHTML = `
     <div class="mt-auto text-[10px] opacity-40">WEB AUDIO · CANVAS 2D · NO ASSETS</div>
   </aside>
   <main class="flex-1 relative">
-    <canvas id="c"></canvas>
+    <canvas id="c" role="img" aria-label="Orbiting spring atoms canvas"></canvas>
     <div id="hint" class="absolute top-3 right-3 text-xs opacity-60 pointer-events-none"></div>
   </main>
 </div>`
@@ -159,8 +163,8 @@ gSlider.addEventListener('input', () => {
 tSlider.addEventListener('input', () => {
   trailLen = parseInt(tSlider.value)
   document.getElementById('tVal')!.textContent = String(trailLen)
+  for (const p of particles) while (p.trail.length > trailLen) p.trail.shift()
 })
-let stiff = 0.04
 kSlider.addEventListener('input', () => {
   stiff = parseFloat(kSlider.value)
   document.getElementById('kVal')!.textContent = stiff.toFixed(3)
@@ -176,6 +180,8 @@ resetBtn.addEventListener('click', reset)
 clearBtn.addEventListener('click', () => { springs = []; beep(120, 0.1, 'sawtooth', 0.05) })
 
 window.addEventListener('keydown', (e) => {
+  const t = e.target as HTMLElement | null
+  if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return
   if (e.code === 'Space') { e.preventDefault(); pauseBtn.click() }
   if (e.key.toLowerCase() === 'r') resetBtn.click()
 })
@@ -185,13 +191,9 @@ let dragFrom: number | null = null
 let dragPos: Vec | null = null
 
 function hitParticle(px: number, py: number): number | null {
-  const s = dpr()
-  const x = px * s, y = py * s
-  // convert to logical
-  const lx = px, ly = py
   for (let i = particles.length - 1; i >= 0; i--) {
     const p = particles[i]
-    if (Math.hypot(p.x - lx, p.y - ly) < Math.max(12, p.r * 2.5)) return i
+    if (Math.hypot(p.x - px, p.y - py) < Math.max(12, p.r * 2.5)) return i
   }
   return null
 }
@@ -223,6 +225,7 @@ canvas.addEventListener('mouseup', (e) => {
   }
   dragFrom = null; dragPos = null
 })
+window.addEventListener('mouseup', () => { dragFrom = null; dragPos = null })
 
 // physics
 function step(dt: number) {
@@ -258,8 +261,12 @@ function step(dt: number) {
     p.vx *= 0.995; p.vy *= 0.995
     p.x += p.vx * dt; p.y += p.vy * dt
     // trail
-    p.trail.push({ x: p.x, y: p.y })
-    if (p.trail.length > trailLen) p.trail.shift()
+    if (trailLen > 0) {
+      p.trail.push({ x: p.x, y: p.y })
+      if (p.trail.length > trailLen) p.trail.shift()
+    } else {
+      p.trail.length = 0
+    }
   }
 }
 
@@ -269,8 +276,8 @@ let fpsAcc = 0, fpsFrames = 0, fpsLast = performance.now()
 function render() {
   const w = canvas.width, h = canvas.height
   const s = dpr()
-  // fade background for trails? We redraw fully but trails drawn from history
-  ctx.fillStyle = 'rgba(3,6,13,0.35)'
+  // full clear each frame; trails come from particle history
+  ctx.fillStyle = '#03060d'
   ctx.fillRect(0, 0, w, h)
 
   const cx = w / 2, cy = h / 2

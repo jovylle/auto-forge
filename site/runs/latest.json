@@ -1,8 +1,8 @@
 {
-  "slug": "elastic-marble-garden",
-  "title": "Elastic Marble Garden",
-  "stack": "html",
-  "aesthetic": "biomorphic",
+  "slug": "orbiting-spring-atoms",
+  "title": "Orbiting Spring Atoms",
+  "stack": "vite",
+  "aesthetic": "sci-fi-terminal",
   "model": "opencode/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 147075,
-  "at": "2026-11-14T01:02:58.392Z"
+  "elapsedMs": 210957,
+  "at": "2026-11-15T01:04:24.691Z"
 }
