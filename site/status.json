@@ -1,7 +1,7 @@
 {
-  "total": 216,
+  "total": 217,
   "counts": {
-    "done": 205,
+    "done": 206,
     "needs-human": 11
   },
   "projects": [
@@ -4702,7 +4702,7 @@
         "canvas",
         "interactive"
       ],
-      "updatedAt": "2026-11-15T01:04:24.688Z",
+      "updatedAt": "2026-11-15T01:04:42.203Z",
       "lastError": null,
       "lastModel": "opencode/beam-free"
     },
@@ -4751,14 +4751,38 @@
       "updatedAt": "2026-11-12T01:12:23.492Z",
       "lastError": null,
       "lastModel": "opencode/beam-free"
+    },
+    {
+      "slug": "atlas-moth-wayfinder",
+      "title": "Atlas Moth Wayfinder",
+      "status": "done",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "category": "game",
+      "aesthetic": "japanese-minimal",
+      "theme": "maps",
+      "constraints": [
+        "must be playable in 30 seconds",
+        "must have an easter egg"
+      ],
+      "tags": [
+        "map",
+        "grid",
+        "exploration",
+        "fog",
+        "wayfinding"
+      ],
+      "updatedAt": "2026-11-16T01:03:27.824Z",
+      "lastError": null,
+      "lastModel": "opencode/beam-free"
     }
   ],
   "loop": {
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-11-14T01:03:48.760Z",
-    "lastSlug": "elastic-marble-garden"
+    "lastRun": "2026-11-15T01:04:42.204Z",
+    "lastSlug": "orbiting-spring-atoms"
   },
   "health": {
     "opencode-go/muse-spark-1.3-contributor#xhigh": {
@@ -4794,5 +4818,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-11-15T01:04:25.239Z"
+  "updatedAt": "2026-11-16T01:03:28.350Z"
 }

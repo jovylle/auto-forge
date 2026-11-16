@@ -1,8 +1,8 @@
 {
-  "slug": "orbiting-spring-atoms",
-  "title": "Orbiting Spring Atoms",
-  "stack": "vite",
-  "aesthetic": "sci-fi-terminal",
+  "slug": "atlas-moth-wayfinder",
+  "title": "Atlas Moth Wayfinder",
+  "stack": "html",
+  "aesthetic": "japanese-minimal",
   "model": "opencode/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 210957,
-  "at": "2026-11-15T01:04:24.691Z"
+  "elapsedMs": 120927,
+  "at": "2026-11-16T01:03:27.826Z"
 }

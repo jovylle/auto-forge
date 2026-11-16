@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Atlas Moth Wayfinder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='24' font-size='24'%3E moth %3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="bar">
+      <div class="brand">
+        <span class="mark">Atlas Moth</span>
+        <span class="sub">Wayfinder</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="label">time</span><span id="time">30.0</span></div>
+        <div class="stat"><span class="label">claimed</span><span id="claimed">0</span></div>
+      </div>
+    </header>
+
+    <main class="stage">
+      <canvas id="map"></canvas>
+      <div id="toast" class="toast" hidden></div>
+      <div id="overlay" class="overlay" hidden>
+        <div class="card">
+          <h2 id="ovTitle"></h2>
+          <p id="ovMsg"></p>
+          <button id="ovBtn" type="button">Again</button>
+        </div>
+      </div>
+    </main>
+
+    <aside class="panel">
+      <div class="minimap-wrap">
+        <canvas id="mini" width="144" height="144"></canvas>
+      </div>
+      <div class="compass">
+        <div class="compass-ring">
+          <div class="needle" id="needle"></div>
+          <span class="n">N</span>
+        </div>
+        <p class="hint">tap a lit tile to walk</p>
+      </div>
+    </aside>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

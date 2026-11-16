@@ -1,0 +1,32 @@
+{
+  "slug": "atlas-moth-wayfinder",
+  "title": "Atlas Moth Wayfinder",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "japanese-minimal",
+  "theme": "maps",
+  "constraints": [
+    "must be playable in 30 seconds",
+    "must have an easter egg"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Atlas Moth Wayfinder — japanese-minimal fog-of-war grid explorer with tap-to-move pathfinding, territory claim markers, minimap and compass, 30s timer, hidden moth easter egg.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Fog-of-war grid reveal",
+      "Tap-to-move navigation",
+      "Territory claim markers",
+      "Mini-map compass"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 120927,
+  "at": "2026-11-16T01:03:27.825Z"
+}

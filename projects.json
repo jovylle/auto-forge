@@ -6823,6 +6823,40 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/beam-free"
+    },
+    {
+      "slug": "atlas-moth-wayfinder",
+      "title": "Atlas Moth Wayfinder",
+      "category": "game",
+      "stack": "html",
+      "stackReason": "keyword html (game)",
+      "aesthetic": "japanese-minimal",
+      "theme": "maps",
+      "constraints": [
+        "must be playable in 30 seconds",
+        "must have an easter egg"
+      ],
+      "description": "Wander a foggy grid, uncover territories, reach the beacon.",
+      "features": [
+        "Fog-of-war grid reveal",
+        "Tap-to-move navigation",
+        "Territory claim markers",
+        "Mini-map compass"
+      ],
+      "tags": [
+        "map",
+        "grid",
+        "exploration",
+        "fog",
+        "wayfinding"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-16T01:01:24.904Z",
+      "updatedAt": "2026-11-16T01:03:45.574Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/beam-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

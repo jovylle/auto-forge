@@ -6748,9 +6748,9 @@ export const projects = [
       "interactive"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-11T01:03:24.943Z",
-    "updatedAt": "2026-11-15T01:04:24.688Z",
+    "updatedAt": "2026-11-15T01:04:42.203Z",
     "buildPassed": true,
     "lastError": null,
     "retries": 1,
@@ -6822,6 +6822,40 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "atlas-moth-wayfinder",
+    "title": "Atlas Moth Wayfinder",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "japanese-minimal",
+    "theme": "maps",
+    "constraints": [
+      "must be playable in 30 seconds",
+      "must have an easter egg"
+    ],
+    "description": "Wander a foggy grid, uncover territories, reach the beacon.",
+    "features": [
+      "Fog-of-war grid reveal",
+      "Tap-to-move navigation",
+      "Territory claim markers",
+      "Mini-map compass"
+    ],
+    "tags": [
+      "map",
+      "grid",
+      "exploration",
+      "fog",
+      "wayfinding"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-16T01:01:24.904Z",
+    "updatedAt": "2026-11-16T01:03:27.824Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 216, done: 205, counts: {"done":205,"needs-human":11} };
+export const stats = { total: 217, done: 206, counts: {"done":206,"needs-human":11} };
