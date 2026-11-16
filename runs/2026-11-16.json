@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-16",
+  "runs": [
+    {
+      "slug": "atlas-moth-wayfinder",
+      "title": "Atlas Moth Wayfinder",
+      "stack": "html",
+      "aesthetic": "japanese-minimal",
+      "model": "opencode/beam-free",
+      "modelVia": "chain",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 120927,
+      "at": "2026-11-16T01:03:27.826Z"
+    }
+  ],
+  "updatedAt": "2026-11-16T01:03:27.826Z"
+}
