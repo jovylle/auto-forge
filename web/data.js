@@ -6850,12 +6850,44 @@ export const projects = [
       "wayfinding"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-16T01:01:24.904Z",
-    "updatedAt": "2026-11-16T01:03:27.824Z",
+    "updatedAt": "2026-11-16T01:03:45.574Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "territory-tile-canvas",
+    "title": "Territory Tile Canvas",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "keyword html (canvas)",
+    "aesthetic": "dark-fantasy",
+    "theme": "maps",
+    "constraints": [
+      "must react to scroll"
+    ],
+    "description": "Paint grid territories and watch borders bloom across a tiny living map.",
+    "features": [
+      "draw territory tiles by hand",
+      "auto-fill neighboring regions",
+      "export map as png",
+      "toggle grid overlay"
+    ],
+    "tags": [
+      "maps",
+      "territories",
+      "grid",
+      "canvas"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-17T01:01:12.330Z",
+    "updatedAt": "2026-11-17T01:06:13.620Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 217, done: 206, counts: {"done":206,"needs-human":11} };
+export const stats = { total: 218, done: 207, counts: {"done":207,"needs-human":11} };

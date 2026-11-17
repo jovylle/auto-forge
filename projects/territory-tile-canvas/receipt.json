@@ -1,0 +1,31 @@
+{
+  "slug": "territory-tile-canvas",
+  "title": "Territory Tile Canvas",
+  "stack": "html",
+  "stackReason": "keyword html (canvas)",
+  "aesthetic": "dark-fantasy",
+  "theme": "maps",
+  "constraints": [
+    "must react to scroll"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Territory Tile Canvas — dark-fantasy grid painter with brush/fill/erase, flood-fill regions, PNG export, grid overlay toggle, scroll-zoom. Plain HTML/CSS/JS, no build.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "draw territory tiles by hand",
+      "auto-fill neighboring regions",
+      "export map as png",
+      "toggle grid overlay"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 299688,
+  "at": "2026-11-17T01:06:13.623Z"
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Territory Tile Canvas — paint borders that bloom</title>
+<meta name="description" content="Paint grid territories by hand and watch borders bloom across a tiny living fantasy map. Export as PNG." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <i class="fog f1"></i><i class="fog f2"></i><i class="embers"></i>
+</div>
+
+<header class="top">
+  <div class="brand">
+    <h1>Territory Tile Canvas</h1>
+    <p class="sub">Paint grid territories · watch borders bloom · claim the map</p>
+  </div>
+  <div class="top-actions">
+    <button id="gridBtn" class="pill" aria-pressed="true" title="toggle grid overlay">▦ grid</button>
+    <button id="exportBtn" class="pill primary" title="export map as PNG">⬇ export png</button>
+  </div>
+</header>
+
+<main id="app">
+  <section class="toolbar">
+    <div class="tool-group" role="radiogroup" aria-label="tool">
+      <button class="pill tool active" data-tool="brush" title="paint tiles by hand">🖌 brush</button>
+      <button class="pill tool" data-tool="fill" title="auto-fill neighboring region">🪣 fill</button>
+      <button class="pill tool" data-tool="erase" title="erase tiles">🧹 erase</button>
+    </div>
+    <div class="palette" id="palette" role="radiogroup" aria-label="territory"></div>
+    <div class="tool-group">
+      <button id="clearBtn" class="pill danger" title="clear all paint">⌫ clear</button>
+      <button id="resetViewBtn" class="pill" title="reset zoom & pan">⊙ reset view</button>
+    </div>
+  </section>
+
+  <section class="stage">
+    <canvas id="map" width="768" height="480" aria-label="territory map canvas"></canvas>
+    <div class="hud">
+      <span id="coords">—</span>
+      <span id="status">ready</span>
+    </div>
+    <div class="hint">drag to paint · click fill to flood a region · scroll to zoom · drag empty space to pan</div>
+  </section>
+
+  <section class="lore">
+    <div class="card">
+      <h2>How to claim</h2>
+      <p>Pick a territory color, then paint tiles by hand. The <b>fill</b> tool floods an entire connected region at once — borders bloom where two claims meet.</p>
+    </div>
+    <div class="card">
+      <h2>Territories</h2>
+      <ul id="legend" class="legend"></ul>
+    </div>
+    <div class="card">
+      <h2>Export</h2>
+      <p>Export renders the current map (grid overlay follows the toggle) as a PNG you can share or print.</p>
+    </div>
+  </section>
+</main>
+
+<div id="toast" class="toast" role="status"></div>
+<footer class="foot">scroll the page — the fog shifts with your descent · progress saves locally</footer>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

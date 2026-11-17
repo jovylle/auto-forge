@@ -6857,6 +6857,38 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/beam-free"
+    },
+    {
+      "slug": "territory-tile-canvas",
+      "title": "Territory Tile Canvas",
+      "category": "viz",
+      "stack": "html",
+      "stackReason": "keyword html (canvas)",
+      "aesthetic": "dark-fantasy",
+      "theme": "maps",
+      "constraints": [
+        "must react to scroll"
+      ],
+      "description": "Paint grid territories and watch borders bloom across a tiny living map.",
+      "features": [
+        "draw territory tiles by hand",
+        "auto-fill neighboring regions",
+        "export map as png",
+        "toggle grid overlay"
+      ],
+      "tags": [
+        "maps",
+        "territories",
+        "grid",
+        "canvas"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-17T01:01:12.330Z",
+      "updatedAt": "2026-11-17T01:06:41.231Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/beam-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
