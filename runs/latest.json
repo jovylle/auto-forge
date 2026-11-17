@@ -1,8 +1,8 @@
 {
-  "slug": "atlas-moth-wayfinder",
-  "title": "Atlas Moth Wayfinder",
+  "slug": "territory-tile-canvas",
+  "title": "Territory Tile Canvas",
   "stack": "html",
-  "aesthetic": "japanese-minimal",
+  "aesthetic": "dark-fantasy",
   "model": "opencode/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 120927,
-  "at": "2026-11-16T01:03:27.826Z"
+  "elapsedMs": 299688,
+  "at": "2026-11-17T01:06:13.625Z"
 }

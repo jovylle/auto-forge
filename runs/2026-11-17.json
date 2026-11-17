@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-17",
+  "runs": [
+    {
+      "slug": "territory-tile-canvas",
+      "title": "Territory Tile Canvas",
+      "stack": "html",
+      "aesthetic": "dark-fantasy",
+      "model": "opencode/beam-free",
+      "modelVia": "chain",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 299688,
+      "at": "2026-11-17T01:06:13.625Z"
+    }
+  ],
+  "updatedAt": "2026-11-17T01:06:13.625Z"
+}
