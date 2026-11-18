@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hex Trail Wanderer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">⬢</span><h1>HEX TRAIL WANDERER</h1></div>
+    <p class="tag">draw glowing trails · claim territories · share your map</p>
+  </header>
+  <main class="layout">
+    <section class="stage">
+      <canvas id="canvas"></canvas>
+      <div class="hud"><div class="hint" id="hint">click a hex to begin a trail</div></div>
+    </section>
+    <aside class="panel">
+      <div class="card">
+        <h2>Tools</h2>
+        <div class="btns">
+          <button id="btnUndo" class="btn">Undo point</button>
+          <button id="btnClearPath" class="btn">Clear path</button>
+          <button id="btnReset" class="btn danger">New map</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Map</h2>
+        <div class="btns">
+          <button id="btnSave" class="btn primary">Save</button>
+          <button id="btnShare" class="btn">Copy share link</button>
+          <button id="btnExport" class="btn">Export PNG</button>
+        </div>
+        <div class="stats">
+          <span>Trails <b id="sTrails">0</b></span>
+          <span>Territories <b id="sTerr">0</b></span>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Audio</h2>
+        <button id="btnSound" class="btn">Sound: on</button>
+      </div>
+      <div class="card legend">
+        <h2>How</h2>
+        <ul>
+          <li>Click or drag across adjacent hexes to draw a glowing trail.</li>
+          <li>Return to the starting hex to close the loop and claim a territory.</li>
+          <li>Save, then copy the share link to send your map.</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+  <footer class="foot">HEX TRAIL WANDERER · RETRO-WAVE · NO BACKEND</footer>
+  <div class="toast" id="toast"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

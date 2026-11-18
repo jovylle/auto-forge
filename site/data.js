@@ -6882,12 +6882,45 @@ export const projects = [
       "canvas"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-17T01:01:12.330Z",
-    "updatedAt": "2026-11-17T01:06:13.620Z",
+    "updatedAt": "2026-11-17T01:06:41.231Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "hex-trail-wanderer",
+    "title": "Hex Trail Wanderer",
+    "category": "game",
+    "stack": "html",
+    "stackReason": "keyword html (game)",
+    "aesthetic": "retro-wave",
+    "theme": "maps",
+    "constraints": [
+      "single HTML file if html stack, single component if vite",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Explore and draw hex paths across a living grid territory, leaving glowing trails behind.",
+    "features": [
+      "Draw hex trails across the grid",
+      "Watch territories fill with color",
+      "Save and share your map"
+    ],
+    "tags": [
+      "hex",
+      "grid",
+      "trail",
+      "territory",
+      "map"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-18T01:01:08.189Z",
+    "updatedAt": "2026-11-18T01:10:08.269Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 218, done: 207, counts: {"done":207,"needs-human":11} };
+export const stats = { total: 219, done: 208, counts: {"done":208,"needs-human":11} };

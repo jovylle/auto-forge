@@ -1,0 +1,31 @@
+{
+  "slug": "hex-trail-wanderer",
+  "title": "Hex Trail Wanderer",
+  "stack": "html",
+  "stackReason": "keyword html (game)",
+  "aesthetic": "retro-wave",
+  "theme": "maps",
+  "constraints": [
+    "single HTML file if html stack, single component if vite",
+    "sound on interaction (WebAudio, no assets)"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Hex Trail Wanderer — retro-wave hex trail game: draw glowing trails, claim territories by closing loops, save/share/export maps. WebAudio sound, localStorage + share links, responsive.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Draw hex trails across the grid",
+      "Watch territories fill with color",
+      "Save and share your map"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 537909,
+  "at": "2026-11-18T01:10:08.271Z"
+}

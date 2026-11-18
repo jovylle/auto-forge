@@ -1,8 +1,8 @@
 {
-  "slug": "territory-tile-canvas",
-  "title": "Territory Tile Canvas",
+  "slug": "hex-trail-wanderer",
+  "title": "Hex Trail Wanderer",
   "stack": "html",
-  "aesthetic": "dark-fantasy",
+  "aesthetic": "retro-wave",
   "model": "opencode/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 299688,
-  "at": "2026-11-17T01:06:13.625Z"
+  "elapsedMs": 537909,
+  "at": "2026-11-18T01:10:08.272Z"
 }
