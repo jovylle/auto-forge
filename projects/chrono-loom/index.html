@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chrono Loom — a weaving clock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=VT323&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="top">
+    <div class="brand">
+      <span class="glitch" data-text="CHRONO LOOM">CHRONO LOOM</span>
+      <span class="sub">a weaving clock · each hour threads a new color</span>
+    </div>
+    <div class="clock" id="clock">00:00:00</div>
+  </header>
+  <main>
+    <section class="loom-wrap">
+      <canvas id="loom" width="900" height="520" aria-label="tapestry"></canvas>
+      <div class="loom-hud">
+        <div class="hud-row">
+          <span class="label">WEFT</span><span id="weftCount">0</span>
+          <span class="label">HOUR</span><span id="hourLabel">—</span>
+          <span class="label">MODE</span><span id="modeLabel">AUTO</span>
+        </div>
+        <div class="hud-row hint">scroll to weave · click ribbon to jump · space toggles auto</div>
+      </div>
+    </section>
+    <section class="ribbon-wrap">
+      <div class="ribbon-head">
+        <span>HISTORY RIBBON</span>
+        <div class="ribbon-actions">
+          <button id="autoBtn" class="btn">AUTO: ON</button>
+          <button id="weaveBtn" class="btn">WEAVE +1</button>
+          <button id="shareBtn" class="btn accent">SHARE</button>
+          <button id="exportBtn" class="btn">PNG</button>
+          <button id="resetBtn" class="btn ghost">RESET</button>
+        </div>
+      </div>
+      <div class="ribbon" id="ribbon"></div>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js"></script>
+</body>
+</html>

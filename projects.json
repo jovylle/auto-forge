@@ -6922,6 +6922,40 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/beam-free"
+    },
+    {
+      "slug": "chrono-loom",
+      "title": "Chrono Loom",
+      "category": "generative",
+      "stack": "html",
+      "stackReason": "keyword html (generative)",
+      "aesthetic": "vaporwave",
+      "theme": "time",
+      "constraints": [
+        "must react to scroll",
+        "must be playable in 30 seconds"
+      ],
+      "description": "A weaving clock where each hour threads a new color into a living tapestry.",
+      "features": [
+        "hourly color threads",
+        "looping weave animation",
+        "history ribbon",
+        "shareable tapestry"
+      ],
+      "tags": [
+        "time",
+        "generative",
+        "clock",
+        "weave",
+        "color"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-19T01:01:10.632Z",
+      "updatedAt": "2026-11-19T01:05:12.411Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/beam-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

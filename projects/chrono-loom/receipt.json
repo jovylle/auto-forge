@@ -1,0 +1,32 @@
+{
+  "slug": "chrono-loom",
+  "title": "Chrono Loom",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "vaporwave",
+  "theme": "time",
+  "constraints": [
+    "must react to scroll",
+    "must be playable in 30 seconds"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Chrono Loom: vaporwave weaving clock. Each hour threads a new color into a living tapestry with looping weave animation, history ribbon, and shareable tapestry (URL + PNG). Reacts to scroll/drag, playable in 30s.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "hourly color threads",
+      "looping weave animation",
+      "history ribbon",
+      "shareable tapestry"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 189591,
+  "at": "2026-11-19T01:04:22.093Z"
+}

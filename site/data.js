@@ -6915,12 +6915,46 @@ export const projects = [
       "map"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-18T01:01:08.189Z",
-    "updatedAt": "2026-11-18T01:10:08.269Z",
+    "updatedAt": "2026-11-18T01:10:34.545Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "chrono-loom",
+    "title": "Chrono Loom",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "vaporwave",
+    "theme": "time",
+    "constraints": [
+      "must react to scroll",
+      "must be playable in 30 seconds"
+    ],
+    "description": "A weaving clock where each hour threads a new color into a living tapestry.",
+    "features": [
+      "hourly color threads",
+      "looping weave animation",
+      "history ribbon",
+      "shareable tapestry"
+    ],
+    "tags": [
+      "time",
+      "generative",
+      "clock",
+      "weave",
+      "color"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-19T01:01:10.632Z",
+    "updatedAt": "2026-11-19T01:04:22.086Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 219, done: 208, counts: {"done":208,"needs-human":11} };
+export const stats = { total: 220, done: 209, counts: {"done":209,"needs-human":11} };
