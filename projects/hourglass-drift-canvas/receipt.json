@@ -1,0 +1,31 @@
+{
+  "slug": "hourglass-drift-canvas",
+  "title": "Hourglass Drift Canvas",
+  "stack": "html",
+  "stackReason": "keyword html (canvas)",
+  "aesthetic": "glassmorphism",
+  "theme": "time",
+  "constraints": [
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Hourglass Drift Canvas — particle sand simulation with auto-reset loop, shape morphing across 5 shapes, and 3 glassmorphism color themes.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "flowing sand simulation",
+      "auto-reset loop",
+      "shape morphing",
+      "color themes"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 259100,
+  "at": "2026-11-20T01:05:13.553Z"
+}

@@ -6956,6 +6956,39 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/beam-free"
+    },
+    {
+      "slug": "hourglass-drift-canvas",
+      "title": "Hourglass Drift Canvas",
+      "category": "generative",
+      "stack": "html",
+      "stackReason": "keyword html (canvas)",
+      "aesthetic": "glassmorphism",
+      "theme": "time",
+      "constraints": [
+        "3 colors max (plus black/white)"
+      ],
+      "description": "Watch sand flow and rebuild shapes as time runs out.",
+      "features": [
+        "flowing sand simulation",
+        "auto-reset loop",
+        "shape morphing",
+        "color themes"
+      ],
+      "tags": [
+        "time",
+        "hourglass",
+        "generative",
+        "canvas",
+        "animation"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-20T01:00:52.932Z",
+      "updatedAt": "2026-11-20T01:05:36.123Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/beam-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

@@ -6949,12 +6949,45 @@ export const projects = [
       "color"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-19T01:01:10.632Z",
-    "updatedAt": "2026-11-19T01:04:22.086Z",
+    "updatedAt": "2026-11-19T01:05:12.411Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "hourglass-drift-canvas",
+    "title": "Hourglass Drift Canvas",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (canvas)",
+    "aesthetic": "glassmorphism",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Watch sand flow and rebuild shapes as time runs out.",
+    "features": [
+      "flowing sand simulation",
+      "auto-reset loop",
+      "shape morphing",
+      "color themes"
+    ],
+    "tags": [
+      "time",
+      "hourglass",
+      "generative",
+      "canvas",
+      "animation"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-20T01:00:52.932Z",
+    "updatedAt": "2026-11-20T01:05:13.549Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 220, done: 209, counts: {"done":209,"needs-human":11} };
+export const stats = { total: 221, done: 210, counts: {"done":210,"needs-human":11} };
