@@ -6989,6 +6989,40 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/beam-free"
+    },
+    {
+      "slug": "tick-tapestry",
+      "title": "Tick Tapestry",
+      "category": "generative",
+      "stack": "html",
+      "stackReason": "keyword html (generative)",
+      "aesthetic": "grunge",
+      "theme": "time",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "no external fonts — system fonts only"
+      ],
+      "description": "A canvas where each second paints a new thread, weaving time into a living tapestry.",
+      "features": [
+        "each second adds a colored thread",
+        "rewind to replay the weave",
+        "export as looping gif",
+        "adjust speed and palette"
+      ],
+      "tags": [
+        "time",
+        "generative",
+        "canvas",
+        "loop",
+        "weave"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-21T01:00:50.529Z",
+      "updatedAt": "2026-11-21T01:04:40.969Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode/beam-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

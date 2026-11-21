@@ -1,0 +1,82 @@
+:root{
+  --bg:#16120e;
+  --panel:#211b15;
+  --ink:#e8ddc8;
+  --muted:#9a8e78;
+  --rust:#b85c38;
+  --bone:#d9b08c;
+  --ash:#3a2e2a;
+  --line:rgba(232,221,200,0.12);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  font:15px/1.45 "Courier New", ui-monospace, monospace;
+  background:var(--bg); color:var(--ink);
+  min-height:100vh; overflow-x:hidden;
+}
+.grain{
+  position:fixed; inset:0; pointer-events:none; z-index:1;
+  background-image:
+    radial-gradient(rgba(232,221,200,0.05) 1px, transparent 1px),
+    radial-gradient(rgba(0,0,0,0.35) 1px, transparent 1px);
+  background-size:3px 3px, 7px 7px;
+  mix-blend-mode:overlay; opacity:0.7;
+}
+#app{
+  position:relative; z-index:2;
+  max-width:760px; margin:0 auto; padding:28px 18px 40px;
+}
+.mast{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  border-bottom:2px solid var(--line); padding-bottom:14px; margin-bottom:18px;
+  gap:12px; flex-wrap:wrap;
+}
+h1{
+  font-family:"Georgia","Times New Roman",serif;
+  font-size:clamp(30px,6vw,46px); margin:0; letter-spacing:-0.02em;
+  color:var(--bone); text-shadow:2px 2px 0 #000, 0 0 18px rgba(184,92,56,0.25);
+  transform:rotate(-0.6deg); display:inline-block;
+}
+.sub{margin:4px 0 0; color:var(--muted); font-style:italic; font-size:13px}
+.mast__right{display:flex; flex-direction:column; align-items:flex-end; gap:4px}
+.counter{font-size:22px; color:var(--rust); font-weight:700}
+.status{font-size:11px; text-transform:uppercase; letter-spacing:0.18em; color:var(--muted)}
+.stage-wrap{
+  position:relative; border:3px solid #000; border-radius:2px;
+  background:#0a0806; box-shadow:inset 0 0 40px rgba(0,0,0,0.6), 4px 4px 0 rgba(0,0,0,0.4);
+  overflow:hidden;
+}
+canvas{display:block; width:100%; height:auto; image-rendering:auto}
+.controls{
+  margin-top:18px; padding:16px; background:var(--panel);
+  border:1px solid var(--line); border-radius:2px;
+  box-shadow:3px 3px 0 rgba(0,0,0,0.35);
+}
+.row{display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:12px}
+.row:last-child{margin-bottom:0}
+label{display:flex; flex-direction:column; gap:6px; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted); flex:1; min-width:160px}
+input[type=range]{width:100%; accent-color:var(--rust)}
+select{
+  background:#0a0806; color:var(--ink); border:1px solid var(--line);
+  padding:6px 8px; font:inherit; border-radius:0;
+}
+.buttons{display:flex; gap:10px; flex-wrap:wrap}
+button{
+  font:inherit; text-transform:uppercase; letter-spacing:0.12em; font-size:12px;
+  padding:10px 16px; background:#0a0806; color:var(--ink);
+  border:2px solid var(--line); border-radius:0; cursor:pointer;
+  box-shadow:2px 2px 0 rgba(0,0,0,0.5); transition:transform 0.08s, box-shadow 0.08s;
+}
+button:hover{transform:translate(-1px,-1px); box-shadow:3px 3px 0 rgba(0,0,0,0.5)}
+button:active{transform:translate(1px,1px); box-shadow:1px 1px 0 rgba(0,0,0,0.5)}
+button.primary{background:var(--rust); color:#0a0806; border-color:#000}
+button:disabled{opacity:0.4; cursor:not-allowed; transform:none}
+.progress{margin-top:12px; position:relative; height:18px; background:#0a0806; border:1px solid var(--line); overflow:hidden}
+.progress__bar{height:100%; width:0%; background:var(--rust); transition:width 0.15s}
+#progressText{position:absolute; inset:0; display:grid; place-items:center; font-size:11px; color:var(--ink)}
+.foot{margin-top:22px; color:var(--muted); text-align:center; font-size:11px}
+@media (max-width:480px){
+  #app{padding:18px 12px 30px}
+  h1{font-size:28px}
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "tick-tapestry",
+  "title": "Tick Tapestry",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "grunge",
+  "theme": "time",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Tick Tapestry — grunge canvas weaving a new colored thread each second; rewind replay, looping GIF export, speed and palette controls. 3 colors max, system fonts only.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "each second adds a colored thread",
+      "rewind to replay the weave",
+      "export as looping gif",
+      "adjust speed and palette"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 193388,
+  "at": "2026-11-21T01:04:05.851Z"
+}
