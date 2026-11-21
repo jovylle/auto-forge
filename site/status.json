@@ -1,8 +1,8 @@
 {
   "total": 222,
   "counts": {
-    "done": 213,
-    "needs-human": 9
+    "done": 214,
+    "needs-human": 8
   },
   "projects": [
     {
@@ -4326,7 +4326,7 @@
     {
       "slug": "oat-mantis-minster",
       "title": "Oat Mantis Minster",
-      "status": "needs-human",
+      "status": "done",
       "stack": "vite",
       "stackReason": "seed stack (dedup guard)",
       "category": "game",
@@ -4342,7 +4342,7 @@
         "game"
       ],
       "updatedAt": "2026-11-21T12:13:34.675Z",
-      "lastError": "retry cap (3) reached, parked — {\"type\":\"step_start\",\"timestamp\":1795263213298,\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"part\":{\"id\":\"prt_1fe06aef2001LOWloqFvwzkEvE\",\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"messageID\":\"msg_1fe06ad11001yrWdTjYKUxYbom\",\"type\":\"step-start\",\"snapshot\":\"4a0088f9d0bbaddf43a90c8380e32bc3b7b32164\"}}\n{\"type\":\"error\",\"timestamp\":1795263213361,\"sessionID\":\"ses_e01f9",
+      "lastError": null,
       "lastModel": "opencode/beam-free"
     },
     {
@@ -4898,19 +4898,19 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-11-21T11:52:20.838Z",
-    "lastSlug": "rust-atlas"
+    "lastRun": "2026-11-21T12:13:52.043Z",
+    "lastSlug": "oat-mantis-minster"
   },
   "health": {
     "opencode/beam-free": {
-      "failStreak": 3,
-      "lastFail": "2026-11-21T12:13:34.672Z",
-      "lastError": "{\"type\":\"step_start\",\"timestamp\":1795263213298,\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"part\":{\"id\":\"prt_1fe06aef2001LOWloqFvwzkEvE\",\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"messageID\":\"msg_1fe06ad11001yrWdTjYKUxYbom\",\"type\":\"step-start\",\"snapshot\":\"4a0088f9d0bbaddf43a90c8380e32bc3b7b32164"
+      "failStreak": 2,
+      "lastFail": "2026-11-21T12:17:45.705Z",
+      "lastError": "Free usage limit reached"
     },
     "opencode-go/deepseek-v4.1-flash#high": {
-      "failStreak": 1,
-      "lastFail": "2026-11-21T12:13:30.994Z",
-      "lastError": "Free usage limit reached"
+      "failStreak": 0,
+      "lastFail": null,
+      "lastError": ""
     }
   },
   "logs": [
@@ -4930,5 +4930,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-11-21T12:13:35.116Z"
+  "updatedAt": "2026-11-21T12:18:40.364Z"
 }
