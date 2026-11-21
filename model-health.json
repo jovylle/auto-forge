@@ -1,12 +1,12 @@
 {
   "opencode/beam-free": {
-    "failStreak": 3,
-    "lastFail": "2026-11-21T12:13:34.672Z",
-    "lastError": "{\"type\":\"step_start\",\"timestamp\":1795263213298,\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"part\":{\"id\":\"prt_1fe06aef2001LOWloqFvwzkEvE\",\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"messageID\":\"msg_1fe06ad11001yrWdTjYKUxYbom\",\"type\":\"step-start\",\"snapshot\":\"4a0088f9d0bbaddf43a90c8380e32bc3b7b32164"
+    "failStreak": 2,
+    "lastFail": "2026-11-21T12:17:45.705Z",
+    "lastError": "Free usage limit reached"
   },
   "opencode-go/deepseek-v4.1-flash#high": {
-    "failStreak": 1,
-    "lastFail": "2026-11-21T12:13:30.994Z",
-    "lastError": "Free usage limit reached"
+    "failStreak": 0,
+    "lastFail": null,
+    "lastError": ""
   }
 }
