@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0120">
+<title>Myrtle Vole Vault — a neon winter cache</title>
+<meta name="description" content="Myrtle Vole Vault: a click-only retro-wave physics toy. Drop glowing seeds through the chute, let gravity file them into burrow bins, then export a poster or share a snapshot link.">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="ambience" aria-hidden="true">
+  <div class="stars"></div>
+  <div class="sun"></div>
+  <div class="floor-grid"></div>
+</div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <p class="eyebrow"><span class="eyebrow-dot"></span>ANALOG CACHE ENGINE · EST. 1986</p>
+    <h1>MYRTLE VOLE <span>VAULT</span></h1>
+    <p class="tagline">A neon burrow for winter seeds. Myrtle is counting.</p>
+  </div>
+  <dl class="scoreboard" aria-label="Vault totals">
+    <div>
+      <dt>CACHE VALUE</dt>
+      <dd id="score">0</dd>
+    </div>
+    <div>
+      <dt>SEEDS</dt>
+      <dd id="drops">0</dd>
+    </div>
+    <div>
+      <dt>CHAIN</dt>
+      <dd id="chainTop">×1</dd>
+    </div>
+  </dl>
+</header>
+
+<main class="rig">
+  <section class="machine" id="machine" aria-label="Vault chamber">
+    <div class="bezel">
+      <span class="led" aria-hidden="true"></span>
+      <span class="model">VOLT-CACHE 6600</span>
+      <span class="plate">SEED SORTER</span>
+    </div>
+
+    <div class="screen" id="screen">
+      <canvas id="vault" role="button" tabindex="0"
+        aria-label="Vault chamber. Click anywhere to drop a seed. Press Enter to drop one at the centre."></canvas>
+
+      <div class="empty-state" id="emptyState" aria-hidden="true">
+        <span class="chev">▼</span>
+        <span class="empty-title">CLICK THE CHUTE</span>
+        <small>plant a seed · let gravity file it</small>
+      </div>
+
+      <div class="sealed" id="sealedBanner" hidden>
+        <span>VAULT SEALED</span>
+        <small>Myrtle sleeps well tonight</small>
+      </div>
+
+      <div class="screen-glare" aria-hidden="true"></div>
+    </div>
+
+    <div class="hintbar">
+      <p><kbd>CLICK</kbd> anywhere in the chamber to drop a seed</p>
+      <p class="hintbar-alt" id="hintAlt">GRAVITY 1.24 G · CLICK ONLY</p>
+    </div>
+  </section>
+
+  <aside class="ledger" aria-label="Vault ledger">
+    <div class="ledger-head">
+      <h2>VAULT LEDGER</h2>
+      <span class="ledger-id">Nº 0660</span>
+    </div>
+
+    <div class="next-seed">
+      <span class="next-label">NEXT SEED</span>
+      <span class="next-dot" id="nextDot" aria-hidden="true"></span>
+      <strong id="nextName">VOLT</strong>
+      <span id="nextVal">+5</span>
+    </div>
+
+    <div class="seal-block">
+      <div class="seal-top"><span>SEAL PROGRESS</span><span id="sealText">0 / 300</span></div>
+      <div class="seal-bar" role="progressbar" aria-label="Seal progress" aria-valuemin="0" aria-valuemax="300" aria-valuenow="0" id="sealBar">
+        <i id="sealFill"></i>
+      </div>
+    </div>
+
+    <ul class="bins" aria-label="Burrow bin counts">
+      <li style="--c:#63f7ff"><span class="bin-key">A</span><span class="bin-name">NORTH BURROW</span><b id="bin0">0</b></li>
+      <li style="--c:#ff5fce"><span class="bin-key">B</span><span class="bin-name">HEARTH BURROW</span><b id="bin1">0</b></li>
+      <li style="--c:#ffd166"><span class="bin-key">C</span><span class="bin-name">GLASS BURROW</span><b id="bin2">0</b></li>
+    </ul>
+    <p class="micro">Land twice in the same burrow to build a chain. ×5 cap. Best this vault: <b id="bestLine">×1</b>.</p>
+
+    <div class="legend">
+      <p class="legend-title">SEED INDEX</p>
+      <ul>
+        <li style="--c:#63f7ff"><i></i>VOLT <b>5</b></li>
+        <li style="--c:#ff5fce"><i></i>EMBER <b>12</b></li>
+        <li style="--c:#ffd166"><i></i>MOON <b>40</b></li>
+        <li style="--c:#c6ff8a"><i></i>PRISM <b>100</b></li>
+      </ul>
+    </div>
+
+    <div class="actions">
+      <button class="btn primary" id="exportBtn" type="button">EXPORT POSTER</button>
+      <button class="btn" id="shareBtn" type="button">COPY SNAPSHOT LINK</button>
+      <button class="btn ghost" id="purgeBtn" type="button">PURGE VAULT</button>
+    </div>
+    <p class="share-out" id="shareOut" hidden></p>
+    <p class="micro footer-note">Autosaves to this browser. Myrtle remembers.</p>
+  </aside>
+</main>
+
+<footer class="site-foot">
+  <p>MYRTLE VOLE VAULT <span>· retro-wave burrow experiment</span></p>
+  <p class="sig">NO IMAGES · CSS + CANVAS · ONE INTERACTION</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <p class="noscript">This vault runs on JavaScript and gravity. Please enable JavaScript.</p>
+</noscript>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
