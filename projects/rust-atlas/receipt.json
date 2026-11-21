@@ -8,15 +8,23 @@
   "constraints": [
     "must work with keyboard only"
   ],
-  "model": "opencode/muse-spark-1.3-contributor-free",
-  "modelVia": "primary",
+  "model": "opencode-go/deepseek-v4.1-flash#high",
+  "modelVia": "chain",
   "verifyLine": null,
-  "workerResult": null,
-  "buildPassed": false,
-  "verify": {
-    "ok": false,
-    "reason": "scaffold untouched — worker wrote no app code"
+  "workerResult": {
+    "status": "pass",
+    "summary": "Rust Atlas — a retro-wave oxidation observatory. Log corrosion sites with names and rates, watch lumpy patina blooms grow on a live canvas map, and export the decay archive as JSON or a PNG map. Full keyboard operation, five pre-aged demo sites, localStorage persistence, responsive down to 375px.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "rust log",
+      "patina viz",
+      "decay export"
+    ]
   },
-  "elapsedMs": 3837,
-  "at": "2026-09-19T16:39:19.585Z"
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 706095,
+  "at": "2026-11-21T11:52:02.233Z"
 }

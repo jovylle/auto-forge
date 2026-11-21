@@ -2150,14 +2150,14 @@ export const projects = [
       "diary",
       "canvas"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-09-19T16:39:10.626Z",
-    "updatedAt": "2026-09-19T16:39:19.584Z",
-    "buildPassed": false,
-    "lastError": "scaffold untouched — worker wrote no app code",
+    "updatedAt": "2026-11-21T11:52:02.230Z",
+    "buildPassed": true,
+    "lastError": null,
     "retries": 1,
-    "lastModel": "opencode/muse-spark-1.3-contributor-free"
+    "lastModel": "opencode-go/deepseek-v4.1-flash#high"
   },
   {
     "slug": "ice-melt-emkn",
@@ -7024,4 +7024,4 @@ export const projects = [
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 222, done: 212, counts: {"done":212,"needs-human":10} };
+export const stats = { total: 222, done: 213, counts: {"done":213,"needs-human":9} };

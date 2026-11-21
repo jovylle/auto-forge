@@ -3,15 +3,96 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Rust Atlas</title>
+  <meta name="theme-color" content="#070411" />
+  <meta name="description" content="Rust Atlas — log slow decay as a beautiful oxidation map." />
+  <title>Rust Atlas — oxidation observatory</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070411'/%3E%3Ccircle cx='14' cy='18' r='8' fill='%23ff7a3d'/%3E%3Ccircle cx='21' cy='12' r='4' fill='%233ff2e0'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main id="app">
-    <h1>Rust Atlas</h1>
-    <p class="sub">Log slow decay as a beautiful oxidation map.</p>
-    <div id="stage"></div>
+  <div class="backdrop" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="sun"></div>
+    <div class="floor"></div>
+  </div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <main class="shell">
+    <header class="masthead">
+      <div class="mast-left">
+        <p class="kicker">Oxidation observatory · sector 07</p>
+        <h1>Rust <span>Atlas</span></h1>
+        <p class="tagline">Log slow decay. Watch the patina bloom.</p>
+      </div>
+      <dl class="stats" aria-label="Atlas statistics">
+        <div><dt>Sites</dt><dd id="statSites">0</dd></div>
+        <div><dt>Patina</dt><dd id="statPatina">0%</dd></div>
+        <div><dt>Oldest</dt><dd id="statOldest">—</dd></div>
+      </dl>
+    </header>
+
+    <div class="layout">
+      <section class="panel map-panel" aria-labelledby="mapTitle">
+        <div class="panel-head">
+          <h2 id="mapTitle">Patina map</h2>
+          <p id="mapHint" class="hint">focus map · arrows place · ↵ begin</p>
+        </div>
+        <div class="canvas-frame">
+          <canvas
+            id="map"
+            tabindex="0"
+            role="application"
+            aria-describedby="mapHint"
+            aria-label="Oxidation map. Use the arrow keys to move the placement cursor, then press Enter to start logging a corrosion site there."
+          ></canvas>
+        </div>
+        <div class="legend" aria-hidden="true">
+          <span>Fresh</span><i class="l1"></i><span>Bloom</span><i class="l2"></i><span>Patina</span>
+        </div>
+      </section>
+
+      <aside class="panel log-panel" aria-labelledby="logTitle">
+        <div class="panel-head">
+          <h2 id="logTitle">Rust log</h2>
+          <p id="entryCount" class="hint">0 sites</p>
+        </div>
+
+        <form id="composer" class="composer" autocomplete="off">
+          <label class="field">
+            <span>Site name</span>
+            <input id="siteName" name="siteName" type="text" maxlength="40" placeholder="e.g. ferry railing" />
+          </label>
+          <label class="field">
+            <span>Corrosion rate <output id="rateOut" for="rate">5</output></span>
+            <input id="rate" name="rate" type="range" min="1" max="10" step="1" value="5" />
+          </label>
+          <p id="placeNote" class="place-note" hidden></p>
+          <button class="btn primary" type="submit">Oxidize site</button>
+        </form>
+
+        <ol id="entries" class="entries" aria-label="Logged corrosion sites"></ol>
+
+        <div class="exports">
+          <button id="exportJson" class="btn" type="button">Export decay.json</button>
+          <button id="exportPng" class="btn" type="button">Export map.png</button>
+        </div>
+
+        <p id="status" class="status" role="status" aria-live="polite">Atlas loaded. Awaiting oxidation.</p>
+      </aside>
+    </div>
+
+    <footer class="foot">
+      <p>
+        Keyboard first — <kbd>Tab</kbd> to move,
+        <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> on the map,
+        <kbd>↵</kbd> to place, <kbd>Del</kbd> on a focused site to erase.
+      </p>
+    </footer>
   </main>
-  <script type="module" src="./app.js"></script>
+
+  <script src="./app.js" defer></script>
 </body>
 </html>
