@@ -54,13 +54,16 @@ export const config = {
     // bounded work, and quota is per-model — so a chain buys runway that one ID
     // cannot. Paid is the last resort only, at #high effort (never #xhigh).
     // All of these were pinged live 2026-11-06 before being wired in.
-    idea: process.env.OPENCODE_SMALL_MODEL || "opencode/beam-free",
+    idea: process.env.OPENCODE_SMALL_MODEL || "opencode-go/beam-free",
     ideaFallback: "opencode-go/deepseek-v4.1-flash#high",
     // Nov-21: crouton-alpha-free and pulse-alpha-free were delisted ("Model
     // unavailable"); a chain slot that can never answer only costs a timeout.
+    // Nov-21: OpenCode Zen and OpenCode Go meter the same beam-free id on
+    // separate allowances, so Go-first doubles the free runway.
     buildChain: [
-      "opencode/beam-free",                   // 2/2, does not train on requests
-      "opencode-go/deepseek-v4.1-flash#high", // paid fallback when the free quota is out
+      "opencode-go/beam-free",                // 2/2, does not train on requests
+      "opencode/beam-free",                   // Zen side; its quota resets daily
+      "opencode-go/deepseek-v4.1-flash#high", // paid fallback when both free quotas are out
     ],
     smart: "opencode-go/glm-5.2",
     // circuit breaker

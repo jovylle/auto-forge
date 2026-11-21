@@ -1,10 +1,15 @@
 {
   "opencode/beam-free": {
     "failStreak": 2,
-    "lastFail": "2026-11-21T12:17:45.705Z",
+    "lastFail": "2026-11-21T12:54:12.662Z",
     "lastError": "Free usage limit reached"
   },
   "opencode-go/deepseek-v4.1-flash#high": {
+    "failStreak": 0,
+    "lastFail": null,
+    "lastError": ""
+  },
+  "opencode-go/beam-free": {
     "failStreak": 0,
     "lastFail": null,
     "lastError": ""
