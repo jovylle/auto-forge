@@ -1,8 +1,8 @@
 {
-  "slug": "hourglass-drift-canvas",
-  "title": "Hourglass Drift Canvas",
+  "slug": "tick-tapestry",
+  "title": "Tick Tapestry",
   "stack": "html",
-  "aesthetic": "glassmorphism",
+  "aesthetic": "grunge",
   "model": "opencode/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 259100,
-  "at": "2026-11-20T01:05:13.554Z"
+  "elapsedMs": 193388,
+  "at": "2026-11-21T01:04:05.854Z"
 }

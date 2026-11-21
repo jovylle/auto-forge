@@ -6982,12 +6982,46 @@ export const projects = [
       "animation"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-20T01:00:52.932Z",
-    "updatedAt": "2026-11-20T01:05:13.549Z",
+    "updatedAt": "2026-11-20T01:05:36.123Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "tick-tapestry",
+    "title": "Tick Tapestry",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "grunge",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "A canvas where each second paints a new thread, weaving time into a living tapestry.",
+    "features": [
+      "each second adds a colored thread",
+      "rewind to replay the weave",
+      "export as looping gif",
+      "adjust speed and palette"
+    ],
+    "tags": [
+      "time",
+      "generative",
+      "canvas",
+      "loop",
+      "weave"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-21T01:00:50.529Z",
+    "updatedAt": "2026-11-21T01:04:05.847Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 221, done: 210, counts: {"done":210,"needs-human":11} };
+export const stats = { total: 222, done: 211, counts: {"done":211,"needs-human":11} };
