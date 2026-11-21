@@ -30,7 +30,22 @@
       },
       "elapsedMs": 706095,
       "at": "2026-11-21T11:52:02.241Z"
+    },
+    {
+      "slug": "oat-mantis-minster",
+      "title": "Oat Mantis Minster",
+      "stack": "vite",
+      "aesthetic": "japanese-cyberpunk",
+      "model": "opencode/beam-free",
+      "modelVia": "fallback retry",
+      "verifyLine": null,
+      "buildPassed": false,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 761,
+      "at": "2026-11-21T12:13:34.679Z"
     }
   ],
-  "updatedAt": "2026-11-21T11:52:02.241Z"
+  "updatedAt": "2026-11-21T12:13:34.679Z"
 }

@@ -1,15 +1,15 @@
 {
-  "slug": "rust-atlas",
-  "title": "Rust Atlas",
-  "stack": "html",
-  "aesthetic": "retro-wave",
-  "model": "opencode-go/deepseek-v4.1-flash#high",
-  "modelVia": "chain",
+  "slug": "oat-mantis-minster",
+  "title": "Oat Mantis Minster",
+  "stack": "vite",
+  "aesthetic": "japanese-cyberpunk",
+  "model": "opencode/beam-free",
+  "modelVia": "fallback retry",
   "verifyLine": null,
-  "buildPassed": true,
+  "buildPassed": false,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 706095,
-  "at": "2026-11-21T11:52:02.241Z"
+  "elapsedMs": 761,
+  "at": "2026-11-21T12:13:34.679Z"
 }

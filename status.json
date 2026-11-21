@@ -1500,7 +1500,7 @@
         "diary",
         "canvas"
       ],
-      "updatedAt": "2026-11-21T11:52:02.230Z",
+      "updatedAt": "2026-11-21T11:52:20.837Z",
       "lastError": null,
       "lastModel": "opencode-go/deepseek-v4.1-flash#high"
     },
@@ -4341,9 +4341,9 @@
         "mantis",
         "game"
       ],
-      "updatedAt": "2026-10-27T14:44:54.238Z",
-      "lastError": "parked 2026-10-27 by hand — 17 failed attempts while the worker models were delisted/key-expired; rebuild fresh on request",
-      "lastModel": "opencode-go/muse-spark-1.3-contributor"
+      "updatedAt": "2026-11-21T12:13:34.675Z",
+      "lastError": "retry cap (3) reached, parked — {\"type\":\"step_start\",\"timestamp\":1795263213298,\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"part\":{\"id\":\"prt_1fe06aef2001LOWloqFvwzkEvE\",\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"messageID\":\"msg_1fe06ad11001yrWdTjYKUxYbom\",\"type\":\"step-start\",\"snapshot\":\"4a0088f9d0bbaddf43a90c8380e32bc3b7b32164\"}}\n{\"type\":\"error\",\"timestamp\":1795263213361,\"sessionID\":\"ses_e01f9",
+      "lastModel": "opencode/beam-free"
     },
     {
       "slug": "silt-heron-hotel",
@@ -4898,19 +4898,19 @@
     "enabled": true,
     "schedule": "0 9 * * *",
     "timezone": "Asia/Manila",
-    "lastRun": "2026-11-21T01:04:40.971Z",
-    "lastSlug": "tick-tapestry"
+    "lastRun": "2026-11-21T11:52:20.838Z",
+    "lastSlug": "rust-atlas"
   },
   "health": {
     "opencode/beam-free": {
-      "failStreak": 2,
-      "lastFail": "2026-11-21T11:36:44.403Z",
-      "lastError": "Free usage limit reached"
+      "failStreak": 3,
+      "lastFail": "2026-11-21T12:13:34.672Z",
+      "lastError": "{\"type\":\"step_start\",\"timestamp\":1795263213298,\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"part\":{\"id\":\"prt_1fe06aef2001LOWloqFvwzkEvE\",\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"messageID\":\"msg_1fe06ad11001yrWdTjYKUxYbom\",\"type\":\"step-start\",\"snapshot\":\"4a0088f9d0bbaddf43a90c8380e32bc3b7b32164"
     },
     "opencode-go/deepseek-v4.1-flash#high": {
-      "failStreak": 0,
-      "lastFail": null,
-      "lastError": ""
+      "failStreak": 1,
+      "lastFail": "2026-11-21T12:13:30.994Z",
+      "lastError": "Free usage limit reached"
     }
   },
   "logs": [
@@ -4930,5 +4930,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-11-21T11:52:02.687Z"
+  "updatedAt": "2026-11-21T12:13:35.116Z"
 }
