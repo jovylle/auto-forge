@@ -3,7 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { spawn } from "node:child_process";
-import { config, ROOT, PROJECTS_DIR, QUEUE_FILE, LOOP_FILE, HEALTH_FILE, SITE_DIR, LOGS_DIR } from "./config.mjs";
+import { config, ROOT, PROJECTS_DIR, QUEUE_FILE, LOOP_FILE, HEALTH_FILE, SITE_DIR, LOGS_DIR, OPENCODE_BIN } from "./config.mjs";
 import { readQueue, writeQueue, updateProject, addProject, slugify } from "./lib/run.mjs";
 import { decideContinue, generateIdea } from "./lib/ideas.mjs";
 import { scaffold } from "./lib/scaffold.mjs";
@@ -19,6 +19,10 @@ if (!ONLY) {
 }
 
 function log(...a){ console.log(new Date().toISOString(), ...a); }
+
+// Oct-28: ~/.opencode/bin/opencode is a stale v1.19 install whose key store 401s;
+// the current CLI lives at ~/.local/bin/opencode (v2.x). Cron PATH omits it, so use the absolute path.
+// (Constant now lives in config.mjs so lib/claude.mjs uses the same binary.)
 
 // ——— health / circuit breaker ———
 function loadHealth() {
@@ -47,27 +51,30 @@ function recordHealth(model, ok, errSnippet="") {
   return h;
 }
 // Error signatures that mean "the machine is broken", never "the model failed".
+// Nov-06: "Model unavailable" is a model-level fact (the provider delisted that id),
+// not an environment fact — it used to sit in the no-fault list, which meant failStreak
+// never incremented and isDemoted could never fire for the one failure it guards.
 const INFRA_NO_FAULT = [
   /Configuration is invalid/i,                                   // opencode.jsonc v1/v2 mismatch
   /Timed out waiting for the background service to start/i,      // wedged opencode daemon
+  /API key has expired|api_key_expired/i,                        // dead credential, not model quality
+  /^preflight timeout$/,                                         // cold-start slowness, not a model verdict
 ];
-function pickModelWithBreaker() {
-  const primary = config.models.build;
-  const fallback = config.models.buildFallback;
+function pickModelWithBreaker(avoid = []) {
+  const chain = config.models.buildChain;
   const h = loadHealth();
-  const primaryDemoted = isDemoted(primary, h);
-  const fallbackDemoted = isDemoted(fallback, h);
-  if (!primaryDemoted) return { model: primary, via: "primary" };
-  if (!fallbackDemoted) return { model: fallback, via: "fallback (primary demoted)" };
-  // both demoted — pick least recent failure
-  const pTime = h[primary]?.lastFail ? new Date(h[primary].lastFail).getTime() : 0;
-  const fTime = h[fallback]?.lastFail ? new Date(h[fallback].lastFail).getTime() : 0;
-  return pTime < fTime ? { model: primary, via: "primary (both demoted, older)" } : { model: fallback, via: "fallback (both demoted, older)" };
+  const live = chain.filter(m => !avoid.includes(m) && !isDemoted(m, h));
+  if (live.length) return { model: live[0], via: avoid.length ? "next in chain" : "chain" };
+  // nothing live and un-avoided — take the chain member that failed longest ago
+  const pool = chain.filter(m => !avoid.includes(m));
+  const cands = [...(pool.length ? pool : chain)].sort((a, b) =>
+    (h[a]?.lastFail ? Date.parse(h[a].lastFail) : 0) - (h[b]?.lastFail ? Date.parse(h[b].lastFail) : 0));
+  return { model: cands[0], via: "all demoted — oldest fail" };
 }
 
 async function preflightPing(model) {
   // 1-token ping to check liveness, timeout fast
-  const bin = process.env.OPENCODE_BIN || `${process.env.HOME}/.opencode/bin/opencode`;
+  const bin = OPENCODE_BIN;
   const flags = ["run", "ping", "--auto", "--agent", "build", "--format", "json", "--model", model];
   return new Promise((resolve)=>{
     const p = spawn(bin, flags, { cwd: ROOT, env: { ...process.env, PATH: `${process.env.HOME}/.opencode/bin:${process.env.PATH}` }, stdio: ["ignore","pipe","pipe"] });
@@ -100,7 +107,7 @@ function renderPrompt(tpl, idea, retryCtx="") {
 async function spawnWorker(dir, prompt, model) {
   const flags = ["run", prompt, "--auto", "--agent", "build", "--format", "json", "--model", model];
   log(`  spawning worker in ${path.basename(dir)} model=${model}`);
-  const bin = process.env.OPENCODE_BIN || `${process.env.HOME}/.opencode/bin/opencode`;
+  const bin = OPENCODE_BIN;
   const start = Date.now();
   return new Promise((resolve) => {
     const p = spawn(bin, flags, { cwd: dir, env: { ...process.env, PATH: `${process.env.HOME}/.opencode/bin:${process.env.PATH}` }, stdio: ["ignore","pipe","pipe"] });
@@ -246,11 +253,11 @@ async function buildProject(idea, isContinue=false) {
   if (!pre.ok) {
     log(`  preflight fail for ${pick.model}: ${pre.reason?.slice(0,120)}`);
     recordHealth(pick.model, false, pre.reason||"preflight fail");
-    // try fallback once
-    const alt = pick.model === config.models.build ? config.models.buildFallback : config.models.build;
-    const pre2 = await preflightPing(alt);
-    if (pre2.ok) { pick = { model: alt, via: "fallback after preflight fail" }; log(`  switching to ${alt} (preflight ok)`); }
-    else { log(`  both models preflight fail — proceeding with ${pick.model} anyway (will record fail)`); }
+    // try the next chain member once
+    const alt = pickModelWithBreaker([pick.model]);
+    const pre2 = await preflightPing(alt.model);
+    if (pre2.ok) { pick = { model: alt.model, via: "next after preflight fail" }; log(`  switching to ${alt.model} (preflight ok)`); }
+    else { log(`  ${alt.model} also fails preflight — proceeding with ${pick.model} anyway (will record fail)`); }
   }
 
   const rootSnap = snapshotRoot();
@@ -268,15 +275,20 @@ async function buildProject(idea, isContinue=false) {
   // record health: success if exit 0 and VERIFY pass or workerResult pass; fail if UnknownError/timeout
   const hasUnknown = res.out.includes("UnknownError") || res.err.includes("UnknownError") || res.out.includes("Unexpected server error");
   const ok = res.code===0 && !hasUnknown;
-  recordHealth(pick.model, ok, hasUnknown ? "UnknownError" : res.err.slice(0,300));
+  recordHealth(pick.model, ok, hasUnknown ? "UnknownError" : (res.err || res.out).slice(0,300));
 
   return { ...res, workerResult, verifyLine, model: pick.model, modelVia: pick.via };
 }
 
 async function main() {
   if (args.includes("--help") || args.includes("-h")) {
-    console.log("usage: node daily.mjs [--status] [--dry-run] [--only <slug>]");
+    console.log("usage: node daily.mjs [--status] [--pick-model] [--dry-run] [--only <slug>]");
     console.log("  (no args = run a full tick; --help is safe, other unknown flags still run a tick — pass --dry-run to preview)");
+    return;
+  }
+  if (args.includes("--pick-model")) {
+    const p = pickModelWithBreaker();
+    console.log(`${p.model}  (${p.via})`);
     return;
   }
   if (STATUS) {
@@ -335,9 +347,9 @@ async function main() {
   let buildPassed = result.code === 0 && v.ok && !result.out.includes("UnknownError");
   let workerPass = result.workerResult?.status === "pass" || result.verifyLine?.build === "pass";
 
-  if (!buildPassed && (result.out.includes("UnknownError") || result.out.includes("Unexpected server error"))) {
-    const altModel = result.model === config.models.build ? config.models.buildFallback : config.models.build;
-    log(`  worker UnknownError — retrying once with fallback ${altModel}`);
+  if (!buildPassed && (result.out.includes("UnknownError") || result.out.includes("Unexpected server error") || /api_key_expired|API key has expired|Model unavailable|Free usage limit reached/i.test(result.out + result.err))) {
+    const altModel = pickModelWithBreaker([result.model]).model;
+    log(`  worker failed on ${result.model} — retrying once with next in chain ${altModel}`);
     // flip health already recorded; retry scaffold keep files, just re-run worker with fallback
     const retryPromptTpl = fs.readFileSync(path.join(ROOT, idea.stack==="html" ? "prompts/worker-html.md" : "prompts/worker-vite.md"),"utf8");
     const retryPrompt = renderPrompt(retryPromptTpl, idea, `\n## RETRY (fallback model) — previous worker hit UnknownError, retry with clean run. Keep any good work, ensure VERIFY line.\n`);
@@ -358,12 +370,16 @@ async function main() {
     log(`  ✓ ${idea.slug} verified — done (model ${result.model}, VERIFY ${result.verifyLine ? JSON.stringify(result.verifyLine) : "none"})`);
   } else {
     const errSnippet = (result.err || v.reason || result.out || "").slice(-1500);
+    const retries = (idea.retries||0)+1;
+    const capped = retries >= config.limits.maxRetries;
     const shouldContinue = result.code !== 0 && (errSnippet.toLowerCase().includes("error") || v.reason);
     updateProject(idea.slug, {
-      status: shouldContinue ? "needs-iteration" : "needs-human",
-      buildPassed: false, lastError: errSnippet, retries: (idea.retries||0)+1, lastModel: result.model
+      status: capped || !shouldContinue ? "needs-human" : "needs-iteration",
+      buildPassed: false,
+      lastError: capped ? `retry cap (${config.limits.maxRetries}) reached, parked — ${errSnippet}` : errSnippet,
+      retries, lastModel: result.model
     });
-    log(`  ✗ ${idea.slug} failed — ${v.reason || "worker exit "+result.code} → ${shouldContinue?"needs-iteration":"needs-human"}`);
+    log(`  ✗ ${idea.slug} failed — ${v.reason || "worker exit "+result.code} → ${capped ? "needs-human (retry cap)" : shouldContinue?"needs-iteration":"needs-human"}`);
   }
 
   // ——— receipt.json ———

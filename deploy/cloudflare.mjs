@@ -12,21 +12,20 @@ export async function deploy() {
   }
   const proj = config.deploy.cloudflareProject;
   console.log(`  cloudflare: wrangler pages deploy ${SITE_DIR} --project-name ${proj} ...`);
-  const tok = cfToken();
-  if (!tok) {
-    console.log("  cloudflare: CLOUDFLARE_API_TOKEN not set (env or ~/.env) — skipping (gallery still built locally)");
-    return;
-  }
+  const flags = ["wrangler","pages","deploy", SITE_DIR, "--project-name", proj];
   // wrangler reads the token from env: expose it ONLY around this one spawn,
   // then remove it — daily.mjs workers inherit process.env and must never see
-  // a deploy credential.
-  process.env.CLOUDFLARE_API_TOKEN = tok;
+  // a deploy credential. If that token is stale (Oct-28: expired -> error 9109),
+  // retry via the local `wrangler login` OAuth session instead of skipping.
+  const tok = cfToken();
   let r;
-  try {
-    r = await run("npx", ["wrangler","pages","deploy", SITE_DIR, "--project-name", proj], { cwd: ROOT });
-  } finally {
-    delete process.env.CLOUDFLARE_API_TOKEN;
+  if (tok) {
+    process.env.CLOUDFLARE_API_TOKEN = tok;
+    try { r = await run("npx", flags, { cwd: ROOT }); }
+    finally { delete process.env.CLOUDFLARE_API_TOKEN; }
+    if (r.code !== 0) console.log("  cloudflare: token deploy failed — retrying via wrangler OAuth session");
   }
+  if (!tok || r.code !== 0) r = await run("npx", flags, { cwd: ROOT }); // no env token -> wrangler uses its stored OAuth
   console.log(r.out.slice(-2000));
   if (r.code!==0) console.log("  cloudflare deploy stderr:", r.err.slice(-1500));
   else console.log("  cloudflare: deployed ✓");

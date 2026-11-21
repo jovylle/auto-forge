@@ -11,6 +11,10 @@ export const LOGS_DIR = path.join(ROOT, "logs");
 export const SITE_DIR = path.join(ROOT, "site");
 export const HEALTH_FILE = path.join(ROOT, "model-health.json");
 
+// Oct-28: ~/.opencode/bin/opencode is a stale v1.19 install whose key store 401s;
+// the current CLI lives at ~/.local/bin/opencode (v2.x). Cron PATH omits it, so use the absolute path.
+export const OPENCODE_BIN = process.env.OPENCODE_BIN || `${process.env.HOME}/.local/bin/opencode`;
+
 export const AESTHETICS = [
   "cyberpunk","neo-brutalism","glassmorphism","retro-wave",
   "japanese-minimal","bauhaus","dark-fantasy","pixel-art",
@@ -46,10 +50,18 @@ export const config = {
     cloudflareProject: "auto-forge",
   },
   models: {
-    idea: process.env.OPENCODE_SMALL_MODEL || "opencode/muse-spark-1.3-contributor-free",
-    ideaFallback: "opencode-go/muse-spark-1.3-contributor",
-    build: "opencode/muse-spark-1.3-contributor-free",
-    buildFallback: "opencode-go/muse-spark-1.3-contributor",
+    // Nov-06: free-first. The Nov-04 benchmark put eight -free IDs at parity on
+    // bounded work, and quota is per-model — so a chain buys runway that one ID
+    // cannot. Paid is the last resort only, at #high effort (never #xhigh).
+    // All of these were pinged live 2026-11-06 before being wired in.
+    idea: process.env.OPENCODE_SMALL_MODEL || "opencode/beam-free",
+    ideaFallback: "opencode-go/deepseek-v4.1-flash#high",
+    buildChain: [
+      "opencode/beam-free",                   // 2/2, does not train on requests
+      "opencode/crouton-alpha-free",          // fastest of the eight
+      "opencode/pulse-alpha-free",            // 2/2
+      "opencode-go/deepseek-v4.1-flash#high", // paid last resort, high effort
+    ],
     smart: "opencode-go/glm-5.2",
     // circuit breaker
     breakerFails: 2,           // consecutive fails to demote for 3 days
@@ -62,6 +74,7 @@ export const config = {
   },
   limits: {
     maxFeatures: 6,
-    buildTimeoutMs: 25 * 60 * 1000, // raised after back-to-back 18m timeout kills (bgoc-era + puddle-atlas: worker was one fix from done at 18m)
+    maxRetries: 3,             // failed attempts before a project parks itself as needs-human
+    buildTimeoutMs: 45 * 60 * 1000, // single-component builds; free-tier workers are slower than paid muse
   }
 };
