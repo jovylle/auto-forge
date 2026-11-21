@@ -287,8 +287,11 @@ async function buildProject(idea, isContinue=false) {
   // record health: success if exit 0 and VERIFY pass or workerResult pass; fail if UnknownError/timeout
   const hasUnknown = res.out.includes("UnknownError") || res.err.includes("UnknownError") || res.out.includes("Unexpected server error");
   // opencode exits 0 even when the provider refuses the model (quota wall or
-  // delisted id), so exit code alone marked beam-free healthy forever.
-  const hardFail = (res.out + res.err).match(HARD_FAIL)?.[0];
+  // delisted id), so exit code alone marked beam-free healthy forever. A refusal
+  // produces no work at all; a real run can still mention the phrase (a nested
+  // subagent hitting its own free quota), so only count it when nothing came out.
+  const producedWork = workerResult?.status === "pass" || !!verifyLine;
+  const hardFail = producedWork ? null : (res.out + res.err).match(HARD_FAIL)?.[0];
   const ok = res.code===0 && !hasUnknown && !hardFail;
   recordHealth(pick.model, ok, hardFail || (hasUnknown ? "UnknownError" : (res.err || res.out).slice(0,300)));
 
