@@ -56,11 +56,11 @@ export const config = {
     // All of these were pinged live 2026-11-06 before being wired in.
     idea: process.env.OPENCODE_SMALL_MODEL || "opencode/beam-free",
     ideaFallback: "opencode-go/deepseek-v4.1-flash#high",
+    // Nov-21: crouton-alpha-free and pulse-alpha-free were delisted ("Model
+    // unavailable"); a chain slot that can never answer only costs a timeout.
     buildChain: [
       "opencode/beam-free",                   // 2/2, does not train on requests
-      "opencode/crouton-alpha-free",          // fastest of the eight
-      "opencode/pulse-alpha-free",            // 2/2
-      "opencode-go/deepseek-v4.1-flash#high", // paid last resort, high effort
+      "opencode-go/deepseek-v4.1-flash#high", // paid fallback when the free quota is out
     ],
     smart: "opencode-go/glm-5.2",
     // circuit breaker

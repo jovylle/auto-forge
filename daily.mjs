@@ -29,12 +29,19 @@ function loadHealth() {
   try { return JSON.parse(fs.readFileSync(HEALTH_FILE, "utf8")); } catch { return {}; }
 }
 function saveHealth(h) { fs.writeFileSync(HEALTH_FILE, JSON.stringify(h, null, 2)); }
+// Quota walls and delisted ids are hard facts about a model, not quality
+// verdicts: one is enough to skip it. A free quota resets daily, so a hard
+// fail expires after 20h instead of riding the 3-day cooldown.
+const HARD_FAIL = /Free usage limit reached|Model unavailable/i;
+const HARD_FAIL_TTL_MS = 20 * 3600 * 1000;
 function isDemoted(model, health) {
   const e = health[model];
   if (!e) return false;
-  if (e.failStreak < config.models.breakerFails) return false;
   if (!e.lastFail) return false;
-  return (Date.now() - new Date(e.lastFail).getTime()) < config.models.breakerCooldownMs;
+  const age = Date.now() - new Date(e.lastFail).getTime();
+  if (HARD_FAIL.test(e.lastError || "")) return age < HARD_FAIL_TTL_MS;
+  if (e.failStreak < config.models.breakerFails) return false;
+  return age < config.models.breakerCooldownMs;
 }
 function recordHealth(model, ok, errSnippet="") {
   const h = loadHealth();
@@ -161,7 +168,12 @@ function reclaimRootFiles(dir, snap, slug) {
 async function triggerPagesPublish() {
   try {
     const { run } = await import("./lib/run.mjs");
-    const r = await run("gh", ["workflow", "run", "daily.yml", "--ref", "master"], { cwd: ROOT });
+    // The fine-grained PAT exported as GITHUB_TOKEN has no Actions: write and
+    // shadows the interactive gh login, so the dispatch 403s. Drop both vars.
+    const env = { ...process.env };
+    delete env.GITHUB_TOKEN;
+    delete env.GH_TOKEN;
+    const r = await run("gh", ["workflow", "run", "daily.yml", "--ref", "master"], { cwd: ROOT, env });
     log(r.code === 0 ? "  pages: dispatched daily.yml (publish-only) — live site updates in ~1-2 min"
                      : `  pages: dispatch failed — ${(r.err || r.out || "").slice(-200)}`);
   } catch (e) { log("  pages: dispatch skipped", e.message); }
@@ -274,8 +286,11 @@ async function buildProject(idea, isContinue=false) {
 
   // record health: success if exit 0 and VERIFY pass or workerResult pass; fail if UnknownError/timeout
   const hasUnknown = res.out.includes("UnknownError") || res.err.includes("UnknownError") || res.out.includes("Unexpected server error");
-  const ok = res.code===0 && !hasUnknown;
-  recordHealth(pick.model, ok, hasUnknown ? "UnknownError" : (res.err || res.out).slice(0,300));
+  // opencode exits 0 even when the provider refuses the model (quota wall or
+  // delisted id), so exit code alone marked beam-free healthy forever.
+  const hardFail = (res.out + res.err).match(HARD_FAIL)?.[0];
+  const ok = res.code===0 && !hasUnknown && !hardFail;
+  recordHealth(pick.model, ok, hardFail || (hasUnknown ? "UnknownError" : (res.err || res.out).slice(0,300)));
 
   return { ...res, workerResult, verifyLine, model: pick.model, modelVia: pick.via };
 }
@@ -362,7 +377,7 @@ async function main() {
     v = await verify(dir, idea.stack);
     buildPassed = result.code === 0 && v.ok;
     workerPass = result.workerResult?.status === "pass" || result.verifyLine?.build === "pass";
-    recordHealth(altModel, buildPassed, retryRes.err.slice(0,300));
+    recordHealth(altModel, buildPassed, (retryRes.err || retryRes.out).slice(0,300));
   }
 
   if (buildPassed) {

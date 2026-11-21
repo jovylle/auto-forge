@@ -1,17 +1,12 @@
 {
-  "opencode-go/muse-spark-1.3-contributor#xhigh": {
-    "failStreak": 1,
-    "lastFail": "2026-11-06T01:01:29.070Z",
-    "lastError": "preflight timeout"
-  },
   "opencode/beam-free": {
-    "failStreak": 0,
-    "lastFail": "2026-11-13T01:07:38.797Z",
-    "lastError": ""
+    "failStreak": 2,
+    "lastFail": "2026-11-21T11:36:44.403Z",
+    "lastError": "Free usage limit reached"
   },
-  "opencode/crouton-alpha-free": {
-    "failStreak": 1,
-    "lastFail": "2026-11-13T01:07:51.817Z",
+  "opencode-go/deepseek-v4.1-flash#high": {
+    "failStreak": 0,
+    "lastFail": null,
     "lastError": ""
   }
 }

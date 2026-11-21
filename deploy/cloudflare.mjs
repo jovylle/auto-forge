@@ -19,15 +19,25 @@ export async function deploy() {
   // retry via the local `wrangler login` OAuth session instead of skipping.
   const tok = cfToken();
   let r;
+  let tokenError = "";
   if (tok) {
     process.env.CLOUDFLARE_API_TOKEN = tok;
     try { r = await run("npx", flags, { cwd: ROOT }); }
     finally { delete process.env.CLOUDFLARE_API_TOKEN; }
-    if (r.code !== 0) console.log("  cloudflare: token deploy failed — retrying via wrangler OAuth session");
+    if (r.code !== 0) {
+      // Never print the token; only the reason wrangler gave.
+      tokenError = (r.err || r.out).trim().split("\n").slice(-3).join(" ").slice(0, 300) || `exit ${r.code}`;
+      console.log(`  WARNING cloudflare: API-token deploy failed (${tokenError}) — falling back to the local wrangler OAuth login, which may target a different account`);
+    }
   }
-  if (!tok || r.code !== 0) r = await run("npx", flags, { cwd: ROOT }); // no env token -> wrangler uses its stored OAuth
+  // no env token -> wrangler uses its stored OAuth
+  const usedOauthFallback = !tok || r.code !== 0;
+  if (usedOauthFallback) r = await run("npx", flags, { cwd: ROOT });
+  const result = { ok: r.code === 0, usedOauthFallback, tokenError };
   console.log(r.out.slice(-2000));
-  if (r.code!==0) console.log("  cloudflare deploy stderr:", r.err.slice(-1500));
-  else console.log("  cloudflare: deployed ✓");
+  if (r.code!==0) { result.error = r.err.slice(-1500); console.log("  cloudflare deploy stderr:", result.error); }
+  else console.log(`  cloudflare: deployed ✓${usedOauthFallback ? " (OAuth fallback)" : ""}`);
+  if (usedOauthFallback) console.log(`  cloudflare: ${JSON.stringify(result)}`);
+  return result;
 }
 if (import.meta.url === `file://${process.argv[1]}`) deploy();
