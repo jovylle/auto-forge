@@ -6226,13 +6226,13 @@ export const projects = [
       "mantis",
       "game"
     ],
-    "status": "needs-human",
+    "status": "done",
     "deployed": false,
     "createdAt": "2026-10-23T15:49:01.849Z",
     "updatedAt": "2026-11-21T12:13:34.675Z",
-    "buildPassed": false,
-    "lastError": "retry cap (3) reached, parked — {\"type\":\"step_start\",\"timestamp\":1795263213298,\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"part\":{\"id\":\"prt_1fe06aef2001LOWloqFvwzkEvE\",\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"messageID\":\"msg_1fe06ad11001yrWdTjYKUxYbom\",\"type\":\"step-start\",\"snapshot\":\"4a0088f9d0bbaddf43a90c8380e32bc3b7b32164\"}}\n{\"type\":\"error\",\"timestamp\":1795263213361,\"sessionID\":\"ses_e01f95328ffedonJCXfoKgoSo3\",\"error\":{\"type\":\"provider.free-limit\",\"message\":\"Free usage limit reached. Connect a provider or subscribe to OpenCode Go to keep going, or switch models.\",\"status\":429,\"response\":{\"body\":\"{\\\"type\\\":\\\"error\\\",\\\"error\\\":{\\\"type\\\":\\\"FreeUsageLimitError\\\",\\\"message\\\":\\\"Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go\\\"}}\"},\"retryAfterMs\":45365000}}\n",
-    "retries": 21,
+    "buildPassed": true,
+    "lastError": null,
+    "retries": 0,
     "lastModel": "opencode/beam-free"
   },
   {
@@ -7022,6 +7022,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "epoch-drift-map",
+    "title": "Epoch Drift Map",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "extreme-minimal",
+    "theme": "time",
+    "constraints": [
+      "must be playable in 30 seconds",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Visualize how time zones drift across a world map in real time.",
+    "features": [
+      "Live timezone offset overlay",
+      "Daylight saving transition markers",
+      "Historical zone boundary playback",
+      "Shareable snapshot link"
+    ],
+    "tags": [
+      "time",
+      "timezone",
+      "map",
+      "viz"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-22T01:00:52.654Z",
+    "updatedAt": "2026-11-22T01:13:55.416Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/beam-free"
   }
 ];
-export const stats = { total: 222, done: 213, counts: {"done":213,"needs-human":9} };
+export const stats = { total: 223, done: 215, counts: {"done":215,"needs-human":8} };
