@@ -1,0 +1,32 @@
+{
+  "slug": "epoch-drift-map",
+  "title": "Epoch Drift Map",
+  "stack": "vite",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "extreme-minimal",
+  "theme": "time",
+  "constraints": [
+    "must be playable in 30 seconds",
+    "3 colors max (plus black/white)"
+  ],
+  "model": "opencode-go/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Epoch Drift Map built: live tz overlay, DST markers, historical playback, snapshot link. 3 colors + B/W. Build passes.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Live timezone offset overlay",
+      "Daylight saving transition markers",
+      "Historical zone boundary playback",
+      "Shareable snapshot link"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 763228,
+  "at": "2026-11-22T01:13:55.418Z"
+}

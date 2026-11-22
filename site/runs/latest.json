@@ -1,15 +1,15 @@
 {
-  "slug": "oat-mantis-minster",
-  "title": "Oat Mantis Minster",
+  "slug": "epoch-drift-map",
+  "title": "Epoch Drift Map",
   "stack": "vite",
-  "aesthetic": "japanese-cyberpunk",
-  "model": "opencode/beam-free",
-  "modelVia": "fallback retry",
+  "aesthetic": "extreme-minimal",
+  "model": "opencode-go/beam-free",
+  "modelVia": "chain",
   "verifyLine": null,
-  "buildPassed": false,
+  "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 761,
-  "at": "2026-11-21T12:13:34.679Z"
+  "elapsedMs": 763228,
+  "at": "2026-11-22T01:13:55.419Z"
 }

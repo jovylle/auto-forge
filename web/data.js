@@ -7022,6 +7022,39 @@ export const projects = [
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "epoch-drift-map",
+    "title": "Epoch Drift Map",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "extreme-minimal",
+    "theme": "time",
+    "constraints": [
+      "must be playable in 30 seconds",
+      "3 colors max (plus black/white)"
+    ],
+    "description": "Visualize how time zones drift across a world map in real time.",
+    "features": [
+      "Live timezone offset overlay",
+      "Daylight saving transition markers",
+      "Historical zone boundary playback",
+      "Shareable snapshot link"
+    ],
+    "tags": [
+      "time",
+      "timezone",
+      "map",
+      "viz"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-22T01:00:52.654Z",
+    "updatedAt": "2026-11-22T01:13:55.416Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/beam-free"
   }
 ];
-export const stats = { total: 222, done: 214, counts: {"done":214,"needs-human":8} };
+export const stats = { total: 223, done: 215, counts: {"done":215,"needs-human":8} };

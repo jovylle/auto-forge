@@ -1,7 +1,7 @@
 {
-  "total": 222,
+  "total": 223,
   "counts": {
-    "done": 214,
+    "done": 215,
     "needs-human": 8
   },
   "projects": [
@@ -4892,6 +4892,29 @@
       "updatedAt": "2026-11-21T01:04:40.969Z",
       "lastError": null,
       "lastModel": "opencode/beam-free"
+    },
+    {
+      "slug": "epoch-drift-map",
+      "title": "Epoch Drift Map",
+      "status": "done",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "category": "viz",
+      "aesthetic": "extreme-minimal",
+      "theme": "time",
+      "constraints": [
+        "must be playable in 30 seconds",
+        "3 colors max (plus black/white)"
+      ],
+      "tags": [
+        "time",
+        "timezone",
+        "map",
+        "viz"
+      ],
+      "updatedAt": "2026-11-22T01:13:55.416Z",
+      "lastError": null,
+      "lastModel": "opencode-go/beam-free"
     }
   ],
   "loop": {
@@ -4903,11 +4926,16 @@
   },
   "health": {
     "opencode/beam-free": {
-      "failStreak": 2,
-      "lastFail": "2026-11-21T12:17:45.705Z",
-      "lastError": "Free usage limit reached"
+      "failStreak": 0,
+      "lastFail": null,
+      "lastError": ""
     },
     "opencode-go/deepseek-v4.1-flash#high": {
+      "failStreak": 0,
+      "lastFail": null,
+      "lastError": ""
+    },
+    "opencode-go/beam-free": {
       "failStreak": 0,
       "lastFail": null,
       "lastError": ""
@@ -4930,5 +4958,5 @@
   "pagesOrigin": "https://auto-forge-7dq.pages.dev",
   "af": "https://af.uft1.com",
   "today": "https://today-af.uft1.com",
-  "updatedAt": "2026-11-21T12:18:40.364Z"
+  "updatedAt": "2026-11-22T01:13:55.960Z"
 }
