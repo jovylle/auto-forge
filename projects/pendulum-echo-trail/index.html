@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pendulum Echo Trail</title>
+  <meta name="description" content="A pendulum whose fading echoes paint time's passage across the canvas." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <main id="app">
+    <header class="masthead">
+      <span class="mono micro">P.E.T — 007</span>
+      <span class="mono micro title">振り子の残響</span>
+      <span class="mono micro">pendulum echo trail</span>
+    </header>
+
+    <section class="readout" aria-live="polite">
+      <p class="mono micro label">TIME</p>
+      <h1 class="time" id="timeReadout">00:00.00</h1>
+      <p class="mono micro sub" id="hourReadout">— hour hue —</p>
+    </section>
+
+    <section class="stage-wrap">
+      <canvas id="c" aria-label="Pendulum trail canvas"></canvas>
+      <div class="corner tl mono micro">TRAIL</div>
+      <div class="corner br mono micro" id="status">PLAYING</div>
+    </section>
+
+    <section class="controls" aria-label="Transport">
+      <button id="btnPlay" class="btn primary" aria-pressed="true">PAUSE</button>
+      <button id="btnRewind" class="btn">REWIND</button>
+      <button id="btnExport" class="btn ghost">EXPORT PNG</button>
+      <label class="mono micro speed">SPEED
+        <select id="speed" aria-label="Playback speed">
+          <option value="0.5">0.5×</option>
+          <option value="1" selected>1×</option>
+          <option value="2">2×</option>
+          <option value="4">4×</option>
+        </select>
+      </label>
+      <label class="mono micro scrub">SCRUB
+        <input id="scrub" type="range" min="0" max="600" step="0.1" value="0" aria-label="Scrub time" />
+      </label>
+    </section>
+
+    <footer class="foot mono micro">
+      <span>space play/pause · r rewind · e export</span>
+      <span>trail fades over 30s · hue shifts by hour</span>
+    </footer>
+  </main>
+
+  <div id="egg" class="egg" hidden role="dialog" aria-modal="true">
+    <p class="mono micro">K O N A M I</p>
+    <p class="egg-big">時の残響</p>
+    <p class="mono micro">the pendulum remembers every swing you never made.</p>
+    <button id="eggClose" class="btn ghost">RETURN</button>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

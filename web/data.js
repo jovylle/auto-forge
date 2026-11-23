@@ -7049,12 +7049,45 @@ export const projects = [
       "viz"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-22T01:00:52.654Z",
-    "updatedAt": "2026-11-22T01:13:55.416Z",
+    "updatedAt": "2026-11-22T01:14:14.793Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/beam-free"
+  },
+  {
+    "slug": "pendulum-echo-trail",
+    "title": "Pendulum Echo Trail",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "japanese-cyberpunk",
+    "theme": "time",
+    "constraints": [
+      "must have an easter egg"
+    ],
+    "description": "A pendulum whose fading echoes paint time's passage across the canvas.",
+    "features": [
+      "Swinging pendulum with fading trail",
+      "Color shifts by hour",
+      "Pause and rewind time",
+      "Export still as PNG"
+    ],
+    "tags": [
+      "pendulum",
+      "time",
+      "generative",
+      "canvas",
+      "trail"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-23T01:00:54.102Z",
+    "updatedAt": "2026-11-23T01:02:49.310Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/beam-free"
   }
 ];
-export const stats = { total: 223, done: 215, counts: {"done":215,"needs-human":8} };
+export const stats = { total: 224, done: 216, counts: {"done":216,"needs-human":8} };

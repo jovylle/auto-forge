@@ -1,0 +1,32 @@
+{
+  "slug": "pendulum-echo-trail",
+  "title": "Pendulum Echo Trail",
+  "stack": "html",
+  "stackReason": "keyword html (generative)",
+  "aesthetic": "japanese-cyberpunk",
+  "theme": "time",
+  "constraints": [
+    "must have an easter egg"
+  ],
+  "model": "opencode-go/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Pendulum Echo Trail — japanese-cyberpunk generative piece. A swinging pendulum paints a fading 30s neon trail whose hue shifts by hour; play/pause, rewind, speed, scrub, PNG export; Konami-code easter egg.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "Swinging pendulum with fading trail",
+      "Color shifts by hour",
+      "Pause and rewind time",
+      "Export still as PNG",
+      "Easter egg (Konami code)"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 113344,
+  "at": "2026-11-23T01:02:49.317Z"
+}
