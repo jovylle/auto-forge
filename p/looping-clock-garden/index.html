@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Looping Clock Garden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="bar">
+    <div class="mark" aria-hidden="true"></div>
+    <h1>Looping Clock Garden</h1>
+    <div class="tag">bauhaus · time</div>
+  </header>
+
+  <section class="hero">
+    <canvas id="garden" aria-label="Garden canvas. Use arrow keys to move, Enter to plant." tabindex="0"></canvas>
+    <div class="hud">
+      <div class="hud-row">
+        <span class="label">speed</span>
+        <button id="speedDown" type="button" aria-label="Slow time">−</button>
+        <span id="speedVal" class="mono">1×</span>
+        <button id="speedUp" type="button" aria-label="Speed up time">+</button>
+      </div>
+      <div class="hud-row">
+        <span class="label">flowers</span>
+        <span id="count" class="mono">0</span>
+      </div>
+      <div class="hud-row">
+        <button id="share" type="button">share seed</button>
+        <button id="clear" type="button">clear</button>
+      </div>
+      <p id="toast" class="toast" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="card red">
+      <h2>Plant</h2>
+      <p>Tap or click the soil. Each flower gets its own clock loop — it blooms, fades, and blooms again on its own period.</p>
+    </div>
+    <div class="card blue">
+      <h2>Loops</h2>
+      <p>Watch blooms follow clock loops. Petals open with the hand; when the loop closes, it restarts.</p>
+    </div>
+    <div class="card yellow">
+      <h2>Time</h2>
+      <p>Speed up time to watch seasons of bloom in seconds. Slow it to study a single loop.</p>
+    </div>
+    <div class="card black">
+      <h2>Share</h2>
+      <p>Copy a garden seed to the URL. Anyone opening it grows the same garden.</p>
+    </div>
+  </section>
+
+  <section class="keys">
+    <h3>Keyboard</h3>
+    <ul>
+      <li><kbd>↑ ↓ ← →</kbd> move planting cursor</li>
+      <li><kbd>Enter</kbd> / <kbd>Space</kbd> plant a flower</li>
+      <li><kbd>+</kbd> / <kbd>-</kbd> speed up / slow time</li>
+      <li><kbd>S</kbd> share seed · <kbd>C</kbd> clear · <kbd>Esc</kbd> stop</li>
+      <li>Scroll to pan the garden view</li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    <span>Looping Clock Garden · no build · file:// ok</span>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
