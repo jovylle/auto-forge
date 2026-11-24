@@ -7082,12 +7082,46 @@ export const projects = [
       "trail"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-23T01:00:54.102Z",
-    "updatedAt": "2026-11-23T01:02:49.310Z",
+    "updatedAt": "2026-11-23T01:03:07.732Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/beam-free"
+  },
+  {
+    "slug": "looping-clock-garden",
+    "title": "Looping Clock Garden",
+    "category": "generative",
+    "stack": "html",
+    "stackReason": "keyword html (generative)",
+    "aesthetic": "bauhaus",
+    "theme": "time",
+    "constraints": [
+      "must react to scroll",
+      "must work with keyboard only"
+    ],
+    "description": "Grow a garden where every flower blooms on a looping clock schedule.",
+    "features": [
+      "Tap to plant flowers",
+      "Watch blooms follow clock loops",
+      "Speed up time",
+      "Share a garden seed"
+    ],
+    "tags": [
+      "time",
+      "garden",
+      "clock",
+      "loop",
+      "interactive"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-24T01:00:47.823Z",
+    "updatedAt": "2026-11-24T01:01:50.159Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/beam-free"
   }
 ];
-export const stats = { total: 224, done: 216, counts: {"done":216,"needs-human":8} };
+export const stats = { total: 225, done: 217, counts: {"done":217,"needs-human":8} };

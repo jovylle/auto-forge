@@ -7089,6 +7089,40 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode-go/beam-free"
+    },
+    {
+      "slug": "looping-clock-garden",
+      "title": "Looping Clock Garden",
+      "category": "generative",
+      "stack": "html",
+      "stackReason": "keyword html (generative)",
+      "aesthetic": "bauhaus",
+      "theme": "time",
+      "constraints": [
+        "must react to scroll",
+        "must work with keyboard only"
+      ],
+      "description": "Grow a garden where every flower blooms on a looping clock schedule.",
+      "features": [
+        "Tap to plant flowers",
+        "Watch blooms follow clock loops",
+        "Speed up time",
+        "Share a garden seed"
+      ],
+      "tags": [
+        "time",
+        "garden",
+        "clock",
+        "loop",
+        "interactive"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-24T01:00:47.823Z",
+      "updatedAt": "2026-11-24T01:03:14.043Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/beam-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
