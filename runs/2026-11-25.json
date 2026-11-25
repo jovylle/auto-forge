@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-25",
+  "runs": [
+    {
+      "slug": "iris-molecule-inn",
+      "title": "Iris Molecule Inn",
+      "stack": "html",
+      "aesthetic": "pixel-art",
+      "model": "opencode-go/beam-free",
+      "modelVia": "chain",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 157922,
+      "at": "2026-11-25T01:03:18.390Z"
+    }
+  ],
+  "updatedAt": "2026-11-25T01:03:18.390Z"
+}
