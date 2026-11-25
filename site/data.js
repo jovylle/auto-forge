@@ -7116,12 +7116,43 @@ export const projects = [
       "interactive"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-24T01:00:47.823Z",
-    "updatedAt": "2026-11-24T01:01:50.159Z",
+    "updatedAt": "2026-11-24T01:03:14.043Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/beam-free"
+  },
+  {
+    "slug": "iris-molecule-inn",
+    "title": "Iris Molecule Inn",
+    "category": "social",
+    "stack": "html",
+    "stackReason": "seed stack (dedup guard)",
+    "aesthetic": "pixel-art",
+    "theme": "time",
+    "constraints": [
+      "3 colors max (plus black/white)",
+      "no external fonts — system fonts only"
+    ],
+    "description": "Iris Molecule Inn",
+    "features": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ],
+    "tags": [
+      "inn",
+      "molecule",
+      "social"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-25T01:00:38.919Z",
+    "updatedAt": "2026-11-25T01:03:18.384Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode-go/beam-free"
   }
 ];
-export const stats = { total: 225, done: 217, counts: {"done":217,"needs-human":8} };
+export const stats = { total: 226, done: 218, counts: {"done":218,"needs-human":8} };

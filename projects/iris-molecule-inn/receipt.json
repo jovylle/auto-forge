@@ -1,0 +1,31 @@
+{
+  "slug": "iris-molecule-inn",
+  "title": "Iris Molecule Inn",
+  "stack": "html",
+  "stackReason": "seed stack (dedup guard)",
+  "aesthetic": "pixel-art",
+  "theme": "time",
+  "constraints": [
+    "3 colors max (plus black/white)",
+    "no external fonts — system fonts only"
+  ],
+  "model": "opencode-go/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Iris Molecule Inn — pixel-art social guestbook: check in as a molecule, leave notes on the wall, export PNG or share via link.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "core interaction",
+      "polished UI",
+      "share/export"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 157922,
+  "at": "2026-11-25T01:03:18.388Z"
+}

@@ -7123,6 +7123,37 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode-go/beam-free"
+    },
+    {
+      "slug": "iris-molecule-inn",
+      "title": "Iris Molecule Inn",
+      "category": "social",
+      "stack": "html",
+      "stackReason": "seed stack (dedup guard)",
+      "aesthetic": "pixel-art",
+      "theme": "time",
+      "constraints": [
+        "3 colors max (plus black/white)",
+        "no external fonts — system fonts only"
+      ],
+      "description": "Iris Molecule Inn",
+      "features": [
+        "core interaction",
+        "polished UI",
+        "share/export"
+      ],
+      "tags": [
+        "inn",
+        "molecule",
+        "social"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-25T01:00:38.919Z",
+      "updatedAt": "2026-11-25T01:04:03.191Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/beam-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

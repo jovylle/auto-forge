@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iris Molecule Inn</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="hero">
+    <div class="hero__badge">EST. 2026</div>
+    <h1 class="hero__title">IRIS<br>MOLECULE<br>INN</h1>
+    <p class="hero__sub">a pixel inn for wandering molecules</p>
+    <div class="hero__stats">
+      <span><b id="guestCount">0</b> guests</span>
+      <span><b id="msgCount">0</b> notes</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel checkin" id="checkin">
+      <h2 class="panel__title">▸ CHECK IN</h2>
+      <form id="checkinForm" autocomplete="off">
+        <label class="field">
+          <span class="field__label">NAME (max 12)</span>
+          <input id="nameInput" type="text" maxlength="12" placeholder="your handle" required>
+        </label>
+        <label class="field">
+          <span class="field__label">NOTE (max 60)</span>
+          <textarea id="noteInput" maxlength="60" rows="2" placeholder="leave a note on the wall..." required></textarea>
+        </label>
+        <div class="field">
+          <span class="field__label">MOLECULE</span>
+          <div class="mol-picker" id="molPicker"></div>
+        </div>
+        <div class="field">
+          <span class="field__label">COLOR</span>
+          <div class="color-picker" id="colorPicker"></div>
+        </div>
+        <button type="submit" class="btn btn--primary">CHECK IN ▸</button>
+      </form>
+    </section>
+
+    <section class="panel wall-panel">
+      <div class="wall-head">
+        <h2 class="panel__title">▸ WALL</h2>
+        <div class="wall-actions">
+          <button class="btn btn--ghost" id="exportBtn">EXPORT PNG</button>
+          <button class="btn btn--ghost" id="shareBtn">COPY LINK</button>
+          <button class="btn btn--ghost" id="clearBtn">CLEAR</button>
+        </div>
+      </div>
+      <div class="wall" id="wall"></div>
+      <p class="empty" id="emptyMsg">no guests yet — be the first molecule.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>IRIS MOLECULE INN · pixel-art social experiment</span>
+    <span>data lives in your browser</span>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

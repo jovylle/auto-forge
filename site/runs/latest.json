@@ -1,8 +1,8 @@
 {
-  "slug": "looping-clock-garden",
-  "title": "Looping Clock Garden",
+  "slug": "iris-molecule-inn",
+  "title": "Iris Molecule Inn",
   "stack": "html",
-  "aesthetic": "bauhaus",
+  "aesthetic": "pixel-art",
   "model": "opencode-go/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
@@ -10,6 +10,6 @@
   "verify": {
     "ok": true
   },
-  "elapsedMs": 60347,
-  "at": "2026-11-24T01:01:50.168Z"
+  "elapsedMs": 157922,
+  "at": "2026-11-25T01:03:18.390Z"
 }
