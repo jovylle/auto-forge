@@ -10,8 +10,8 @@
     "lastError": ""
   },
   "opencode-go/beam-free": {
-    "failStreak": 0,
-    "lastFail": null,
-    "lastError": ""
+    "failStreak": 1,
+    "lastFail": "2026-11-26T01:45:45.874Z",
+    "lastError": "{\"type\":\"step_start\",\"timestamp\":1795654847677,\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"part\":{\"id\":\"prt_2155e8cbd0017NLScp4QOPBLUK\",\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"messageID\":\"msg_2155e8626001cgSqPXPsplZCr5\",\"type\":\"step-start\",\"snapshot\":\"3b30b9a44bf14448033fa5a5841346b72cb9a547"
   }
 }

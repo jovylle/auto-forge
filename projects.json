@@ -7154,6 +7154,40 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode-go/beam-free"
+    },
+    {
+      "slug": "hue-harmonics",
+      "title": "Hue Harmonics",
+      "category": "tool",
+      "stack": "vite",
+      "stackReason": "keyword vite (tool)",
+      "aesthetic": "steampunk",
+      "theme": "color",
+      "constraints": [
+        "no images — CSS/canvas only"
+      ],
+      "description": "Generate harmonious color palettes from a single seed hue.",
+      "features": [
+        "seed hue picker",
+        "harmony mode selector",
+        "live palette preview",
+        "one-click CSS export"
+      ],
+      "tags": [
+        "color",
+        "palette",
+        "harmony",
+        "css",
+        "design"
+      ],
+      "status": "needs-human",
+      "deployed": false,
+      "createdAt": "2026-11-26T01:00:35.728Z",
+      "updatedAt": "2026-11-26T01:45:47.270Z",
+      "buildPassed": false,
+      "lastError": "6c1f066dea2ebe0153ee6190a1f81e\"}}\n{\"type\":\"text\",\"timestamp\":1795655748993,\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"part\":{\"id\":\"prt_2156c4c30001dgwjmjs80JqMCf\",\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"messageID\":\"msg_2156c437c001aLOAGdo4h7Glxo\",\"type\":\"text\",\"text\":\"VERIFY: {\\\"build\\\":\\\"pass\\\",\\\"features\\\":[\\\"seed hue picker\\\",\\\"harmony mode selector\\\",\\\"live palette preview\\\",\\\"one-click CSS export\\\"],\\\"constraints\\\":[\\\"no images — CSS/canvas only\\\"]}\",\"time\":{\"start\":1795655748656,\"end\":1795655748993}}}\n{\"type\":\"step_finish\",\"timestamp\":1795655749056,\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"part\":{\"id\":\"prt_2156c4dc0001gckOm3Iu9VLrgt\",\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"messageID\":\"msg_2156c437c001aLOAGdo4h7Glxo\",\"type\":\"step-finish\",\"reason\":\"stop\",\"snapshot\":\"cef54d12bb6c1f066dea2ebe0153ee6190a1f81e\",\"cost\":0,\"tokens\":{\"input\":459,\"output\":43,\"reasoning\":30,\"cache\":{\"read\":84032,\"write\":0}}}}\n{\"type\":\"background_wait\",\"timestamp\":1795655749078,\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"jobs\":[{\"id\":\"sh_2155f13f7001SXRclmO7bfN61V\",\"kind\":\"shell\",\"title\":\"cd /Volumes/DevSSD/fore/lab/auto-forge && find . -maxdepth 3 -name \\\"react\\\" -type d 2>/dev/null | grep -v projects | head; echo \\\"=== check projects with react node_modules ===\\\"; ls projects/lantern-ledger/node_modules/react 2>/dev/null && echo \\\"lantern has react\\\"; echo \\\"=== maybe hue should copy scaffold from a template ===\\\"; find / -name \\\"hue-harmonics\\\" -type d 2>/dev/null | head\"}]}\n",
+      "retries": 1,
+      "lastModel": "opencode-go/beam-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"

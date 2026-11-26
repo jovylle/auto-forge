@@ -1,0 +1,31 @@
+{
+  "slug": "hue-harmonics",
+  "title": "Hue Harmonics",
+  "stack": "vite",
+  "stackReason": "keyword vite (tool)",
+  "aesthetic": "steampunk",
+  "theme": "color",
+  "constraints": [
+    "no images — CSS/canvas only"
+  ],
+  "model": "opencode-go/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Hue Harmonics — steampunk palette generator from a seed hue: drag dial, 6 harmony modes, width-weighted live preview, one-click CSS export.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "seed hue picker",
+      "harmony mode selector",
+      "live palette preview",
+      "one-click CSS export"
+    ]
+  },
+  "buildPassed": false,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 2699987,
+  "at": "2026-11-26T01:45:47.272Z"
+}
