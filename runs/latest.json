@@ -1,15 +1,15 @@
 {
-  "slug": "iris-molecule-inn",
-  "title": "Iris Molecule Inn",
-  "stack": "html",
-  "aesthetic": "pixel-art",
+  "slug": "hue-harmonics",
+  "title": "Hue Harmonics",
+  "stack": "vite",
+  "aesthetic": "steampunk",
   "model": "opencode-go/beam-free",
   "modelVia": "chain",
   "verifyLine": null,
-  "buildPassed": true,
+  "buildPassed": false,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 157922,
-  "at": "2026-11-25T01:03:18.390Z"
+  "elapsedMs": 2699987,
+  "at": "2026-11-26T01:45:47.274Z"
 }
