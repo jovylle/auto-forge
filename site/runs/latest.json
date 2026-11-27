@@ -1,15 +1,15 @@
 {
-  "slug": "hue-harmonics",
-  "title": "Hue Harmonics",
-  "stack": "vite",
-  "aesthetic": "steampunk",
-  "model": "opencode-go/beam-free",
-  "modelVia": "chain",
+  "slug": "palette-drift-explorer",
+  "title": "Palette Drift Explorer",
+  "stack": "html",
+  "aesthetic": "dark-fantasy",
+  "model": "opencode/beam-free",
+  "modelVia": "fallback retry",
   "verifyLine": null,
-  "buildPassed": false,
+  "buildPassed": true,
   "verify": {
     "ok": true
   },
-  "elapsedMs": 2699987,
-  "at": "2026-11-26T01:45:47.274Z"
+  "elapsedMs": 174308,
+  "at": "2026-11-27T01:20:28.982Z"
 }

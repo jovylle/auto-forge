@@ -1,0 +1,33 @@
+{
+  "slug": "palette-drift-explorer",
+  "title": "Palette Drift Explorer",
+  "stack": "html",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "dark-fantasy",
+  "theme": "color",
+  "constraints": [
+    "must be playable in 30 seconds",
+    "sound on interaction (WebAudio, no assets)"
+  ],
+  "model": "opencode/beam-free",
+  "modelVia": "fallback retry",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Palette Drift Explorer — dark-fantasy color tool: live hue slider, drifting gradient canvas, copyable hex swatches, WCAG contrast checker, PNG export. WebAudio chimes on interaction. Verified: node --check clean, responsive at 375px.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "live palette slider",
+      "gradient drift animation",
+      "copyable hex codes",
+      "contrast checker",
+      "export png"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 174308,
+  "at": "2026-11-27T01:20:28.981Z"
+}

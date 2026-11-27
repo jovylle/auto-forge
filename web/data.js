@@ -7187,6 +7187,41 @@ export const projects = [
     "lastError": "6c1f066dea2ebe0153ee6190a1f81e\"}}\n{\"type\":\"text\",\"timestamp\":1795655748993,\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"part\":{\"id\":\"prt_2156c4c30001dgwjmjs80JqMCf\",\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"messageID\":\"msg_2156c437c001aLOAGdo4h7Glxo\",\"type\":\"text\",\"text\":\"VERIFY: {\\\"build\\\":\\\"pass\\\",\\\"features\\\":[\\\"seed hue picker\\\",\\\"harmony mode selector\\\",\\\"live palette preview\\\",\\\"one-click CSS export\\\"],\\\"constraints\\\":[\\\"no images — CSS/canvas only\\\"]}\",\"time\":{\"start\":1795655748656,\"end\":1795655748993}}}\n{\"type\":\"step_finish\",\"timestamp\":1795655749056,\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"part\":{\"id\":\"prt_2156c4dc0001gckOm3Iu9VLrgt\",\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"messageID\":\"msg_2156c437c001aLOAGdo4h7Glxo\",\"type\":\"step-finish\",\"reason\":\"stop\",\"snapshot\":\"cef54d12bb6c1f066dea2ebe0153ee6190a1f81e\",\"cost\":0,\"tokens\":{\"input\":459,\"output\":43,\"reasoning\":30,\"cache\":{\"read\":84032,\"write\":0}}}}\n{\"type\":\"background_wait\",\"timestamp\":1795655749078,\"sessionID\":\"ses_deaa17a07ffe4Hr69fWWtUvHtP\",\"jobs\":[{\"id\":\"sh_2155f13f7001SXRclmO7bfN61V\",\"kind\":\"shell\",\"title\":\"cd /Volumes/DevSSD/fore/lab/auto-forge && find . -maxdepth 3 -name \\\"react\\\" -type d 2>/dev/null | grep -v projects | head; echo \\\"=== check projects with react node_modules ===\\\"; ls projects/lantern-ledger/node_modules/react 2>/dev/null && echo \\\"lantern has react\\\"; echo \\\"=== maybe hue should copy scaffold from a template ===\\\"; find / -name \\\"hue-harmonics\\\" -type d 2>/dev/null | head\"}]}\n",
     "retries": 1,
     "lastModel": "opencode-go/beam-free"
+  },
+  {
+    "slug": "palette-drift-explorer",
+    "title": "Palette Drift Explorer",
+    "category": "viz",
+    "stack": "html",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "dark-fantasy",
+    "theme": "color",
+    "constraints": [
+      "must be playable in 30 seconds",
+      "sound on interaction (WebAudio, no assets)"
+    ],
+    "description": "Explore drifting color palettes and gradients with live controls and exportable swatches.",
+    "features": [
+      "live palette slider",
+      "gradient drift animation",
+      "copyable hex codes",
+      "contrast checker",
+      "export png"
+    ],
+    "tags": [
+      "color",
+      "gradient",
+      "palette",
+      "viz",
+      "accessibility"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-27T01:00:31.793Z",
+    "updatedAt": "2026-11-27T01:20:28.979Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode/beam-free"
   }
 ];
-export const stats = { total: 227, done: 218, counts: {"done":218,"needs-human":9} };
+export const stats = { total: 228, done: 219, counts: {"done":219,"needs-human":9} };
