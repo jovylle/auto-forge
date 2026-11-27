@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Palette Drift Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="mist" aria-hidden="true"></div>
+  <header class="top">
+    <div class="sigil" aria-hidden="true">✦</div>
+    <div>
+      <h1>Palette Drift Explorer</h1>
+      <p class="sub">Conjure drifting palettes from the astral loom — slide, listen, copy, judge, export.</p>
+    </div>
+  </header>
+
+  <main id="app">
+    <section class="hero">
+      <canvas id="drift" width="900" height="320" aria-label="drifting gradient"></canvas>
+      <div class="hero-overlay">
+        <span id="driftLabel">DRIFT · 0°</span>
+      </div>
+    </section>
+
+    <section class="panel controls">
+      <div class="ctrl">
+        <label for="hue">Base Hue <b id="hueVal">260°</b></label>
+        <input id="hue" type="range" min="0" max="360" value="260" />
+      </div>
+      <div class="ctrl">
+        <label for="speed">Drift Speed <b id="speedVal">1.0×</b></label>
+        <input id="speed" type="range" min="0" max="200" value="100" />
+      </div>
+      <div class="ctrl">
+        <label for="count">Swatches <b id="countVal">5</b></label>
+        <input id="count" type="range" min="3" max="8" value="5" />
+      </div>
+      <div class="ctrl row">
+        <button id="pauseBtn" class="btn ghost" type="button">Pause Drift</button>
+        <button id="exportBtn" class="btn gold" type="button">Export PNG</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Swatches — click to copy hex</h2>
+      <div id="swatches" class="swatches"></div>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Contrast Checker</h2>
+      <div class="contrast">
+        <div class="cc-row">
+          <label>Foreground
+            <select id="fgSel"></select>
+          </label>
+          <label>Background
+            <select id="bgSel"></select>
+          </label>
+        </div>
+        <div id="ccPreview" class="cc-preview">Sample Text Aa</div>
+        <div class="cc-result">
+          <span id="ccRatio" class="ratio">—</span>
+          <span id="ccAA" class="badge">AA</span>
+          <span id="ccAAA" class="badge">AAA</span>
+          <span id="ccLarge" class="badge">Large</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">Palette Drift Explorer · WebAudio on interaction · no assets</footer>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
