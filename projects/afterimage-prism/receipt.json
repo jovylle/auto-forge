@@ -1,0 +1,31 @@
+{
+  "slug": "afterimage-prism",
+  "title": "Afterimage Prism",
+  "stack": "vite",
+  "stackReason": "no strong keyword — random",
+  "aesthetic": "glassmorphism",
+  "theme": "color",
+  "constraints": [
+    "must work with keyboard only"
+  ],
+  "model": "opencode-go/beam-free",
+  "modelVia": "chain",
+  "verifyLine": null,
+  "workerResult": {
+    "status": "pass",
+    "summary": "Afterimage Prism — Vite+React+TS+Tailwind glassmorphism app exploring color afterimages: drag-to-mix hue wheel, afterimage preview with stare, APCA perceptual contrast meter, export palette PNG. Keyboard-only operable.",
+    "buildPassed": true,
+    "featuresImplemented": [
+      "drag to mix hues",
+      "afterimage preview",
+      "perceptual contrast meter",
+      "export palette PNG"
+    ]
+  },
+  "buildPassed": true,
+  "verify": {
+    "ok": true
+  },
+  "elapsedMs": 762139,
+  "at": "2026-11-28T01:13:34.129Z"
+}

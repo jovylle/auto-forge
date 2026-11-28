@@ -10,8 +10,8 @@
     "lastError": ""
   },
   "opencode-go/beam-free": {
-    "failStreak": 1,
-    "lastFail": "2026-11-27T01:17:34.660Z",
-    "lastError": "UnknownError"
+    "failStreak": 0,
+    "lastFail": null,
+    "lastError": ""
   }
 }

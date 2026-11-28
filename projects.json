@@ -7223,6 +7223,39 @@
       "buildPassed": true,
       "lastError": null,
       "lastModel": "opencode/beam-free"
+    },
+    {
+      "slug": "afterimage-prism",
+      "title": "Afterimage Prism",
+      "category": "viz",
+      "stack": "vite",
+      "stackReason": "no strong keyword — random",
+      "aesthetic": "glassmorphism",
+      "theme": "color",
+      "constraints": [
+        "must work with keyboard only"
+      ],
+      "description": "Explore color afterimages and complementary hues in an interactive canvas.",
+      "features": [
+        "drag to mix hues",
+        "afterimage preview",
+        "perceptual contrast meter",
+        "export palette PNG"
+      ],
+      "tags": [
+        "color",
+        "perception",
+        "generative",
+        "canvas",
+        "palette"
+      ],
+      "status": "done",
+      "deployed": true,
+      "createdAt": "2026-11-28T01:00:34.033Z",
+      "updatedAt": "2026-11-28T01:14:11.311Z",
+      "buildPassed": true,
+      "lastError": null,
+      "lastModel": "opencode-go/beam-free"
     }
   ],
   "generatedAt": "2026-08-29T00:00:00.000Z"
