@@ -7216,12 +7216,45 @@ export const projects = [
       "accessibility"
     ],
     "status": "done",
-    "deployed": false,
+    "deployed": true,
     "createdAt": "2026-11-27T01:00:31.793Z",
-    "updatedAt": "2026-11-27T01:20:28.979Z",
+    "updatedAt": "2026-11-27T01:20:47.488Z",
     "buildPassed": true,
     "lastError": null,
     "lastModel": "opencode/beam-free"
+  },
+  {
+    "slug": "afterimage-prism",
+    "title": "Afterimage Prism",
+    "category": "viz",
+    "stack": "vite",
+    "stackReason": "no strong keyword — random",
+    "aesthetic": "glassmorphism",
+    "theme": "color",
+    "constraints": [
+      "must work with keyboard only"
+    ],
+    "description": "Explore color afterimages and complementary hues in an interactive canvas.",
+    "features": [
+      "drag to mix hues",
+      "afterimage preview",
+      "perceptual contrast meter",
+      "export palette PNG"
+    ],
+    "tags": [
+      "color",
+      "perception",
+      "generative",
+      "canvas",
+      "palette"
+    ],
+    "status": "done",
+    "deployed": false,
+    "createdAt": "2026-11-28T01:00:34.033Z",
+    "updatedAt": "2026-11-28T01:13:34.127Z",
+    "buildPassed": true,
+    "lastError": null,
+    "lastModel": "opencode-go/beam-free"
   }
 ];
-export const stats = { total: 228, done: 219, counts: {"done":219,"needs-human":9} };
+export const stats = { total: 229, done: 220, counts: {"done":220,"needs-human":9} };

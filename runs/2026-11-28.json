@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-28",
+  "runs": [
+    {
+      "slug": "afterimage-prism",
+      "title": "Afterimage Prism",
+      "stack": "vite",
+      "aesthetic": "glassmorphism",
+      "model": "opencode-go/beam-free",
+      "modelVia": "chain",
+      "verifyLine": null,
+      "buildPassed": true,
+      "verify": {
+        "ok": true
+      },
+      "elapsedMs": 762139,
+      "at": "2026-11-28T01:13:34.130Z"
+    }
+  ],
+  "updatedAt": "2026-11-28T01:13:34.130Z"
+}
